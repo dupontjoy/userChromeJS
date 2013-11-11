@@ -7,7 +7,9 @@
 // @license        MIT License
 // @compatibility  Firefox 13-21
 // @charset        UTF-8
-// @version        1.0.7.3
+// @version        1.0.8.4
+// @note           1.0.8 2013/9/7 修复个别含重定向地址的proxy bugs, 最小分辨率支持1024X768
+// @note           1.0.8 2013/9/7 修改按钮动作, 左键点击弹出菜单，中键点击切换代理模式，右键点击打开系统规则和设置
 // @note           1.0.7 2013/5/13 Fixed screen 1360X768 bugs
 // @note           1.0.6 2013/5/09 Fixed treeview bug in FF22
 // @note           1.0.5 2013/4/30 Fixed bug and change icon
@@ -33,7 +35,7 @@
 
 (function(css){
   if (window.SmartProxy) {
-    window.SmartProxy.uninit();
+  	window.SmartProxy.uninit();
   	delete window.SmartProxy;
   }
   
@@ -152,27 +154,28 @@ window.SmartProxy = {
               <splitter id="SP-splitter" hidden="true"/>\
               <vbox id="sp-mains" hidden="true">\
               <hbox>\
-                <vbox id="sprulelist-details" height="300"  flex="1">\
+                <vbox id="sprulelist-details" height="300"  width="60%" flex="1">\
                  <groupbox  flex="1">\
  			           <caption label="代理规则列表" />\
  			             <hbox pack="end">\
- 			              <button id="SPupdateSubUrl" label="订阅Url" max-width="50" tooltiptext="修改\'哥扶我\'规则下载地址" oncommand="SmartProxy.updatesubUrl();"/>\
- 			              <button id="SPupdateSubFilter" label="更新订阅" max-width="50" tooltiptext="强制更新\'哥扶我\'规则" oncommand="SmartProxy.updatesubFilter();"/>\
- 			              <button id="SPaddSubFilter" label="载入订阅" max-width="50" tooltiptext="合并\'哥扶我\'规则到全局规则" oncommand="SmartProxy.addsubFilter();"/>\
+ 			              <toolbarbutton id="SPupdateSubUrl" class="actiontoolbtn" label="订阅Url" width="60" tooltiptext="修改\'哥扶我\'规则下载地址" oncommand="SmartProxy.updatesubUrl();"/>\
+ 			              <toolbarbutton id="SPupdateSubFilter" class="actiontoolbtn" label="更新订阅" width="70" tooltiptext="强制更新\'哥扶我\'规则" oncommand="SmartProxy.updatesubFilter();"/>\
+ 			              <toolbarbutton id="SPaddSubFilter" class="actiontoolbtn" label="载入订阅" width="70" tooltiptext="合并\'哥扶我\'规则到全局规则" oncommand="SmartProxy.addsubFilter();"/>\
  			              <spacer flex="1" />\
- 			              <label value="规则主页" max-width="50" class="actionbtn" onclick="SmartProxy.loadGFWurl();"/>\
+ 			              <label value="规则主页" max-width="40" class="actionbtn" onclick="SmartProxy.loadGFWurl();"/>\
  			              <spacer flex="1" />\
- 			              <button id="SPfindButton" label="查找" max-width="30" oncommand="SmartProxy.EID(\'findbar\').startFind(SmartProxy.EID(\'findbar\').FIND_NORMAL)"/>\
-                    <button id="SPfilterActionButton" type="menu" max-width="50" label="规则动作">\
+ 			              <toolbarbutton id="SPfindButton" class="actiontoolbtn" label="查找" width="40" oncommand="SmartProxy.EID(\'findbar\').startFind(SmartProxy.EID(\'findbar\').FIND_NORMAL)"/>\
+                    <toolbarbutton id="SPfilterActionButton" type="menu" width="45" class="actiontoolbtn" label="动作">\
                       <menupopup id="SPfilterActionMenu" onpopupshowing="SmartProxy.FilterActions.fillActionsPopup();">\
                         <menuitem id="SPfilters-edit-command" label="编辑" oncommand="SmartProxy.FilterActions.startEditing();"/>\
                         <menuitem id="SPfilters-copy-command" label="复制" oncommand="SmartProxy.FilterActions.copySelected(true);"/>\
                         <menuitem id="SPfilters-delete-command" label="删除" oncommand="SmartProxy.FilterActions.deleteSelected();"/>\
                         <menuitem id="SPfilters-Unicode-command" label="查看解码" oncommand="SmartProxy.FilterActions.ConvertUnicode();"/>\
+                        <menuitem id="SPfilters-Opentab-command" label="新建标签页打开" oncommand="SmartProxy.FilterActions.Openfilterintab();"/>\
                       </menupopup>\
-                    </button>\
-                    <button id="SPaddFilterButton" label="添加规则" max-width="50" oncommand="SmartProxy.FilterActions.insertFilter();"/>\
-                    <button id="SPsaveAllFilter" label="保存规则" max-width="50" tooltiptext="保存全部规则" oncommand="SmartProxy.saveAllFilter();"/>\
+                    </toolbarbutton>\
+                    <toolbarbutton id="SPaddFilterButton" class="actiontoolbtn" label="添加" width="40" oncommand="SmartProxy.FilterActions.insertFilter();"/>\
+                    <toolbarbutton id="SPsaveAllFilter" class="actiontoolbtn" label="保存" width="40" tooltiptext="保存全部规则" oncommand="SmartProxy.saveAllFilter();"/>\
                   </hbox>\
                    <tree id="SPfiltersTree" flex="1" editable="true" seltype="multiple" enableColumnDrag="false" hidecolumnpicker="true">\
                     <treecols>\
@@ -187,7 +190,7 @@ window.SmartProxy = {
                   <findbar id="findbar"/>\
              	  </groupbox>\
                 </vbox>\
-                <vbox id="sp-contents" width="520">\
+                <vbox id="sp-contents" width="40%">\
                    <hbox>\
                    <spacer flex="1" />\
                    <toolbarbutton id="closesliderbar" width="18" height="12" tooltiptext="关闭" oncommand="SmartProxy.closeslitterbar();"/>\
@@ -332,7 +335,8 @@ window.SmartProxy = {
     	this.icon.setAttribute("tooltiptext", "代理状态: 自动代理 \n " + this.formattiptext());
     else if (this.Prefs.proxyMode == this.mode[2])
     	this.icon.setAttribute("tooltiptext", "代理状态: 全局代理 \n " + this.formattiptext());
-    this.showMsg(this.icon.getAttribute("tooltiptext") + " " + this.formattiptext());
+    //this.showMsg(this.icon.getAttribute("tooltiptext") + " " + this.formattiptext());
+    this.showMsg(this.icon.getAttribute("tooltiptext"));
   },
   
   formattiptext: function(){
@@ -505,7 +509,7 @@ window.SmartProxy = {
 	
 	iconclick: function(evt) {
 		if (evt.target != this.icon) return;
-		/*if (evt.button == 0){
+		if (evt.button == 1){
 			if (this.Prefs.proxyMode == this.mode[0]) {
   	    this._ps.setCharPref("proxyMode", this.mode[1]);
   	    return;
@@ -516,7 +520,7 @@ window.SmartProxy = {
     	  this._ps.setCharPref("proxyMode", this.mode[0]);
     	  return;
     	}
-		}*/else if (evt.button == 2) {
+		}else if (evt.button == 2) {
 			var QW1 = E("sp-mains");
       var QW2 = E("SP-splitter");
       if (QW1.hidden) {
@@ -590,6 +594,8 @@ window.SmartProxy = {
              SmartProxy.FilterView.updateFilter(this.SPfilters[i]);
              if (this.SPfilters[i].disabled && this.SPfilters[i] instanceof SPRegExpFilter && SPdefaultMatcher.hasFilter(this.SPfilters[i])) 
                  SPdefaultMatcher.remove(this.SPfilters[i]);
+             var afile = this._getSmartProxyfile("SPpatterns.json");
+		         this._exportpatternsfile(afile);
              break;
            }
          }
@@ -611,6 +617,8 @@ window.SmartProxy = {
                    SPdefaultMatcher.add(this.SPfilters[i]);
                  ishave = true;
                  SmartProxy.FilterView.updateData();
+                 var afile = this._getSmartProxyfile("SPpatterns.json");
+		             this._exportpatternsfile(afile);
   			   	     break;
   			      }
   			   }
@@ -623,6 +631,8 @@ window.SmartProxy = {
   			     SmartProxy.FilterView.addFilterAt(position++, filter);
   			     if (!SPdefaultMatcher.hasFilter(filter))
                SPdefaultMatcher.add(filter);
+             var afile = this._getSmartProxyfile("SPpatterns.json");
+		         this._exportpatternsfile(afile);
   			   }
   			 }
   		}
@@ -840,7 +850,16 @@ SmartProxy.Proxy = {
       return SmartProxy.Proxy.DirectProxy;
     if (SmartProxy.Prefs.proxyMode == 'auto')
       	  SmartProxy.icon.setAttribute("state", "auto");
-    var match = SPdefaultMatcher.matchesAny(uri.spec, uri.host);
+    var splttag = uri.spec.indexOf("?");
+    if (splttag > 20) 
+      var match = SPdefaultMatcher.matchesAny(uri.spec.substring(0, splttag), uri.host);
+    else {
+    	splttag = uri.spec.indexOf("=");
+    	if (splttag > 20)
+    	  var match = SPdefaultMatcher.matchesAny(uri.spec.substring(0, splttag), uri.host);
+    	else
+        var match = SPdefaultMatcher.matchesAny(uri.spec, uri.host);
+    }
     if (match) {
       if (SmartProxy.Proxy.CanNotProxy(match)) 
         return SmartProxy.Proxy.DirectProxy;
@@ -979,6 +998,15 @@ SmartProxy.FilterActions = {
     E("SPfilters-delete-command").setAttribute("disabled", !editable || !items.length);
     E("SPfilters-copy-command").setAttribute("disabled", !items.length);
     E("SPfilters-Unicode-command").setAttribute("disabled", !editable || !items.length);
+    
+    let canopentag = false;
+    if (items.length == 1) {
+      let atext = items[0].filter.text;
+      if (editable && (atext.indexOf("%") == -1) && (atext.indexOf("*") == -1) && 
+          (atext.indexOf("^") == -1) && (atext.indexOf("[") == -1) && (atext.indexOf("\\") == -1) && (atext.substring(0,1) != "/"))
+      canopentag = true;
+    }
+    E("SPfilters-Opentab-command").setAttribute("disabled", !canopentag);
   },
   copySelected: function(/**Boolean*/ keep) {
     let items = SmartProxy.FilterView.selectedItems;
@@ -1002,6 +1030,24 @@ SmartProxy.FilterActions = {
     clipboardHelper.copyString(text);
     alert("已复制到剪切板: \n" + convertpEnc2Char(text));
   },
+  Openfilterintab: function() {
+    let items = SmartProxy.FilterView.selectedItems;
+    if (!items.length || items.length != 1)
+      return;
+    let atext = items[0].filter.text;
+    if ((atext.indexOf("%") != -1) || (atext.indexOf("*") != -1) || 
+        (atext.indexOf("^") != -1) || (atext.indexOf("[") != -1) || 
+        (atext.indexOf("\\") != -1) || (atext.substring(0,1) == "/"))
+      return;
+    atext = atext.replace(/@|\|/gi, "");
+    if (atext.substring(0,1) == ".")
+      atext = "http://www" + atext;
+    else if (atext.substring(0,1) == "/")
+    	return;
+    else
+    	atext = "http://www." + atext;
+    window.openNewTabWith(atext, window.gBrowser.contentDocument, null, null, false);
+  }
 };
 
 SmartProxy.FilterView = {
@@ -2076,21 +2122,23 @@ function dec2char(n) {
 }
 })('\
 #SmartProxy-button[state="disabled"] {\
-   list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADL0lEQVQ4jW2Tz0tqeRjGv91VzMD9V27zg1lLAzF0zbFFLbKSmKQibMikk5Z6PCr+yF+hJh1NqJRxFkVCjGQQDCMEbVrEYJxFhLjI1LroUZS47zObIZrufODdvc8DD8/7MvYGvV7/3m63fywWi7/f3t5KFxcXpfn5eXFqampwaGjo67f7r3nH8/zgzc3NVaPReG61Wjg7O0O9XkcgEEA0Gu0Wi8W/lpeXf2CM9X0hNhqNv1SrVbndblMul6NSqYR4PE6FQoFcLhfsdjsdHBzQ5eVlg+O4n/9jMjc396MkSfLz8zN6vR41Gg2q1WrI5/O0ublJbrcbgiCQ3W6nq6srnJ+fP6hUqm8YY4xpNJr3mUzmqtfrodvtotPpoFwu4/j4GDs7OwiFQvB4PHA4HLDZbDg6OkI8Hsfq6mpeoVD0M61W+/H09PRZlmW0Wi1IkoRsNot0Oo1EIoGtrS14vV44nU7YbDY4HA5Uq1Xc39/Ls7Oz37GlpaXfCoUCZbNZHB4eIp1OUzqdpr29PYiiSOFwmHw+H5xOJ1mtVvL7/Wi32+h0OuRwOH5lHMdJqVQK+/v72N3dhSiKSCQSEEUR0WgUwWDwJYLVakUoFIIsy2g2m9je3t5mRqPxb6fTiVwuh0gkglgshlgshnA4jEAgAI/Hg39bwMbGBrxeL+r1OsrlMgKBwDbT6XQiz/PkcrngdruRyWQomUyS3++H2+0ml8tFgiDAYrGQyWQis9mMSCQCm832eWJiYomNjY0Nms3mLs/zCAaDaLVa6PV6kCQJyWQSgiDAarVifX0dJpPpZQwGwye1Wj3ARkZGvlpcXPzTYrEgmUzidZ2Pj49IpVLweDxfGMzMzBwpFIp+xhhjKpXq+5WVlZrFYkGpVCJZlqnZbOLp6YlqtRrd3d1BEATiOI5MJhP0en1ZqVR+eH3KfaOjo0qDwVDleZ4kSaJGo4GHhweqVCqUz+fBcRxxHEd6vb6sUql+Yoy9e/sPfcPDwwM6ne6Pk5OTVqVSoevra/h8PqytrZHBYPik1WqP1Gr1wP+JX1AoFP2Tk5PfLiwsLE5PT/s0Go1vfHxcp1QqP7xkfsU/UuY8xu/805oAAAAASUVORK5CYII=);\
+   list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADMUlEQVQ4jW2TT0gjBxSHf2l3wXZLpd21tXgJCC3toeDFkzcPehAFWXqw0N6sLi1YW0ovgmIEbVMERTAqBpJxEMRJTYQYCeKM5o8hAWOCQZJNiBIkUjcmTtAkzvx6kWVr97t/Dx7vfcAbWCyWer/f33pwcPBTMBi0KIoiiqJotlqtfYIgfGU0GusAGPA25ubmGn0+34tsNpsolUp6Pp9nOp1mNBplIBCoKooSXFhY+Kajo+NjAO/8R15cXPw0HA7/parqK1VVeX5+zkwmw52dHXo8Hm5vbzMcDjMajV5IkvR7S0tLw+shk5OT9R6P50WxWHxVLBYZi8WoKArdbjd3d3eZTCbpcrno9XoZj8f1vb2909HR0e8AvAfAAIfD0Xp0dJQoFAqMRCLMZDK8urpioVCgqqqs1Wo8PT2lKIr0eDyMx+Pa5ubmZmdn5xcAHmF1dfXHRCKhHx4eMpvNUtM0PkTXdd7c3HB9fZ3X19fMZrP/mM3m5wDqYLfb5wOBAP1+P1VVJUlWKhVeXFywWCyyWq0ynU7TZrNRlmVWq1WWSqWq2Wz+BUA9bDabIMsyZVlmIpHg8fExQ6EQBUGgLMs8OTmhw+GgJEkMh8Msl8u8vLzUpqamRgA8w/z8/J8+n49er5dbW1t0Op0UBIH7+/t0Op2UJImiKHJtbY0ul4uRSITBYLAyNDT0K4BnmJ2d7VMUpeL3++l2u+lwOJjJZJjJZGi1WqkoCnO5HPP5PFOpFCVJot1uP+vu7v4WQD3Gx8e/XFlZ8Xu93teyruvUNI21Wo13d3fUdZ0kGYvFKEmSZjabHY2Nja0AnsBoNNZNT08/F0UxH4/H9Uql8r8r1Go15nI5bmxsaMvLy6ne3t4fAHwG4DEAGNra2j4ymUy/LS0tnYVCIe329pblcpnpdJqpVIqxWIwul0u3WCwv+/v7RwB8DuDJmy9taGpqejo2Nvb9xMSEIstyNZlMaoIg3AmCcDMzM3NmMpn+7urqGriXPwTw6GFPBgB17e3tXw8PD4+YTCbn4ODgHwMDAz/39PT03e/cCOD9e/mtVRoAvNvQ0PBBc3PzJwAaADwFUH8vPn5Y4r+zC02GiRs1ugAAAABJRU5ErkJggg==);\
 }\
 #SmartProxy-button[state="auto"] {\
-   list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADaklEQVQ4jW2T608TZhSHX/xEtsR/RTaXfW5wXBQoNkIRaKGFKjcL4ujQrkJvgBSkwKQoA4PKxogM5rLYQOm9tlwKBUWINWPKYB0tl9IbLc3e3z5sIcj2JOfb+T3JyTmHkBMUCqWnxbLuDKvNPrK29t5tsy+usiq7+7K4dcmpqdyPT/Yf59RNaW/y8ptfXb7t/fh+MIxx3Ut4fX7Udpoh1lijVpvDKhTWfk4ISfhPuOSr+6Werb1QKByhj54t0Zcr79HQa6ejk8v0aosRxQoj7RyapvbZlZ36+vrsDyQ5Za3nXrk9oXg8jljskG7v7FOvbxdPtUv0WruNlrdawFOaKE+hpw7XGrSGOe95ZtEnhBBCzhcKT2u+s7lisUMcRGOIRCL4bd2Dxz/NQ/ZgGjc6HahQWVGqNIMrM2BgbAGN963g3RrQMhiMRJJRLMsYmViJh0JhBINBrLjX0TO8gI4ni5D3OyHqnkaVygZBkwVcmQElTUZsev3w/LkVEggEZ0lOzcDw08lV2vvDDAZ+nEfX0BztGFqkqkeLkPY56ZddDlrVZkNJs5lyZAZarbYhFD5AJBKhCoWihuTfHHe3DM6g48ksmh/OQt43DXm/E7Jv53Dr3gyuq+2oUFlRojSDI9XjRtcLBENhBAJBaDQPNIRdP/pa0GzC42cuiL+xQdJjx+0eG+q6HKhR21HZasWVZguKFSbkN+pR0W6Bb3sX79Y9aLur1hBmWXcfV26kV1tMqLxjgPr7Jarod9Kauy9QdsdKS1sslK80oVCqp2zJFGXf1kF8zwK+7Plf2QXCapKaey35smQiWiQ34rrajkDwANHYIZbdHigHnOArTeDIDLjcMIVcie6oWKJxf8rFgiRyNivrI2b1oDlfqofi4RyisUNE/13nzq4fLYMzKG+zIK9B94EgvUQ1xmAwEgkhhKQwyz5jiX72FTTq4VrdpKFQmAYCQezt+anPt03X3m2itGmCXhJP0lyJDtm1w+tprLwzx0854VxOVSarbnyrSD5FX7s36c7OLrxeH/19Y5OOaudxSfyPILt2eD2NyUsnhJw6+Q8JKRd4SRfKNc9HfpkPbmz8QRdevUVt+wTYX2spSzTuT+erxlIu5ib9X/gIBoORmJfH/1RQIarK5ElVqRyp6gt2zZW0TM6Zo5mP8TfXYUsd4nYpCAAAAABJRU5ErkJggg==);\
+   list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADUklEQVQ4jW2Tf0zUdRjH33fHp05i3VQsy2bNNdxl0aJGWo1pXCi02go4JlyetEzHaB1xQ9pk1B8kEnAlP8/MCzHw+nUnZh4lkkiAgyFc6RlDnJwwvJFehwj34/t99w9zRb7+fz3PH8/zAv6Fbjc0jp6Dibbe+vfq27+yHvihriXX+nRlWrUqO/dQ7hPAY2oACtyNjXVYeaD9/Ty3t9vjDQzLHt9ZukZrWNH/Gt85rQp93GXoM360Xg88sgyA8j9ychkerO3aUeULXLkxc9vP3qkWdox9QdMJLfMcWqY7BYt+W8XWwSJfjdVWjBisuDPk2XehqXbm5Xn9IzeuB7xsHtrNT1xZNH+bwgrXdp4b+Ynbjj7OzOOClqFkubIzZ/yZD7ANwBIACmQ2icT9A5mea/6LtPXv4vkrJzn+l4dXpz2cDkwyEgnz0rVzTGmMpsERw4Put6TKb0w/xsZjLYAovN6A/KqhDXLrcCkHrh6jJElcjCzLnJufZZZtDadmL9DtHp8uLLRkAFAjrVbZuKND0HImh3/PTpEkg6F5Xpjs48TNywyHQzw/1snk/dHMd61jOBJmYGYmVFa2txCABltqlUcMLsE9J9N4bNhK55CVzT17qasX3PfzdnZ5HMw5soavNgkWdGt5a85Pn39SKt5TXAIgFknlUZ/mdAjqnYJZ3wumtwi+Uq9m1a9v02iPo6E5jroGwdRDgulHl/HzXiMrzmQFU3Y+aQYQi5fKVdlb21VBw+l7mPGd4BuHBQfHOjgwdoobPxO0/JLP4fGz/GOijx1/2pnaJLilRul9NAk5ADRIMEG7uTGqJ6NN8E2b4O9jnZRlmREpwvnwHMORMGVZJkk63eVMPaySNpTCIZYgEcB9AKB+/kNk6BoV1+2DFvn2/K3/XSESCXN0YoD6r1XSpirF6Ook7ATwEAABAArNaixNMKHohWqF98vuUikUDPLmrI+dl+w8ddHO40NW6lvvlTftU1xeq0cJgLiF7XdeWgFgeXwBjAkmdNWfMIf6R9qkzXXKiK5BObe+VOl9zgznqhexa0G+H0DU4p4UANRLExD/lAEl2eaX27RbUbHOiIKHk5AtBBIBrAQQvSDftUoFABWAGMTgAQArACwHoFkQxeIS/wEXRt2nnpsFzwAAAABJRU5ErkJggg==);\
 }\
 #SmartProxy-button[state="auto-on"] {\
-   list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADaklEQVQ4jW2T608TZhSHX/xEtsR/RTaXfW5wXBQoNkIRaKGFKjcL4ujQrkJvgBSkwKQoA4PKxogM5rLYQOm9tlwKBUWINWPKYB0tl9IbLc3e3z5sIcj2JOfb+T3JyTmHkBMUCqWnxbLuDKvNPrK29t5tsy+usiq7+7K4dcmpqdyPT/Yf59RNaW/y8ptfXb7t/fh+MIxx3Ut4fX7Udpoh1lijVpvDKhTWfk4ISfhPuOSr+6Werb1QKByhj54t0Zcr79HQa6ejk8v0aosRxQoj7RyapvbZlZ36+vrsDyQ5Za3nXrk9oXg8jljskG7v7FOvbxdPtUv0WruNlrdawFOaKE+hpw7XGrSGOe95ZtEnhBBCzhcKT2u+s7lisUMcRGOIRCL4bd2Dxz/NQ/ZgGjc6HahQWVGqNIMrM2BgbAGN963g3RrQMhiMRJJRLMsYmViJh0JhBINBrLjX0TO8gI4ni5D3OyHqnkaVygZBkwVcmQElTUZsev3w/LkVEggEZ0lOzcDw08lV2vvDDAZ+nEfX0BztGFqkqkeLkPY56ZddDlrVZkNJs5lyZAZarbYhFD5AJBKhCoWihuTfHHe3DM6g48ksmh/OQt43DXm/E7Jv53Dr3gyuq+2oUFlRojSDI9XjRtcLBENhBAJBaDQPNIRdP/pa0GzC42cuiL+xQdJjx+0eG+q6HKhR21HZasWVZguKFSbkN+pR0W6Bb3sX79Y9aLur1hBmWXcfV26kV1tMqLxjgPr7Jarod9Kauy9QdsdKS1sslK80oVCqp2zJFGXf1kF8zwK+7Plf2QXCapKaey35smQiWiQ34rrajkDwANHYIZbdHigHnOArTeDIDLjcMIVcie6oWKJxf8rFgiRyNivrI2b1oDlfqofi4RyisUNE/13nzq4fLYMzKG+zIK9B94EgvUQ1xmAwEgkhhKQwyz5jiX72FTTq4VrdpKFQmAYCQezt+anPt03X3m2itGmCXhJP0lyJDtm1w+tprLwzx0854VxOVSarbnyrSD5FX7s36c7OLrxeH/19Y5OOaudxSfyPILt2eD2NyUsnhJw6+Q8JKRd4SRfKNc9HfpkPbmz8QRdevUVt+wTYX2spSzTuT+erxlIu5ib9X/gIBoORmJfH/1RQIarK5ElVqRyp6gt2zZW0TM6Zo5mP8TfXYUsd4nYpCAAAAABJRU5ErkJggg==);\
+   list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADgElEQVQ4jW2TXUyTBxSG324yQM0ageKHEja8ANkCcw5qsmWxiYtcmDhdhES6ACEUkAyKgESTAdniMqvIVAJCYLoJQpQ/ldJQGAxLwSp2wLCA1J9RAgihUHRBaOj37mLNfoxvci6f91yc8wD/yWcpFdKqZoNcqzdkaLXdFbUNnbVfHL9WtD3letyF8vL3FAqFFwAJXhdFYqlQUt+T3t77cPTuyJzYZrKxrMXKhLJhRpwwO89c7jKp8n+KjY6O9gHwxv/g4OTKzYU/958dn7AvPHw6x6sdNl7SjXP/dwZGF3YxKNPAPSeHqKkemKupuX5cED6V/VOyLeaUVF3clW56MLtgsc7wQv0Q08/1MPaknkdKf2WTYZiRx/QMUvcyqWxMzC412oTPT8cD8AYgQWRGizz7x99HB0amqKntZ7vJwidTU7ROTXHG/owrK3Z2D44zUNXE97O7mVc14sop1mojPokJBbAO4WnNX8VfHBNL6s3U37HQ6bST4hIpPnePg661RdqmbQxXa9k9aKfFYpnXaDSHAHghVNVYvivfzGOVvZyZnyFFB/9cnqfZOsEn09NcXp5n270RBiZd466CPk5ML3DCZnMWFRXlAJAiKLmxJiTXxISz3bzcPsDqziGeqjMxMKmBqSW3Wdc1xJ3ZrdySpmPUt4McezzLMesfroJvvs8H4Afhy+ozQTlmhmb1cHvWbYZldjA4uYFHLvZSntfGqBwtAxKbKKhaGJzRztRyM1PLTKuKuBO5APywWXklbsvR/tV3cgcYpu5iVJaOrX0W3jJaGBBfR3W5gcYHj3h//CmvdAxSSNExILlxcsOOOCUAKXwPasL8k5r6AjKM/CCzlb/cs1B0LXJtzcGXK4t0Ohcpuhyk6OD5GwP0U+lc/rEVzR5CiBzABuBdhZc0pvKQLLF59tzN++LSizlSdLgvsUSKDq6s2mkctnJHrt4li697JI08nAogAIAHAEik4fs2bTpwPs9XWTNZWH3H9fzFLJ/NT1N3d5Q3+yws0/7GD7P1okx59bHP7qx8T0/PkL+3//vSEmyV+/ruL0rwO/CD4etLnc5m45Brm6p+TUhqeOkTWzXpf7D4xnq5Ms0Nvw1g3as+SQB4vbXzcIT/voL8venFt3z25J322Ztz1PsjZZy3ECgHIABY74Zfa6UEwJuAbCM2fuwPQAbAF4DUDXq8auJf2Zv5WT/hgzcAAAAASUVORK5CYII=);\
 }\
 #SmartProxy-button[state="global"] {\
-   list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADZklEQVQ4jW2T20/adxjGv/bKbEn/lbq57Jq4qAVBoa1gRdsq1OpadM4ToOKhLvyqnfFU66jbjZt0mxMPCPwKiFS6zJkGmqbzMM0qB+389SfKuGjS7H12sxjr9kneu/d5kifv8zJ2Cq1Be9bMtRT4F/3f/7a+trn4JLCm44psxbcUOXnlee+f3j/JGWNfY074eTgc20u8FUQBM6EfEd2Ng3NXo99T/8YXWFw2GAwfM8Yy/iOu67+qe5mIpsWDA7KHHtDqi6fo9zaR42c7dSxcQaurhGy+XgquBMXGxsaid0x0XcpPIhuRdDqdRiqVovjeLkXjMUwtT1IPr6cuzzW0uS+Teb6EQs+W4Qw496Ul0g8YY4xJDdKzD/iBcCqVwuHREZLJJDa2NjG5NI4Bfws4Xw26+Qq0uctgXtBgIngfAx4jPh8pc0skkkxW0lJQMP3LxFtRFCEIAiJrz/D14y/xVciK4aAJd/y30M3r0O4ph3lBA8tCKf5I7ODlzk5ar9dns+oRld2xMknf+AcxsXQftsAdsoWsNBbqxmCwmTjfp3Sb18HiLiXTgpqsfBXEgwMkk0myWCx1rP67S5tj/g7YFq0YDVgw6DdhOGjC0JIRfYufweq9gW6+Au0eLUxONbhHNXgtvsa+IGBwaGiU1U6oXlhcZbA/HkcvX4+73gbc5RvB+W7C6q1CF18Ji6ccbe4SmOYvosdTgVgijo2tTXC93Cir5OQ2s0tNHa4r6HRWYvwJR8NBE33xqAqd/FXq9Gip3V0Ko7OYmuZU1DKrRJ+nHuapy3+rq4pqmUKfl9M8c+FNq0sDq/cGBFHEUSqF8EYEI8FWtLtLYXaqYZy7gKZZ5fEY7IpDWXFuFstWZL9Xda8gaJq/iHtLZhylUjj695yJvV2M+Ttw23MNxlnVOwbaLum0RCLJZIwxJivP/ajuoVwwzV/C6voqiaJI+4KAvVevKBaP09rv62hzaKlhppCaZpWoGZdF5Sr5uZNVzpBV5MkNk4o/zXNqCm9EKLG7i2gsRlvbWzS19BANjkJqmCmkmnFZNL84/zxj7Mzpf8jILc7NquiTun4IfPvX1vY2rUR+RY+jGk0/KclgVxxqu6TTMqUs6//Ex0gkkkxNmeZDfW3lTW2zvFfTfL5XdT3/er4q/9xx5hP8A1Z5N8OK/qTbAAAAAElFTkSuQmCC);\
+   list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADM0lEQVQ4jW2Ta0zVBRiHnxOeDYvJCjWKMVs1yzb9YIvm6oOLlsvVBxuzRpaN2mKsstJE3GiRS9EUy0Q72UBRYR1uyaUjtwSUSwcigXO43w+QGEOQ67n9f32IuSKf78/727v3/cG/SE4muPZ6dER206kPD7d8Zimq35J5JvOxo5Z0og9aH3+KRwgETNyN1FRCa2p2xblGj7Xfnis2xm+d1MDoTjm6tuh3J56ixjX1KT+wnU08ANzzH/mbMzzYcD3m2Oxs/8T8/JhGJ3bJNRKrqrpwlVaGq6wWOTqRsyv8psV6ZB+hrLozJD6e4ALbu3FTtx0TUzOVau18S2V121RQ8oKqql9XX3eOCkvXqMKOOgdDjOqGZ4biv+BtYDlgIr+CiNau19qnZnLlaHtSw4M5mphq18Stds3OjMrn9ejG0GWdzzWr/Brq7HvYb817umjDczwBLCPNyge9rnWGs2ObRl3n5ff5tRTD8Ms9P6PswhWaWzihlpFfxnefeCUKCCTtAt/bncjeuEkLs82SJK97Xjf+qtPkVI+8Ho+G+oqUdtGsWvtaeb0Lmp6e9Bw6dGA3EEx6Bhdq/kAVtS/J0XFarR2n1WA/oLRsdOXadvV0ZCq3OFx5xai1/VHNLgxrcqrFn/RVTCKwku9O8XWDE5X/hkquosJylG4NUH39qyooCVPupTCdzUHZl1BRaZCanFFqaH7R/dGnq/cAK0mxEG1vwd3UhmzVKM+GXP0VGhwokiUDXa2J1cholf4cq1NPb5byi9G5i7giX+ZNIJiP97Iuw0ptVR3Kv4yGB36VYRjy+33yeufl83llGIYkqdv5rHJs+A8fJX+5mQjgPoDAg8eJyshlrLktxXC7p/93BZ/XrfGRetlK8VvO0hMZyfvAQ4AZwLR+PfcnfMnek+dw2Rv3+T0Lbs3O3VR3f5Y6e7LkcHwrW1mAkfojvW+8QyKwdjH9zkubCCMkIYmdCZ9TfaVyj6e/O9+fYcWX8RPzycdx7U/i582biV2UVwDLlvbJBARu3MiGmFgS98c/X7DjPY7ExvHJ1q1Em//ZORS4d1G+aytNQAAQFBTEamAVEAIEL4rmpU38G7/sASQxgKefAAAAAElFTkSuQmCC);\
 }\
-textbox.proxyName{ width: 110px; } .proxyHost{ width: 120px; } .proxyPort{ width: 45px; } radiogroup > .proxyHttp{ margin-left: 10px; } radiogroup > .proxySocks4, radiogroup > .proxySocks5{ margin-left: 21px;} .selBox{ margin-left: 10px; }\
+textbox.proxyName{ width: 60px; } .proxyHost{ width: 80px; } .proxyPort{ width: 40px; } radiogroup > .proxyHttp{ margin-left: 10px; } radiogroup > .proxySocks4, radiogroup > .proxySocks5{ margin-left: 21px;} .selBox{ margin-left: 10px; }\
 #sp-contents {list-style-image: none; font-size: 14px; padding: 0; margin: 0; }\
-.actionbtn { list-style-image: none; color: #484; font-size: 14px; margin: 0 10px 0 10px; }\
+.actionbtn { list-style-image: none; color: #484; font-size: 14px; }\
 .actionbtn:hover { list-style-image: none; color: #555; text-decoration: underline; cursor: pointer; }\
+.actiontoolbtn { list-style-image: none; font-size: 14px; font-weight:bold; margin: 0 5px 0 5px; }\
+.actiontoolbtn:hover { list-style-image: none; color: #484; font-weight:bold; text-decoration: underline; margin: 0 5px 0 5px; }\
 #closesliderbar { list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABj0lEQVQ4jaXRsUsCYRjHcf8YNcQg1CGUAk1RvJOLaIlAJKPBQVzMIVu8amlNCQQbDqIhwqGlocWzwUMknByEONH5kIIav03dS4mg9MBveH4872d5HZ/mG6NqjY6yu1BG1Rqf5hs/4zCvqryrFbjTFsq7WsG8qgqgLe+A1mBSLvGSTfOSTTMpl0BrzO3b8o4AWtI21Gu003t22S+XGBcLjIsF+uWS3bfTe1Cv0ZK2BfCcUODygnHuiH6xIJBiYWYf547g8oLnhCKAp7gMJ8dwcswos89rPsffec3nGGX27bunuCyAx5iEtbZmx3C50eWkfaDLSQyX+9fNY0wSQDOSmPt4HtKMJARwH45j+fwY7hX0lJD1lDSzG+4VLJ+f+3BcALebMabBEA9OlzhWUnS9q3S9q+hKyu4fnC6mwRC3mzEBaKEtPqJRev4ATY+HpsdDzx/gIxqd22uhLQHcrEf4kqWlcrMeEYBxfoZ5eACV04ViHh5gnJ8JwBoO6Kgq14GNhdJRVazhQAAzf7bk/Bv4Bv7RCf77/Pb2AAAAAElFTkSuQmCC) !important;}\
 tree { margin: 0px; } #col-slow { text-align: center; } #col-enabled { min-width: 48px; } #col-slow { min-width: 30px; }\
 treechildren:-moz-locale-dir(rtl)::-moz-tree-cell(col-filter, type-whitelist),\
@@ -2103,5 +2151,4 @@ treechildren::-moz-tree-cell-text(col-filter, disabled-true, selected-false) { c
 treechildren::-moz-tree-image(col-enabled, disabled-true) { list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAaCAYAAABsONZfAAABD0lEQVQ4je2TMa5FQBSGrUIURiURhVJH3BXYgg1IprYGHa1FCGtheslf0UgkFMZ51ZUn3rvkJvdVr/iLKb4z55z5Ronj+ME5p7uJ4/ihcM5pmiYQ0a9ZlgVEhGmawDknhXNOr4BxHBFFEYQQIKJraBgG+L4PxhjSNIWU8git6woiwrZteJ7DMISqqsiybC90gNq2RV3XO1gUBRhjSJJkL3SCgiCAYRioqgp938OyLLiui3meDy0foKZp4DgOGGPwPA+6rqMsy9Ocp0U0TQPbtqFpGhhj+5wvISKCEAKmaSLPc0gp70FSSggh0HXdj8+wQ1dGPLMb8ZZ7HxP21N6VsLe29w+9C33/bJ+56U+E/QKpA0b/pEOBQAAAAABJRU5ErkJggg==); -moz-image-region: rect(13px 13px 26px 0px); }\
 treechildren::-moz-tree-image(col-enabled, disabled-false) { list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAaCAYAAABsONZfAAABD0lEQVQ4je2TMa5FQBSGrUIURiURhVJH3BXYgg1IprYGHa1FCGtheslf0UgkFMZ51ZUn3rvkJvdVr/iLKb4z55z5Ronj+ME5p7uJ4/ihcM5pmiYQ0a9ZlgVEhGmawDknhXNOr4BxHBFFEYQQIKJraBgG+L4PxhjSNIWU8git6woiwrZteJ7DMISqqsiybC90gNq2RV3XO1gUBRhjSJJkL3SCgiCAYRioqgp938OyLLiui3meDy0foKZp4DgOGGPwPA+6rqMsy9Ocp0U0TQPbtqFpGhhj+5wvISKCEAKmaSLPc0gp70FSSggh0HXdj8+wQ1dGPLMb8ZZ7HxP21N6VsLe29w+9C33/bJ+56U+E/QKpA0b/pEOBQAAAAABJRU5ErkJggg==); -moz-image-region: rect(0px 13px 13px 0px); }\
 treechildren::-moz-tree-image(col-slow, slow-true) { list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAQCAYAAAAI0W+oAAACIklEQVQ4jZWUXWsTQRSG35sQFe/ygSwmNQlVDBqKSsS2QtGLRNIWaqUMfiDRNH6UBlSKVPBrbUrUK4ObRPSmf8BLCSIEvMsvmCsv/CWvF5PdnWxmiz1w2Jkze95nzp6ZBcJtEQBD/FVITmW0rhsBfA6DfHFF60vg0zXljdUx2K+QXAJ4FNjscdOLXwFwS4B722Zv1T3Yb0P+T62qqqFCAMAdAHx9NxziervhweyAxuwoHgfwB8AnY9n1JV+sWQMXZsDlOfDq+UnYu3sezPT57NFzI7j4GPBFXtxWIkcOgRsrYCqp5vOFcVg8Hg822wZAIQTz+by7kWkd9FIHAeDcGXNvLpzyY7lcjgC+aZVwMBhQSkkppQt6q4O2XNCzNdCKmXvTeaLE3HmhUPBOYiqV4nA49CAa6IOxIlesseoLbl4HPz5U4xPHwHMnwRsL6j3bttnv98cAUkr2ej0XNK+D1vWdPr/p90RcUeNWXa3lp9Q8nU7TcZwJQK1Wo2VZLmQveBj+AuDpKR+2cx9cvAQuz4Lbt1Ts2kUF6XQ6EwApJR3HcQHvg4AfsViMlmVRSslSqcRIJMKZaXWfdtfB1gNw5TJ49LCCdLtdI0TryfcgxDspyWSSzWbTlEQAzGQyrFaroQApJYvFYti9GrNdAIxGoxRC7CsY9Ha7rZ++A9mmEIKVSsWrKJFIMJvNTvzJ3Vi5XD4wZD87C2AH6gK+GY1z/5P4D/B9/dnqz8gaAAAAAElFTkSuQmCC); }\
-.findbar-highlight { display: none; }\
 '.replace(/[\r\n\t]/g, ''));

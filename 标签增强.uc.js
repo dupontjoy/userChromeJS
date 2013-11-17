@@ -142,9 +142,9 @@ getBrowser().getBrowserForTab(event.target).reload();
       return;
     }
 
-    var mode = getPref('userChromeJS.openNewTabLite.selectOnClose', 0);
+    var mode = getPref('userChromeJS.openNewTabLite.selectOnClose', 1);
     switch (mode) {
-      case 1: //Left
+      case 1: //right
         var tab = aTab.previousSibling;
         while (tab) {
           if (!tab.hasAttribute('removing')) {
@@ -193,7 +193,7 @@ getBrowser().getBrowserForTab(event.target).reload();
           panel = panel.previousSibling;
         }
         break;
-      case 0: //Right
+      case 0: //left
       default:
         var tab = aTab.nextSibling;
         while (tab) {

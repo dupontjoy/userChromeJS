@@ -126,9 +126,9 @@ new function () {
 var items = [
 //打开方式(默认当前页面)，通过where 更改，具体tab(前台)、tabshifted(后台)、window(窗口)
 
-{label:"Baidu搜索",accesskey: "B",url:"http://www.baidu.com/favicon.ico",where: 'tab'},
+{label:"Baidu搜索",accesskey: "B",url:"http://www.baidu.com/baidu?wd=%s",image:"http://www.baidu.com/favicon.ico",where: 'tab'},
 
-{label:"Google搜索",accesskey: "G",url:"https://www.google.com/favicon.ico",where: 'tab'},
+{label:"Google搜索",accesskey: "G",url:"http://www.google.com/search?q=%s",image:"https://www.google.com/favicon.ico",where: 'tab'},
 
 {label:"Bing搜索",accesskey: "M",url:"http://www.bing.com/search?q=%s",image:"http://cn.bing.com/s/a/bing_p.ico",where: 'tab'},
 {},

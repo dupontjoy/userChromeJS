@@ -1,3 +1,22 @@
+/*——————————选中文本右键——————————*/
+
+//选取范围内复选框的 ON/OFF
+ page({
+label: "复选框的 ON/OFF",
+class: "checkbox",
+condition: "select",
+accesskey: "X",
+insertAfter:"context-paste",
+oncommand: function(event) {
+var win = addMenu.focusedWindow;
+var sel = win.getSelection();
+Array.slice(win.document.querySelectorAll('input[type="checkbox"]:not(:disabled)')).forEach(function(e) {
+if (sel.containsNode(e, true))
+e.checked = !e.checked;
+});
+}
+});
+
 /*——————————标签页右键————————————*/
 
 //撤销关闭二级菜单 By feiruo
@@ -36,34 +55,34 @@ var undoMenu = TabMenu({
 /*——————————图片右键————————*/
 
 //右键搜索图片 以图搜图
- var imagesub = PageMenu({ label: "以图搜图",accesskey: "t",  condition: "image", where: "tab", insertAfter:"context-viewpartialsource-selection", image: "data:image/png;base64,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",  });
+ var imagesub = PageMenu({ label: "以图搜图",accesskey: "t",  condition: "image", where: "tab", insertAfter:"context-viewpartialsource-selection", image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAE40lEQVRIiZWVbUxTZxTHD60tKJgYKpaEfoDhHFVeMtlU4gbMMhrMqA6l0YKY+MnFaOJwdb7LCgJDGRXmBEUIL+pQYQ20IDBnnZOwJRo1cVncxiAGjRIq9P3e3v73obe8aRRO8kuee/I//+fec/Och+jtIVBU9Us2tDyLyzKMrs0yjK7d0PIsTlHVLyEiwSzqXx8rslvEG9uerso1OYvyelnz9hvcwPYbXosPbiCvlzXndjmLNrY9XbUiu0U8J/OMc49lW42O0txubnhbrxc5PV5our3YwqPp9uW29XqR280NbzU6SjPOPZbNzvzC4HK10dWp6fJy6k4vNr8FdacXmi4vpza6OjMuDC5/o3ly5f2oTe3OnmwTh8+NcyPbxGFTu7MnufJ+1GvNpen7glVXrVVZ7R5kGqaT0epBWosP5TUPPjO8qsk0eJDV7oHqirVKmr4v+NW3r/43XdXKjKxv9SDjGouMayyUV1mkXWKxw8DihNmDklsefNHBIv0Si/Sr7ITOz/pWD1StzMgnPwwop7vLkuZ/2mg5r7zCQvEjM8G6ZgZFv3hw/R8OjQ851D/g0PU3h6o+D9IvMlg3RetHeYVFWpOllmRJ8yf8l+5ui1Y02R6lXmSQ3OTjowY3drYz6HzMYaeJQWozg5QmBtsMDNr/4nCo26fx6/2kNjNQNNkeLd3dFu33D4gvuKtIabBbkurcSKpzIanOhdW1LlT2sai4w2J1rQtr+PyqWhcO9TJovMciuW4yP4kbKQ12S3zBXQURBRARBcQWPVSvOe9kP6hxwk9itRPVv7Mo6GGQcGYyn3DWiZ0/uXH5AYuPa51InFLjZ/V5JxNb9FDt30AQc/yBZuVZBxf3vQN+YqscOHjdjYY/GHyotyOmwgG53oHYcjv0ZganzG7EV03qp5JY7fC8W3B/K/GjRBilva2Kr7TZ5HoH5Ho75Ho7YirsSK5xoPEuizO33Nh8zo4N1XYUX3fht/880N90I+6kDe99Z5+o8eFAfKXNFqW9rSIiIRHRvMWa+sSYcstgdLkd75yyTRB10oaUGjtKb7px+R6Dy/cYVPzqxpcdLhj/ZHGi0wV5iRVRZZM10eV2xJRbBhdr6hOJaB4RkZDCUsMjC4eNkWU2yEqs04gosSKy1IoEvQ3vn7Yh6lsrIoqtUDc7YHzEQmdyInqKPrLMhsjCYRNFpob7v0BARAske+7skhWPucILrQgvHJ+GtHAcUh3PlOdN9XaU/uyCvMwKqW4c4YVWyIrHXJI9d3YR0QKaMs7FlJC3bMmRJ71hunGEHh+bNeHfjEPCr8N041hy5EkvJeQtI6JpI1xIRCGB2Y2q0KPPBxYdG8PCw3Nj0dExhB59PhCY3agiohB/eyYOG7+jRLSlY0fIwRdDwYfHEPT1y1kRfHgMIYdeDAXldOwgIgnvFTBz3gUQURARhQkz69VB+UN9gQcsrHj/S4i1Foi/moHWAvH+lwg8YGGD8of6hJn1aiIK4z1eMfeHgBeEkjx3pSDPfEy0d6hfpB0ZFe23sCKtBSKtBb71yKho71C/IM98jOS5K4kolK996z3tb9dCIpJShDKB0k5nkdqUL8gx6wQ5Zh2pTfmUdjqLIpQJRCTlta9ty5s2ERJRIPl+2CK+t2E8Ej4XwmuEczGfGQLynUjxDObRLNrxP24V8y9C9aWjAAAAAElFTkSuQmCC",  });
 imagesub([
             {label: 'Google Search',
       url : 'http://www.google.com/searchbyimage?image_url=%IMAGE_URL%',
-      image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABWUlEQVQ4jaXTPUvDQBgH8HyzkiCVdlBcFD+CDgUn0bU5rUMRS6mD4BuCVgfFKmitCl0s+FKhvoEgVvsyWKuRS9JLcvm7tcplSHW44e6e5/c8x91JAaKFZJXWFELRzZBVWgsQLST9JfknInlt9ExRJLMMqSOG67ID7gLb5xbG100h1hNIFyzM51gbu61wnN7Znl14Al+GC7LTas9nMi20bPgHPnUXmatOxbE1E89v3D8wd8DAbGBiw0R/XMfupY3RJcM/oBCKkUUDiUMGF/h1HN+AQiiC0xSa4aL04mBgVvcPTKZNbBYspHIMy3mGJnXx+s4xmBARAVg4Ybh4ctAb66wNJXSUGxx7RfEqBaDa5EgdMSEwmWXIlnwA+Qcb5QbHcLLTbjBGcfboILLq4yX2xXVsFSzUP1zcVzmOb2zsF21EVsRkhVD89zPVJTmqhWWV1rsGVFqRo1r4G6iM33AbQTj+AAAAAElFTkSuQmCC",where: 'tab'
+      image:"https://www.google.com/favicon.ico",where: 'tab'
       },{label: 'Bing Search',
       url : 'http://www.bing.com/images/searchbyimage?FORM=IRSBIQ&cbir=sbi&imgurl=%IMAGE_URL%&mkt=en-US',
-      image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA7ElEQVQ4jWP4v5PhPyWYAZnzfQsz+Qb828nwPyAg4H9OovP/1W3q5BsQEBDwPzXWjTIDAgICqGNAWbr9/+UtGv/vLuUnz4AplYZwfkqM+/+ZNXr/L8wVI80LkaE+KOIBAQH//5FiwNfNrP87isxIMyA30fn//50M/+8u5f/fnGdJmgvS41z/X5wr+r+nxOR/IJrG5Bj3/4enyuAOg7wkp/8Ty43/BwX6o2gMDvL7v6hRG2tKRUnKfaXGGM5tzLX6/2QlD3F54f9Ohv8Hp8j+jwrz+Z8a4/7/+HQp0jITDP/axvz/7w5G0nMjORgALS2D1pyznwIAAAAASUVORK5CYII=",where: 'tab'
+      image:"http://cn.bing.com/s/a/bing_p.ico",where: 'tab'
       },
       {label: 'Baidu shitu Search',
       url : 'http://stu.baidu.com/i?rt=0&rn=10&ct=1&tn=baiduimage&objurl=%IMAGE_URL%',
-      image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACoklEQVQ4jZ2T6UuUURSHzz9QRhCpJJVZERUFmVmp7bZYZiUttpiEVliEtCctJtGHPgQGEm1EUbQHUlCBWSI1NbagJfheX3XG1LSmhWL0NTtPH6ZmEulLF86XcznPPb/7O0eksAYprEEK3iKHqpED1Uj+a2TvK2TXC2SHG8lzIVufILkVyKZyJLsMySpF1t1HpLCG/z2ScQ+Rgre9LqzaTj1S0K7VVR0KYKxOtY2jvQAr7iBysLpH0nGUPTvaGBVTp5kZzWobh2mTGzVljldt4/QEpJcgsr8qmPj8qRuAXXltTB7fQE5mC26Xn7hx9cyd4cHt8vcEpN1GZN9rADyNXWxY26y5Oa1668ZXcjJbKC7yAVBc5KO4yIfb5cfr6QoBFt1EZPdLAK5d+sKQgZYmxjUogG0cOjtCsm3jsGrZO1YuadLWlh8BwPxriOysBOC5y09CbANLFzZxt+QbtnHYvKGFvC2t2Mbh2NGPTBpfT0ykwe3yK4DMvYLI9mcAdHfDjatftbjIp7ZxSE326ogoo2NibNYsf6e2cViW6iVtvlcb6gOOyKxLiGx7Gmyzo+MntnFIm+dlZJTR6HDDn1ixuElt4/D44XfltzKZfhGR3Iog4E1VJymzvYwYVMffxdHhhnHDbbIymrHrQlZK4nlENpUDoAqH89t18ACjQweaXoDBA4yOHWbzqPR78Gdl6jlEssuCgKMFHzS8r6WR/SwiwywN71OrEWEWUf0tHdTf0mERhssXvoQA8WcRySoNtuRp7GJLdivJSR7SU5o4cdzHieM+Zk1tJHZ0PRvXN9P2/kdIQtxpRNY9+Hu4FKgEnvwjKntM4sRTiKy+F1iK9BJkyW0k9Say4HrA49mXkZkXkaQLSMJ5ZMo5JP5M4OXYU8iEk/wC6ZkDX3ssK20AAAAASUVORK5CYII=",where: 'tab'
+      image:"http://www.baidu.com/favicon.ico",where: 'tab'
       },
        {label: 'Baidu image Search',
       url : 'http://image.baidu.com/i?rainbow=1&ct=1&tn=shituresultpc&objurl=%IMAGE_URL%',
-      image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACoklEQVQ4jZ2T6UuUURSHzz9QRhCpJJVZERUFmVmp7bZYZiUttpiEVliEtCctJtGHPgQGEm1EUbQHUlCBWSI1NbagJfheX3XG1LSmhWL0NTtPH6ZmEulLF86XcznPPb/7O0eksAYprEEK3iKHqpED1Uj+a2TvK2TXC2SHG8lzIVufILkVyKZyJLsMySpF1t1HpLCG/z2ScQ+Rgre9LqzaTj1S0K7VVR0KYKxOtY2jvQAr7iBysLpH0nGUPTvaGBVTp5kZzWobh2mTGzVljldt4/QEpJcgsr8qmPj8qRuAXXltTB7fQE5mC26Xn7hx9cyd4cHt8vcEpN1GZN9rADyNXWxY26y5Oa1668ZXcjJbKC7yAVBc5KO4yIfb5cfr6QoBFt1EZPdLAK5d+sKQgZYmxjUogG0cOjtCsm3jsGrZO1YuadLWlh8BwPxriOysBOC5y09CbANLFzZxt+QbtnHYvKGFvC2t2Mbh2NGPTBpfT0ykwe3yK4DMvYLI9mcAdHfDjatftbjIp7ZxSE326ogoo2NibNYsf6e2cViW6iVtvlcb6gOOyKxLiGx7Gmyzo+MntnFIm+dlZJTR6HDDn1ixuElt4/D44XfltzKZfhGR3Iog4E1VJymzvYwYVMffxdHhhnHDbbIymrHrQlZK4nlENpUDoAqH89t18ACjQweaXoDBA4yOHWbzqPR78Gdl6jlEssuCgKMFHzS8r6WR/SwiwywN71OrEWEWUf0tHdTf0mERhssXvoQA8WcRySoNtuRp7GJLdivJSR7SU5o4cdzHieM+Zk1tJHZ0PRvXN9P2/kdIQtxpRNY9+Hu4FKgEnvwjKntM4sRTiKy+F1iK9BJkyW0k9Say4HrA49mXkZkXkaQLSMJ5ZMo5JP5M4OXYU8iEk/wC6ZkDX3ssK20AAAAASUVORK5CYII=",where: 'tab'
+      image:"http://www.baidu.com/favicon.ico",where: 'tab'
       },
       {label: '360ShiTu Search',
       url: 'http://st.so.com/stu?imgurl=%IMAGE_URL%',
-      image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB6klEQVQ4jaXOz2oTURQG8Ltv7vEZAl1Jsm3VZO7ccdqNlK4sBFd9k0IoCD5BaRYKVtRi5l8zmZTY0o5NoVuhI9KFRbGpLaSkDYEk1s/FnTGDC6l64bf5zncPhxlhRjdDOph5dwt/wwzpwAgzOjN3eXsmJPwLc5e3mblD+B/M3CaklVq3sfPNweWwg8thB60zH4/28/i9l2D3m4TEYmsKF4NzPP34GAvNHBaaOVQ+lHExOMdiawrpboIZmwRjkyAbhL1THyuHSyg6HJqnFB2O1aiMvVMfsqG6acxoEIwGQfcJ/VEP88Ek9BqHDAgyIOg1jrl6Fv1RD7qvumlM1gmyThAex9Wwi/lgEtJXmawTpE+YC7LoDjoQHh/nMSZ9VRIux/YXGyuHS5A1lUmfIGuE1aiMt5/fQLh8nMeYrKmScAkP6zmc9b+iEpVR2sqjtJVHJSpjeD1QFzgcST/B9A2CvkEQHqFocTxws/A/reGkd4yT3jGeRU+QvKthF8JT/QTTPUJCOIRilaOwznHvdewVx/Ra5teS/qgH4Y7/MN0lpAmHoFkErcpjhMI6x/TzDK5/fEfl/TI0a9xnwlGf/kSz1ZI7LzK4+5JDs8YzJhzevumSYlVdJ+wk521WsCZmhU1Hwo4HN3dUsCZmfwKCejnLHZeJTwAAAABJRU5ErkJggg==",where: 'tab'
+      image: "http://st.so.com/favicon.ico",where: 'tab'
       },
       {label: 'Sougou Search',
       url: 'http://pic.sogou.com/ris?query=%IMAGE_URL%',
-      image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB0klEQVQ4jZ3Sv2sUQRQH8FdsZSURK0tB8D/Qa3Iii1oIwcIuSnoLf4AigkUgWqQXLhgQQgqxDUHsrCTFtoJL4G53dmcvs7t37M3uODur97WYuPFMUM8Hr5vvZ+bxhvr9/mIQBHtBEOCkDsMQjDEwxhBFEeI4Bud8L0mSRSIiGgwGSfzgCrjr/Hs/vArGWEZEpykIgvnChy2EABF1ZoDh7XMo367D+B6mSuLX+j5K8PXju/ZslmUgom4LiJWL+JZGbaBhX1DtbKDa2YB6/wbG92B8rwXyPLdAGIbgroNqd3PmxvzJtT+OMB6PLcAYA3cdFK/u4/eqP3+C3F5D/uwmkqUzM0BRFBaIouhIXV+B9j5gqtUxbKoV5PYakhunwF0HUkoLxHF84hPTe5cwef0UxvdmILm1Cu46KMvSApzzNjR6voSD5fNHW7l19thoPzehlLLAcDhsA3+rqVbIHtlPp7W2gBCiBardzXZdTbxv1xnvw/ge5NYqxN0L7dm6ri2Qpul//URjjAWyLIsOXtyZKzx6uQwpZUpEXcrz/LoQIiuKApPJBFJKlGWJqqqglILWGnVdwxgDYwyapkFVVXmv13tMRJfpsBaIqENE3Tm6Q0QLPwAGVa1p0zMtjwAAAABJRU5ErkJggg==",where: 'tab'
+      image: "http://logo.www.sogou.com/images/logo2014/new/favicon.ico",where: 'tab'
       },
       {label: 'TinEye Search',
       url : 'http://www.tineye.com/search?url=%IMAGE_URL%',
-      image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADRElEQVQ4jW3Tf0zUdRzH8Y9QkUHLOW9KYEmtGkziPMexDicMuB/Q0TFg2MQK2gkRP+JEQjhyJr8Kji/I7zhghLBkghvS6cFUfhxwcXLFFvpPK4iTWLM/+0NW7dkftwJX7+315+vxx2t7C3X9ZEy8ZWYxt64PveUWGsnxv1E3TJF8yUFK2wKJzXPEW2YW1fWTMSLBMr3Z3VTN2vkIhk1xaKXZf0sZHfPIM84gC1PxbGAI+4JfQhb4ArFqLeUDtzk77N4UGsnBNXMKK4VBTBSEo5EcaCUHxYMuDsmjEUI8lmOh+8mtbya5ppuMum6ERnJgaLCTYniLTGmcU1YXlpvLpGVloZUJSo4KqmOexvKmjK7UA/S2f8JHc79gmlzhw+t3vYBGchD5fhX5fQ4sN5dI77FT+2Uf9p6PGb3aSf9wHy2D/Vzs7KLA0kG+ZKWwyUpRc+828LZkI+ezTnJGnZTZlzFarOiyC4nUGHg5XIHsQBDyqGiSUtKRyWQE+D3JHv/d20DxoIuTHSMUX53myBvH0CTq0adlIHb5IITgOdl+XMvf8+iPP+m/MoKv327vLv8A58fuYbK5OXQkisOvy/n90RYAn7d2Inx8USXo2HkZWUYvoG6cJb5hhrKBWd7ttSF8nyI7J4/fHj5kdXWVv4CjquOEK1UsLC6SlpoKwNDomBeIqryB0mzjvdoh0lqG2RvyGrFqLaXnKjiVmQnA6fwi/J4JwDowRE11NQA9l7/yAkqzDaXZhrZmkqrriyR92o4QgtN5BWx41tna2iI6Ng4hBK+EHmbi1h1u35kiLELBnsCD24DSbMN0+S5VC6skVDQSoT9BZYuV7DPl7A15lefD5BxUqIgwZBKbV05yVQe5Y0uPA0qzjbNDS7S5PFTM/4xxzE32iJOiiXuUzPxE6fw6JY41yhY8SN/9SvP0j/8FlGYbxy/Yye9zUnfjPm1ODy0uD63frNPuXOPS1A9UXnGS1ziCIceMUFaMP9hZTmya4YP+OYq7xiltGsBYWEbSCSP6k7no0rOJM7zDi6EKdvk8gRDigVCUXtNFnvt6M/qCnSLbfWrdHmq/3eCie4PKqRVMrV8QH7qPAH9/goKDdz7Wpr8Qur8B/c1d/jmhRwsAAAAASUVORK5CYII=",where: 'tab'
+      image:"http://www.tineye.com/favicon.ico",where: 'tab'
       },
 ]);
 
@@ -107,25 +126,24 @@ new function () {
 var items = [
 //打开方式(默认当前页面)，通过where 更改，具体tab(前台)、tabshifted(后台)、window(窗口)
 
-{label:"Baidu搜索",accesskey: "B",url:"http://www.baidu.com/baidu?wd=%s",image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABWUlEQVQ4jaWSy0sCURjF/XfuRugukha1CzeBCBKIFFFIBEGrCoRwE4EErlskoYW0EFy0iBAkCMFNBCGuKrqjNg6OgzOTjY+5nhbh3ehMrw/O8vud73E8hDL8Rx5CGf5ajoBCsQuvT0IubwIATk51xA/bsPkPAdFtBYQyLIXeUCpbYtybQtcd0Na+LHb2WiCUYTXaRC5vCsBdyXIG3D/0QCjD2qaCl9cB9g9UPFb66OgcuzEVmayBpmKjVLamAxJJTTg9PQ+mHm1+sQ5CGS4ujUlAJmuAUIaZOQkdnaNS7SMYlhGKyKjVh7B6I2EQi6uTAJsDV9fvqFT7YNIQsws10eAPNNDWODa2FHh9Eoq3H85faKk2/IHGRGCWV2RYvZH7Fzo6n9o8VmS9CcPkzoBUWv82umfnhjNgfEg3pdK6M8AwuUihP9DA0bGGRFJDMCyLYLmu8NsSgP/oExgMERjFwInkAAAAAElFTkSuQmCC",where: 'tab'},
+{label:"Baidu搜索",accesskey: "B",url:"http://www.baidu.com/favicon.ico",where: 'tab'},
 
-{label:"Google搜索",accesskey: "G",url:"http://www.google.com/search?q=%s",image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABWUlEQVQ4jaXTPUvDQBgH8HyzkiCVdlBcFD+CDgUn0bU5rUMRS6mD4BuCVgfFKmitCl0s+FKhvoEgVvsyWKuRS9JLcvm7tcplSHW44e6e5/c8x91JAaKFZJXWFELRzZBVWgsQLST9JfknInlt9ExRJLMMqSOG67ID7gLb5xbG100h1hNIFyzM51gbu61wnN7Znl14Al+GC7LTas9nMi20bPgHPnUXmatOxbE1E89v3D8wd8DAbGBiw0R/XMfupY3RJcM/oBCKkUUDiUMGF/h1HN+AQiiC0xSa4aL04mBgVvcPTKZNbBYspHIMy3mGJnXx+s4xmBARAVg4Ybh4ctAb66wNJXSUGxx7RfEqBaDa5EgdMSEwmWXIlnwA+Qcb5QbHcLLTbjBGcfboILLq4yX2xXVsFSzUP1zcVzmOb2zsF21EVsRkhVD89zPVJTmqhWWV1rsGVFqRo1r4G6iM33AbQTj+AAAAAElFTkSuQmCC",where: 'tab'},
+{label:"Google搜索",accesskey: "G",url:"https://www.google.com/favicon.ico",where: 'tab'},
 
-{label:"Bing搜索",accesskey: "M",url:"http://www.bing.com/search?q=%s",image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA7ElEQVQ4jWP4v5PhPyWYAZnzfQsz+Qb828nwPyAg4H9OovP/1W3q5BsQEBDwPzXWjTIDAgICqGNAWbr9/+UtGv/vLuUnz4AplYZwfkqM+/+ZNXr/L8wVI80LkaE+KOIBAQH//5FiwNfNrP87isxIMyA30fn//50M/+8u5f/fnGdJmgvS41z/X5wr+r+nxOR/IJrG5Bj3/4enyuAOg7wkp/8Ty43/BwX6o2gMDvL7v6hRG2tKRUnKfaXGGM5tzLX6/2QlD3F54f9Ohv8Hp8j+jwrz+Z8a4/7/+HQp0jITDP/axvz/7w5G0nMjORgALS2D1pyznwIAAAAASUVORK5CYII=",where: 'tab'},
+{label:"Bing搜索",accesskey: "M",url:"http://www.bing.com/search?q=%s",image:"http://cn.bing.com/s/a/bing_p.ico",where: 'tab'},
 {},
-{label:"Wiki-EN",url:"https://en.wikipedia.org/wiki/%s",image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABo0lEQVQ4ja2TO4siQRSFC5lJOlUjEQQDE8FYRREFBUEwMDEcEJPGH2BsZiQoBgaiYCoiBv4FwRZDTQQROxE0sum2H3wT7EzDrLvs80Z1LnW+OkXVFcAr8Aas+f1af3hexcfib+tN/OHJT0mEbdvouo6u6xiGAeBq0zRxHMfVjuNgmqarbdtGbLdbMpkMQgh6vR6O41AoFBBCMBwOOZ1OJBIJcrkcqqoym83wer2Uy2V2ux0C4Hg88vLywnw+B0DTNEKhEN1uF4BsNsvtdgPg8XiQTCaxLAvgGwCgWq2SSqXcyw0GA4LBINPplHa77fYnkwn9ft/VLmCz2SCEYLVaAWBZFuFwmFgshq7rrqFYLKJp2jPgM2qlUnG1LMv4fD43rqIoNJvNL8/wBbBcLvF4PBwOBwBKpRJ+v5/xeAxAvV5HVdWfAwCi0SiyLLNYLOh2u7RaLSKRCJfLhVqt9v32Z8BoNEKSJPL5PIZhcL1ekSSJeDyOoii/BpimSSAQoNPpuL1Go0E6nX4yfwKevvJ+v8dxHFff73fO5/OP/Ov/Mkz/NM7vB+B52iVL10sAAAAASUVORK5CYII=",where: 'tab'},
+{label:"Wiki-EN",url:"https://en.wikipedia.org/wiki/%s",image:"https://bits.wikimedia.org/favicon/wikipedia.ico",where: 'tab'},
 
-{label:"Wiki-ZH",url:"https://zh.wikipedia.org/wiki/%s",image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABo0lEQVQ4ja2TO4siQRSFC5lJOlUjEQQDE8FYRREFBUEwMDEcEJPGH2BsZiQoBgaiYCoiBv4FwRZDTQQROxE0sum2H3wT7EzDrLvs80Z1LnW+OkXVFcAr8Aas+f1af3hexcfib+tN/OHJT0mEbdvouo6u6xiGAeBq0zRxHMfVjuNgmqarbdtGbLdbMpkMQgh6vR6O41AoFBBCMBwOOZ1OJBIJcrkcqqoym83wer2Uy2V2ux0C4Hg88vLywnw+B0DTNEKhEN1uF4BsNsvtdgPg8XiQTCaxLAvgGwCgWq2SSqXcyw0GA4LBINPplHa77fYnkwn9ft/VLmCz2SCEYLVaAWBZFuFwmFgshq7rrqFYLKJp2jPgM2qlUnG1LMv4fD43rqIoNJvNL8/wBbBcLvF4PBwOBwBKpRJ+v5/xeAxAvV5HVdWfAwCi0SiyLLNYLOh2u7RaLSKRCJfLhVqt9v32Z8BoNEKSJPL5PIZhcL1ekSSJeDyOoii/BpimSSAQoNPpuL1Go0E6nX4yfwKevvJ+v8dxHFff73fO5/OP/Ov/Mkz/NM7vB+B52iVL10sAAAAASUVORK5CYII=",where: 'tab'},
+{label:"Wiki-ZH",url:"https://zh.wikipedia.org/wiki/%s",image:"https://bits.wikimedia.org/favicon/wikipedia.ico",where: 'tab'},
 {},
-{label:"汉典",url:"http://www.zdic.net/search?q=%s",image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABJElEQVQ4jY2TMWrEMBBFdQYJuU23BsM2gbQBFSl0AEsEs+CzxClETpALpEwbttjGJ9hiwXLh1uf4W81EcpRNBgTfo9HTeDQjlnmCk7q4xrbP1joErEPIfGJsezipsbWPt5eiTo0BJfOqwjJPAAAnNevUorE54Hw6ZoCSzmN2ENFY3jifjlkNurpBNDbTFAcAl/0DRFc3DEhrkeptNgRwUkNQ4H8BTurfAV5V6OoGz4/3nHZXN3BSIxrL+ibgryIWAVQY+r9bOo1nwOvB/6j+Vqc+ryrWwqsdtrbME74+3/l7HUKxkZzUEJf9U+ZMe2Eb7O9UBnJSf/fBMk/cLOntqa1DgJOaZ4NrQJNXSrMEoUszAL01vXc0FusQ+BCNL+1FYzG2Pa51VtKhEx+TOgAAAABJRU5ErkJggg==",where: 'tab'},
+{label:"汉典",url:"http://www.zdic.net/search?q=%s",image:"http://www.zdic.net/favicon.ico",where: 'tab'},
 
 ];
 var menu = PageMenu({
 condition:"select",
 label: "搜索选中文本",
 accesskey: "S",
-insertAfter:"context-viewpartialsource-selection",
-position: 2,
+insertAfter:"context-paste",
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHDSURBVDhPpVJbKENhHJ887NmLcnmQZ+U6SZ7mEk+ur8qDXEpMLBSRJbRHlzSRDFuNkkQRHoaiXE44LxbTssk0zhpDdj7/H0ecsYflV//+5/+7fN853/kUf4ExFkkVJYpiElUhVbnUk8BDl6y/AZGMcbu2O41+lecrDFYhu38jgI4ZPPSQi2CHXdutRmM6uMnUrbHgAg8dPikiB15Tv3LGq3pWmdZ86OQcnok3UWxExwweOnxSRA4SCiuGtwRV1zLjrjwTNMdTKdExg4cOnxSRg4TyrLalQEbHIsPOCEu8EjN46PB9BIKBlcsG1oV07Tzj7G75G9AMHjp8UuQbdDARJKj7zXv2tGYT005uO7kL9+cZUMcMftCy//sMpHCMwy30Fncv+PJaLf60BiMLrvqRzRsrfy3/C1/hS9dDe2m32ZtaN8lyWo3Pupmdq1LdgqCqmQqg95mtvPXEIb8HP8MlnXPelGoDy20y+k/ttyPEF1AVUYW+iURGX7jutSUdc97kqlGmbjT4OZtLT6YEmTEUfL6XlLKWKU9y5RBTN4yFFwZgnl45ms2vHX86PncOhhUG6BOUFEh8fHzNpOfYsML/h0LxDlnLtXo5zlbFAAAAAElFTkSuQmCC"
 });
 menu(items);
@@ -139,7 +157,6 @@ page({
     condition: "input",
     accesskey: "V",
     insertBefore: "context-copy",
-    image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACA0lEQVQ4jX3Sz2vTcBjH8fwPQwQPggdB8CCMUXZQUJjgDo5UQSMKC1hYvGwjMlsWUWSk0c0gLclXwcwm1HVjgg6h4g9wUAqTFaQI89CDA4ewtPQXBHYIDx8P0mCb6AOv0wNvvjx8OW5gbNtmjuPAcRzYts0G96FZTcbYWmoUa6lRLC/OgDEG3/fh+z4YY1henEFvv5qMhYOFuRgO9qs42K9C0zR4ngfXdeG6LjzPg6Zpwb4wF0MokJdH0KgY2CtOIZ+ZRTKZ7JPPzGKvOIVGxUBeHgkHctPDcLey2N1IYPfNzWgbCbhbWeSmh8OB57dO4Vf5CWqvRNTWJwPvV9LoHXNQ33FZ4iR+burYWbmBnZfXA5ZlgYgiWZaFUqn05zWZyRP48ekRqrmrqL64EjBNE0SERqOBer0eHJaIYJomTNOEYRiM068dR+1dGtvPLmH7aTyg6zqICM1msy/y90t0XQf38PIxfH+7gHJ2AuXMxYCqqiAitFqtUKQXUlUV3MLEUXx7fR+bj8fxeelCQFGUIBAVISIoigLu3vgRfF2/i4/p8/igjgVkWQYRod1uR0aICLIsg5sfO4xKYR7FB+f6SJIEIkKn04mMEBEkSQJ35+whfMmnQkRRBBGh2+1GRogIoiiCk08PsdtnhjBIEIR//oMeQRDCP7M3PM+zeDyO/+F5nv0G0AKQNKy5AuIAAAAASUVORK5CYII=",
     oncommand: function(event) {
         goDoCommand("cmd_paste");
 
@@ -188,7 +205,7 @@ var menu = PageMenu({
 label:"快速回复",
 condition:"input",
 accesskey: "W",
-insertAfter: "插入code代码",
+insertAfter: "context-paste",
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAASZQTFRFq2MmrGUpxZNqyJNP+e/P////wIlcUFBQnp6eoaGhoZmSrY51sJN6UFBQVFRUWFhYXl5eY2NjampqcHBwd3d3fX19hISEioqKkJCQlZWVmpqanF8mnpmWnp6eoaGht3k6uH5MuoFRwY5kwpJpw4tGxI9gxY1JxZRlxpFNx5NWx5dryJNRypZWyptwy5hRy51szJlSzJpRzJ51zp9ezqF5zqR8zqqL0qd/17uk37iD5NfM5eXl5rgl5rgn5rs/5ubm5+fn6L046Ojo6enp6uLc6urq6+vr7Ozs7e3t7u7u7+/v8NSm8PDw8fHx8sMA8vHx8vLy88so89BC9NBE9Nmf9eTI9ebV9uHA9u/o+OrC+OvC+eO8+ePL+unX/Pv6/f39/vz5////ByadbwAAAA10Uk5TAAAAAAAAG5aWlqHFxQD6C4kAAADMSURBVBgZBcFNS8NAFIbR595MaqEbrQa6UgSFFhVCdy7Fvy3uFUQQBHEruAmkNqHkg8y8nmN5KACAagAInD0AAM/VCAQiPwlNXG1UjwlHmLvlgeXqZm4WEJ5w0vC97tNX7wjLPLPV57qbFudZQBhQfJRd3LUzOcLMlu9lF+v9tEmOcDt523axbuLtE45wey3HWDfj3ZFwhP0Vi3l76MsdwhHZdBHttN3uDREQVJd1/XvfGIiA0PiSFdcHJ6EUkB8/GgDgkuU+AwAAxuEflNBc+frSdwMAAAAASUVORK5CYII=",
 //跟进depft更新
 oncommand: function(event){
@@ -223,6 +240,8 @@ elem.disabled = original.disabled;
 
 //移动图标，代替Movebutton.uc.js，需配合RebuildWhenStart.uc.js
 new function(){
+
+//几个扩展图标
 tab({
     id: "flashgot-media-tbb",
     insertBefore: "userChromebtnMenu",
@@ -238,6 +257,14 @@ tab({
 tab({
     id: "foxyproxy-toolbar-icon",
     insertBefore: "userChromebtnMenu",
+    clone: false,  // 不克隆，直接改在原来的菜单上面
+}
+);
+
+//右键菜单
+tab({
+    id: "yun-player-context",
+    insertAfter: "context-copylink",
     clone: false,  // 不克隆，直接改在原来的菜单上面
 }
 );

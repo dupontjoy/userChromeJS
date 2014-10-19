@@ -1,3 +1,5 @@
+//2014.10.19
+
 rules = [
 {
 name: "about:haoutil", // 规则名称
@@ -9,14 +11,20 @@ regex: false, // 可选，true 表示 from 是正则表达式
 resp: false // 可选，true 表示替换 response body
 },
 {
-name: "userscripts >> mirror",
-from: /^https?:\/\/userscripts\.org\/(.*)/i,
-to: "http:\/\/webextender.net/$1",
+name: "google搜索结果禁止跳转",
+from: /^https?:\/\/www\.google\.com\/url\?.*url=([^&]*).*/i,
+to: "$1",
 regex: true
 },
 {
-name: "userscripts:8080 >> mirror",
-from: /^https?:\/\/userscripts\.org:8080\/(.*)/i,
+name: "google.com.hk >> google.com",
+from: /^https?:\/\/www\.google\.com\.hk\/search\?(.*)/,
+to: "https://www.google.com/ncr#hl=en-US&newwindow=1&$1",
+regex: true
+},
+{
+name: "userscripts >> webextender鏡像",
+from: /^https?:\/\/userscripts\.org(?:\:8080|)\/(.*)/i,
 to: "http:\/\/webextender.net/$1",
 regex: true
 },
@@ -29,23 +37,30 @@ regex: true
 },
 {
 //Http走360，Https走科大
-name: "googleapis >> useso",
+name: "360 useso提供 Google服务加速-ajax/fonts",
 from: /^http:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "http://$1.useso.com/$2",
 regex: true
 },
 {
 //https://servers.ustclug.org/index.php/2014/06/blog-googlefonts-speedup/
-name: "科大博客提供 Google Fonts 加速-1",
+name: "科大博客提供 Google服务加速-ajax/fonts",
 from: /^https:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "https://$1.lug.ustc.edu.cn/$2",
 regex: true
 },
 {
 //https://servers.ustclug.org/index.php/2014/06/blog-googlefonts-speedup/
-name: "科大博客提供 Google Fonts 加速-2",
+name: "科大博客提供 Google服务加速-themes",
 from: /^https?:\/\/themes\.googleusercontent\.com\/(.*)$/,
 to: "http://google-themes.lug.ustc.edu.cn/$1",
+regex: true
+},
+{
+//https://servers.ustclug.org/index.php/2014/06/blog-googlefonts-speedup/
+name: "科大博客提供 Google服务加速-fonts-gstatic",
+from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
+to: "http://fonts-gstatic.lug.ustc.edu.cn/$1",
 regex: true
 },
 {
@@ -77,6 +92,36 @@ regex: true
 name: "职友集去跳转",
 from:/^http:\/\/www\.jobui\.com\/.*\link=(.*)/i,
 to: "$1",
+regex: true
+},
+{
+name: "贴吧mo >>f",
+from: /^https?:\/\/tieba\.baidu\.com\/mo\/m(.*)/i,
+to: "http://tieba.baidu.com/f$1",
+regex: true
+},
+{
+name: "tb >> taobao",
+from: /^https?:\/\/(.*?)tb\.com\/(.*)$/,
+to: "http://$1taobao.com/$2",
+regex: true
+},
+{
+name: "tm >> tmall",
+from: /^https?:\/\/(.*?)tm\.com\/(.*)$/,
+to: "http://$1tmall.com/$2",
+regex: true
+},
+{
+name: "tradingfloor 原始大图",
+from: /^https?:\/\/www\.tradingfloor\.com\/images\/article\/max608w\/(.*)/i,
+to: "https://www.tradingfloor.com/images/article/original/$1",
+regex: true
+},
+{
+name: "貼吧 原始大图",
+from: /http:\/\/imgsrc\.baidu\.com\/forum\/w.+\/sign=[^\/]+(\/.*).jpg/i,
+to: "http://imgsrc.baidu.com/forum/pic/item$1.jpg",
 regex: true
 },
 
@@ -118,38 +163,18 @@ state: false,
 regex: true
 },
 {
-name: "贴吧mo >>f",
-from: /^https?:\/\/tieba\.baidu\.com\/mo\/m(.*)/i,
-to: "http://tieba.baidu.com/f$1",
-state: false,
-regex: true
-},
-{
-name: "tb >> taobao",
-from: /^https?:\/\/(.*?)tb\.com\/(.*)$/,
-to: "http://$1taobao.com/$2",
-state: false,
-regex: true
-},
-{
-name: "tm >> tmall",
-from: /^https?:\/\/(.*?)tm\.com\/(.*)$/,
-to: "http://$1tmall.com/$2",
-state: false,
-regex: true
-},
-{
-name: "tradingfloor origianl image",
-from: /^https?:\/\/www\.tradingfloor\.com\/images\/article\/max608w\/(.*)/i,
-to: "https://www.tradingfloor.com/images/article/original/$1",
-state: false,
-regex: true
-},
-{
 name: "云播磁力链 = >> %3D",
 from: /^(http:\/\/vod\.xunlei\.com\/.*url=magnet:\?xt)=(.*)=(.*)=(.*)/i,
 to: "$1%3D$2", 
 state: false,
 regex: true
 },
+{
+name: "google.com|hk搜索 >> wen.lu",
+from:  /^https?:\/\/www\.google\.com(?:\.hk|)\/(.*)/i,
+to: "https://wen.lu/$1",
+state: false,
+regex: true
+},
+
 ];

@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           Baidu Search Better Privacy
 // @description    Delete unnecessary params and add useful params on Baidu Search.
-// @version        0.0.8
+// @version        0.0.9
 // @include        http://www.baidu.com/baidu?*
 // @include        http://www.baidu.com/s?*
 // @author         nodaguti
@@ -25,6 +25,7 @@ var addParams = [
 
 var deleteParams = [
     //--- 多余后缀 ---
+    /*
     'tn',      //this is a referral tag. “baiduhome_pg” means Baidu homepage; “sitehao123” means the referrer is hao123.com;
     'rsv_spt', //login status. “1” means the search is conducted by a logged-in user; “3” means the searcher doesn’t log in;
     'rsv_bp', //where you do the search. “0” means it is done from Baidu’s homepage; “1” means from top search box of the result page; “2” means from the bottom search box of the result page;
@@ -66,7 +67,7 @@ var deleteParams = [
     'fromtitle',
     'from_id',
     'fromid',
-    
+    */
 ];
 // --- /Config ---
 

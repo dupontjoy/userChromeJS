@@ -35,6 +35,7 @@ var addParams = [
 
 var deleteParams = [
     //--- 自定义 ---
+    /*
     'site',
     'noj',
     
@@ -97,6 +98,7 @@ var deleteParams = [
     'ndsp',
     'tx',
     'ty',
+    */
 ];
 // --- /Config ---
 

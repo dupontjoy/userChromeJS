@@ -70,7 +70,7 @@
 					escKey:true,//按esc键
 					dblClickImgWindow:true,//双击图片窗口
 					clickOutside:{//是否点击图片外部关闭
-						enabled:false,
+						enabled:true,
 						trigger:'click',//'click'|'dblclick'；点击或者双击
 					},
 				},

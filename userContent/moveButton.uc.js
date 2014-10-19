@@ -81,8 +81,10 @@ location == "chrome://browser/content/browser.xul" && (function(){
         //         context: "stylish-popup"
         //     }
         // },
-//{ id: "lpt_lastpass-compact-btn", insertBefore: "userChromebtnMenu" },
-//{ id: "flashgot-media-tbb", insertBefore: "userChromebtnMenu" },
+{ id: "userChromebtnMenu", bar: "urlbar-icons" },
+{ id: "flashgot-media-tbb", insertBefore: "userChromebtnMenu" },
+{ id: "lpt_lastpass-compact-btn", insertBefore: "userChromebtnMenu" },
+{ id: "foxyproxy-toolbar-icon", insertBefore: "userChromebtnMenu" },
 
     ];
 

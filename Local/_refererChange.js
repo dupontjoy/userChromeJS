@@ -2,16 +2,25 @@
 //   @FORGE：发送根站点referer
 //   @ORIGINAL：发送打开站点referer
 //   @BLOCK : 发送空referer
+//2014.10.14
+
 sites = {
-    
-    'douban.com': 'http://www.douban.com',
-    'yyets.com': 'http://www.yyets.com/',
-    'img.cnbeta.com': '@FORGE',
-    
     //自定义
     'about:blank': '@NORMAL',
     'jump.bdimg.com': '@NORMAL',
+    'img.liufen.com': 'http://www.liufen.com.cn/',//2014.09.22
+    't4.mangafiles.com' : 'http://www.imanhua.com/',//2014.10.01
+    't5.mangafiles.com' : 'http://www.imanhua.com/',
+    'laibafile.cn' : 'http://www.tianya.cn/',
+    'zol.com.cn' : '@FORGE',//2014.10.04
+    'tmoke.com': '@BLOCK',//2014.10.10
+    '51img1.com' : '@FORGE',//2014.10.14
     
+    // 
+    'douban.com': 'http://www.douban.com',
+    'yyets.com': 'http://www.yyets.com/',
+    'img.cnbeta.com': '@FORGE',
+     
     // baidu 相关网站
     'hiphotos.baidu.com': '@FORGE',
     'hiphotos.bdimg.com' : '@FORGE',

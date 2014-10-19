@@ -1,0 +1,463 @@
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+@-moz-document url("about:addons") {
+/*====================全局 #addons-page====================*/
+#addons-page {
+	padding:0 !important;
+	background:rgb(255,255,255) !important;
+}
+
+	
+/*====================左侧 #categories====================*/
+#categories {
+	margin:0 !important;
+	padding-top:100px !important;
+	width:200px !important;
+	background:rgb(235,235,235) !important;
+}
+	
+	
+/*左侧分类列表*/
+	
+/*分类项样式*/
+.category {
+	background:transparent !important;
+	height:55px !important;
+	padding-left:20px !important;
+	cursor: pointer;
+	margin-left: 30px !important;
+}
+	
+
+/*当前项样式*/
+	.category[selected="true"] {
+	background:rgb(250,250,250) !important;
+	border-color: rgb(205,205,205)!important;
+	border-right: none !important;
+}
+
+
+
+	
+/*隐藏项样式*/
+.category[hidden="true"],.category[disabled="true"] {
+	display:none !important;
+}
+	
+/*最末项样式*/
+.category:last-child {}
+.category[selected="true"]:last-child {}
+	
+/*分类名*/
+.category-name{
+    padding-left:6px;
+    font-size: 100% !important;
+    display:block !important;
+	  color: #000;
+
+}
+/*数字背景颜色微调*/
+.category-badge {
+	background-color: rgba(0,0,0,0.25) !important;
+	padding: 2px 8px;
+	margin-right: 10px !important;
+	color: #FFF;
+	font-weight: normal !important;
+}
+	
+/*分类图标定义*/
+.category-icon {
+	width:36px !important;
+	height:36px !important;
+  -moz-margin-start: 0px !important;
+}
+		
+.category[selected="true"] .category-icon,
+.category:hover .category-icon{
+	opacity:1 !important;
+}
+	
+
+/*分类排序*/
+#category-userstyle{-moz-box-ordinal-group: 2;}
+#category-greasemonkey-user-script{-moz-box-ordinal-group: 3;}
+#category-userchromejs{-moz-box-ordinal-group: 4;}
+#category-availableUpdates{-moz-box-ordinal-group: 5;}
+#category-recentUpdates{-moz-box-ordinal-group: 6;}
+#category-service{-moz-box-ordinal-group: 7;}
+	
+	
+	
+	
+/*分类图标定义*/
+#category-discover > .category-icon{/*获取附加组件*/
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAaVBMVEVXhu8AAABXhu9Xhu9Xhu9Xhu9Xhu9Xhu9Xhu9Xhu9Xhu9Xhu9Xhu9Xhu9Xhu9Xhu9Xhu////+Kq/RgjfDx9f7o7v3V4fuOrfT4+v6txPdwmfJmkfGCpfNZh+/f6PzM2vq6zfl5n/KfuvaeMX7hAAAAEHRSTlPxAO3m3MhZLSP+va+qqXhzPJ/dpgAAATFJREFUSMft1tuugjAQQNGxXERFHUoLtBVE//8jj8AhoUwNzLv7QZO6JAUSBjiMHe/XJI6EAJIQUZxc78fJwYgvuNnlOPP0hDs6pRNPcWfpwDPcXfbh5/38fIAMGWVw4/Ab5Osl+VSF7m2Q55D4C+Wzq11rjXqHeAKxv/Ds2/Hb6bc05tGiVwyRv5NuBrapjOk6f1MRCP/gNc654eOtHS4SK64c+vU9LgKAxU6qpmhX3BZNJYPc6LpEWllrE+BST5hWakl5VeO36orypvzKy4bJmZvhnyr/QtLbRCK3abttXvx4gLt/7gJckDWrXiN/KRviJKkeH/5QkvwiIKJ8kMXwH1IEMQZ6qeKzI1oMCYaylQ0/9HJklDMf2MxxwBs2zFHGG5S8Mcwf8v4rBATyXiH+ADG8fKuhFfn0AAAAAElFTkSuQmCC") !important;
+}
+#category-extension > .category-icon{/*扩展*/
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAgVBMVEV8Q/8AAAB8Q/98Q/98Q/98Q/98Q/98Q/98Q/98Q/98Q/98Q/98Q/98Q/98Q/98Q/////+RYf/m2v/o3//7+P/t5f+2l/+JVv+Waf/x7P/Puv+jev/18P+bcP+BSv/Vwv/Hrv+ngf+NXP+ETv/h1P9/R//Mtv++o/+xkP+tiv/dzv/NrU3TAAAAD3RSTlPxAO0l5tzIqVn+va94czCfs2jKAAABgUlEQVRIx63Wia6CMBAF0Fpkca3FLpR9R/z/D3xQniHQEmniTRScnITQ4gzgIHO/uY59hBAogfBoO+7tPjnJrQv6mov14d4J7cjJm7iHdsYbuYV2xxr4eT8/H4CFDGKBqwm/AlctRjWJW67jLnCU2otGKe+ozjvAXpd4XI6HLtRwGxzXpX5yFdHwI4DrEsunI0lVDhccB0N6Ks8DEQS4WXEAwLwglPoyWN7wcPKM2SZPRILWKX22xesCqSnjRuHzral54g3+QD/hTaPnSYE13CckwzruhyJXeF40KROlyodSVTOkCwsVLpP4Ws5jPcdUy1Oi512r5VGt8vAV5ep/Ihg+nEYqf7RZV6kLScMwZvu3qeh7bvgQ/JSXmXiyDQ4VzgXjwbv9wslnWfJ83BkxObrgcG4c2ef670j+LORTQZeNY25LOGbV/36N334yXKIQ0aotzU0PZ+Qh85ZdaTghdbJuei4yiGvYsA3HgdmwMRxlZoPSfAybD/n5FQJosniF+ANpnnnZMEt5lQAAAABJRU5ErkJggg==") !important;
+}
+#category-greasemonkey-user-script > .category-icon{/*用户脚本*/
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAflBMVEW6aMgAAAC6aMi6aMi6aMi6aMi6aMi6aMi6aMi6aMi6aMi6aMi6aMi6aMj////DfM++ccy8bMrfuOXbsePIhtPoze3Hg9L58vrx4PTr0u/79vz26ffnyezMjtb9+v327PjRm9vu2fHkw+netuTXqN/iv+jOlNjUoNzCd87fuebHTnoXAAAADXRSTlPxAO2rJebcdVnKxb0w4SnuuwAAAYJJREFUSMeVluuWgiAQgFm8ZTWKYd5vmVr7/i+4LS0qICt9vzzOdwSHOTOgL8bZs46ugzFSwNhxj5Z3fntMty3YxbK5fgAjDkznton/0m0wxn7pJ3P99IXUj5MmWHEXPo88RR+qcKZro3XIQ2oOs3r1PInZRL5sx+1qoVyM+ciV9XHZ7TMNxZiLHMmOikWpqBR0EAaRLgNOXUZSECv6bZjXKSeQQAiBQNgQ/njPYVens5MU4b7edvOuKOzqdcH/7lFG+3rV88JJafwm0euk4QXQBxyq14cWJG456PXsLtmXkuj1JJByNzUJ6PXv4sKJ2JmlD/hHH69/lBmrgqzfSaRwRGMWGemEbblLn2CkTy2rmRrM9H78LV8KhnpaA1Q5GOpJCjCUxFSnFcRFAps63khjR9oHmOqkIHkPm2DkKO+6nPLzkXHUtgRVpZzP0pZ8NY1NDRp8taXGAdUPqKVhq+1FxVPHwZXodVsZNiTR26cPR9nng9J8DH8+5MUrBNpAuEL8AJc0auxA4CNlAAAAAElFTkSuQmCC") !important;
+}
+#category-theme > .category-icon{/*外观*/
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAgVBMVEV8Q/8AAAB8Q/98Q/98Q/98Q/98Q/98Q/98Q/98Q/98Q/98Q/98Q/98Q/98Q/98Q//z7v+IVP/r4v+LWf+VZ/+PX//u5v+heP/w6v/JsP+8nv+1lf+ui//Twf+5mv+mf/+abv/h0/+ASf/49f/YyP/Dqf+/pP+DTf/m3P+qhf+ykf8UPZCnAAAAD3RSTlPxAO2rJdx1Wf7n5MrFvTBvny5+AAABSUlEQVRIx5XW646CMBCG4bGcRNQPxBNqUUBEvf8L3BWzO6lthb7/SJ40JE1mSpO+ZejNg5kQpCXELJh74fLteu57GMzz/3g0xYim0ZtHGFn04j5G5//yxXi+mJAPh3wKXXhIHtSyGt21qXIj9yiBUr6X2b2oj1ujTyhQ9fYo7wWAp9EHFH/orirwynh+TELVda9tXii8uqGUgN0TEbhDgfYA9qv8K8/Tep1e+LtcZd84qjN2mrfzk4Tu7bxrMt3bOeQTH/7AXue7Cr1fK97KkW5M3srbG+xe5+stdH+72jjuF/Sd2aNrrLwswH749Kyp2Vv/nbs+wJ61jbcSii9ZG/hpvwHYn1rbrbLmLrJgzdyoOeZilGbuoCEodtCIeSzhMagRUPKv00GNhEdqMazhOQ5sx3XgtmwcV5nbonRfw+5Lnp8QZEh5QvwAhsF5GnuqqsIAAAAASUVORK5CYII=") !important;
+}
+#category-plugin > .category-icon{/*插件*/
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAdVBMVEXnRUYAAADnRUbnRUbnRUbnRUbnRUbnRUbnRUbnRUbnRUbnRUbnRUbnRUbnRUbpTk/97+/nRkfvgID509PsaWr1s7T1rq762dnoSkv2vb32uLjueHntcHH5zMzzpaXrZGXqWlv++Pj74+P3wsPylJT86Oj739/7hBneAAAADnRSTlPxAO2rJdzBdVn+5+TKMCeMl4YAAAFFSURBVEjHldbZuoIwDEXhWEan3VIE6wTO7/+IR0RPhVik6/q/CnxJafJsmQRxNBeCWELMozhIlq178jDAz4LwzdMpRjRNW55iZGnDQ4wufPB4PI8nFMKjkBIfntDQDLNC96ZJiyGdS3RaUOShEdHMQ2NGgrutdmgIzrNNrvR3DSJi+iBXSr8051wDK3X51FJ/cK4brz/0unTwotFvb3X2nV/vrbbeas6lqoGut5rz6wboeas5z/foeas5NyeDnr+U7rkfFdD3eoCf4facGwW35xy3mnGZF05eVlxvMyevlXRrzlFsuR7gZl1x7eZ7td7Yn+xcvrXloqN3plRV/VByd3mNkHOrm49V3U83dTpcJViCZh3dZo4vyhdHxLW76H/pmTPTvIVdqRK/CzwXtuc58Ds2nqfM71D6n2H/I2+fEPSlzhPiDwHtb35BRmAqAAAAAElFTkSuQmCC") !important;
+}
+#category-userstyle > .category-icon{/*用户样式*/
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAmVBMVEUut/wAAAAut/wut/wut/wut/wut/wut/wut/wut/wut/wut/wut/wut/wut/wut/wut/z+//85u/wxuPxSxP35/f/d8/9Yxv3V8f5qzP0/vfzh9f/L7f7z+/9iyv3q+P+C1P01uvzP7/6n4f6J1/2b3f5Mwvzv+v+05v540f1wzv3E6/6Q2f2t4/6i3/635v6T2v1GwPy76P6/fsNcAAAAEHRSTlPxAO2r5txZKP7Kxb14czAglnytZQAAAlRJREFUSMeV1umWojAQBWAat977JkBIIOzIDuq8/8PNiI0mA55uv98XTlkmVRhPo8+P1etmbZrGjGmuN6+rj89LbozvVvjRajfFt8/4heftJb7FL23P8S/82te/+Bt0p7jiZRCUvIpP0L09GTuorEYS1uciDEXeMyIbC6qd8Q5FyIK9jatiH7AQindD6WGSOQPFyJaBPD9HBydLlG4aL5h4qe+iqGRnwfIP4cEfC3H91MPkxdhc00xS0Kg9RhlskoCSS1lUsmt+Y6ynSlKZAE1koQngEQFBPFhhQ5HIdKpnbZi46H0PQFMmiCPgSBg5gvIgigpQP8OFOcVD4o6N5KxycgB2bQO5T622B1znuz+GYWCMsQG0CS0kXSYwySqgSwHsmaXFm8AroijgFCrh1CLqANCg1uJywKG1qJ9Dk0dONr53n6rxE7GRdkCVYVlBTko89oFjJGpHYMayKQAWK/GqB6whKHPM2D5xuvOvVuI8xz3y4DXERsyVeClwz7nlfg1RKnFm4560osKxETpKnNwEybz2HHrcvYmaWWc8QClGNxywJObLcVevxuvOt1FrpM6v1XTEWyfU/ybd/g9uOm6hb4GCFHfitkOVZ9vLEdaOmI7V6rPZMYhBy/pu/NjiJmzTWL0e5sJh9Wb1CdyNg8fQUNZfr/YaM7mEypL8Njg2mDmRk/pu6Stj6QVzMlfqZlwdeqvlA/KN7p1eG6nvmPNI8T2wS1/oA3uHBe3gijjjJK3/WwfKslHUhJT8kBfQvT24yh5blI+t4ceXvP4JYSzQPiH+ApDVj8gXRJEFAAAAAElFTkSuQmCC") !important;
+}
+#category-dictionary > .category-icon{/*字典*/
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVR42mNggIL////3/CcRMCBpLgLiWUDMxEAkQDeAZJtHDRg1YNQAuAEtFBkAAwB0lhI5iVzKnAAAAABJRU5ErkJggg==") !important;
+}
+#category-locale > .category-icon{/*语言*/
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAdVBMVEX/mTAAAAD/mTD/mTD/mTD/mTD/mTD/mTD/mTD/mTD/mTD/mTD/mTD/mTD/mTD/njj/pEb/oD3/377/rlr/+PH/7Nj/xIj/8OD/yZH/+fT/9uz/1Kf/zpv/vXj/2LD///7/27f/8uX/uG7/qlP/qE//5cn/mzTcJsw0AAAADnRSTlPxAO2r5tzIWS0j/r14czXaT+IAAAGxSURBVEjHlZaJkqMgEIZ7vJLMAXILokZzvP8jbiYZF0yzO+GvSlUTPrGLvoS3u/ZfZVNXRQFIRVHVTfm1f3Bwh0vyq8r9iu/eyQt63z3wHXlRu2/8QF7W4YZ/vI5/vMGBZOgAnzn4J5Q5eAkN+q/V3NjJGq7b560GarKV4HIczoyw8zBKLrabNVSbNe1lR+/W2Ss5dbKn8XYFxcYPdWQPyzsvbiY7qtijYoO3c/dj9Rf2Y3VzxANA5Ila6dYFHzpF03h/XK2rjY489klcOBae9AFnTqRwrgNyciRI8wTeShoh5hRsKluM65FEUnGARo1xPkTAeSaRBh7w1OuJUHE4nMG4jV2n64oxQrm3GJ9IrMu3a2J01knbX6dfTieLYYMyun2cb5O+x/LTZfkbBfOfmzn5u0XRzSTvXTuvjDXo3tNRXUxLroItjqKopnLGdyismv8rI1f8ukiKMjKV7wu//eZJiXS+F0/VRN3JzyuLqgnXqp7WOsW1WkCFOkGAUSeooMZ9Jqye+0wNTbKLUUJTXayBMqdHlpkNO3Mc5A2bzFGWNyjzx3D+kA+fEJDQ5hPiD/n7dGJq52ulAAAAAElFTkSuQmCC") !important;
+}
+#category-userchromejs > .category-icon{/*uc 脚本*/
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAgVBMVEUlzZgAAAAlzZglzZglzZglzZglzZglzZglzZglzZglzZglzZglzZglzZglzZglzZglzZglzZglzZj7//534L9y371/4sPY9+1s3brk+fLM9Oe6795x3rwrzptA06Unzpny/PlX2bDC8eKP5spk3Law7dqj6tRO16ya6M/1/fo10aCK0RxMAAAAEnRSTlPxAO3cqVnn5MrFva94czAqJyAtBA3mAAABNUlEQVRIx5XWWXLCMBAE0EE2xoDZRmDFcrxvJPc/YBwUM0WR0kj91ap639OC1SPHQ7gNNkLAW4TYBNvwcDTuwU97ZLM/LXyNTlkbTpr1M7+gcy4z37nz3QrO6JEzJD48gZBHVd8OpoUQ81plbWtqDAHLm6xSvakBRCwfM60qUyMQnL7KsfnTKECw+kYPAPDQxBlN3EMT5zVxXhNnNc9J87zJdVeQZvin1EOt01nbOGlVYKlkijZOusvyAr+VLiyc9BXLX19+3W2cNBqfaysnbbwabJy08ZmcGH6b9ZJOfqCNv+qU9DvnNXFhSi9TXhNXrYNGsRwO2TlojJazpFXFawyWozfVI68xfp7Upr6zGkNI8Ol1mts1JkBzMOla9cwc+I2N55T5DaX/DPuPPH0h4J+8fCF+AJ/TjQrBtsqgAAAAAElFTkSuQmCC") !important;
+}
+#category-service > .category-icon{/*服务*/
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAh1BMVEWwhVAAAACwhVCwhVCwhVCwhVCwhVCwhVCwhVCwhVCwhVCwhVCwhVCwhVCwhVCwhVC7lWf////z7OOyiVXk1cK+m2+4kWD59fHw6N3UvJ+0jFmxhlL7+fXt49fQtpbOs5L9/fv28err4NLp3c7HqYTXwqfFpH3Bn3Xh0Lvax67SuZrcybHbyLBRXBKZAAAAD3RSTlPxAO3m3MipdVko/r2vMCAposs8AAABWUlEQVRIx5XW127CQBBA0Y27aQO76947kPz/94UAIRm8LnMfELaOQLLsGbOPe3vbMg1d09goTdMN07L3D3fn7g4W27m/3NnAijbOgzuwMueHH2B1hxvfrufbD+YCIZfZFG4zi8ItZlK4yQwKN5hO4TrTVKf9LgtOlWzfz2tKXqRN4R37S1D7gGKMjXUUPH82lpW/yNvUe30/h8kCT3j+dyB4vsD7QPw7ysMZHkdNHUp0jU7xJPc5vxbnDv1ZKXN/gjdS3D4F4tFXVl6Eih9LH1R5YRaPeCs5B3Wilm88boJLO8BEftojnmRNDDN9SsSLalZDXyGeXWE2r0Q89eb5ECBeLvCoRjwsxgTfdohHYTLHu0ogLvh52iddOsCTa88bgIe3503VEHHuwRsHEWXpSVVQ5+L1aBMHB3EsEYcecaQSBzZxHdCWDXGV0RYlbQ3Tlzx+hWCK0CvEN7HweNF/DMlYAAAAAElFTkSuQmCC") !important;
+}
+#category-availableUpdates > .category-icon{/*可用更新*/
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXUlEQVR42mNgwAP+//9/GIQZyAX/oWDUAFobgB5VQHbDf9ygAUMfNltwGNKA1XW4nIlmSANO7+HzJ9SQBrzhQ25IU98AILAhQbM1sgHP/pMPnoMM8AIxyND8BKQXAAfqddu5evZkAAAAAElFTkSuQmCC") !important;
+}
+#category-recentUpdates > .category-icon{/*最近更新*/
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeElEQVR42t2SYQqAIAxGd6+8gJ1qd6ujhB1jObFaw4mNfvVA2NTvoSIQUcwj0c0CFa4b/QlnIqgws4pAwRAUCYgmgEILxHy41qxNPcFj7YeCXCLZ4NAJDAm+uoKSoPcNsBUeFvT4XtD6yp3wJAWJ/OwsmLlwhDfOHtTOGe3dQKVyAAAAAElFTkSuQmCC") !important;
+}	
+	
+	
+	
+	
+	
+/*====================右侧 #header====================*/
+/* 检查更新按钮和搜索框*/
+#header {
+	position:fixed !important;
+	z-index:1000000000000;
+	margin:0 0 0 200px !important;
+	padding:3px 12px !important;
+	width:100% !important;
+	height:33px !important;
+	background:white !important;
+	border-bottom:1px solid rgb(204,204,204) !important;
+}
+/* 检查更新按钮*/
+#header-utils-btn{
+	background:none !important;
+	border:none !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	padding:4px 0 !important;
+	margin:0 20px 0 0 !important;
+	cursor: pointer;
+}
+
+.toolbarbutton-menu-dropmarker{}
+/*搜索框*/
+textbox#header-search {
+	width:400px !important;
+	height:26px !important;
+	padding:4px !important;
+	border:1px solid rgb(204,204,204) !important;
+}
+
+/* 隐藏元素*/
+#back-btn,#forward-btn,#updates-container {
+	display:none !important;
+}
+
+
+	
+	
+	
+/*====================右侧 #view-port-container====================*/
+#view-port-container {
+	margin:0 !important;
+	padding: 0 !important;
+	padding-top:33px !important;
+	border:none !important;
+	border-radius: 0 !important;
+}
+/*列表顶部信息栏*/
+.view-header,#update-actions{
+	margin:0 !important;
+	padding: 0 !important;
+	min-height:29px !important;
+	background:none !important;
+	border-bottom:1px solid rgb(204,204,204) !important;
+}
+/*列表顶部信息栏按钮*/
+.view-header .addon-control {
+	background: none !important;
+	border: none !important;
+}
+/*列表顶部信息栏排序按钮*/
+.view-header .sorter{
+	margin:0 !important;
+    padding:0 !important;
+	background: none !important;
+	color:rgb(66, 66, 66) !important;
+	border:none !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	border-left:1px solid rgb(204,204,204) !important;
+	cursor: pointer;
+}
+.view-header .sorter .box-inherit.button-box{
+    padding:4px 9px !important;
+}
+.view-header .sorter[checkState="2"]{
+	background: rgb(242,242,242) !important;
+}
+
+/*文字修改*/
+.name-container {
+  font-weight: normal!important;
+	font-family: Microsoft YaHei!important;
+	color:#000 !important;
+}
+.name-container>.disabled-postfix{color:#999 !important;}		  
+	
+	
+/*========列表 .list========*/
+/*紧凑列表*/
+#search-list *, #addon-list *, #updates-list * {
+	border: none !important;
+	box-shadow:none !important;
+	text-shadow: none !important;
+	-moz-transition: none !important;
+}
+/*列表所有项目放到同一行*/
+#view-port .addon.addon-view {
+	margin:0 !important;
+	padding: 2px 12px !important;
+	border-bottom:1px rgb(242,242,242) solid !important;
+	font-family:tahamo!important;
+	position:relative !important;
+}
+#view-port .addon.addon-view * {
+	font-size: 100% !important;
+	margin-right: 0 !important;
+	white-space: nowrap !important;
+}
+#view-port .addon.addon-view .content-inner-container,
+#view-port .addon.addon-view .description-outer-container{
+	-moz-box-orient: vertical !important;
+	-moz-box-align: start !important;
+}
+#view-port .addon.addon-view .status-control-wrapper *{
+	-moz-box-orient: horizontal !important;
+	-moz-box-align: center !important;
+}
+#view-port .addon.addon-view .basicinfo-container{
+    padding-top: 2px !important;
+}
+#view-port .addon.addon-view .description-outer-container{
+	margin-top: 8px !important;
+	margin-bottom: 8px !important;
+}
+.addon.addon-view .status-control-wrapper{/*列表按钮*/
+	position:absolute !important;
+	right:12px;
+	top:1px;
+}
+/*列表图标大小*/
+#view-port .icon-container,#view-port .icon {
+	height: 16px !important;
+	width: 16px !important;
+}
+/*列表各元素间距*/
+#view-port .icon-container,#view-port .description{
+	margin-left: 0px !important;
+}
+#view-port :-moz-any(.name,.version,.disabled-postfix,.update-postfix,.date-updated,.details.buttton-link,.relnotes-toggle),#view-port .relnotes-container > *,#view-port .status-container label {
+	margin-left: 6px !important;
+}
+/*列表按钮全局*/
+#view-port .list button,#view-port .list menulist,#view-port #detail-view button{
+	margin:2px 0px !important;
+	margin-left: -1px !important;
+  padding:0 !important;
+	background: none !important;
+	color:rgb(66, 66, 66) !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	border:1px solid rgb(204,204,204) !important;
+	height: 20px !important;
+	cursor: pointer;
+}
+/*隐藏更多*/
+#list-view .details.button-link {
+	display:none !important;
+}
+
+/*隐藏描述信息*/
+.addon.addon-view .description-outer-container {
+	display:none !important;
+}
+/*显示描述信息*/
+.addon.addon-view[selected] .description-outer-container {/*选中*/
+	display:-moz-box !important;
+}
+.addon.addon-view[pending] .pending{/*禁用*/
+	margin-left: 0 !important;
+}
+.addon.addon-view[selected][pending] .pending{/*选中并禁用*/
+	margin-left: -1px !important;
+}
+.addon.addon-view[pending] .description-outer-container{/*禁用*/
+	display: none !important;
+}
+
+/*悬停项背景*/
+#view-port .addon:hover{
+	background: rgba(39,197,109,0.05) !important; 
+}
+/*禁用项背景*/
+.addon.addon-view[active="false"]:not([notification="warning"] ) {background: rgb(255,255,255) !important}
+/*不兼容项背景*/
+richlistitem[notification="warning"] {background-image: url("chrome://mozapps/skin/extensions/stripes-warning.png"), -moz-linear-gradient(rgba(255, 255, 0, 0.04), transparent);}
+/*选中项背景*/
+#view-port .addon[selected] {background-color: rgb(242,242,242) !important;}
+
+/*========扩展、外观、插件等列表面板#list-view========*/
+/*按钮样式*/
+#list-view .control-container button,#list-view .addon-control.update{
+	margin:0 !important;
+    margin-left:16px !important;
+	background-repeat: no-repeat !important;
+	background-position: left center !important;
+	border: none !important;
+	height: 24px !important;
+	min-width: 16px !important;
+	cursor: pointer;
+}
+#list-view .addon-control.update .button-text,#list-view .control-container .button-text{/*隐藏按钮文字*/
+	visibility: hidden !important;
+	width: 0 !important;
+}
+/*立即更新按钮样式*/
+#list-view .list button[class="addon-control update"]{
+    padding-left:10px !important;
+	background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAN0lEQVR42mNgGLTAycnpPzIeNYAeBgAVNaBrwoMbKDGkgRKXNBDr/wayNeMwpIHc5NxAtma6AQDy+G7XeSUsnAAAAABJRU5ErkJggg==") !important;
+}
+/*编辑按钮样式*/
+#list-view .list button[class="addon-control"]{
+	background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAARVBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADc6ur3AAAAF3RSTlMAdzrfrDN4uTwTQJlUxLagvmpOKiL0Cnb8ufEAAABXSURBVBjTpctBFoAgCEVRQkswK7Xa/1b7ExXH/dm7B2heqFNqqYHWvkc9FyK3tInnU/HV7y9BA3pz4HuA7pJ1kwbomJUGoA8lA8mhLcSEtoD9gdePOcAH43QDTGN4GOYAAAAASUVORK5CYII=") !important;
+}
+/*选项按钮样式*/
+#list-view .list button[class="addon-control preferences"] {
+	background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASBAMAAACk4JNkAAAAJFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACmWAJHAAAAC3RSTlMAeKlWKZw6jRkHvYKNCNoAAABQSURBVAjXY8ABGHcLQBhG0i4blUEM5o1hDKnSBkAWE0iKUQFEBEzfXckK4konFHUsZ9sIZG1h2MHQzeCNYIFlq6CyCB0IUxAmI2xDuAATAAAG2hbR9CoaeAAAAABJRU5ErkJggg==") !important;
+}
+/*启用按钮样式*/
+#list-view .list button[class="addon-control enable"] {
+	background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAQCAMAAABTCc2fAAAAmVBMVEUAAADS0tKQkJDl5eXR0dEaGhqsrKy+vr7l5eUAAADl5eXl5eXl5eXl5eW4uLjOzs6urq7Kysrl5eXl5eWenp7Kysq6urrl5eXl5eXl5eXl5eXl5eUXFxexsbG4uLhsbGzCwsL////m5ubq6ur9/f36+vr+/v7z8/Pc3Nzv7+/19fX39/fg4ODY2Njs7Ozl5eXW1tbMzMzGxsZVIz0EAAAAMXRSTlMA5CAg/wyS/oADrskV52LMR7X10S3rlIbZU5o6FL7cOPP////////////////////+qKW2EQAAAMVJREFUKM91klkSgjAQRMcNRMV9XyuEIQSIA97/cAJlKZHhfU5edfdHoGQ072UyyIwhyUDTE9R4/V4ialSQRqJN+pzOKrGff1+RUsGh/NL0Fo0UlCFvTgCWunmRSrDIC6ysA8qIFZMzGPsS8N2hD/GfiKwYEeT2hToSCXb2RuI34hH2iRWoBYs6wLZoNgyxo3kAnpP9JpuOZj2uvsTNhJ8huUE2T0+g4uq4scZUx8M4YSxUVObVjB7O3XXdV5FRm/VmPKikN4gyTq6p/4eMAAAAAElFTkSuQmCC") !important;
+	width: 40px !important;
+	min-width: 40px !important;
+}
+/*禁用按钮样式*/
+#list-view .list button[class="addon-control disable"] {
+	background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAQCAMAAABTCc2fAAAAw1BMVEUAAAAAmEVTzIkAbTEA42cA42cA42cAIg8A42cjw2sAtVMA42cA42cA42cA42cA42cA42cA42cA42cA42cA42cA42cnxG5AzIBc1JJf1ZQPul0IslUAqEwRuF0ACwUAm0YAlEMAvlYA42f///8A4GUA02D6/vsCv1cIz2IA3GR126OE1am15sr+//7F7Nct0ngR0Wfn+e+i5sAA2GLu+vQwwnLR8+Be15W77dFC1IQ4w3Zr2p0AxloAx1ps1ZwnwGwPvF0YRe5hAAAAInRSTlMALP0oH68VB4CW1fXpzIXlxlTQmdk6ncvq8azDSO8WagcgR7pLuQAAALdJREFUKM+N0dcOgkAQQNERkGbvXRNWijSl2dv/f5VrsCyBMd7nk8nMLjwT5HZFy7eMrMPJHiolCdLkHEmdZceEZoRKKsuI2/jkVTCQfszT9+RTQGcKWnGrHWEKS1BHoL5lodGHLrYhyTQCDYHrLLT/hVeoItIyMpCDDnaMy7p4DD3seY4eA50p+jHa2fk6fyIBiA1kpOm8Z7ozHmhiE9nSTFx6kedzKg9prVqhjC6meUvu6mJOzQNIE1CzqGoQawAAAABJRU5ErkJggg==") !important;
+	width: 40px !important;
+	min-width: 40px !important;
+}
+/*移除按钮样式*/
+#list-view .list button[class="addon-control remove"] {
+	background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAYCAMAAADJYP15AAAAS1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADmYDp0AAAAGXRSTlMApgxPh56tHjFmcT4kgrhaBZSNFHrfREXOS2MHDwAAAIVJREFUKM/Nz1cKAzEMBFB3yb2m3P+kEYaF1WbJdwZszPMgkPi/VOecnF8s6Tw9I1XerlCbrkc4eVrHy57rc9AQA9FzbnazrpzFwWrccNWQb9i/MFzYKuIY/WWZThxQa95uAwws9JFxn4Y4p4CMc1q4P4BxQFCppdYV4yj9ThE8gDtK/MwH1EkExwW/74cAAAAASUVORK5CYII=") !important;
+	min-width: 22px !important;
+	transform: translate(4px, -3px) !important;
+}
+#list-view .list button[class="addon-control remove"]:not(:active):hover {
+	background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAYCAMAAADJYP15AAAAS1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADmYDp0AAAAGXRSTlMArKUtRYeeZh4zCo4DPnEkeVIRgFy6hJbJCO09tAAAAJBJREFUKM+dytsOgyAMgOEqRVqQozp9/ycdYVtGN+OFPyFpvhbuNStm+me3pDSwvETEo/7gEFXH5hvC3dQxvNt6jukzTT0XByNo8kbyPDXGVTK8OGfrTnhFWk7YIIcfnmxl71fBI+xFU+CcJc+ONCVlvGBXdOVHDCx4iUm1BQkOTDbWtxfBfjStDWTELQuXPQFeVwX0qPh3HQAAAABJRU5ErkJggg==") !important;
+}
+#list-view button[class="addon-control remove"]:active:hover {}
+/*总是激活|总是禁用按钮样式*/
+#list-view .addon-control.state{}
+
+/*========详细面板#detail-view========*/
+/*详细面板按钮样式*/
+#detail-view #detail-controls button{}
+
+/*========更新面板#updates-view========*/
+/*安装选中的更新&立即更新*/
+#updates-view #update-selected-btn{
+	background: none !important;
+	color:rgb(66, 66, 66) !important;
+	border:none !important;
+	border-radius: 0 !important;
+	border:1px solid rgb(204,204,204) !important;
+}
+
+
+/*隐藏兼容检查警告*/
+.view-header.global-warning-container,.global-warning-container.global-warning,.addon.addon-view .warning {
+	display:none!important;
+}
+/*隐藏作者*/
+#search-list .creator,#addon-list .creator,#updates-list .creator {
+	display: none !important;
+}
+/*进度条*/
+.download-progress{
+	background-image: none !important;
+}
+.progress-bar {
+	-moz-appearance:none !important;
+	background:-moz-repeating-linear-gradient(0 -45deg,#48A 0px,#89F 5px,#FAFAFA 5px,#FAFAFA 10px) !important;
+}
+.progress-remainder {
+	-moz-appearance:none !important;
+	background:#FFF !important;
+}
+progressmeter {
+	-moz-appearance:none !important;
+	border:1px solid #99B !important;
+	box-shadow:0 0 4px -1px #49F;
+}
+/*隐藏底部信息*/
+#userstyle-footer {
+	display:none !important;
+}
+/*隐藏水平滚动条*/
+#view-port-container #view-port scrollbox {
+	overflow-x:hidden!important}
+	
+
+/* 显示ID*/
+/*.addon[selected="true"]::after {
+    content: " ID : " attr(value) !important;
+    margin-left: 30px !important;
+    color: red !important;
+    cursor: default;}*/
+
+
+/*当前选择项显示描述信息*/
+.addon.addon-view[selected="true"] .description-container {
+	display:-moz-box !important;
+	position:absolute !important;
+	left:27px;
+	bottom:6px;
+	color:grey;
+	width:750px;
+}
+.addon.addon-view[selected="true"] {
+	height:45px !important;
+	position:relative !important;
+}
+.addon.addon-view[selected="true"][active="true"][pending="upgrade"]  .description-container{
+	display:none !important;
+}
+
+/* 背景图案 - 隔行换色显示*/
+#addon-list > richlistitem:nth-child(even){ background:white;}
+#view-port-container{background: rgba(9,140,40,0.04) !important;}
+}
+
+/*隐藏附加组件管理器里的"舛观"选项*/
+#category-theme {display: none!important
+}
+
+/*隐藏附加组件管理器里的"Service"选项*/
+#category-service{display: none!important
+}

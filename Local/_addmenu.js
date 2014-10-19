@@ -1,3 +1,5 @@
+//2014.10.17
+
 /*——————————选中文本右键——————————*/
 
 //选取范围内复选框的 ON/OFF
@@ -126,15 +128,18 @@ new function () {
 var items = [
 //打开方式(默认当前页面)，通过where 更改，具体tab(前台)、tabshifted(后台)、window(窗口)
 
-{label:"Baidu搜索",accesskey: "B",url:"http://www.baidu.com/baidu?wd=%s",image:"http://www.baidu.com/favicon.ico",where: 'tab'},
-
 {label:"Google搜索",accesskey: "G",url:"http://www.google.com/search?q=%s",image:"https://www.google.com/favicon.ico",where: 'tab'},
+
+{label:"Baidu搜索",accesskey: "B",url:"http://www.baidu.com/baidu?wd=%s",image:"http://www.baidu.com/favicon.ico",where: 'tab'},
 
 {label:"Bing搜索",accesskey: "M",url:"http://www.bing.com/search?q=%s",image:"http://cn.bing.com/s/a/bing_p.ico",where: 'tab'},
 {},
+{label:"Google地图",url:"http://maps.google.com/maps?q=%s&ie=utf-8",image:"http://maps.gstatic.com/favicon3.ico",where: 'tab'},
+{label:"Baidu地图",url:"http://map.baidu.com/m?word=%s",image:"http://map.baidu.com/favicon.ico",where: 'tab'},
+{},
 {label:"Wiki-EN",url:"https://en.wikipedia.org/wiki/%s",image:"https://bits.wikimedia.org/favicon/wikipedia.ico",where: 'tab'},
 
-{label:"Wiki-ZH",url:"https://zh.wikipedia.org/wiki/%s",image:"https://bits.wikimedia.org/favicon/wikipedia.ico",where: 'tab'},
+{label:"Wiki-中文",url:"https://zh.wikipedia.org/wiki/%s",image:"https://bits.wikimedia.org/favicon/wikipedia.ico",where: 'tab'},
 {},
 {label:"汉典",url:"http://www.zdic.net/search?q=%s",image:"http://www.zdic.net/favicon.ico",where: 'tab'},
 
@@ -242,7 +247,7 @@ elem.disabled = original.disabled;
 new function(){
 
 //几个扩展图标
-tab({
+/*tab({
     id: "flashgot-media-tbb",
     insertBefore: "userChromebtnMenu",
     clone: false,  // 不克隆，直接改在原来的菜单上面
@@ -259,12 +264,12 @@ tab({
     insertBefore: "userChromebtnMenu",
     clone: false,  // 不克隆，直接改在原来的菜单上面
 }
-);
+);*/
 
 //右键菜单
 tab({
     id: "yun-player-context",
-    insertAfter: "context-copylink",
+    insertAfter: "context-copy",
     clone: false,  // 不克隆，直接改在原来的菜单上面
 }
 );

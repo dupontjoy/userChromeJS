@@ -3,6 +3,7 @@
 // @include         main
 // @description     中键书签工具栏书签文件夹添加书签至对应文件夹
 // @version         0.0.1
+//取消添加描述 2014.10.05
 // ==/UserScript==
 
 (function () {
@@ -33,6 +34,8 @@
             "var toolbarIP = new InsertionPoint(PlacesUtils.toolbarFolderId, ABHere.isInsertTop ? 0 : -1);"));
              //取消隐藏关键字,说明等;
              eval("StarUI._doShowEditBookmarkPanel="+StarUI._doShowEditBookmarkPanel.toString().replace(/hiddenRows: \[[^]*\]/,"hiddenRows: []").replace(/}$/,"setTimeout(function(){ gEditItemOverlay.toggleFolderTreeVisibility(); gEditItemOverlay.toggleTagsSelector(); document.getAnonymousNodes(document.getElementById('editBMPanel_tagsSelector'))[1].lastChild.style.display = 'inline-block'; document.getElementById('editBMPanel_tagsSelector').style.cssText = 'max-height:85px !important; width:350px !important'; document.getElementById('editBMPanel_folderTree').style.cssText = 'max-height:50px !important; width:350px !important';document.getElementById('editBookmarkPanel').style.maxHeight='400px'}, 0); $&"));
+             //取消添加描述 2014.10.05
+             eval("PlacesCommandHook.bookmarkPage="+PlacesCommandHook.bookmarkPage.toString().replace(/\[descAnno\]/, "null"));
         },
 
         getAnchorElementByItemId: function(target, itemId) {

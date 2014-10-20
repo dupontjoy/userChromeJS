@@ -1,4 +1,4 @@
-//2014.10.19
+//2014.10.20 20:30  添加及分組規則
 
 rules = [
 {
@@ -10,31 +10,8 @@ wildcard: false, // 可选，true 表示 from 是通配符
 regex: false, // 可选，true 表示 from 是正则表达式
 resp: false // 可选，true 表示替换 response body
 },
-{
-name: "google搜索结果禁止跳转",
-from: /^https?:\/\/www\.google\.com\/url\?.*url=([^&]*).*/i,
-to: "$1",
-regex: true
-},
-{
-name: "google.com.hk >> google.com",
-from: /^https?:\/\/www\.google\.com\.hk\/search\?(.*)/,
-to: "https://www.google.com/ncr#hl=en-US&newwindow=1&$1",
-regex: true
-},
-{
-name: "userscripts >> webextender鏡像",
-from: /^https?:\/\/userscripts\.org(?:\:8080|)\/(.*)/i,
-to: "http:\/\/webextender.net/$1",
-regex: true
-},
-{
-// 包含手机版界面
-name: "百度随心听音质320",
-from: /^https?:\/\/music\.baidu\.com\/data\/music\/fmlink(.*[&\?])rate=[^3]\d+(.*)/i,
-to: "http://music.baidu.com/data/music/fmlink$1rate=320$2",
-regex: true
-},
+
+//Google服務轉國內鏡像
 {
 //Http走360，Https走科大
 name: "360 useso提供 Google服务加速-ajax/fonts",
@@ -50,29 +27,100 @@ to: "https://$1.lug.ustc.edu.cn/$2",
 regex: true
 },
 {
-//https://servers.ustclug.org/index.php/2014/06/blog-googlefonts-speedup/
 name: "科大博客提供 Google服务加速-themes",
 from: /^https?:\/\/themes\.googleusercontent\.com\/(.*)$/,
 to: "http://google-themes.lug.ustc.edu.cn/$1",
 regex: true
 },
 {
-//https://servers.ustclug.org/index.php/2014/06/blog-googlefonts-speedup/
 name: "科大博客提供 Google服务加速-fonts-gstatic",
 from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
 to: "http://fonts-gstatic.lug.ustc.edu.cn/$1",
 regex: true
 },
 {
-name: "Gravatar头像>>多说",
+name: "Gravatar头像 >> 多说",
 from: /^https?:\/\/([0-9]?)\.gravatar\.com\/avatar\/(.*)$/,
 to: "http://gravatar.duoshuo.com/avatar/$1",
 regex: true
 },
 {
-name: "Google统计脚本",
+name: "Google统计脚本 >> mingto.tk",
 from: /^https?:\/\/(.*?)google-analytics.com\/(.*)$/,
 to: "http://code.minggo.tk/etc/$2",
+regex: true
+},
+{
+name: "Google Tag Services >> mingto.tk",
+from: /^https?:\/\/(.*?)googletagservices\.com\/tag\/js\/(.*)$/i,
+to: "http://www.minggo.tk/etc/$2",
+regex: true
+},
+
+//轉https
+{
+name: "【https】google",
+from: /^http:\/\/(([^\.]+\.)?google\..+)/i,
+exclude: /google\.cn/i, // 可选，排除例外规则
+to: "https://$1",
+regex: true
+},
+{
+name: "【https】Wiki Media",
+from: /^http:\/\/upload\.wikimedia\.org\/(.*)$/i,
+to: "https://upload.wikimedia.org/$1",
+regex: true
+},
+{
+name: "【https】Google Code",
+from: /^http:\/\/(.*?)googlecode\.com\/(.*)$/i,
+to: "https://$1googlecode.com/$2",
+regex: true
+},
+{
+name: "【https】Google User Content",
+from: /^http:\/\/(.*?)googleusercontent\.com\/(.*)$/i,
+to: "https://$1googleusercontent.com/$2",
+regex: true
+},
+
+//單獨網站
+{
+name: "google搜索结果禁止跳转",
+from: /^https?:\/\/www\.google\.com\/url\?.*url=([^&]*).*/i,
+to: "$1",
+regex: true
+},
+{
+name: "google.com.hk >> google.com",
+from: /^https?:\/\/www\.google\.com\.hk\/search\?(.*)/,
+to: "https://www.google.com/ncr#hl=en-US&newwindow=1&$1",
+regex: true
+},
+{
+name: "职友集去跳转",
+from:/^http:\/\/www\.jobui\.com\/.*\link=(.*)/i,
+to: "$1",
+regex: true
+},
+{
+name: "userscripts >> webextender鏡像",
+from: /^https?:\/\/userscripts\.org(?:\:8080|)\/(.*)/i,
+to: "http:\/\/webextender.net/$1",
+regex: true
+},
+{
+name:"Greasyfork >> zh-CN",
+state:true,
+from:/^https:\/\/greasyfork\.org\/scripts\/(.*)/,
+to:"https://greasyfork.org/zh-CN/scripts/$1",
+regex:true
+},
+{
+// 包含手机版界面
+name: "百度随心听音质320",
+from: /^https?:\/\/music\.baidu\.com\/data\/music\/fmlink(.*[&\?])rate=[^3]\d+(.*)/i,
+to: "http://music.baidu.com/data/music/fmlink$1rate=320$2",
 regex: true
 },
 {
@@ -86,12 +134,6 @@ regex: true
 name: "般若文海 article >> books",
 from: /^https?:\/\/book\.bfnn\.org\/article([\d]?\/.*)/i,
 to: "http://book.bfnn.org/books$1",
-regex: true
-},
-{
-name: "职友集去跳转",
-from:/^http:\/\/www\.jobui\.com\/.*\link=(.*)/i,
-to: "$1",
 regex: true
 },
 {
@@ -113,17 +155,32 @@ to: "http://$1tmall.com/$2",
 regex: true
 },
 {
-name: "tradingfloor 原始大图",
+name: "tradingfloor 原始大圖",
 from: /^https?:\/\/www\.tradingfloor\.com\/images\/article\/max608w\/(.*)/i,
 to: "https://www.tradingfloor.com/images/article/original/$1",
 regex: true
 },
 {
-name: "貼吧 原始大图",
-from: /http:\/\/imgsrc\.baidu\.com\/forum\/w.+\/sign=[^\/]+(\/.*).jpg/i,
-to: "http://imgsrc.baidu.com/forum/pic/item$1.jpg",
+name: "百度貼吧|百科 原始大圖",
+from: /http:\/\/(imgsrc|[\w]?\.hiphotos)\.baidu\.com\/(forum|baike)\/[\w].+\/sign=[^\/]+(\/.*).jpg/i,
+to: "http://$1.baidu.com/$2/pic/item$3.jpg",
 regex: true
 },
+{
+name: "AcFun",
+from: /^http:\/\/www\.acfun\.tv\/v\/ac(.*)$/i,
+exclude: /acfun\.tv\/v\/ac(.*)#txt-title-view/i, // 可选，排除例外规则
+to: "http://www.acfun.tv/v/ac$1#txt-title-view",
+regex: true
+},
+{
+name: "BiliBili",
+from: /^http:\/\/www\.bilibili\.com\/video\/av(.*)$/i,
+exclude: /bilibili\.com\/video\/av(.*)#alist/i, // 可选，排除例外规则
+to: "http://www.bilibili.com/video/av$1#alist",
+regex: true
+},
+
 
 //以下为不启用
 {

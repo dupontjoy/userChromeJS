@@ -1,7 +1,9 @@
-//2014.10.20 20:30  添加及分組規則
+//2014.10.23 13:20  添加TVC規則
+//2014.10.20 20:30  分組規則，添加規則
 
 rules = [
 {
+//自帶示例
 name: "about:haoutil", // 规则名称
 from: "about:haoutil", // 需要重定向的地址
 to: "https://haoutil.googlecode.com", // 目标地址
@@ -180,7 +182,12 @@ exclude: /bilibili\.com\/video\/av(.*)#alist/i, // 可选，排除例外规则
 to: "http://www.bilibili.com/video/av$1#alist",
 regex: true
 },
-
+{
+name: "TVC內網 去掉多余的「http//」",
+from: /^http:\/\/http\/\/(.*)/i,
+to: "$1",
+regex: true
+},
 
 //以下为不启用
 {

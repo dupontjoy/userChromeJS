@@ -1,0 +1,205 @@
+/*2014.10.09*/
+
+/*==============以下为“界面”的隐藏==============*/
+/*书签工具栏产生的箭头*/
+#PlacesChevron,
+#nav-bar-overflow-button
+{ display:none !important; }
+
+/*===标签栏隐藏项===*/
+[anonid="close-button"],/*标签关闭按钮*/
+[class="scrollbutton-up"],/*标签占满时的左箭头*/
+[class="scrollbutton-down"]/*标签占满时的右箭头*/
+{display: none !important;}
+
+/*==============以下为“页面”的隐藏==============*/
+/*全局去掉分隔线*/
+/*menuseparator
+{display: none !important;}*/
+
+/*===隐藏页面右键菜单===*/ 
+#context-shareselect,/*分享选中项目*/
+#context-shareimage,/*分享此图片*/
+#context-sharelink,/*分享此鏈接*/
+#context-navigation,
+#context-sep-navigation,
+#frame,/*本框架*/
+#context-forward, /*前进*/
+#context-back, /*后退*/
+#context-reload, /*刷新*/
+#context-stop, /*停止*/
+#context-delete, /*停止*/
+#context-sep-stop, /*停止下面的分割线*/
+#context-savepage,/*网页另存为*/
+#context-bookmarkpage, /*此页面加入书签*/
+#context-sendlink, /*发送链接到*/
+#context-sendpage, /*发送页面链接到*/
+#context-viewimage, /*查看图片*/
+#context-copyimage-contents, /*复制图片*/
+#context-sep-copyimage, /*复制图片下面的分割线*/
+#context-sendimage, /*发送图片到*/
+#context-setDesktopBackground, /*设置为桌面背景*/
+#context-blockimage, /*阻止图片*/
+#context-viewbgimage, /*查看背景图片*/
+#context-savelink, /*链接另存为*/
+#context-openlink, /*在新窗口打开链接*/
+#context-openlinkprivate, /*在新的隐私浏览窗口打开链接*/
+#context-openselectedlinksintab,/*在新标签页中打开选中的链接*/
+#context-sep-open, /*打开新窗口下面的分割线*/
+#context-bookmarklink, /*此链接加入书签*/
+#context-selectall,/*全选*/
+#context-sep-selectall, /*全选下面的分割线*/
+#spell-check-enabled, /*拼写检查*/
+#spell-separator, /*拼写检查分割线*/
+#inspect-separator, /*Inspect Element分割线*/
+#context-sep-viewbgimage,    /*分割線*/
+#context-sep-viewsource, /*分割線*/
+#context-inspect,/*Inspect Element*/
+#context-searchselect,/*Context Search*/
+#spell-add-dictionaries-main,/*添加到字典*/
+#context-openlinkincurrent/*打开链接*/
+{display: none !important;}
+
+/*===标签栏右键菜单===*/
+#tabContextMenu > menuseparator,/*全部分割线*/
+#context_pinTab,/*固定为应用程序标签页*/
+#context_openTabInWindow,/*移动到新窗口*/
+#context_reloadTab,/*重新载入标签页*/
+#context_reloadAllTabs,/*重新载入全部标签页*/
+#context_bookmarkAllTabs,/*将全部标签页加为书签*/
+#context_closeTab,/*关闭标签页*/
+#context_closeTabsToTheEnd, /*关闭右侧标签页*/
+#context_closeOtherTabs,/*关闭其他标签页*/
+#menu_restoreAllTabs/*还原所有标签页*/
+{display: none !important; }
+
+/*隐藏项 - 书签右键*/
+.hide-if-empty-places-result,#placesContext_sortSeparator,[class="bookmarks-actions-menuseparator"],#placesContext_openSeparator,#placesContext_deleteSeparator,/*分隔符*/
+.openintabs-menuitem, /*在标签页中打开标签组*/
+#subscribeToPageMenuitem  /*订阅此页…*/,
+[id="placesContext_open:newtab"], /*在标签页中打开*/
+[id="placesContext_open:newwindow"], /*在窗口中打开*/
+[id="placesContext_new:separator"], /*新建分割条*/
+[id="placesContext_openContainer:tabs"], /*在标签页中打开标签组*/
+[id="placesContext_sortBy:name"], /*按名称排序*/
+#placesContext_open,/*打开*/
+#placesContext_cut,/*剪切*/
+#placesContext_paste/*粘贴*/
+{display: none !important;}
+
+/*隐藏项 - 地址栏右键*/
+#urlbar menuitem[label="復原"],
+#urlbar menuitem[label="剪下"],
+#urlbar menuitem[label="複製"],
+#urlbar menuitem[label="刪除"],
+#urlbar menuitem[label="撤销"],
+#urlbar menuitem[label="剪切"],
+#urlbar menuitem[label="复制"],
+#urlbar menuitem[label="删除"],
+#urlbar menuitem[label="Undo"],
+#urlbar menuitem[label="Cut"],
+#urlbar menuitem[label="Copy"],
+#urlbar menuitem[label="Delete"]
+{display: none !important;}
+
+/*隐藏项 - 搜索栏右键*/
+#searchbar menuitem[label="復原"],
+#searchbar menuitem[label="剪下"],
+#searchbar menuitem[label="複製"],
+#searchbar menuitem[label="刪除"],
+#searchbar menuitem[label="撤销"],
+#searchbar menuitem[label="剪切"],
+#searchbar menuitem[label="复制"],
+#searchbar menuitem[label="删除"],
+#searchbar menuitem[label="全选"],
+#searchbar menuitem[label="Undo"],
+#searchbar menuitem[label="Cut"],
+#searchbar menuitem[label="Copy"],
+#searchbar menuitem[label="Delete"],
+#searchbar menuitem[label="Select All"]
+{display: none !important;}
+
+/*隐藏项 - 书签编辑右键*/
+#editBookmarkPanelContent menuitem[label="復原"],
+#editBookmarkPanelContent menuitem[label="剪下"],
+#editBookmarkPanelContent menuitem[label="複製"],
+#editBookmarkPanelContent menuitem[label="刪除"],
+#editBookmarkPanelContent menuitem[label="撤销"],
+#editBookmarkPanelContent menuitem[label="剪切"],
+#editBookmarkPanelContent menuitem[label="复制"],
+#editBookmarkPanelContent menuitem[label="删除"],
+#editBookmarkPanelContent menuitem[label="Undo"],
+#editBookmarkPanelContent menuitem[label="Cut"],
+#editBookmarkPanelContent menuitem[label="Copy"],
+#editBookmarkPanelContent menuitem[label="Delete"]
+{display: none !important;}
+
+/*隐藏项 - 输入框右键*/
+#context-sep-paste,#context-sep-undo,/*分隔条*/
+#spell-dictionaries,/*语言-添加字典*/
+#context-undo,/*撤销*/
+#context-cut,/*剪切*/
+#context-keywordfield/*为此搜索添加关键字*/
+{display: none !important;}
+
+/*隐藏项 — 附加组件*/
+#category-discover,/*获取附加组件*/
+#category-service/*服务*/
+{display: none !important;}
+
+/*隐藏项 — 下载*/
+[class="downloadRemoveFromHistoryMenuItem"]/*从历史记录中移除*/
+{display: none !important;}
+
+/*===================扩展和脚本的图标======================*/
+/*隐藏页面右键菜单*/
+#foxyproxy-contextmenu-icon,
+#contentAreaContextMenu > .abp-contextmenuitem,/*屏蔽ABP右鍵菜單*/
+#wordhighlight-toolbar-highlight/*隐藏wordhighlight右鍵菜單*/
+{display: none !important;}
+
+/*LastPass菜单*/
+#lpt_separator3000,#lpt_menudelim2,/*分隔条*/
+#lpt_menu_search_box,/*搜索密码库*/
+#lpt_comp-bar-accts,/*站点*/
+#lpt_lpfillformsmenu1,/*表单填写*/
+#lpt_lpgenpw,/*生成安全密码*/
+#lpt_comp-bar-securenotes,/*安全笔记*/
+#lpt_comp-bar-recentlyused,/*最近使用*/
+#lpt_lphelp,/*帮助*/
+#lpt_lppremium, /*升至高级版*/
+#lpt_lpseccheck, /*安全检查*/
+#lpt_lpidentitiesmenu1, /*身份（全部）*/
+#lpt_lpabout, /*关于*/
+#lpt_comp-bar-advanced-tools, /*高级工具*/
+#lpt_lpimportfrom, /*导入*/
+#lpt_lpprint, /*打印*/
+[label="复制用户名"],
+[label="复制密码"],
+[label="复制网址"],
+[label="转到网址"],
+[label="保存所有输入的数据"], /*保存所有输入的数据*/
+[label="添加安全笔记"]/*添加安全笔记*/
+{display: none !important;}
+
+/*UserScriptLoader*/
+#UserScriptLoader-delete-pref,
+#UserScriptLoader-delete-info,
+[label="网站..."],
+#UserScriptLoader-check-script,
+#UserScriptLoader-find-script
+{display: none !important;}
+
+/*UserCSSLoader*/
+[label="userChrome.css"],
+[label="userContent.css"],
+[label="新建用戶 css 樣式 (外部編輯器)"],
+[label="新建瀏覽器樣式 (Chrome)"],
+[label="新建當前網頁樣式 (Web)"],
+[label="在userstyles.org檢索當前網頁樣式"]
+{display: none !important;}
+
+/*ABP菜单项*/
+#abp-menuitem-sendReport,/*报告该页面上的问题*/
+#abp-menuitem-openbottombar/*打开可过滤项目*/
+{display: none !important;}

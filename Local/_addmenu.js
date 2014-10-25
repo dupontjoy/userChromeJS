@@ -1,4 +1,4 @@
-//2014.10.17
+//2014.10.20
 
 /*——————————选中文本右键——————————*/
 
@@ -57,21 +57,23 @@ var undoMenu = TabMenu({
 /*——————————图片右键————————*/
 
 //右键搜索图片 以图搜图
- var imagesub = PageMenu({ label: "以图搜图",accesskey: "t",  condition: "image", where: "tab", insertAfter:"context-viewpartialsource-selection", image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAE40lEQVRIiZWVbUxTZxTHD60tKJgYKpaEfoDhHFVeMtlU4gbMMhrMqA6l0YKY+MnFaOJwdb7LCgJDGRXmBEUIL+pQYQ20IDBnnZOwJRo1cVncxiAGjRIq9P3e3v73obe8aRRO8kuee/I//+fec/Och+jtIVBU9Us2tDyLyzKMrs0yjK7d0PIsTlHVLyEiwSzqXx8rslvEG9uerso1OYvyelnz9hvcwPYbXosPbiCvlzXndjmLNrY9XbUiu0U8J/OMc49lW42O0txubnhbrxc5PV5our3YwqPp9uW29XqR280NbzU6SjPOPZbNzvzC4HK10dWp6fJy6k4vNr8FdacXmi4vpza6OjMuDC5/o3ly5f2oTe3OnmwTh8+NcyPbxGFTu7MnufJ+1GvNpen7glVXrVVZ7R5kGqaT0epBWosP5TUPPjO8qsk0eJDV7oHqirVKmr4v+NW3r/43XdXKjKxv9SDjGouMayyUV1mkXWKxw8DihNmDklsefNHBIv0Si/Sr7ITOz/pWD1StzMgnPwwop7vLkuZ/2mg5r7zCQvEjM8G6ZgZFv3hw/R8OjQ851D/g0PU3h6o+D9IvMlg3RetHeYVFWpOllmRJ8yf8l+5ui1Y02R6lXmSQ3OTjowY3drYz6HzMYaeJQWozg5QmBtsMDNr/4nCo26fx6/2kNjNQNNkeLd3dFu33D4gvuKtIabBbkurcSKpzIanOhdW1LlT2sai4w2J1rQtr+PyqWhcO9TJovMciuW4yP4kbKQ12S3zBXQURBRARBcQWPVSvOe9kP6hxwk9itRPVv7Mo6GGQcGYyn3DWiZ0/uXH5AYuPa51InFLjZ/V5JxNb9FDt30AQc/yBZuVZBxf3vQN+YqscOHjdjYY/GHyotyOmwgG53oHYcjv0ZganzG7EV03qp5JY7fC8W3B/K/GjRBilva2Kr7TZ5HoH5Ho75Ho7YirsSK5xoPEuizO33Nh8zo4N1XYUX3fht/880N90I+6kDe99Z5+o8eFAfKXNFqW9rSIiIRHRvMWa+sSYcstgdLkd75yyTRB10oaUGjtKb7px+R6Dy/cYVPzqxpcdLhj/ZHGi0wV5iRVRZZM10eV2xJRbBhdr6hOJaB4RkZDCUsMjC4eNkWU2yEqs04gosSKy1IoEvQ3vn7Yh6lsrIoqtUDc7YHzEQmdyInqKPrLMhsjCYRNFpob7v0BARAske+7skhWPucILrQgvHJ+GtHAcUh3PlOdN9XaU/uyCvMwKqW4c4YVWyIrHXJI9d3YR0QKaMs7FlJC3bMmRJ71hunGEHh+bNeHfjEPCr8N041hy5EkvJeQtI6JpI1xIRCGB2Y2q0KPPBxYdG8PCw3Nj0dExhB59PhCY3agiohB/eyYOG7+jRLSlY0fIwRdDwYfHEPT1y1kRfHgMIYdeDAXldOwgIgnvFTBz3gUQURARhQkz69VB+UN9gQcsrHj/S4i1Foi/moHWAvH+lwg8YGGD8of6hJn1aiIK4z1eMfeHgBeEkjx3pSDPfEy0d6hfpB0ZFe23sCKtBSKtBb71yKho71C/IM98jOS5K4kolK996z3tb9dCIpJShDKB0k5nkdqUL8gx6wQ5Zh2pTfmUdjqLIpQJRCTlta9ty5s2ERJRIPl+2CK+t2E8Ej4XwmuEczGfGQLynUjxDObRLNrxP24V8y9C9aWjAAAAAElFTkSuQmCC",  });
+ var imagesub = PageMenu({ label: "以图搜图",accesskey: "I",  condition: "image", where: "tab", insertAfter:"context-viewpartialsource-selection", image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAE40lEQVRIiZWVbUxTZxTHD60tKJgYKpaEfoDhHFVeMtlU4gbMMhrMqA6l0YKY+MnFaOJwdb7LCgJDGRXmBEUIL+pQYQ20IDBnnZOwJRo1cVncxiAGjRIq9P3e3v73obe8aRRO8kuee/I//+fec/Och+jtIVBU9Us2tDyLyzKMrs0yjK7d0PIsTlHVLyEiwSzqXx8rslvEG9uerso1OYvyelnz9hvcwPYbXosPbiCvlzXndjmLNrY9XbUiu0U8J/OMc49lW42O0txubnhbrxc5PV5our3YwqPp9uW29XqR280NbzU6SjPOPZbNzvzC4HK10dWp6fJy6k4vNr8FdacXmi4vpza6OjMuDC5/o3ly5f2oTe3OnmwTh8+NcyPbxGFTu7MnufJ+1GvNpen7glVXrVVZ7R5kGqaT0epBWosP5TUPPjO8qsk0eJDV7oHqirVKmr4v+NW3r/43XdXKjKxv9SDjGouMayyUV1mkXWKxw8DihNmDklsefNHBIv0Si/Sr7ITOz/pWD1StzMgnPwwop7vLkuZ/2mg5r7zCQvEjM8G6ZgZFv3hw/R8OjQ851D/g0PU3h6o+D9IvMlg3RetHeYVFWpOllmRJ8yf8l+5ui1Y02R6lXmSQ3OTjowY3drYz6HzMYaeJQWozg5QmBtsMDNr/4nCo26fx6/2kNjNQNNkeLd3dFu33D4gvuKtIabBbkurcSKpzIanOhdW1LlT2sai4w2J1rQtr+PyqWhcO9TJovMciuW4yP4kbKQ12S3zBXQURBRARBcQWPVSvOe9kP6hxwk9itRPVv7Mo6GGQcGYyn3DWiZ0/uXH5AYuPa51InFLjZ/V5JxNb9FDt30AQc/yBZuVZBxf3vQN+YqscOHjdjYY/GHyotyOmwgG53oHYcjv0ZganzG7EV03qp5JY7fC8W3B/K/GjRBilva2Kr7TZ5HoH5Ho75Ho7YirsSK5xoPEuizO33Nh8zo4N1XYUX3fht/880N90I+6kDe99Z5+o8eFAfKXNFqW9rSIiIRHRvMWa+sSYcstgdLkd75yyTRB10oaUGjtKb7px+R6Dy/cYVPzqxpcdLhj/ZHGi0wV5iRVRZZM10eV2xJRbBhdr6hOJaB4RkZDCUsMjC4eNkWU2yEqs04gosSKy1IoEvQ3vn7Yh6lsrIoqtUDc7YHzEQmdyInqKPrLMhsjCYRNFpob7v0BARAske+7skhWPucILrQgvHJ+GtHAcUh3PlOdN9XaU/uyCvMwKqW4c4YVWyIrHXJI9d3YR0QKaMs7FlJC3bMmRJ71hunGEHh+bNeHfjEPCr8N041hy5EkvJeQtI6JpI1xIRCGB2Y2q0KPPBxYdG8PCw3Nj0dExhB59PhCY3agiohB/eyYOG7+jRLSlY0fIwRdDwYfHEPT1y1kRfHgMIYdeDAXldOwgIgnvFTBz3gUQURARhQkz69VB+UN9gQcsrHj/S4i1Foi/moHWAvH+lwg8YGGD8of6hJn1aiIK4z1eMfeHgBeEkjx3pSDPfEy0d6hfpB0ZFe23sCKtBSKtBb71yKho71C/IM98jOS5K4kolK996z3tb9dCIpJShDKB0k5nkdqUL8gx6wQ5Zh2pTfmUdjqLIpQJRCTlta9ty5s2ERJRIPl+2CK+t2E8Ej4XwmuEczGfGQLynUjxDObRLNrxP24V8y9C9aWjAAAAAElFTkSuQmCC",  });
 imagesub([
-            {label: 'Google Search',
+      {label: 'Google Search',
       url : 'http://www.google.com/searchbyimage?image_url=%IMAGE_URL%',
-      image:"https://www.google.com/favicon.ico",where: 'tab'
-      },{label: 'Bing Search',
-      url : 'http://www.bing.com/images/searchbyimage?FORM=IRSBIQ&cbir=sbi&imgurl=%IMAGE_URL%&mkt=en-US',
-      image:"http://cn.bing.com/s/a/bing_p.ico",where: 'tab'
+      image:"https://www.google.com/favicon.ico",where: 'tab',accesskey: "G"
       },
+      {label: 'Baidu image Search',
+      url : 'http://image.baidu.com/i?rainbow=1&ct=1&tn=shituresultpc&objurl=%IMAGE_URL%',
+      image:"http://www.baidu.com/favicon.ico",where: 'tab',accesskey: "B"
+      },  
+      {label: 'Bing Search',
+      url : 'http://www.bing.com/images/searchbyimage?FORM=IRSBIQ&cbir=sbi&imgurl=%IMAGE_URL%&mkt=en-US',
+      image:"http://cn.bing.com/s/a/bing_p.ico",where: 'tab',accesskey: "M"
+      },
+      {},    
       {label: 'Baidu shitu Search',
       url : 'http://stu.baidu.com/i?rt=0&rn=10&ct=1&tn=baiduimage&objurl=%IMAGE_URL%',
-      image:"http://www.baidu.com/favicon.ico",where: 'tab'
-      },
-       {label: 'Baidu image Search',
-      url : 'http://image.baidu.com/i?rainbow=1&ct=1&tn=shituresultpc&objurl=%IMAGE_URL%',
       image:"http://www.baidu.com/favicon.ico",where: 'tab'
       },
       {label: '360ShiTu Search',

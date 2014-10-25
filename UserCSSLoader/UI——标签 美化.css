@@ -1,0 +1,56 @@
+/*+++2014.10.14+++*/
+
+/*标签样式css*/
+.tabbrowser-tab[busy] {color: blue !important;}/* 正在加载标签 */
+.tabbrowser-tab[pending] {color: gray !important;}/* 未加载标签 */
+.tabbrowser-tab[unread] {color: red !important;}/* 未读标签 */
+
+/*有些网站无LOGO图标，加空白图标*/
+.tab-icon-image:not([src]):not([pinned]){
+    display:block !important;
+    list-style-image: url("chrome://mozapps/skin/places/defaultFavicon.png");
+}
+ 
+.tab-throbber:not([busy]),
+.tab-throbber[busy] + .tab-icon-image:not([src]):not([pinned]){
+    display:none !important;
+}
+
+/* 标签栏上下外边距设置 */
+#TabsToolbar{margin-top:-1px!important; margin-bottom:0px!important; }
+
+/*标签序号*/
+.tabbrowser-tab:before{
+            margin: 0px -10px -10px 0px !important;
+            padding: 0px 3px !important;
+            border-radius: 7px !important;
+            background-color:  !important;
+            color: black !important;
+            font-size: 9px !important;
+            font-weight: 700 !important;
+            content: counter(tabs) !important;
+            position: absolute !important;
+    }
+    tab{
+            counter-increment: counter !important;
+    }
+    
+.tab-close-button:hover::after {/*悬浮于关闭按钮时不显示数字*/
+        display : none !important ;
+}
+
+/*==标签计数——总数==*/
+#main-window {counter-reset: tabs !important;}
+.tabbrowser-tab:not(:-moz-any([pinned],[concealed])) {counter-increment: tabs !important;}
+#alltabs-button {visibility: visible !important;}
+#alltabs-button:after {
+content: counter(tabs) !important;
+color: black !important;
+font-weight:  !important;
+font-size: 12px !important;
+display: -moz-box !important;
+width: auto !important;
+margin-right: 15px !important;}
+#alltabs-button > :-moz-any(label, image) {display: none !important;}
+#alltabs-button menuitem {max-width: 240px !important;}
+

@@ -1,0 +1,15 @@
+/*贴吧楼中楼表情*/
+.lzl_panel_wrapper {position:relative!important;}
+.lzl_edui_dialog_container {left:-430px!important;}/*FX32的数值*/
+.lzl_edui_dialog_container:hover {display:block!important;}
+
+/*取消会员高亮*/
+#thread_list .threadlist_author a[class*=user_card]{color:#999 !important;} /*贴子列表ID颜色*/
+[class*="fiesta_member"] [class="threadlist_lz clearfix"] a:link /*会员红标题什么的都去死*/
+{color:#2D64B3 !important;}
+.userinfo_username.vip_red{color:#000 !important;}
+[class="core_reply j_lzl_wrapper"] a[username]{color:#2D64B3 !important;} /*楼中楼ID颜色*/
+[class*="l_post"] a[class*=author]{color:#2D64B3 !important;} /*贴子里ID颜色*/
+
+/*取消吧内自动链接*/
+a.ps_cb{pointer-events:none !important;color:#000 !important;}

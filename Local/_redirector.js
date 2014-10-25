@@ -1,3 +1,4 @@
+//2014.10.25 23:20  跟进AB站規則
 //2014.10.25 12:55  添加網易雲音樂輔助規則
 //2014.10.23 13:20  添加TVC規則
 //2014.10.20 20:30  分組規則，添加規則
@@ -17,26 +18,26 @@ resp: false // 可选，true 表示替换 response body
 //Google服務轉國內鏡像
 {
 //Http走360，Https走科大
-name: "360 useso提供 Google服务加速-ajax/fonts",
+name: "ajax/fonts >> 360 useso",
 from: /^http:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "http://$1.useso.com/$2",
 regex: true
 },
 {
 //https://servers.ustclug.org/index.php/2014/06/blog-googlefonts-speedup/
-name: "科大博客提供 Google服务加速-ajax/fonts",
+name: "ajax/fonts >> 科大博客提供",
 from: /^https:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "https://$1.lug.ustc.edu.cn/$2",
 regex: true
 },
 {
-name: "科大博客提供 Google服务加速-themes",
+name: "themes >> 科大博客",
 from: /^https?:\/\/themes\.googleusercontent\.com\/(.*)$/,
 to: "http://google-themes.lug.ustc.edu.cn/$1",
 regex: true
 },
 {
-name: "科大博客提供 Google服务加速-fonts-gstatic",
+name: "fonts-gstatic >> 科大博客",
 from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
 to: "http://fonts-gstatic.lug.ustc.edu.cn/$1",
 regex: true
@@ -134,20 +135,20 @@ to: "https://raw.githubusercontent.com/dupontjoy/customization/master/pt_index.j
 regex: true
 },
 {
-name: "The Economist add /print",
+name: "The Economist 加『/print』后缀",
 from: /^https?:\/\/www\.economist\.com\/(.*)\/(.*)/i,
 to: "http://www.economist.com/$1/$2/print",
 exclude: /^http:\/\/www\.economist\.com\/.*\/print/i,
 regex: true
 },
 {
-name: "般若文海 article >> books",
+name: "般若文海article >> books",
 from: /^https?:\/\/book\.bfnn\.org\/article([\d]?\/.*)/i,
 to: "http://book.bfnn.org/books$1",
 regex: true
 },
 {
-name: "贴吧mo >>f",
+name: "贴吧mo >> f",
 from: /^https?:\/\/tieba\.baidu\.com\/mo\/m(.*)/i,
 to: "http://tieba.baidu.com/f$1",
 regex: true
@@ -177,26 +178,38 @@ to: "http://$1.baidu.com/$2/pic/item$3.jpg",
 regex: true
 },
 {
-name: "AcFun",
-from: /^http:\/\/www\.acfun\.tv\/v\/ac(.*)$/i,
-exclude: /acfun\.tv\/v\/ac(.*)#txt-title-view/i, // 可选，排除例外规则
-to: "http://www.acfun.tv/v/ac$1#txt-title-view",
+name: "TVC內網 去掉多餘的『http//』",
+from: /^http:\/\/http\/\/(.*)/i,
+to: "$1",
+regex: true
+},
+{
+name: "AcFun - No #album",
+from: /^http:\/\/www\.acfun\.tv\/(a|v)\/(.*)\#album(.*)$/i,
+to: "http://www.acfun.tv/$1/$2",
+regex: true
+},
+{
+name: "AcFun - aa|ab",
+from: /^http:\/\/www\.acfun\.tv\/(a|v)\/a(a|b)(.*)$/i,
+exclude: /acfun\.tv\/(a|v)\/a(a|b)(.*)#mainer(.*)/i,
+to: "http://www.acfun.tv/$1/a$2$3#mainer",
+regex: true
+},
+{
+name: "AcFun - ac",
+from: /^http:\/\/www\.acfun\.tv\/(a|v)\/ac(.*)$/i,
+exclude: /acfun\.tv\/(a|v)\/ac(.*)#txt-title-view(.*)/i,
+to: "http://www.acfun.tv/$1/ac$2#txt-title-view",
 regex: true
 },
 {
 name: "BiliBili",
 from: /^http:\/\/www\.bilibili\.com\/video\/av(.*)$/i,
-exclude: /bilibili\.com\/video\/av(.*)#alist/i, // 可选，排除例外规则
+exclude: /bilibili\.com\/video\/av(.*)#alist(.*)/i,
 to: "http://www.bilibili.com/video/av$1#alist",
 regex: true
 },
-{
-name: "TVC內網 去掉多余的「http//」",
-from: /^http:\/\/http\/\/(.*)/i,
-to: "$1",
-regex: true
-},
-
 
 //以下为不启用
 {

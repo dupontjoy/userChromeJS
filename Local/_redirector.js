@@ -1,4 +1,4 @@
-//2014.10.25 12:25  添加網易雲音樂輔助規則
+//2014.10.25 12:50  添加網易雲音樂輔助規則
 //2014.10.23 13:20  添加TVC規則
 //2014.10.20 20:30  分組規則，添加規則
 
@@ -193,7 +193,7 @@ regex: true
 //重定向这个网址 http://s3.music.126.net/s/2/pt_index.js?49d138c4e4dfbd143dc16794a95a4856
 name: "网易云音乐 320k 辅助",
 from: /^http:\/\/.*\.music\.126\.net\/.*pt_index\.js/i,
-to: "https://raw.githubusercontent.com/dupontjoy/userChromeJS/master/Local/pt_index.js",
+to: "https://raw.githubusercontent.com/dupontjoy/customization/master/pt_index.js",
 regex: true
 },
 

@@ -14,6 +14,7 @@
 // @downloadURL     https://github.com/ywzhaiqi/userChromeJS/raw/master/YoukuantiadsModY/youkuantiadsModY.uc.js
 // updateURL       https://j.mozest.com/ucscript/script/92.meta.js
 // downloadURL     https://j.mozest.com/zh-CN/ucscript/script/92.uc.js
+// 2014.10.25       SWF換用自己的Github備份地址（從AntiChinaVideoAdsAlliances擴展提取）
 // 2014.10.23       添加多玩規則
 // @note            2014-7-21 新增下载播放器、自动更新等功能。
 // @note            2014-7-1 新增：提前判断是否为 flash，加快速度。
@@ -73,89 +74,95 @@
     function YoukuAntiADs() {};
     YoukuAntiADs.prototype = {
         SITES: {
-            'youku_loader': {
-                // enable: true,
-                'player': 'https://haoutil.googlecode.com/svn/trunk/player/testmod/loader.swf',
-                're': /http:\/\/static\.youku\.com(\/v[\d\.]+)?\/v\/swf\/loaders?\.swf/i
-            },
-            'youku_player': {
-                'player': 'https://haoutil.googlecode.com/svn/trunk/player/testmod/player.swf',
-                're': /http:\/\/static\.youku\.com(\/v[\d\.]+)?\/v\/swf\/q?player[^\.]*\.swf/i
-            },
-            'ku6': {
-                'player': 'https://haoutil.googlecode.com/svn/trunk/player/ku6.swf',
-                're': /http:\/\/player\.ku6cdn\.com\/default\/common\/player\/\d{12}\/player\.swf/i
-            },
-            'ku6_out': {
-                'player': 'https://haoutil.googlecode.com/svn/trunk/player/ku6_out.swf',
-                're': /http:\/\/player\.ku6cdn\.com\/default\/out\/\d{12}\/player\.swf/i
-            },
-            'iqiyi': {
-                'player0': 'https://haoutil.googlecode.com/svn/trunk/player/testmod/iqiyi_out.swf',
-                'player1': 'https://haoutil.googlecode.com/svn/trunk/player/testmod/iqiyi5.swf',
-                'player2': 'https://haoutil.googlecode.com/svn/trunk/player/testmod/iqiyi.swf',
-                're': /https?:\/\/www\.iqiyi\.com\/(player\/\d+\/Player|common\/flashplayer\/\d+\/(Main)?Player_.*)\.swf/i
-            },
-            'iqiyip2p': {
-                'player': 'http://www.iqiyi.com/player/20140709110406/20088.swf',
-                're': /http:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/\d[a-z0-9]*.swf/i
-            },
-            'tudou': {
-                'player': 'https://haoutil.googlecode.com/svn/trunk/player/testmod/tudou.swf',
-                're': /http:\/\/js\.tudouui\.com\/.*portalplayer[^\.]*\.swf/i
-            },
-            'tudou_olc': {
-                'player': 'https://haoutil.googlecode.com/svn/trunk/player/testmod/olc_8.swf',
-                're': /http:\/\/js\.tudouui\.com\/.*olc[^\.]*\.swf/i
-            },
-            'tudou_sp': {
-                'player': 'https://haoutil.googlecode.com/svn/trunk/player/testmod/sp.swf',
-                're': /http:\/\/js\.tudouui\.com\/.*\/socialplayer[^\.]*\.swf/i
-            },
-            'letv': {
-                'player': 'https://haoutil.googlecode.com/svn/trunk/player/testmod/letv.swf',
-                're': /http:\/\/.*letv[\w]*\.com\/(hz|.*\/(?!(Live|seed))(S[\w]{2,3})?(?!Live)[\w]{4})Player[^\.]*\.swf/i
-            },
-            'letvskin': {
-                'player': 'http://player.letvcdn.com/p/201403/05/1456/newplayer/1/SLetvPlayer.swf',
-                're': /http:\/\/.*letv[\w]*\.com\/p\/\d+\/\d+\/(?!1456)\d*\/newplayer\/\d+\/SLetvPlayer\.swf/i
-            },
-            'pplive': {
-                'player': 'https://haoutil.googlecode.com/svn/trunk/player/pplive.swf',
-                're': /http:\/\/player\.pplive\.cn\/ikan\/.*\/player4player2\.swf/i
-            },
-            'pplive_live': {
-                'player': 'https://haoutil.googlecode.com/svn/trunk/player/pplive_live.swf',
-                're': /http:\/\/player\.pplive\.cn\/live\/.*\/player4live2\.swf/i
-            },
-            'sohu': {
-                'player': 'https://haoutil.googlecode.com/svn/trunk/player/testmod/sohu.swf',
-                're': /http:\/\/tv\.sohu\.com\/upload\/swf(\/p2p(\/yc)?)?\/\d+\/(main|playershell)\.swf/i
-            },
-            'pps': {
-                'player': 'https://haoutil.googlecode.com/svn/trunk/player/testmod/pps.swf',
-                're': /http:\/\/www\.iqiyi\.com\/player\/cupid\/.*\/pps[\w]+.swf/i
-            },
-            // http://bbs.kafan.cn/thread-1725172-1-1.html
-            // github 无法正常检查更新，每次都会下载
-            '17173':{
-                'player': 'https://raw.githubusercontent.com/ywzhaiqi/userChromeJS/master/YoukuantiadsModY/swf/17173_Player_file.swf',
-                're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/Player_file\.swf/i
-            },
-            '17173_Live':{
-                'player': 'https://raw.githubusercontent.com/ywzhaiqi/userChromeJS/master/YoukuantiadsModY/swf/17173_Player_stream.swf',
-                're': /http:\/\/f\.v\.17173cdn\.com\/(\d+)\/flash\/Player_stream\.swf/i
-            },
-            '17173_out': {
-                'player': 'https://raw.githubusercontent.com/ywzhaiqi/userChromeJS/master/YoukuantiadsModY/swf/17173_Player_file_out.swf',
-                're': /http:\/\/f\.v\.17173cdn\.com\/flash\/Player_file_out\.swf/i
-            },
-            //多玩規則：http://bbs.kafan.cn/thread-1781033-1-1.html
-            'duowan': {
+       'youku_loader': {
+            'player': 'https://github.com/dupontjoy/customization/raw/master/swf/loader.swf',
+            're': /http:\/\/static\.youku\.com(\/v[\d\.]+)?\/v\/swf\/loaders?\.swf/i
+        },
+        'youku_player': {
+            'player': 'https://github.com/dupontjoy/customization/raw/master/swf/player.swf',
+            're': /http:\/\/static\.youku\.com(\/v[\d\.]+)?\/v\/swf\/q?player[^\.]*\.swf/i
+        },
+        'ku6': {
+            'player': 'https://github.com/dupontjoy/customization/raw/master/swf/ku6.swf',
+            're': /http:\/\/player\.ku6cdn\.com\/default\/common\/player\/\d{12}\/player\.swf/i
+        },
+        'ku6_out': {
+            'player': 'https://github.com/dupontjoy/customization/raw/master/swf/ku6_out.swf',
+            're': /http:\/\/player\.ku6cdn\.com\/default\/out\/\d{12}\/player\.swf/i
+        },
+        'iqiyi': {
+            'player0': 'https://github.com/dupontjoy/customization/raw/master/swf/iqiyi_out.swf',
+            'player1': 'https://github.com/dupontjoy/customization/raw/master/swf/iqiyi5.swf',
+            'player2': 'https://github.com/dupontjoy/customization/raw/master/swf/iqiyi.swf',
+            're': /https?:\/\/www\.iqiyi\.com\/(player\/\d+\/Player|common\/flashplayer\/\d+\/(Main|Coop)?Player_?.*)\.swf/i
+        },
+        'tudou': {
+            'player': 'https://github.com/dupontjoy/customization/raw/master/swf/tudou.swf',
+            're': /http:\/\/js\.tudouui\.com\/.*portalplayer[^\.]*\.swf/i
+        },
+        'tudou_olc': {
+            'player': 'https://github.com/dupontjoy/customization/raw/master/swf/olc_8.swf',
+            're': /http:\/\/js\.tudouui\.com\/.*olc[^\.]*\.swf/i
+        },
+        'tudou_sp': {
+            'player': 'https://github.com/dupontjoy/customization/raw/master/swf/sp.swf',
+            're': /http:\/\/js\.tudouui\.com\/.*\/socialplayer[^\.]*\.swf/i
+        },
+        'letv': {
+            'player': 'https://github.com/dupontjoy/customization/raw/master/swf/letv.swf',
+            're': /http:\/\/.*letv[\w]*\.com\/(hz|.*\/((?!(Live|seed))((C|S)[\w]{2,3})?(?!Live)[\w]{4}|swf))Player*\.swf/i
+        },
+        'letvskin': {
+            'player': 'http://player.letvcdn.com/p/201403/05/1456/newplayer/1/SLetvPlayer.swf',
+            're': /http:\/\/.*letv[\w]*\.com\/p\/\d+\/\d+\/(?!1456)\d*\/newplayer\/\d+\/SLetvPlayer\.swf/i
+        },
+        'pplive': {
+            'player': 'https://github.com/dupontjoy/customization/raw/master/swf/pplive.swf',
+            're': /http:\/\/player\.pplive\.cn\/ikan\/.*\/player4player2\.swf/i
+        },
+        'pplive_live': {
+            'player': 'https://github.com/dupontjoy/customization/raw/master/swf/pplive_live.swf',
+            're': /http:\/\/player\.pplive\.cn\/live\/.*\/player4live2\.swf/i
+        },
+
+        'sohu': {
+           'player': 'https://github.com/dupontjoy/customization/raw/master/swf/sohu.swf',
+           're': /http:\/\/tv\.sohu\.com\/upload\/swf\/(?!(live|\d+)).*\d+\/(main|PlayerShell)\.swf/i
+        },
+        'sohu_liv': {
+           'player': 'https://github.com/dupontjoy/customization/raw/master/swf/sohulive.swf',
+           're': /http:\/\/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}(:[0-9]{2,5})?(\/test)?\/(player|webplayer)\/(main|playershell)\.swf/i
+        },
+        'sohu_live': {
+           'player': 'https://github.com/dupontjoy/customization/raw/master/swf/sohulive.swf',
+           're': /http:\/\/tv\.sohu\.com\/upload\/swf\/(live\/|)\d+\/(main|PlayerShell)\.swf/i
+        },
+        'pps': {
+            'player': 'https://github.com/dupontjoy/customization/raw/master/swf/pps.swf',
+            're': /http:\/\/www\.iqiyi\.com\/player\/cupid\/.*\/pps[\w]+.swf/i
+        },
+        'wannima': {
             'player': 'http://yuntv.letv.com/bcloud.swf',
             're': /http:\/\/assets\.dwstatic\.com\/.*\/vppp\.swf/i
         },
-        },
+        '17173': {
+            'player': 'https://github.com/dupontjoy/customization/raw/master/swf/17173_Player_file.swf',
+            're': /http:\/\/f\.v\.17173cdn\.com\/\d+\/flash\/Player_file\.swf/i			                
+		},
+        '17173_out': {
+            'player': 'https://github.com/dupontjoy/customization/raw/master/swf/17173_Player_file_out.swf',
+  	    're': /http:\/\/f\.v\.17173cdn\.com(\/\d+)?\/flash\/Player_file_out\.swf/i
+     	},			
+	      '17173_stream_customOut': {
+            'player': 'https://github.com/dupontjoy/customization/raw/master/swf/17173_Player_stream_out.swf',
+  	    're': /http:\/\/f\.v\.17173cdn\.com(\/\d+)?\/flash\/Player_stream_customOut\.swf/i
+	    },			
+         '17173_live': {
+            'player': 'https://github.com/dupontjoy/customization/raw/master/swf/17173_Player_stream.swf',
+            're': /http:\/\/f\.v\.17173cdn\.com\/\d+\/flash\/Player_stream\.swf/i
+        }
+
+    },
         os: Cc['@mozilla.org/observer-service;1']
                 .getService(Ci.nsIObserverService),
         init: function() {

@@ -1,3 +1,5 @@
+//2014.10.29 09:30  跟进AB站規則
+//2014.10.27 20:20  跟进AB站規則
 //2014.10.25 23:20  跟进AB站規則
 //2014.10.25 12:55  添加網易雲音樂輔助規則
 //2014.10.23 13:20  添加TVC規則
@@ -184,30 +186,24 @@ to: "$1",
 regex: true
 },
 {
-name: "AcFun - No #album",
-from: /^http:\/\/www\.acfun\.tv\/(a|v)\/(.*)\#album(.*)$/i,
-to: "http://www.acfun.tv/$1/$2",
-regex: true
-},
-{
 name: "AcFun - aa|ab",
-from: /^http:\/\/www\.acfun\.tv\/(a|v)\/a(a|b)(.*)$/i,
-exclude: /acfun\.tv\/(a|v)\/a(a|b)(.*)#mainer(.*)/i,
+from: /^http:\/\/www\.acfun\.tv\/(a|v)\/a(a|b)([\w]+)(#album=.*)?(#autoplay=1)?/i,
+exclude: /acfun\.tv\/(a|v)\/a(a|b)(.*)#mainer/i,
 to: "http://www.acfun.tv/$1/a$2$3#mainer",
 regex: true
 },
 {
 name: "AcFun - ac",
-from: /^http:\/\/www\.acfun\.tv\/(a|v)\/ac(.*)$/i,
-exclude: /acfun\.tv\/(a|v)\/ac(.*)#txt-title-view(.*)/i,
-to: "http://www.acfun.tv/$1/ac$2#txt-title-view",
+from: /^http:\/\/www\.acfun\.tv\/(a|v)\/ac([\w]+)(#album=.*)?(#autoplay=1)?/i,
+exclude: /acfun\.tv\/(a|v)\/ac(.*)#txt-info-title/i,
+to: "http://www.acfun.tv/$1/ac$2#txt-info-title",
 regex: true
 },
 {
 name: "BiliBili",
-from: /^http:\/\/www\.bilibili\.com\/video\/av(.*)$/i,
-exclude: /bilibili\.com\/video\/av(.*)#alist(.*)/i,
-to: "http://www.bilibili.com/video/av$1#alist",
+from: /^http:\/\/www\.bilibili\.com\/video\/av([\d]+)\/([\w]+\.[\w]+)?(##alist)?/i,
+exclude: /bilibili\.com\/video\/av([\d]+)\/([\w]+\.[\w]+)?#alist/i,
+to: "http://www.bilibili.com/video/av$1/$2#alist",
 regex: true
 },
 

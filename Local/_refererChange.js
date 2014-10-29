@@ -2,19 +2,20 @@
 //   @FORGE：发送根站点referer
 //   @ORIGINAL：发送打开站点referer
 //   @BLOCK : 发送空referer
-//2014.10.14
+//2014.10.27
 
 sites = {
     //自定义
     'about:blank': '@NORMAL',
     'jump.bdimg.com': '@NORMAL',
-    'img.liufen.com': 'http://www.liufen.com.cn/',//2014.09.22
-    't4.mangafiles.com' : 'http://www.imanhua.com/',//2014.10.01
+    'img.liufen.com': 'http://www.liufen.com.cn/',
+    't4.mangafiles.com' : 'http://www.imanhua.com/',
     't5.mangafiles.com' : 'http://www.imanhua.com/',
     'laibafile.cn' : 'http://www.tianya.cn/',
-    'zol.com.cn' : '@FORGE',//2014.10.04
-    'tmoke.com': '@BLOCK',//2014.10.10
-    '51img1.com' : '@FORGE',//2014.10.14
+    'zol.com.cn' : '@FORGE',
+    'tmoke.com': '@BLOCK',
+    '51img1.com' : '@FORGE',
+    'zol-img.com.cn' : '@FORGE',
     
     // 
     'douban.com': 'http://www.douban.com',

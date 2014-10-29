@@ -1,6 +1,6 @@
 // ==UserScript==
-// @name        禁止打印弹窗
-// @namespace   禁止打印弹窗
+// @name        禁止打印弹窗 for UserScriptLoader
+// @namespace   禁止打印弹窗 for UserScriptLoader
 // @include     http://www.economist.com/*
 // @version     0.0.1
 // @grant       none

@@ -3,6 +3,7 @@
 // @description    简单的FF内存监视器
 // @include        main
 // @charset        UTF-8
+// 2014.10.29 21:27 小調內存颜色数值
 // @note           2014.02.10 删除自动重启功能，修复分级颜色显示：正常显示为黑色，超过预警值的0.6倍为蓝色，超出预警值显示为红色
 // @note           2014.02.08 基于原MemoryMonitorMod.uc.js修改，兼容FF28+
 // ==/UserScript==
@@ -13,9 +14,9 @@ var ucjsMM = {
 	_Warningcolor : 'red',
 	_Stdvalue3 : 700,  //颜色3
 	_Stdcolor3 : 'orange',
-	_Stdvalue2 : 400,  //颜色2
+	_Stdvalue2 : 500,  //颜色2
 	_Stdcolor2 : 'green',
-	_Stdvalue1 : 200,  //颜色1
+	_Stdvalue1 : 300,  //颜色1
 	_Stdcolor1 : 'blue',
 	_MemoryValue : 0,  //内存初始值
 	_Memorycolor : 'black',
@@ -39,20 +40,19 @@ var ucjsMM = {
 			var MemReporters = Cc['@mozilla.org/memory-reporter-manager;1'].getService(Ci.nsIMemoryReporterManager);
 			var workingSet = MemReporters.resident;
 			ucjsMM._MemoryValue = Math.round(workingSet / (1024 * 1024));
-			var displayValue = ucjsMM.addFigure(ucjsMM._MemoryValue);
 			var memoryPanel = document.getElementById('MemoryDisplay');
-			memoryPanel.setAttribute('label', displayValue + ucjsMM._prefix);
+			memoryPanel.setAttribute('label', ucjsMM._MemoryValue + ucjsMM._prefix);
 			memoryPanel.setAttribute('onclick', "openUILinkIn('about:memory','tab')");
-			if (displayValue > ucjsMM._Warningvalue) {
+			if (ucjsMM._MemoryValue > ucjsMM._Warningvalue) {
 				memoryPanel.style.color = ucjsMM._Warningcolor;
 			} else {
-				if (displayValue > ucjsMM._Stdvalue3)
+				if (ucjsMM._MemoryValue > ucjsMM._Stdvalue3)
 					memoryPanel.style.color = ucjsMM._Stdcolor3;
 				else {
-					if (displayValue > ucjsMM._Stdvalue2)
+					if (ucjsMM._MemoryValue > ucjsMM._Stdvalue2)
 						memoryPanel.style.color = ucjsMM._Stdcolor2;
 					else {
-					if (displayValue > ucjsMM._Stdvalue1)
+					if (ucjsMM._MemoryValue > ucjsMM._Stdvalue1)
 						memoryPanel.style.color = ucjsMM._Stdcolor1;
 					else
 						memoryPanel.style.color = ucjsMM._Memorycolor;

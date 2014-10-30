@@ -1,3 +1,4 @@
+//2014.10.30 21:05  加入測試規則：反Google驗證，百度搜索防繁體字亂碼，Google搜索en-US,safe=off
 //2014.10.29 09:30  跟进AB站規則
 //2014.10.27 20:20  跟进AB站規則
 //2014.10.25 23:20  跟进AB站規則
@@ -100,7 +101,21 @@ regex: true
 {
 name: "google.com.hk >> google.com",
 from: /^https?:\/\/www\.google\.com\.hk\/search\?(.*)/,
-to: "https://www.google.com/ncr#hl=en-US&newwindow=1&$1",
+to: "https://www.google.com/ncr#$1",
+regex: true
+},
+{
+name: "Google搜索en-US,Safe=off",
+from: /^https?:\/\/www\.google\.com\/(s|search|webhp)(.*)/i,
+to: "https://www.google.com/$1$2&hl=en-US&safe=off",
+exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off(.*)/i,
+regex: true
+},
+{
+name: "百度搜索ie=utf-8防繁體字亂碼",
+from: /^https?:\/\/www\.baidu\.com\/(s|baidu|search)(.*)/i,
+to: "http://www.baidu.com/$1$2&ie=utf-8",
+exclude: /^http:\/\/www\.baidu\.com\/.*\&ie=utf-8(.*)/i,
 regex: true
 },
 {
@@ -131,13 +146,13 @@ regex: true
 },
 {
 //重定向这个网址 http://s3.music.126.net/s/2/pt_index.js?49d138c4e4dfbd143dc16794a95a4856
-name: "网易云音乐 320k 辅助",
+name: "网易云音乐320k辅助",
 from: /^http:\/\/.*\.music\.126\.net\/.*pt_index\.js/i,
 to: "https://raw.githubusercontent.com/dupontjoy/customization/master/pt_index.js",
 regex: true
 },
 {
-name: "The Economist 加『/print』后缀",
+name: "The Economist加/print",
 from: /^https?:\/\/www\.economist\.com\/(.*)\/(.*)/i,
 to: "http://www.economist.com/$1/$2/print",
 exclude: /^http:\/\/www\.economist\.com\/.*\/print/i,
@@ -175,7 +190,7 @@ regex: true
 },
 {
 name: "百度貼吧|百科 原始大圖",
-from: /http:\/\/(imgsrc|[\w]?\.hiphotos)\.baidu\.com\/(forum|baike)\/[\w].+\/sign=[^\/]+(\/.*).jpg/i,
+from: /^http:\/\/(imgsrc|[\w]?\.hiphotos)\.baidu\.com\/(forum|baike)\/[\w].+\/sign=[^\/]+(\/.*).jpg/i,
 to: "http://$1.baidu.com/$2/pic/item$3.jpg",
 regex: true
 },
@@ -206,6 +221,15 @@ exclude: /bilibili\.com\/video\/av([\d]+)\/([\w]+\.[\w]+)?#alist/i,
 to: "http://www.bilibili.com/video/av$1/$2#alist",
 regex: true
 },
+
+//測試
+{
+name: "反Google搜索验证码",
+from: /^https?:\/\/ipv4\.google\.com\/sorry\/IndexRedirect\?continue=https?:\/\/www\.google\.com(?:\.hk|)\/search%3F([^&]*).*/i,
+to: "https://www.google.com/ncr#$1",
+regex: true
+},
+
 
 //以下为不启用
 {

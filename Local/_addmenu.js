@@ -1,4 +1,4 @@
-//2014.10.20
+//2014.11.02 09:10 調整搜圖順序
 
 /*——————————选中文本右键——————————*/
 
@@ -63,22 +63,22 @@ imagesub([
       url : 'http://www.google.com/searchbyimage?image_url=%IMAGE_URL%',
       image:"https://www.google.com/favicon.ico",where: 'tab',accesskey: "G"
       },
-      {label: 'Baidu image Search',
-      url : 'http://image.baidu.com/i?rainbow=1&ct=1&tn=shituresultpc&objurl=%IMAGE_URL%',
-      image:"http://www.baidu.com/favicon.ico",where: 'tab',accesskey: "B"
-      },  
-      {label: 'Bing Search',
-      url : 'http://www.bing.com/images/searchbyimage?FORM=IRSBIQ&cbir=sbi&imgurl=%IMAGE_URL%&mkt=en-US',
-      image:"http://cn.bing.com/s/a/bing_p.ico",where: 'tab',accesskey: "M"
+      {label: '360識圖 Search',
+      url: 'http://st.so.com/stu?imgurl=%IMAGE_URL%',
+      image: "http://st.so.com/favicon.ico",where: 'tab',accesskey: "Q"
       },
       {},    
-      {label: 'Baidu shitu Search',
+      {label: 'Baidu識圖 Search',
       url : 'http://stu.baidu.com/i?rt=0&rn=10&ct=1&tn=baiduimage&objurl=%IMAGE_URL%',
       image:"http://www.baidu.com/favicon.ico",where: 'tab'
       },
-      {label: '360ShiTu Search',
-      url: 'http://st.so.com/stu?imgurl=%IMAGE_URL%',
-      image: "http://st.so.com/favicon.ico",where: 'tab'
+      {label: 'Baidu image Search',
+      url : 'http://image.baidu.com/i?rainbow=1&ct=1&tn=shituresultpc&objurl=%IMAGE_URL%',
+      image:"http://www.baidu.com/favicon.ico",where: 'tab'
+      },  
+      {label: 'Bing Search',
+      url : 'http://www.bing.com/images/searchbyimage?FORM=IRSBIQ&cbir=sbi&imgurl=%IMAGE_URL%&mkt=en-US',
+      image:"http://cn.bing.com/s/a/bing_p.ico",where: 'tab'
       },
       {label: 'Sougou Search',
       url: 'http://pic.sogou.com/ris?query=%IMAGE_URL%',
@@ -150,7 +150,7 @@ var menu = PageMenu({
 condition:"select",
 label: "搜索选中文本",
 accesskey: "S",
-insertAfter:"context-paste",
+insertAfter:"复选框的 ON/OFF",
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHDSURBVDhPpVJbKENhHJ887NmLcnmQZ+U6SZ7mEk+ur8qDXEpMLBSRJbRHlzSRDFuNkkQRHoaiXE44LxbTssk0zhpDdj7/H0ecsYflV//+5/+7fN853/kUf4ExFkkVJYpiElUhVbnUk8BDl6y/AZGMcbu2O41+lecrDFYhu38jgI4ZPPSQi2CHXdutRmM6uMnUrbHgAg8dPikiB15Tv3LGq3pWmdZ86OQcnok3UWxExwweOnxSRA4SCiuGtwRV1zLjrjwTNMdTKdExg4cOnxSRg4TyrLalQEbHIsPOCEu8EjN46PB9BIKBlcsG1oV07Tzj7G75G9AMHjp8UuQbdDARJKj7zXv2tGYT005uO7kL9+cZUMcMftCy//sMpHCMwy30Fncv+PJaLf60BiMLrvqRzRsrfy3/C1/hS9dDe2m32ZtaN8lyWo3Pupmdq1LdgqCqmQqg95mtvPXEIb8HP8MlnXPelGoDy20y+k/ttyPEF1AVUYW+iURGX7jutSUdc97kqlGmbjT4OZtLT6YEmTEUfL6XlLKWKU9y5RBTN4yFFwZgnl45ms2vHX86PncOhhUG6BOUFEh8fHzNpOfYsML/h0LxDlnLtXo5zlbFAAAAAElFTkSuQmCC"
 });
 menu(items);
@@ -212,7 +212,7 @@ var menu = PageMenu({
 label:"快速回复",
 condition:"input",
 accesskey: "W",
-insertAfter: "context-paste",
+insertAfter: "搜索选中文本",
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAASZQTFRFq2MmrGUpxZNqyJNP+e/P////wIlcUFBQnp6eoaGhoZmSrY51sJN6UFBQVFRUWFhYXl5eY2NjampqcHBwd3d3fX19hISEioqKkJCQlZWVmpqanF8mnpmWnp6eoaGht3k6uH5MuoFRwY5kwpJpw4tGxI9gxY1JxZRlxpFNx5NWx5dryJNRypZWyptwy5hRy51szJlSzJpRzJ51zp9ezqF5zqR8zqqL0qd/17uk37iD5NfM5eXl5rgl5rgn5rs/5ubm5+fn6L046Ojo6enp6uLc6urq6+vr7Ozs7e3t7u7u7+/v8NSm8PDw8fHx8sMA8vHx8vLy88so89BC9NBE9Nmf9eTI9ebV9uHA9u/o+OrC+OvC+eO8+ePL+unX/Pv6/f39/vz5////ByadbwAAAA10Uk5TAAAAAAAAG5aWlqHFxQD6C4kAAADMSURBVBgZBcFNS8NAFIbR595MaqEbrQa6UgSFFhVCdy7Fvy3uFUQQBHEruAmkNqHkg8y8nmN5KACAagAInD0AAM/VCAQiPwlNXG1UjwlHmLvlgeXqZm4WEJ5w0vC97tNX7wjLPLPV57qbFudZQBhQfJRd3LUzOcLMlu9lF+v9tEmOcDt523axbuLtE45wey3HWDfj3ZFwhP0Vi3l76MsdwhHZdBHttN3uDREQVJd1/XvfGIiA0PiSFdcHJ6EUkB8/GgDgkuU+AwAAxuEflNBc+frSdwMAAAAASUVORK5CYII=",
 //跟进depft更新
 oncommand: function(event){

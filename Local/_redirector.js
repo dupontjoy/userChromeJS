@@ -1,3 +1,5 @@
+//2014.10.31 22:30  加入google.com.hk >> google.com快速版
+//2014.10.31 16:40  優化google.com.hk >> google.com慢速版
 //2014.10.30 21:05  加入測試規則：反Google驗證，百度搜索防繁體字亂碼，Google搜索en-US,safe=off
 //2014.10.29 09:30  跟进AB站規則
 //2014.10.27 20:20  跟进AB站規則
@@ -99,9 +101,9 @@ to: "$1",
 regex: true
 },
 {
-name: "google.com.hk >> google.com",
-from: /^https?:\/\/www\.google\.com\.hk\/search\?(.*)/,
-to: "https://www.google.com/ncr#$1",
+name: "职友集去跳转",
+from:/^http:\/\/www\.jobui\.com\/.*\link=(.*)/i,
+to: "$1",
 regex: true
 },
 {
@@ -112,16 +114,24 @@ exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off(.*)/i,
 regex: true
 },
 {
+name: "google.com.hk >> google.com慢速版",
+from: /^https?:\/\/www\.google\.com\.hk\/search\?(.*)/i,
+to: "https://www.google.com/ncr#$1&hl=en-US&safe=off",
+exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off(.*)/i,
+regex: true
+},
+{
+name: "google.com.hk >> google.com快速版",
+from: /^https?:\/\/www\.google\.com\.hk\/url\?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https?:\/\/www\.google\.com\.hk\/search\?(.*)/i,
+to: "https://www.google.com/ncr#$1&hl=en-US&safe=off",
+exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off(.*)/i,
+regex: true
+},
+{
 name: "百度搜索ie=utf-8防繁體字亂碼",
 from: /^https?:\/\/www\.baidu\.com\/(s|baidu|search)(.*)/i,
 to: "http://www.baidu.com/$1$2&ie=utf-8",
 exclude: /^http:\/\/www\.baidu\.com\/.*\&ie=utf-8(.*)/i,
-regex: true
-},
-{
-name: "职友集去跳转",
-from:/^http:\/\/www\.jobui\.com\/.*\link=(.*)/i,
-to: "$1",
 regex: true
 },
 {
@@ -225,35 +235,13 @@ regex: true
 //測試
 {
 name: "反Google搜索验证码",
-from: /^https?:\/\/ipv4\.google\.com\/sorry\/IndexRedirect\?continue=https?:\/\/www\.google\.com(?:\.hk|)\/search%3F([^&]*).*/i,
+from: /^https?:\/\/ipv4\.google\.com\/sorry\/IndexRedirect\?continue=https?:\/\/www\.google\.com(?:\.hk|)\/search\?(.*)/i,
 to: "https://www.google.com/ncr#$1",
 regex: true
 },
 
 
 //以下为不启用
-{
-name: "NoRedirect",
-from: /^https?:\/\/\\w[\\x21-\\x2e\\x30-\\x7e]+\\.(com|cn|org|net|info|tv)\/url?=(.+)/i,
-to: "$1",
-state: false,
-regex: true
-},
-{
-name: "斗鱼TV add ?cdn=lx——数字ID",
-from: /^https?:\/\/www\.douyutv\.com\/(\d+)/i,
-to: "http://www.douyutv.com/$1?cdn=lx",
-exclude: /^http:\/\/www\.douyutv\.com\/.*\?cdn=lx/i,
-state: false,
-regex: true
-},
-{
-name: "game2233 del Flashget",
-from: /^https?:\/\/www\.game2233\.com\/(.*?)&union=flashget(.*)/i,
-to: "http://www.game2233.com/$1",
-state: false,
-regex: true
-},
 {
 name: "爱奇艺",
 from:/^http:\/\/afp\.qiyi\.com\/.*\url=([^&]*)(\?src=.*)/i,
@@ -265,13 +253,6 @@ regex: true
 name: "百度盘下载地址替换",
 from: /^https?:\/\/\d+\.\d+\.\d+\.\d+\/cdn\.baidupcs\.com\/file\/(.*)/i,
 to: "http://www.baidupcs.com/$1",
-state: false,
-regex: true
-},
-{
-name: "云播磁力链 = >> %3D",
-from: /^(http:\/\/vod\.xunlei\.com\/.*url=magnet:\?xt)=(.*)=(.*)=(.*)/i,
-to: "$1%3D$2", 
 state: false,
 regex: true
 },

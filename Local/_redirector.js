@@ -1,3 +1,4 @@
+//2014.11.02 21:47  加入500px原始大圖
 //2014.10.31 22:30  加入google.com.hk >> google.com快速版
 //2014.10.31 16:40  優化google.com.hk >> google.com慢速版
 //2014.10.30 21:05  加入測試規則：反Google驗證，百度搜索防繁體字亂碼，Google搜索en-US,safe=off
@@ -63,6 +64,26 @@ regex: true
 name: "Google Tag Services >> mingto.tk",
 from: /^https?:\/\/(.*?)googletagservices\.com\/tag\/js\/(.*)$/i,
 to: "http://www.minggo.tk/etc/$2",
+regex: true
+},
+
+//原始大圖系列
+{
+name: "tradingfloor 原始大圖",
+from: /^https?:\/\/www\.tradingfloor\.com\/images\/article\/max608w\/(.*)/i,
+to: "https://www.tradingfloor.com/images/article/original/$1",
+regex: true
+},
+{
+name: "百度貼吧|百科 原始大圖",
+from: /^http:\/\/(imgsrc|[\w]?\.hiphotos)\.baidu\.com\/(forum|baike)\/[\w].+\/sign=[^\/]+(\/.*).jpg/i,
+to: "http://$1.baidu.com/$2/pic/item$3.jpg",
+regex: true
+},
+{
+name: "500px 原始大圖",
+from: /^https?:\/\/gp1\.wac\.edgecastcdn\.net\/806614\/photos\/photos\.500px\.net\/(.*)\/(.*)\/[\d].jpg+(\/.*)?/i,
+to: "https://gp1.wac.edgecastcdn.net/806614/photos/photos.500px.net/$1/$2/2048.jpg",
 regex: true
 },
 
@@ -190,18 +211,6 @@ regex: true
 name: "tm >> tmall",
 from: /^https?:\/\/(.*?)tm\.com\/(.*)$/,
 to: "http://$1tmall.com/$2",
-regex: true
-},
-{
-name: "tradingfloor 原始大圖",
-from: /^https?:\/\/www\.tradingfloor\.com\/images\/article\/max608w\/(.*)/i,
-to: "https://www.tradingfloor.com/images/article/original/$1",
-regex: true
-},
-{
-name: "百度貼吧|百科 原始大圖",
-from: /^http:\/\/(imgsrc|[\w]?\.hiphotos)\.baidu\.com\/(forum|baike)\/[\w].+\/sign=[^\/]+(\/.*).jpg/i,
-to: "http://$1.baidu.com/$2/pic/item$3.jpg",
 regex: true
 },
 {

@@ -8,7 +8,7 @@
 // @compatibility  Firefox 10-26
 // @charset        UTF-8
 // @version        0.0.8.4
-// 2014.10.27      afom.exe改到Local文件夾下
+// 2014.11.04      afom.exe改到Local文件夾下(上次改漏了一個地方)
 // @note           2014/4/27 FF29下可以隐藏按钮并将控制面板合并至打开菜单按钮（三横杠）, 右键打开面板，中键清理当前站点
 // @note           2014/4/27 改变配文目录/UCProfileDir/afom/afom.exe目录便于整体备份.
 // @note           2014/4/11 Fixed bugs for FF29 new customUI.
@@ -988,7 +988,7 @@
   		getService(CI.nsIProperties).
   		get("UChrm", CI.nsIFile).
   		QueryInterface(CI.nsILocalFile);
-  		fileToActivate0.append("UCProfileDir");
+  		fileToActivate0.append("Local");
   		fileToActivate0.append("afom");
   		fileToActivate0.append("afom.exe");
   		var fileToExec0 = CC["@mozilla.org/file/local;1"].createInstance(CI.nsILocalFile);

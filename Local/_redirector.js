@@ -1,3 +1,4 @@
+//2014.11.03 20:15  跟进AB站規則
 //2014.11.02 21:47  加入500px原始大圖
 //2014.10.31 22:30  加入google.com.hk >> google.com快速版
 //2014.10.31 16:40  優化google.com.hk >> google.com慢速版
@@ -220,28 +221,28 @@ to: "$1",
 regex: true
 },
 {
-name: "AcFun - aa|ab",
-from: /^http:\/\/www\.acfun\.tv\/(a|v)\/a(a|b)([\w]+)(#album=.*)?(#autoplay=1)?/i,
-exclude: /acfun\.tv\/(a|v)\/a(a|b)(.*)#mainer/i,
-to: "http://www.acfun.tv/$1/a$2$3#mainer",
+name: "AcFun - ab",
+from: /^http:\/\/www\.acfun\.tv\/v\/ab([\w]+)(#album=.*)?(#(fullscreen=1;)?autoplay=1)?/i,
+exclude: /acfun\.tv\/v\/ab(.*)#txt-title-view/i,
+to: "http://www.acfun.tv/v/ab$1#txt-title-view",
 regex: true
 },
 {
 name: "AcFun - ac",
-from: /^http:\/\/www\.acfun\.tv\/(a|v)\/ac([\w]+)(#album=.*)?(#autoplay=1)?/i,
+from: /^http:\/\/www\.acfun\.tv\/(a|v)\/ac([\w]+)(#album=.*)?(#(fullscreen=1;)?autoplay=1)?/i,
 exclude: /acfun\.tv\/(a|v)\/ac(.*)#txt-info-title/i,
-to: "http://www.acfun.tv/$1/ac$2#txt-info-title",
+to: "http://www.acfun.tv/$1/ac$2#txt-info-title", 
 regex: true
 },
 {
 name: "BiliBili",
-from: /^http:\/\/www\.bilibili\.com\/video\/av([\d]+)\/([\w]+\.[\w]+)?(##alist)?/i,
+from: /^http:\/\/www\.bilibili\.com\/video\/av([\d]+)\/([\w]+\.[\w]+)?(\?[\w]+)?(##alist)?/i,
 exclude: /bilibili\.com\/video\/av([\d]+)\/([\w]+\.[\w]+)?#alist/i,
 to: "http://www.bilibili.com/video/av$1/$2#alist",
 regex: true
 },
 
-//測試
+//待測試
 {
 name: "反Google搜索验证码",
 from: /^https?:\/\/ipv4\.google\.com\/sorry\/IndexRedirect\?continue=https?:\/\/www\.google\.com(?:\.hk|)\/search\?(.*)/i,

@@ -1,4 +1,4 @@
-/*2014.10.29 21:47*/
+/*2014.11.04 13:10*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*书签工具栏产生的箭头*/
@@ -18,6 +18,7 @@
 {display: none !important;}*/
 
 /*===隐藏页面右键菜单===*/ 
+#greasemonkey-view-userscript,/*GreaseMonkey检视腳本原始碼*/
 #context-shareselect,/*分享选中项目*/
 #context-shareimage,/*分享此图片*/
 #context-sharelink,/*分享此鏈接*/

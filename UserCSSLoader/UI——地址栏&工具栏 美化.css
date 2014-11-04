@@ -1,4 +1,8 @@
-/*+++2014.10.12+++*/
+/*+++2014.11.04 22:58+++*/
+/*下载弹窗大小调整*/
+#unknownContentType{    
+height: 340px !important;
+width:450px!important;}
 
 /*书签栏左右变窄*/
 .bookmark-item > .toolbarbutton-icon {margin: 0px 0px 0px -2px !important;padding: 0px !important;}

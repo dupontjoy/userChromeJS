@@ -3,7 +3,8 @@
 // @description    简单的FF内存监视器
 // @include        main
 // @charset        UTF-8
-// 2014.10.29 21:27 小調內存颜色数值
+// @note           2014.11.04 23:30 设置其位置在地址栏前/後（可选）
+// @note           2014.10.29 21:27 小調內存颜色数值
 // @note           2014.02.10 删除自动重启功能，修复分级颜色显示：正常显示为黑色，超过预警值的0.6倍为蓝色，超出预警值显示为红色
 // @note           2014.02.08 基于原MemoryMonitorMod.uc.js修改，兼容FF28+
 // ==/UserScript==
@@ -24,12 +25,22 @@ var ucjsMM = {
 
 	interval : null,
 	init : function () {
-		var toolbar = document.getElementById('urlbar-icons');
+		var toolbar = document.getElementById('urlbar-icons');//放地址栏后面
+		/*var toolbar = document.getElementById('identity-box').parentNode;//放地址栏前面*/
 		var memoryPanel = document.createElement('statusbarpanel');
 		memoryPanel.id = 'MemoryDisplay';
 		memoryPanel.setAttribute('label', ucjsMM._MemoryValue + ucjsMM._prefix);
 		memoryPanel.setAttribute('tooltiptext', '内存监视器，点击打开about:memory');
-		document.getElementById("page-report-button").parentNode.insertBefore(memoryPanel, document.getElementById("page-report-button").nextSibling);
+		toolbar.insertBefore(memoryPanel, toolbar.childNodes[3]);
+		document.insertBefore(document.createProcessingInstruction('xml-stylesheet', 'type="text/css" href="data:text/css;utf-8,' + encodeURIComponent('\
+			#MemoryDisplay{\
+				padding-left:1px;\
+				font-size:11px;\
+				padding-right:2px;\
+			  padding-top:2px;\
+			}\
+			#MemoryDisplay .statusbarpanel-text{margin:0;}\
+		') + '"'), document.documentElement);
 		this.start();
 		this.interval = setInterval(this.start, this._interval);
 	},

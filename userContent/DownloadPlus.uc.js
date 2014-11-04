@@ -7,7 +7,7 @@
 // @include      chrome://mozapps/content/downloads/unknownContentType.xul
 // @include      chrome://mozapps/content/downloads/downloads.xul
 
-// @version      2014.11.04 FixDownloadFileSize
+// @version      2014.11.05 FixDownloadFileSize
 // @version      2014.11.02 增加多个功能
 // @version      2014.06.06 add delay to fix for new userChrome.js
 // ==/UserScript==
@@ -16,21 +16,24 @@
     switch (location.href) {
         case "chrome://browser/content/browser.xul":
 		    setTimeout(function(){
-			    downloadSound_Play();         // 下载完成提示音
-				downloadsPanel_removeFile();  // 从硬盘中删除
-				autoClose_blankTab();         // 自动关闭下载产生的空白标签
-				saveAndOpen_on_main(); 		  // 跟下面的 save_AndOpen 配合使用
+			    downloadSound_Play();              // 下载完成提示音
+				autoClose_blankTab();              // 自动关闭下载产生的空白标签
+				saveAndOpen_on_main(); 		       // 跟下面的 save_AndOpen 配合使用
 			}, 200);	
             break;
         case "chrome://mozapps/content/downloads/unknownContentType.xul":
             setTimeout(function(){
-			    save_And_Open();              // 保存并打开
-                download_dialog_changeName(); // 下载改名
-                download_dialog_saveas();     // 另存为...
+			    save_And_Open();                   // 保存并打开
+                download_dialog_changeName();      // 下载改名
+                download_dialog_saveas();          // 另存为...
 				download_dialog_showCompleteURL(); // 下载弹出窗口双击链接复制完整链接
-				download_dialog_doubleclicksaveL();// 下载弹出窗口双击保存文件项执行下载
-				
+				download_dialog_doubleclicksaveL();// 下载弹出窗口双击保存文件项执行下载	
             }, 200);
+            break;
+		case "chrome://browser/content/places/places.xul":
+		    setTimeout(function(){
+                downloadsPanel_removeFile();       // 从硬盘中删除
+			}, 200);	
             break;
     }
     
@@ -201,7 +204,7 @@
     function autoClose_blankTab() {
        eval("gBrowser.mTabProgressListener = " + gBrowser.mTabProgressListener.toString().replace(/(?=var location)/, '\
            if (aWebProgress.DOMWindow.document.documentURI == "about:blank"\
-           && aRequest.QueryInterface(nsIChannel).URI.spec != "about:blank") {\
+           && aRequest.QueryInterface(nsIChannel).URI.spec != "about:blank" && aStatus == 0) {\
            aWebProgress.DOMWindow.setTimeout(function() {\
            !aWebProgress.isLoadingDocument && aWebProgress.DOMWindow.close();\
            }, 100);\

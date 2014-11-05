@@ -1,4 +1,4 @@
-/*2014.11.04 13:10*/
+/*2014.11.05 20:00*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*书签工具栏产生的箭头*/
@@ -22,6 +22,7 @@
 #context-shareselect,/*分享选中项目*/
 #context-shareimage,/*分享此图片*/
 #context-sharelink,/*分享此鏈接*/
+#context-sharepage,/*分享此頁面*/
 #context-navigation,
 #context-sep-navigation,
 #frame,/*本框架*/

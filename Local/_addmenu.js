@@ -1,3 +1,4 @@
+//2014.11.05 20:26 調整Send to Gmail幾個菜單順序
 //2014.11.02 09:10 調整搜圖順序
 
 /*——————————选中文本右键——————————*/
@@ -271,10 +272,32 @@ tab({
 //右键菜单
 tab({
     id: "yun-player-context",
-    insertAfter: "context-copy",
+    insertAfter: "context-sendlinktogmail",
     clone: false,  // 不克隆，直接改在原来的菜单上面
 }
 );
+
+tab({
+    id: "context-sendselecttogmail",
+    insertAfter: "context-viewpartialsource-selection",
+    clone: false,  // 不克隆，直接改在原来的菜单上面
+}
+);
+
+tab({
+    id: "context-sendlinktogmail",
+    insertAfter: "context-sendselecttogmail",
+    clone: false,  // 不克隆，直接改在原来的菜单上面
+}
+);
+
+tab({
+    id: "context-sendimagetogmail",
+    insertAfter: "context-sendlinktogmail",
+    clone: false,  // 不克隆，直接改在原来的菜单上面
+}
+);
+
 
 };
 

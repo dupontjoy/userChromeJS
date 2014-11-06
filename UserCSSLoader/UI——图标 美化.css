@@ -1,4 +1,4 @@
-/*2014.11.05 15:35*/
+/*2014.11.06 21:55*/
 
 /*地址栏图标分组*/
 #flashgot-media-tbb{-moz-box-ordinal-group: 1 !important;}
@@ -17,6 +17,11 @@ margin-left: 0px !important;
 #category-userscript{-moz-box-ordinal-group: 1 !important;}
 #category-plugin{-moz-box-ordinal-group: 2 !important;}
 #category-theme{-moz-box-ordinal-group: 3 !important;}
+
+/*====標簽右鍵菜單調序===*/
+#context_undoCloseTab{-moz-box-ordinal-group: 0 !important;}
+#context_reloadAllTabs{-moz-box-ordinal-group: 2 !important;}
+#context_closeOtherTabs{-moz-box-ordinal-group: 3 !important;}
 
 /*==扩展/脚本图标补充==*/
 #context-sendselecttogmail/*發送選中文字到Gmail*/
@@ -104,7 +109,7 @@ margin-left: 0px !important;
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 
-#context-copyimage/*复制图片地址*/
+#context-copyimage-contents/*复制图片*/,#context-copyimage/*复制图片地址*/
 {list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAdRJREFUeNqkk72LU0EUxc/cmXkv2Q9hcVkFtRS0DDZaaZXCPoV2W6bbQvwHJI3Wsp1FRIgWVkIqe02xnU1AtpYgNkJI3nzsmXkmm1eIuxi4vLmTuWfO73JHxRjxPz+zmQyHwxf89BnlBeuPGwLe+36v17uqtb5Q9Wg06jcEnHO71lq8/PQY2gq0VhCjoMUwLLQyEK4N14cP3qTzO7Ip0Ol0JIQAYaFS3FD1vijh8k+CCBcqpN5VVQWzyc1NM51OcdM//avt/RstnOLjucCluT+8w87t/SywXC5hVtxPxr9R0HohCi26tUbQkjovjEZBjOf3Ndwy4vr2rbWA0EZI3IVESCC2V4iBxLFuQlRk5uF5iGvb32dfGwI52WLXtmzkbRSCR/AePs1YGrQYUAW/Fvj8fnreg6SSkiulRykadEs3wtBQmt1nfbvU/E+tb3376ksuZsyzQEK4uxuxV0aUbYO2Mdi2LCCTI07L1KKRTtL5yWTixuNxlSdx5eDnbIZfZA68ea4sQkwokueBtbkndx5dywLdbtcy6rdAG3lCXp/8wMJVWCw8v47YoR4bdj8SS3Minz08yNYbjylxULX8dnTvnzOw4m4IcA6OB4PBpV7gZnImwACqDgkzylG2tgAAAABJRU5ErkJggg==") !important;
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }

@@ -1,4 +1,4 @@
-::Mod 2014.11.05
+::Mod 2014.11.06
 
 echo off
 rem 设置备份路径以及临时文件夹
@@ -29,7 +29,7 @@ xcopy "%BackDir%\localstore.rdf" %TempFolder%\ /y
 ::xcopy "%BackDir%\mason-backup.txt" %TempFolder%\ /y
 ::xcopy "%BackDir%\permissions.sqlite" %TempFolder%\ /y
 xcopy "%BackDir%\Portable.7z" %TempFolder%\ /y
-::xcopy "%BackDir%\prefs.js" %TempFolder%\ /y
+xcopy "%BackDir%\prefs.js" %TempFolder%\ /y
 xcopy "%BackDir%\readme.txt" %TempFolder%\ /y
 xcopy "%BackDir%\user.js" %TempFolder%\ /y
 

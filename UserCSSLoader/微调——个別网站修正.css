@@ -1,3 +1,5 @@
+/*2014.11.06 13:05*/
+
 /*贴吧楼中楼表情*/
 .lzl_panel_wrapper {position:relative!important;}
 .lzl_edui_dialog_container {left:-430px!important;}/*FX32的数值*/
@@ -13,3 +15,13 @@
 
 /*取消吧内自动链接*/
 a.ps_cb{pointer-events:none !important;color:#000 !important;}
+
+/*我在貼吧位置修正——此段鸣谢星梦XMMX*/
+.profile_bottom{display:none !important;}
+.user_level{margin-left:0 !important;}
+.badge{float:right !important;margin-top:-30px !important;}
+.exp{width:118% !important;} /*经验条长度,自己调整*/
+.exp_bar{border:1px #9DCFF2 solid !important;border-radius:3px !important;}
+.right_section.right_bright>div:nth-child(1)+div,#aside.side>div:nth-child(1)+div{position:relative !important;top:-108px !important;background-image:none !important;}/*“我在贴吧”和“我在本吧”模块的位置，若有错位请自行调整top值*/
+.region_bright.balv_mod.balv_mod_user_currforum.balv_mod_bright{position:relative !important;bottom:-160px !important;}/*"我在贴吧"下面的空白，top值按个人需求可以上下调整一下*/
+#aside.side>div.platform_aside_module:nth-child(2),#aside.side>#forumInfoPanel{top:0px !important;}/*处理官方贴吧的错位，如果还有错位自己调一下top*/

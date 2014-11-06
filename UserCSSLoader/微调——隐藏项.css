@@ -1,4 +1,4 @@
-/*2014.11.05 20:00*/
+/*2014.11.06 21:55*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*书签工具栏产生的箭头*/
@@ -37,7 +37,6 @@
 #context-sendlink, /*发送链接到*/
 #context-sendpage, /*发送页面链接到*/
 #context-viewimage, /*查看图片*/
-#context-copyimage-contents, /*复制图片*/
 #context-sep-copyimage, /*复制图片下面的分割线*/
 #context-sendimage, /*发送图片到*/
 #context-setDesktopBackground, /*设置为桌面背景*/
@@ -63,6 +62,7 @@
 {display: none !important;}
 
 /*===标签栏右键菜单===*/
+#context_pinTab,/*釘選分頁*/
 #tabContextMenu > menuseparator,/*全部分割线*/
 #context_openTabInWindow,/*移动到新窗口*/
 #context_reloadTab,/*重新载入标签页*/

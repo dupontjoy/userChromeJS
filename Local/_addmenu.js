@@ -1,4 +1,4 @@
-//2014.11.05 20:26 調整Send to Gmail幾個菜單順序
+//2014.11.06 21:55 調整Send to Gmail幾個菜單順序
 //2014.11.02 09:10 調整搜圖順序
 
 /*——————————选中文本右键——————————*/
@@ -58,7 +58,7 @@ var undoMenu = TabMenu({
 /*——————————图片右键————————*/
 
 //右键搜索图片 以图搜图
- var imagesub = PageMenu({ label: "以图搜图",accesskey: "I",  condition: "image", where: "tab", insertAfter:"context-viewpartialsource-selection", image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAE40lEQVRIiZWVbUxTZxTHD60tKJgYKpaEfoDhHFVeMtlU4gbMMhrMqA6l0YKY+MnFaOJwdb7LCgJDGRXmBEUIL+pQYQ20IDBnnZOwJRo1cVncxiAGjRIq9P3e3v73obe8aRRO8kuee/I//+fec/Och+jtIVBU9Us2tDyLyzKMrs0yjK7d0PIsTlHVLyEiwSzqXx8rslvEG9uerso1OYvyelnz9hvcwPYbXosPbiCvlzXndjmLNrY9XbUiu0U8J/OMc49lW42O0txubnhbrxc5PV5our3YwqPp9uW29XqR280NbzU6SjPOPZbNzvzC4HK10dWp6fJy6k4vNr8FdacXmi4vpza6OjMuDC5/o3ly5f2oTe3OnmwTh8+NcyPbxGFTu7MnufJ+1GvNpen7glVXrVVZ7R5kGqaT0epBWosP5TUPPjO8qsk0eJDV7oHqirVKmr4v+NW3r/43XdXKjKxv9SDjGouMayyUV1mkXWKxw8DihNmDklsefNHBIv0Si/Sr7ITOz/pWD1StzMgnPwwop7vLkuZ/2mg5r7zCQvEjM8G6ZgZFv3hw/R8OjQ851D/g0PU3h6o+D9IvMlg3RetHeYVFWpOllmRJ8yf8l+5ui1Y02R6lXmSQ3OTjowY3drYz6HzMYaeJQWozg5QmBtsMDNr/4nCo26fx6/2kNjNQNNkeLd3dFu33D4gvuKtIabBbkurcSKpzIanOhdW1LlT2sai4w2J1rQtr+PyqWhcO9TJovMciuW4yP4kbKQ12S3zBXQURBRARBcQWPVSvOe9kP6hxwk9itRPVv7Mo6GGQcGYyn3DWiZ0/uXH5AYuPa51InFLjZ/V5JxNb9FDt30AQc/yBZuVZBxf3vQN+YqscOHjdjYY/GHyotyOmwgG53oHYcjv0ZganzG7EV03qp5JY7fC8W3B/K/GjRBilva2Kr7TZ5HoH5Ho75Ho7YirsSK5xoPEuizO33Nh8zo4N1XYUX3fht/880N90I+6kDe99Z5+o8eFAfKXNFqW9rSIiIRHRvMWa+sSYcstgdLkd75yyTRB10oaUGjtKb7px+R6Dy/cYVPzqxpcdLhj/ZHGi0wV5iRVRZZM10eV2xJRbBhdr6hOJaB4RkZDCUsMjC4eNkWU2yEqs04gosSKy1IoEvQ3vn7Yh6lsrIoqtUDc7YHzEQmdyInqKPrLMhsjCYRNFpob7v0BARAske+7skhWPucILrQgvHJ+GtHAcUh3PlOdN9XaU/uyCvMwKqW4c4YVWyIrHXJI9d3YR0QKaMs7FlJC3bMmRJ71hunGEHh+bNeHfjEPCr8N041hy5EkvJeQtI6JpI1xIRCGB2Y2q0KPPBxYdG8PCw3Nj0dExhB59PhCY3agiohB/eyYOG7+jRLSlY0fIwRdDwYfHEPT1y1kRfHgMIYdeDAXldOwgIgnvFTBz3gUQURARhQkz69VB+UN9gQcsrHj/S4i1Foi/moHWAvH+lwg8YGGD8of6hJn1aiIK4z1eMfeHgBeEkjx3pSDPfEy0d6hfpB0ZFe23sCKtBSKtBb71yKho71C/IM98jOS5K4kolK996z3tb9dCIpJShDKB0k5nkdqUL8gx6wQ5Zh2pTfmUdjqLIpQJRCTlta9ty5s2ERJRIPl+2CK+t2E8Ej4XwmuEczGfGQLynUjxDObRLNrxP24V8y9C9aWjAAAAAElFTkSuQmCC",  });
+ var imagesub = PageMenu({ label: "以图搜图",accesskey: "I",  condition: "image", where: "tab", insertBefore:"context-copyimage-contents", image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAE40lEQVRIiZWVbUxTZxTHD60tKJgYKpaEfoDhHFVeMtlU4gbMMhrMqA6l0YKY+MnFaOJwdb7LCgJDGRXmBEUIL+pQYQ20IDBnnZOwJRo1cVncxiAGjRIq9P3e3v73obe8aRRO8kuee/I//+fec/Och+jtIVBU9Us2tDyLyzKMrs0yjK7d0PIsTlHVLyEiwSzqXx8rslvEG9uerso1OYvyelnz9hvcwPYbXosPbiCvlzXndjmLNrY9XbUiu0U8J/OMc49lW42O0txubnhbrxc5PV5our3YwqPp9uW29XqR280NbzU6SjPOPZbNzvzC4HK10dWp6fJy6k4vNr8FdacXmi4vpza6OjMuDC5/o3ly5f2oTe3OnmwTh8+NcyPbxGFTu7MnufJ+1GvNpen7glVXrVVZ7R5kGqaT0epBWosP5TUPPjO8qsk0eJDV7oHqirVKmr4v+NW3r/43XdXKjKxv9SDjGouMayyUV1mkXWKxw8DihNmDklsefNHBIv0Si/Sr7ITOz/pWD1StzMgnPwwop7vLkuZ/2mg5r7zCQvEjM8G6ZgZFv3hw/R8OjQ851D/g0PU3h6o+D9IvMlg3RetHeYVFWpOllmRJ8yf8l+5ui1Y02R6lXmSQ3OTjowY3drYz6HzMYaeJQWozg5QmBtsMDNr/4nCo26fx6/2kNjNQNNkeLd3dFu33D4gvuKtIabBbkurcSKpzIanOhdW1LlT2sai4w2J1rQtr+PyqWhcO9TJovMciuW4yP4kbKQ12S3zBXQURBRARBcQWPVSvOe9kP6hxwk9itRPVv7Mo6GGQcGYyn3DWiZ0/uXH5AYuPa51InFLjZ/V5JxNb9FDt30AQc/yBZuVZBxf3vQN+YqscOHjdjYY/GHyotyOmwgG53oHYcjv0ZganzG7EV03qp5JY7fC8W3B/K/GjRBilva2Kr7TZ5HoH5Ho75Ho7YirsSK5xoPEuizO33Nh8zo4N1XYUX3fht/880N90I+6kDe99Z5+o8eFAfKXNFqW9rSIiIRHRvMWa+sSYcstgdLkd75yyTRB10oaUGjtKb7px+R6Dy/cYVPzqxpcdLhj/ZHGi0wV5iRVRZZM10eV2xJRbBhdr6hOJaB4RkZDCUsMjC4eNkWU2yEqs04gosSKy1IoEvQ3vn7Yh6lsrIoqtUDc7YHzEQmdyInqKPrLMhsjCYRNFpob7v0BARAske+7skhWPucILrQgvHJ+GtHAcUh3PlOdN9XaU/uyCvMwKqW4c4YVWyIrHXJI9d3YR0QKaMs7FlJC3bMmRJ71hunGEHh+bNeHfjEPCr8N041hy5EkvJeQtI6JpI1xIRCGB2Y2q0KPPBxYdG8PCw3Nj0dExhB59PhCY3agiohB/eyYOG7+jRLSlY0fIwRdDwYfHEPT1y1kRfHgMIYdeDAXldOwgIgnvFTBz3gUQURARhQkz69VB+UN9gQcsrHj/S4i1Foi/moHWAvH+lwg8YGGD8of6hJn1aiIK4z1eMfeHgBeEkjx3pSDPfEy0d6hfpB0ZFe23sCKtBSKtBb71yKho71C/IM98jOS5K4kolK996z3tb9dCIpJShDKB0k5nkdqUL8gx6wQ5Zh2pTfmUdjqLIpQJRCTlta9ty5s2ERJRIPl+2CK+t2E8Ej4XwmuEczGfGQLynUjxDObRLNrxP24V8y9C9aWjAAAAAElFTkSuQmCC",  });
 imagesub([
       {label: 'Google Search',
       url : 'http://www.google.com/searchbyimage?image_url=%IMAGE_URL%',
@@ -151,28 +151,13 @@ var menu = PageMenu({
 condition:"select",
 label: "搜索选中文本",
 accesskey: "S",
-insertAfter:"复选框的 ON/OFF",
+insertBefore: "context-copy",
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHDSURBVDhPpVJbKENhHJ887NmLcnmQZ+U6SZ7mEk+ur8qDXEpMLBSRJbRHlzSRDFuNkkQRHoaiXE44LxbTssk0zhpDdj7/H0ecsYflV//+5/+7fN853/kUf4ExFkkVJYpiElUhVbnUk8BDl6y/AZGMcbu2O41+lecrDFYhu38jgI4ZPPSQi2CHXdutRmM6uMnUrbHgAg8dPikiB15Tv3LGq3pWmdZ86OQcnok3UWxExwweOnxSRA4SCiuGtwRV1zLjrjwTNMdTKdExg4cOnxSRg4TyrLalQEbHIsPOCEu8EjN46PB9BIKBlcsG1oV07Tzj7G75G9AMHjp8UuQbdDARJKj7zXv2tGYT005uO7kL9+cZUMcMftCy//sMpHCMwy30Fncv+PJaLf60BiMLrvqRzRsrfy3/C1/hS9dDe2m32ZtaN8lyWo3Pupmdq1LdgqCqmQqg95mtvPXEIb8HP8MlnXPelGoDy20y+k/ttyPEF1AVUYW+iURGX7jutSUdc97kqlGmbjT4OZtLT6YEmTEUfL6XlLKWKU9y5RBTN4yFFwZgnl45ms2vHX86PncOhhUG6BOUFEh8fHzNpOfYsML/h0LxDlnLtXo5zlbFAAAAAElFTkSuQmCC"
 });
 menu(items);
 };
 
 /*——————————输入框右键——————————*/
-
-//粘贴并确定
-page({
-    label: "粘贴并确定",
-    condition: "input",
-    accesskey: "V",
-    insertBefore: "context-copy",
-    oncommand: function(event) {
-        goDoCommand("cmd_paste");
-
-         window.QueryInterface(Ci.nsIInterfaceRequestor)
-             .getInterface(Ci.nsIDOMWindowUtils)
-             .sendKeyEvent("keypress", KeyEvent.DOM_VK_RETURN, 0, 0);
-    }
-})
 
 //插入code代码
 page({
@@ -213,7 +198,7 @@ var menu = PageMenu({
 label:"快速回复",
 condition:"input",
 accesskey: "W",
-insertAfter: "搜索选中文本",
+insertBefore: "context-copy",
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAASZQTFRFq2MmrGUpxZNqyJNP+e/P////wIlcUFBQnp6eoaGhoZmSrY51sJN6UFBQVFRUWFhYXl5eY2NjampqcHBwd3d3fX19hISEioqKkJCQlZWVmpqanF8mnpmWnp6eoaGht3k6uH5MuoFRwY5kwpJpw4tGxI9gxY1JxZRlxpFNx5NWx5dryJNRypZWyptwy5hRy51szJlSzJpRzJ51zp9ezqF5zqR8zqqL0qd/17uk37iD5NfM5eXl5rgl5rgn5rs/5ubm5+fn6L046Ojo6enp6uLc6urq6+vr7Ozs7e3t7u7u7+/v8NSm8PDw8fHx8sMA8vHx8vLy88so89BC9NBE9Nmf9eTI9ebV9uHA9u/o+OrC+OvC+eO8+ePL+unX/Pv6/f39/vz5////ByadbwAAAA10Uk5TAAAAAAAAG5aWlqHFxQD6C4kAAADMSURBVBgZBcFNS8NAFIbR595MaqEbrQa6UgSFFhVCdy7Fvy3uFUQQBHEruAmkNqHkg8y8nmN5KACAagAInD0AAM/VCAQiPwlNXG1UjwlHmLvlgeXqZm4WEJ5w0vC97tNX7wjLPLPV57qbFudZQBhQfJRd3LUzOcLMlu9lF+v9tEmOcDt523axbuLtE45wey3HWDfj3ZFwhP0Vi3l76MsdwhHZdBHttN3uDREQVJd1/XvfGIiA0PiSFdcHJ6EUkB8/GgDgkuU+AwAAxuEflNBc+frSdwMAAAAASUVORK5CYII=",
 //跟进depft更新
 oncommand: function(event){
@@ -279,21 +264,21 @@ tab({
 
 tab({
     id: "context-sendselecttogmail",
-    insertAfter: "context-viewpartialsource-selection",
+    insertBefore: "context-copy",
     clone: false,  // 不克隆，直接改在原来的菜单上面
 }
 );
 
 tab({
     id: "context-sendlinktogmail",
-    insertAfter: "context-sendselecttogmail",
+    insertAfter: "context-copylink",
     clone: false,  // 不克隆，直接改在原来的菜单上面
 }
 );
 
 tab({
     id: "context-sendimagetogmail",
-    insertAfter: "context-sendlinktogmail",
+    insertBefore: "context-copyimage-contents",
     clone: false,  // 不克隆，直接改在原来的菜单上面
 }
 );

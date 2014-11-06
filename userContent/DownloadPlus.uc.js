@@ -7,7 +7,7 @@
 // @include      chrome://mozapps/content/downloads/unknownContentType.xul
 // @include      chrome://mozapps/content/downloads/downloads.xul
 
-// @version      2014.11.05 FixDownloadFileSize
+// @version      2014.11.06 FixDownloadFileSize
 // @version      2014.11.02 增加多个功能
 // @version      2014.06.06 add delay to fix for new userChrome.js
 // ==/UserScript==
@@ -16,9 +16,11 @@
     switch (location.href) {
         case "chrome://browser/content/browser.xul":
 		    setTimeout(function(){
+			    downloadsPanel_removeFile();       // 从硬盘中删除
 			    downloadSound_Play();              // 下载完成提示音
 				autoClose_blankTab();              // 自动关闭下载产生的空白标签
 				saveAndOpen_on_main(); 		       // 跟下面的 save_AndOpen 配合使用
+				download_dialog_changeName_on_main()// 跟下面的 download_dialog_changeName 配合使用
 			}, 200);	
             break;
         case "chrome://mozapps/content/downloads/unknownContentType.xul":
@@ -32,7 +34,7 @@
             break;
 		case "chrome://browser/content/places/places.xul":
 		    setTimeout(function(){
-                downloadsPanel_removeFile();       // 从硬盘中删除
+                downloadsPanel_removeFile();       // 从硬盘中删除( 我的足迹 )
 			}, 200);	
             break;
     }
@@ -202,16 +204,15 @@
 	
 	// 自动关闭下载产生的空白标签
     function autoClose_blankTab() {
-       eval("gBrowser.mTabProgressListener = " + gBrowser.mTabProgressListener.toString().replace(/(?=var location)/, '\
-           if (aWebProgress.DOMWindow.document.documentURI == "about:blank"\
-           && aRequest.QueryInterface(nsIChannel).URI.spec != "about:blank" && aStatus == 0) {\
-           aWebProgress.DOMWindow.setTimeout(function() {\
-           !aWebProgress.isLoadingDocument && aWebProgress.DOMWindow.close();\
-           }, 100);\
-           }\
-       '));
+        eval("gBrowser.mTabProgressListener = " + gBrowser.mTabProgressListener.toString().replace(/(?=var location)/, '\
+            if (aWebProgress.DOMWindow.document.documentURI == "about:blank"\
+            && aRequest.QueryInterface(nsIChannel).URI.spec != "about:blank" && aStatus == 0) {\
+            aWebProgress.DOMWindow.setTimeout(function() {\
+            !aWebProgress.isLoadingDocument && aWebProgress.DOMWindow.close();\
+            }, 5000);\
+            }\
+        '));
     }
-
 	
 	// 保存并打开
 	function save_And_Open() {
@@ -244,52 +245,69 @@
     	}
     	saveAndOpen.init();
     }
-
+	
     // 下载改名
     function download_dialog_changeName() {
+	
+	    var rename = true           //true,可改名         false,不可改
+        var encodingConvert = true  //true,有下拉菜单选项 false,没有下拉菜单选项
+		
         if (location != "chrome://mozapps/content/downloads/unknownContentType.xul") return;
         document.querySelector("#mode").addEventListener("select", function() {
             if (dialog.dialogElement("save").selected) {
                 if (!document.querySelector("#locationtext")) {
-				    var orginalString = (opener.localStorage.getItem(dialog.mLauncher.source.spec) ||
-                        dialog.mLauncher.source.asciiSpec.substring(dialog.mLauncher.source.asciiSpec.lastIndexOf("/"))).replace(/[\/:*?"<>|]/g, "");
-                    opener.localStorage.removeItem(dialog.mLauncher.source.spec)
-                    var locationtext = document.querySelector("#location").parentNode.insertBefore(document.createElement("menulist"), document.querySelector("#location"));
-                    locationtext.id = "locationtext";
-					locationtext.setAttribute("editable", "true");
-                    locationtext.setAttribute("style", "margin-top:-2px;margin-bottom:-3px");
-                    locationtext.value = document.querySelector("#location").value;
-					locationtext.addEventListener("command", function (e) {
-                        locationtext.value = e.target.value;
-                        document.title = "Opening " + e.target.value;
-                    });
-					let menupopup = locationtext.appendChild(document.createElement("menupopup"));
-                    let menuitem = menupopup.appendChild(document.createElement("menuitem"));
-                    menuitem.value = dialog.mLauncher.suggestedFileName;
-                    menuitem.label = "Original: " + menuitem.value;
-//					locationtext.value = menuitem.value;
-                    let converter = Components.classes['@mozilla.org/intl/scriptableunicodeconverter']
-                        .getService(Components.interfaces.nsIScriptableUnicodeConverter);
-					function createMenuitem(encoding) {
-                        converter.charset = encoding;
-                        let menuitem = menupopup.appendChild(document.createElement("menuitem"));
-                        menuitem.value = converter.ConvertToUnicode(orginalString).replace(/^"(.+)"$/, "$1");
-                        menuitem.label = encoding + ": " + menuitem.value;
-		            	locationtext.setAttribute("tooltiptext","Ctrl+\u70B9\u51FB\u8F6C\u6362url\u7F16\u7801\n\u5DE6\u952E\u003AUNICODE\n\u53F3\u952E\u003AGB2312");
-                        locationtext.addEventListener("click",function(e){
-                            if(e.ctrlKey){
-                                if(e.button==0)
-                                    this.value = decodeURIComponent(this.value);
-                                if(e.button==2){
-                                    e.preventDefault();
-                                    converter.charset = "GB2312";
-                                    this.value = converter.ConvertToUnicode(unescape(this.value));
-                                }
+				    if (rename || encodingConvert) {
+					    if (encodingConvert) {
+				            var orginalString = (opener.localStorage.getItem(dialog.mLauncher.source.spec) ||
+                                dialog.mLauncher.source.asciiSpec.substring(dialog.mLauncher.source.asciiSpec.lastIndexOf("/"))).replace(/[\/:*?"<>|]/g, "");
+                            opener.localStorage.removeItem(dialog.mLauncher.source.spec)
+					    }
+					    if (encodingConvert)
+                            var locationtext = document.querySelector("#location").parentNode.insertBefore(document.createElement("menulist"), document.querySelector("#location"));
+					    else
+					        var locationtext = document.querySelector("#location").parentNode.insertBefore(document.createElement("textbox"), document.querySelector("#location"));
+                        locationtext.id = "locationtext";
+					    if (rename && encodingConvert)
+					        locationtext.setAttribute("editable", "true");
+                            locationtext.setAttribute("style", "margin-top:-2px;margin-bottom:-3px");
+					    if (rename)
+						    locationtext.value = dialog.mLauncher.suggestedFileName;
+					    if (encodingConvert) {
+					        locationtext.addEventListener("command", function (e) {
+							    if (rename)
+                                    locationtext.value = e.target.value;
+                                    document.title = "Opening " + e.target.value;
+                            });
+					        let menupopup = locationtext.appendChild(document.createElement("menupopup"));
+                            let menuitem = menupopup.appendChild(document.createElement("menuitem"));
+                            menuitem.value = dialog.mLauncher.suggestedFileName;
+                            menuitem.label = "Original: " + menuitem.value;
+					        if (!rename)
+				        	locationtext.value = menuitem.value;
+                            let converter = Components.classes['@mozilla.org/intl/scriptableunicodeconverter']
+                                .getService(Components.interfaces.nsIScriptableUnicodeConverter);
+				        	function createMenuitem(encoding) {
+                                converter.charset = encoding;
+                                let menuitem = menupopup.appendChild(document.createElement("menuitem"));
+                                menuitem.value = converter.ConvertToUnicode(orginalString).replace(/^"(.+)"$/, "$1");
+                                menuitem.label = encoding + ": " + menuitem.value;
+		                    	locationtext.setAttribute("tooltiptext","Ctrl+\u70B9\u51FB\u8F6C\u6362url\u7F16\u7801\n\u5DE6\u952E\u003AUNICODE\n\u53F3\u952E\u003AGB2312");
+                                locationtext.addEventListener("click",function(e){
+                                    if(e.ctrlKey){
+                                        if(e.button==0)
+                                            this.value = decodeURIComponent(this.value);
+                                        if(e.button==2){
+                                            e.preventDefault();
+                                            converter.charset = "GB2312";
+                                            this.value = converter.ConvertToUnicode(unescape(this.value));
+                                        }
+                                    }
+                                },false);        
                             }
-                        },false);        
-                    }
-                    ["GB18030", "BIG5", "Shift-JIS"].forEach(function (item) { createMenuitem(item) });	
-                }
+                            ["GB18030", "BIG5", "Shift-JIS"].forEach(function (item) { createMenuitem(item) });	
+                        }
+				    }
+				}
                 document.querySelector("#location").hidden = true;
                 document.querySelector("#locationtext").hidden = false;
             } else {
@@ -305,8 +323,46 @@
                 document.documentElement.removeAttribute("ondialogaccept");
             }
         }, false);
-    }
+	}
 
+	//作用于 main 窗口
+	function download_dialog_changeName_on_main() {
+	    const obsService = Cc['@mozilla.org/observer-service;1'].getService(Ci.nsIObserverService);
+        const RESPONSE_TOPIC = 'http-on-examine-response';
+
+        var respObserver = {
+            observing: false,
+            observe: function (subject, topic, data) {
+                try {
+                    let channel = subject.QueryInterface(Ci.nsIHttpChannel);
+                    let header = channel.contentDispositionHeader;
+                    let associatedWindow = channel.notificationCallbacks
+                                            .getInterface(Components.interfaces.nsILoadContext)
+                                            .associatedWindow;
+                    associatedWindow.localStorage.setItem(channel.URI.spec, header.split("=")[1]);
+                } catch (ex) { }
+            },
+            start: function () {
+                if (!this.observing) {
+                    obsService.addObserver(this, RESPONSE_TOPIC, false);
+                    this.observing = true;
+                }
+            },
+            stop: function () {
+                if (this.observing) {
+                    obsService.removeObserver(this, RESPONSE_TOPIC, false);
+                    this.observing = false;
+                }
+            }
+        };
+
+        respObserver.start();
+        addEventListener("beforeunload", function () {
+            respObserver.stop();
+        })
+	}
+	
+	
 	// 另存为...
     function download_dialog_saveas() {
         var saveas = document.documentElement.getButton("extra1");

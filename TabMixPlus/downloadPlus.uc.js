@@ -6,18 +6,17 @@
 // @include      chrome://browser/content/places/places.xul
 // @include      chrome://mozapps/content/downloads/unknownContentType.xul
 // @include      chrome://mozapps/content/downloads/downloads.xul
-
-// @version      2014.11.06 FixDownloadFileSize
 // @version      2014.11.02 增加多个功能
 // @version      2014.06.06 add delay to fix for new userChrome.js
 // ==/UserScript==
 (function() {
 
     switch (location.href) {
-        case "chrome://browser/content/browser.xul":
+	    case "chrome://browser/content/browser.xul":
 		    setTimeout(function(){
 			    downloadsPanel_removeFile();       // 从硬盘中删除
 			    downloadSound_Play();              // 下载完成提示音
+				downloadFileSize();                // 精确显示文件大小
 				autoClose_blankTab();              // 自动关闭下载产生的空白标签
 				saveAndOpen_on_main(); 		       // 跟下面的 save_AndOpen 配合使用
 				download_dialog_changeName_on_main()// 跟下面的 download_dialog_changeName 配合使用
@@ -29,12 +28,12 @@
                 download_dialog_changeName();      // 下载改名
                 download_dialog_saveas();          // 另存为...
 				download_dialog_showCompleteURL(); // 下载弹出窗口双击链接复制完整链接
-				download_dialog_doubleclicksaveL();// 下载弹出窗口双击保存文件项执行下载	
+				download_dialog_doubleclicksaveL();// 下载弹出窗口双击保存文件项执行下载		
             }, 200);
             break;
 		case "chrome://browser/content/places/places.xul":
 		    setTimeout(function(){
-                downloadsPanel_removeFile();       // 从硬盘中删除( 我的足迹 )
+                downloadsPanel_removeFile();       // 从硬盘中删除(我的足迹)
 			}, 200);	
             break;
     }
@@ -202,6 +201,19 @@
 	    }
     }
 	
+	//精确显示文件大小
+	function downloadFileSize() {    
+        location == "chrome://browser/content/browser.xul" && (DownloadUtils.convertByteUnits =
+        function DU_convertByteUnits(aBytes) {
+                let unitIndex = 0;
+                while ((aBytes >= 999.5) && (unitIndex < 3)) {
+                        aBytes /= 1024;
+                        unitIndex++;
+                }
+                return [(aBytes > 0) && (aBytes < 100) && (unitIndex != 0) ? (aBytes < 10 ? (parseInt(aBytes * 100) / 100).toFixed(2) : (parseInt(aBytes * 10) / 10).toFixed(1)): parseInt(aBytes), ['bytes', 'KB', 'MB', 'GB'][unitIndex]];
+        });
+	}
+	
 	// 自动关闭下载产生的空白标签
     function autoClose_blankTab() {
         eval("gBrowser.mTabProgressListener = " + gBrowser.mTabProgressListener.toString().replace(/(?=var location)/, '\
@@ -209,7 +221,7 @@
             && aRequest.QueryInterface(nsIChannel).URI.spec != "about:blank" && aStatus == 0) {\
             aWebProgress.DOMWindow.setTimeout(function() {\
             !aWebProgress.isLoadingDocument && aWebProgress.DOMWindow.close();\
-            }, 5000);\
+            }, 100);\
             }\
         '));
     }
@@ -249,9 +261,9 @@
     // 下载改名
     function download_dialog_changeName() {
 	
-	    var rename = true           //true,可改名         false,不可改
-        var encodingConvert = true  //true,有下拉菜单选项 false,没有下拉菜单选项
-		
+	    var rename = true           //true,可改名           false,不可改
+        var encodingConvert = true  //true,开启下拉菜单选项 false,关闭下拉菜单选项
+        //注:同时关闭改名和下拉菜单会导致下载文件的文件名不显示(非要关闭请默认在28行最前面加//来注释掉该功能)
         if (location != "chrome://mozapps/content/downloads/unknownContentType.xul") return;
         document.querySelector("#mode").addEventListener("select", function() {
             if (dialog.dialogElement("save").selected) {
@@ -270,6 +282,18 @@
 					    if (rename && encodingConvert)
 					        locationtext.setAttribute("editable", "true");
                             locationtext.setAttribute("style", "margin-top:-2px;margin-bottom:-3px");
+							locationtext.setAttribute("tooltiptext","Ctrl+\u70B9\u51FB\u8F6C\u6362url\u7F16\u7801\n\u5DE6\u952E\u003AUNICODE\n\u53F3\u952E\u003AGB2312");
+                            locationtext.addEventListener("click",function(e){
+                                if(e.ctrlKey){
+                                    if(e.button==0)
+                                        this.value = decodeURIComponent(this.value);
+                                    if(e.button==2){
+                                        e.preventDefault();
+                                        converter.charset = "GB2312";
+                                        this.value = converter.ConvertToUnicode(unescape(this.value));
+                                    }
+                                }
+                            },false); 
 					    if (rename)
 						    locationtext.value = dialog.mLauncher.suggestedFileName;
 					    if (encodingConvert) {
@@ -290,19 +314,7 @@
                                 converter.charset = encoding;
                                 let menuitem = menupopup.appendChild(document.createElement("menuitem"));
                                 menuitem.value = converter.ConvertToUnicode(orginalString).replace(/^"(.+)"$/, "$1");
-                                menuitem.label = encoding + ": " + menuitem.value;
-		                    	locationtext.setAttribute("tooltiptext","Ctrl+\u70B9\u51FB\u8F6C\u6362url\u7F16\u7801\n\u5DE6\u952E\u003AUNICODE\n\u53F3\u952E\u003AGB2312");
-                                locationtext.addEventListener("click",function(e){
-                                    if(e.ctrlKey){
-                                        if(e.button==0)
-                                            this.value = decodeURIComponent(this.value);
-                                        if(e.button==2){
-                                            e.preventDefault();
-                                            converter.charset = "GB2312";
-                                            this.value = converter.ConvertToUnicode(unescape(this.value));
-                                        }
-                                    }
-                                },false);        
+                                menuitem.label = encoding + ": " + menuitem.value;       
                             }
                             ["GB18030", "BIG5", "Shift-JIS"].forEach(function (item) { createMenuitem(item) });	
                         }
@@ -324,7 +336,6 @@
             }
         }, false);
 	}
-
 	//作用于 main 窗口
 	function download_dialog_changeName_on_main() {
 	    const obsService = Cc['@mozilla.org/observer-service;1'].getService(Ci.nsIObserverService);
@@ -387,14 +398,3 @@
         }, false)
     }	
 })();
-
-//FixDownloadFileSize，按文件资源管理器去掉多余小数，而不是FX自带的四舍五入
-location == "chrome://browser/content/browser.xul" && (DownloadUtils.convertByteUnits = 
-function DU_convertByteUnits(aBytes) {
-	let unitIndex = 0;
-	while ((aBytes >= 999.5) && (unitIndex < 3)) {
-		aBytes /= 1024;
-		unitIndex++;
-	}
-	return [(aBytes > 0) && (aBytes < 100) && (unitIndex != 0) ? (aBytes < 10 ? (parseInt(aBytes * 100) / 100).toFixed(2) : (parseInt(aBytes * 10) / 10).toFixed(1)): parseInt(aBytes), ['bytes', 'KB', 'MB', 'GB'][unitIndex]];
-});

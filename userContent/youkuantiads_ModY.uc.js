@@ -14,11 +14,16 @@
 // @downloadURL     https://github.com/ywzhaiqi/userChromeJS/raw/master/YoukuantiadsModY/youkuantiadsModY.uc.js
 // updateURL       https://j.mozest.com/ucscript/script/92.meta.js
 // downloadURL     https://j.mozest.com/zh-CN/ucscript/script/92.uc.js
-// 2014.10.25       SWF換用自己的Github備份地址（從AntiChinaVideoAdsAlliances擴展提取）
-// 2014.10.23       添加多玩規則
 // @note            2014-7-21 新增下载播放器、自动更新等功能。
 // @note            2014-7-1 新增：提前判断是否为 flash，加快速度。
 // @note            2014-7-1 新增：本地播放器检测功能。
+//+++++++++++++++自定義+++++++++++++++
+// 規則提取：https://github.com/rasso1/youkuantiads/blob/master/AntiChinaVideoAds.js
+
+// 2014.11.08       跟進AntiChinaVideoAdsAlliances規則
+// 2014.10.25       SWF換用自己的Github備份地址（從AntiChinaVideoAdsAlliances擴展提取）
+// 2014.10.23       添加多玩規則
+//+++++++++++++++自定義+++++++++++++++
 // ==/UserScript==
 
 (function() {
@@ -94,7 +99,7 @@
             'player0': 'https://github.com/dupontjoy/customization/raw/master/swf/iqiyi_out.swf',
             'player1': 'https://github.com/dupontjoy/customization/raw/master/swf/iqiyi5.swf',
             'player2': 'https://github.com/dupontjoy/customization/raw/master/swf/iqiyi.swf',
-            're': /https?:\/\/www\.iqiyi\.com\/(player\/\d+\/Player|common\/flashplayer\/\d+\/(Main|Coop)?Player_?.*)\.swf/i
+            're': /https?:\/\/www\.iqiyi\.com\/(player\/\d+\/Player|common\/flashplayer\/\d+\/(Main|Coop|Share)?Player_?.*)\.swf/i
         },
         'tudou': {
             'player': 'https://github.com/dupontjoy/customization/raw/master/swf/tudou.swf',
@@ -110,7 +115,7 @@
         },
         'letv': {
             'player': 'https://github.com/dupontjoy/customization/raw/master/swf/letv.swf',
-            're': /http:\/\/.*letv[\w]*\.com\/(hz|.*\/((?!(Live|seed))((C|S)[\w]{2,3})?(?!Live)[\w]{4}|swf))Player*\.swf/i
+            're': /http:\/\/.*letv[\w]*\.com\/(hz|.*\/((?!(Live|seed|Disk))((C|S)[\w]{2,3})?(?!Live)[\w]{4}|swf))Player*\.swf/i
         },
         'letvskin': {
             'player': 'http://player.letvcdn.com/p/201403/05/1456/newplayer/1/SLetvPlayer.swf',
@@ -148,16 +153,16 @@
         '17173': {
             'player': 'https://github.com/dupontjoy/customization/raw/master/swf/17173_Player_file.swf',
             're': /http:\/\/f\.v\.17173cdn\.com\/\d+\/flash\/Player_file\.swf/i			                
-		},
+		    },
         '17173_out': {
             'player': 'https://github.com/dupontjoy/customization/raw/master/swf/17173_Player_file_out.swf',
   	    're': /http:\/\/f\.v\.17173cdn\.com(\/\d+)?\/flash\/Player_file_out\.swf/i
-     	},			
+     	  },			
 	      '17173_stream_customOut': {
             'player': 'https://github.com/dupontjoy/customization/raw/master/swf/17173_Player_stream_out.swf',
   	    're': /http:\/\/f\.v\.17173cdn\.com(\/\d+)?\/flash\/Player_stream_customOut\.swf/i
-	    },			
-         '17173_live': {
+	      },			
+        '17173_live': {
             'player': 'https://github.com/dupontjoy/customization/raw/master/swf/17173_Player_stream.swf',
             're': /http:\/\/f\.v\.17173cdn\.com\/\d+\/flash\/Player_stream\.swf/i
         }

@@ -2,6 +2,8 @@
 //   @FORGE：发送根站点referer
 //   @ORIGINAL：发送打开站点referer
 //   @BLOCK : 发送空referer
+
+//2014.11.09 增加pconline和postimg
 //2014.10.27
 
 sites = {
@@ -16,6 +18,8 @@ sites = {
     'tmoke.com': '@BLOCK',
     '51img1.com' : '@FORGE',
     'zol-img.com.cn' : '@FORGE',
+    'pconline.com.cn': '@FORGE',
+    'postimg.org': '@FORGE',
     
     // 
     'douban.com': 'http://www.douban.com',

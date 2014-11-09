@@ -1,3 +1,4 @@
+//2014.11.09 20:10  新增B站外鏈
 //2014.11.03 20:15  跟进AB站規則
 //2014.11.02 21:47  加入500px原始大圖
 //2014.10.31 22:30  加入google.com.hk >> google.com快速版
@@ -21,6 +22,7 @@ wildcard: false, // 可选，true 表示 from 是通配符
 regex: false, // 可选，true 表示 from 是正则表达式
 resp: false // 可选，true 表示替换 response body
 },
+
 
 //Google服務轉國內鏡像
 {
@@ -239,6 +241,13 @@ name: "BiliBili",
 from: /^http:\/\/www\.bilibili\.com\/video\/av([\d]+)\/([\w]+\.[\w]+)?(\?[\w]+)?(##alist)?/i,
 exclude: /bilibili\.com\/video\/av([\d]+)\/([\w]+\.[\w]+)?#alist/i,
 to: "http://www.bilibili.com/video/av$1/$2#alist",
+regex: true
+},
+{
+//測試地址：http://bbs.colg.cn/thread-3334951-1-1.html
+name: "B站外鏈",
+from: /^http:\/\/static\.hdslb\.com\/miniloader\.swf\?aid\=781381\&page\=1/,
+to: "http://static.hdslb.com/miniloader.swf?aid=482215&page=1",
 regex: true
 },
 

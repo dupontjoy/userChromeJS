@@ -1,3 +1,5 @@
+//2014.11.11 15:17  修正『Google搜索en-US,safe=off』導致Google image不能搜圖問題
+//2014.11.10 14:50  新增topit.me 原始大圖
 //2014.11.09 20:10  新增B站外鏈
 //2014.11.03 20:15  跟进AB站規則
 //2014.11.02 21:47  加入500px原始大圖
@@ -24,115 +26,10 @@ resp: false // 可选，true 表示替换 response body
 },
 
 
-//Google服務轉國內鏡像
-{
-//Http走360，Https走科大
-name: "ajax/fonts >> 360 useso",
-from: /^http:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
-to: "http://$1.useso.com/$2",
-regex: true
-},
-{
-//https://servers.ustclug.org/index.php/2014/06/blog-googlefonts-speedup/
-name: "ajax/fonts >> 科大博客提供",
-from: /^https:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
-to: "https://$1.lug.ustc.edu.cn/$2",
-regex: true
-},
-{
-name: "themes >> 科大博客",
-from: /^https?:\/\/themes\.googleusercontent\.com\/(.*)$/,
-to: "http://google-themes.lug.ustc.edu.cn/$1",
-regex: true
-},
-{
-name: "fonts-gstatic >> 科大博客",
-from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
-to: "http://fonts-gstatic.lug.ustc.edu.cn/$1",
-regex: true
-},
-{
-name: "Gravatar头像 >> 多说",
-from: /^https?:\/\/([0-9]?)\.gravatar\.com\/avatar\/(.*)$/,
-to: "http://gravatar.duoshuo.com/avatar/$1",
-regex: true
-},
-{
-name: "Google统计脚本 >> mingto.tk",
-from: /^https?:\/\/(.*?)google-analytics.com\/(.*)$/,
-to: "http://code.minggo.tk/etc/$2",
-regex: true
-},
-{
-name: "Google Tag Services >> mingto.tk",
-from: /^https?:\/\/(.*?)googletagservices\.com\/tag\/js\/(.*)$/i,
-to: "http://www.minggo.tk/etc/$2",
-regex: true
-},
-
-//原始大圖系列
-{
-name: "tradingfloor 原始大圖",
-from: /^https?:\/\/www\.tradingfloor\.com\/images\/article\/max608w\/(.*)/i,
-to: "https://www.tradingfloor.com/images/article/original/$1",
-regex: true
-},
-{
-name: "百度貼吧|百科 原始大圖",
-from: /^http:\/\/(imgsrc|[\w]?\.hiphotos)\.baidu\.com\/(forum|baike)\/[\w].+\/sign=[^\/]+(\/.*).jpg/i,
-to: "http://$1.baidu.com/$2/pic/item$3.jpg",
-regex: true
-},
-{
-name: "500px 原始大圖",
-from: /^https?:\/\/gp1\.wac\.edgecastcdn\.net\/806614\/photos\/photos\.500px\.net\/(.*)\/(.*)\/[\d].jpg+(\/.*)?/i,
-to: "https://gp1.wac.edgecastcdn.net/806614/photos/photos.500px.net/$1/$2/2048.jpg",
-regex: true
-},
-
-//轉https
-{
-name: "【https】google",
-from: /^http:\/\/(([^\.]+\.)?google\..+)/i,
-exclude: /google\.cn/i, // 可选，排除例外规则
-to: "https://$1",
-regex: true
-},
-{
-name: "【https】Wiki Media",
-from: /^http:\/\/upload\.wikimedia\.org\/(.*)$/i,
-to: "https://upload.wikimedia.org/$1",
-regex: true
-},
-{
-name: "【https】Google Code",
-from: /^http:\/\/(.*?)googlecode\.com\/(.*)$/i,
-to: "https://$1googlecode.com/$2",
-regex: true
-},
-{
-name: "【https】Google User Content",
-from: /^http:\/\/(.*?)googleusercontent\.com\/(.*)$/i,
-to: "https://$1googleusercontent.com/$2",
-regex: true
-},
-
 //單獨網站
 {
-name: "google搜索结果禁止跳转",
-from: /^https?:\/\/www\.google\.com\/url\?.*url=([^&]*).*/i,
-to: "$1",
-regex: true
-},
-{
-name: "职友集去跳转",
-from:/^http:\/\/www\.jobui\.com\/.*\link=(.*)/i,
-to: "$1",
-regex: true
-},
-{
-name: "Google搜索en-US,Safe=off",
-from: /^https?:\/\/www\.google\.com\/(s|search|webhp)(.*)/i,
+name: "Google搜索en-US,safe=off",
+from: /^https?:\/\/www\.google\.com\/(s\?|search\?|webhp\?)(.*)/i,
 to: "https://www.google.com/$1$2&hl=en-US&safe=off",
 exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off(.*)/i,
 regex: true
@@ -153,9 +50,21 @@ regex: true
 },
 {
 name: "百度搜索ie=utf-8防繁體字亂碼",
-from: /^https?:\/\/www\.baidu\.com\/(s|baidu|search)(.*)/i,
+from: /^https?:\/\/www\.baidu\.com\/(s\?|baidu\?|search\?)(.*)/i,
 to: "http://www.baidu.com/$1$2&ie=utf-8",
 exclude: /^http:\/\/www\.baidu\.com\/.*\&ie=utf-8(.*)/i,
+regex: true
+},
+{
+name: "google搜索结果禁止跳转",
+from: /^https?:\/\/www\.google\.com\/url\?.*url=([^&]*).*/i,
+to: "$1",
+regex: true
+},
+{
+name: "职友集去跳转",
+from:/^http:\/\/www\.jobui\.com\/.*\link=(.*)/i,
+to: "$1",
 regex: true
 },
 {
@@ -251,6 +160,105 @@ to: "http://static.hdslb.com/miniloader.swf?aid=482215&page=1",
 regex: true
 },
 
+//Google服務轉國內鏡像
+{
+//Http走360，Https走科大
+name: "ajax/fonts >> 360 useso",
+from: /^http:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
+to: "http://$1.useso.com/$2",
+regex: true
+},
+{
+//https://servers.ustclug.org/index.php/2014/06/blog-googlefonts-speedup/
+name: "ajax/fonts >> 科大博客提供",
+from: /^https:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
+to: "https://$1.lug.ustc.edu.cn/$2",
+regex: true
+},
+{
+name: "themes >> 科大博客",
+from: /^https?:\/\/themes\.googleusercontent\.com\/(.*)$/,
+to: "http://google-themes.lug.ustc.edu.cn/$1",
+regex: true
+},
+{
+name: "fonts-gstatic >> 科大博客",
+from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
+to: "http://fonts-gstatic.lug.ustc.edu.cn/$1",
+regex: true
+},
+{
+name: "Gravatar头像 >> 多说",
+from: /^https?:\/\/([0-9]?)\.gravatar\.com\/avatar\/(.*)$/,
+to: "http://gravatar.duoshuo.com/avatar/$1",
+regex: true
+},
+{
+name: "Google统计脚本 >> mingto.tk",
+from: /^https?:\/\/(.*?)google-analytics.com\/(.*)$/,
+to: "http://code.minggo.tk/etc/$2",
+regex: true
+},
+{
+name: "Google Tag Services >> mingto.tk",
+from: /^https?:\/\/(.*?)googletagservices\.com\/tag\/js\/(.*)$/i,
+to: "http://www.minggo.tk/etc/$2",
+regex: true
+},
+
+//原始大圖系列
+{
+name: "tradingfloor 原始大圖",
+from: /^https?:\/\/www\.tradingfloor\.com\/images\/article\/max608w\/(.*)/i,
+to: "https://www.tradingfloor.com/images/article/original/$1",
+regex: true
+},
+{
+name: "百度貼吧|百科 原始大圖",
+from: /^http:\/\/(imgsrc|[\w]?\.hiphotos)\.baidu\.com\/(forum|baike)\/[\w].+\/sign=[^\/]+(\/.*).jpg/i,
+to: "http://$1.baidu.com/$2/pic/item$3.jpg",
+regex: true
+},
+{
+name: "500px 原始大圖",
+from: /^https?:\/\/gp1\.wac\.edgecastcdn\.net\/806614\/photos\/photos\.500px\.net\/(.*)\/(.*)\/[\d].jpg+(\/.*)?/i,
+to: "https://gp1.wac.edgecastcdn.net/806614/photos/photos.500px.net/$1/$2/2048.jpg",
+regex: true
+},
+{
+name: "topit.me 原始大圖",
+from: /^https?:\/\/(.*)\.topit\.me\/(s|m)\/(.*)\.jpg$/,
+to: "http://$1.topit.me/l/$3.jpg",
+regex: true
+},
+
+//轉https
+{
+name: "【https】google",
+from: /^http:\/\/(([^\.]+\.)?google\..+)/i,
+exclude: /google\.cn/i, // 可选，排除例外规则
+to: "https://$1",
+regex: true
+},
+{
+name: "【https】Wiki Media",
+from: /^http:\/\/upload\.wikimedia\.org\/(.*)$/i,
+to: "https://upload.wikimedia.org/$1",
+regex: true
+},
+{
+name: "【https】Google Code",
+from: /^http:\/\/(.*?)googlecode\.com\/(.*)$/i,
+to: "https://$1googlecode.com/$2",
+regex: true
+},
+{
+name: "【https】Google User Content",
+from: /^http:\/\/(.*?)googleusercontent\.com\/(.*)$/i,
+to: "https://$1googleusercontent.com/$2",
+regex: true
+},
+
 //待測試
 {
 name: "反Google搜索验证码",
@@ -258,7 +266,6 @@ from: /^https?:\/\/ipv4\.google\.com\/sorry\/IndexRedirect\?continue=https?:\/\/
 to: "https://www.google.com/ncr#$1",
 regex: true
 },
-
 
 //以下为不启用
 {

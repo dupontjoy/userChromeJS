@@ -1,4 +1,4 @@
-::Mod 2014.11.06
+::Mod 2014.11.09-2
 
 echo off
 rem 设置备份路径以及临时文件夹
@@ -11,7 +11,6 @@ rem 复制目标文件到临时文件夹
 del %BackDir%\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q 
 del %BackDir%\chrome\UserScriptLoader\require\  /s /q 
 del %BackDir%\chrome\UserScriptLoader\temp\  /s /q
-del %BackDir%\gm_scripts\Super_preloaderPlus_one.db-wal
 
 ::以下是文件夹
 xcopy "%BackDir%\adblockplus" %TempFolder%\adblockplus\  /s /y /i
@@ -20,14 +19,12 @@ xcopy "%BackDir%\extensions" %TempFolder%\extensions\ /s /y /i
 xcopy "%BackDir%\gm_scripts" %TempFolder%\gm_scripts\ /s /y /i
  
 ::以下是文件
-::xcopy "%BackDir%\_pentadactylrc" %TempFolder%\ /y
 xcopy "%BackDir%\bookmarks.html" %TempFolder%\ /y
 xcopy "%BackDir%\cert8.db" %TempFolder%\ /y
 xcopy "%BackDir%\FlashGot.exe" %TempFolder%\ /y
 xcopy "%BackDir%\foxyproxy.xml" %TempFolder%\ /y
 xcopy "%BackDir%\localstore.rdf" %TempFolder%\ /y
-::xcopy "%BackDir%\mason-backup.txt" %TempFolder%\ /y
-::xcopy "%BackDir%\permissions.sqlite" %TempFolder%\ /y
+xcopy "%BackDir%\MyFirefox.7z" %TempFolder%\ /y
 xcopy "%BackDir%\Portable.7z" %TempFolder%\ /y
 xcopy "%BackDir%\prefs.js" %TempFolder%\ /y
 xcopy "%BackDir%\readme.txt" %TempFolder%\ /y

@@ -1,3 +1,4 @@
+//2014.11.11 21:34  新增『反Google搜索验证码』
 //2014.11.11 15:17  修正『Google搜索en-US,safe=off』導致Google image不能搜圖問題
 //2014.11.10 14:50  新增topit.me 原始大圖
 //2014.11.09 20:10  新增B站外鏈
@@ -46,6 +47,12 @@ name: "google.com.hk >> google.com快速版",
 from: /^https?:\/\/www\.google\.com\.hk\/url\?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https?:\/\/www\.google\.com\.hk\/search\?(.*)/i,
 to: "https://www.google.com/ncr#$1&hl=en-US&safe=off",
 exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off(.*)/i,
+regex: true
+},
+{
+name: "反Google搜索验证码",
+from: /^https?:\/\/ipv4\.google\.com\/sorry\/IndexRedirect\?continue=https?:\/\/www\.google\.com(?:\.hk|)\/search\?(.*q=.*)&q=.*/i,
+to: "https://www.google.com/ncr#$1",
 regex: true
 },
 {
@@ -260,12 +267,8 @@ regex: true
 },
 
 //待測試
-{
-name: "反Google搜索验证码",
-from: /^https?:\/\/ipv4\.google\.com\/sorry\/IndexRedirect\?continue=https?:\/\/www\.google\.com(?:\.hk|)\/search\?(.*)/i,
-to: "https://www.google.com/ncr#$1",
-regex: true
-},
+
+
 
 //以下为不启用
 {

@@ -1,24 +1,7 @@
+//2014.11.13 21:50 新增『保存所有图片到zip』和『横排菜单』，调整菜单顺序，调整幾個conditions
 //2014.11.06 21:55 調整Send to Gmail幾個菜單順序
 //2014.11.02 09:10 調整搜圖順序
 
-/*——————————选中文本右键——————————*/
-
-//选取范围内复选框的 ON/OFF
- page({
-label: "复选框的 ON/OFF",
-class: "checkbox",
-condition: "select",
-accesskey: "X",
-insertAfter:"context-paste",
-oncommand: function(event) {
-var win = addMenu.focusedWindow;
-var sel = win.getSelection();
-Array.slice(win.document.querySelectorAll('input[type="checkbox"]:not(:disabled)')).forEach(function(e) {
-if (sel.containsNode(e, true))
-e.checked = !e.checked;
-});
-}
-});
 
 /*——————————标签页右键————————————*/
 
@@ -126,6 +109,23 @@ file.launch();
 
 /*——————————选中文本右键——————————*/
 
+//选取范围内复选框的 ON/OFF
+ page({
+label: "复选框的 ON/OFF",
+class: "checkbox",
+condition: "select noinput nomailto nocanvas nomedia",
+accesskey: "X",
+insertAfter:"context-paste",
+oncommand: function(event) {
+var win = addMenu.focusedWindow;
+var sel = win.getSelection();
+Array.slice(win.document.querySelectorAll('input[type="checkbox"]:not(:disabled)')).forEach(function(e) {
+if (sel.containsNode(e, true))
+e.checked = !e.checked;
+});
+}
+});
+
 //搜索选中文本
 new function () {
 var items = [
@@ -214,6 +214,104 @@ goDoCommand("cmd_paste");
 menu(items);
 };
 
+/*——————————页面右键——————————*/
+
+//保存所有图片到zip
+page({
+    label: "保存所有图片到zip",
+    insertAfter: "context-saveimage",
+    condition: 'noinput noselect nomailto nocanvas nomedia noimage nolink',
+    oncommand: function() {
+        // 保存ディレクトリのパスがない場合は毎回ダイアログで決める
+        //var path = "C:\\Users\\azu\\Downloads"; // エスケープしたディレクトリのパス
+        var path = "";
+        if (!path) {
+            // ファイル保存ダイアログ
+            var nsIFilePicker = Ci.nsIFilePicker;
+            var FP = Cc['@mozilla.org/filepicker;1'].createInstance(nsIFilePicker);
+            FP.init(window, 'Choose save folder.', nsIFilePicker.modeGetFolder);
+
+            // ダイアログ表示
+            if (FP.show() == nsIFilePicker.returnOK) {
+                path = FP.file.path;
+            } else {
+                return false;
+            }
+        }
+        // ダウンロードしたページを表示するために URI オブジェクト生成
+        var hostURL = Components.classes['@mozilla.org/network/io-service;1'].getService(Components.interfaces.nsIIOService).newURI(location.href, null, null);
+        // ページに貼り付けられた画像を保存する
+        var links = content.document.images;
+        var pack = [];
+        for (var i = 0, length = links.length; i < length; i++) {
+            // JPEG と PNG を保存する
+            if (links[i].src.match(/\.jpe?g|\.png|img\.blogs\.yahoo(.*)folder[^thumb]/i)) {
+                pack.push([links[i].src.split("/").pop(), links[i].src]);
+            }
+        }
+        zipDeKure(pack, path);
+
+
+        function zipDeKure(urls, savePath) {
+            const ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
+            const zipWriter = Components.Constructor("@mozilla.org/zipwriter;1", "nsIZipWriter");
+            var uri = content.window.location.href;
+            var fileName = uri.substring(uri.lastIndexOf('://') + 3, uri.length);
+            fileName = fileName.split(".").join("_");
+            fileName = fileName.split("/").join("_");
+            fileName = fileName.split("?").join("_");
+            var path = savePath + "\\" + fileName + ".zip";
+            var file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
+            file.initWithPath(path);
+            var zipW = new zipWriter();
+            var ioFlag = 0x04 | 0x08 | 0x20;
+            zipW.open(file, ioFlag);
+            for (var i = 0, len = urls.length; i < len; i++) {
+                var [name, url] = urls[i];
+                var ch = ioService.newChannel(url, "UTF-8", null);
+                var stream = ch.open();
+                zipW.addEntryStream(name, Date.now() * 1000, Ci.nsIZipWriter.COMPRESS_DEFAULT, stream, false);
+            }
+            zipW.close();
+        }
+    },
+    image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAEhUlEQVRIiaXN609TZwDH8Ye4/2DExGTZH7AtZk4jykSUWiogpVJapFwqUAq1ZdmLhU5NNjfQedcsOnc2NWIhbs7bkBdEEFiRGNuenl7OpS20sKltoZdT3+zNEn97QYE6T+MSn+STc148v+dLCCEFGc6kyfDmYEYwv8wIFix7EegGM1iKIWshhr5cu8paCP6uAi+C3ci9v8T8MsObgxnOpCGEFJAkZywSeXNE5M34r4xgyRvg7pQjE7C8tskRSXLGIpLmTMdE3gQpGeEAmMHt+QOCWXK3LM2ZjpE020mJXBck8Sa4B/IF5BD5A9K7rDTbSZE0a6REthOSuC64B0okA+xtOUS+S3qXlWaNFEn5jFTab4QUkeuEe2BbnsAuiFyn5G5ZymekSMpnoFL+DkhJs0a4bXkCt2RIs0bJ3QqfIRvwGSAl7TeAthVLBvy3ZEizHZK7HBRJeFqppLcNUlK+dtC2Yvze8+5qxFqIoZ5CcL+VQfQbIHrbV6S97a/sE57W5UArJPna4OrfioenP8DEuQ8xZF0L+/frcZtaj/5JOe4FGnFP0OGeoMNdQYcxvhGxnP1SgNFTCc9+5MPfr8CfU1rMT6oxef4jPJvSwiZoUTdfDW0OzXw1TJEaBH0tSC7vGX02wOghZZHRY4FuQcKz9P/ssQ5JRo9+QQP1XBU0OermqtAZrobgbUZy9Q2KLDDN1CLTgv8rybTgmqDG3rkKqCOVK2rnKtAR3gPB24hE9u4C00yRON1ELbibsaTpjRLuZlzla6GKKFCbY29EgfbZSvAeHRLZ9+J0UzZAN2GBbkLCa0TSb0GKXZL0W5D0m7Pf7D+zH1c5FZRhOVQ5asJytM0owDMNWMy+lw3oqLirAQnOimeRR/C4RuGYHoZjehg+egxB7hE4zwRYzwRo9wieh6+B4lTYMyuDcnbXiupZGfShctCMFn/RDYjROsRpHUXizn1UzKlFeuYc7HY7vj7yDbo/+xxmSze+7e3D5ctXcfr0WZw5cw4HbF2whFqgD5Vjz0zZa1QzZegKynHCV4V5Vz3izn0UiTrqqZizDqnQWYyNjaKnxwqDwYDW1jYcPHgQFy5eRG9vH/p6j2K/VQ81XY3dM6WoCu14TeXMDigDO3DbpUTcWY+oo54iEbv6VNRRh0XuKzgeP8SPly7g5ImjOHG8Dz//9APu3PkV169fQf+1K7j4/XkMes9AKZRCEdqO3aHSV5QHt+M7RoGnDg2iDi0idvUp4r6vkoWnauNRZwNi3i8Q9R7Gc88hPPccQtR7GDHfkqj3MKLeQ3hKd+C4Ww55oATlwVXyYAk6fDvhc9Qi5tAgPFUbd99XychNDVnzZFipZx/UsIHxGjH4BqHxGtE+Xi020iV/ywLF2JWl8Bf/MzC5OxMaV4nsgxr2ybBSf1ND1pDsKRixKdaN3qjYMH6zauObTA9Wfqx79Gn7TrZIlAlbUcZvgcK15dLIL4pP/rhRsWHEplhHCCkgb3WOkHdKnZtP7uSKUOrd/LhoYv17b/egxNk2uvH9EtemqZLpTXX57vwLxUW/GXlG/S0AAAAASUVORK5CYII="
+})
+
+//Firefox 31+ 横排菜单，在链接上和非链接上不相同
+var openMenu = GroupMenu({
+    label: '打开...',
+    condition: 'noinput noselect nomailto nocanvas nomedia',
+    insertBefore: 'context-sep-navigation'
+});
+openMenu([
+    {
+        label:"复制文本+链接",
+        text:"%RLT_OR_UT%\n%RLINK_OR_URL%",
+        image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABlSURBVDhP5Y5BCsAgEAP3i/1AP+D/zxUlwWBXXQueOhAQzQStcN3p2UmVFK80C7QGH1aEBniOBPqhgRnsQB8P8KzRe+i/+YHCO+htQNPjdaB/G4D6hoWekFzQohfUxngSg4pglgGUsQ0ZR4jGSwAAAABJRU5ErkJggg=="
+    },
+    {
+        label:"在隐私窗打开",
+        oncommand: "openLinkIn(addMenu.convertText('%RLINK_OR_URL%'), 'window',{private:true});",
+        image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKDSURBVDhPpY/PT5IBGMffWl76ceiS62/wlrc6uLmZM81MZ3noQik4NAWRVwXlVSbKDyEFcgoCyoshIvgCBpgS/siUhbnWDJrKVnaouS5tuTaX3wSxVrfGZ3sO3+/zPN89D5Ex7+dYWDLmIC1TsNnDWfcE1nNpeaS9Z5NeWv5NG4/aPgmorNSfr3s4LpHLmB2VwrdHSdzzkg7XnFw2tddNORL1XCtVWjpyIbVI4FRVlekOIWoxf9OrbTutLVN+Ra/747RrEevRGOKxBCJrb7EQjiL8PAqvZxljRgbdEttuC98alIrpN8Imy1dCKuRtzljb4PFE4A+sYdL5Cl7fOywuJ7C1vYf1jV3Q9ig02gUo+2ZgMc2ANnvAOLzoEo1uEWTTSCjgCYHqdO1z6wyb1dVKe3XNwCdZz1OsvExgdi6G+kYbbpdLP5RXiO13q+TxRsHYvscRAMk3LxKcmpHBee8c+Pwh6/FvBEFR1GkuVxN1Tm2AtkXAYqlepFspamuVTveoDZwHRjnRyeM8spscUPe5v3d1jTvb2x1ikcjWIBQ+DtH0KsasyyBJc0AgsDaQJH3UM3mUPU9+aLqNP0tKNFeIyMR1yNuaj35aQv/AM6jVfgz0B6HRzIJhXqdKqz32FQpfynfRDBo4en/qnN1wGZrvV3iFvNGVCQsDxrWEadcaBnU+hIIRzPtXYTYEwbgjmJ4MY9xgB9nYHyss1Fz+HWAWZyM3l53FZg2ppGLDZ73Scqjo0B1IWofjEnI4rujQHuh6DYedpPZLDUurLi7uvZhaTnISkJZEQYHqUlmJquhmkfJaXh51Jlm3bsivJr38fFl2euwP/wb8NxkH+HU5mQVkBkH8AgvRfy93EDdrAAAAAElFTkSuQmCC"
+    },
+    {
+        label: "在 IE 中打开",
+        text: "%RLINK_OR_URL%",
+        exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
+    },
+    {
+        label: "在 Chrome 中打开",
+        text: '%RLINK_OR_URL%',
+        exec: Services.dirsvc.get("LocalAppData", Ci.nsILocalFile).path + "\\Google\\Chrome\\Application\\chrome.exe",
+    },
+    // {
+    //     label: "在 Opera 中打开",
+    //     text : "%RLINK_OR_URL%",
+    //     exec : "D:\\Program Files\\Opera\\opera.exe",
+    // },
+]);
+
 
 //隐藏相同项。必须，不能删除
 function syncHidden(event) {
@@ -279,6 +377,13 @@ tab({
 tab({
     id: "context-sendimagetogmail",
     insertBefore: "context-copyimage-contents",
+    clone: false,  // 不克隆，直接改在原来的菜单上面
+}
+);
+
+tab({
+    id: "context-sendpagetogmail",
+    insertBefore: "context-viewsource",
     clone: false,  // 不克隆，直接改在原来的菜单上面
 }
 );

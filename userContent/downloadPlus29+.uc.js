@@ -27,6 +27,7 @@
 			    save_And_Open();                   // 保存并打开
                 download_dialog_changeName();      // 下载改名
                 download_dialog_saveas();          // 另存为...
+				download_dialog_saveTo();          // 保存到...
 				download_dialog_showCompleteURL(); // 下载弹出窗口双击链接复制完整链接
 				download_dialog_doubleclicksaveL();// 下载弹出窗口双击保存文件项执行下载		
             }, 200);
@@ -329,7 +330,7 @@
         }, false)
         dialog.dialogElement("save").click();
         window.addEventListener("dialogaccept", function() {
-            if ((document.querySelector("#locationtext").value != document.querySelector("#location").value) && dialog.dialogElement("save").selected) {
+            if ((document.querySelector("#locationtext").value != dialog.mLauncher.suggestedFileName) && dialog.dialogElement("save").selected) {
                 var mainwin = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator).getMostRecentWindow("navigator:browser");
                 mainwin.eval("(" + mainwin.internalSave.toString().replace("let ", "").replace("var fpParams", "fileInfo.fileExt=null;fileInfo.fileName=aDefaultFileName;var fpParams") + ")")(dialog.mLauncher.source.asciiSpec, null, document.querySelector("#locationtext").value, null, null, null, null, null, null, mainwin.document, Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch).getBoolPref("browser.download.useDownloadDir"), null);
                 document.documentElement.removeAttribute("ondialogaccept");
@@ -382,6 +383,32 @@
         saveas.setAttribute("oncommand", 'var mainwin = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator).getMostRecentWindow("navigator:browser"); mainwin.eval("(" + mainwin.internalSave.toString().replace("let ", "").replace("var fpParams", "fileInfo.fileExt=null;fileInfo.fileName=aDefaultFileName;var fpParams") + ")")(dialog.mLauncher.source.asciiSpec, null, (document.querySelector("#locationtext") ? document.querySelector("#locationtext").value : dialog.mLauncher.suggestedFileName), null, null, null, null, null, null, mainwin.document, 0, null);close()');
     }
 	
+	function download_dialog_saveTo() {
+	//目录路径的反斜杠\要双写\\
+	//第一次使用要修改路径，否则无法下载
+	//如果使用Firefox3.6 + userChromeJS v1.2,则路径中的汉字要转义为\u6C49\u5B57编码类型,否则会出现乱码
+	
+	    var dir = [
+		["C:\\Users\\Administrator\\Desktop", "桌面"],
+		["D:\\Download", "Download"],
+		["D:\\Syuan的軟件", "Syuan的軟件"],
+
+	    ];
+	    var saveTo = document.documentElement._buttons.cancel.parentNode.insertBefore(document.createElement("button"), document.documentElement._buttons.cancel);
+	    var saveToMenu = saveTo.appendChild(document.createElement("menupopup"));
+	    saveTo.classList.toggle("dialog-button");
+	    saveTo.label = "\u4FDD\u5B58\u5230";
+	    saveTo.type = "menu";
+	    dir.forEach(function (dir) {
+	    	var [name, dir] = [dir[1], dir[0]];
+	    	var item = saveToMenu.appendChild(document.createElement("menuitem"));
+	    	item.setAttribute("label", (name || (dir.match(/[^\\/]+$/) || [dir])[0]));
+	    	item.setAttribute("image", "moz-icon:file:///" + dir + "\\");
+	    	item.setAttribute("class", "menuitem-iconic");
+	    	item.setAttribute("oncommand", 'var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);file.initWithPath("' + dir.replace(/^\./, Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile).path).replace(/\\/g, "\\\\") + "\\\\" + (document.querySelector("#locationtext") ? document.querySelector("#locationtext").value : document.querySelector("#location").value) + '");dialog.mLauncher.saveToDisk(file,1);dialog.onCancel=null;close()');
+	    })	
+	}
+		
 	// 下载弹出窗口双击链接复制完整链接
 	function download_dialog_showCompleteURL() {
 	    var s = document.querySelector("#source");

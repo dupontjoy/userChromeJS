@@ -1,3 +1,4 @@
+//2014.11.16 09:45  更新topit.me 原始大圖
 //2014.11.15 20:00  精簡及禁用一些規則，添加『反百度搜索验证码』
 //2014.11.11 21:34  新增『反Google搜索验证码』
 //2014.11.11 15:17  修正『Google搜索en-US,safe=off』導致Google image不能搜圖問題
@@ -181,9 +182,9 @@ to: "https://gp1.wac.edgecastcdn.net/806614/photos/photos.500px.net/$1/$2/2048.j
 regex: true
 },
 {
-name: "topit.me 原始大圖",
-from: /^https?:\/\/(.*)\.topit\.me\/(s|m)\/(.*)\.jpg$/,
-to: "http://$1.topit.me/l/$3.jpg",
+name: "topit.me 原始大圖-V2",
+from: /^https?:\/\/(.*)\.topit\.me\/(s|m)(.*)?\/(.*)\.jpg$/,
+to: "http://$1.topit.me/l$3/$4.jpg",
 regex: true
 },
 

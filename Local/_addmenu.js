@@ -138,6 +138,7 @@ var items = [
 {label:"Bing搜索",accesskey: "M",url:"http://www.bing.com/search?q=%s",image:"http://cn.bing.com/s/a/bing_p.ico",where: 'tab'},
 {},
 {label:"Google地图",url:"http://maps.google.com/maps?q=%s&ie=utf-8",image:"http://maps.gstatic.com/favicon3.ico",where: 'tab'},
+
 {label:"Baidu地图",url:"http://map.baidu.com/m?word=%s",image:"http://map.baidu.com/favicon.ico",where: 'tab'},
 {},
 {label:"Wiki-EN",url:"https://en.wikipedia.org/wiki/%s",image:"https://bits.wikimedia.org/favicon/wikipedia.ico",where: 'tab'},
@@ -310,6 +311,7 @@ openMenu([
     //     text : "%RLINK_OR_URL%",
     //     exec : "D:\\Program Files\\Opera\\opera.exe",
     // },
+
 ]);
 
 

@@ -1,4 +1,4 @@
-/*2014.11.06 13:05*/
+/*2014.11.15 09:35*/
 
 /*贴吧楼中楼表情*/
 .lzl_panel_wrapper {position:relative!important;}
@@ -25,3 +25,9 @@ a.ps_cb{pointer-events:none !important;color:#000 !important;}
 .right_section.right_bright>div:nth-child(1)+div,#aside.side>div:nth-child(1)+div{position:relative !important;top:-108px !important;background-image:none !important;}/*“我在贴吧”和“我在本吧”模块的位置，若有错位请自行调整top值*/
 .region_bright.balv_mod.balv_mod_user_currforum.balv_mod_bright{position:relative !important;bottom:-160px !important;}/*"我在贴吧"下面的空白，top值按个人需求可以上下调整一下*/
 #aside.side>div.platform_aside_module:nth-child(2),#aside.side>#forumInfoPanel{top:0px !important;}/*处理官方贴吧的错位，如果还有错位自己调一下top*/
+
+/*突出显示自己的帖子*/
+LI[data-field^='{"author_name":"dupontjoy"']{
+box-shadow: 0 0 10px #222;
+/*display: none !important; 隱藏某人的贴子*/
+}

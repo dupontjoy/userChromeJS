@@ -1,3 +1,4 @@
+//2014.11.15 20:00  精簡及禁用一些規則，添加『反百度搜索验证码』
 //2014.11.11 21:34  新增『反Google搜索验证码』
 //2014.11.11 15:17  修正『Google搜索en-US,safe=off』導致Google image不能搜圖問題
 //2014.11.10 14:50  新增topit.me 原始大圖
@@ -43,13 +44,6 @@ exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off(.*)/i,
 regex: true
 },
 {
-name: "google.com.hk >> google.com快速版",
-from: /^https?:\/\/www\.google\.com\.hk\/url\?sa=p&hl=zh-CN&pref=hkredirect&pval=yes&q=https?:\/\/www\.google\.com\.hk\/search\?(.*)/i,
-to: "https://www.google.com/ncr#$1&hl=en-US&safe=off",
-exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off(.*)/i,
-regex: true
-},
-{
 name: "反Google搜索验证码",
 from: /^https?:\/\/ipv4\.google\.com\/sorry\/IndexRedirect\?continue=https?:\/\/www\.google\.com(?:\.hk|)\/search\?(.*q=.*)&q=.*/i,
 to: "https://www.google.com/ncr#$1",
@@ -63,9 +57,9 @@ exclude: /^http:\/\/www\.baidu\.com\/.*\&ie=utf-8(.*)/i,
 regex: true
 },
 {
-name: "google搜索结果禁止跳转",
-from: /^https?:\/\/www\.google\.com\/url\?.*url=([^&]*).*/i,
-to: "$1",
+name: "反百度搜索验证码",
+from: /^https?:\/\/verify\.baidu\.com\/vcode\?http:\/\/www\.baidu\.com\/s\?wd=(.*)&(.*=.*)/i,
+to: "http://www.baidu.com/s?wd=$1",
 regex: true
 },
 {
@@ -79,13 +73,6 @@ name: "userscripts >> webextender鏡像",
 from: /^https?:\/\/userscripts\.org(?:\:8080|)\/(.*)/i,
 to: "http:\/\/webextender.net/$1",
 regex: true
-},
-{
-name:"Greasyfork >> zh-CN",
-state:true,
-from:/^https:\/\/greasyfork\.org\/scripts\/(.*)/,
-to:"https://greasyfork.org/zh-CN/scripts/$1",
-regex:true
 },
 {
 // 包含手机版界面
@@ -115,48 +102,9 @@ to: "http://book.bfnn.org/books$1",
 regex: true
 },
 {
-name: "贴吧mo >> f",
-from: /^https?:\/\/tieba\.baidu\.com\/mo\/m(.*)/i,
-to: "http://tieba.baidu.com/f$1",
-regex: true
-},
-{
-name: "tb >> taobao",
-from: /^https?:\/\/(.*?)tb\.com\/(.*)$/,
-to: "http://$1taobao.com/$2",
-regex: true
-},
-{
-name: "tm >> tmall",
-from: /^https?:\/\/(.*?)tm\.com\/(.*)$/,
-to: "http://$1tmall.com/$2",
-regex: true
-},
-{
 name: "TVC內網 去掉多餘的『http//』",
 from: /^http:\/\/http\/\/(.*)/i,
 to: "$1",
-regex: true
-},
-{
-name: "AcFun - ab",
-from: /^http:\/\/www\.acfun\.tv\/v\/ab([\w]+)(#album=.*)?(#(fullscreen=1;)?autoplay=1)?/i,
-exclude: /acfun\.tv\/v\/ab(.*)#txt-title-view/i,
-to: "http://www.acfun.tv/v/ab$1#txt-title-view",
-regex: true
-},
-{
-name: "AcFun - ac",
-from: /^http:\/\/www\.acfun\.tv\/(a|v)\/ac([\w]+)(#album=.*)?(#(fullscreen=1;)?autoplay=1)?/i,
-exclude: /acfun\.tv\/(a|v)\/ac(.*)#txt-info-title/i,
-to: "http://www.acfun.tv/$1/ac$2#txt-info-title", 
-regex: true
-},
-{
-name: "BiliBili",
-from: /^http:\/\/www\.bilibili\.com\/video\/av([\d]+)\/([\w]+\.[\w]+)?(\?[\w]+)?(##alist)?/i,
-exclude: /bilibili\.com\/video\/av([\d]+)\/([\w]+\.[\w]+)?#alist/i,
-to: "http://www.bilibili.com/video/av$1/$2#alist",
 regex: true
 },
 {
@@ -239,32 +187,6 @@ to: "http://$1.topit.me/l/$3.jpg",
 regex: true
 },
 
-//轉https
-{
-name: "【https】google",
-from: /^http:\/\/(([^\.]+\.)?google\..+)/i,
-exclude: /google\.cn/i, // 可选，排除例外规则
-to: "https://$1",
-regex: true
-},
-{
-name: "【https】Wiki Media",
-from: /^http:\/\/upload\.wikimedia\.org\/(.*)$/i,
-to: "https://upload.wikimedia.org/$1",
-regex: true
-},
-{
-name: "【https】Google Code",
-from: /^http:\/\/(.*?)googlecode\.com\/(.*)$/i,
-to: "https://$1googlecode.com/$2",
-regex: true
-},
-{
-name: "【https】Google User Content",
-from: /^http:\/\/(.*?)googleusercontent\.com\/(.*)$/i,
-to: "https://$1googleusercontent.com/$2",
-regex: true
-},
 
 //待測試
 
@@ -292,5 +214,57 @@ to: "https://wen.lu/$1",
 state: false,
 regex: true
 },
+{
+name:"Greasyfork >> zh-CN",
+state:true,
+from:/^https:\/\/greasyfork\.org\/scripts\/(.*)/,
+to:"https://greasyfork.org/zh-CN/scripts/$1",
+state: false,
+regex:true
+},
+{
+name: "tb >> taobao",
+from: /^https?:\/\/(.*?)tb\.com\/(.*)$/,
+to: "http://$1taobao.com/$2",
+state: false,
+regex: true
+},
+{
+name: "tm >> tmall",
+from: /^https?:\/\/(.*?)tm\.com\/(.*)$/,
+to: "http://$1tmall.com/$2",
+state: false,
+regex: true
+},
 
+//轉https
+{
+name: "【https】google",
+from: /^http:\/\/(([^\.]+\.)?google\..+)/i,
+exclude: /google\.cn/i, // 可选，排除例外规则
+to: "https://$1",
+state: false,
+regex: true
+},
+{
+name: "【https】Wiki Media",
+from: /^http:\/\/upload\.wikimedia\.org\/(.*)$/i,
+to: "https://upload.wikimedia.org/$1",
+state: false,
+regex: true
+},
+{
+name: "【https】Google Code",
+from: /^http:\/\/(.*?)googlecode\.com\/(.*)$/i,
+to: "https://$1googlecode.com/$2",
+state: false,
+regex: true
+},
+{
+name: "【https】Google User Content",
+from: /^http:\/\/(.*?)googleusercontent\.com\/(.*)$/i,
+to: "https://$1googleusercontent.com/$2",
+state: false,
+regex: true
+},
 ];

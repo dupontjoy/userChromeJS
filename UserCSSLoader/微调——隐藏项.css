@@ -1,4 +1,4 @@
-/*2014.11.11 09:24*/
+/*2014.11.16 08:45*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*书签工具栏产生的箭头*/
@@ -26,7 +26,6 @@
 #context-sharepage,#social-share-button,/*分享此頁面*/
 #context-navigation,
 #context-sep-navigation,
-#frame,/*本框架*/
 #context-forward, /*前进*/
 #context-back, /*后退*/
 #context-reload, /*刷新*/
@@ -58,7 +57,7 @@
 #context-sep-viewsource, /*分割線*/
 #context-inspect,/*Inspect Element*/
 #context-searchselect,/*Context Search*/
-#spell-add-dictionaries-main,/*添加到字典*/
+#spell-add-to-dictionary,#spell-add-dictionaries-main,/*添加到字典*/
 #context-openlinkincurrent/*打开链接*/
 {display: none !important;}
 

@@ -1,4 +1,4 @@
-::Mod 2014.11.09-2
+::Mod 2014.11.15
 
 echo off
 rem 设置备份路径以及临时文件夹
@@ -26,7 +26,7 @@ xcopy "%BackDir%\foxyproxy.xml" %TempFolder%\ /y
 xcopy "%BackDir%\localstore.rdf" %TempFolder%\ /y
 xcopy "%BackDir%\MyFirefox.7z" %TempFolder%\ /y
 xcopy "%BackDir%\Portable.7z" %TempFolder%\ /y
-xcopy "%BackDir%\prefs.js" %TempFolder%\ /y
+::xcopy "%BackDir%\prefs.js" %TempFolder%\ /y
 xcopy "%BackDir%\readme.txt" %TempFolder%\ /y
 xcopy "%BackDir%\user.js" %TempFolder%\ /y
 

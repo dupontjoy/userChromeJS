@@ -1,4 +1,4 @@
-/*2014.11.06 21:55*/
+/*2014.11.15 21:08*/
 
 /*地址栏图标分组*/
 #flashgot-media-tbb{-moz-box-ordinal-group: 1 !important;}
@@ -22,6 +22,9 @@ margin-left: 0px !important;
 #context_undoCloseTab{-moz-box-ordinal-group: 0 !important;}
 #context_reloadAllTabs{-moz-box-ordinal-group: 2 !important;}
 #context_closeOtherTabs{-moz-box-ordinal-group: 3 !important;}
+
+/*====頁面右鍵菜單調序===*/
+#frame {-moz-box-ordinal-group: 99 !important;}
 
 /*==扩展/脚本图标补充==*/
 #context-sendselecttogmail/*發送選中文字到Gmail*/

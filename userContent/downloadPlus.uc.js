@@ -11,9 +11,16 @@
 // ==/UserScript==
 (function() {
 
+    var encoding = true         //true,(新建下载)弹窗             false,不弹窗
+    var rename = true           //true,(下载改名)可改名           false,不可改
+    var locking = false          //true,(下载改名)自动锁定保存文件 false,不锁定
+    var encodingConvert = true  //true,(下载改名)开启下拉菜单选项 false,关闭下拉菜单选项
+    var Convert = false        //true,(保存并打开)兼容火狐版本26+(也许会有BUG)     false,火狐版本29+
+
     switch (location.href) {
 	    case "chrome://browser/content/browser.xul":
 		    setTimeout(function(){
+			    new_Download();                    // 新建下载
 			    downloadsPanel_removeFile();       // 从硬盘中删除
 			    downloadSound_Play();              // 下载完成提示音
 				downloadFileSize();                // 精确显示文件大小
@@ -34,11 +41,13 @@
             break;
 		case "chrome://browser/content/places/places.xul":
 		    setTimeout(function(){
+			    new_Download();                    // 新建下载(我的足迹)
                 downloadsPanel_removeFile();       // 从硬盘中删除(我的足迹)
 			}, 200);	
             break;
     }
-    
+	
+		
 	// 下载完成提示音
 	function downloadSound_Play() {
 	    var downloadPlaySound = {
@@ -125,6 +134,44 @@
         downloadPlaySound.init();
     }
 	
+	//新建下载
+	function new_Download() {
+	    var createDownloadDialog = function(){
+        if (encoding)
+            window.openDialog("data:application/vnd.mozilla.xul+xml;charset=UTF-8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPD94bWwtc3R5bGVzaGVldCBocmVmPSJjaHJvbWU6Ly9nbG9iYWwvc2tpbi8iIHR5cGU9InRleHQvY3NzIj8+Cjx3aW5kb3cgeG1sbnM9Imh0dHA6Ly93d3cubW96aWxsYS5vcmcva2V5bWFzdGVyL2dhdGVrZWVwZXIvdGhlcmUuaXMub25seS54dWwiIHdpZHRoPSI1MDAiIGhlaWdodD0iMzAwIiB0aXRsZT0i5paw5bu65LiL6L295Lu75YqhIj4KCTxoYm94IGFsaWduPSJjZW50ZXIiIHRvb2x0aXB0ZXh0PSJodHRwOi8vd3d3LmV4YW1wbGUuY29tL1sxLTEwMC0zXSAgKFvlvIDlp4st57uT5p2fLeS9jeaVsF0pIj4KCQk8bGFiZWwgdmFsdWU9IuaJuemHj+S7u+WKoSI+PC9sYWJlbD4KCQk8dGV4dGJveCBmbGV4PSIxIi8+Cgk8L2hib3g+Cgk8dGV4dGJveCBpZD0idXJscyIgbXVsdGlsaW5lPSJ0cnVlIiBmbGV4PSIxIi8+Cgk8aGJveCBkaXI9InJldmVyc2UiPgoJCTxidXR0b24gbGFiZWw9IuW8gOWni+S4i+i9vSIvPgoJPC9oYm94PgoJPHNjcmlwdD4KCQk8IVtDREFUQVsKCQlmdW5jdGlvbiBQYXJzZVVSTHMoKSB7CgkJCXZhciBiYXRjaHVybCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoInRleHRib3giKS52YWx1ZTsKCQkJaWYgKC9cW1xkKy1cZCsoLVxkKyk/XF0vLnRlc3QoYmF0Y2h1cmwpKSB7CgkJCQlmb3IgKHZhciBtYXRjaCA9IGJhdGNodXJsLm1hdGNoKC9cWyhcZCspLShcZCspLT8oXGQrKT9cXS8pLCBpID0gbWF0Y2hbMV0sIGogPSBtYXRjaFsyXSwgayA9IG1hdGNoWzNdLCB1cmxzID0gW107IGkgPD0gajsgaSsrKSB7CgkJCQkJdXJscy5wdXNoKGJhdGNodXJsLnJlcGxhY2UoL1xbXGQrLVxkKygtXGQrKT9cXS8sIChpICsgIiIpLmxlbmd0aCA8IGsgPyAoZXZhbCgiMTBlIiArIChrIC0gKGkgKyAiIikubGVuZ3RoKSkgKyAiIikuc2xpY2UoMikgKyBpIDogaSkpOwoJCQkJfQoJCQkJZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiI3VybHMiKS52YWx1ZSA9IHVybHMuam9pbigiXG4iKTsKCQkJfSBlbHNlIHsKCQkJCWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoIiN1cmxzIikudmFsdWUgPSBiYXRjaHVybDsKCQkJfQoJCX0KCQl2YXIgb3duZXIgPSB3aW5kb3cub3BlbmVyOwoJCXdoaWxlKG93bmVyLm9wZW5lciAmJiBvd25lci5sb2NhdGlvbiAhPSAiY2hyb21lOi8vYnJvd3Nlci9jb250ZW50L2Jyb3dzZXIueHVsIil7CgkJCW93bmVyID0gb3duZXIub3BlbmVyOwoJCX0KdmFyIG1haW53aW4gPSBDb21wb25lbnRzLmNsYXNzZXNbIkBtb3ppbGxhLm9yZy9hcHBzaGVsbC93aW5kb3ctbWVkaWF0b3I7MSJdLmdldFNlcnZpY2UoQ29tcG9uZW50cy5pbnRlcmZhY2VzLm5zSVdpbmRvd01lZGlhdG9yKS5nZXRNb3N0UmVjZW50V2luZG93KCJuYXZpZ2F0b3I6YnJvd3NlciIpOwkJCWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoInRleHRib3giKS5hZGRFdmVudExpc3RlbmVyKCJrZXl1cCIsIFBhcnNlVVJMcywgZmFsc2UpOwoJCWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoImJ1dHRvbiIpLmFkZEV2ZW50TGlzdGVuZXIoImNvbW1hbmQiLCBmdW5jdGlvbiAoKSB7CQlkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCIjdXJscyIpLnZhbHVlLnNwbGl0KCJcbiIpLmZvckVhY2goZnVuY3Rpb24gKHVybCkgewoJCQkJb3duZXIuc2F2ZVVSTCh1cmwgLCBudWxsLCBudWxsLCBudWxsLCBudWxsLCBudWxsLCBtYWlud2luLmRvY3VtZW50KTsKCQkJfSk7CgkJCWNsb3NlKCkKCQl9LCBmYWxzZSk7CgkJZG9jdW1lbnQucXVlcnlTZWxlY3RvcigidGV4dGJveCIpLnZhbHVlID0gb3duZXIucmVhZEZyb21DbGlwYm9hcmQoKTsKCQlQYXJzZVVSTHMoKTsKCQldXT4KCTwvc2NyaXB0Pgo8L3dpbmRvdz4=", "name", "top=" + (window.screenY + window.innerHeight/4 - 50) + ",left=" + (window.screenX + window.innerWidth/2 - 250));
+	    else
+	        window.openDialog("data:application/vnd.mozilla.xul+xml;charset=UTF-8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPD94bWwtc3R5bGVzaGVldCBocmVmPSJjaHJvbWU6Ly9nbG9iYWwvc2tpbi8iIHR5cGU9InRleHQvY3NzIj8+Cjx3aW5kb3cgeG1sbnM9Imh0dHA6Ly93d3cubW96aWxsYS5vcmcva2V5bWFzdGVyL2dhdGVrZWVwZXIvdGhlcmUuaXMub25seS54dWwiIHdpZHRoPSI1MDAiIGhlaWdodD0iMzAwIiB0aXRsZT0i5paw5bu65LiL6L295Lu75YqhIj4KCTxoYm94IGFsaWduPSJjZW50ZXIiIHRvb2x0aXB0ZXh0PSJodHRwOi8vd3d3LmV4YW1wbGUuY29tL1sxLTEwMC0zXSAgKFvlvIDlp4st57uT5p2fLeS9jeaVsF0pIj4KCQk8bGFiZWwgdmFsdWU9IuaJuemHj+S7u+WKoSI+PC9sYWJlbD4KCQk8dGV4dGJveCBmbGV4PSIxIi8+Cgk8L2hib3g+Cgk8dGV4dGJveCBpZD0idXJscyIgbXVsdGlsaW5lPSJ0cnVlIiBmbGV4PSIxIi8+Cgk8aGJveCBkaXI9InJldmVyc2UiPgoJCTxidXR0b24gbGFiZWw9IuW8gOWni+S4i+i9vSIvPgoJPC9oYm94PgoJPHNjcmlwdD4KCQk8IVtDREFUQVsKCQlmdW5jdGlvbiBQYXJzZVVSTHMoKSB7CgkJCXZhciBiYXRjaHVybCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoInRleHRib3giKS52YWx1ZTsKCQkJaWYgKC9cW1xkKy1cZCsoLVxkKyk/XF0vLnRlc3QoYmF0Y2h1cmwpKSB7CgkJCQlmb3IgKHZhciBtYXRjaCA9IGJhdGNodXJsLm1hdGNoKC9cWyhcZCspLShcZCspLT8oXGQrKT9cXS8pLCBpID0gbWF0Y2hbMV0sIGogPSBtYXRjaFsyXSwgayA9IG1hdGNoWzNdLCB1cmxzID0gW107IGkgPD0gajsgaSsrKSB7CgkJCQkJdXJscy5wdXNoKGJhdGNodXJsLnJlcGxhY2UoL1xbXGQrLVxkKygtXGQrKT9cXS8sIChpICsgIiIpLmxlbmd0aCA8IGsgPyAoZXZhbCgiMTBlIiArIChrIC0gKGkgKyAiIikubGVuZ3RoKSkgKyAiIikuc2xpY2UoMikgKyBpIDogaSkpOwoJCQkJfQoJCQkJZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiI3VybHMiKS52YWx1ZSA9IHVybHMuam9pbigiXG4iKTsKCQkJfSBlbHNlIHsKCQkJCWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoIiN1cmxzIikudmFsdWUgPSBiYXRjaHVybDsKCQkJfQoJCX0KCQl2YXIgb3duZXIgPSB3aW5kb3cub3BlbmVyOwoJCXdoaWxlKG93bmVyLm9wZW5lciAmJiBvd25lci5sb2NhdGlvbiAhPSAiY2hyb21lOi8vYnJvd3Nlci9jb250ZW50L2Jyb3dzZXIueHVsIil7CgkJCW93bmVyID0gb3duZXIub3BlbmVyOwoJCX0KdmFyIG1haW53aW4gPSBDb21wb25lbnRzLmNsYXNzZXNbIkBtb3ppbGxhLm9yZy9hcHBzaGVsbC93aW5kb3ctbWVkaWF0b3I7MSJdLmdldFNlcnZpY2UoQ29tcG9uZW50cy5pbnRlcmZhY2VzLm5zSVdpbmRvd01lZGlhdG9yKS5nZXRNb3N0UmVjZW50V2luZG93KCJuYXZpZ2F0b3I6YnJvd3NlciIpOwkJCWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoInRleHRib3giKS5hZGRFdmVudExpc3RlbmVyKCJrZXl1cCIsIFBhcnNlVVJMcywgZmFsc2UpOwoJCWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoImJ1dHRvbiIpLmFkZEV2ZW50TGlzdGVuZXIoImNvbW1hbmQiLCBmdW5jdGlvbiAoKSB7CQlkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCIjdXJscyIpLnZhbHVlLnNwbGl0KCJcbiIpLmZvckVhY2goZnVuY3Rpb24gKHVybCkgewoJCQkJb3duZXIuc2F2ZVVSTCh1cmwgLCBudWxsLCBudWxsLCBudWxsLCB0cnVlLCBudWxsLCBtYWlud2luLmRvY3VtZW50KTsKCQkJfSk7CgkJCWNsb3NlKCkKCQl9LCBmYWxzZSk7CgkJZG9jdW1lbnQucXVlcnlTZWxlY3RvcigidGV4dGJveCIpLnZhbHVlID0gb3duZXIucmVhZEZyb21DbGlwYm9hcmQoKTsKCQlQYXJzZVVSTHMoKTsKCQldXT4KCTwvc2NyaXB0Pgo8L3dpbmRvdz4=", "name", "top=" + (window.screenY + window.innerHeight/4 - 50) + ",left=" + (window.screenX + window.innerWidth/2 - 250));
+    }
+        
+        location == "chrome://browser/content/browser.xul" && (function () {
+            document.getElementById('downloads-button').parentNode.addEventListener('click', function(e){
+                    if(e.target.id == "downloads-button" || e.target.id == "downloads-indicator"){
+                        if(e.button == 2){
+                            if(!(e.ctrlKey || e.shiftKey || e.altKey || e.metaKey)){
+                                createDownloadDialog();
+                                e.stopPropagation();
+                                e.preventDefault();
+                            }
+                        }
+                    }
+                }
+                , false);
+        })();
+        
+        location == "chrome://browser/content/places/places.xul" && (function () {
+            var button = document.querySelector("#placesToolbar").insertBefore(document.createElement("toolbarbutton"), document.querySelector("#clearDownloadsButton"));
+            button.id = "createNewDownload";
+            button.label = "新建下载";
+            button.style.paddingRight = "9px";
+            button.addEventListener("command", createDownloadDialog, false);
+            window.addEventListener("mouseover", function(e){
+                button.style.display
+                    = (document.getElementById("searchFilter").attributes.getNamedItem("collection").value == "downloads")
+                    ? "-moz-box"
+                    : "none";
+                }, false);
+        })();
+	}
 	// 从硬盘中删除
 	function downloadsPanel_removeFile() {
 	    var removeDownloadfile = {
@@ -244,10 +291,17 @@
     			Downloads.getList(Downloads.ALL).then(list => {
     				list.addView({
     					onDownloadChanged: function(dl){
-    						if(dl.progress == 100 && saveAndOpen.urls.indexOf(dl.source.url)>-1){
-    							(new FileUtils.File(dl.target.path)).launch();
-    							saveAndOpen.urls[saveAndOpen.urls.indexOf(dl.source.url)] = "";
-    						}
+						    if (Convert){
+							    if(dl.progress == 100 && saveAndOpen.urls.indexOf(dl.source.url)>-1){
+						    		dl.launch();
+    					    		saveAndOpen.urls[saveAndOpen.urls.indexOf(dl.source.url)] = "";
+    					    	}
+						    } else {
+						        if(dl.progress == 100 && saveAndOpen.urls.indexOf(dl.source.url)>-1){
+    					    		(new FileUtils.File(dl.target.path)).launch(); 
+    					    		saveAndOpen.urls[saveAndOpen.urls.indexOf(dl.source.url)] = "";
+    					    	}
+						    }	
     					},
     					onDownloadAdded:  function(){},
     					onDownloadRemoved: function(){},
@@ -261,20 +315,22 @@
 	
     // 下载改名
     function download_dialog_changeName() {
-	
-	    var rename = true           //true,可改名           false,不可改
-        var encodingConvert = true  //true,开启下拉菜单选项 false,关闭下拉菜单选项
         //注:同时关闭改名和下拉菜单会导致下载文件的文件名不显示(非要关闭请默认在28行最前面加//来注释掉该功能)
         if (location != "chrome://mozapps/content/downloads/unknownContentType.xul") return;
         document.querySelector("#mode").addEventListener("select", function() {
             if (dialog.dialogElement("save").selected) {
                 if (!document.querySelector("#locationtext")) {
 				    if (rename || encodingConvert) {
-					    if (encodingConvert) {
-				            var orginalString = (opener.localStorage.getItem(dialog.mLauncher.source.spec) ||
+					    var orginalString = "";
+                        if (encodingConvert) {
+                            try{
+                                orginalString = (opener.localStorage.getItem(dialog.mLauncher.source.spec) ||
                                 dialog.mLauncher.source.asciiSpec.substring(dialog.mLauncher.source.asciiSpec.lastIndexOf("/"))).replace(/[\/:*?"<>|]/g, "");
-                            opener.localStorage.removeItem(dialog.mLauncher.source.spec)
-					    }
+                                opener.localStorage.removeItem(dialog.mLauncher.source.spec)
+                            }catch(e){
+							    orginalString = dialog.mLauncher.suggestedFileName;
+                            }
+                        }
 					    if (encodingConvert)
                             var locationtext = document.querySelector("#location").parentNode.insertBefore(document.createElement("menulist"), document.querySelector("#location"));
 					    else
@@ -328,7 +384,10 @@
                 document.querySelector("#location").hidden = false;
             }
         }, false)
-        dialog.dialogElement("save").click();
+		if (locking)
+		    dialog.dialogElement("save").click();
+        else
+            dialog.dialogElement("save").selected && dialog.dialogElement("save").click();
         window.addEventListener("dialogaccept", function() {
             if ((document.querySelector("#locationtext").value != dialog.mLauncher.suggestedFileName) && dialog.dialogElement("save").selected) {
                 var mainwin = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator).getMostRecentWindow("navigator:browser");
@@ -383,29 +442,46 @@
         saveas.setAttribute("oncommand", 'var mainwin = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator).getMostRecentWindow("navigator:browser"); mainwin.eval("(" + mainwin.internalSave.toString().replace("let ", "").replace("var fpParams", "fileInfo.fileExt=null;fileInfo.fileName=aDefaultFileName;var fpParams") + ")")(dialog.mLauncher.source.asciiSpec, null, (document.querySelector("#locationtext") ? document.querySelector("#locationtext").value : dialog.mLauncher.suggestedFileName), null, null, null, null, null, null, mainwin.document, 0, null);close()');
     }
 	
+	// 保存到...
 	function download_dialog_saveTo() {
 	//目录路径的反斜杠\要双写\\
 	//第一次使用要修改路径，否则无法下载
 	//如果使用Firefox3.6 + userChromeJS v1.2,则路径中的汉字要转义为\u6C49\u5B57编码类型,否则会出现乱码
-	
+        var cssStr = (function(){/*
+        button[label="\4FDD\5B58\5230"] .dropmarker-icon{
+                display:none;
+        }
+        button[label="\4FDD\5B58\5230"]::after{
+                content:"";
+                display:-moz-box;
+                width:8px;
+                height:19px;
+                margin-left:-20px;
+                -moz-appearance: menulist-button;
+        }
+        button[label="\4FDD\5B58\5230"][disabled]::after{
+                opacity:.3;
+        }
+        */}).toString().replace(/^.+\s|.+$/g,"");
+        var style = document.createProcessingInstruction("xml-stylesheet", "type=\"text/css\"" + " href=\"data:text/css;base64," + btoa(cssStr) + "\"");
+        document.insertBefore(style,document.firstChild);
 	    var dir = [
 		["C:\\Users\\Administrator\\Desktop", "桌面"],
 		["D:\\Download", "Download"],
 		["D:\\Syuan的軟件", "Syuan的軟件"],
-
 	    ];
 	    var saveTo = document.documentElement._buttons.cancel.parentNode.insertBefore(document.createElement("button"), document.documentElement._buttons.cancel);
 	    var saveToMenu = saveTo.appendChild(document.createElement("menupopup"));
-	    saveTo.classList.toggle("dialog-button");
-	    saveTo.label = "\u4FDD\u5B58\u5230";
-	    saveTo.type = "menu";
+	        saveTo.classList.toggle("dialog-button");
+	        saveTo.label = "\u4FDD\u5B58\u5230";
+	        saveTo.type = "menu";
 	    dir.forEach(function (dir) {
 	    	var [name, dir] = [dir[1], dir[0]];
 	    	var item = saveToMenu.appendChild(document.createElement("menuitem"));
 	    	item.setAttribute("label", (name || (dir.match(/[^\\/]+$/) || [dir])[0]));
 	    	item.setAttribute("image", "moz-icon:file:///" + dir + "\\");
 	    	item.setAttribute("class", "menuitem-iconic");
-	    	item.setAttribute("oncommand", 'var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);file.initWithPath("' + dir.replace(/^\./, Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile).path).replace(/\\/g, "\\\\") + "\\\\" + (document.querySelector("#locationtext") ? document.querySelector("#locationtext").value : document.querySelector("#location").value) + '");dialog.mLauncher.saveToDisk(file,1);dialog.onCancel=null;close()');
+	    	item.onclick = function(){var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);file.initWithPath(dir.replace(/^\./, Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile).path) + "\\" + (document.querySelector("#locationtext") ? document.querySelector("#locationtext").value : document.querySelector("#location").value)); dialog.mLauncher.saveToDisk(file,1); dialog.onCancel = function(){};close();};
 	    })	
 	}
 		

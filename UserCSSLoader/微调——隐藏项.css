@@ -1,4 +1,4 @@
-/*2014.11.16 08:45*/
+/*2014.11.17 21:57*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*书签工具栏产生的箭头*/
@@ -73,7 +73,7 @@
 {display: none !important; }
 
 /*隐藏项 - 书签右键*/
-.hide-if-empty-places-result,#placesContext_sortSeparator,[class="bookmarks-actions-menuseparator"],#placesContext_openSeparator,#placesContext_deleteSeparator,/*分隔符*/
+#placesContext_editSeparator,.hide-if-empty-places-result,#placesContext_sortSeparator,[class="bookmarks-actions-menuseparator"],#placesContext_openSeparator,#placesContext_deleteSeparator,/*分隔符*/
 #subscribeToPageMenuitem  /*订阅此页…*/,
 [id="placesContext_open:newtab"], /*在标签页中打开*/
 [id="placesContext_open:newwindow"], /*在窗口中打开*/

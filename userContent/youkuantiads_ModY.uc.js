@@ -20,6 +20,7 @@
 //+++++++++++++++自定義+++++++++++++++
 // 規則提取：https://github.com/rasso1/youkuantiads/blob/master/AntiChinaVideoAds.js
 
+// 2014.11.18       啓用本地播放器
 // 2014.11.14       跟進ACVAA規則，新增ppsiqiyi,ppslive,baiduAD
 // 2014.11.08       跟進AntiChinaVideoAdsAlliances規則
 // 2014.10.25       SWF換用自己的Github備份地址（從AntiChinaVideoAdsAlliances擴展提取）
@@ -33,7 +34,7 @@
         绿色播放器主页：https://g.mozest.com/thread-43519-1-1
      */
 
-    var enalbe_localPlayer = false; // 是否启用本地播放器
+    var enalbe_localPlayer = true; // 是否启用本地播放器
     var SWF_DIR = 'local\\swf';           // 本地播放器路径，chrome 目录下
     // var SWF_DIR = 'local\\swf';
 

@@ -1,3 +1,4 @@
+//2014.11.18 12:58  去掉百度ie=utf-8
 //2014.11.16 09:45  更新topit.me 原始大圖
 //2014.11.15 20:00  精簡及禁用一些規則，添加『反百度搜索验证码』
 //2014.11.11 21:34  新增『反Google搜索验证码』
@@ -48,13 +49,6 @@ regex: true
 name: "反Google搜索验证码",
 from: /^https?:\/\/ipv4\.google\.com\/sorry\/IndexRedirect\?continue=https?:\/\/www\.google\.com(?:\.hk|)\/search\?(.*q=.*)&q=.*/i,
 to: "https://www.google.com/ncr#$1",
-regex: true
-},
-{
-name: "百度搜索ie=utf-8防繁體字亂碼",
-from: /^https?:\/\/www\.baidu\.com\/(s\?|baidu\?|search\?)(.*)/i,
-to: "http://www.baidu.com/$1$2&ie=utf-8",
-exclude: /^http:\/\/www\.baidu\.com\/.*\&ie=utf-8(.*)/i,
 regex: true
 },
 {

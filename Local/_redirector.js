@@ -1,3 +1,4 @@
+//2014.11.21 19:57  修正Google统计小錯误
 //2014.11.18 12:58  去掉百度ie=utf-8
 //2014.11.16 09:45  更新topit.me 原始大圖
 //2014.11.15 20:00  精簡及禁用一些規則，添加『反百度搜索验证码』
@@ -145,7 +146,7 @@ regex: true
 },
 {
 name: "Google统计脚本 >> mingto.tk",
-from: /^https?:\/\/(.*?)google-analytics.com\/(.*)$/,
+from: /^https?:\/\/(.*?)google-analytics\.com\/(.*)$/,
 to: "http://code.minggo.tk/etc/$2",
 regex: true
 },

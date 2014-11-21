@@ -20,6 +20,7 @@
 //+++++++++++++++自定義+++++++++++++++
 // 規則提取：https://github.com/rasso1/youkuantiads/blob/master/AntiChinaVideoAds.js
 
+// 2014.11.21       跟進ACVAA規則，修复letv外鏈
 // 2014.11.18       啓用本地播放器
 // 2014.11.14       跟進ACVAA規則，新增ppsiqiyi,ppslive,baiduAD
 // 2014.11.08       跟進AntiChinaVideoAdsAlliances規則
@@ -117,7 +118,7 @@ SITES: {
 },
 'letv': {
 'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/letv.swf',
-'re': /http:\/\/.*letv[\w]*\.com\/(hz|.*\/(?!(Live|seed|Disk))((C|S)[\w]{2,3})?(?!Live)[\w]{4})Player[^\.]*\.swf/i
+'re': /http:\/\/.*letv[\w]*\.com\/(hz|.*\/((?!(Live|seed|Disk))(S[\w]{2,3})?(?!Live)[\w]{4}|swf))Player*\.swf/i
 },
 'letv_live': {
 'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/letvlive.swf',

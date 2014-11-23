@@ -1,3 +1,4 @@
+//2014.11.22 08:40  更新topit.me 原始大圖
 //2014.11.21 19:57  修正Google统计小錯误
 //2014.11.18 12:58  去掉百度ie=utf-8
 //2014.11.16 09:45  更新topit.me 原始大圖
@@ -82,6 +83,7 @@ regex: true
 name: "网易云音乐320k辅助",
 from: /^http:\/\/.*\.music\.126\.net\/.*pt_index\.js/i,
 to: "https://raw.githubusercontent.com/dupontjoy/customization/master/pt_index.js",
+state: false,
 regex: true
 },
 {
@@ -177,12 +179,19 @@ to: "https://gp1.wac.edgecastcdn.net/806614/photos/photos.500px.net/$1/$2/2048.j
 regex: true
 },
 {
-name: "topit.me 原始大圖-V2",
+//測試：http://i11.topit.me/m/201103/12/12998645416093.jpg
+name: "topit.me 原始大圖-1",
 from: /^https?:\/\/(.*)\.topit\.me\/(s|m)(.*)?\/(.*)\.jpg$/,
 to: "http://$1.topit.me/l$3/$4.jpg",
 regex: true
 },
-
+{
+//測試：http://f8.topit.me/8/69/94/11889296294ef94698m.jpg
+name: "topit.me 原始大圖-2",
+from: /^https?:\/\/(f[\d]?)\.topit\.me\/(.*)m\.jpg$/,
+to: "http://$1.topit.me/$2l.jpg",
+regex: true
+},
 
 //待測試
 

@@ -1,3 +1,4 @@
+//2014.11.23 09:30 修正百度搜索，torrentkitty搜索
 //2014.11.13 21:50 新增『保存所有图片到zip』和『横排菜单』，调整菜单顺序，调整幾個conditions
 //2014.11.06 21:55 調整Send to Gmail幾個菜單順序
 //2014.11.02 09:10 調整搜圖順序
@@ -133,7 +134,7 @@ var items = [
 
 {label:"Google搜索",accesskey: "G",url:"http://www.google.com/search?q=%s",image:"https://www.google.com/favicon.ico",where: 'tab'},
 
-{label:"Baidu搜索",accesskey: "B",url:"http://www.baidu.com/baidu?wd=%s",image:"http://www.baidu.com/favicon.ico",where: 'tab'},
+{label:"Baidu搜索",accesskey: "B",url:"http://www.baidu.com/baidu?wd=%s&ie=utf-8",image:"http://www.baidu.com/favicon.ico",where: 'tab'},
 
 {label:"Bing搜索",accesskey: "M",url:"http://www.bing.com/search?q=%s",image:"http://cn.bing.com/s/a/bing_p.ico",where: 'tab'},
 {},
@@ -141,11 +142,9 @@ var items = [
 
 {label:"Baidu地图",url:"http://map.baidu.com/m?word=%s",image:"http://map.baidu.com/favicon.ico",where: 'tab'},
 {},
-{label:"Wiki-EN",url:"https://en.wikipedia.org/wiki/%s",image:"https://bits.wikimedia.org/favicon/wikipedia.ico",where: 'tab'},
-
-{label:"Wiki-中文",url:"https://zh.wikipedia.org/wiki/%s",image:"https://bits.wikimedia.org/favicon/wikipedia.ico",where: 'tab'},
-{},
 {label:"汉典",url:"http://www.zdic.net/search?q=%s",image:"http://www.zdic.net/favicon.ico",where: 'tab'},
+{},
+{label:"torrentkitty",url:"http://www.torrentkitty.org/search/%s",image:"http://www.torrentkitty.org/favicon.ico",where: 'tab'},
 
 ];
 var menu = PageMenu({
@@ -182,9 +181,10 @@ page({
 //快捷回复
 new function(){
 var items = [
-{label:"mail163~~~",input_text: "dupontjoy@163.com",accesskey: "1",image:" "},
-{label:"Gmail~~~",input_text: "dupont2305@gmail.com",accesskey: "2",image:" "},
-{label:"dupontjoy~~~",input_text: "dupontjoy",accesskey: "3",image:" "},
+{label:"用戶名(1)~~~",input_text: "dupontjoy",accesskey: "1",image:" "},
+{label:"163mail~~~",input_text: "dupontjoy@163.com",accesskey: "2",image:" "},
+{label:"Gmail~~~",input_text: "dupont2305@gmail.com",accesskey: "3",image:" "},
+
 {},
 {label:"谢谢你的解答~~~", input_text: "非常感谢你的解答！！！",image:" "},
 {label:"看起来很不错~~~", input_text: "看起来很不错哦~~~\n谢谢啦！！！",image:" "},

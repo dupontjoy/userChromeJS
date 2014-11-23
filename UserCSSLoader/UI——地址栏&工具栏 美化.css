@@ -1,4 +1,11 @@
-/*+++2014.11.04 22:58+++*/
+/*+++2014.11.23 08:00+++*/
+
+/*LASTPASS菜单宽度*/
+#lpt_lastpass-compact-menu,#lpt_lastpass-compact-menu menupopup{
+max-width: 210px !important;
+border: 1px solid ThreeDShadow !important;
+}
+
 /*下载弹窗大小调整*/
 #unknownContentType{    
 height: 340px !important;

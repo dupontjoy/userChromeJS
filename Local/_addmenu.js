@@ -1,4 +1,4 @@
-//2014.11.23 09:30 修正百度搜索，torrentkitty搜索
+//2014.11.23 14:00 修正百度搜索，torrentkitty搜索
 //2014.11.13 21:50 新增『保存所有图片到zip』和『横排菜单』，调整菜单顺序，调整幾個conditions
 //2014.11.06 21:55 調整Send to Gmail幾個菜單順序
 //2014.11.02 09:10 調整搜圖順序
@@ -145,6 +145,7 @@ var items = [
 {label:"汉典",url:"http://www.zdic.net/search?q=%s",image:"http://www.zdic.net/favicon.ico",where: 'tab'},
 {},
 {label:"torrentkitty",url:"http://www.torrentkitty.org/search/%s",image:"http://www.torrentkitty.org/favicon.ico",where: 'tab'},
+{label:"Kickass",url:"http://kickass.so/usearch/?q=%s",image:"http://kastatic.com/images/favicon.ico",where: 'tab'},
 
 ];
 var menu = PageMenu({

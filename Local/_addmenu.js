@@ -1,4 +1,4 @@
-//2014.11.23 14:00 修正百度搜索，torrentkitty搜索
+//2014.11.23 15:52 修正百度搜索，torrentkitty搜索，灌水图标
 //2014.11.13 21:50 新增『保存所有图片到zip』和『横排菜单』，调整菜单顺序，调整幾個conditions
 //2014.11.06 21:55 調整Send to Gmail幾個菜單順序
 //2014.11.02 09:10 調整搜圖順序
@@ -182,9 +182,11 @@ page({
 //快捷回复
 new function(){
 var items = [
-{label:"用戶名(1)~~~",input_text: "dupontjoy",accesskey: "1",image:" "},
-{label:"163mail~~~",input_text: "dupontjoy@163.com",accesskey: "2",image:" "},
-{label:"Gmail~~~",input_text: "dupont2305@gmail.com",accesskey: "3",image:" "},
+{label:"用戶名(1)~~~",input_text: "dupontjoy",accesskey: "1",image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABbElEQVRIia3Wv0scQRjG8Y+Q2CSNokmZQhTT6B+hfYiQ1mAjkYhWAdtgp7UYIQkR9H+QBAMpbFLlCtMIGvwZEJPOoBfOFDN7mGW525u7B55qZ5/v7rwz7wzNdR+T2MJB9Baex2dtqQdvcImbnC+xht7U8C68Rq0gPHMNi3FsyxrAfoPwzD8wmAKYQLUE4C+epQBmS4Rnnk8BvGwBMJcCeILrEuFVYTpb1iAOSwCOMJQCuIONEoBN3E0BwBh+NQj/jfHUcMJfLCnebDUsxzFtqQ9fCgA76G83nNAG1gsAHyS2iNt6gCmcFAD28FRis3uEBXzDVUF45j/4ilfxnaa6h2nsatxFiwr+HTManBH9eNfki5v5WqjXw3x4N1baCM57LWbWNYzTDgLOYmZdo7joIOAiZtbVi+0OAj4rWL7DeItj5U6yvKvCfnmPx/nwTN0YEZbqKj6iIpzNZziP/ilcXyr4JNw8XsRp+a+4/wCW1xLWbMWACgAAAABJRU5ErkJggg== "},
+{},
+{label:"163mail~~~",input_text: "dupontjoy@163.com",accesskey: "2",image:"http://email.163.com/favicon.ico "},
+{label:"QQmail~~~",input_text: "dupontjoy@qq.com",accesskey: "2",image:" https://mail.qq.com/favicon.ico"},
+{label:"Gmail~~~",input_text: "dupont2305@gmail.com",accesskey: "3",image:"https://ssl.gstatic.com/ui/v1/icons/mail/images/2/unreadcountfavicon/0.png "},
 
 {},
 {label:"谢谢你的解答~~~", input_text: "非常感谢你的解答！！！",image:" "},

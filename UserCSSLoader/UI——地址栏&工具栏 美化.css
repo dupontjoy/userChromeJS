@@ -1,4 +1,4 @@
-/*+++2014.11.23 08:00+++*/
+/*+++2014.11.23 14:34+++*/
 
 /*LASTPASS菜单宽度*/
 #lpt_lastpass-compact-menu,#lpt_lastpass-compact-menu menupopup{
@@ -27,11 +27,14 @@ width:450px!important;}
 
 /*附加组件管理器显示地址栏*/
 @namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
-@-moz-document url(chrome://browser/content/browser.xul) {
+@-moz-document url(chrome://browser/content/browser.xul); 
+{
 #main-window[disablechrome]
 #navigator-toolbox[tabsontop="true"]
 #nav-bar:not([collapsed="true"])
-{visibility: visible!important;}
+visibility: visible!important;
+}
+
 
 /*粘贴并转到、搜索置顶*/
 .urlbar-textbox-container menuitem[anonid="paste-and-go"]:not([disabled="true"]) {-moz-box-ordinal-group: 0 !important;}

@@ -3,6 +3,7 @@
 //   @ORIGINAL：发送打开站点referer
 //   @BLOCK : 发送空referer
 
+//2014.11.24 增加chiphell
 //2014.11.09 增加pconline和postimg
 //2014.10.27
 
@@ -20,6 +21,7 @@ sites = {
     'zol-img.com.cn' : '@FORGE',
     'pconline.com.cn': '@FORGE',
     'postimg.org': '@FORGE',
+    'chiphell.com': '@FORGE',
     
     // 
     'douban.com': 'http://www.douban.com',

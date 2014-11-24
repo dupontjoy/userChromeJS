@@ -1,3 +1,5 @@
+//2014.11.24 14:25  加入google
+
 DISPLAY_TYPE =1; // 0显示列表为radiobox, 1显示为ua图标列表
 
 SITE_LIST =[
@@ -22,6 +24,7 @@ SITE_LIST =[
 {url : "https?://www\\.icbc\\.com\\.cn/",Name : "Fox10.0"}, 
 {url : "https?://(?:mybank1?|b2c1)\\.icbc\\.com\\.cn/",Name : "Fox10.0"},
 {url : "http://(.*?)n\\.baidu\\.com/",Name : "BaiduYunGuanJia"},//百度云
+{url : "https:\/\/www\.google\.com\/",Name : "Safari - Mac"},//google
 
 ],
 

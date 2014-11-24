@@ -1,4 +1,4 @@
-/*2014.11.23 08:02*/
+/*2014.11.24 09:32*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*书签工具栏产生的箭头*/
@@ -171,12 +171,12 @@
 #lpt_comp-bar-advanced-tools, /*高级工具*/
 #lpt_lpimportfrom, /*导入*/
 #lpt_lpprint, /*打印*/
-[label="Copy Username"],[label="复制用户名"],
-[label="Copy Password"],[label="复制密码"],
-[label="Copy URL"],[label="复制网址"],
-[label="Go to URL"],[label="转到网址"],
-[label="Save All Entered Data"],[label="保存所有输入的数据"], 
-[label="Add Secure Note"],[label="添加安全笔记"]
+[label="Copy Username"],[label="复制用户名"],[label="複製使用者名稱"],
+[label="Copy Password"],[label="复制密码"],[label="複製密碼"],
+[label="Copy URL"],[label="复制网址"],[label="複製網址"],
+[label="Go to URL"],[label="转到网址"],[label="轉到網址"],
+[label="Save All Entered Data"],[label="保存所有输入的数据"], [label="儲存已填入資料"],
+[label="Add Secure Note"],[label="添加安全笔记"],[label="新增安全備註"]
 {display: none !important;}
 
 /*UserScriptLoader*/

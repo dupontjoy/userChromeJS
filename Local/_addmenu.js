@@ -1,4 +1,4 @@
-//2014.11.24 21:35 調整圖標
+//2014.11.24 22:25 調整圖標
 //2014.11.23 15:52 修正百度搜索，torrentkitty搜索，灌水图标
 //2014.11.13 21:50 新增『保存所有图片到zip』和『横排菜单』，调整菜单顺序，调整幾個conditions
 //2014.11.06 21:55 調整Send to Gmail幾個菜單順序
@@ -37,7 +37,7 @@ var undoMenu = TabMenu({
             });
         }
     },
-    image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABdElEQVQ4jbWSv2vCQBiG39KxQzsUQQzEoRTiYA5vFrN0LXGpiyBFZ6fuEsFBcOns5OTkouKQTfxLHBVF3cW3g0ZiyEXT0g8e7r47vud+Av8cjwBMAAUFbwAEgGcA97cIzcViQRWTyYQkWalUvk7Su2vCwnK5pApPSJKZTOYDwNM1aWG1WlHFcDikP7LZ7DuAh0jher2miul0ymAAeIkUbjYbqpjP55zNZhyPx3Rdl67rEoAVKdxut4wDjq+vFu52O8ZBKazlweovqeXBUOGoY3PUsS8u3cvDxj2UwkHb5vdn4gzJ0NbfH7QjhP2WzXY5wXb5WBDs+8Ob67cihD3HplM6FjqlxBkvD447pQR7ToSw2yiy2yhe7MTL/W0QpfAvhH4dAIX9fs84IOwfmqb5KoSwNE2rHw4HxkHTtLoQwjJN8/UslFImhRCWYRhVXdebqVSqcwu6rjcNw6gKISwpZVJ1bEgpk6dF0rlcTvoRQqS9+bDaH9xDsIMn+j+uAAAAAElFTkSuQmCC"
+    image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAABDklEQVQ4jZ3SPShFcRjH8Q8JN2IgI4pJorxkMJDNYlE27AZWG4vBJoOymewMshtsdzHIQilKUl7SDde9hnNuTqdzLuc+9UzP8/2e/uf3kFyNWMVwyrxqNWEddxjPCuewiQJeMJYFbsU2PlDGM0b/C7dhF58hXA5FR9jDBhbQh/o43IV9FCNwUhdxgx30RwWHKP0BxzuPiYpgCbcZBWWco7cimcV1bKGEJzziPUHwja3oU2ZwFVl4xTwGMYUVHMdkl/EfOokLvzGOxOY5LOI+3CnEBQTHk8eb9ENaw1fYiTWEU+mn3C2I9CFNAD3oTJm1CFI4qSaoVu04w3KtggEcoKMWuA5zmK71682CeBvgB+93YAIjVuYDAAAAAElFTkSuQmCC"
 });
 
 /*——————————图片右键————————*/

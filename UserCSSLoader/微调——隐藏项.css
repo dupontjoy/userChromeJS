@@ -1,4 +1,4 @@
-/*2014.11.24 09:32*/
+/*2014.11.25 17:18*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*书签工具栏产生的箭头*/
@@ -57,7 +57,8 @@
 #context-sep-viewsource, /*分割線*/
 #context-inspect,/*Inspect Element*/
 #context-searchselect,/*Context Search*/
-#context-openlinkincurrent/*打开链接*/
+#context-openlinkincurrent,/*打开链接*/
+#spell-add-dictionaries-main/*新增字典*/
 {display: none !important;}
 
 /*===标签栏右键菜单===*/

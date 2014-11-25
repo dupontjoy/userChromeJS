@@ -1,4 +1,4 @@
-//2014.11.24 22:25 調整圖標
+//2014.11.25 21:50 將圖標統一放到『圖標美化』css中
 //2014.11.23 15:52 修正百度搜索，torrentkitty搜索，灌水图标
 //2014.11.13 21:50 新增『保存所有图片到zip』和『横排菜单』，调整菜单顺序，调整幾個conditions
 //2014.11.06 21:55 調整Send to Gmail幾個菜單順序
@@ -37,13 +37,12 @@ var undoMenu = TabMenu({
             });
         }
     },
-    image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAABDklEQVQ4jZ3SPShFcRjH8Q8JN2IgI4pJorxkMJDNYlE27AZWG4vBJoOymewMshtsdzHIQilKUl7SDde9hnNuTqdzLuc+9UzP8/2e/uf3kFyNWMVwyrxqNWEddxjPCuewiQJeMJYFbsU2PlDGM0b/C7dhF58hXA5FR9jDBhbQh/o43IV9FCNwUhdxgx30RwWHKP0BxzuPiYpgCbcZBWWco7cimcV1bKGEJzziPUHwja3oU2ZwFVl4xTwGMYUVHMdkl/EfOokLvzGOxOY5LOI+3CnEBQTHk8eb9ENaw1fYiTWEU+mn3C2I9CFNAD3oTJm1CFI4qSaoVu04w3KtggEcoKMWuA5zmK71682CeBvgB+93YAIjVuYDAAAAAElFTkSuQmCC"
 });
 
 /*——————————图片右键————————*/
 
 //右键搜索图片 以图搜图
- var imagesub = PageMenu({ label: "以图搜图",accesskey: "I",  condition: "image", where: "tab", insertBefore:"context-copyimage-contents", image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAClklEQVQ4jZ3LXUhTcRzG8R/SzcCX1cwdJxUU1lGptWNyYBcymuxicaBtChnVTdSWppkmglAo+NIL3aUURtOQypBALUJKV5oscn85etrmTjkcnAXuxluh9OkiERMp6gufu+chj8cjVVRUXPwfHo9HIrfb7U2lUkgmk/8klUrB7XZ7yeVy+TRNw+hDE8YeZa/bjTH/L+P+HIz35iDQa0Sgz4h3fUaM9e6FpmlwuVw+kiSpKpFIYLLfhM/DuVuYEB4xIfIqb0N4xITgs31IJBKQJKmKnE5ndTwex4PrZkw+LsLCm/0b4m8PYDGQDy1YiG/sCLRgIRYD+ZCHecTjcTidzmpyOBw1qqqiXBRxtrQU/W3HoE0UQJsoQPJDEZaYgJXlcqytnsfKcjmWmIDo6FGoqgqHw1FDdru9NhqNwpqXByfPo1IsQVeDgBd3i/HpeQkSH49jbbUJwDWsrV7FcqQUXwMliEajsNvttWSz2eoURcElZwauSDrUn0zHjTMcWs6Z0H5hD3paDkL7cgI/vp9GcuEUhu6bMdx9CIqiwGaz1ZHVaq2XZRkvu7Mx0av/XZ8eU/16sCED5t8bwYYMmOrXY7QnF7Isw2q11pMoig2MMbR5DWj3ZqDDm4kOXyY6fVm4WZWF2zV6DNzbhddPszHQZcCd2p24dZkDYwyiKDaQIAiNoVAI09PTmJmZwdzcHMLhMObn5xGLxaCqKmKxGCKRCBRFgSzLYIyBMQZBEBrJYrFUms3mpq38fj82225jsVgqabt4nm8eHBzEZjzPN2873i6O41qDwSBmZ2cRDocRCoXAcVzrnz47iMhIREVEVKzT6TrLysqebKbT6TqJqJiIDhMRt/7ZKI2I0okoh4hMf2Fc36YREf0EAAD4l7KonoMAAAAASUVORK5CYII=",  });
+ var imagesub = PageMenu({ label: "以图搜图",accesskey: "I",  condition: "image", where: "tab", insertBefore:"context-copyimage-contents", });
 imagesub([
       {label: 'Google Search',
       url : 'http://www.google.com/searchbyimage?image_url=%IMAGE_URL%',
@@ -83,7 +82,6 @@ condition: "image",
 accesskey: "B",
 text:"%IMAGE_BASE64%",
 insertAfter:"context-copyimage",
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABaElEQVQ4jaXSMWvCQBgGYP+Oo3/AJTiImxBcXJwcXMQ1f0A3XTPomul06aQFtwpmUTFQSjPESJBETAg5CNf6dig5c0mt0H7wDkl4n/sCV8AfppAeANg7PsjuiNnmAG1tQl0aUJcG+tMV+tMVlMkCymSB3pCgNyQiAgBkd8Te8WF7EdyACrG9SMhg7qHRHd0QAJhtDnADipfDNZfn90+eM71iMPdEBAC0tYmQxr+WE+BMrwhpjHpLuQHq0ngIPL1+8DwE2mML7bHFy8kzMRiIwfJAf7riQLacnJq817bfQFXu5IF0Ob0yMRi0LePfbS8SAWWygBtQYd17ZVVnsL0IUq35M5D952xZ1Rmsky8CvSHhQPbkJElZ1RlM54JyRRaBkMZ3gXRZ1RncgIpAozvC/s1GSOPc9bVOPo/pXOAGFGt9g2JJEjdodEc89ZaCektBVe6gKncg1ZqQak2UKzLKFRnFkiTeg//MFydmWVqZ/5x7AAAAAElFTkSuQmCC"
 });
 
 // 替换 openImgRar.uc.js。 打开图像RAR
@@ -92,7 +90,6 @@ label: "打开图像RAR",
 accesskey: "R",
 insertBefore:"context-saveimage",
 condition: 'image',
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACcUlEQVQ4jZXIXUtTARwH4L/iGEeGe0Eny3JTnMbU9qLMvZwdt7Gpw+bO2YLNedzUFR5qLRhmsJY2xGrY8VxmBIaRJdhV9gGK6CKLvtKvmxyCmHjx3DwkimJfIZ/fWJyfv5RCPr82G4+3U2xqaivF81itzWFNnsfa9okc1rdzWC5mkEokkE2n8aBUQjKRQIrnkeJ5TEQiSxQJh5Xi4xnsHiew+1NoeHucxPs/aXz4nUNBSuF+8R52dnYgJBKYid9EfHoawUBAIi4QUKLRIMIR9oxYwo9XX2fw7lcaez9y2D9ewu73Obz5lkF2MQa/xyORd2xMCQeDOM/0LS+kmh/ll1Gsv07i7gaL5Zof0UkW7pERiUZdLoX1+fA/fq8XoihClmVwLAu/1wvW54PTbpdoeHBQGXW5cJHZTAayLMPjdjfOZrNJNGC1KsNDQ7hIKplEvV6H0+FonNVqlcjS3a1Y+/pwHi7iQOFRCKtbKSj7RdyphLH4kMMNx3Vc6+qSyGQyKRazGT0Wyxl25wCefZpE/UsEtUMOTw85rB8GUD3ww+nrhclolKjdYFCCQj+ef46gfjSB+tFkw4ujCJ4csLCNXgHLBrCysoLOzk4Y9AYYOzqg1+sl0mg0ik6nxVjsKkLpHoQy/6R7EEpb0O8wQq/XY2FhAZubm3C73dBqtdBptdBoNBIxarXS2tqKEwzDgOM48DwPQRAgCAKy2SwqlQqq1SrK5TKSySTMZjPUarVELS0tikqlwmlqtRoMwzTodDqIoohSqYTx8XEwDAOVSoXm5maJiEgmIlykra0NdrsdTU1Np/82EZGHiPaJ6OMl7RFR718Ge5uCNFZveAAAAABJRU5ErkJggg==",
 oncommand: function(){
 var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
 try {
@@ -154,7 +151,6 @@ condition:"select",
 label: "搜索选中文本",
 accesskey: "S",
 insertBefore: "context-copy",
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHDSURBVDhPpVJbKENhHJ887NmLcnmQZ+U6SZ7mEk+ur8qDXEpMLBSRJbRHlzSRDFuNkkQRHoaiXE44LxbTssk0zhpDdj7/H0ecsYflV//+5/+7fN853/kUf4ExFkkVJYpiElUhVbnUk8BDl6y/AZGMcbu2O41+lecrDFYhu38jgI4ZPPSQi2CHXdutRmM6uMnUrbHgAg8dPikiB15Tv3LGq3pWmdZ86OQcnok3UWxExwweOnxSRA4SCiuGtwRV1zLjrjwTNMdTKdExg4cOnxSRg4TyrLalQEbHIsPOCEu8EjN46PB9BIKBlcsG1oV07Tzj7G75G9AMHjp8UuQbdDARJKj7zXv2tGYT005uO7kL9+cZUMcMftCy//sMpHCMwy30Fncv+PJaLf60BiMLrvqRzRsrfy3/C1/hS9dDe2m32ZtaN8lyWo3Pupmdq1LdgqCqmQqg95mtvPXEIb8HP8MlnXPelGoDy20y+k/ttyPEF1AVUYW+iURGX7jutSUdc97kqlGmbjT4OZtLT6YEmTEUfL6XlLKWKU9y5RBTN4yFFwZgnl45ms2vHX86PncOhhUG6BOUFEh8fHzNpOfYsML/h0LxDlnLtXo5zlbFAAAAAElFTkSuQmCC"
 });
 menu(items);
 };
@@ -172,7 +168,6 @@ page({
         addMenu.copy(str);
         goDoCommand('cmd_paste');
     },
-    image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACS0lEQVQ4jZXR30tTcRjH8f07IgRB0EUXYYgkSYapF91E0I03XhzIOJKaw4tgGEKHE7RpLH/BtNl0Q9fWkgwKJgqHGYohgo35azvn7MzNc87k3YW6H6hBDzwXz/OFFzyfr8NxVm29Mbm9b5F/dVtvTHZcVa09MfZ1mz3dYlezSKkWKdUkmTntP2mT1p4YD198uRxp6Y5yoNtEEzphRSO0qhFYVvHH0/h+HpLMmLT3LdLSHaVFjFxEmrvCHGZtFn9liSR0FhSN4KrGp2WVj/E068l86ZTmrjD3ny1UI01CiLRhs7RhXIpspApVeTQJIe4JwTLS2DlLxrD58Tt3KbKZKiAOKzz3KAyMrzEwlqCxc5YS0NDhR80ViW8dXYmcn3OeSUOHvwx0vxrH6/USjHwnvnVEILyE1+vFP//tAuKPp0lmTO489Z0Cbrdb9ng8FItFPB4PK9t5Kuep4NcqJLCsklJNbj+ewCFJkixJEqZpIkkSM6EYys4x03NRKvcTM5ESElrVSKkWtx59wOFyuSgUCrhcLkLzn1lPmawlTZSdYyb981S+n2cSVjR2NYubbSM4+vv7ZafTiaZpOJ1OJqfnWE+ZjE3NUbkfmQyUgo0mdPZ0ixsP3p1mIIqiLIoihmEgiiKbexaVs2d0+sLv7Os215veln+h/clLBEHg/biPrQOL4VEfgiDg9vpQdo5Z2c5XIQe6zbW7b8pAbf0QucIJxllnCyfo+RP0fBHtqIh6VETNFckYNmnD5jBrU1s/VAZq6gblmrrX/F8Pyn8BzRewGKfber0AAAAASUVORK5CYII=",
 //限定只在kafan生效
   onshowing: function(menuitem) {
     var isHidden = !(content.location.host == 'bbs.kafan.cn');
@@ -183,7 +178,7 @@ page({
 //快捷回复
 new function(){
 var items = [
-{label:"用戶名(1)~~~",input_text: "dupontjoy",accesskey: "1",image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABbElEQVRIia3Wv0scQRjG8Y+Q2CSNokmZQhTT6B+hfYiQ1mAjkYhWAdtgp7UYIQkR9H+QBAMpbFLlCtMIGvwZEJPOoBfOFDN7mGW525u7B55qZ5/v7rwz7wzNdR+T2MJB9Baex2dtqQdvcImbnC+xht7U8C68Rq0gPHMNi3FsyxrAfoPwzD8wmAKYQLUE4C+epQBmS4Rnnk8BvGwBMJcCeILrEuFVYTpb1iAOSwCOMJQCuIONEoBN3E0BwBh+NQj/jfHUcMJfLCnebDUsxzFtqQ9fCgA76G83nNAG1gsAHyS2iNt6gCmcFAD28FRis3uEBXzDVUF45j/4ilfxnaa6h2nsatxFiwr+HTManBH9eNfki5v5WqjXw3x4N1baCM57LWbWNYzTDgLOYmZdo7joIOAiZtbVi+0OAj4rWL7DeItj5U6yvKvCfnmPx/nwTN0YEZbqKj6iIpzNZziP/ilcXyr4JNw8XsRp+a+4/wCW1xLWbMWACgAAAABJRU5ErkJggg== "},
+{label:"用戶名(1)~~~",input_text: "dupontjoy",accesskey: "1",},
 {},
 {label:"163mail~~~",input_text: "dupontjoy@163.com",accesskey: "2",image:"http://email.163.com/favicon.ico "},
 {label:"QQmail~~~",input_text: "dupontjoy@qq.com",accesskey: "3",image:" https://mail.qq.com/favicon.ico"},
@@ -204,7 +199,6 @@ label:"快速回复",
 condition:"input",
 accesskey: "W",
 insertBefore: "context-copy",
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAASZQTFRFq2MmrGUpxZNqyJNP+e/P////wIlcUFBQnp6eoaGhoZmSrY51sJN6UFBQVFRUWFhYXl5eY2NjampqcHBwd3d3fX19hISEioqKkJCQlZWVmpqanF8mnpmWnp6eoaGht3k6uH5MuoFRwY5kwpJpw4tGxI9gxY1JxZRlxpFNx5NWx5dryJNRypZWyptwy5hRy51szJlSzJpRzJ51zp9ezqF5zqR8zqqL0qd/17uk37iD5NfM5eXl5rgl5rgn5rs/5ubm5+fn6L046Ojo6enp6uLc6urq6+vr7Ozs7e3t7u7u7+/v8NSm8PDw8fHx8sMA8vHx8vLy88so89BC9NBE9Nmf9eTI9ebV9uHA9u/o+OrC+OvC+eO8+ePL+unX/Pv6/f39/vz5////ByadbwAAAA10Uk5TAAAAAAAAG5aWlqHFxQD6C4kAAADMSURBVBgZBcFNS8NAFIbR595MaqEbrQa6UgSFFhVCdy7Fvy3uFUQQBHEruAmkNqHkg8y8nmN5KACAagAInD0AAM/VCAQiPwlNXG1UjwlHmLvlgeXqZm4WEJ5w0vC97tNX7wjLPLPV57qbFudZQBhQfJRd3LUzOcLMlu9lF+v9tEmOcDt523axbuLtE45wey3HWDfj3ZFwhP0Vi3l76MsdwhHZdBHttN3uDREQVJd1/XvfGIiA0PiSFdcHJ6EUkB8/GgDgkuU+AwAAxuEflNBc+frSdwMAAAAASUVORK5CYII=",
 //跟进depft更新
 oncommand: function(event){
 var input_text = event.target.getAttribute('input_text');
@@ -280,7 +274,6 @@ page({
             zipW.close();
         }
     },
-    image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABvklEQVQ4ja2TX0/TABRH74day7rus2yMKYxtPsGA+W9jY30TBLds+kkkilajQQiMCdEYozHEQMZYltq0abasHB8khpqYEuNN7uM593eTe0X+Vxm34tTycWp5nZWcTjWnU83qVLIxrgX/OHqCdfgYEWHQadE/aHHebnK236Sc0f4uuTpZRAAQESrZGMuzMcoZjVJGozSjcX86yr3pKHdvRrlzY+KXtJaPc3Fxge/7AYHnebiui+M42LaNZVkMBgP6/T69Xo9ut0sxrSK1vI7v+ww6rYCgu9fkdLfByU6D7+/qHG/X+fb2EV/fbPDl9QafX61TnFKRlZzOeDymf9DCNE1EBNM0Q+FPL9dZSqlINaczGo04bzcREQzDQERC4Y8vHrKYUpBqVmc4HHK238Q0TQzDwDTNUPjD1hoLkwpSycbwPI/uXjBBGHz0fI1CUkGWZ2O4rsvpbiOQIAw+fLZKIRlByhkNx3E42WkEEoTB7zdXmU9EkFJGw7bt3zsbhnEtuLP5gLlEBCnNaFiWxfF2PZAgDG4/vRSIiFw9z9vpCYppleKUylJKZTGlsDCpUEgqFJIR5hMR5i773972j/oJpN863VzIDcsAAAAASUVORK5CYII="
 })
 
 //Firefox 31+ 横排菜单，在链接上和非链接上不相同
@@ -301,20 +294,20 @@ openMenu([
         image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAKDSURBVDhPpY/PT5IBGMffWl76ceiS62/wlrc6uLmZM81MZ3noQik4NAWRVwXlVSbKDyEFcgoCyoshIvgCBpgS/siUhbnWDJrKVnaouS5tuTaX3wSxVrfGZ3sO3+/zPN89D5Ex7+dYWDLmIC1TsNnDWfcE1nNpeaS9Z5NeWv5NG4/aPgmorNSfr3s4LpHLmB2VwrdHSdzzkg7XnFw2tddNORL1XCtVWjpyIbVI4FRVlekOIWoxf9OrbTutLVN+Ra/747RrEevRGOKxBCJrb7EQjiL8PAqvZxljRgbdEttuC98alIrpN8Imy1dCKuRtzljb4PFE4A+sYdL5Cl7fOywuJ7C1vYf1jV3Q9ig02gUo+2ZgMc2ANnvAOLzoEo1uEWTTSCjgCYHqdO1z6wyb1dVKe3XNwCdZz1OsvExgdi6G+kYbbpdLP5RXiO13q+TxRsHYvscRAMk3LxKcmpHBee8c+Pwh6/FvBEFR1GkuVxN1Tm2AtkXAYqlepFspamuVTveoDZwHRjnRyeM8spscUPe5v3d1jTvb2x1ikcjWIBQ+DtH0KsasyyBJc0AgsDaQJH3UM3mUPU9+aLqNP0tKNFeIyMR1yNuaj35aQv/AM6jVfgz0B6HRzIJhXqdKqz32FQpfynfRDBo4en/qnN1wGZrvV3iFvNGVCQsDxrWEadcaBnU+hIIRzPtXYTYEwbgjmJ4MY9xgB9nYHyss1Fz+HWAWZyM3l53FZg2ppGLDZ73Scqjo0B1IWofjEnI4rujQHuh6DYedpPZLDUurLi7uvZhaTnISkJZEQYHqUlmJquhmkfJaXh51Jlm3bsivJr38fFl2euwP/wb8NxkH+HU5mQVkBkH8AgvRfy93EDdrAAAAAElFTkSuQmCC"
     },
     {
-        label: "在 IE 中打开",
+        label: "在IE中打开",
         text: "%RLINK_OR_URL%",
         exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
     },
     {
+        label: "BackupProfiles",
+        text: '%RLINK_OR_URL%',
+        exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\Local\\BackupProfiles\\BackupProfiles_7z.bat",
+    },
+    /*{
         label: "在 Chrome 中打开",
         text: '%RLINK_OR_URL%',
         exec: Services.dirsvc.get("LocalAppData", Ci.nsILocalFile).path + "\\Google\\Chrome\\Application\\chrome.exe",
-    },
-    // {
-    //     label: "在 Opera 中打开",
-    //     text : "%RLINK_OR_URL%",
-    //     exec : "D:\\Program Files\\Opera\\opera.exe",
-    // },
+    },*/
 
 ]);
 
@@ -394,6 +387,11 @@ tab({
 }
 );
 
+tab({
+    id: "frame", //本框架又不能直接隱藏，只好移動到一個安全的位置，嘿嘿
+    insertAfter: "charsetMenu",
+    clone: false,  // 不克隆，直接改在原来的菜单上面
+});
 
 };
 

@@ -1,7 +1,9 @@
-::Mod 2014.11.22
+::Mod 2014.11.25
 
 echo off
 rem 设置备份路径以及临时文件夹
+taskkill /im firefox.exe
+@echo 关闭火狐浏览器后自动开始备份……
 cd /d %~dp0
 set BackDir=..\..\..
 set TempFolder=..\..\..\Temp\Profile

@@ -3,7 +3,7 @@
 //   @ORIGINAL：发送打开站点referer
 //   @BLOCK : 发送空referer
 
-//2014.11.24 增加chiphell
+//2014.11.25 增加chiphell,niunews
 //2014.11.09 增加pconline和postimg
 //2014.10.27
 
@@ -22,6 +22,7 @@ sites = {
     'pconline.com.cn': '@FORGE',
     'postimg.org': '@FORGE',
     'chiphell.com': '@FORGE',
+    'niunews.cn': '@FORGE',
     
     // 
     'douban.com': 'http://www.douban.com',

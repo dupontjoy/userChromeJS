@@ -1,4 +1,4 @@
-/*2014.11.25 21:30*/
+/*2014.11.26 19:55*/
 
 /*地址栏图标分组*/
 #flashgot-media-tbb{-moz-box-ordinal-group: 1 !important;}
@@ -156,8 +156,13 @@ margin-left: 0px !important;
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 
-#downloadsContextMenu menuitem[label="复制下载链接"],#downloadsContextMenu menuitem[label="複製下載鏈結"],#downloadsContextMenu menuitem[label="Copy Download Link"],#context-copy,#context-copylink,#context-copyemail,#placesContext_copy/*复制,复制链接地址,复制邮件地址,复制书签*/
+#downloadsContextMenu menuitem[label="复制下载链接"],#downloadsContextMenu menuitem[label="複製下載鏈結"],#downloadsContextMenu menuitem[label="Copy Download Link"],#context-copy,#context-copyemail,#placesContext_copy/*复制*/,#copyBookmark_copyTitle/*複制書簽標題*/
 {list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGxQTFRF////UFBQkZGRl5eXnZ2doaGhUFBQVlZWXFxcY2Nja2trc3Nze3t7g4ODioqKkZGRl5eXnZ2doaGhtra2ubm5u7u7vb294ODg5eXl5ubm5+fn6enp6urq7Ozs7u7u8PDw8fHx9fX1/f39////ggcw/gAAAAZ0Uk5TAJaWlpaWbyK09gAAAHhJREFUGNONyjFqAlEYRtHzj28YGRVCsv+lWbkAiwFRnvKlUCOSxvIebsG4A5ZOg+3XHbJc7/CdE8xTllsbdxzRVmSdpT33Y0Ybc1o89nOKKUNUVZWs+7nKCzbzT6+SFgUXppQXwAcw/DsO+hvs0ZLhD6BqfLYe/AJsmDdNVyCpFwAAAABJRU5ErkJggg==") !important;
+-moz-image-region: rect(0px, 0px, 0px, 0px) !important;
+}
+
+#context-copylink/*复制链接地址*/,#copyBookmark_copyBoth/*複制書簽標題和網址*/
+{list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACL0lEQVQ4jY3O/0sTcRzH8ftzFgj+4g/+IOEgpSyYVJ6F+0Ehkn7wh+oHi8WWhFA/KCQINYiBUAlJxTCnTu0UEcJMp27SpHkl+WVz230+593n7j53vPohZnie4QveP76fPATBNTEiPWsJS1QMS5bHzVwPSy3un2O7FpqhRZWjeMhRVDkOKEeBcuwTC7ldDcEnc7gammo9NQAAZY1jboNiOk0wkVIw+q2MREpBnnKIEQltjz8j8GD8ljc5IuFmzyxu9Mzi7uASXo7/RGJFwdQawVbegBiRIEYktD5K4vK90e4zkV+MyZheJ5ALJh6+WkXv6zTCsRQudcVlobl7wjgL+fnHTSRWFMSXyvjwtYR9YqGhc8QWrtwfY4pmY2FThZShSK6TU8lP36aRWFHwaVlBnlio7xhmwsWuOCO6jcWchvnsv4gXuTU0ieQ6weQqQYFYqAsOMeFC5wijzMayrOPLj+MRN7nxzntIGYrpDMEBtVArxphQ3zHMVGZjbZthacs7UiE33H6H+ayKuQ2KospRE4gyoS44xA6Zg8yOidQv70iF7G9/g8WchoVNFSWVo7pp0BBqxRjTDAfZPQvp396RCvl82xCIxqFoHAfURFXjQEmoCUSZZjrIFSx83/WOHJGbowAAn79PP+fvK/n8/b1CddOgoZsO5CJHrmAhu2chs2NibZthWdZPkt2rahwoqTqHZjrQDAeHzIbKbFDdBtH5SbJ7Pn9/719On/6/OyK79gc8Kc0L/8SbiQAAAABJRU5ErkJggg==") !important;
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 

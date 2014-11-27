@@ -1,3 +1,5 @@
+
+//2014.11.27 20:00 添加EHH元素隱藏
 //2014.11.25 21:50 將圖標統一放到『圖標美化』css中
 //2014.11.23 15:52 修正百度搜索，torrentkitty搜索，灌水图标
 //2014.11.13 21:50 新增『保存所有图片到zip』和『横排菜单』，调整菜单顺序，调整幾個conditions
@@ -214,10 +216,20 @@ menu(items);
 };
 
 /*——————————页面右键——————————*/
+//EHH元素隱藏
+page([{
+    label: '选择屏蔽内容',
+    accesskey: "E",
+    oncommand: "window._ehhWrapper.toggleSelection(); ",
+    insertAfter: "context-viewinfo",
+    condition: "noinput noselect nomailto nocanvas nomedia noimage nolink",
+},
+]);
 
 //保存所有图片到zip
 page({
     label: "保存所有图片到zip",
+    accesskey: "Z",
     insertAfter: "context-saveimage",
     condition: 'noinput noselect nomailto nocanvas nomedia noimage nolink',
     oncommand: function() {

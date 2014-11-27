@@ -1,3 +1,4 @@
+//2014.11.27 18:00  新增TVC規則
 //2014.11.22 08:40  更新topit.me 原始大圖
 //2014.11.21 19:57  修正Google统计小錯误
 //2014.11.18 12:58  去掉百度ie=utf-8
@@ -103,6 +104,12 @@ regex: true
 name: "TVC內網 去掉多餘的『http//』",
 from: /^http:\/\/http\/\/(.*)/i,
 to: "$1",
+regex: true
+},
+{
+name: "TVC內網 編辑滾動條位置",
+from: /^http:\/\/ic.sjlpj.cn\/\#\/DevProduct\/DevProductEditDetail(.*)/i,
+to: "http://ic.sjlpj.cn/#/DevProduct/DevProductAgainEdit$1",
 regex: true
 },
 {

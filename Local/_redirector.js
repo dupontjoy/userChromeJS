@@ -1,4 +1,4 @@
-//2014.11.27 18:00  新增TVC規則
+//2014.11.28 15:50  新增2條TVC規則
 //2014.11.22 08:40  更新topit.me 原始大圖
 //2014.11.21 19:57  修正Google统计小錯误
 //2014.11.18 12:58  去掉百度ie=utf-8
@@ -110,6 +110,12 @@ regex: true
 name: "TVC內網 編辑滾動條位置",
 from: /^http:\/\/ic.sjlpj.cn\/\#\/DevProduct\/DevProductEditDetail(.*)/i,
 to: "http://ic.sjlpj.cn/#/DevProduct/DevProductAgainEdit$1",
+regex: true
+},
+{
+name: "TVC內網 產品鏈接 轉外網",
+from: /^http:\/\/ic\.sjlpj\.cn\/details\/(.*)/i,
+to: "http://www.tvc-mall.com/details/$1",
 regex: true
 },
 {

@@ -1,4 +1,20 @@
-/*+++2014.11.23 14:34+++*/
+/*+++2014.11.30 22:15+++*/
+
+/*样式伪进度条*/
+@-moz-document url-prefix("http://"),url-prefix("https://"){
+html:before{
+content:"";
+position:fixed;height:3px;
+z-index:10000000;top:0;left:0;
+background: -moz-linear-gradient(top, rgb(232,25,87) 0%, rgb(170,0,51) 100%);
+box-shadow:0 1px 5px rgba(190,50,0,0.5);
+-moz-animation:jindu 3s ease 0.5s 1 forwards;
+}
+@-moz-keyframes jindu{
+0% {width:0;}
+99% {width:100%;}
+100%{width:0;}
+}
 
 /*LASTPASS菜单宽度*/
 #lpt_lastpass-compact-menu,#lpt_lastpass-compact-menu menupopup{
@@ -40,12 +56,6 @@ visibility: visible!important;
 .urlbar-textbox-container menuitem[anonid="paste-and-go"]:not([disabled="true"]) {-moz-box-ordinal-group: 0 !important;}
 .searchbar-textbox menuitem[anonid="paste-and-search"]:not([disabled="true"]) {-moz-box-ordinal-group: 0 !important;}
 #context-pasteandgo-forms:not([disabled="true"]) {-moz-box-ordinal-group: 0 !important;}
-
-/*Ubuntu文件夹*/
-.bookmark-item[container] {
-list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAI6SURBVDhPpdPtS1NRAAbwUf/Bokx7WVAtzIkJyhDEKOpDMHAOgoG2ILG2NZsjFcViLpASIolZNltvq3B3c2HrS3Z1g7CiD0GM5bxep5F7dTl6QVoZPp1tbnfJoqADP3jOPfc8HC7n8nj/O+x2e8BqtWIth8MxYbFYNv21n2z8iTzD6/Umkmv5ym022ye9Xr8uVf6ngnylmWcURS2TkvW/FfjvtoK9pQNrbgE7qAV7g7jejOl+DRgjcVUNpk+NqcsqvLt0EpM9jQnPOXkoewJ28AyWfI+xNLUGQ+ZZTpI53vOK5WzB9IAGXz3DiD/TI04ndaeNZRhINmCRrC2OduHj00681db+yBYwxtP48mYIMWfHqk7EnqxytmNh5CwWHmkRHdYgalchQjXhtWJ/TkGfEp9f3UfUpkOUakFkSIPIQyXCD5oQvncCoTsKhG7XI2iWI2CSYf6aBM8P7/yePYGvtxFxtwnBm8cRNDUgMCDHvFGGD1eO4H3vQcz1VGPughizhkqiIsVVtZkr8HRIERu5iNnuGvi7xJhpLwfbVgq2VZTWJsJMSilZSxuv3MgVvDxajJBZB+bUbo5SCCZDRXKGmmT1HtBlG7iCF1IhAv3NmKwXcBoE8KXsgO9YDgXJBC3iJ7LfYEKyC/PkknhrC9OkOepIritKk3HoEv43HrmWYcpqTbglxSvuQwK4DmyHq2Ybxqu3YqxqC2hxEeiKQtDlBaD35SgrWBkt4fszPxufBCGx9x8l303u4f0ClcloLM0+3AIAAAAASUVORK5CYII=")!important;
--moz-image-region: rect(0px, 16px, 16px, 0px)!important;
-}
 
 /*Oos定制 —— WordHighlightToolbar & 查找栏样式*/
     #wordhighlight-toolbar-box,

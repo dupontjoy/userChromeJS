@@ -40,7 +40,7 @@
                 label: "云点播",
                 class: "menu-iconic",
                 hidden: true,
-                image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACiElEQVQ4jWWTy2+MYRTGn6IiSIbEJdGIhYiQ+AdqURsLNLHpTqUWbAmRkNCFjRCJhEgsbMzGYtxiQlzKaBt1rU7bGd/oXTv1aV2+6U3Nd/1ZvB/SOsm7O8/lnOe80rzyv2Rq3Gxdym1NOO4zUX4sZh8kHPdNXSr4cm/P/P6/5ThOovyuNh1+EKElgqzwXwuvRZQfiV/3DZnbWZuemRlc+z+4fbOFLRgWUa8IcyJoF/4L4T4V5YfCaxZeq/Deb7bmkLhdh1JRaTl8E3wWDIqoELt4JdyMKDcJ/6VxFbwVfm9t2sxczNQEnxthei+UFsKY4JOIesTAQ9F05Z9y0C7CDhF2irBLBM69PXKty0m8Npg5DhPLYFxcPSvsNmGlxekDFXgtInhvQGFeRJZxGI3svaNy7kSRcgqmG6BUCWPiwinx7pYB+G/MC3MxqFdE/YIBwVDCkZffCdP7YHIdfBfYgiHTHGbNvGFeRB8N8Ee2kunCQhgRFIX87kooLTLgMcGIiPoMKOiIlXtixWHRemc1XZkVpndcyM1WFRmLlUdENCDCwr9FRYXY8rBJ6FzjNiaHKsERlFZ9lZurT/Iptt0n3JwIu439MG9mZkgwKprvruHqxS0wsRgmN8DssRvyx1uq/yiFebF/dwWF2yLoNNumX/zsWcD1S+s5f2YrgbMEpnaY1Py+GnNI3XWpIGuiGn8iDtctZt+u5Zw8uJIjDVUcPbSRppurje3JTTBzEspP038v0bbtpV7H9la/zRyM/9KMEX00V8moWRilCpiqhp/XLBwnMec/2La91MvXJ90nwns+j6AYEziC2aOp/8BzvvOPlmrPqk+G1obBqBDHN1pVpFSf5FemZn7/b/8KdAFaIa0vAAAAAElFTkSuQmCC"
+
             });
 
             var menuPopup = playerMenu.appendChild($C("menupopup"));

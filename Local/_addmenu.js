@@ -339,7 +339,7 @@ elem.disabled = original.disabled;
 });
 };
 
-//移动图标，代替Movebutton.uc.js，需配合RebuildWhenStart.uc.js
+//移动图标，代替Movebutton.uc.js，需配合RebuildWhenStart.uc.js，可惜對有的圖標還是無力
 new function(){
 
 //几个扩展图标

@@ -1,20 +1,4 @@
-/*+++2014.11.30 22:15+++*/
-
-/*样式伪进度条*/
-@-moz-document url-prefix("http://"),url-prefix("https://"){
-html:before{
-content:"";
-position:fixed;height:3px;
-z-index:10000000;top:0;left:0;
-background: -moz-linear-gradient(top, rgb(232,25,87) 0%, rgb(170,0,51) 100%);
-box-shadow:0 1px 5px rgba(190,50,0,0.5);
--moz-animation:jindu 3s ease 0.5s 1 forwards;
-}
-@-moz-keyframes jindu{
-0% {width:0;}
-99% {width:100%;}
-100%{width:0;}
-}
+/*+++2014.12.01 16:00+++*/
 
 /*LASTPASS菜单宽度*/
 #lpt_lastpass-compact-menu,#lpt_lastpass-compact-menu menupopup{
@@ -40,22 +24,6 @@ width:450px!important;}
 #urlbar[level="broken"]{
   background-color: #F7DFDF !important;
 }
-
-/*附加组件管理器显示地址栏*/
-@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
-@-moz-document url(chrome://browser/content/browser.xul); 
-{
-#main-window[disablechrome]
-#navigator-toolbox[tabsontop="true"]
-#nav-bar:not([collapsed="true"])
-visibility: visible!important;
-}
-
-
-/*粘贴并转到、搜索置顶*/
-.urlbar-textbox-container menuitem[anonid="paste-and-go"]:not([disabled="true"]) {-moz-box-ordinal-group: 0 !important;}
-.searchbar-textbox menuitem[anonid="paste-and-search"]:not([disabled="true"]) {-moz-box-ordinal-group: 0 !important;}
-#context-pasteandgo-forms:not([disabled="true"]) {-moz-box-ordinal-group: 0 !important;}
 
 /*Oos定制 —— WordHighlightToolbar & 查找栏样式*/
     #wordhighlight-toolbar-box,
@@ -123,4 +91,20 @@ visibility: visible!important;
 #UserScriptLoader-popup .UserScriptLoader-item[checked="false"] {
     -moz-box-ordinal-group:99!important;
     color:gray!important;
+}
+
+/*样式伪进度条*/
+@-moz-document url-prefix("http://"),url-prefix("https://"){
+html:before{
+content:"";
+position:fixed;height:3px;
+z-index:10000000;top:0;left:0;
+background: -moz-linear-gradient(top, rgb(232,25,87) 0%, rgb(170,0,51) 100%);
+box-shadow:0 1px 5px rgba(190,50,0,0.5);
+-moz-animation:jindu 3s ease 0.5s 1 forwards;
+}
+@-moz-keyframes jindu{
+0% {width:0;}
+99% {width:100%;}
+100%{width:0;}
 }

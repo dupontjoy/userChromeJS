@@ -1,4 +1,4 @@
-/*+++2014.12.01 20:00+++*/
+/*+++2014.12.01 21:30+++*/
 
 /*地址栏图标分组*/
 #flashgot-media-tbb{-moz-box-ordinal-group: 1 !important;}
@@ -24,7 +24,7 @@ margin-left: 0px !important;
 #context_closeOtherTabs{-moz-box-ordinal-group: 3 !important;}
 
 /*粘贴并转到、搜索置顶*/
-.urlbar-textbox-container menuitem[anonid="paste-and-go"]:not([disabled="true"]) {-moz-box-ordinal-group: 0 !important;}
-.searchbar-textbox menuitem[anonid="paste-and-search"]:not([disabled="true"]) {-moz-box-ordinal-group: 0 !important;}
-#context-pasteandgo-forms:not([disabled="true"]) {-moz-box-ordinal-group: 0 !important;}
+.urlbar-textbox-container menuitem[anonid="paste-and-go"]/*:not([disabled="true"])*/ {-moz-box-ordinal-group: 0 !important;}
+.searchbar-textbox menuitem[anonid="paste-and-search"] {-moz-box-ordinal-group: 0 !important;}
+#context-pasteandgo-forms {-moz-box-ordinal-group: 0 !important;}
 

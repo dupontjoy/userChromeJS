@@ -27,7 +27,7 @@ keys['O'] = function() {
 keys['P'] = "openPreferences();";//选项
 keys['S'] = "BrowserStop();";//停止载入当前页
 keys['U'] = "undoCloseTab();";//恢复关闭的标签
-keys['W'] = function(){var newtabs=["http://ic.sjlpj.cn/","http://www.tvc-mall.com/","http://www.amazon.com/"];var i=0;while(i<=newtabs.length-1){gBrowser.selectedTab=gBrowser.addTab(newtabs[i]);i=i+1;}};//一键打开标签组
+keys['W'] = function(){var newtabs=["https://www.google.com/webhp?&complete=0","http://ic.sjlpj.cn/","http://www.tvc-mall.com/","http://www.amazon.com/"];var i=0;while(i<=newtabs.length-1){gBrowser.selectedTab=gBrowser.addTab(newtabs[i]);i=i+1;}};//一键打开标签组
 keys["Alt+X"] = "Services.appinfo.invalidateCachesOnRestart() || Application.restart();"; //删除启动缓存并重启
 
 

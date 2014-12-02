@@ -20,6 +20,7 @@
 //+++++++++++++++自定義+++++++++++++++
 // 規則提取：https://github.com/rasso1/youkuantiads/blob/master/AntiChinaVideoAds.js
 
+// 2014.12.02       跟進ACVAA 1128版規則
 // 2014.11.21       跟進ACVAA規則，修复letv外鏈
 // 2014.11.18       啓用本地播放器
 // 2014.11.14       跟進ACVAA規則，新增ppsiqiyi,ppslive,baiduAD
@@ -82,108 +83,108 @@
     function YoukuAntiADs() {};
     YoukuAntiADs.prototype = {
 SITES: {
-'youku_loader': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/loader.swf',
-'re': /http:\/\/static\.youku\.com(\/v[\d\.]+)?\/v\/swf\/loaders?\.swf/i
-},
-'youku_player': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/player.swf',
-'re': /http:\/\/static\.youku\.com(\/v[\d\.]+)?\/v\/swf\/q?player[^\.]*\.swf/i
-},
-'ku6': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/ku6.swf',
-'re': /http:\/\/player\.ku6cdn\.com\/default\/common\/player\/\d{12}\/player\.swf/i
-},
-'ku6_out': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/ku6_out.swf',
-'re': /http:\/\/player\.ku6cdn\.com\/default\/out\/\d{12}\/player\.swf/i
-},
-'iqiyi': {
-'player0': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/iqiyi_out.swf',
-'player1': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/iqiyi5.swf',
-'player2': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/iqiyi.swf',
-'re': /https?:\/\/www\.iqiyi\.com\/(player\/\d+\/Player|common\/flashplayer\/\d+\/(Main|Coop|Share)?Player_?.*)\.swf/i
-},
-'tudou': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/tudou.swf',
-'re': /http:\/\/js\.tudouui\.com\/.*portalplayer[^\.]*\.swf/i
-},
-'tudou_olc': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/olc_8.swf',
-'re': /http:\/\/js\.tudouui\.com\/.*olc[^\.]*\.swf/i
-},
-'tudou_sp': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/sp.swf',
-'re': /http:\/\/js\.tudouui\.com\/.*\/socialplayer[^\.]*\.swf/i
-},
-'letv': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/letv.swf',
-'re': /http:\/\/.*letv[\w]*\.com\/(hz|.*\/((?!(Live|seed|Disk))(S[\w]{2,3})?(?!Live)[\w]{4}|swf))Player*\.swf/i
-},
-'letv_live': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/letvlive.swf',
-'re': /http:\/\/.*letv[\w]*\.com\/p\/\d+\/\d+\/\d+\/newplayer\/LivePlayer\.swf/i
-},
-'letvskin': {
-'player': 'http://player.letvcdn.com/p/201407/24/15/newplayer/1/SSLetvPlayer.swf',
-'re': /http:\/\/.*letv[\w]*\.com\/p\/\d+\/\d+\/(?!15)\d*\/newplayer\/\d+\/S?SLetvPlayer\.swf/i
-},
-'pptv': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/pptv.swf',
-'re': /http:\/\/player.pplive.cn\/ikan\/.*\/player4player2\.swf/i
-},
-'pplive': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/pptvLive.swf',
-'re': /http:\/\/player.pplive.cn\/live\/.*\/player4live2\.swf/i
-},
-'sohu': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/sohu.swf',
-'re': /http:\/\/tv\.sohu\.com\/upload\/swf\/(?!(live|\d+)).*\d+\/(main|PlayerShell)\.swf/i
-},
-'sohu_liv': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/sohulive.swf',
-'re': /http:\/\/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}(:[0-9]{2,5})?(\/test)?\/(player|webplayer)\/(main|playershell)\.swf/i
-},
-'sohu_live': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/sohulive.swf',
-'re': /http:\/\/tv\.sohu\.com\/upload\/swf\/(live\/|)\d+\/(main|PlayerShell)\.swf/i
-},
-'pps': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/pps.swf',
-'re': /http:\/\/www\.iqiyi\.com\/player\/cupid\/.*\/pps[\w]+.swf/i
-},
-'ppsiqiyi': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/iqiyi.swf',
-'re': /http:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/PPSMainPlayer.*\.swf/i
-},
-'ppslive': {
-'player': 'http://www.iqiyi.com/player/20140613210124/livePlayer.swf',
-'re': /http:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/am.*\.swf/i
-},
-'wanhenda': {
-'player': 'http://yuntv.letv.com/bcloud.swf',
-'re': /http:\/\/assets\.dwstatic\.com\/.*\/vppp\.swf/i
-},
-'17173': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/17173_Player_file.swf',
-'re': /http:\/\/f\.v\.17173cdn\.com\/\d+\/flash\/Player_file\.swf/i	
-},
-'17173_out': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/17173_Player_file_out.swf',
-'re': /http:\/\/f\.v\.17173cdn\.com(\/\d+)?\/flash\/Player_file_(custom)?out\.swf/i
-},
-'17173_stream_customOut': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/17173_Player_stream_out.swf',
-'re': /http:\/\/f\.v\.17173cdn\.com(\/\d+)?\/flash\/Player_stream_(custom)?Out\.swf/i
-},
-'17173_live': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/17173_Player_stream.swf',
-'re': /http:\/\/f\.v\.17173cdn\.com\/\d+\/flash\/Player_stream(_firstpage)?\.swf/i
-},
-'baiduAD': {
-'player': 'https://raw.githubusercontent.com/dupontjoy/customization/master/swf/baiduAD.swf',
-'re': /http:\/\/list\.video\.baidu\.com\/swf\/advPlayer\.swf/i
-}
+        'youku_loader': {
+            'player': 'http://noads.aliapp.com/swf/loader.swf',
+            're': /http:\/\/static\.youku\.com(\/v[\d\.]+)?\/v\/swf\/loaders?\.swf/i
+        },
+        'youku_player': {
+            'player': 'http://noads.aliapp.com/swf/player.swf',
+            're': /http:\/\/static\.youku\.com(\/v[\d\.]+)?\/v\/swf\/q?player[^\.]*\.swf/i
+        },
+        'ku6': {
+            'player': 'http://noads.aliapp.com/swf/ku6.swf',
+            're': /http:\/\/player\.ku6cdn\.com\/default\/common\/player\/\d{12}\/player\.swf/i
+        },
+        'ku6_out': {
+            'player': 'http://noads.aliapp.com/swf/ku6_out.swf',
+            're': /http:\/\/player\.ku6cdn\.com\/default\/out\/\d{12}\/player\.swf/i
+        },
+        'iqiyi': {
+            'player0': 'http://noads.aliapp.com/swf/iqiyi_out.swf',
+            'player1': 'http://noads.aliapp.com/swf/iqiyi5.swf',
+            'player2': 'http://noads.aliapp.com/swf/iqiyi.swf',
+            're': /https?:\/\/www\.iqiyi\.com\/(player\/\d+\/Player|common\/flashplayer\/\d+\/(Main|Coop|Share)?Player_?.*)\.swf/i
+        },
+        'tudou': {
+            'player': 'http://no_ads.jd-app.com/tudou.swf',
+            're': /http:\/\/js\.tudouui\.com\/.*portalplayer[^\.]*\.swf/i
+        },
+        'tudou_olc': {
+            'player': 'http://noads.aliapp.com/swf/olc_8.swf',
+            're': /http:\/\/js\.tudouui\.com\/.*olc[^\.]*\.swf/i
+        },
+        'tudou_sp': {
+            'player': 'http://noads.aliapp.com/swf/sp.swf',
+            're': /http:\/\/js\.tudouui\.com\/.*\/socialplayer[^\.]*\.swf/i
+        },
+		'letv': {
+            'player': 'http://noads.aliapp.com/swf/letv.swf',
+            're': /http:\/\/.*letv[\w]*\.com\/(hz|.*\/((?!(Live|seed|Disk))(S[\w]{2,3})?(?!Live)[\w]{4}|swf))Player*\.swf/i
+        },
+        'letv_live': {
+            'player': 'http://no_ads.jd-app.com/letvlive.swf',
+            're': /http:\/\/.*letv[\w]*\.com\/p\/\d+\/\d+\/\d+\/newplayer\/LivePlayer\.swf/i
+        },
+        'letvskin': {
+            'player': 'http://player.letvcdn.com/p/201407/24/15/newplayer/1/SSLetvPlayer.swf',
+            're': /http:\/\/.*letv[\w]*\.com\/p\/\d+\/\d+\/(?!15)\d*\/newplayer\/\d+\/S?SLetvPlayer\.swf/i
+        },
+        'pptv': {
+            'player': 'http://noads.aliapp.com/swf/pptv.in.Ikan.swf',
+            're': /http:\/\/player.pplive.cn\/ikan\/.*\/player4player2\.swf/i
+        },
+		'pplive': {
+            'player': 'http://noads.aliapp.com/swf/pptv.in.Live.swf',
+            're': /http:\/\/player.pplive.cn\/live\/.*\/player4live2\.swf/i
+        },
+		'sohu': {
+           'player': 'http://noads.aliapp.com/swf/sohu.swf',
+           're': /http:\/\/tv\.sohu\.com\/upload\/swf\/(?!(live|\d+)).*\d+\/(main|PlayerShell)\.swf/i
+        },
+        'sohu_liv': {
+           'player': 'http://noads.aliapp.com/swf/sohu_live.swf',
+           're': /http:\/\/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}(:[0-9]{2,5})?(\/test)?\/(player|webplayer)\/(main|playershell)\.swf/i
+        },
+        'sohu_live': {
+           'player': 'http://noads.aliapp.com/swf/sohu_live.swf',
+           're': /http:\/\/tv\.sohu\.com\/upload\/swf\/(live\/|)\d+\/(main|PlayerShell)\.swf/i
+        },
+		'pps': {
+            'player': 'http://no_ads.jd-app.com/pps.swf',
+            're': /http:\/\/www\.iqiyi\.com\/player\/cupid\/.*\/pps[\w]+.swf/i
+        },
+		'ppsiqiyi': {
+            'player': 'http://noads.aliapp.com/swf/iqiyi.swf',
+            're': /http:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/PPSMainPlayer.*\.swf/i
+		},	
+		'ppslive': {
+            'player': 'http://www.iqiyi.com/player/20140613210124/livePlayer.swf',
+            're': /http:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/am.*\.swf/i
+		},	
+        'wanhenda': {
+            'player': 'http://yuntv.letv.com/bcloud.swf',
+            're': /http:\/\/assets\.dwstatic\.com\/.*\/vppp\.swf/i
+        },
+        '17173': {
+            'player': 'http://noads.aliapp.com/swf/17173.in.Vod.swf',
+            're': /http:\/\/f\.v\.17173cdn\.com\/\d+\/flash\/Player_file\.swf/i			                
+		},
+        '17173_out': {
+            'player': 'http://noads.aliapp.com/swf/17173.out.Vod.swf',
+  	    're': /http:\/\/f\.v\.17173cdn\.com(\/\d+)?\/flash\/Player_file_(custom)?out\.swf/i
+     	},			
+	    '17173_stream_customOut': {
+            'player': 'http://noads.aliapp.com/swf/17173.out.Live.swf',
+  	    're': /http:\/\/f\.v\.17173cdn\.com(\/\d+)?\/flash\/Player_stream_(custom)?Out\.swf/i
+	    },			
+        '17173_live': {
+            'player': 'http://noads.aliapp.com/swf/17173.in.Live.swf',
+            're': /http:\/\/f\.v\.17173cdn\.com\/\d+\/flash\/Player_stream(_firstpage)?\.swf/i
+        },
+		'baiduAD': {
+            'player': 'http://noads.aliapp.com/swf/baidu.call.swf',
+		    're': /http:\/\/list\.video\.baidu\.com\/swf\/advPlayer\.swf/i
+		}
 },
         os: Cc['@mozilla.org/observer-service;1']
                 .getService(Ci.nsIObserverService),

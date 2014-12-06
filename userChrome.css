@@ -1,4 +1,4 @@
-/*+++2014.10.12+++*/
+/*+++2014.12.06+++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -28,7 +28,8 @@ min-width:100px !important;
 }
 
 /*隐藏地址栏图标*/
-#notification-popup-box {visibility: collapse;} /*最左侧的FLASH标志*/
+[anonid="close-button"],/*標簽頁關閉按鈕*/
+#notification-popup-box,/*地址欄左側的Flash提示*/
 #PanelUI-menu-button,/*三道杠*/
 #downloads-button,/*下载图标*/
 #downloads-indicator,/*下载图标——完成*/
@@ -39,7 +40,6 @@ min-width:100px !important;
 
 /*隐藏图标*/
 #GrabScroll-image,
-[anonid="close-button"],/*标签关闭按钮*/
 #abp-toolbarbutton,/*Adblock Plus*/
 #masonStatusbar,/*Mason*/
 #noscript-tbb,/*Noscript*/

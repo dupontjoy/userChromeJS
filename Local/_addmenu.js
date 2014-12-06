@@ -1,4 +1,5 @@
 
+//2014.12.04 08:23 備份換用Keychanger
 //2014.11.30 11:00 將圖標統一放到『圖標美化』css中
 //2014.11.28 21:40 添加EHH元素隱藏
 //2014.11.25 21:50 將圖標統一放到『圖標美化』css中
@@ -309,12 +310,12 @@ openMenu([
         text: "%RLINK_OR_URL%",
         exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
     },
-    {
+    /*{
         label: "BackupProfiles",
         text: '%RLINK_OR_URL%',
         exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\Local\\BackupProfiles\\BackupProfiles_7z.bat",
     },
-    /*{
+    {
         label: "在 Chrome 中打开",
         text: '%RLINK_OR_URL%',
         exec: Services.dirsvc.get("LocalAppData", Ci.nsILocalFile).path + "\\Google\\Chrome\\Application\\chrome.exe",

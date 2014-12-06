@@ -146,7 +146,7 @@
       const ios = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
       const fph = ios.getProtocolHandler("file").QueryInterface(Ci.nsIFileProtocolHandler);
       const ds = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties);
-      var Start = new Date().getTime();
+var Start = new Date().getTime();
       //getdir
       if (this.USE_0_63_FOLDER) {
         var o = [""];
@@ -223,7 +223,7 @@
         [].push.apply(this.scripts, s);
         [].push.apply(this.overlays, o);
       }
-      this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
+this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
 
       //拡張のバージョン違いを吸収
       function convURL(url){
@@ -260,24 +260,10 @@
         return false;
       }
 
-      /**
-       * 解析脚本得到 script 对象，只有 meta
-       */
-      userChrome_js.parseScript = function (aFile) {
-        var aContent = aFile;
-        if (typeof aFile != 'string') {
-          aContent = readFile(aFile, true)
-        } else {
-          aFile = null;
-        }
-        
-        return getScriptData(aContent, aFile);
-      };
-
       //メタデータ収集
-      function getScriptData(aContent, aFile){
-        var charset, description, author, version;
-        var header = (aContent.match(/^\/\/\s*==UserScript==[ \t]*\n(?:.*\n)*?\/\/\s*==\/UserScript==[ \t]*\n/m) || [""])[0];
+      function getScriptData(aContent,aFile){
+        var charset, description, author, version, homepageURL, reviewURL, downloadURL, fullDescription;
+        var header = (aContent.match(/^\/\/ ==UserScript==[ \t]*\n(?:.*\n)*?\/\/ ==\/UserScript==[ \t]*\n/m) || [""])[0];
         var match, rex = { include: [], exclude: []};
         while ((match = findNextRe.exec(header)))
         {
@@ -299,7 +285,7 @@
           description = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
         //}catch(e){}
         if (description =="" || !description)
-          description = aFile && aFile.leafName;
+          description = aFile.leafName;
 
         // version
         match = header.match(/\/\/ @version\b(.+)\s*/i);
@@ -313,41 +299,23 @@
         if(match)
           author = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
 
-        // name
-        match = header.match(/\/\/ @name\b(.+)\s*/i);
-        var name = "";
-        if(match)
-          name = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
-
-        // namespace
-        match = header.match(/\/\/ @namespace\b(.+)\s*/i);
-        var namespace = "";
-        if(match)
-          namespace = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
-
         // homepageURL
-        match = header.match(/\/\/ @homepage(?:URL)?\b(.+)\s*/i);
-        var homepageURL = "";
+        match = header.match(/\/\/ @homepageURL\b(.+)\s*/i);
+        homepageURL = "";
         if(match)
           homepageURL = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
 
         // reviewURL
         match = header.match(/\/\/ @reviewURL\b(.+)\s*/i);
-        var reviewURL = "";
+        reviewURL = "";
         if(match)
           reviewURL = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
 
         // downloadURL
         match = header.match(/\/\/ @downloadURL\b(.+)\s*/i);
-        var downloadURL = "";
+        downloadURL = "";
         if(match)
           downloadURL = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
-
-        // updateURL
-        match = header.match(/\/\/ @updateURL\b(.+)\s*/i);
-        var updateURL = "";
-        if(match)
-          updateURL = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
 
         // optionsURL
         match = header.match(/\/\/ @optionsURL\b(.+)\s*/i);
@@ -357,7 +325,7 @@
 
         // fullDescription
         match = header.match(/\/\/ @note\b(.+)\s*/ig);
-        var fullDescription = "";
+        fullDescription = "";
         var notes = [];
         if(match && match.length){
           for (var i = 0; i < match.length; i++) {
@@ -366,75 +334,24 @@
           fullDescription = "\n" + notes.join("\n");
         }
 
-        // id
-        match = header.match(/\/\/ @id\b(.+)\s*/i);
-        var id = "";
-        if(match)
-          id = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
-
-        // startup
-        match = header.match(/\/\/ @startup\b(.+)\s*/i);
-        var startup = "";
-        if(match)
-          startup = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
-
-        // shutdown
-        match = header.match(/\/\/ @shutdown\b(.+)\s*/i);
-        var shutdown = "";
-        if(match)
-          shutdown = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
-
-        // config
-        match = header.match(/\/\/ @config\b(.+)\s*/i);
-        var config = "";
-        if(match)
-          config = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
-
-        var url = aFile && fph.getURLSpecFromFile(aFile),
-            filename = aFile && aFile.leafName || '',
-            regex = new RegExp("^" + exclude + "(" + (rex.include.join("|") || ".*") + ")$", "i"),
-            includeMain = regex.test(BROWSERCHROME);
+        var url = fph.getURLSpecFromFile(aFile);
 
         return {
-          filename: filename,
+          filename: aFile.leafName,
           file: aFile,
           url: url,
-          name: name,
-          namespace: namespace,
+          //namespace: "",
           charset: charset,
           description: description,
           version: version,
           author: author,
-          //code: aContent.replace(header, ""),
-          regex: regex,
-
-          // new added
-          id: id ? id : (name || filename) + '@' + (namespace || author || 'userChromejs'),
-          get type() {
-            return /\.uc(?:-\d+)?\.js$/i.test(this.filename) ? 'js' :
-                         /\.uc(?:-\d+)?\.xul$/i.test(this.filename) ? 'xul' : '';
-          },
           homepageURL: homepageURL,
           reviewURL: reviewURL,
-          get downloadURL() {
-            return downloadURL || (userChromejs && userChromejs.store.get(filename, {}).installURL);
-          },
-          updateURL: updateURL,
+          downloadURL: downloadURL,
           optionsURL: optionsURL,
           fullDescription: fullDescription,
-
-          startup: startup,
-          shutdown: shutdown,
-          restartless: includeMain ? !!(startup && shutdown) : true,
-          includeMain: includeMain,
-          isRunning: false,
-          config: config,
-          get isEnabled() {
-            return !userChrome_js.scriptDisable[this.filename];
-          },
-          get canUpdate() {
-            return this.downloadURL && this.downloadURL.indexOf('http') === 0;
-          },
+          //code: aContent.replace(header, ""),
+          regex: new RegExp("^" + exclude + "(" + (rex.include.join("|") || ".*") + ")$", "i")
         }
       }
 
@@ -660,17 +577,15 @@
       if( !this.EXPERIMENT && true ){ //← uc.jsでのloadOverlayに対応
         for(var m=0,len=this.overlays.length; m<len; m++){
           overlay = this.overlays[m];
-          // 排除加载 rebuild_userChrome.uc.xul
-          if( overlay.filename == this.ALWAYSEXECUTE
-                 || !!this.dirDisable['*']
+          if( overlay.filename != this.ALWAYSEXECUTE
+            && ( !!this.dirDisable['*']
                  || !!this.dirDisable[overlay.dir]
-                 || !!this.scriptDisable[overlay.filename] ) continue;
+                 || !!this.scriptDisable[overlay.filename]) ) continue;
 
           // decide whether to run the script
           if(overlay.regex.test(dochref)){
             if (this.INFO) this.debug("loadOverlay: " + overlay.filename);
             this.loadOverlay(overlay.url + "?" + this.getLastModifiedTime(overlay.file), null, doc);
-            overlay.isRunning = true;
           }
         }
       }else{
@@ -678,10 +593,10 @@
         var count =0;
         for(var m=0,len=this.overlays.length; m<len; m++){
           overlay = this.overlays[m];
-          if( overlay.filename == this.ALWAYSEXECUTE
-                 || !!this.dirDisable['*']
+          if( overlay.filename != this.ALWAYSEXECUTE
+            && ( !!this.dirDisable['*']
                  || !!this.dirDisable[overlay.dir]
-                 || !!this.scriptDisable[overlay.filename] ) continue;
+                 || !!this.scriptDisable[overlay.filename]) ) continue;
           // decide whether to run the script
           if(overlay.regex.test(dochref)){
             XUL += overlay.xul;
@@ -693,7 +608,6 @@
         try{
             if (this.INFO) this.debug("loadOverlay: " + XUL);
             this.loadOverlay("data:application/vnd.mozilla.xul+xml;charset=utf-8," + XUL, null, doc);
-            overlay.isRunning = true;
         }catch(ex){
             this.error(XUL, ex);
         }
@@ -761,9 +675,6 @@
               Cc["@mozilla.org/moz/jssubscript-loader;1"].getService(Ci.mozIJSSubScriptLoader)
                        .loadSubScript(script.url + "?" + this.getLastModifiedTime(script.file),
                                       doc.defaultView, "UTF-8");
-
-            // 已经运行了，其它窗口有问题
-            script.isRunning = true;
           }catch(ex) {
             this.error(script.filename, ex);
           }
@@ -819,17 +730,10 @@
     var pref = prefObj.getBoolPref("userChrome.enable.reuse");
   }catch(e){
     var pref = true;
-  }  
+  }
+
 
   var that = window.userChrome_js;
-
-  // 载入存储的设置
-  try {  // 会有个错误：prefObj.getBoolPref is not a function
-    that.EXPERIMENT = prefObj.getBoolPref("userChrome.EXPERIMENT");
-    that.arrSubdir = prefObj.getComplexValue("userChrome.arrSubdir", Ci.nsISupportsString).data
-                        .split(',').map(function(d) d.trim());
-  } catch(e) {}
-
   window.addEventListener("unload", function(){
     that.shutdown = true;
   },false);

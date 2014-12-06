@@ -1,3 +1,5 @@
+
+//2014.12.06 20:45  新增sourceforge >> ftp镜像
 //2014.11.28 15:50  新增2條TVC規則
 //2014.11.22 08:40  更新topit.me 原始大圖
 //2014.11.21 19:57  修正Google统计小錯误
@@ -34,6 +36,24 @@ resp: false // 可选，true 表示替换 response body
 
 
 //單獨網站
+{
+name: "TVC內網 去掉多餘的『http//』",
+from: /^http:\/\/http\/\/(.*)/i,
+to: "$1",
+regex: true
+},
+{
+name: "TVC內網 編辑滾動條位置",
+from: /^http:\/\/ic.sjlpj.cn\/\#\/DevProduct\/DevProductEditDetail(.*)/i,
+to: "http://ic.sjlpj.cn/#/DevProduct/DevProductAgainEdit$1",
+regex: true
+},
+{
+name: "TVC內網 產品鏈接 轉外網",
+from: /^http:\/\/ic\.sjlpj\.cn\/details\/(.*)/i,
+to: "http://www.tvc-mall.com/details/$1",
+regex: true
+},
 {
 name: "Google搜索en-US,safe=off",
 from: /^https?:\/\/www\.google\.com\/(s\?|search\?|webhp\?)(.*)/i,
@@ -80,14 +100,6 @@ to: "http://music.baidu.com/data/music/fmlink$1rate=320$2",
 regex: true
 },
 {
-//重定向这个网址 http://s3.music.126.net/s/2/pt_index.js?49d138c4e4dfbd143dc16794a95a4856
-name: "网易云音乐320k辅助",
-from: /^http:\/\/.*\.music\.126\.net\/.*pt_index\.js/i,
-to: "https://raw.githubusercontent.com/dupontjoy/customization/master/pt_index.js",
-state: false,
-regex: true
-},
-{
 name: "The Economist加/print",
 from: /^https?:\/\/www\.economist\.com\/(.*)\/(.*)/i,
 to: "http://www.economist.com/$1/$2/print",
@@ -101,21 +113,9 @@ to: "http://book.bfnn.org/books$1",
 regex: true
 },
 {
-name: "TVC內網 去掉多餘的『http//』",
-from: /^http:\/\/http\/\/(.*)/i,
-to: "$1",
-regex: true
-},
-{
-name: "TVC內網 編辑滾動條位置",
-from: /^http:\/\/ic.sjlpj.cn\/\#\/DevProduct\/DevProductEditDetail(.*)/i,
-to: "http://ic.sjlpj.cn/#/DevProduct/DevProductAgainEdit$1",
-regex: true
-},
-{
-name: "TVC內網 產品鏈接 轉外網",
-from: /^http:\/\/ic\.sjlpj\.cn\/details\/(.*)/i,
-to: "http://www.tvc-mall.com/details/$1",
+name: "sourceforge >> ftp镜像站点",
+from: /^https?:\/\/sourceforge\.net\/projects\/(\w)([a-z0-9A-Z_\-\.])([a-z0-9A-Z_\-\.]*)(\/files(\/.*))?/i,
+to: "http://ftp.jaist.ac.jp/pub/sourceforge/$1/$1$2/$1$2$3$5",
 regex: true
 },
 {

@@ -1,4 +1,4 @@
-/*+++2014.11.25 17:18+++*/
+/*+++2014.12.05+++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*书签工具栏产生的箭头*/
@@ -7,7 +7,6 @@
 { display:none !important; }
 
 /*===标签栏隐藏项===*/
-[anonid="close-button"],/*标签关闭按钮*/
 [class="scrollbutton-up"],/*标签占满时的左箭头*/
 [class="scrollbutton-down"]/*标签占满时的右箭头*/
 {display: none !important;}

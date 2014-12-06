@@ -1,7 +1,21 @@
-//2014.11.22.20:46
+//2014.12.04 08:20
 
 keys['F1'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键
 keys['F5'] = "BrowserReloadSkipCache();";//强制刷新页面（跳过缓存）
+keys['F8'] = function() {
+                var file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile);
+                file.append("Local");
+                file.append("BackupProfiles");
+                file.append("BackupProfiles_7z.bat");
+                file.launch();
+            };//備份Firefox
+keys['F9'] = function() {
+                var file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile);
+                file.append("Local");
+                file.append("UpdateSWF");
+                file.append("Update GAE.bat");
+                file.launch();
+            };//下載本地SWF    
 keys['A'] = "gBrowser.selectedTab = gBrowser.addTab('about:config');";//参数设置
 keys['B'] = "var s = prompt('百度站内搜索——请输入待搜索字符串', '');if (s.length > 0) gBrowser.addTab('http://www.baidu.com/baidu?wd=site:' + encodeURIComponent(content.location.host) + ' ' + encodeURIComponent(s));";//Baidu站内搜索
 keys['G'] = "var s = prompt('站内搜索——请输入待搜索字符串', '');if (s.length > 0) gBrowser.addTab('http://www.google.com/search?q=site:' + encodeURIComponent(content.location.host) + ' ' + encodeURIComponent(s));";//Google站内搜索

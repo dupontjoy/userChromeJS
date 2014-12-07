@@ -1,5 +1,5 @@
 
-//2014.12.07 10:20 四个复制图片放到二级菜单
+//2014.12.07 12:40 四个复制图片放到二级菜单，添加分割线
 //2014.12.04 08:23 備份換用Keychanger
 //2014.11.30 11:00 將圖標統一放到『圖標美化』css中
 //2014.11.28 21:40 添加EHH元素隱藏
@@ -80,7 +80,7 @@ imagesub([
       },
 ]);
 
-//图片右鍵 复制
+//图片右鍵 复制 二级菜单
 new function () {
 	var items = [
 	{command: 'context-copyimage-contents'},
@@ -102,7 +102,7 @@ text:"%IMAGE_BASE64%",
 	});
 };
 
-// 替换 openImgRar.uc.js。 打开图像RAR
+// 替换 openImgRar.uc.js
 page({
 label: "打开图像RAR",
 accesskey: "R",
@@ -125,26 +125,28 @@ file.launch();
 });
 
 /*——————————选中文本右键——————————*/
+//链接和选中文字(同时选中)的分割线
+page({
+        label: 'separator',
+        insertAfter: "context-sendlinktogmail",
+        condition: 'link&select noimage',
+})
 
-//选取范围内复选框的 ON/OFF
- page({
-label: "复选框的 ON/OFF",
-class: "checkbox",
-condition: "select noinput nomailto nocanvas nomedia",
-accesskey: "X",
-insertAfter:"context-paste",
-oncommand: function(event) {
-var win = addMenu.focusedWindow;
-var sel = win.getSelection();
-Array.slice(win.document.querySelectorAll('input[type="checkbox"]:not(:disabled)')).forEach(function(e) {
-if (sel.containsNode(e, true))
-e.checked = !e.checked;
-});
-}
-});
+//图片和选中文字(同时选中)的分割线
+page({
+        label: 'separator',
+        insertAfter: "context-viewimageinfo",
+        condition: 'image&select',
+})
 
 //搜索选中文本
 new function () {
+var menu = PageMenu({
+condition:"select",
+label: "搜索选中文本",
+accesskey: "S",
+insertBefore: "context-copy",
+});
 var items = [
 //打开方式(默认当前页面)，通过where 更改，具体tab(前台)、tabshifted(后台)、window(窗口)
 
@@ -164,14 +166,25 @@ var items = [
 {label:"Kickass",url:"http://kickass.so/usearch/?q=%s",image:"http://kastatic.com/images/favicon.ico",where: 'tab'},
 
 ];
-var menu = PageMenu({
-condition:"select",
-label: "搜索选中文本",
-accesskey: "S",
-insertBefore: "context-copy",
-});
 menu(items);
 };
+
+//选取范围内复选框的 ON/OFF
+ page({
+label: "复选框的 ON/OFF",
+class: "checkbox",
+condition: "select noinput nomailto nocanvas nomedia",
+accesskey: "X",
+insertAfter:"context-paste",
+oncommand: function(event) {
+var win = addMenu.focusedWindow;
+var sel = win.getSelection();
+Array.slice(win.document.querySelectorAll('input[type="checkbox"]:not(:disabled)')).forEach(function(e) {
+if (sel.containsNode(e, true))
+e.checked = !e.checked;
+});
+}
+});
 
 /*——————————输入框右键——————————*/
 
@@ -419,6 +432,4 @@ tab({
     clone: false,  // 不克隆，直接改在原来的菜单上面
 });
 
-
 };
-

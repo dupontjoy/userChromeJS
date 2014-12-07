@@ -1,4 +1,5 @@
 
+//2014.12.07 10:20 四个复制图片放到二级菜单
 //2014.12.04 08:23 備份換用Keychanger
 //2014.11.30 11:00 將圖標統一放到『圖標美化』css中
 //2014.11.28 21:40 添加EHH元素隱藏
@@ -79,14 +80,27 @@ imagesub([
       },
 ]);
 
-//复制图片Base64
-page({
+//图片右鍵 复制
+new function () {
+	var items = [
+	{command: 'context-copyimage-contents'},
+	{command: 'context-copygif'},
+	{
 label:"复制图片Base64",
 condition: "image",
 accesskey: "B",
 text:"%IMAGE_BASE64%",
-insertAfter:"context-copyimage",
-});
+	},
+	{command: 'context-copyimage'}/*复制图片地址*/
+];
+	
+	var menu = PageMenu({ condition:'image', insertBefore:'context-saveimage', icon:'image', onpopupshowing: syncHidden});
+	menu(items);
+	items.forEach(function(it){
+		if (it.command)
+			css('#contentAreaContextMenu[addMenu~="image"] #' + it.command + '{ display: none !important; }')
+	});
+};
 
 // 替换 openImgRar.uc.js。 打开图像RAR
 page({
@@ -387,7 +401,7 @@ tab({
 
 tab({
     id: "context-sendimagetogmail",
-    insertBefore: "context-copyimage-contents",
+    insertBefore: "context-saveimage",
     clone: false,  // 不克隆，直接改在原来的菜单上面
 }
 );

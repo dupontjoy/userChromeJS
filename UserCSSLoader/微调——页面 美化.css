@@ -2,80 +2,109 @@
 
 /*输入框类chrome高亮*/
 input:not([type='submit']):not([type='reset']):not([type='button']):not([type='checkbox']):not([type='radio']):focus,
-textarea:focus, select:focus{ border:1px solid #8A2BE2;  box-shadow:
-1px 1px 0 #8A2BE2, 1px -1px 0 #8A2BE2, -1px 1px 0 #8A2BE2, -1px -1px 0
+textarea:focus, select:focus {
+    border: 1px solid #8A2BE2;
+    box-shadow: 1px 1px 0 #8A2BE2, 1px -1px 0 #8A2BE2, -1px 1px 0 #8A2BE2, -1px -1px 0
 #8A2BE2, 0px 0px 5px 1px #8A2BE2
-!important;  border-radius:3px!important; }
+!important;
+    border-radius: 3px!important;
+}
 
 /*去干扰码*/
-FONT.jammer{
-display: none !important;}
+FONT.jammer {
+    display: none !important;
+}
 
-SPAN.fw{
-display: none !important;}  /*国学网*/
+SPAN.fw {
+    display: none !important;
+}  /*国学网*/
 
 /* 阻止<blink>标签带来的闪烁 */
-blink, .blink, *[style*="blink"]{text-decoration : inherit !important;}
+blink, .blink, *[style*="blink"] {
+    text-decoration: inherit !important;
+}
 
 /*显示丢失图片*/
 @-moz-document url-prefix(http), url-prefix(https), url-prefix(file) {
-img{font: 12px Arial!important;}
-img:-moz-broken{-moz-force-broken-image-icon: 1 !important; width: 48px; height: 24px;}
+    img {
+        font: 12px Arial!important;
+    }
+
+    img:-moz-broken {
+        -moz-force-broken-image-icon: 1 !important;
+        width: 48px;
+        height: 24px;
+    }
 }
 
 /*链接去下划线*/
-*{text-decoration:none!important}
-a:hover{text-decoration:none!important}
+* {
+    text-decoration: none!important;
+}
+
+a:hover {
+    text-decoration: none!important;
+}
 
 /*图片经过外发光*/
-img:hover{
-box-shadow: 0px 0px 4px 4px rgba(130,190,10,0.6) !important;
--moz-transition-property: box-shadow;
--moz-transition-duration: .31s;
+img:hover {
+    box-shadow: 0px 0px 4px 4px rgba(130,190,10,0.6) !important;
+    -moz-transition-property: box-shadow;
+    -moz-transition-duration: .31s;
 }
-img{
--moz-transition-property: box-shadow;
--moz-transition-duration: .31s;
+
+img {
+    -moz-transition-property: box-shadow;
+    -moz-transition-duration: .31s;
 }
 
 /*右鍵——檢視原始碼*/
 @charset "utf-8";
-@-moz-document url-prefix(view-source:){
 
-*|*:root {
-	background: #302D26 !important;
-}
-*::-moz-selection {
-	background-color:#000000;
-}
-body {
-	font: 12px Lucida Console, -moz-fixed !important;
-	margin: 0;
-	padding: 0.6em 1em;
-	color: #FCFFE0 !important;
-}
-.doctype, .start-tag, .end-tag {
-color: #06cfcf !important;
-}
-.attribute-name {
-color: #a0a0f0 !important;
-font-weight: normal !important;
-}
-.attribute-value {
-color: white !important;
-}
-.comment, .cdata, .pi {
-color: green !important;
-}
-.error, .error > .start-tag, .error > .end-tag,
+@-moz-document url-prefix(view-source:) {
+
+    *|*:root {
+        background: #302D26 !important;
+    }
+
+    *::-moz-selection {
+        background-color: #000000;
+    }
+
+    body {
+        font: 12px Lucida Console, -moz-fixed !important;
+        margin: 0;
+        padding: 0.6em 1em;
+        color: #FCFFE0 !important;
+    }
+
+    .doctype, .start-tag, .end-tag {
+        color: #06cfcf !important;
+    }
+
+    .attribute-name {
+        color: #a0a0f0 !important;
+        font-weight: normal !important;
+    }
+
+    .attribute-value {
+        color: white !important;
+    }
+
+    .comment, .cdata, .pi {
+        color: green !important;
+    }
+
+    .error, .error > .start-tag, .error > .end-tag,
 .error > .comment, .error > .cdata, .error > .doctype,
 .error > .pi, .error > .entity, .error > .attribute-name,
 .error > .attribute-value {
-color: red !important;
-background: #fff !important;
-font-weight: bold !important;
-}
-a:link {
-color: #8fa3ff !important;
-}
+        color: red !important;
+        background: #fff !important;
+        font-weight: bold !important;
+    }
+
+    a:link {
+        color: #8fa3ff !important;
+    }
 }

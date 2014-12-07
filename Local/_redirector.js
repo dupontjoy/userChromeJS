@@ -207,7 +207,12 @@ regex: true
 },
 
 //待測試
-
+{
+name: "noMoreArchiver",
+from: /(.*)\/archiver\/(.*)tid-(.*)\.html/,
+to: "$1/viewthread.php?tid=$3",
+regex: true
+},
 
 
 //以下为不启用

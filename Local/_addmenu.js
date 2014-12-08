@@ -85,13 +85,13 @@ new function () {
 	var items = [
 	{command: 'context-copyimage-contents'},
 	{command: 'context-copygif'},
-	{
+	{command: 'context-copyimage'},/*复制图片地址*/
+		{
 label:"复制图片Base64",
 condition: "image",
 accesskey: "B",
 text:"%IMAGE_BASE64%",
-	},
-	{command: 'context-copyimage'}/*复制图片地址*/
+	}
 ];
 	
 	var menu = PageMenu({ condition:'image', insertBefore:'context-saveimage', icon:'image', onpopupshowing: syncHidden});
@@ -245,6 +245,14 @@ menu(items);
 };
 
 /*——————————页面右键——————————*/
+
+//頁面右鍵分割線
+page({
+        label: 'separator',
+        insertBefore: "context-viewsource",
+        condition: 'noinput noselect nomailto nocanvas nomedia noimage nolink',
+})
+
 //EHH元素隱藏
 page([{
     label: '选择屏蔽内容',

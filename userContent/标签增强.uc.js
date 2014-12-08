@@ -1,32 +1,40 @@
 // ==UserScript==
 // @description  Tab Plus 标签页增强
 // @include      chrome://browser/content/browser.xul
-// 2014.09.06重新利用空白页
-// 2014.08.31鼠标停留标签自动聚焦
-// 2014.07.26點擊頁面恢復原來的地址
-// 2014.05.27添加滚轮切换
-// 2014.05.14修改激活左侧标签
+
+// 2014.12.07 open_in_new_tab更新到GOLF-AT 1.8.20141206版
+// 2014.09.06 重新利用空白页
+// 2014.08.31 鼠标停留标签自动聚焦
+// 2014.07.26 點擊頁面恢復原來的地址
+// 2014.05.27 添加滚轮切换
+// 2014.05.14 修改激活左侧标签
 // ==/UserScript==
 
  /* Open Bookmarks/History/Homepage/URL/Search in New Tab */
 //地址栏、搜索栏、书签菜单、书签工具栏、历史菜单、主页按钮
 
 (function() {
-  
-    /*open bookmark/history in new tab */
+    /* open bookmark/history in new tab */
     try {
         eval("whereToOpenLink = " + whereToOpenLink.toString().replace(
-            /var shift/,"var Class=e.target.getAttribute('class'); try "
-            +"{ if (Class=='') Class=e.target.parentNode.getAttribute('"
-            +"class');} catch(e) {} Browser=getTopWin().document.getEle"
-            +"mentById('content'); if ((!IsBlankPage(Browser.currentURI"
-            +".spec)|| Browser.webProgress.isLoadingDocument) && Class "
-            +"&& (Class=='sidebar-placesTreechildren'||Class=='placesTr"
-            +"ee'||Class.indexOf('bookmark-item')>=0)) return 'tab'; $&"
-            ));
+            /var shift/,"var Class=e.target.getAttribute('class');\n  "
+            +"try {\n    if (Class=='')\n      Class=e.target.parentNo"
+            +"de.getAttribute('class');\n  }catch(e) {}\n  Browser=get"
+            +"TopWin().document.getElementById('content');\n  if ((!Is"
+            +"BlankPage(Browser.currentURI.spec)||Browser.webProgress."
+            +"isLoadingDocument) && Class && (Class=='sidebar-placesTr"
+            +"eechildren'||Class.indexOf('placesTree')>=0||Class.index"
+            +"Of('bookmark-item')>=0))\n    return 'tab';\n  $&"));
     }catch(e){}
 
-    /*open url in new tab */
+    /* bookmark/history on sidebar/place-manager */
+    try {
+        eval("PlacesUIUtils.openNodeWithEvent = " + PlacesUIUtils.
+            openNodeWithEvent.toString().replace("window.whereToOpenLink"
+            , "whereToOpenLink"));
+    }catch(e){}
+    
+    /* open url in new tab */
     try {
         try { // firefox 3.0.*
             eval("BrowserLoadURL = "+ BrowserLoadURL.toString().replace(
@@ -42,7 +50,7 @@
         }
     }catch(e){}
 
-    /*open home in new tab */
+    /* open home in new tab */
     try {
         eval("BrowserGoHome = " + BrowserGoHome.toString().replace(
             /switch \(where\) {/, "where = (gBrowser.currentURI.spec!="
@@ -50,14 +58,14 @@
             ") ? 'tab' : 'current'; $&")); 
     }catch(e){}
 
-    /*open search in new tab */
+    /* open search in new tab */
     try {
         var searchbar = document.getElementById("searchbar");
         eval("searchbar.handleSearchCommand="+searchbar.handleSearchCommand.
-            toString().replace(/this.doSearch\(textValue, where\);/,
-            "if (!gBrowser.webProgress.isLoadingDocument && gBrowser.curren"
-            +"tURI.spec=='about:blank') where='current'; else where='tab'; "
-            +"$&"));
+            toString().replace(/this.doSearch\(textValue,/,
+            "if (!gBrowser.webProgress.isLoadingDocument&&\n\t\tIsBlankPage"
+            +"(gBrowser.currentURI.spec))\n\t\twhere='current';\n\telse\n\t"
+            +"\twhere='tab';\n\t$&"));
     }catch(e){}
 
 })();
@@ -76,6 +84,7 @@ function IsBlankPage(url)
     return url=="" || url=="about:blank" || url=="about:home"
         || url=="about:newtab";
 }
+
 
 //总在当前标签页打开Bookmarklet
 eval("openLinkIn = " + openLinkIn.toString()

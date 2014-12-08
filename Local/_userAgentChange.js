@@ -1,3 +1,4 @@
+//2014.12.08 21:30
 
 DISPLAY_TYPE =1; // 0显示列表为radiobox, 1显示为ua图标列表
 
@@ -20,8 +21,7 @@ SITE_LIST =[
 {url : "http://m\\.xianguo\\.com\\wap/",Name : "iPhone"},
 {url : "http:\/\/ti\\.3g\\.qq\\.com/",Name : "iPhone"},
 {url : "http:\/\/[a-zA-Z0-9]*\\.z\\.qq\\.com/",Name : "iPhone"},
-{url : "https?://www\\.icbc\\.com\\.cn/",Name : "Fox10.0"}, 
-{url : "https?://(?:mybank1?|b2c1)\\.icbc\\.com\\.cn/",Name : "Fox10.0"},
+{url : "https?://(?:mybank|mybank1?|b2c1)\\.icbc\\.com\\.cn/",Name : "Firefox10.0"},//工商銀行
 {url : "http://(.*?)n\\.baidu\\.com/",Name : "BaiduYunGuanJia"},//百度云
 
 

@@ -1,4 +1,5 @@
 
+//2014.12.08 15:25  修正TVC規則  
 //2014.12.06 20:45  新增sourceforge >> ftp镜像
 //2014.11.28 15:50  新增2條TVC規則
 //2014.11.22 08:40  更新topit.me 原始大圖
@@ -45,7 +46,7 @@ regex: true
 {
 name: "TVC內網 編辑滾動條位置",
 from: /^http:\/\/ic.sjlpj.cn\/\#\/DevProduct\/DevProductEditDetail(.*)/i,
-to: "http://ic.sjlpj.cn/#/DevProduct/DevProductAgainEdit$1",
+to: "http://ic.sjlpj.cn/DevProduct/DevProductAgainEdit$1",
 regex: true
 },
 {

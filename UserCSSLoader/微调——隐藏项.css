@@ -144,6 +144,8 @@
 #spell-dictionaries,/*语言-添加字典*/
 #context-undo,/*撤销*/
 #context-cut,/*剪切*/
+[label="復原"],
+[label="剪下"],
 #context-keywordfield/*为此搜索添加关键字*/ {
     display: none !important;
 }

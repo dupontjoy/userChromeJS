@@ -1,4 +1,4 @@
-/*+++2014.12.05+++*/
+/*+++2014.12.08 22:30+++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*书签工具栏产生的箭头*/
@@ -147,6 +147,11 @@
 [label="復原"],
 [label="剪下"],
 #context-keywordfield/*为此搜索添加关键字*/ {
+    display: none !important;
+}
+
+/*Dom Inspector右键*/
+#mnEditCut/*剪下*/ {
     display: none !important;
 }
 

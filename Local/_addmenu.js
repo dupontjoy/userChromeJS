@@ -171,7 +171,7 @@ menu(items);
 
 //选取范围内复选框的 ON/OFF
  page({
-label: "复选框的 ON/OFF",
+label: "复选框的ON/OFF",
 class: "checkbox",
 condition: "select noinput nomailto nocanvas nomedia",
 accesskey: "X",

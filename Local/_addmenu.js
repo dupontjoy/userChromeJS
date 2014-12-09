@@ -1,5 +1,6 @@
 
-//2014.12.07 12:40 四个复制图片放到二级菜单，添加分割线
+//2014.12.09 22:45 將菜單換成正體中文
+//2014.12.07 12:40 四个複製图片放到二级菜单，添加分割线
 //2014.12.04 08:23 備份換用Keychanger
 //2014.11.30 11:00 將圖標統一放到『圖標美化』css中
 //2014.11.28 21:40 添加EHH元素隱藏
@@ -14,7 +15,7 @@
 
 //撤销关闭二级菜单 By feiruo
 var undoMenu = TabMenu({
-    label: '撤销关闭',
+    label: '撤銷關閉',
     accesskey: "R",
     insertAfter: "context_undoCloseTab",
     tooltiptext: "右键显示所有历史记录",
@@ -47,7 +48,7 @@ var undoMenu = TabMenu({
 /*——————————图片右键————————*/
 
 //右键搜索图片 以图搜图
- var imagesub = PageMenu({ label: "以图搜图",accesskey: "I",  condition: "image", where: "tab", insertBefore:"context-copyimage-contents", });
+ var imagesub = PageMenu({ label: "以圖搜圖",accesskey: "I",  condition: "image", where: "tab", insertBefore:"context-copyimage-contents", });
 imagesub([
       {label: 'Google Search',
       url : 'http://www.google.com/searchbyimage?image_url=%IMAGE_URL%',
@@ -80,14 +81,14 @@ imagesub([
       },
 ]);
 
-//图片右鍵 复制 二级菜单
+//图片右鍵 複製 二级菜单
 new function () {
 	var items = [
 	{command: 'context-copyimage-contents'},
 	{command: 'context-copygif'},
-	{command: 'context-copyimage'},/*复制图片地址*/
+	{command: 'context-copyimage'},/*複製图片地址*/
 		{
-label:"复制图片Base64",
+label:"複製圖片Base64",
 condition: "image",
 accesskey: "B",
 text:"%IMAGE_BASE64%",
@@ -104,7 +105,7 @@ text:"%IMAGE_BASE64%",
 
 // 替换 openImgRar.uc.js
 page({
-label: "打开图像RAR",
+label: "打開圖像RAR",
 accesskey: "R",
 insertBefore:"context-saveimage",
 condition: 'image',
@@ -125,7 +126,7 @@ file.launch();
 });
 
 /*——————————选中文本右键——————————*/
-//链接和选中文字(同时选中)的分割线
+//鏈接和选中文字(同时选中)的分割线
 page({
         label: 'separator',
         insertAfter: "context-sendlinktogmail",
@@ -143,7 +144,7 @@ page({
 new function () {
 var menu = PageMenu({
 condition:"select",
-label: "搜索选中文本",
+label: "搜索選中文本",
 accesskey: "S",
 insertBefore: "context-copy",
 });
@@ -190,7 +191,7 @@ e.checked = !e.checked;
 
 //插入code代码
 page({
-    label: "插入code代码",
+    label: "插入code代碼",
     condition: "input",
     accesskey: "I",
     insertAfter: "context-paste",
@@ -208,6 +209,22 @@ page({
 
 //快捷回复
 new function(){
+var menu = PageMenu({
+label:"快速回覆",
+condition:"input",
+accesskey: "W",
+insertBefore: "context-copy",
+//跟进depft更新
+oncommand: function(event){
+var input_text = event.target.getAttribute('input_text');
+if(input_text) {
+addMenu.copy(input_text);
+setTimeout(function() {
+goDoCommand("cmd_paste");
+}, 100);
+}
+}
+});
 var items = [
 {label:"用戶名(1)~~~",input_text: "dupontjoy",accesskey: "1",},
 {},
@@ -225,22 +242,6 @@ var items = [
 {},
 {label:"為神馬要15字~~~", input_text: "為神馬要15字，好吧，那就來標凖15字~~~",image:" "}
 ];
-var menu = PageMenu({
-label:"快速回复",
-condition:"input",
-accesskey: "W",
-insertBefore: "context-copy",
-//跟进depft更新
-oncommand: function(event){
-var input_text = event.target.getAttribute('input_text');
-if(input_text) {
-addMenu.copy(input_text);
-setTimeout(function() {
-goDoCommand("cmd_paste");
-}, 100);
-}
-}
-});
 menu(items);
 };
 
@@ -255,7 +256,7 @@ page({
 
 //EHH元素隱藏
 page([{
-    label: '选择屏蔽内容',
+    label: '選擇屏蔽內容',
     accesskey: "E",
     oncommand: "window._ehhWrapper.toggleSelection(); ",
     insertBefore: "context-sendpagetogmail",
@@ -265,7 +266,7 @@ page([{
 
 //保存所有图片到zip
 page({
-    label: "保存所有图片到zip",
+    label: "保存所有圖片到zip",
     accesskey: "Z",
     insertAfter: "context-saveimage",
     condition: 'noinput noselect nomailto nocanvas nomedia noimage nolink',
@@ -325,23 +326,23 @@ page({
     },
 })
 
-//Firefox 31+ 横排菜单，在链接上和非链接上不相同
+//Firefox 31+ 横排菜单，在鏈接上和非鏈接上不相同
 var openMenu = GroupMenu({
-    label: '打开...',
+    label: '打開...',
     condition: 'noinput noselect nomailto nocanvas nomedia',
     insertBefore: 'context-sep-navigation'
 });
 openMenu([
     {
-        label:"复制文本+链接",
+        label:"複製文本+鏈接",
         text:"%RLT_OR_UT%\n%RLINK_OR_URL%",
     },
     {
-        label:"在隐私窗打开",
+        label:"在隱私窗打開",
         oncommand: "openLinkIn(addMenu.convertText('%RLINK_OR_URL%'), 'window',{private:true});",
     },
     {
-        label: "在IE中打开",
+        label: "在IE中打開",
         text: "%RLINK_OR_URL%",
         exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
     },

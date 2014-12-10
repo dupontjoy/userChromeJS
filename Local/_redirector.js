@@ -1,5 +1,5 @@
 
-//2014.12.09 18:30  修正TVC規則  
+//2014.12.10 18:30  修正TVC規則  
 //2014.12.06 20:45  新增sourceforge >> ftp镜像
 //2014.11.28 15:50  新增2條TVC規則
 //2014.11.22 08:40  更新topit.me 原始大圖
@@ -51,8 +51,8 @@ regex: true
 },
 {
 name: "TVC內網 滾動條置頂",
-from: /^http:\/\/ic\.sjlpj\.cn\/#\/DevProduct\/DevProductEditDetail(.*)/i,
-to: "http://ic.sjlpj.cn/DevProduct/DevProductEditDetail$1",
+from: /^http:\/\/ic\.sjlpj\.cn\/#\/(.*)/i,
+to: "http://ic.sjlpj.cn/$1",
 regex: true
 },
 {
@@ -125,12 +125,6 @@ name: "B站外鏈",
 from: /^http:\/\/static\.hdslb\.com\/miniloader\.swf\?aid\=781381\&page\=1/,
 to: "http://static.hdslb.com/miniloader.swf?aid=482215&page=1",
 regex: true
-},
-{
-name: "优酷收费视频 >> id97免费看",
-from: /^http:\/\/v\.youku\.com\/v_show\/([\w]{16})(_ev_[\d]+)?\.html(\?.*)?$/i,
-to: "http://www.id97.com/videos/play/$1.html",
-regex: true,
 },
 
 //Google服務轉國內鏡像
@@ -303,5 +297,12 @@ to: "http://www.bilibili.com/video/av$1/$2#alist",
 exclude: /bilibili\.com\/video\/av([\d]+)\/([\w]+\.html)?#alist$/i,
 state: false,
 regex: true
+},
+{
+name: "优酷收费视频 >> id97免费看",
+from: /^http:\/\/v\.youku\.com\/v_show\/([\w]{16})(_ev_[\d]+)?\.html(\?.*)?$/i,
+to: "http://www.id97.com/videos/play/$1.html",
+state: false,
+regex: true,
 },
 ];

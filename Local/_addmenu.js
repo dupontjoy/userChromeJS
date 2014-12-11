@@ -1,12 +1,13 @@
 
+//2014.12.11 17:50 常用文字搜索橫排菜單
 //2014.12.09 22:45 將菜單換成正體中文
-//2014.12.07 12:40 四个複製图片放到二级菜单，添加分割线
+//2014.12.07 12:40 四个複製圖片放到二级菜单，添加分割线
 //2014.12.04 08:23 備份換用Keychanger
 //2014.11.30 11:00 將圖標統一放到『圖標美化』css中
 //2014.11.28 21:40 添加EHH元素隱藏
 //2014.11.25 21:50 將圖標統一放到『圖標美化』css中
-//2014.11.23 15:52 修正百度搜索，torrentkitty搜索，灌水图标
-//2014.11.13 21:50 新增『保存所有图片到zip』和『横排菜单』，调整菜单顺序，调整幾個conditions
+//2014.11.23 15:52 修正百度搜索，torrentkitty搜索，灌水圖标
+//2014.11.13 21:50 新增『保存所有圖片到zip』和『横排菜单』，调整菜单顺序，调整幾個conditions
 //2014.11.06 21:55 調整Send to Gmail幾個菜單順序
 //2014.11.02 09:10 調整搜圖順序
 
@@ -45,9 +46,9 @@ var undoMenu = TabMenu({
     },
 });
 
-/*——————————图片右键————————*/
+/*——————————圖片右键————————*/
 
-//右键搜索图片 以图搜图
+//右键搜索圖片 以圖搜圖
  var imagesub = PageMenu({ label: "以圖搜圖",accesskey: "I",  condition: "image", where: "tab", insertBefore:"context-copyimage-contents", });
 imagesub([
       {label: 'Google Search',
@@ -81,12 +82,12 @@ imagesub([
       },
 ]);
 
-//图片右鍵 複製 二级菜单
+//圖片右鍵 複製 二级菜单
 new function () {
 	var items = [
 	{command: 'context-copyimage-contents'},
 	{command: 'context-copygif'},
-	{command: 'context-copyimage'},/*複製图片地址*/
+	{command: 'context-copyimage'},/*複製圖片地址*/
 		{
 label:"複製圖片Base64",
 condition: "image",
@@ -133,17 +134,58 @@ page({
         condition: 'link&select noimage',
 })
 
-//图片和选中文字(同时选中)的分割线
+//圖片和选中文字(同时选中)的分割线
 page({
         label: 'separator',
         insertAfter: "context-viewimageinfo",
         condition: 'image&select',
 })
 
+//Firefox 31+ 横排菜单，在鏈接上和非鏈接上不相同
+var openMenu = GroupMenu({
+    label: '打開...',
+    condition: 'noinput select nomailto nocanvas nomedia noimage',
+    insertBefore: 'context-sep-navigation'
+});
+openMenu([
+    {
+        label:"Google搜索",
+        accesskey: "G",
+        url:"http://www.google.com/search?q=%s",
+        image:"https://www.google.com/favicon.ico",
+        where: 'tab'
+    },
+    {
+        label:"Baidu搜索",
+        accesskey: "B",
+        url:"http://www.baidu.com/baidu?wd=%s&ie=utf-8",
+        image:"http://www.baidu.com/favicon.ico",
+        where: 'tab'
+    },
+    {
+        label:"TVC搜索",
+        accesskey: "T",
+        url:"http://www.tvc-mall.com/search?q=%s",
+        image:"http://www.tvc-mall.com/favicon.ico",
+        where: 'tab'
+    },
+    /*{
+        label: "BackupProfiles",
+        text: '%RLINK_OR_URL%',
+        exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\Local\\BackupProfiles\\BackupProfiles_7z.bat",
+    },
+    {
+        label: "在 Chrome 中打开",
+        text: '%RLINK_OR_URL%',
+        exec: Services.dirsvc.get("LocalAppData", Ci.nsILocalFile).path + "\\Google\\Chrome\\Application\\chrome.exe",
+    },*/
+
+]);
+
 //搜索选中文本
 new function () {
 var menu = PageMenu({
-condition:"select",
+condition:"select nocanvas nomedia noimage",
 label: "搜索選中文本",
 accesskey: "S",
 insertBefore: "context-copy",
@@ -151,19 +193,14 @@ insertBefore: "context-copy",
 var items = [
 //打开方式(默认当前页面)，通过where 更改，具体tab(前台)、tabshifted(后台)、window(窗口)
 
-{label:"Google搜索",accesskey: "G",url:"http://www.google.com/search?q=%s",image:"https://www.google.com/favicon.ico",where: 'tab'},
+{label:"Baidu地圖",url:"http://map.baidu.com/m?word=%s",image:"http://map.baidu.com/favicon.ico",where: 'tab'},
 
-{label:"Baidu搜索",accesskey: "B",url:"http://www.baidu.com/baidu?wd=%s&ie=utf-8",image:"http://www.baidu.com/favicon.ico",where: 'tab'},
-
-{label:"Bing搜索",accesskey: "M",url:"http://www.bing.com/search?q=%s",image:"http://cn.bing.com/s/a/bing_p.ico",where: 'tab'},
+{label:"Google地圖",url:"http://maps.google.com/maps?q=%s&ie=utf-8",image:"http://maps.gstatic.com/favicon3.ico",where: 'tab'},
 {},
-{label:"Google地图",url:"http://maps.google.com/maps?q=%s&ie=utf-8",image:"http://maps.gstatic.com/favicon3.ico",where: 'tab'},
-
-{label:"Baidu地图",url:"http://map.baidu.com/m?word=%s",image:"http://map.baidu.com/favicon.ico",where: 'tab'},
-{},
-{label:"汉典",url:"http://www.zdic.net/search?q=%s",image:"http://www.zdic.net/favicon.ico",where: 'tab'},
+{label:"漢典",url:"http://www.zdic.net/search?q=%s",image:"http://www.zdic.net/favicon.ico",where: 'tab'},
 {},
 {label:"torrentkitty",url:"http://www.torrentkitty.org/search/%s",image:"http://www.torrentkitty.org/favicon.ico",where: 'tab'},
+
 {label:"Kickass",url:"http://kickass.so/usearch/?q=%s",image:"http://kastatic.com/images/favicon.ico",where: 'tab'},
 
 ];
@@ -264,7 +301,7 @@ page([{
 },
 ]);
 
-//保存所有图片到zip
+//保存所有圖片到zip
 page({
     label: "保存所有圖片到zip",
     accesskey: "Z",
@@ -326,39 +363,6 @@ page({
     },
 })
 
-//Firefox 31+ 横排菜单，在鏈接上和非鏈接上不相同
-var openMenu = GroupMenu({
-    label: '打開...',
-    condition: 'noinput noselect nomailto nocanvas nomedia',
-    insertBefore: 'context-sep-navigation'
-});
-openMenu([
-    {
-        label:"複製文本+鏈接",
-        text:"%RLT_OR_UT%\n%RLINK_OR_URL%",
-    },
-    {
-        label:"在隱私窗打開",
-        oncommand: "openLinkIn(addMenu.convertText('%RLINK_OR_URL%'), 'window',{private:true});",
-    },
-    {
-        label: "在IE中打開",
-        text: "%RLINK_OR_URL%",
-        exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
-    },
-    /*{
-        label: "BackupProfiles",
-        text: '%RLINK_OR_URL%',
-        exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\Local\\BackupProfiles\\BackupProfiles_7z.bat",
-    },
-    {
-        label: "在 Chrome 中打开",
-        text: '%RLINK_OR_URL%',
-        exec: Services.dirsvc.get("LocalAppData", Ci.nsILocalFile).path + "\\Google\\Chrome\\Application\\chrome.exe",
-    },*/
-
-]);
-
 
 //隐藏相同项。必须，不能删除
 function syncHidden(event) {
@@ -376,10 +380,10 @@ elem.disabled = original.disabled;
 });
 };
 
-//移动图标，代替Movebutton.uc.js，需配合RebuildWhenStart.uc.js，可惜對有的圖標還是無力
+//移动圖标，代替Movebutton.uc.js，需配合RebuildWhenStart.uc.js，可惜對有的圖標還是無力
 new function(){
 
-//几个扩展图标
+//几个扩展圖标
 /*tab({
     id: "flashgot-media-tbb",
     insertBefore: "userChromebtnMenu",

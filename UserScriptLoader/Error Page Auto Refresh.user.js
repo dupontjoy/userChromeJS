@@ -4,13 +4,13 @@
 // @author         aireca
 // @Mod            Dupont|添加一些中文关键词
 // @copyright      http://userscripts.org/scripts/show/112519
-// @version        0.0.15
+// @version        0.0.16
 // @include        *
 // @grant          none
 // @namespace      https://greasyfork.org/zh-CN/users/363
 // ==/UserScript==
 
-//var time = 3000; //原脚本时间设置：默认为3秒，单位以毫秒计
+var time = 10000; //原脚本时间设置：默认为10秒，单位以毫秒计
 
 (function () 
 {
@@ -20,7 +20,7 @@ if (document.getElementsByTagName('div') [0].getAttribute('id') == 'errorPageCon
 //setTimeout(f: fn(), ms: number) -> number
 setTimeout(function () {
 window.location.reload(true);
-}, 3000);
+}, 10000);
 } 
 
 //感谢feiruo

@@ -1,4 +1,4 @@
-//2014.12.04 08:20
+//2014.12.11 21:40
 
 keys['F1'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键
 keys['F5'] = "BrowserReloadSkipCache();";//强制刷新页面（跳过缓存）
@@ -15,7 +15,9 @@ keys['F9'] = function() {
                 file.append("UpdateSWF");
                 file.append("Update GAE.bat");
                 file.launch();
-            };//下載本地SWF    
+            };//下載本地SWF  
+keys['1'] = "gBrowser.selectedTab = gBrowser.addTab('http://www.baidu.com');";//百度
+keys['2'] = "gBrowser.selectedTab = gBrowser.addTab('https://www.google.com/webhp?&complete=0');";//Google  
 keys['A'] = "gBrowser.selectedTab = gBrowser.addTab('about:config');";//参数设置
 keys['B'] = "var s = prompt('百度站内搜索——请输入待搜索字符串', '');if (s.length > 0) gBrowser.addTab('http://www.baidu.com/baidu?wd=site:' + encodeURIComponent(content.location.host) + ' ' + encodeURIComponent(s));";//Baidu站内搜索
 keys['G'] = "var s = prompt('站内搜索——请输入待搜索字符串', '');if (s.length > 0) gBrowser.addTab('http://www.google.com/search?q=site:' + encodeURIComponent(content.location.host) + ' ' + encodeURIComponent(s));";//Google站内搜索

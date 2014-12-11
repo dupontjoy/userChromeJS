@@ -1,4 +1,4 @@
-/*+++2014.10.17+++*/
+/*+++2014.12.11 21:00+++*/
 
 /*输入框类chrome高亮*/
 input:not([type='submit']):not([type='reset']):not([type='button']):not([type='checkbox']):not([type='radio']):focus,
@@ -24,7 +24,7 @@ blink, .blink, *[style*="blink"] {
     text-decoration: inherit !important;
 }
 
-/*显示丢失图片*/
+/*显示缺失图片占位符*/
 @-moz-document url-prefix(http), url-prefix(https), url-prefix(file) {
     img {
         font: 12px Arial!important;
@@ -32,7 +32,10 @@ blink, .blink, *[style*="blink"] {
 
     img:-moz-broken {
         -moz-force-broken-image-icon: 1 !important;
-        width: 48px;
+        background-color: grey;
+        background-repeat: no-repeat;
+        position: relative;
+        width: 24px;
         height: 24px;
     }
 }

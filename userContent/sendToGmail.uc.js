@@ -11,7 +11,7 @@
 // @version        LastMod 2009/3/13 21:30 Initial release
 // @Note           null
 
-// 2014.12.11 選中文字 to Gmail不顯示動態文字
+// 2014.12.12 僅保留圖片 to Gmail
 // ==/UserScript==
 
 /* :::: Send the selection to Gmail :::: */
@@ -65,55 +65,18 @@ function SendToGmail(from, to, cc, bcc, subject, body) {
 (function() {
   var mainContextMenu = document.getElementById("contentAreaContextMenu");
 
-  var menuitem = mainContextMenu.insertBefore(document.createElement("menuitem"), document.getElementById("context-bookmarkpage").nextSibling);
-  menuitem.setAttribute("id", "context-sendpagetogmail");
-  menuitem.setAttribute("label", "頁面 to Gmail");
-  menuitem.setAttribute("accesskey", "G");
-  menuitem.setAttribute("oncommand", "SendToGmail('', '', '', '', gBrowser.selectedTab.label, gBrowser.currentURI.spec);");
-
-  var menuitem = mainContextMenu.insertBefore(document.createElement("menuitem"), document.getElementById("context-bookmarklink").nextSibling);
-  menuitem.setAttribute("id", "context-sendlinktogmail");
-  menuitem.setAttribute("label", "鏈接 to Gmail");
-  menuitem.setAttribute("accesskey", "G");
-  menuitem.setAttribute("oncommand", "SendToGmail('', '', '', '', gContextMenu.linkText(), gContextMenu.linkURL);");
-
   var menuitem = mainContextMenu.insertBefore(document.createElement("menuitem"), document.getElementById("context-sendimage").nextSibling);
   menuitem.setAttribute("id", "context-sendimagetogmail");
   menuitem.setAttribute("label", "圖片 to Gmail");
   menuitem.setAttribute("accesskey", "G");
   menuitem.setAttribute("oncommand", "SendToGmail('', '', '', '', gContextMenu.target.getAttribute('title') || gContextMenu.target.getAttribute('alt') || gContextMenu.target.currentURI.spec, gBrowser.currentURI.spec + '\\n\\n' + gContextMenu.target.currentURI.spec);");
 
-  var menuitem = mainContextMenu.insertBefore(document.createElement("menuitem"), document.getElementById("context-selectall"));
-  menuitem.setAttribute("id", "context-sendselecttogmail");
-  menuitem.setAttribute("label", "選中文字 to Gmail");
-  menuitem.setAttribute("accesskey", "G");
-  menuitem.setAttribute("oncommand", "SendToGmail('', '', '', '', gBrowser.selectedTab.label, gBrowser.currentURI.spec + '\\n\\n' + document.commandDispatcher.focusedWindow.getSelection());");
-
   mainContextMenu.addEventListener("popupshowing", function(e) {
-    document.getElementById("context-sendpagetogmail").setAttribute("hidden", "true");
-    document.getElementById("context-sendlinktogmail").setAttribute("hidden", "true");
     document.getElementById("context-sendimagetogmail").setAttribute("hidden", "true");
-    document.getElementById("context-sendselecttogmail").setAttribute("hidden", "true");
-
-    if (gContextMenu.onLink) {
-      document.getElementById("context-sendlinktogmail").removeAttribute("hidden");
-    }
 
     if (gContextMenu.onImage) {
       document.getElementById("context-sendimagetogmail").removeAttribute("hidden");
     }
 
-    if (gContextMenu.isTextSelected) {
-      /*var selection = getBrowserSelection(16);
-      if (selection && selection.length > 15)
-        selection = selection.substr(0,15) + "...";
-
-      document.getElementById("context-sendselecttogmail").setAttribute("label", 'Send "' + selection + '" to Gmail');*/
-      document.getElementById("context-sendselecttogmail").removeAttribute("hidden");
-    }
-
-    if (!gContextMenu.onLink && !gContextMenu.onImage && !gContextMenu.isContentSelected && !gContextMenu.onTextInput) {
-      document.getElementById("context-sendpagetogmail").removeAttribute("hidden");
-    }
   }, false);
 })();

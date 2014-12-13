@@ -1,5 +1,5 @@
 
-//2014.12.12 22:25 圖片另存放到二級菜單
+//2014.12.13 22:50 圖片另存放到二級菜單
 //2014.12.11 17:50 常用文字搜索橫排菜單
 //2014.12.09 22:45 將菜單換成正體中文
 //2014.12.07 12:40 四个複製圖片放到二级菜单，添加分割线
@@ -57,7 +57,7 @@ var imagesub = PageMenu({
 imagesub([{
   label: 'Google Search',
   url: 'http://www.google.com/searchbyimage?image_url=%IMAGE_URL%',
-  image: "https://www.google.com/favicon.ico",
+  image: "",
   where: 'tab',
   accesskey: "G"
 }, {
@@ -224,7 +224,7 @@ new function() {
 //鏈接和选中文字(同时选中)的分割线
 page({
     label: 'separator',
-    insertAfter: "context-sendlinktogmail",
+    insertAfter: "context-sep-copylink",
     condition: 'link&select noimage',
   })
   //圖片和选中文字(同时选中)的分割线
@@ -243,19 +243,19 @@ openMenu([{
     label: "Google搜索",
     accesskey: "G",
     url: "http://www.google.com/search?q=%s",
-    image: "https://www.google.com/favicon.ico",
+    image: "",
     where: 'tab'
   }, {
     label: "Baidu搜索",
     accesskey: "B",
     url: "http://www.baidu.com/baidu?wd=%s&ie=utf-8",
-    image: "http://www.baidu.com/favicon.ico",
+    image: "",
     where: 'tab'
   }, {
     label: "TVC搜索",
     accesskey: "T",
     url: "http://www.tvc-mall.com/search?q=%s",
-    image: "http://www.tvc-mall.com/favicon.ico",
+    image: "",
     where: 'tab'
   },
   /*{

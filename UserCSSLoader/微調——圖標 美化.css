@@ -1,4 +1,4 @@
-/*+++2014.12.12 22:30+++*/
+/*+++2014.12.13 11:50+++*/
 
 /*==扩展/脚本图标补充==*/
 #lpt_comp-bar-tools/*Lastpass工具*/ {
@@ -16,7 +16,7 @@
     -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 
-[label="快速新增"]/*Foxyproxy*/,[label="新增網站"]/*Lastpass*/,#createNewDownload/*新建下載*/ {
+[label="新增"],[label="快速新增"]/*Foxyproxy*/,[label="新增網站"]/*Lastpass*/,#createNewDownload/*新建下載*/ {
     list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABDElEQVQ4jWNgwAKaV0VMa14V+R8VR0zDphYraFge9v/Z20souGF52H+iDahdHPT/wKWJKLh2cRDxBlTO8/u/61w3Cq6c50e8ASUzPf9vPtmCgktmemI3IH+S07T8yc7/0fGaw9UoGJua/ElO0xgye2z/33h8CAMv2VuEgrGpyeyx/c+Q0mb+f/b2DLJwSpv5f4a4esP/kzbEk4Xj6g3/M0RUaP/vXBlKFo6o0P7PEFSkMi24SPU/Om5Y7I2CsakJKlLBnjp9s+X/V8x1QsG+2fLEpwOPVMn/hdMtUbBHqiTxBjgniPzPmmSEgp0TRIg3wD5a4H9Knw4Kto8WIN4Am3CeaTbhPP/RMNYAAwBfzYIiAG8SVwAAAABJRU5ErkJggg==") !important;
     -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
@@ -194,6 +194,21 @@
     -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 
+#toggleSelected/*about:config切換*/ {
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAACg0lEQVQ4je3Ry0tUYRgG8Ic8c843HqcZRxu11BQLomB0oZDmaDc1CxtviTlKo5bHe4FFuJSiMGWkhVaUuhgmyIjBG2lmmTaWREy16EIX+geKqGXS08KCyFIDFy564Vm+P77veYH/s9LHbHdFvt64Wy1ZbjjY7pZZMRTKaJtc+E+byS6YU9pgSbkwl8xfEm7DZrtbZpffwYqhUMam6w8sCVUtiLe7ZS6U9qncb67pfLoe5s7hO4KKFoejkGV3y/Q8a2Kvv4G9/hr2+KvZ7a/iZX8lLz52sP3BPrZMpvLkbSubxuJ4aMA0G54YkD1fWw3ztuPGZgCr1Ghk2N0y3a9q2POikj0vy3np+UF2PM1iy6MEnvBFURsxsnxIoXNAYsWoxIwzyrvAECT9zho0j5Wax0oARiiIS6owjaXVhUzb6kJ8aQ1mX2qdwZdYI/kS63F/6zHMlHl1X6tGBbUJwaxW/RvJgJQ/ol1PSnm42/oBgLxIU4EA4oo98sfGGcG9rsC3kgHJ8wrQPFa2Tu9nx3Txgsf6GYTCAMBYNizP2jvV9/NfqiJM81h5ajKTZ+/msGV8FxuGY+gcVOgcVFh5U7DqlmD1uGDthGD9pGBBn0zTBqQD0CfVBPWLEGnnvP+siQ8oahxM4OmJPWweSaHzRjBLrgfQ2a+wcljwyIigNiZYe0ew/p7g0ak52LwJWT+IoL91pa5PU9rqvFtY7jWz+JrEgj550ZhisH2RGwAAlEibdK7wqkznoMK8K7ovQeug6cNQLCxwCAscqgUONQIONQKlegvyARiXAgOAEpUmtTm8gnndus8ATEtdXBIem6E7n92pfAIQtpwwABgNawNyAKjLDa/s+Q77gCL+vNHa2AAAAABJRU5ErkJggg==") !important;
+    -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
+}
+
+#copyName/*about:config複製名稱*/ {
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABbklEQVQ4jZXTvWrCUBiA4d6OoxfgIDrkAhIc3NzEzaGDtpOTCOLiqkiX4qCCQwcdGhAEu4haqhQRsaEpKKkZzhB/3g7FmPiHfhA4y/fwwjm544q5uzQA6mBKtadR7WkUW0PStQ6PpSbxXIV4rnIZAaj2ND6+f9EWAm0hmC+Ffc6qBuFE4XzRDtAWgvZsS3u2va0I4Pltgiks2rOtvXhNkQ0UW0MbyKrGUVF7tqU53mAKi6xqkGroKLHMPwKQrnVsINXQXUWHwO67CDiLdsvN8Yb6aE19tMYUFnIkuQcenl6ZLwXN8YZUQ3eBzuVyf0W5v8IUFpIc3QPxXMUG7l9+jgDncqm7QluIY8AUlg04i5xAqXsGCCcKvH9+YQoLdTB1FTmX8501+c6aiW7gl0LuAiWWQYllkCNJV9EpYL4U+ILKHjgcZ9HuAU10g4luMF8K1MEUjzdw+h85VSTJUSQ5il8K4QsqeLyB/TWeAm6ZP4vSFyHwSYapAAAAAElFTkSuQmCC") !important;
+    -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
+}
+
+#copyValue/*about:config複製值*/ {
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACVklEQVQ4jY3Sz0sUcRjH8b36X3ToUHToECQYEnTqEB2yS9dCRBIRRDQK+oEdNEvZxXB1KzJShMpFXX9RqZlrqxBaJlia6eq6zY+dnRl3Zr4zbu8Oa4aE5gc+1xfP8/D4Aj1R5leTm73ReULDMW48e835u+3usTI/voOkNzYHQMbdYjGhMjazyK3OUS41dHG09ABIx8gsAMITSCmDr3GZlsgU65JOWbCfU9Wh/ZGnbz9qAK7jYLsupusR7IvRFJ6g9vnoTivaBrhY18mhy/W7wdDQlAZgOw4IwVZ2i2VZo2UgBoDlCL78kIhMz3Ove5KCmjbO3XzyFwlGohpAyrYRwiPreRiWxaOhHGC7LuuqwcxCnPY3szS9mmAlIVH5eDCH1L98B0BCNpHTFuamQBcuwcgHADzXwXIFq4rB1MIanSMzLMYVrj6MkFd0G19D93sANlSDZNpENW1k3cLfMwmA4zh4nsB0BfGUzvin7zSHJwn0xTh8pWE3IKVNFMNkQzVp3J4s4zp4QpD1PHTbIaGm+PxtjbnlJMfL/PgebANxSWND0fmZNliSVGq7RgCQTAvTdnEcgesJjIzNQlxm07IoqGzFFxyc5p/8guvtw7nbpAySqoGiWeiOwPI8fmoZAM5Uh/AdKb6frWjpp8QfpsQfpjQQ5sKdDupfjOVW03KryYaJYljopotqCAAKq1r3frKmnugu4E9V3UbSzf8Djd3jAKzIGmuKTlLRWVV1lqQUy0n14MB+Karr2hvIO3stW1gV5GR5YKf55c3klwfILw9wuqYN34lifgNP37CVxp7KKgAAAABJRU5ErkJggg==") !important;
+    -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
+}
+
 #context-copyimage-contents/*复制图片*/,[label="複製圖片"] {
     list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAdRJREFUeNqkk72LU0EUxc/cmXkv2Q9hcVkFtRS0DDZaaZXCPoV2W6bbQvwHJI3Wsp1FRIgWVkIqe02xnU1AtpYgNkJI3nzsmXkmm1eIuxi4vLmTuWfO73JHxRjxPz+zmQyHwxf89BnlBeuPGwLe+36v17uqtb5Q9Wg06jcEnHO71lq8/PQY2gq0VhCjoMUwLLQyEK4N14cP3qTzO7Ip0Ol0JIQAYaFS3FD1vijh8k+CCBcqpN5VVQWzyc1NM51OcdM//avt/RstnOLjucCluT+8w87t/SywXC5hVtxPxr9R0HohCi26tUbQkjovjEZBjOf3Ndwy4vr2rbWA0EZI3IVESCC2V4iBxLFuQlRk5uF5iGvb32dfGwI52WLXtmzkbRSCR/AePs1YGrQYUAW/Fvj8fnreg6SSkiulRykadEs3wtBQmt1nfbvU/E+tb3376ksuZsyzQEK4uxuxV0aUbYO2Mdi2LCCTI07L1KKRTtL5yWTixuNxlSdx5eDnbIZfZA68ea4sQkwokueBtbkndx5dywLdbtcy6rdAG3lCXp/8wMJVWCw8v47YoR4bdj8SS3Minz08yNYbjylxULX8dnTvnzOw4m4IcA6OB4PBpV7gZnImwACqDgkzylG2tgAAAABJRU5ErkJggg==") !important;
     -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
@@ -211,7 +226,7 @@
 
 /*==书签工具栏图标补充==*/
 [class="openintabs-menuitem"]/*标签组打开，全部用分頁打開*/ {
-    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA9UlEQVQ4jdXSMUvDUBAH8Pel1FFw9QvUyU1QUDvUHhgutJM8NNJQaKcMYqEaSCWuJVMhk8QxXyPJmJfk72RDSAsvbh78x/fj7t0J8f/r/ukWRNRIJ4CIcPdxilk4xOvXA6Yvjy1wX7bAxfsBrlZH6H8eY7w+w2Rzg1k4xDyknVl+W23gcnWondG61wbmrn7rjTGICNfuCZgZSZKgS20Bds9hWRbyPNd6WFVVE5BvAziOA6WUNuD7fg08L0bwPA9FUXRr//cTJ45EEAQoy/JvgG3biKJIG1BKwTCM+mKllIjjGFmWaSVNU5imWQPM3Hn/zAwhhPgBwUhGcMkIGqkAAAAASUVORK5CYII=") !important;
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB+UlEQVQ4jY2Su2tTARSHz5/RQVebpYvJ0MU20EkHQRNEinlUIwkEknIlekuNGqhdgn+AW4sOkrEF1yI07c1DHIqTtDZIERvzvLm5N4/mc7jREPugP/g4cIYffJwj8jehAhLMIX5tRDCHhArIpRLMsVaCt99GrJWwSy4Vf4GrGZh4BxPv7XnlA8i9LDKvneZBHnn4ZVT+ZvUldk6AwXBenGRqFds9kEfm84h3B/FsI94scicLnNDudMcwrC56uwNATF3hfPf7u1R+/uDwe2mMg4NDGPQAiCZSiPiKZ7t7txHPLnJ3ZxyPhtzWAAgrSeT5q9e20KBjNw/bL8qi+gKAUHwJiakrALTanaFnb8j57o/iywAsRBNINJECoNGyKO7t8/nr2RT39tENC4BgVAXAF1aQsJIEoKabtMwehtUfo2X1aLY7NIwOVd0EIBB9as+IgoTiSwBUmm02tzQ+fsqPsbmlUdVNKg2D3/UWAI8Xl7l2/Qa3vAFkIZoA4LhuoJt9Wlafmm5RbZo2ukXD6FI3uhzX7IJQTB19oC+sAPCrbqKm0qipNOWGyVG5yVG5Sblh75+l0pTrtoI/8mRUEIgo/86zntlgPbNx6mz/7wMRZVRw0+PH4ZzF4XIjIjI1PYfD5WbSOcOkcwaHy83U9BwiIg6XG4dz1nYf5g82jMQtHrmscwAAAABJRU5ErkJggg==") !important;
     -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 
@@ -240,7 +255,7 @@
     -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 
-[label="重設命中統計"] {
+[label="重設命中統計"],#resetSelected {
     list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABDElEQVQ4jc3MoYrDQBSF4fMGa0tVIqqiomISyAQGwogxIyKGmLxGbR4kL7SUUihUlFSMChWjAkvEWbNTObBVvXDEL+4HfML1AL7fWB+A0zAM7Pv+tbZtoz0MAwGcAnC21nKaJpLkNE2s6zra1loCOAfg0nUdt22j1prbtrEsy2h3XUcAlwBcjTFc15VKKa7ryqIoom2MIYBrAG5aa3rvKaWk9555nkdba00AtwDclVJcloVCCC7LwizLoq2UIoB7AB5SSjrnWJYlnXM8HA7RllISwCMATgjBcRw5zzPHcWSSJNEWQhCAC8CzaRpWVfVamqbRbpqGAJ4BOAL4eWPHAHwB2AHY/2O7v78PuF+IyE9H2+z1OQAAAABJRU5ErkJggg==") !important;
     -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }

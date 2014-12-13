@@ -1,3 +1,5 @@
+/*+++2014.12.13 19:35+++*/
+
 /*文本选中样式（黑底+绿字）*/
 *::-moz-selection {
 /* the background color of the highlight */
@@ -25,3 +27,76 @@ a:hover,a:hover em,a>font:hover,b>font:hover {
 1px 0 1px rgba(242,33,49,60),-1px 0 1px rgba(242,33,49,60),0 0 3px rgba(242,33,49,60)!important;
 }
 
+/*右鍵——檢視原始碼*/
+@charset "utf-8";
+
+@-moz-document url-prefix(view-source:) {
+
+  *|*:root {
+    background: #302D26 !important;
+  }
+
+  *::-moz-selection {
+    background-color: #000000;
+  }
+
+  body {
+    font: 12px Lucida Console, -moz-fixed !important;
+    margin: 0;
+    padding: 0.6em 1em;
+    color: #FCFFE0 !important;
+  }
+
+  .doctype, .start-tag, .end-tag {
+    color: #06cfcf !important;
+  }
+
+  .attribute-name {
+    color: #a0a0f0 !important;
+    font-weight: normal !important;
+  }
+
+  .attribute-value {
+    color: white !important;
+  }
+
+  .comment, .cdata, .pi {
+    color: green !important;
+  }
+
+  .error, .error > .start-tag, .error > .end-tag,
+.error > .comment, .error > .cdata, .error > .doctype,
+.error > .pi, .error > .entity, .error > .attribute-name,
+.error > .attribute-value {
+    color: red !important;
+    background: #fff !important;
+    font-weight: bold !important;
+  }
+
+  a:link {
+    color: #8fa3ff !important;
+  }
+}
+
+/*右鍵菜單分割线样式*/
+menuseparator {
+  -moz-appearance: none !important;
+  height: 1px !important;
+  margin: 0px !important;
+  border: none !important;
+  border-top: 1px solid #DDD !important;
+  padding: 0px !important;
+}
+
+/*右鍵菜單XP藍色樣式*/
+menu[_moz-menuactive="true"],
+
+menuitem[_moz-menuactive="true"],
+
+menupopup[_moz-menuactive="true"],
+
+splitmenu[_moz-menuactive="true"] {
+  background-color: #4281F4 !important;
+  color: #FFF !important;
+  -moz-appearance: none !important;
+}

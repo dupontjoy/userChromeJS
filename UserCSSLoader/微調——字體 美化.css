@@ -1,4 +1,4 @@
-/*+++2014.12.13 19:35+++*/
+/*+++2014.12.13 22:20+++*/
 
 /*文本选中样式（黑底+绿字）*/
 *::-moz-selection {
@@ -88,7 +88,7 @@ menuseparator {
   padding: 0px !important;
 }
 
-/*右鍵菜單XP藍色樣式*/
+/*右鍵菜單 顏色樣式*/
 menu[_moz-menuactive="true"],
 
 menuitem[_moz-menuactive="true"],
@@ -96,7 +96,24 @@ menuitem[_moz-menuactive="true"],
 menupopup[_moz-menuactive="true"],
 
 splitmenu[_moz-menuactive="true"] {
-  background-color: #4281F4 !important;
+  background-color: #FF9940 !important;/*#4281F4（XP藍），#FF9940（橙）*/
   color: #FFF !important;
   -moz-appearance: none !important;
+}
+
+/*右鍵菜單加邊框加顏色*/
+popup,menupopup:not([id^="BMB"]):not([placespopup="true"]){
+   -moz-border-top-colors:#FF9900!important;
+   -moz-border-left-colors:#FF9900!important;
+   -moz-border-bottom-colors:#FF9900!important;
+   -moz-border-right-colors:#FF9900!important;
+   border-width:1px 1px 1px 1px!important;
+    }
+
+popup:not(.cui-widget-panel),menupopup:not(.cui-widget-panel)
+{
+    -moz-appearance:none!important ;
+    background:-moz-linear-gradient(left,rgba(242,241,241,1) 26px,#FF9900 27px,rgba(251,250,250,1) 27px,rgba(251,250,250,1) 28px) transparent!important;
+    background-clip:content-box!important;
+    border-width:5px!important;
 }

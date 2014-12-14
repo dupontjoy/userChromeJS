@@ -1,11 +1,11 @@
+
+//2014.11.25 增加chiphell,niunews
+//2014.11.09 增加pconline和postimg
+
 //   @NORMAL：不改变referer
 //   @FORGE：发送根站点referer
 //   @ORIGINAL：发送打开站点referer
 //   @BLOCK : 发送空referer
-
-//2014.11.25 增加chiphell,niunews
-//2014.11.09 增加pconline和postimg
-//2014.10.27
 
 sites = {
     //自定义

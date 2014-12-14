@@ -175,6 +175,7 @@
 }
 
 /*LastPass菜单*/
+[label="分享"],/*Lastpass密碼庫分享*/
 #lpt_separator3000,#lpt_menudelim2,/*分隔条*/
 #lpt_menu_search_box,/*搜索密码库*/
 #lpt_comp-bar-accts,/*站点*/

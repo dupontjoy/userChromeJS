@@ -23,7 +23,7 @@ sites = {
     'postimg.org': '@FORGE',
     'chiphell.com': '@FORGE',
     'niunews.cn': '@FORGE',
-    
+
     // 
     'douban.com': 'http://www.douban.com',
     'yyets.com': 'http://www.yyets.com/',

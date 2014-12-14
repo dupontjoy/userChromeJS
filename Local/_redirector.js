@@ -1,6 +1,5 @@
 
-//2014.12.10 18:30  修正TVC規則  
-//2014.12.06 20:45  新增sourceforge >> ftp镜像
+//2014.12.14 18:30  修正TVC規則  
 //2014.11.28 15:50  新增2條TVC規則
 //2014.11.22 08:40  更新topit.me 原始大圖
 //2014.11.21 19:57  修正Google统计小錯误
@@ -111,12 +110,6 @@ regex: true
 name: "般若文海article >> books",
 from: /^https?:\/\/book\.bfnn\.org\/article([\d]?\/.*)/i,
 to: "http://book.bfnn.org/books$1",
-regex: true
-},
-{
-name: "sourceforge >> ftp镜像站点",
-from: /^https?:\/\/sourceforge\.net\/projects\/(\w)([a-z0-9A-Z_\-\.])([a-z0-9A-Z_\-\.]*)(\/files(\/.*))?/i,
-to: "http://ftp.jaist.ac.jp/pub/sourceforge/$1/$1$2/$1$2$3$5",
 regex: true
 },
 {

@@ -1,5 +1,5 @@
 
-//2014.12.13 22:50 圖片另存放到二級菜單
+//2014.12.15 22:50 圖片另存放到二級菜單
 //2014.12.11 17:50 常用文字搜索橫排菜單
 //2014.12.09 22:45 將菜單換成正體中文
 //2014.12.07 12:40 四个複製圖片放到二级菜单，添加分割线
@@ -237,6 +237,7 @@ page({
 var openMenu = GroupMenu({
   label: '打開...',
   condition: 'select',
+  position: 1,
   insertBefore: 'context-sep-navigation'
 });
 openMenu([{

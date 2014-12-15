@@ -1,7 +1,6 @@
-//2014.12.11 21:40
+//2014.12.15 17:00
 
 keys['F1'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键
-keys['F5'] = "BrowserReloadSkipCache();";//强制刷新页面（跳过缓存）
 keys['F8'] = function() {
                 var file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile);
                 file.append("Local");
@@ -44,6 +43,20 @@ keys['P'] = "openPreferences();";//选项
 keys['S'] = "BrowserStop();";//停止载入当前页
 keys['U'] = "undoCloseTab();";//恢复关闭的标签
 keys['W'] = function(){var newtabs=["https://www.google.com/webhp?&complete=0","http://ic.sjlpj.cn/","http://www.tvc-mall.com/","http://www.amazon.com/"];var i=0;while(i<=newtabs.length-1){gBrowser.selectedTab=gBrowser.addTab(newtabs[i]);i=i+1;}};//一键打开标签组
+keys['Z'] = function() {
+        var tabs = gBrowser.mTabContainer.childNodes;
+        for (var i = tabs.length - 1; tabs[i] != gBrowser.mCurrentTab; i--) {}
+        for (i--; i >= 0; i--) {
+            gBrowser.removeTab(tabs[i]);
+        }
+        };//關閉左側所有标签
+keys['X'] = "gBrowser.removeCurrentTab();";//關閉當前标签
+keys['C'] = function() {
+            var tabs = gBrowser.mTabContainer.childNodes;
+            for (var i = tabs.length - 1; tabs[i] != gBrowser.selectedTab; i--) {
+                gBrowser.removeTab(tabs[i]);
+            }
+        };//關閉右側所有标签
 keys["Alt+X"] = "Services.appinfo.invalidateCachesOnRestart() || Application.restart();"; //删除启动缓存并重启
 
 

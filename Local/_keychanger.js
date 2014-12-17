@@ -1,5 +1,6 @@
-//2014.12.15 17:00
+//2014.12.17 17:45
 
+//F功能鍵
 keys['F1'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键
 keys['F8'] = function() {
                 var file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile);
@@ -12,11 +13,15 @@ keys['F9'] = function() {
                 var file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile);
                 file.append("Local");
                 file.append("UpdateSWF");
-                file.append("Update GAE.bat");
+                file.append("UpdateGAE.bat");
                 file.launch();
-            };//下載本地SWF  
+            };//下載本地SWF
+//数字       
 keys['1'] = "gBrowser.selectedTab = gBrowser.addTab('http://www.baidu.com');";//百度
-keys['2'] = "gBrowser.selectedTab = gBrowser.addTab('https://www.google.com/webhp?&complete=0');";//Google  
+keys['2'] = "gBrowser.selectedTab = gBrowser.addTab('https://www.google.com/webhp?&complete=0');";//Google
+keys['3'] = function(){var newtabs=["https://www.google.com/webhp?&complete=0","http://ic.sjlpj.cn/","http://www.tvc-mall.com/","http://www.amazon.com/"];var i=0;while(i<=newtabs.length-1){gBrowser.selectedTab=gBrowser.addTab(newtabs[i]);i=i+1;}};//一键打开标签组 
+
+//字母
 keys['A'] = "gBrowser.selectedTab = gBrowser.addTab('about:config');";//参数设置
 keys['B'] = "var s = prompt('百度站内搜索——请输入待搜索字符串', '');if (s.length > 0) gBrowser.addTab('http://www.baidu.com/baidu?wd=site:' + encodeURIComponent(content.location.host) + ' ' + encodeURIComponent(s));";//Baidu站内搜索
 keys['G'] = "var s = prompt('站内搜索——请输入待搜索字符串', '');if (s.length > 0) gBrowser.addTab('http://www.google.com/search?q=site:' + encodeURIComponent(content.location.host) + ' ' + encodeURIComponent(s));";//Google站内搜索
@@ -42,24 +47,11 @@ keys['O'] = function() {
 keys['P'] = "openPreferences();";//选项
 keys['S'] = "BrowserStop();";//停止载入当前页
 keys['U'] = "undoCloseTab();";//恢复关闭的标签
-keys['W'] = function(){var newtabs=["https://www.google.com/webhp?&complete=0","http://ic.sjlpj.cn/","http://www.tvc-mall.com/","http://www.amazon.com/"];var i=0;while(i<=newtabs.length-1){gBrowser.selectedTab=gBrowser.addTab(newtabs[i]);i=i+1;}};//一键打开标签组
-keys['Z'] = function() {
-        var tabs = gBrowser.mTabContainer.childNodes;
-        for (var i = tabs.length - 1; tabs[i] != gBrowser.mCurrentTab; i--) {}
-        for (i--; i >= 0; i--) {
-            gBrowser.removeTab(tabs[i]);
-        }
-        };//關閉左側所有标签
-keys['X'] = "gBrowser.removeCurrentTab();";//關閉當前标签
-keys['C'] = function() {
-            var tabs = gBrowser.mTabContainer.childNodes;
-            for (var i = tabs.length - 1; tabs[i] != gBrowser.selectedTab; i--) {
-                gBrowser.removeTab(tabs[i]);
-            }
-        };//關閉右側所有标签
+keys['W'] = "gWHT.addWord();";//WordHighlight添加词
+keys['X'] = "gWHT.destroyToolbar();";//WordHighlight取消工具栏
+
+//組合鍵
 keys["Alt+X"] = "Services.appinfo.invalidateCachesOnRestart() || Application.restart();"; //删除启动缓存并重启
 
 
 //keys['Ctrl+F'] = function() {var path = addMenu.handleRelativePath('\\chrome\\local\\FSCapture\\FSCapture.exe');addMenu.exec(path, []);};//启动FSCapture
-//keys['W'] = "gWHT.addWord();";//WordHighlight添加词
-//keys['X'] = "gWHT.destroyToolbar();";//WordHighlight取消工具栏

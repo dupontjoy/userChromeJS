@@ -96,7 +96,7 @@ menuitem[_moz-menuactive="true"],
 menupopup[_moz-menuactive="true"],
 
 splitmenu[_moz-menuactive="true"] {
-  background-color: rgb(248,132,39) !important;/*#4281F4（XP藍），rgb(248,132,39)（橙红）*/
+  background-color: #4281F4 !important;/*#4281F4（XP藍），rgb(248,132,39)（橙红）*/
   color: #FFF !important;
   -moz-appearance: none !important;
 }

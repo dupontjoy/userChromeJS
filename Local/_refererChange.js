@@ -1,4 +1,5 @@
 
+//2014.12.16 增加poco
 //2014.11.25 增加chiphell,niunews
 //2014.11.09 增加pconline和postimg
 
@@ -9,6 +10,11 @@
 
 sites = {
     //自定义
+    'pconline.com.cn': '@FORGE',
+    'postimg.org': '@FORGE',
+    'chiphell.com': '@FORGE',
+    'niunews.cn': '@FORGE',
+    'poco.cn': '@FORGE',
     'about:blank': '@NORMAL',
     'jump.bdimg.com': '@NORMAL',
     'img.liufen.com': 'http://www.liufen.com.cn/',
@@ -19,11 +25,7 @@ sites = {
     'tmoke.com': '@BLOCK',
     '51img1.com' : '@FORGE',
     'zol-img.com.cn' : '@FORGE',
-    'pconline.com.cn': '@FORGE',
-    'postimg.org': '@FORGE',
-    'chiphell.com': '@FORGE',
-    'niunews.cn': '@FORGE',
-
+    
     // 
     'douban.com': 'http://www.douban.com',
     'yyets.com': 'http://www.yyets.com/',

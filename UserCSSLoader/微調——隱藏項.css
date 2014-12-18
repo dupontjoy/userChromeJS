@@ -1,16 +1,16 @@
-/*+++2014.12.08 22:30+++*/
+/*+++2014.12.18 20:45+++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*书签工具栏产生的箭头*/
 #PlacesChevron,
 #nav-bar-overflow-button {
-    display: none !important;
+display: none !important;
 }
 
 /*===标签栏隐藏项===*/
 [class="scrollbutton-up"],/*标签占满时的左箭头*/
 [class="scrollbutton-down"]/*标签占满时的右箭头*/ {
-    display: none !important;
+display: none !important;
 }
 
 /*==============以下为“页面”的隐藏==============*/
@@ -54,13 +54,13 @@
 #spell-check-enabled, /*拼写检查*/
 #spell-separator, /*拼写检查分割线*/
 #inspect-separator, /*Inspect Element分割线*/
-#context-sep-viewbgimage,    /*分割線*/
+#context-sep-viewbgimage,/*分割線*/
 #context-sep-viewsource, /*分割線*/
 #context-inspect,/*Inspect Element*/
 #context-searchselect,/*Context Search*/
 #context-openlinkincurrent,/*打开链接*/
 #spell-add-dictionaries-main/*新增字典*/ {
-    display: none !important;
+display: none !important;
 }
 
 /*===标签栏右键菜单===*/
@@ -72,7 +72,7 @@
 #context_closeTab,/*关闭标签页*/
 #context_closeTabsToTheEnd, /*关闭右侧标签页*/
 #menu_restoreAllTabs/*还原所有标签页*/ {
-    display: none !important;
+display: none !important;
 }
 
 /*隐藏项 - 书签右键*/
@@ -86,7 +86,7 @@
 #placesContext_open,/*打开*/
 #placesContext_cut,/*剪切*/
 #placesContext_paste/*粘贴*/ {
-    display: none !important;
+display: none !important;
 }
 
 /*隐藏项 - 地址栏右键*/
@@ -102,7 +102,7 @@
 #urlbar menuitem[label="Cut"],
 #urlbar menuitem[label="Copy"],
 #urlbar menuitem[label="Delete"] {
-    display: none !important;
+display: none !important;
 }
 
 /*隐藏项 - 搜索栏右键*/
@@ -120,7 +120,7 @@
 #searchbar menuitem[label="Copy"],
 #searchbar menuitem[label="Delete"],
 #searchbar menuitem[label="Select All"] {
-    display: none !important;
+display: none !important;
 }
 
 /*隐藏项 - 书签编辑右键*/
@@ -136,7 +136,7 @@
 #editBookmarkPanelContent menuitem[label="Cut"],
 #editBookmarkPanelContent menuitem[label="Copy"],
 #editBookmarkPanelContent menuitem[label="Delete"] {
-    display: none !important;
+display: none !important;
 }
 
 /*隐藏项 - 输入框右键*/
@@ -147,23 +147,23 @@
 [label="復原"],
 [label="剪下"],
 #context-keywordfield/*为此搜索添加关键字*/ {
-    display: none !important;
+display: none !important;
 }
 
 /*Dom Inspector右键*/
 #mnEditCut/*剪下*/ {
-    display: none !important;
+display: none !important;
 }
 
 /*隐藏项 — 附加组件*/
 #category-discover,/*获取附加组件*/
 #category-service/*服务*/ {
-    display: none !important;
+display: none !important;
 }
 
 /*隐藏项 — 下载*/
 [class="downloadRemoveFromHistoryMenuItem"]/*从历史记录中移除*/ {
-    display: none !important;
+display: none !important;
 }
 
 /*===================扩展和脚本的图标======================*/
@@ -171,7 +171,7 @@
 #foxyproxy-contextmenu-icon,
 #contentAreaContextMenu > .abp-contextmenuitem,/*屏蔽ABP右鍵菜單*/
 #wordhighlight-toolbar-highlight/*隐藏wordhighlight右鍵菜單*/ {
-    display: none !important;
+display: none !important;
 }
 
 /*LastPass菜单*/
@@ -197,7 +197,7 @@
 [label="Go to URL"],[label="转到网址"],[label="轉到網址"],
 [label="Save All Entered Data"],[label="保存所有输入的数据"], [label="儲存已填入資料"],
 [label="Add Secure Note"],[label="添加安全笔记"],[label="新增安全備註"] {
-    display: none !important;
+display: none !important;
 }
 
 /*UserScriptLoader*/
@@ -206,7 +206,7 @@
 [label="网站..."],
 #UserScriptLoader-check-script,
 #UserScriptLoader-find-script {
-    display: none !important;
+display: none !important;
 }
 
 /*UserCSSLoader*/
@@ -216,11 +216,11 @@
 [label="新建瀏覽器樣式 (Chrome)"],
 [label="新建當前網頁樣式 (Web)"],
 [label="在userstyles.org檢索當前網頁樣式"] {
-    display: none !important;
+display: none !important;
 }
 
 /*ABP菜单项*/
 #abp-menuitem-sendReport,/*报告该页面上的问题*/
 #abp-menuitem-openbottombar/*打开可过滤项目*/ {
-    display: none !important;
+display: none !important;
 }

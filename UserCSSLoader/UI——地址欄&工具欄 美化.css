@@ -1,4 +1,4 @@
-/*+++2014.12.17 20:16+++*/
+/*+++2014.12.18 20:40+++*/
 
 /*样式伪进度条*/
 @-moz-document url-prefix("http://"),url-prefix("https://"){
@@ -19,127 +19,127 @@ box-shadow:0 1px 5px rgba(190,50,0,0.5);
 
 /*LASTPASS菜单宽度*/
 #lpt_lastpass-compact-menu,#lpt_lastpass-compact-menu menupopup {
-  max-width: 210px !important;
-  border: 1px solid ThreeDShadow !important;
+max-width: 210px !important;
+border: 1px solid ThreeDShadow !important;
 }
 
 /*下载弹窗大小调整*/
 #unknownContentType {
-  height: 340px !important;
-  width: 450px!important;
+height: 340px !important;
+width: 450px!important;
 }
 
 /*书签栏左右变窄*/
 .bookmark-item > .toolbarbutton-icon {
-  margin: 0px 0px 0px -2px !important;
-  padding: 0px !important;
+margin: 0px 0px 0px -2px !important;
+padding: 0px !important;
 }
 
 /*Https协议地址栏变色*/
 #urlbar[level="low"] {
-  background-color: #FFFFB7 !important;
+background-color: #FFFFB7 !important;
 }
 
 #urlbar[level="high"] {
-  background-color: #DDF9CC !important;
+background-color: #DDF9CC !important;
 }
 
 #urlbar[level="broken"] {
-  background-color: #F7DFDF !important;
+background-color: #F7DFDF !important;
 }
 
 /*Oos定制 —— WordHighlightToolbar & 查找栏样式*/
 #wordhighlight-toolbar-box,
-    .browserContainer findbar {
-  -moz-box-ordinal-group: 0!important;
-  position: fixed!important;
-  border: 1px solid #A6A6A6;
-  border-top: none;
+.browserContainer findbar {
+-moz-box-ordinal-group: 0!important;
+position: fixed!important;
+border: 1px solid #A6A6A6;
+border-top: none;
 }
 
 #wordhighlight-toolbar-box {
-  background: #FFFFFF;
-  right: 0px;
-  bottom: 0px;
+background: #FFFFFF;
+right: 0px;
+bottom: 0px;
 /*>>>自行修改数字*/
-  border: 1px solid #A6A6A6;
-  border-radius: 0px 0px 0px 2.5px;
-  padding: 1px 1px 0px 0px;
+border: 1px solid #A6A6A6;
+border-radius: 0px 0px 0px 2.5px;
+padding: 1px 1px 0px 0px;
 }
 
 .browserContainer findbar {
-  box-shadow: none!important;
-  background: #FFFFFF!important;
-  left: 0px;
-  border-left: none;
-  border-radius: 0px 0px 2.5px 0px;
-  padding: 1px 2px 2px 2px;
+box-shadow: none!important;
+background: #FFFFFF!important;
+left: 0px;
+border-left: none;
+border-radius: 0px 0px 2.5px 0px;
+padding: 1px 2px 2px 2px;
 }
 
 #wordhighlight-toolbar-box *,
-    .browserContainer findbar * {
-  margin: 0px!important;
-  padding: 0px!important;
+.browserContainer findbar * {
+margin: 0px!important;
+padding: 0px!important;
 }
 
 .findbar-container :-moz-any(.findbar-highlight, .findbar-case-sensitive) {
-  margin-left: 1px!important;
+margin-left: 1px!important;
 }
 
 .findbar-container .textbox-input::-moz-placeholder {
-  color: blue;
+color: blue;
 }
 
 .findbar-container label {
-  color: green;
+color: green;
 }
 
 :-moz-any(.browserContainer, #viewSource) .findbar-container :-moz-any(spacer, toolbarspacer, .findbar-find-fast[anonid="match-case-status"]),
-    findbar .findbar-closebutton {
-  visibility: collapse;
+findbar .findbar-closebutton {
+visibility: collapse;
 }
 
 .findbar-container .findbar-highlight {
-  -moz-box-ordinal-group: 2;
+-moz-box-ordinal-group: 2;
 }
 
 .findbar-container .findbar-case-sensitive {
-  -moz-box-ordinal-group: 3;
+-moz-box-ordinal-group: 3;
 }
 
 .findbar-container label[value="(区分大小写)"] {
-  -moz-box-ordinal-group: 4;
+-moz-box-ordinal-group: 4;
 }
 
 .findbar-container .findbar-find-status {
-  -moz-box-ordinal-group: 5;
+-moz-box-ordinal-group: 5;
 }
 
-    /* Quick Find with Full Controls */
+/* Quick Find with Full Controls */
 :-moz-any(.browserContainer, #viewSource) .findbar-container > *,
-    :-moz-any(.browserContainer, #viewSource) .findbar-container > *:not(spacer),
-    :-moz-any(.browserContainer, #viewSource) :-moz-any(.findbar-find-previous, .findbar-find-next) {
-  display: -moz-box!important;
+:-moz-any(.browserContainer, #viewSource) .findbar-container > *:not(spacer),
+:-moz-any(.browserContainer, #viewSource) :-moz-any(.findbar-find-previous, .findbar-find-next) {
+display: -moz-box!important;
 }
 
 /*Oos定制 —— 颜色区分*/
 #UserScriptLoader-popup #UserScriptLoader-menuseparator {
-  -moz-box-ordinal-group: 95!important;
+-moz-box-ordinal-group: 95!important;
 }
 
 #UserScriptLoader-popup .UserScriptLoader-item[checked="true"][style="font-weight: bold;"] {
-  -moz-box-ordinal-group: 96!important;
-  color: blue!important;
+-moz-box-ordinal-group: 96!important;
+color: blue!important;
 }
 
 #UserScriptLoader-popup .UserScriptLoader-item[checked="true"] {
-  -moz-box-ordinal-group: 97!important;
-  color: black!important;
+-moz-box-ordinal-group: 97!important;
+color: black!important;
 }
 
 #UserScriptLoader-popup .UserScriptLoader-item {
-  -moz-box-ordinal-group: 98!important;
-  color: red!important;
+-moz-box-ordinal-group: 98!important;
+color: red!important;
 }
 
 #redirector-menupopup .redirector-item[checked="false"],
@@ -147,7 +147,7 @@ box-shadow:0 1px 5px rgba(190,50,0,0.5);
 #userChromejs_options .userChromejs_script[checked="false"],
 #usercssloader-menupopup .usercssloader-item[checked="false"],
 #UserScriptLoader-popup .UserScriptLoader-item[checked="false"] {
-  -moz-box-ordinal-group: 99!important;
-  color: gray!important;
+-moz-box-ordinal-group: 99!important;
+color: gray!important;
 }
 

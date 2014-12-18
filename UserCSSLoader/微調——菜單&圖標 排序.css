@@ -1,68 +1,38 @@
-/*+++2014.12.01 21:30+++*/
+/*+++2014.12.18 20:45+++*/
 
 /*地址栏图标分组*/
-#flashgot-media-tbb {
-    -moz-box-ordinal-group: 1 !important;
-}
-
-#lpt_lastpass-compact-btn {
-    -moz-box-ordinal-group: 2 !important;
-}
-
-#foxyproxy-toolbar-icon {
-    -moz-box-ordinal-group: 3 !important;
-}
-
-#userChromebtnMenu {
-    -moz-box-ordinal-group: 4 !important;
-}
+#flashgot-media-tbb {-moz-box-ordinal-group: 1 !important;}
+#lpt_lastpass-compact-btn {-moz-box-ordinal-group: 2 !important;}
+#foxyproxy-toolbar-icon {-moz-box-ordinal-group: 3 !important;}
+#userChromebtnMenu {-moz-box-ordinal-group: 4 !important;}
 
 /*===图标对齐===*/
 #ucjs_UserAgentChanger,#redirector-icon,#gm_general_menu {
-    padding: 0px !important;
-    margin-left: 0px !important;
+padding: 0px !important;
+margin-left: 0px !important;
 }
 
 /*====附加组件调序===*/
-#category-extension {
-    -moz-box-ordinal-group: 0 !important;
-}
-
-#category-userscript {
-    -moz-box-ordinal-group: 1 !important;
-}
-
-#category-plugin {
-    -moz-box-ordinal-group: 2 !important;
-}
-
-#category-theme {
-    -moz-box-ordinal-group: 3 !important;
-}
+#category-extension {-moz-box-ordinal-group: 0 !important;}
+#category-userscript {-moz-box-ordinal-group: 1 !important;}
+#category-plugin {-moz-box-ordinal-group: 2 !important;}
+#category-theme {-moz-box-ordinal-group: 3 !important;}
 
 /*====標簽右鍵菜單調序===*/
-#context_undoCloseTab {
-    -moz-box-ordinal-group: 0 !important;
-}
-
-#context_reloadAllTabs {
-    -moz-box-ordinal-group: 2 !important;
-}
-
-#context_closeOtherTabs {
-    -moz-box-ordinal-group: 3 !important;
-}
+#context_undoCloseTab {-moz-box-ordinal-group: 0 !important;}
+#context_reloadAllTabs {-moz-box-ordinal-group: 2 !important;}
+#context_closeOtherTabs {-moz-box-ordinal-group: 3 !important;}
 
 /*粘贴并转到、搜索置顶*/
 .urlbar-textbox-container menuitem[anonid="paste-and-go"]/*:not([disabled="true"])*/ {
-    -moz-box-ordinal-group: 0 !important;
+-moz-box-ordinal-group: 0 !important;
 }
 
 .searchbar-textbox menuitem[anonid="paste-and-search"] {
-    -moz-box-ordinal-group: 0 !important;
+-moz-box-ordinal-group: 0 !important;
 }
 
 #context-pasteandgo-forms {
-    -moz-box-ordinal-group: 0 !important;
+-moz-box-ordinal-group: 0 !important;
 }
 

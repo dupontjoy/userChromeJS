@@ -3,6 +3,7 @@
 // @namespace   qixinglu.com
 // @description Make JSON text look better
 // @include     *.json
+// @version     0.0.1
 // @grant       none
 // ==/UserScript==
 

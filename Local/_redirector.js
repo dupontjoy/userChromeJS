@@ -1,4 +1,5 @@
 
+//2014.12.19 16:20  科大博客已宕
 //2014.12.14 18:30  修正TVC規則  
 //2014.11.28 15:50  新增2條TVC規則
 //2014.11.22 08:40  更新topit.me 原始大圖
@@ -122,13 +123,12 @@ regex: true
 
 //Google服務轉國內鏡像
 {
-//Http走360，Https走科大
 name: "ajax/fonts >> 360 useso",
-from: /^http:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
+from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "http://$1.useso.com/$2",
 regex: true
 },
-{
+/*{
 //https://servers.ustclug.org/index.php/2014/06/blog-googlefonts-speedup/
 name: "ajax/fonts >> 科大博客提供",
 from: /^https:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
@@ -146,7 +146,7 @@ name: "fonts-gstatic >> 科大博客",
 from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
 to: "http://fonts-gstatic.lug.ustc.edu.cn/$1",
 regex: true
-},
+},*/
 {
 name: "Gravatar头像 >> 多说",
 from: /^https?:\/\/([0-9]?)\.gravatar\.com\/avatar\/(.*)$/,
@@ -167,12 +167,12 @@ regex: true
 },
 
 //原始大圖系列
-{
+/*{
 name: "tradingfloor 原始大圖",
 from: /^https?:\/\/www\.tradingfloor\.com\/images\/article\/max608w\/(.*)/i,
 to: "https://www.tradingfloor.com/images/article/original/$1",
 regex: true
-},
+},*/
 {
 name: "百度貼吧|百科 原始大圖",
 from: /^http:\/\/(imgsrc|[\w]?\.hiphotos)\.baidu\.com\/(forum|baike)\/[\w].+\/sign=[^\/]+(\/.*).jpg/i,
@@ -208,35 +208,13 @@ to: "$1/viewthread.php?tid=$3",
 regex: true
 },
 
-//以下为不启用
+//——————以下为不启用——————
 {
 name: "爱奇艺",
 from:/^http:\/\/afp\.qiyi\.com\/.*\url=([^&]*)(\?src=.*)/i,
 to: "$1",
 state: false,
 regex: true
-},
-{
-name: "百度盘下载地址替换",
-from: /^https?:\/\/\d+\.\d+\.\d+\.\d+\/cdn\.baidupcs\.com\/file\/(.*)/i,
-to: "http://www.baidupcs.com/$1",
-state: false,
-regex: true
-},
-{
-name: "google.com|hk搜索 >> wen.lu",
-from:  /^https?:\/\/www\.google\.com(?:\.hk|)\/(.*)/i,
-to: "https://wen.lu/$1",
-state: false,
-regex: true
-},
-{
-name:"Greasyfork >> zh-CN",
-state:true,
-from:/^https:\/\/greasyfork\.org\/scripts\/(.*)/,
-to:"https://greasyfork.org/zh-CN/scripts/$1",
-state: false,
-regex:true
 },
 {
 name: "tb >> taobao",

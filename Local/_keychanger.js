@@ -1,14 +1,7 @@
-//2014.12.17 17:45
+//2014.12.19 16:20
 
 //F功能鍵
 keys['F1'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键
-keys['F8'] = function() {
-                var file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile);
-                file.append("Local");
-                file.append("BackupProfiles");
-                file.append("BackupProfiles_7z.bat");
-                file.launch();
-            };//備份Firefox
 keys['F9'] = function() {
                 var file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile);
                 file.append("Local");
@@ -40,17 +33,24 @@ keys['I'] = function() {
 						alert("\u6253\u5f00IE\u5931\u8d25!")
 					}
 				};//用IE打开当前页
-keys['N'] = "BrowserOpenTab()";//打开新标签
 keys['O'] = function() {
 					Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile).reveal();
 				};//Chrome文件夹
 keys['P'] = "openPreferences();";//选项
 keys['S'] = "BrowserStop();";//停止载入当前页
+keys['T'] = "BrowserOpenTab()";//打开新标签
 keys['U'] = "undoCloseTab();";//恢复关闭的标签
 keys['W'] = "gWHT.addWord();";//WordHighlight添加词
 keys['X'] = "gWHT.destroyToolbar();";//WordHighlight取消工具栏
 
 //組合鍵
+keys['Ctrl+B'] = function() {
+                var file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile);
+                file.append("Local");
+                file.append("BackupProfiles");
+                file.append("BackupProfiles_7z.bat");
+                file.launch();
+            };//備份Firefox
 keys["Alt+X"] = "Services.appinfo.invalidateCachesOnRestart() || Application.restart();"; //删除启动缓存并重启
 
 

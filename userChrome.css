@@ -1,4 +1,4 @@
-/*+++2014.12.18 20:08+++*/
+/*+++2014.12.19 21:00+++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -8,12 +8,6 @@
   border-radius:1px !important;
   border:1px solid #949494 !important;
   background: #f0f0f0 !important;
-}
-
-/*地址栏图标加分隔线*/
-#urlbar-icons{
-padding:1px 1px !important;
-border-left:1px #BBC2C8 solid;
 }
 
 /*更改地址栏长度*/
@@ -28,6 +22,7 @@ min-width:100px !important;
 }
 
 /*隐藏地址栏图标*/
+#identity-box,
 [anonid="close-button"],/*標簽頁關閉按鈕*/
 #notification-popup-box,/*地址欄左側的Flash提示*/
 #PanelUI-menu-button,/*三道杠*/
@@ -52,6 +47,7 @@ min-width:100px !important;
 /*去小三角*/
 .autocomplete-history-dropmarker.urlbar-history-dropmarker/*下拉历史*/
 {display: none !important;}
+#navigator-toolbox toolbarbutton:not(#bookmarks-menu-button) dropmarker { display: none !important; }/* 除书签菜单按钮外，工具栏去下拉三角 */
 
 /*标签页上方的1px间距缩进*/
 #tabbrowser-tabs{margin-top:-1px!important;}
@@ -59,30 +55,34 @@ min-width:100px !important;
 /*++第2部分+++++++++++++++++++++++以下为FX32界面调整+++++++++++++++++++++++++*/
 
 /*===== UI——FX32界面调整：http://bbs.kafan.cn/thread-1726274-1-1.html =====*/
-/* 标签栏背景色去除 */
-#TabsToolbar:after { display: none !Important; }
-
-/* 导航栏按钮 */
+/*导航栏按钮*/
 #nav-bar toolbarbutton {
 padding: 0px !important;
 margin: 0px !important;
 }
 
-/* 导航栏按钮图标 */
+/*导航栏按钮图标*/
 #nav-bar toolbarbutton >.toolbarbutton-icon {
 padding: 0px !important;
 margin: 0px !important;
 }
 
-/* 地址框、搜索框 放大 */
+/*地址框、搜索框 放大*/
 #urlbar, #searchbar .searchbar-textbox {
 margin:0px!important;
 min-height:24px!important;
 }
 
-/* 地址框图标及文字居中 */
-#urlbar > *{margin-top:-1px !important;}
+/*地址框图标及文字居中*/
+#urlbar > *{
+margin-left: 5px !important;
+margin-top:0px !important;
+}
 
+/*網址列高度*/
+#urlbar {
+height: 24px !important;
+}
 
 /*===== UI——直角标签：http://bbs.kafan.cn/thread-1726274-1-1.html =====*/
 /* 标签高度 */
@@ -104,10 +104,7 @@ margin: 0px !important;
 background: none !important;
 }
 
-/* AGENT_SHEET */
-@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
-@-moz-document url(chrome://browser/content/browser.xul) {
-
+/*===== UI——标签3種狀態顏色：http://bbs.kafan.cn/thread-1726274-1-1.html =====*/
 /* 非当前固定标签页标题有变化时样式 */
 .tabbrowser-tab:not([selected])[pinned][titlechanged="true"] { background: rgba(255,255,100,.75) !important; }
 /* 标签栏底色透明 */
@@ -119,14 +116,3 @@ background: none !important;
 /*后台标签划过高亮 */
 .tabbrowser-tab:not([selected="true"]):hover{background:rgba(255,255,255,0.75) !important;}
 
-/* 新建按钮 */
-.tabs-newtab-button, #new-tab-button  { background: transparent !important;}
-.tabs-newtab-button:hover, #new-tab-button:hover  { background: rgba(255,255,255,0.75) !important;}
-
-/* 左右箭头 */
-.scrollbutton-up, .scrollbutton-down {
-background: transparent !important;
-transition: none !important; }
-.scrollbutton-up:hover, .scrollbutton-down:hover {
-background:rgba(255,255,255,0.75) !important;
-transition: none !important; }

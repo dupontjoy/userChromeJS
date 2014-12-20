@@ -1,10 +1,12 @@
-/*+++2014.12.18 20:45+++*/
+/*+++2014.12.20 16:30+++*/
 
 /*地址栏图标分组*/
 #flashgot-media-tbb {-moz-box-ordinal-group: 1 !important;}
 #lpt_lastpass-compact-btn {-moz-box-ordinal-group: 2 !important;}
 #foxyproxy-toolbar-icon {-moz-box-ordinal-group: 3 !important;}
-#userChromebtnMenu {-moz-box-ordinal-group: 4 !important;}
+#UCCM-icon {-moz-box-ordinal-group: 3 !important;}
+#ucjsPermission_Toolmenu {-moz-box-ordinal-group: 5 !important;}
+#userChromebtnMenu {-moz-box-ordinal-group: 6 !important;}
 
 /*===图标对齐===*/
 #ucjs_UserAgentChanger,#redirector-icon,#gm_general_menu {

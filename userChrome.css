@@ -1,4 +1,4 @@
-/*+++2014.12.19 21:00+++*/
+/*+++2014.12.20 16:50+++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -8,6 +8,12 @@
   border-radius:1px !important;
   border:1px solid #949494 !important;
   background: #f0f0f0 !important;
+}
+
+/*地址栏图标加分隔线*/
+#urlbar-icons{
+padding:1px 1px !important;
+border-left:1px #BBC2C8 solid;
 }
 
 /*更改地址栏长度*/
@@ -22,7 +28,6 @@ min-width:100px !important;
 }
 
 /*隐藏地址栏图标*/
-#identity-box,
 [anonid="close-button"],/*標簽頁關閉按鈕*/
 #notification-popup-box,/*地址欄左側的Flash提示*/
 #PanelUI-menu-button,/*三道杠*/
@@ -75,8 +80,7 @@ min-height:24px!important;
 
 /*地址框图标及文字居中*/
 #urlbar > *{
-margin-left: 5px !important;
-margin-top:0px !important;
+margin-top:-1px !important;
 }
 
 /*網址列高度*/

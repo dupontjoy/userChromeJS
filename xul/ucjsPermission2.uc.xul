@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<overlay id="ucjsPermission" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+<!--
+// ==UserScript==
+// @name           ucjsPermission2_mod
+// @namespace      http://space.geocities.yahoo.co.jp/gl/alice0775
+// @description    add UI for hostperm.1 to context menu
+// @include        main
+// @compatibility  Firefox 2.0 3.0
+// @author         dannylee
+// @version        2013/04/08 00:00 add toolbutton and other plus
+// @author         Alice0775
+// @version        2012/02/21 00:00 etld = host
+// ==/UserScript==
+// @version        2009/04/06 17:00 linuxでも
+// @version        2009/02/07 bug fix
+// @version        2009/02/02 frameようとして"リンク上右クリックではリンクアドレスを追加"
+// @version        2008/10/02 linkタグのstylesheet
+// @version        2008/07/06 00:00 例外処理
+// @version        2008/03/02 15:00 appletにも
+// @version        2008/02/24 19:00 subdocument処理変更
+ -->
+  <script type="application/x-javascript" xmlns="http://www.w3.org/1999/xhtml"><![CDATA[
+const ioService = Components.classes['@mozilla.org/network/io-service;1']
+                      .getService(Components.interfaces.nsIIOService);
+const nsIPermissionManager = Components.interfaces.nsIPermissionManager;
+const nsICookiePermission = Components.interfaces.nsICookiePermission;
+const BEHAVIOR_NOFOREIGN = 3;
+var ucjsPermission = {
+  locale: Components.classes["@mozilla.org/preferences-service;1"]
+                   .getService(Components.interfaces.nsIPrefBranch).getCharPref("general.useragent.locale"),
+  _pm: Components.classes["@mozilla.org/permissionmanager;1"]
+       .getService(Components.interfaces.nsIPermissionManager),
+
+   activeBrowser: function() {
+    return ('SplitBrowser' in window ? SplitBrowser.activeBrowser : null )
+            ||  gBrowser;
+  },
+  
+  //得到活动目标的host 
+  getTartgetHost: function(aNode){
+    var url;
+    url = this.activeBrowser().currentURI.spec;  //ルートドキュメントurl
+    if(aNode && gContextMenu){
+      url = gContextMenu.target.ownerDocument.location.href;    //ドキュメントurl
+      if(gContextMenu.onImage){           //画像src url
+        url = gContextMenu.target.src;
+      }else if(gContextMenu.onLink){      //リンクurl
+        url = gContextMenu.linkURL;
+      }else{
+        //var target = gContextMenu.target;
+        //var aNode = this.isObject(target);
+        if( this.isObject(aNode) ){
+          if(aNode.hasAttribute('src')) url = aNode.getAttribute('src');     //オブジェクトsrc url
+          if(aNode.hasAttribute('value')) url = aNode.getAttribute('value'); //オブジェクトvalue url
+          if(aNode.hasAttribute('data')) url = aNode.getAttribute('data'); //オブジェクトdata url
+        }
+      }
+    }
+
+    var host = this.convertUrl2host(url);
+    return host;
+  },
+
+  //得到目前的窗口
+  _getFocusedWindow: function(){
+    var focusedWindow = document.commandDispatcher.focusedWindow;
+    if (!focusedWindow || focusedWindow == window)
+        return window.content;
+    else
+        return focusedWindow;
+  },
+
+  //得到host的doc内的外部CSS排列 
+  getStyleSheets : function(doc){
+    var _css = [];
+    if (!doc) return _css;
+    function chkdup(host){
+      var flg = true;
+      for (var j = 0; j < _css.length;j++){
+        if(_css[j] != host) continue;
+        flg = false;
+        break;
+      }
+      return flg;
+    }
+    var links = Array.slice(doc.getElementsByTagName("link"));
+    for(var i=0; i<links.length; i++){
+      if(links[i].rel.indexOf('stylesheet') >= 0 /*&& links[i].type == "text/css" */){
+        var host = ucjsPermission.convertUrl2host(links[i].href);
+        if(host && chkdup(host)) _css.push(host);
+      }
+    }
+
+    //これ以降は冗長かもしれないが念のため
+    var links = doc.styleSheets;
+    var loc = doc.location;
+    if(!links) return _css;
+
+    for (var i = 0; i < links.length; i++) {
+      // Determine if href is an external url.
+      // If href matches with location is external
+      if (links[i].type == "text/css" && links[i].href != loc) {
+        var host = ucjsPermission.convertUrl2host(links[i].href);
+        if(host && chkdup(host)) _css.push(host);
+      }
+      try {
+        var rules = links[i].cssRules;
+        for (var r = 0; r < rules.length; r++) {
+          if (rules[r].type == CSSRule.IMPORT_RULE) {
+            if(!rules[r].styleSheet) continue;
+            var host = ucjsPermission.convertUrl2host(rules[r].styleSheet.href);
+            if(host && chkdup(host)) _css.push(host);
+          }
+        }
+      } catch(ex){}
+    }
+    return _css;
+  },
+
+  //得到host的doc内的外部脚本排列
+  getScripts : function(doc){
+      var _script = [];
+      if (!doc) return _script
+
+      var scripts = Array.slice(doc.getElementsByTagName('script'));
+      if(!scripts) return _script;
+
+      for (var i = 0; i < scripts.length; i++) {
+        var host = ucjsPermission.convertUrl2host(scripts[i].src);
+        if(host == 'browser') continue;
+        var flg = true;
+        for (var j = 0; j < _script.length;j++){
+          if(_script[j] != host) continue;
+          flg = false;
+          break;
+        }
+        if(flg && host) _script.push(host);
+      }
+      return _script;
+  },
+  
+  //得到host的img内的外部脚本排列
+  getImages : function(doc){
+      var _image = [];
+      if (!doc) return _image
+
+      var images = Array.slice(doc.getElementsByTagName('img'));
+      if(!images) return _image;
+
+      for (var i = 0; i < images.length; i++) {
+        var host = ucjsPermission.convertUrl2host(images[i].src);
+        if(host == 'browser') continue;
+        var flg = true;
+        for (var j = 0; j < _image.length;j++){
+          if(_image[j] != host) continue;
+          flg = false;
+          break;
+        }
+        if(flg && host) _image.push(host);
+      }
+      return _image;
+  },
+  
+    //doc内のframe/iframeのhostの配列を得る
+  getFrames : function(doc){
+      var _frames = [];
+      if (!doc) return _frames;
+      var frames = Array.slice(doc.getElementsByTagName('frame'));
+      for (var i = 0; i < frames.length; i++) {
+        var host = ucjsPermission.convertUrl2host(frames[i].src);
+        if(host == 'browser') continue;
+        var flg = true;
+        for (var j = 0; j < _frames.length;j++){
+          if(_frames[j] != host) continue;
+          flg = false;
+          break;
+        }
+        if(flg && host) _frames.push(host);
+      }
+      var frames = Array.slice(doc.getElementsByTagName('iframe'));
+      for (var i = 0; i < frames.length; i++) {
+//alert(frames[i].src);
+        var host = ucjsPermission.convertUrl2host(frames[i].src);
+        if(host == 'browser') continue;
+        var flg = true;
+        for (var j = 0; j < _frames.length;j++){
+          if(_frames[j] != host) continue;
+          flg = false;
+          break;
+        }
+        if(flg && host) _frames.push(host);
+      }
+      return _frames;
+  },
+
+  //doc内のobjectのhostの配列を得る
+  getObjects : function(doc){
+      var _object = [];
+      if (!doc) return _object;
+
+      var objects = Array.slice(doc.getElementsByTagName('object'));
+      if(!objects) return _object;
+
+      for (var i = 0; i < objects.length; i++) {
+        var host = ucjsPermission.convertUrl2host(objects[i].data);
+        if(host == 'browser') continue;
+        var flg = true;
+        for (var j = 0; j < _object.length;j++){
+          if(_object[j] != host) continue;
+          flg = false;
+          break;
+        }
+        if(flg && host) _object.push(host);
+      }
+
+      var objects = Array.slice(doc.getElementsByTagName('embed'));
+      if(!objects) return _object;
+
+      for (var i = 0; i < objects.length; i++) {
+        var host = ucjsPermission.convertUrl2host(objects[i].src);
+        if(host == 'browser') continue;
+        var flg = true;
+        for (var j = 0; j < _object.length;j++){
+          if(_object[j] != host) continue;
+          flg = false;
+          break;
+        }
+        if(flg && host) _object.push(host);
+      }
+      var objects = Array.slice(doc.getElementsByTagName('applet'));
+      if(!objects) return _object;
+
+      for (var i = 0; i < objects.length; i++) {
+        var host;
+        if (objects[i].hasAttribute("codebase")) host = ucjsPermission.convertUrl2host(objects[i].getAttribute("codebase"));
+        if (host=="") host = ucjsPermission.convertUrl2host(objects[i].code);
+        if (host == 'browser') continue;
+        var flg = true;
+        for (var j = 0; j < _object.length;j++){
+          if(_object[j] != host) continue;
+          flg = false;
+          break;
+        }
+        if(flg && host) _object.push(host);
+      }
+      return _object;
+  },
+
+  //doc内のMatarefreshのhostの配列を得る
+  getMatarefresh : function(doc){
+      var _refresh = [];
+      if (!doc) return _refresh;
+
+      function chkdup(host){
+        var flg = true;
+        for (var j = 0; j < _refresh.length;j++){
+          if(_refresh[j] != host) continue;
+          flg = false;
+          return flg;
+        }
+        return flg;
+      }
+      function goParentDirectory(dlh){
+        var u;
+        if(dlh==doc.location.protocol+'//'+document.location.hostname+'/'){
+          return dlh;
+        }
+        else{
+          u =dlh.match(/\//g);
+          if(RegExp.rightContext!=''){
+            return RegExp.leftContext+'/';
+          }
+          else{
+            u=RegExp.leftContext.match(/\//g);
+            return RegExp.leftContext+'/';
+          }
+        }
+      }
+      var metaTag = Array.slice(doc.getElementsByTagName("meta"));
+      for(var i=0; i<metaTag.length; i++){
+        if(/refresh/i.test(metaTag[i].httpEquiv)){
+
+          var tmpURL;
+          var refreshURL = metaTag[i].content.match(/[^(0-9+;url)(\W)][(a-zA-Z\.\/)].+[^(\W)]/i);
+          if(refreshURL == null){ refreshURL = "";}
+          refreshURL += "";
+          if(refreshURL.indexOf("http://",0) == -1){
+            if(/[0-9]+;url=\//i.test(metaTag[i].content)){
+              refreshURL = doc.location.protocol+'//'+document.location.hostname+'/';
+            }else if(!(/\.{2}\//g.test(metaTag[i].content))){
+              if(/\/$/.test(doc.location.href)){
+                refreshURL = doc.location.href + refreshURL;
+              }else{
+                refreshURL = goParentDirectory(document.location.href) + refreshURL;
+              }
+            }else{
+              tmpURL = goParentDirectory(docu.location.href);
+              for(k=0; k < (metaTag[i].content.match(/\.{2}\//g).length); k++){
+                tmpURL = goParentDirectory(tmpURL);
+              }
+              refreshURL = tmpURL + refreshURL;
+            }
+          }
+          var host = this.convertUrl2host(refreshURL);
+          if(refreshURL !='' && chkdup(host)) _refresh.push(host);
+        }
+      }
+      return _refresh;
+  },
+
+  //urlからhostを得る
+  convertUrl2host: function(url){
+    var baseURI = ioService.newURI(this._getFocusedWindow().content.document.location.href, null, null);
+    try{
+      var uri = ioService.newURI(url, null, baseURI);
+      uri = uri.host.replace(/^\s*/,"").replace(/\s*$/,"");
+      return uri;
+    }catch(e){}
+    return '';
+  },
+  
+  isValidTld: function(aHost){
+    //var regexpTLD = new RegExp("\\.(arpa|asia|int|nato|cat|com|net|org|info|biz|name|pro|mobi|museum|coop|aero|edu|gov|jobs|mil|tel|travel|xxx|ac|ad|ae|af|ag|ai|al|am|an|ao|aq|ar|as|at|au|aw|ax|az|ba|bb|bd|be|bf|bg|bh|bi|bj|bm|bn|bo|br|bs|bt|bu|bv|bw|by|bz|ca|cc|cd|cf|cg|ch|ci|ck|cl|cm|cn|co|cp|cr|cs|sk|cu|cv|cx|cy|cz|dd|de|dg|dj|dk|dm|do|dz|ea|ec|ee|eg|eh|er|es|et|eu|fi|fj|fk|fm|fo|fr|fx|ga|gb|gd|ge|gf|gg|gh|gi|gl|gm|gn|gp|gq|gr|gs|gt|gu|gw|gy|hk|hm|hn|hr|ht|hu|ic|id|ie|il|im|in|io|iq|ir|is|it|je|jm|jo|jp|ke|kg|kh|ki|km|kn|kp|kr|kw|ky|kz|la|lb|lc|li|lk|lr|ls|lt|lu|lv|ly|ma|mc|me|md|mg|mh|mk|ml|mm|mn|mo|mp|mq|mr|ms|mt|mu|mv|mw|mx|my|mz|na|nc|ne|nf|ng|ni|nl|no|np|nr|nt|nu|nz|om|pa|pc|pe|pf|pg|ph|pk|pl|pm|pn|pr|ps|pt|pw|py|qa|re|ro|rs|ru|rw|sa|sb|sc|sd|se|sg|sh|si|sj|sk|sl|sm|sn|so|sr|ss|st|su|sv|sy|sz|ta|tc|td|tf|tg|th|tj|tk|tl|tm|tn|to|tp|tr|tt|tv|tw|tz|ua|ug|uk|um|us|uy|uz|va|vc|ve|vg|vi|vn|vu|wf|wg|ws|yd|ye|yt|yu|za|zm|zr|zw|localhost)\\.?$","");
+    var regexpIP = new RegExp("^[1-2]?[0-9]?[0-9]\\.[1-2]?[0-9]?[0-9]\\.[1-2]?[0-9]?[0-9]\\.[1-2]?[0-9]?[0-9]$","");
+    var _host = aHost;
+    var _IPadd = '';
+    if (_host) {
+      if (regexpIP.test(_host)) {
+        _IPadd = _host;
+      } else {
+        try {
+        var eTLDService = Components.classes["@mozilla.org/network/effective-tld-service;1"]
+                    .getService(Components.interfaces.nsIEffectiveTLDService);
+        _host = eTLDService.getBaseDomainFromHost(_host,0);
+        } catch(e) { return [ _host , _IPadd ]; }
+      }
+    }
+    return [ _host , _IPadd ];
+  },
+  
+  //hostのPermission设定
+  addCapability: function(type,aCapabilityString, host){
+    if(gContextMenu)document.getElementById("contentAreaContextMenu").hidePopup();
+    var aCapability = this._setCapability(aCapabilityString);
+      host = window.prompt('设置下列站点'+this._getCapabilityString2(aCapability)+' '
+                          +this._exceptionsParamsText[type].permissionstitle.replace(' 过滤器','')+'(可设置域名):',host);
+    if(!host) return;
+    host = (host.charAt(0) == ".") ? host.substring(1,host.length) : host;
+    //this._pm.remove(host, type);
+    var uri = ioService.newURI("http://" + host, null, null);
+    this._pm.add(uri, type, aCapability);
+    BrowserReloadSkipCache();
+  },
+
+  //hostの Permission删除
+  delCapability: function(type, host){
+    if(gContextMenu)document.getElementById("contentAreaContextMenu").hidePopup();
+      host = window.prompt('删除下列站点'+this._exceptionsParamsText[type].permissionstitle+'的设定(可设置域名): ',host);
+    if(!host) return;
+    host = (host.charAt(0) == ".") ? host.substring(1,host.length) : host;
+    var uri = ioService.newURI("http://" + host, null, null);
+    this._pm.remove(uri.host, type);
+    BrowserReloadSkipCache();
+  },
+
+  //urlのPermission得到
+  getCapability: function(url, type){
+    if( !url || url =='' ) return;
+    if(!/^https?:/.test(url)) url = 'http://' + url;
+    var host = this.convertUrl2host(url);
+    var uri = ioService.newURI("http://" + host, null, null);
+
+    var aCapability = this._pm.testPermission(uri,type);
+    var aCapabilityString = this._getCapabilityString(aCapability)
+
+    return aCapabilityString;
+  },
+
+  //CapabilityString从PRUint32 permission向变换
+  _setCapability: function (aCapabilityString)
+  {
+    var intKey = null;
+    switch (aCapabilityString) {
+    case "can":
+      intKey = nsIPermissionManager.ALLOW_ACTION;
+      break;
+    case "cannot":
+      intKey = nsIPermissionManager.DENY_ACTION;
+      break;
+    case "noforeign":
+      intKey = BEHAVIOR_NOFOREIGN;
+      break;
+    case "canSession":
+      intKey = nsICookiePermission.ACCESS_SESSION;
+      break;
+    }
+    return intKey;
+  },
+
+  //PRUint32 permissionからCapabilityStringへ変換
+  _getCapabilityString: function (aCapability)
+  {
+    var stringKey = null;
+    switch (aCapability) {
+    case nsIPermissionManager.ALLOW_ACTION:
+      stringKey = "can";
+      break;
+    case nsIPermissionManager.DENY_ACTION:
+      stringKey = "cannot";
+      break;
+    case BEHAVIOR_NOFOREIGN:
+      stringKey = "noforeign";
+      break;
+    case nsICookiePermission.ACCESS_SESSION:
+      stringKey = "canSession";
+      break;
+    }
+    return stringKey;
+  },
+
+  //PRUint32 permissionから表示用CapabilityStringへ変換
+  _getCapabilityString2: function (aCapability)
+  {
+    var stringKey = null;
+    switch (aCapability) {
+    case nsIPermissionManager.ALLOW_ACTION:
+      stringKey = "允许加载";
+      break;
+    case nsIPermissionManager.DENY_ACTION:
+      stringKey = "拒绝加载";
+      break;
+    case BEHAVIOR_NOFOREIGN:
+      stringKey = "拒绝第三方加载";
+      break;
+    case nsICookiePermission.ACCESS_SESSION:
+      stringKey = "仅允许本次临时加载";
+      break;
+    }
+    return stringKey;
+  },
+
+  //aNodeがオブジェクトノードの一部かどうか, オブジェクトノードを返す
+  isObject: function(aNode){
+    while(aNode && (aNode.nodeName != 'object' && aNode.nodeName != 'embed' )){
+      aNode = aNode.parentNode;
+    }
+    return aNode;
+  },
+    
+  menubtn: null,
+  menupopup: null,
+  main_host: "",
+  //ツールメニューの表示に際して
+  forToolMenu: function(){
+    if(document.getElementById("ucjsPermission_tool_menupopup"))return;
+    
+    var optt = document.getElementById("urlbar-icons");//urlbar-icons addon-bar
+	  this.menubtn = document.createElement("toolbarbutton");
+	  this.menubtn.setAttribute('id', "ucjsPermission_Toolmenu");
+    this.menubtn.setAttribute("label","设置站点访问例外");
+    this.menubtn.setAttribute("tooltiptext", "设置站点访问例外,右键打开Permissions SQLLite");
+    this.menubtn.setAttribute("type", "menu");
+    this.menubtn.setAttribute("removable", "true");
+    this.menubtn.setAttribute("onclick", "ucjsPermission.openExExceptions(event);");
+    this.menubtn.style.listStyleImage = 'url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACbklEQVQ4jX2TS0+TQRRA719goSYYA7QiAhZRXLAxJrh040JdqwshKi8JYlAebcEihIJAwEoUBKJoAIESBWyshULlLSCk0aC8EYIlPhJBQo+Lz6RBWieZxcycOXNn7h3BR1tzrbI4P8PS/CxrrlVfGOJt0jkxyrcvnk3fV1w4J0b/L3C73cx+/siIww4/3ZT130ey1IhWTelgJfxw09dtZW56aqfAOfkOR7eFxalPjDj7kMKTSEYQUh+KNIQhOhVSFEPXQAfjvb28bG5gcnxYEWxu/qbmYQXPLLVIgga5sBvRq5DHBxGLBrFHII1hSI4KifNHEg+hLc0g82YqbvffCGoelJNbrUXO+SFaFVIejJjDEcdhZDASaQzj2pAByQ9GLu7hTOJZ9NnpnivUVZloMNcg53cpoZeFIlYN8j4KsUfwdLZZgUuOIHH+xKdeoqKk0COwdrTRbq5HYvcid48rC5ZTSFcEnTOvlHGdBslTIwmBJMXHYrd2eAQry4s8MVUQZTyNJAeQ0pMDQM+MXYHaopG2cESnwu9WDMlxsbi+rm5P470SI1ZbC3J1H5KnJu2tQQGaIhHnMeRRCHIjkGxdGnnajJ110OewYWt6jhhPINlBSFUIUh2OjB9VHjRXjdyJRpuUwnB/z07B1tYWZcYC+odeI+mBStpMB5RuUAqqsCgHg85z+jYBwNz0FKaiAmxjnUiWCkkNQK4HIPr9VJsrSblymaWFOd8CAEt7K7WV5awsL5DnKMbQW8zUhwkK9Fpslhf/4t4/U1/PG/Jva7G2tWBpbcagy2TA0e0N9S4AWF//xcTYEJNjw2xsrPvC+AMw/A+HeX9u2AAAAABJRU5ErkJggg==)';
+    //this.menubtn.style.width = '25px';
+    optt.insertBefore(this.menubtn,optt.childNodes[1]);
+    //optt.appendChild(this.menubtn);
+    this.menupopup = document.createElement("menupopup");
+    this.menupopup.setAttribute('id',"ucjsPermission_tool_menupopup");
+    this.menupopup.setAttribute('onpopupshowing',"event.stopPropagation();ucjsPermission.onToolSubMenupopup(event);");
+    this.menupopup.setAttribute('menugenerated',"true");
+    this.menubtn.appendChild(this.menupopup);
+
+    //var arr=['script','stylesheet','cookie','object'/*,'refresh'*/,'subdocument'];
+    var arr=['script','cookie','object','stylesheet','refresh','subdocument','image'];
+    for(var i=0;i<arr.length;i++){
+      var type = arr[i];
+      var label = '设置' + ucjsPermission._exceptionsParamsText[type].permissionstitle + '的访问例外';
+      //var accesskey = ucjsPermission._exceptionsParamsText[type].permissionskey;
+      //ucjsPermission.addMenu(this.menupopup,label,accesskey,"ucjsPermission_"+type+"_tool_menupopup","event.stopPropagation();");
+      ucjsPermission.addMenu(this.menupopup,label,"ucjsPermission_"+type+"_tool_menupopup","event.stopPropagation();");
+    }
+    
+    //for ExExceptions Settings
+    var gPref = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefBranch);
+    if (!gPref.prefHasUserValue("userChromeJS.exexceptions.full")) {
+       gPref.setBoolPref("userChromeJS.exexceptions.full", false);
+    }
+  },
+
+  onToolSubMenupopup: function(){
+    var crurl= this._getFocusedWindow().content.document.location.href;
+    crurl = crurl.substring(0,4);
+    if (crurl === "http") {
+      var baseURI = ioService.newURI(this._getFocusedWindow().content.document.location.href, null, null);
+      this.main_host = baseURI.host.replace(/^\s*/,"").replace(/\s*$/,"");
+    }
+    this.addMenuItem('tool', this.getScripts(window.content.document), 'script' );
+    this.addMenuItem('tool', [this.getTartgetHost(null)], 'cookie' );
+    this.addMenuItem('tool', this.getMatarefresh(window.content.document), 'refresh' );
+    this.addMenuItem('tool', this.getFrames(window.content.document), 'subdocument' );
+    this.addMenuItem('tool', this.getObjects(window.content.document), 'object' );
+    this.addMenuItem('tool', this.getStyleSheets(window.content.document), 'stylesheet' );
+    this.addMenuItem('tool', this.getImages(window.content.document), 'image' );
+  },
+
+  //コンテキストメニューの表示に際して
+  forContextMenu: function(event){
+    if(document.getElementById("ucjsPermission_menupopup"))return;
+
+    var popup = document.getElementById("contentAreaContextMenu");
+    var menu = document.createElement("menu");
+    menu.setAttribute('id','ucjsPermission_Contextmenu');
+    menu.setAttribute('label',"设置站点访问例外");
+    var menupopup = document.createElement("menupopup");
+    menupopup.setAttribute('id',"ucjsPermission_menupopup");
+    menupopup.setAttribute('onpopupshowing',"event.stopPropagation();ucjsPermission.onContextSubMenupopup(event);");
+    menupopup.setAttribute('menugenerated',"true");
+
+    menu.appendChild(menupopup);
+    popup.appendChild(menu);
+
+    //var arr=['script','stylesheet','menuseparator','cookie','image','object'/*,'refresh'*/,'subdocument'];
+    var arr=['image','subdocument'];
+    for(var i=0;i<arr.length;i++){
+      if(arr[i]=='menuseparator'){
+        var menuseparator = document.createElement("menuseparator");
+        menuseparator.setAttribute('id',"ucjsPermission_menuseparator");
+        menupopup.appendChild(menuseparator);
+      }else{
+        var type = arr[i];
+        var label = '设置' + ucjsPermission._exceptionsParamsText[type].permissionstitle + '的访问例外';
+        //var accesskey = ucjsPermission._exceptionsParamsText[type].permissionskey;
+        //ucjsPermission.addMenu(menupopup,label,accesskey,"ucjsPermission_"+type+"_menupopup","event.stopPropagation();");
+        ucjsPermission.addMenu(menupopup,label,"ucjsPermission_"+type+"_menupopup","event.stopPropagation();");
+      }
+    }
+  },
+
+  onContextSubMenupopup: function(event){
+    //外部CSSと外部スクリプトのメニューに追加
+    var win = this._getFocusedWindow(); //ウインドウ(フレーム)オブジェクト
+    var doc = win.content.document;     //ドキュメント
+    var crurl= doc.location.href;
+    crurl = crurl.substring(0,4);
+    if (crurl === "http") {
+      var baseURI = ioService.newURI(doc.location.href, null, null);
+      this.main_host = baseURI.host.replace(/^\s*/,"").replace(/\s*$/,"");
+    }
+    //this.addMenuItem('', this.getScripts(doc), 'script' );
+    //this.addMenuItem('', this.getStyleSheets(doc), 'stylesheet' );
+    //document.getElementById("ucjsPermission_menuseparator").setAttribute("hidden",document.getElementById("ucjsPermission_script_menupopup").parentNode.getAttribute("hidden") || document.getElementById("ucjsPermission_stylesheet_menupopup").parentNode.getAttribute("hidden"));
+    //this.addMenuItem('', [this.getTartgetHost(gContextMenu.target)], 'cookie' );
+    this.addMenuItem('',  gContextMenu.onImage?[this.getTartgetHost(gContextMenu.target)]:[], 'image' );
+    //this.addMenuItem('',  (event && this.isObject(gContextMenu.target))?[this.getTartgetHost(gContextMenu.target)]:this.getObjects(gContextMenu.target.ownerDocument), 'object' );
+    //this.addMenuItem('',  this.getMatarefresh(gContextMenu.target.ownerDocument), 'refresh' );
+    this.addMenuItem('',  [].concat(this.getFrames(doc)), 'subdocument' );
+  },
+
+  //menu
+  addMenu: function(parentmenupopup,label,id,func){
+    var menu = document.createElement("menu");
+    menu.setAttribute('label',label);
+    //menu.setAttribute('accesskey',accesskey);
+    var menupopup = document.createElement("menupopup");
+    menupopup.setAttribute('id',id);
+    menupopup.setAttribute('onpopupshowing',func);
+    menu.appendChild(menupopup);
+    parentmenupopup.appendChild(menu);
+  },
+
+  //menupopupにmenuを追加
+  addMenuItem: function(menuid, arr, type){
+    var menupopupid, menu, menuitem, menuseparator, SystemVar;
+    
+    //add by dannylee
+    if (type != 'cookie') {
+       SystemVar = this.getConfigPref('permissions.default.' + type);
+    } else {
+       SystemVar = this.getConfigPref('network.cookie.cookieBehavior');
+    }
+
+    //menupopupを得る
+    if(menuid==''){
+      menupopupid = "ucjsPermission_"+type+"_menupopup";
+    }else{
+      menupopupid = "ucjsPermission_"+type+"_"+menuid+"_menupopup";
+    }
+    var menupopup = document.getElementById(menupopupid);
+
+    //menupopup下を消去
+    while(menupopup.lastChild){
+      menupopup.removeChild(menupopup.lastChild);
+    }
+
+    var crurl= window.content.document.location.href;
+    crurl = crurl.substring(0,4);
+    
+    //hostないならmenu非表示
+    if(arr.length == 0 || crurl != "http"){
+      menupopup.parentNode.setAttribute("hidden",true);
+      return;
+    }else{
+      menupopup.parentNode.setAttribute("hidden",false);
+    }
+    if (crurl != "http") return;
+    
+    var text = this._exceptionsParamsText[type].permissionstitle.replace(' 过滤器','');
+
+    for(var i=0,len=arr.length;i<len;i++){
+      var host = arr[i];
+      var aCapabilityString = this.getCapability(host, type);
+      var etld = host;
+      var aIP = '';
+          [ etld , aIP ] = ucjsPermission.isValidTld(etld);
+      if (aIP != '') {
+          etld = aIP;
+      }
+      var aCapabilityDomainString = this.getCapability(etld, type);
+      if(this._exceptionsParams[type].noforeignVisible && host == this.main_host){
+        //domain
+        menuitem = document.createElement("menuitem");
+        menuitem.setAttribute("label","拒绝域名除" +etld+ "之外的所有第三方" + text);
+        menuitem.setAttribute("oncommand","ucjsPermission.addCapability('"+type+"','noforeign','"+etld+"');");
+        menuitem.setAttribute("type","checkbox");
+        //menuitem.setAttribute("accesskey","f");
+        if(aCapabilityDomainString=='noforeign') menuitem.setAttribute('checked',true);
+        if (SystemVar == 3 && type != 'cookie') menuitem.style.fontWeight = "bold";
+        if (SystemVar == 1 && type == 'cookie') menuitem.style.fontWeight = "bold";
+        menupopup.appendChild(menuitem);
+        if(aCapabilityDomainString=='noforeign') {
+        	menuitem = document.createElement("menuitem");
+        	menuitem.setAttribute("label","删除域名为" + etld +"的第三方" + text + "的例外设置");
+        	menuitem.setAttribute("oncommand","ucjsPermission.delCapability('"+type+"','"+etld+"');");
+        	//menuitem.setAttribute("type","checkbox");
+        	//menuitem.setAttribute("accesskey","t");
+        	menupopup.appendChild(menuitem);
+        }
+        
+        //host
+        if (etld != host) {
+          menuitem = document.createElement("menuitem");
+          menuitem.setAttribute("label","拒绝除" +host+ "之外的所有第三方" + text);
+          menuitem.setAttribute("oncommand","ucjsPermission.addCapability('"+type+"','noforeign','"+host+"');");
+          menuitem.setAttribute("type","checkbox");
+          //menuitem.setAttribute("accesskey","f");
+          if(aCapabilityString=='noforeign') menuitem.setAttribute('checked',true);
+          if (SystemVar == 3 && type != 'cookie') menuitem.style.fontWeight = "bold";
+          if (SystemVar == 1 && type == 'cookie') menuitem.style.fontWeight = "bold";
+          menupopup.appendChild(menuitem);
+        }
+      }
+      if(this._exceptionsParams[type].blockVisible){
+        menuitem = document.createElement("menuitem");
+        menuitem.setAttribute("label","拒绝" +host+ "的" + text);
+        menuitem.setAttribute("oncommand","ucjsPermission.addCapability('"+type+"','cannot','"+host+"');");
+        menuitem.setAttribute("type","checkbox");
+        //menuitem.setAttribute("accesskey","b");
+        if(aCapabilityString=='cannot') menuitem.setAttribute('checked',true);
+        if (SystemVar == 2 && type != 'cookie') menuitem.style.fontWeight = "bold";
+        if (SystemVar == 3 && type != 'cookie' && this.main_host.indexOf(etld) == -1) menuitem.style.fontWeight = "bold";
+        if (SystemVar == 1 && type == 'cookie' && this.main_host.indexOf(etld) == -1) menuitem.style.fontWeight = "bold";
+        menupopup.appendChild(menuitem);
+      }
+      if(this._exceptionsParams[type].sessionVisible){
+        menuitem = document.createElement("menuitem");
+        menuitem.setAttribute("label","仅允许" +host+ "本次的" + text);
+        menuitem.setAttribute("oncommand","ucjsPermission.addCapability('"+type+"','canSession','"+host+"');");
+        menuitem.setAttribute("type","checkbox");
+        //menuitem.setAttribute("accesskey","s");
+        if(aCapabilityString=='canSession') menuitem.setAttribute('checked',true);
+        menupopup.appendChild(menuitem);
+      }
+      if(this._exceptionsParams[type].allowVisible){
+        menuitem = document.createElement("menuitem");
+        menuitem.setAttribute("label","允许" +host+ "的" + text);
+        menuitem.setAttribute("oncommand","ucjsPermission.addCapability('"+type+"','can','"+host+"');");
+        menuitem.setAttribute("type","checkbox");
+        //menuitem.setAttribute("accesskey","a");
+        if(aCapabilityString=='can') menuitem.setAttribute('checked',true);
+        if (SystemVar == 1 && type != 'cookie') menuitem.style.fontWeight = "bold";
+        if (SystemVar == 0 && type == 'cookie') menuitem.style.fontWeight = "bold";
+        if (SystemVar == 3 && type != 'cookie' && this.main_host.indexOf(etld) >= 0) menuitem.style.fontWeight = "bold";
+        if (SystemVar == 1 && type == 'cookie' && this.main_host.indexOf(etld) >= 0) menuitem.style.fontWeight = "bold";
+        if (SystemVar == -1 && type != 'cookie') menuitem.style.fontWeight = "bold";
+        menupopup.appendChild(menuitem);
+      }
+      if (aCapabilityString != null) {
+        menuitem = document.createElement("menuitem");
+        menuitem.setAttribute("label","删除对" +host+ "的" + text + "的例外设置");
+        menuitem.setAttribute("oncommand","ucjsPermission.delCapability('"+type+"','"+host+"');");
+        //menuitem.setAttribute("type","checkbox");
+        //menuitem.setAttribute("accesskey","d");
+        menupopup.appendChild(menuitem);
+      }
+
+      if(i < len - 1){
+        menuseparator = document.createElement("menuseparator");
+        menupopup.appendChild(menuseparator);
+      }
+    }
+  },
+  
+  getConfigPref: function(aPrefString){
+        var xpPref = Components.classes['@mozilla.org/preferences-service;1']
+                      .getService(Components.interfaces.nsIPrefBranch2);
+        var aDefault = -1;
+        try{
+            var aDefault = xpPref.getIntPref(aPrefString);
+            return aDefault;
+        }catch(e){
+        }
+        return aDefault;
+  },
+  
+  //_getConfigCapability
+
+  /**
+   * The exceptions types which may be passed to this._showExceptions().
+   */
+  _exceptionsParams: {
+        cookie:     { blockVisible:true,  noforeignVisible:true, sessionVisible:true,  allowVisible:true, prefilledHost:"", permissionType:"cookie"},
+        document:   { blockVisible:false, noforeignVisible:true,  sessionVisible:false, allowVisible:true, prefilledHost:"", permissionType:"document"},
+        image:      { blockVisible:true , noforeignVisible:false,  sessionVisible:false, allowVisible:true, prefilledHost:"", permissionType:"image"},
+        object:     { blockVisible:true,  noforeignVisible:true,  sessionVisible:false, allowVisible:true, prefilledHost:"", permissionType:"object"},
+        other:      { blockVisible:false, noforeignVisible:true,  sessionVisible:false, allowVisible:true, prefilledHost:"", permissionType:"other"},
+        popup:      { blockVisible:false, noforeignVisible:false,  sessionVisible:false, allowVisible:true, prefilledHost:"", permissionType:"popup"},
+        refresh:    { blockVisible:true,  noforeignVisible:true,  sessionVisible:false, allowVisible:true, prefilledHost:"", permissionType:"refresh"},
+        script:     { blockVisible:true,  noforeignVisible:true,  sessionVisible:false, allowVisible:true, prefilledHost:"", permissionType:"script"},
+        stylesheet: { blockVisible:true,  noforeignVisible:true,  sessionVisible:false, allowVisible:true, prefilledHost:"", permissionType:"stylesheet"},
+        subdocument:{ blockVisible:true,  noforeignVisible:true,  sessionVisible:false, allowVisible:true, prefilledHost:"", permissionType:"subdocument"}
+  },
+
+  _exceptionsParamsText: {
+        cookie:     { permissionstitle:"Cookie", permissionstext:"Cookie 是否允许可以指定使用每个网站。输入个别设定网站的准确地址 [不允许],[其他域拒绝],[只使用目前的session]、[许可] 的哪个请单击。",permissionskey:"c"},
+        document:   { permissionstitle:"文档", permissionstext:"document 是否允许使用每个网站可以指定。输入个别设定网站的准确地址 [不允许],[其他域拒绝]、[许可] 的哪个请单击。",permissionskey:"d"},
+        image:      { permissionstitle:"图片", permissionstext:"是否批准可以指定每个网站图像的读取。输入个别设定网站的准确地址 [不批准或][允许] 请单击。 ",permissionskey:"i"},
+        object:     { permissionstitle:"对象", permissionstext:"object 允许使用可以指定是否每个网站。输入个别设定网站的准确地址 [不允许],[其他域拒绝]、[许可] 的哪个请单击。 ",permissionskey:"o"},
+        other:      { permissionstitle:"XBL bindings", permissionstext:"XBL bindings 允许使用可以指定是否每个网站。输入个别设定网站的准确地址 [不允许],[其他域拒绝]、[许可] 的哪个请单击。 ",permissionskey:"t"},
+        popup:      { permissionstitle:"弹窗", permissionstext:"弹出式窗口可以指定允许打开的网站。输入允许打开网站的准确地址 [许可] 请单击。",permissionskey:"p"},
+        refresh:    { permissionstitle:"刷新标记", permissionstext:"meta refresh tag 是否允许使用每个网站可以指定。输入个别设定网站的准确地址 [不允许],[其他域拒绝]、[许可] 的哪个请单击。",permissionskey:"r"},
+        script:     { permissionstitle:"脚本", permissionstext:"外部脚本 是否允许使用每个网站可以指定。输入个别设定网站的准确地址 [不允许],[其他域拒绝]、[许可] 的哪个请单击。",permissionskey:"j"},
+        stylesheet: { permissionstitle:"CSS样式", permissionstext:"外部CSS 是否允许使用每个网站可以指定。输入个别设定网站的准确地址 [不允许],[其他域拒绝]、[许可] 的哪个请单击。",permissionskey:"s"},
+        subdocument:{ permissionstitle:"框架", permissionstext:"框架 是否允许使用每个网站可以指定。输入个别设定网站的准确地址 [不允许],[其他域拒绝]、[许可] 的哪个请单击。",permissionskey:"f"}
+  },
+
+  debug: function(aMsg){
+    const Cc = Components.classes;
+    const Ci = Components.interfaces;
+    Cc["@mozilla.org/consoleservice;1"]
+      .getService(Ci.nsIConsoleService)
+      .logStringMessage(aMsg);
+  },
+  
+  //for ExExceptions Settings
+  openExExceptions: function(evt) {
+    evt.preventDefault();
+    var tbt = document.getElementById("ucjsPermission_Toolmenu");
+  	if (evt.target != tbt) return;
+  	if (evt.button == 2) {
+  	  var href = document.commandDispatcher.focusedWindow.location.href;
+      var crurl = href.substring(0,4);
+      if (crurl != "http") href = "";
+	    var ExExceptions = "ExExceptions Settings";
+		  var windowsMediator = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator);
+		  var win = windowsMediator.getMostRecentWindow(ExExceptions);
+		  if (win) {
+			  //win.focus();
+			  win.minimize();
+        win.restore();
+		  } else {
+        window.openDialog('chrome://userChromeJS/content/exexcept/exexcept.xul', ExExceptions, 'chrome=yes,centerscreen', href);
+      } 
+	  }
+  }
+  
+}
+ucjsPermission.forToolMenu();
+//ucjsPermission.forContextMenu();
+  ]]></script>
+</overlay>

@@ -1,9 +1,14 @@
-/*+++2014.12.20 17:30+++*/
+/*+++2014.12.22 18:38+++*/
 
 /*==扩展/脚本图标补充==*/
 
-#lpt_lastpass-compact-btn {
+#lpt_lastpass-compact-btn[class^="lp"]/*登錄後*/ {
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADb0lEQVQ4jXWN7WsbdQDHD5benckqCZf8fpdc2jnmiG4xQjfNmC9mfcgsrsz/QKn4QkWtTtveUPGBMtO4pK5rg0u1velwqHVkIWltU9P26NJNtzVPq5EhCSIdti6pDWu6h/v6IlBk4IsPX/jwgS8zaXPunWtwBZKSsz8pOfuTNmd/kjhq+x83a7nLNT78yajN5WDCvDWo6huh6huh8hJmTNuQ3NcK1fwAVN5eQ9iOuScOYsbsgMpLUPWNmL6n4fYIZ21nRupEZYq3Y4qVoD64B7+f+haVpWXMv/w2EqwVCdaKS8+/gsry3yiGo5htasYUa0OCk7SvdRaZOV0nKnHejjhrw/RjLVj5cxF3ACyls0g43JhscOFa8mfcAVBZWob65HOYYK2Y4CRtWGeRmVO8qIwZ7Bgz2BEzSEgd8aO6vo7qzZvIHO3Dpfe6sba2hvVbt5DrO4HY5kaMGewY1UvaIGuRmWG9qEQMNkR4ERGeIrLVhT/OzeFGtYrSX0u4vngNN6pVLKYziO7cgwhLaq3eqp3gLTIT4i3KWPOzUN+SobZ3Yvq1d5D9IYx/Vlc3WK1UkP8xjunXO6C2d0J9swvR3Y9rAzqTzPTXmZQLXj9KlVWUymWUVsoolUv/QxmlchnXV8qYevWQdpQxyEwvb1ImDr+PXxcWkM9dwW8LC7iaz6NQKKBYLKJYLKJQKOBqPo987goWslnkMhlEXnhJ8+rqZSZQT5ThHU042bwfJ5v3Q9n3NM5+1I3L8/OYT6U2GD0+AKXZs9ENbdupeQ2CzPiMFmXQRBG6lyBUb8YX9+/A9PcjSGUyuKCqmPspgVQ6jeT4BJRH9iK0Wai1RqJ11wsyc8QkKEEiIkhEDJhFnOno3Hgd6ezCN20v4vLFi0hlMoh96kfQZkeQiAhaqPahSZCZjwVB6RNF9BGCz91uJCcnkc7lMBMOo9/5EPru24qJL4eQzmbxy/nzGDrQimOE4Bil2ruCIDMfCILSK4ropRSfbXfguy4Zs+Pj+KqtDX5CEDCbMXigFeficZz1+3F81y4EKEWAUu2wIMhMh9EY6qEUPkrhIwReSuFvaoJvy5aaoxQ9koTAo254JQk9hMBHKbyE3H7DaDzE7N606aCHZc+0cFzMw3HRZ1g26tHpoh6WjXo4rsZdroXjYk/V1Z12MYz7X4UETHmntOfVAAAAAElFTkSuQmCC") !important;
+-moz-image-region: rect(0px, 0px, 0px, 0px) !important;
+}
+
+#lpt_lastpass-compact-btn[class^="icon"]/*未登錄*/ {
+list-style-image: url("data:image/png;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAAQABADAREAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAABAf/xAAjEAABAwQCAgMBAAAAAAAAAAABAgMFBAYHEQAhMUESExRR/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AKXhrHFw5Iq7yZuFi5KUSbLzsDcJq3hStOpcV5AVo/Lrs+goedcBGVccz+NJSwGYNm4qox/53J+4RVvKpXXVPJ6AKtDRJHXopHnfAjuOM2yGOp28nJqWnHFx6X2oeEP2mmW6XFDRA6Trro/0+9cBd5ZrrslXLj5yJlJpqpr3qZmZg0h38yXEvJ0QD0dnZ1318ffA/9k=") !important;
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 
@@ -67,7 +72,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 
-#context-copygif/*复制GIF*/,[label="复制GIF"] {
+#context-copygif/*复制GIF*/,[command="context-copygif"] {
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADQElEQVQ4jWWTS08bBxSFR931J7TwN9pdN9khtd1UUXddVVXVXRehC1I1agOItAVS1CQkIgUEAQyjmkccJzE4NmBjjHna4AcGD2N7MB6PZxhsjPHM14WlKFGPdDZH+o7OXVzhiS+LO1bi+a7K/HaRuc0CzrCCGMojBrNMB2QcKxLiSobe6bDc1j7WKrwrz4GGL1dhNnXOxJ7OYFClz3tGz8tTOl0KnS6Fu648fy0WGPUklK9/nfvkyzuzH7e1i61t7WKr4DnQ8MoVnEmD4U2Nx8t55nZUxM0i0xtnONYLTAYVJoN5ZlazDceKlHcsS7K4nJF7p8Oy4E9oaBWLM9MidVbDlyy/XTQZ1RkKawz4Ve69PqPL3XTniwJ/+0qI/jSCP65h1sC4tMlqdfzJMl75AmfS4NlumSchjfs+lZ5XTfCuq8BvrgIDXhXHm0MEf7yEWbMxqjYn2hXBwzJaxaJwbnF63kAxGuT1Bjm9QbZ8jVy+Ripdk9MtFgJHCP4D9e2Ck1KzwKyBUbX/Z71qU67YqKaNVoGF1TTCy+0TjEsL45JmQaqMWbMpV5uZ/g6oXdgUTZuCYVM0YW45hTDmD3GQTzdPKNUJJstcXEHqNEskE0U1a+hV3oPzus2pAXO+JIIzFGMiNMpS/A0bRxl8sSxGtUH4eIfH4X5m95ykCgqqaVMwIK/bnGg2Od3G6U0geHcVAuk1nkWHmNwfYWxrjPmYE8fuOMPpAR4lehjc6GcpHiCjVpE1m2PVQi7biItxBO+OQsm8wptaYTL+D2JumAl5kFFpgKcnfTw87qY3cZuu9Z8YDY0RV3Skko1igLi4j7C4lcOsQfG8ztphjKHAOCM7DxmM/sGDwy76Uz/TvX2LvrVu3NFVFL3GRQ2K+iV9w959oX8mIj0PHknzK2lpypPIucNSQy5puGMefo90cC98m/GNKTYlhYxqc34JV/UGC0t7ma9+ePSFcONHR8uN70daPvtu8KObHf9+6onISqUOkUyUoeADAultZO2KrA5ZHcyajTeU1L+59fRbQRA+eO8zP+9wtPTPRCTX2rE9/jpijbrXLacvZYlLcWvGc2A5XsWsqRdb9V/uz/4ptN78UBAE4T9LnEIxOnwpAgAAAABJRU5ErkJggg==") !important;
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
@@ -276,7 +281,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 
-#placesContext_delete/*删除*/,#menuitem_uninstallItem/*附加组件右键——移除*/,#removeDownload,#placesContext_delete_history,[label="刪除"],#mnEditDelete,[key="delete-key"],[label="刪除資料夾"],#menu_delete,#header-search [label="刪除"] {
+#placesContext_delete/*删除*/,#menuitem_uninstallItem/*附加组件右键——移除*/,#removeDownload,#placesContext_delete_history,[label="刪除"],#mnEditDelete,[key="delete-key"],[label="刪除資料夾"],#menu_delete,#header-search [label="刪除"],[label="清除下载记录"],#clearDownloadsButton,[label="清空下載清單"],[label="Clear Downloads"] {
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADKUlEQVQ4jXXR72sTdxwHcP+EgXMiE2E+GENwK4gyJ+pEqYLrKqU/VocyVCzFUfFHq2BxezSfiNMm0sZE08R4Se9yl7ukNUntjxQrlg0c0zamaZrL5Zofl9zlm6RGrZv33qNlK9bP48/79YH3Z9WqFcbq8H55l/L9YXXw4i0rJxrNzEhPD71mpd0Vx+kOuJzugIHmhndT9PBug9k9abb7Tr03wAoj55xuv0JzQUKzQeJk/G8o2v/CQQ8RG+UjZptnqc/KveyzeshNC0t6TIxisgqd/7voV4qlCkipAo1UkNcWoahlZHIlpLJFyGmCZKqAhKwhnlSRkFUYTG61CtBckJQXX6FYeolCsQK18AI5dRHZfAlppYiFDIGcLkBa0JCQVSRTBRhvc6Uq4HANPXa4fG8H2AAoxg+rQ4DZ5oHFLsBk9cBgonGjbwBGCwujhcWvva6313pdvy/rwU4JRJJziIkZsPwD0FwQ0xEZf85IiEQTeD4rIqMUkc0XMT0zt/ROkRRzn2SUEqRUAcJQCJx3DLPzCjRSQdslFltbONQ0BbC3bQRHzztfAbi+DLhH3yfpbBGirIEfHAcrjEIjFbR2hrD5m2Hsap7Ald4wmrviqOuM47PGILcMcdBDZCFDEJdUeHzjmJtP4rLhIWq+HcW2+km0dDyBKJfR9ouMhks57Pzx+ZsPd1rOVIG7A4NEThcQS+TAeccQjSXx9fEAtjdNofZEGIcvxjD8KIXWn2TsOS3ii2NPsWY/99t/JboGibSgIRpXwApjiMYkbD38AAfbo2joTOHMNRm6rqP18gw2HXmC9Q2T+toDglIFbJSPJGQVkVgWbn4U0TkJte2jaLyYRnN3HqeuStB1HbWnp7CufgLrDoWweh8zVQX673lJXMojHM2A844jGkui+/oE6rpEHLyQxvc/h6HrOnacDOGjunFsaAwtffBVb0cVuGPnFTGZx+y8gvBcBs8iKeS1RRzpnsT29qfYcnwKRiaCT78bwydNIXx8gGOWvbGf8nVZbLx22y6ULTa+bO7ny7f6+fJ0eH7p6Fn765oW998b6wX98ybmr70/3PH+m/sHl2datM4WjnkAAAAASUVORK5CYII=") !important;
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
@@ -339,11 +344,6 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 
 [label="转至下载页面"],[label="前往下載頁"],[label="Go To Download Page"],#AM-open-url/*打開安裝頁面*/ {
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGdSURBVDjLlZNLSwJhFIa1Rb8iIWhRQUlluuoftDEtC5TKSgINily1CmoT0kJBqwlSaBGBLVxItGgZQQQVFe3bKN7wOjqO2tucwRGvqAMPMzDf+8w5ZzgyADLhGhJQCWi6MCwwQBkJWVWg4jguVSqVKuVyGe0Q3sPtdruaJZJAQ+FcLgeWZWuk02kkk0lEIhFREg6H4fF4GiR0yUlABwqFAorFongnstksUqkUotGoKMjn86CPMAwjSloEFJYgAQUymQxisVhLS9WZyBsEQhu1A/RMfUutxONxsZJQKNRZ0Ey9hCqheSQSid4F9RJqh2ZCor4EBM/z4lxIQvQtoCp2HtexfW+CObAM062uu4BCElSBJWjEzc8Vrr8Y6L3zvQsoTKz6F+H7PAPz7oLRp8eodmSjp7/geDqG2b8Me9CK8zcnXK8O7AWsmDtUF9UHUw/1gr+2O8BzsPm3YLvbhPPlBI7nI6xc6jC9P/Gr3B0flHZhVpgyKwQ6LpPFtwaTdwmGCy0MpwsVWsD6ZVKQpNs6z9iV35PWsY/q6iso+w9crJoc0rRwaAAAAABJRU5ErkJggg==") !important;
--moz-image-region: rect(0px, 0px, 0px, 0px) !important;
-}
-
-[label="清除下载记录"],#clearDownloadsButton,[label="清空下載清單"],[label="Clear Downloads"] {
-list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACJUlEQVQ4jbWRW0iTcRiHf9/2zdP8kgpRXB5IjXS6SKRQ66a6CmpESBgFdhN0gC66STpYQQcpKMKKElNIo3Yl6fycU2c6VxhJDSxaaGwtbejFTNxn2+zXzRrEFtpFLzx3/+d54f8C/3MGkLLXhhR5UNDSBq3fhuRr/xYQUuSZm2cZvnuRyrnjtGlSaQISViRbgZyhjEz+eHydc7VGfj9RQ6sq0b8iWRbFCos64cBYWTHn647Qt38HP+/ayh4xsXdZ2axRH7br0unIyaCrysBve6o4tbOcYwXr2CWKF5YNdKeq3ni2FNJTls/J0twoo7rVNCep2aVRHfurPNuGOtdpiTaDhhZJ5Mv0ZDqzUunKlujKXsV3mVp2JAvOuLKpGurZJyqG3Tf4c+o25x1nONGwm6+M6ynnJrFbK3BQEji6Dy/iBrytuDrXv51L0w8ZHKlkcHgTQ6MVDI0bGf5Yy3n7UX5tPURfm4qmaqj/kD0tuD/TUcCQ+xZD46e4aC2OpV/P4OtyfnmEYMx2dzMY9j5gaPISFetmKvLGGBb79QzYSznZhOmYwNs7aPH1bKNiL+Giw0DFYWCgr4gL3Ru40FnIhc5CKsOl9Fvy6GxEX7wvSLNcRvunJg29T9dw5rmO/t58Bob0DAyXRPG0SzSfx8F4ATWAtMoilDSfRL1cD3mkARPvG7H04R74m4EreAZAG/cKAAQAYuTBWgBZAHIA5EXQAZAiy6LzC5dMMfDZdkoXAAAAAElFTkSuQmCC") !important;
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 

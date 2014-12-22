@@ -4,5 +4,6 @@
 (function() {
 setTimeout(function() {addMenu.rebuild(true);}, 1000);
 setTimeout(function() {addMenu.rebuild(true);}, 2500);
+setTimeout(function() {addMenu.rebuild(true);}, 5500);
 })();
 

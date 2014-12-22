@@ -1,4 +1,5 @@
 
+//2014.12.22 18:50 選中文字搜索換回
 //2014.12.20 19:40 圖片另存放到二級菜單
 //2014.12.11 17:50 常用文字搜索橫排菜單
 //2014.12.09 22:45 將菜單換成正體中文
@@ -12,13 +13,13 @@
 //2014.11.06 21:55 調整Send to Gmail幾個菜單順序
 //2014.11.02 09:10 調整搜圖順序
 
-/*——————————标签页右键————————————*/
+/*——————————标签页右鍵————————————*/
 //撤销关闭二级菜单 By feiruo
 var undoMenu = TabMenu({
 label: '撤銷關閉',
 accesskey: "R",
 insertAfter: "context_undoCloseTab",
-tooltiptext: "右键显示所有历史记录",
+tooltiptext: "右鍵显示所有历史记录",
 onclick: "if (event.button == 2) {PlacesCommandHook.showPlacesOrganizer('History');}",
 onpopupshowing: function(e) {
 var popup = e.target;
@@ -45,8 +46,8 @@ popup.appendChild(m);
 },
 });
 
-/*——————————圖片右键————————*/
-//右键搜索圖片 以圖搜圖
+/*——————————圖片右鍵————————*/
+//右鍵搜索圖片 以圖搜圖
 var imagesub = PageMenu({
 label: "以圖搜圖",
 accesskey: "I",
@@ -220,7 +221,7 @@ css('#contentAreaContextMenu[addMenu~="image"] #' + it.command + '{ display: non
 });
 };
 
-/*——————————选中文本右键——————————*/
+/*——————————选中文本右鍵——————————*/
 //鏈接和选中文字(同时选中)的分割线
 page({
 label: 'separator',
@@ -233,15 +234,18 @@ label: 'separator',
 insertAfter: "context-viewimageinfo",
 condition: 'image&select',
 })
-//Firefox 31+ 横排菜单，在鏈接上和非鏈接上不相同
-var openMenu = GroupMenu({
-label: '打開...',
-condition: 'select',
-position: 1,
-insertBefore: 'context-sep-navigation'
+
+//搜索选中文本
+new function() {
+var menu = PageMenu({
+condition: "select",
+label: "搜索選中文本",
+accesskey: "S",
+insertBefore: "context-copy",
 });
-openMenu([{
-label: "Google搜索",
+var items = [
+//打开方式(默认当前頁面)，通过where 更改，具体tab(前台)、tabshifted(后台)、window(窗口)
+{label: "Google搜索",
 accesskey: "G",
 url: "http://www.google.com/search?q=%s",
 image: "",
@@ -259,27 +263,7 @@ url: "http://www.tvc-mall.com/search?q=%s",
 image: "",
 where: 'tab'
 },
-/*{
-label: "BackupProfiles",
-text: '%RLINK_OR_URL%',
-exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\Local\\BackupProfiles\\BackupProfiles_7z.bat",
-},
-{
-label: "在 Chrome 中打开",
-text: '%RLINK_OR_URL%',
-exec: Services.dirsvc.get("LocalAppData", Ci.nsILocalFile).path + "\\Google\\Chrome\\Application\\chrome.exe",
-},*/
-]);
-//搜索选中文本
-new function() {
-var menu = PageMenu({
-condition: "select",
-label: "搜索選中文本",
-accesskey: "S",
-insertBefore: "context-copy",
-});
-var items = [
-//打开方式(默认当前页面)，通过where 更改，具体tab(前台)、tabshifted(后台)、window(窗口)
+{},
 {
 label: "Baidu地圖",
 url: "http://map.baidu.com/m?word=%s",
@@ -326,7 +310,7 @@ e.checked = !e.checked;
 }
 });
 
-/*——————————输入框右键——————————*/
+/*——————————输入框右鍵——————————*/
 //插入code代码
 page({
 label: "插入code代碼",
@@ -409,7 +393,42 @@ image: " "
 menu(items);
 };
 
-/*——————————页面右键——————————*/
+/*——————————頁面右鍵——————————*/
+//Firefox 31+ 横排菜单，在鏈接上和非鏈接上不相同
+var openMenu = GroupMenu({
+    label: '打开...',
+    condition: 'noinput noselect nomailto nocanvas nomedia noimage nolink',
+    position: 1,
+    insertBefore: 'context-sep-navigation'
+});
+openMenu([
+    {
+        label:"复制文本+链接",
+        text:"%RLT_OR_UT%\n%RLINK_OR_URL%",
+        image:""
+    },
+    {
+        label:"在隐私窗打开",
+        oncommand: "openLinkIn(addMenu.convertText('%RLINK_OR_URL%'), 'window',{private:true});",
+        image:""
+    },
+    {
+        label: "在 IE 中打开",
+        text: "%RLINK_OR_URL%",
+        exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
+    },
+/*{
+label: "BackupProfiles",
+text: '%RLINK_OR_URL%',
+exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\Local\\BackupProfiles\\BackupProfiles_7z.bat",
+},
+{
+label: "在 Chrome 中打开",
+text: '%RLINK_OR_URL%',
+exec: Services.dirsvc.get("LocalAppData", Ci.nsILocalFile).path + "\\Google\\Chrome\\Application\\chrome.exe",
+},*/
+]);
+
 //EHH元素隱藏
 page([{
 label: '選擇屏蔽內容',
@@ -448,7 +467,7 @@ clone: false,// 不克隆，直接改在原来的菜单上面
 }
 );
 
-//右键菜单
+//右鍵菜单
 tab({
 id: "yun-player-context",
 insertAfter: "context-copylink",

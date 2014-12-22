@@ -1,8 +1,9 @@
-/*+++2014.12.18 20:45+++*/
+/*+++2014.12.20 20:40+++*/
 
 /*==============以下为“界面”的隐藏==============*/
-/*书签工具栏产生的箭头*/
-#PlacesChevron,
+/*===導航欄&工具欄===*/
+#downloadsListBox,/*下載框彈窗*/
+#PlacesChevron,/*书签工具栏产生的箭头*/
 #nav-bar-overflow-button {
 display: none !important;
 }

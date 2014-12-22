@@ -1,4 +1,4 @@
-::Mod 2014.12.19
+::Mod 2014.12.22
 
 echo off
 rem 设置备份路径以及临时文件夹
@@ -18,7 +18,7 @@ del %BackDir%\chrome\UserScriptLoader\temp\  /s /q
 xcopy "%BackDir%\adblockplus" %TempFolder%\adblockplus\  /s /y /i
 xcopy "%BackDir%\chrome" %TempFolder%\chrome\  /s /y /i
 xcopy "%BackDir%\extensions" %TempFolder%\extensions\ /s /y /i
-xcopy "%BackDir%\gm_scripts" %TempFolder%\gm_scripts\ /s /y /i
+::xcopy "%BackDir%\gm_scripts" %TempFolder%\gm_scripts\ /s /y /i
  
 ::以下是文件
 xcopy "%BackDir%\bookmarks.html" %TempFolder%\ /y

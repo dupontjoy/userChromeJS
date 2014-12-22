@@ -1,14 +1,7 @@
-//2014.12.19 16:20
+//2014.12.21 09:30
 
 //F功能鍵
-keys['F1'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键
-keys['F9'] = function() {
-                var file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile);
-                file.append("Local");
-                file.append("UpdateSWF");
-                file.append("UpdateGAE.bat");
-                file.launch();
-            };//下載本地SWF
+
 //数字       
 keys['1'] = "gBrowser.selectedTab = gBrowser.addTab('http://www.baidu.com');";//百度
 keys['2'] = "gBrowser.selectedTab = gBrowser.addTab('https://www.google.com/webhp?&complete=0');";//Google
@@ -44,13 +37,22 @@ keys['W'] = "gWHT.addWord();";//WordHighlight添加词
 keys['X'] = "gWHT.destroyToolbar();";//WordHighlight取消工具栏
 
 //組合鍵
-keys['Ctrl+B'] = function() {
+keys['Ctrl+F1'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键
+
+keys['Ctrl+F8'] = function() {
                 var file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile);
                 file.append("Local");
                 file.append("BackupProfiles");
                 file.append("BackupProfiles_7z.bat");
                 file.launch();
             };//備份Firefox
+keys['Ctrl+F9'] = function() {
+                var file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile);
+                file.append("Local");
+                file.append("UpdateSWF");
+                file.append("UpdateGAE.bat");
+                file.launch();
+            };//下載本地SWF
 keys["Alt+X"] = "Services.appinfo.invalidateCachesOnRestart() || Application.restart();"; //删除启动缓存并重启
 
 

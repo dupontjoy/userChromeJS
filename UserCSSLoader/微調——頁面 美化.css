@@ -1,4 +1,4 @@
-/*+++2014.12.18 20:45+++*/
+/*+++2014.12.23 20:45+++*/
 
 /*输入框类chrome高亮*/
 input:not([type='submit']):not([type='reset']):not([type='button']):not([type='checkbox']):not([type='radio']):focus,
@@ -32,7 +32,6 @@ font: 12px Arial!important;
 
 img:-moz-broken {
 -moz-force-broken-image-icon: 1 !important;
-background-color: grey;
 background-repeat: no-repeat;
 position: relative;
 width: 24px;

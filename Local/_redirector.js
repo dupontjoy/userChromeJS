@@ -1,4 +1,5 @@
 
+//2014.12.26 10:55  跟進Google统计和tag >> mingto.tk
 //2014.12.19 16:20  科大博客已宕
 //2014.12.14 18:30  修正TVC規則  
 //2014.11.28 15:50  新增2條TVC規則
@@ -128,7 +129,7 @@ from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "http://$1.useso.com/$2",
 regex: true
 },
-/*{
+{
 //https://servers.ustclug.org/index.php/2014/06/blog-googlefonts-speedup/
 name: "ajax/fonts >> 科大博客提供",
 from: /^https:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
@@ -146,7 +147,7 @@ name: "fonts-gstatic >> 科大博客",
 from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
 to: "http://fonts-gstatic.lug.ustc.edu.cn/$1",
 regex: true
-},*/
+},
 {
 name: "Gravatar头像 >> 多说",
 from: /^https?:\/\/([0-9]?)\.gravatar\.com\/avatar\/(.*)$/,
@@ -154,15 +155,9 @@ to: "http://gravatar.duoshuo.com/avatar/$1",
 regex: true
 },
 {
-name: "Google统计脚本 >> mingto.tk",
-from: /^https?:\/\/(.*?)google-analytics\.com\/(.*)$/,
-to: "http://code.minggo.tk/etc/$2",
-regex: true
-},
-{
-name: "Google Tag Services >> mingto.tk",
-from: /^https?:\/\/(.*?)googletagservices\.com\/tag\/js\/(.*)$/i,
-to: "http://www.minggo.tk/etc/$2",
+name: "Google统计和tag >> mingto.tk",
+from: /^https?:\/\/(.*?)(google-analytics|googletagmanager|googletagservices|googleadservices)\.com\/([\w]+\/)*([\w]+(\.[\w]+)?)/i,
+to: "http://minggo.coding.io/cdn/google/$4",
 regex: true
 },
 
@@ -174,27 +169,27 @@ to: "https://www.tradingfloor.com/images/article/original/$1",
 regex: true
 },*/
 {
-name: "百度貼吧|百科 原始大圖",
+name: "百度貼吧|百科 >> 原始大圖",
 from: /^http:\/\/(imgsrc|[\w]?\.hiphotos)\.baidu\.com\/(forum|baike)\/[\w].+\/sign=[^\/]+(\/.*).jpg/i,
 to: "http://$1.baidu.com/$2/pic/item$3.jpg",
 regex: true
 },
 {
-name: "500px 原始大圖",
+name: "500px >> 原始大圖",
 from: /^https?:\/\/gp1\.wac\.edgecastcdn\.net\/806614\/photos\/photos\.500px\.net\/(.*)\/(.*)\/[\d].jpg+(\/.*)?/i,
 to: "https://gp1.wac.edgecastcdn.net/806614/photos/photos.500px.net/$1/$2/2048.jpg",
 regex: true
 },
 {
 //測試：http://i11.topit.me/m/201103/12/12998645416093.jpg
-name: "topit.me 原始大圖-1",
+name: "topit.me >> 原始大圖-1",
 from: /^https?:\/\/(.*)\.topit\.me\/(s|m)(.*)?\/(.*)\.jpg$/,
 to: "http://$1.topit.me/l$3/$4.jpg",
 regex: true
 },
 {
 //測試：http://f8.topit.me/8/69/94/11889296294ef94698m.jpg
-name: "topit.me 原始大圖-2",
+name: "topit.me >> 原始大圖-2",
 from: /^https?:\/\/(f[\d]?)\.topit\.me\/(.*)m\.jpg$/,
 to: "http://$1.topit.me/$2l.jpg",
 regex: true

@@ -1,4 +1,5 @@
 
+//2014.12.29 18:10  新增designspiration >> 原始大图，Google搜圖去跳轉
 //2014.12.26 10:55  跟進Google统计和tag >> mingto.tk
 //2014.12.19 16:20  科大博客已宕
 //2014.12.14 18:30  修正TVC規則  
@@ -74,6 +75,12 @@ regex: true
 name: "反Google搜索验证码",
 from: /^https?:\/\/ipv4\.google\.com\/sorry\/IndexRedirect\?continue=https?:\/\/www\.google\.com(?:\.hk|)\/search\?(.*q=.*)&q=.*/i,
 to: "https://www.google.com/ncr#$1",
+regex: true
+},
+{
+name: "Google搜圖去跳轉",
+from:/^https?:\/\/www\.google\.com\/(.*)imgurl=(.*)&imgrefurl=(.*)/i,
+to: "$3",
 regex: true
 },
 {
@@ -192,6 +199,12 @@ regex: true
 name: "topit.me >> 原始大圖-2",
 from: /^https?:\/\/(f[\d]?)\.topit\.me\/(.*)m\.jpg$/,
 to: "http://$1.topit.me/$2l.jpg",
+regex: true
+},
+{
+name: "designspiration >> 原始大图",
+from: /^https?:\/\/(.*)\.dspnimg\.com\/data\/g\/(.*)g\.jpg+(\/.*)?/i,
+to: "http://$1.dspnimg.com/data/l/$2l.jpg",
 regex: true
 },
 

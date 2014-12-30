@@ -1,0 +1,10 @@
+/* 改变新窗口打开的链接的光标 */
+:link[target="_blank"], :visited[target="_blank"],
+:link[target="_new"],   :visited[target="_new"] {
+  cursor:  no-drop;
+}
+
+/* 改变JS链接的光标 */
+a[href^="javascript:"] {
+cursor: move;
+}

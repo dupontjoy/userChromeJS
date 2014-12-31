@@ -1,4 +1,5 @@
 
+//2014.12.31 21.55  新增sourceforge下载 >> ftp镜像站点，更新Google搜圖去跳轉，更新500px >> 原始大圖，topit.me >> 原始大圖
 //2014.12.29 18:10  新增designspiration >> 原始大图，Google搜圖去跳轉
 //2014.12.26 10:55  跟進Google统计和tag >> mingto.tk
 //2014.12.19 16:20  科大博客已宕
@@ -79,7 +80,7 @@ regex: true
 },
 {
 name: "Google搜圖去跳轉",
-from:/^https?:\/\/www\.google\.com\/(.*)imgurl=(.*)&imgrefurl=(.*)/i,
+from:/^https?:\/\/www\.google\.com\/(.*)imgurl=(.*)&imgrefurl=(.*)\&h=(.*)/i,
 to: "$3",
 regex: true
 },
@@ -99,6 +100,12 @@ regex: true
 name: "userscripts >> webextender鏡像",
 from: /^https?:\/\/userscripts\.org(?:\:8080|)\/(.*)/i,
 to: "http:\/\/webextender.net/$1",
+regex: true
+},
+{
+name: "sourceforge下载 >> ftp镜像站点",
+from: /^https?:\/\/sourceforge\.net\/projects\/(((\w)\w).*)\/files\/(.*)\/download/i,
+to: "ftp://ftp.jaist.ac.jp/pub/sourceforge/$3/$2/$1/$4",
 regex: true
 },
 {
@@ -183,22 +190,15 @@ regex: true
 },
 {
 name: "500px >> 原始大圖",
-from: /^https?:\/\/gp1\.wac\.edgecastcdn\.net\/806614\/photos\/photos\.500px\.net\/(.*)\/(.*)\/[\d].jpg+(\/.*)?/i,
-to: "https://gp1.wac.edgecastcdn.net/806614/photos/photos.500px.net/$1/$2/2048.jpg",
+from: /^https?:\/\/(.*)\.(edgecastcdn|500px)\.(net|org)\/(.*)\/[\d].jpg(.*)?/i,
+to: "https://$1.$2.$3/$4/2048.jpg",
 regex: true
 },
 {
-//測試：http://i11.topit.me/m/201103/12/12998645416093.jpg
-name: "topit.me >> 原始大圖-1",
-from: /^https?:\/\/(.*)\.topit\.me\/(s|m)(.*)?\/(.*)\.jpg$/,
-to: "http://$1.topit.me/l$3/$4.jpg",
-regex: true
-},
-{
-//測試：http://f8.topit.me/8/69/94/11889296294ef94698m.jpg
-name: "topit.me >> 原始大圖-2",
-from: /^https?:\/\/(f[\d]?)\.topit\.me\/(.*)m\.jpg$/,
-to: "http://$1.topit.me/$2l.jpg",
+//測試：http://i11.topit.me/m/201103/12/12998645416093.jpg, http://f8.topit.me/8/69/94/11889296294ef94698m.jpg
+name: "topit.me >> 原始大圖",
+from: /^https?:\/\/(.*)\.topit\.me\/(.*)?m(.*)?\.jpg$/,
+to: "http://$1.topit.me/$2l$3.jpg",
 regex: true
 },
 {
@@ -213,6 +213,13 @@ regex: true
 name: "noMoreArchiver",
 from: /(.*)\/archiver\/(.*)tid-(.*)\.html/,
 to: "$1/viewthread.php?tid=$3",
+regex: true
+},
+{
+//測試：https://df6a.https.cdn.softlayer.net/80DF6A/static.userstyles.org/style_screenshots/108263_after.jpeg?r=1419854786
+name: "去圖片後多餘的代碼",
+from: /(.*)\.(jpg|jpeg|png|gif)\?[\w](.*)/,
+to: "$1.$2",
 regex: true
 },
 

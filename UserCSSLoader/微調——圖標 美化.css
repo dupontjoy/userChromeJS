@@ -1,4 +1,11 @@
-/*+++2015.01.01 09:20+++*/
+/*+++2015.01.01 19:50+++*/
+
+/*改变新窗口打开的链接的光标*/
+:link[target="_blank"], :visited[target="_blank"],
+:link[target="_new"],   :visited[target="_new"] {
+/*cursor:  no-drop;*/
+cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAmCAYAAADX7PtfAAADB0lEQVRYhbXV204TQRgH8D+EYyD1FDQQsx7QaIACVSkkJnrrCYgPwN2+AJaDChiuRCtPwAt44xt4Y8LNPgBQTrYcE67bctPd+nkxs7Ozu7PdLi2T/FPSA7+d+eabAdQjz9MOIMbTDqAJQEPAby488uVyOV8ul/MACgA0ni6ONl4KaFlWAUARQJznLoCrAJovGxzheQTgBoCWywbHeAYAdAPoAFvWutXSC57zJADcA6tlJ4A2sOWtGXeBpVLpvFQq2WiR5zaAm2A17QBb5gvDgaD0tw33AugBcB0R26aBP2EzgLxlWYUQUJ71AIdvgS11KJqXEgNQsCyrYJpmMQyU0ASAhxwN7VV5CQsAiqZpFk3TFJg3CvA5nE0V2qsC9M6qmnDwBYAkIvRqreBLsF7tA2ub1jCw0UbrBLbx/9nEl7cJnrZpgLQ7g+r3fubnP003qNr0TP1e4TXthNOr8KEqMP0rW9J0gybTWdLXzkIzmc6SphsEduh3w2kZfy29qI1pukH62hlNrJ4qZzSxeuoKB/vg3DS+zeSbpYw54AmNLh2QaowuHYhwcBjAA7DTSLl7xSy9mA2O/zih5GKOkos50nSDkos5IiLxnvwZgCGwk+haEBhYSxmUH4KIBKwABwHcrwQG1tIBj2lkIatc0pGFrEgkkMd1J9rgu/SxctM8+/zXlSggwBo2Bnb3PQTQ54BHYim94+mnfRGphlWBjWBHVAzsfOyywbffj1y1k1+ffNwXiTpD+Y5sAdAqg4n5PSIi5audqKBvOOAhJeZ3fTVMzO+6UjfwzbdD0nSDhud2fDUcntsRqSN4QEOz26J2mm7Q0Oy2LxLYC3bShF5bSvD1Cju2BmcyrtkNzmRc4eBjVDhLqwbjqYxrhppuUDyVcYWDd1DhtqgSzFE8tUXx1Javhvb78dSWDV5BwH1YNfjqa44GPmyGhoPKGz8y2D+9GRoOXnw4YJb6pzeU52n/9IZI3UAHWF/Wpv6Mi+jryzJcF9CGKn/PgWsGx77sVcS8aI1g5Zl5h+rh/gN2aSigjyWjIQAAAABJRU5ErkJggg=="), pointer;
+}
 
 /*==扩展/脚本图标补充==*/
 

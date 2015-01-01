@@ -1,5 +1,5 @@
 
-//2014.12.31 21.55  新增sourceforge下载 >> ftp镜像站点，更新Google搜圖去跳轉，更新500px >> 原始大圖，topit.me >> 原始大圖
+//2014.12.31 22.55  新增sourceforge下载 >> ftp镜像站点，更新Google搜圖去跳轉，更新500px >> 原始大圖，topit.me >> 原始大圖
 //2014.12.29 18:10  新增designspiration >> 原始大图，Google搜圖去跳轉
 //2014.12.26 10:55  跟進Google统计和tag >> mingto.tk
 //2014.12.19 16:20  科大博客已宕
@@ -192,6 +192,7 @@ regex: true
 name: "500px >> 原始大圖",
 from: /^https?:\/\/(.*)\.(edgecastcdn|500px)\.(net|org)\/(.*)\/[\d].jpg(.*)?/i,
 to: "https://$1.$2.$3/$4/2048.jpg",
+exclude: /^https?:\/\/(.*)\.(edgecastcdn|500px)\.(net|org)\/(.*)\/(1|2).jpg(.*)?/i,//排除頭像縮略圖
 regex: true
 },
 {

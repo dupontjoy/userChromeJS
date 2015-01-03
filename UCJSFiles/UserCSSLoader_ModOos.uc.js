@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name			UserCSSLoader.uc.js
-// @description		类似 Stylish 的用户样式管理器 (Stylish みたいなもの)
+// @description		類似 Stylish 的用戶樣式管理器 (Stylish みたいなもの)
 // @namespace		http://d.hatena.ne.jp/Griever/
 // @author			Griever
 // @include			main
@@ -9,40 +9,35 @@
 // @charset			UTF-8
 // @version			0.0.4
 // @homepageURL		https://github.com/Griever/userChromeJS/blob/master/UserCSSLoader
-// @note			2014/7/10 Mod by Oos 添加在各 CSS 项目上 Ctrl + 中键：复选启用/停用, 在按钮上中键：重新加载和右键：启用 / 禁用 UserCSSLoader
-// @note			2014/7/10 Mod by feiruo 添加启用/停用 UserCSSLoader
-// @note			2014/7/8 Mod by feiruo 添加重载 userChrome.css 和重载 userContent.css
-// @note			2014/2/26 Mod by dannylee 添加可切换图标和菜单模式, 在各 CSS 项目上中键：重载
+// @note			2014/7/10 Mod by Oos 添加 CSS 選單 Ctrl + 中鍵複選啟用/停用, 按鈕中鍵重新加載和右鍵啟用 / 禁用 UserCSSLoader
+// @note			2014/7/10 Mod by feiruo 添加啟用/停用 UserCSSLoader
+// @note			2014/7/8 Mod by feiruo 添加重載 userChrome.css 和重載 userContent.css
+// @note			2014/2/26 Mod by dannylee 添加可切換圖標和選單模式, CSS 選單中鍵重載
 // @note			0.0.4 Remove E4X
 // @note			CSSEntry クラスを作った
-// @note			スタイルのテスト机能を作り直した
-// @note			ファイルが削除された场合 rebuild 时に CSS を解除しメニューを消すようにした
+// @note			スタイルのテスト機能を作り直した
+// @note			ファイルが削除された場合 rebuild 時に CSS を解除しメニューを消すようにした
 // @note			uc で読み込まれた .uc.css の再読み込みに仮対応
 // ==/UserScript==
 
 /****** 使用方法 ******
 
-在用户样式管理器按钮上
-中键：重新加载已选样式
-右键：启用 / 禁用 UserCSSLoader
+在選單「CSS-Stylish管理」選單中：
+左鍵點擊各 CSS 項目，切換各項目的「應用與否」；
+中鍵點擊各 CSS 項目，重新加載各項目;
+Ctrl + 中鍵點擊各 CSS 項目，也是切換各項目的「應用與否」，但不退出選單，即可連續操作;
+右鍵點擊各 CSS 項目，則是調用編輯器對其進行編輯；
 
-在用户样式管理器菜单中：
-在各 CSS 项目上
-左键：切换各项目的“应用与否”；
-中键：重新加载各项目;
-Ctrl + 中键：也是切换各项目的“应用与否”，但不退出菜单，即可连续操作;
-右键：调用编辑器对其进行编辑；
+userChrome.css 和 userContent.css
+左鍵：重載
+右鍵：編輯
 
-在 userChrome.css 和 userContent.css 上
-左键：重载
-右键：编辑
+在 about:config 裡修改 "view_source.editor.path" 以指定編輯器
+在 about:config 裡修改 "UserCSSLoader.FOLDER" 以指定存放文件夾
 
-在 about:config 里修改 "view_source.editor.path" 以指定编辑器
-在 about:config 里修改 "UserCSSLoader.FOLDER" 以指定存放文件夹
+類似滾動條 css 的瀏覽器 chrome 樣式，請改成以 "xul-" 為開頭，或以 ".as.css" 為結尾的文件名，才能正常載入
 
-类似滚动条 css 的浏览器 chrome 样式，请改成以 "xul-" 为开头，或以 ".as.css" 为结尾的文件名，才能正常载入
-
- **** 结束说明 ****/
+ **** 結束說明 ****/
 
 (function(css) {
 
@@ -50,7 +45,7 @@ let { classes: Cc, interfaces: Ci, utils: Cu, results: Cr } = Components;
 if (!window.Services)
 	Cu.import("resource://gre/modules/Services.jsm");
 
-// 起动时に他の窓がある（２窓目の）场合は抜ける
+// 起動時に他の窓がある（２窓目の）場合は抜ける
 let list = Services.wm.getEnumerator("navigator:browser");
 let inIDOMUtils = Cc["@mozilla.org/inspector/dom-utils;1"].getService(Ci.inIDOMUtils);
 while(list.hasMoreElements()) { if(list.getNext() != window) return; }
@@ -62,6 +57,7 @@ if (window.UCL) {
 
 window.UCL = {
 	isready: false,
+	USE_UC: "UC" in window,
 	AGENT_SHEET: Ci.nsIStyleSheetService.AGENT_SHEET,
 	USER_SHEET : Ci.nsIStyleSheetService.USER_SHEET,
 	readCSS    : {},
@@ -94,7 +90,7 @@ window.UCL = {
 			aFolder.initWithPath(folderPath);
 		} catch (e) {
 			aFolder = Services.dirsvc.get("UChrm", Ci.nsILocalFile);
-			aFolder.appendRelativePath("UserCSSLoader");//指定用户css文件夹名称，若不存在会自动创建
+			aFolder.appendRelativePath("UserCSSLoader");//指定用戶css文件夾名稱，若不存在會自動創建
 		}
 		if (!aFolder.exists() || !aFolder.isDirectory()) {
 			aFolder.create(Ci.nsIFile.DIRECTORY_TYPE, 0664);
@@ -121,8 +117,8 @@ window.UCL = {
 								   onclick="UCL.iconClick(event);" >\
 						<menupopup id="usercssloader-menupopup"\
 								   onclick="event.preventDefault(); event.stopPropagation();" >\
-							<menuitem label="重新加载全部样式"\
-									  tooltiptext="仅选中的样式"\
+							<menuitem label="重新加載全部樣式"\
+									  tooltiptext="僅選中的樣式"\
 									  accesskey="R"\
 									  acceltext="Alt + R"\
 									  oncommand="UCL.rebuild();" />\
@@ -134,19 +130,33 @@ window.UCL = {
 									  label="userContent.css"\
 									  hidden="false"\
 									  onclick="UCL.userC(event,\'userContent.css\');"/>\
-							<menu label="管理菜单">\
+							<menu label="管理選單">\
 								<menupopup>\
-									<menuitem label="打开样式目录"\
+									<menuitem label="打開樣式目錄"\
 											  accesskey="O"\
 											  oncommand="UCL.openFolder();" />\
-									<menuitem label="编写新样式 (外部编辑器)"\
+									<menuitem label="編寫新樣式 (外部編輯器)"\
 											  accesskey="N"\
 											  oncommand="UCL.create();" />\
-									<menuitem label="寻找此网站的样式"\
+									<menuitem label="編寫瀏覽器的樣式 (Chrome)"\
+											  id="usercssloader-test-chrome"\
+											  accesskey="C"\
+											  oncommand="UCL.styleTest(window);" />\
+									<menuitem label="編寫此網站的樣式 (Web)"\
+											  id="usercssloader-test-content"\
+											  accesskey="W"\
+											  oncommand="UCL.styleTest();" />\
+									<menuitem label="尋找此網站的樣式"\
 											  accesskey="F"\
 											  oncommand="UCL.searchStyle();" />\
-									<menuitem id="showCSStoolsbutton" label="用户样式管理器显示为按钮"\
-											  accesskey="T"\
+									<menu label=".uc.css" accesskey="U" hidden="'+ !UCL.USE_UC +'">\
+										<menupopup id="usercssloader-ucmenupopup">\
+											<menuitem label="Rebuild(.uc.js)"\
+													  oncommand="UCL.UCrebuild();" />\
+											<menuseparator id="usercssloader-ucsepalator"/>\
+										</menupopup>\
+									</menu>\
+									<menuitem id="showCSStoolsbutton" label="用戶樣式管理器顯示為按鈕"\
 											  oncommand="UCL.toggleUI(1);" />\
 								</menupopup>\
 							</menu>\
@@ -162,7 +172,7 @@ window.UCL = {
 	//dannylee
 	var menuitem = $("menu_ToolsPopup").insertBefore($C("menu", {
 		id: "usercssloader_Tools_Menu",
-		label: "用户样式管理器脚本版",
+		label: "用戶樣式管理器腳本版",
 		class: "menu-iconic",
 		onclick: "UCL.iconClick(event);"
 	}), $("menu_preferences"));
@@ -186,11 +196,16 @@ window.UCL = {
 				}));
 				this.rebuild();
 				this.initialized = true;
+				if (UCL.USE_UC) {
+					setTimeout(function() {
+						UCL.UCcreateMenuitem();
+						}, 100);
+				}
 				window.addEventListener("unload", this, false);
 				//dannylee
-				$("showCSStoolsbutton").setAttribute("label", "用户样式管理器显示为" + (this.ShowToolButton ? "菜单" : "按钮"));
+				$("showCSStoolsbutton").setAttribute("label", "用戶樣式管理器顯示為" + (this.ShowToolButton ? "選單" : "按鈕"));
 				UCL.toggleUI(0);
-				Application.console.log("UserCSSLoader 界面加载完毕！");
+				Application.console.log("UserCSSLoader 界面加載完畢！");
 			}
 		}
 	},
@@ -206,10 +221,10 @@ window.UCL = {
 			$("usercssloader-menu").hidden = !UCL.ShowToolButton;
 			if (!UCL.ShowToolButton) {
 				$("usercssloader_Tools_Menu").appendChild($("usercssloader-menupopup"));
-				$("showCSStoolsbutton").setAttribute("label", "用户样式管理器显示为按钮");
+				$("showCSStoolsbutton").setAttribute("label", "用戶樣式管理器顯示為按鈕");
 			} else {
 				$("usercssloader-menu").appendChild($("usercssloader-menupopup"));
-				$("showCSStoolsbutton").setAttribute("label", "用户样式管理器显示为菜单");
+				$("showCSStoolsbutton").setAttribute("label", "用戶樣式管理器顯示為選單");
 			}
 		}, 10);
 	},
@@ -234,8 +249,8 @@ window.UCL = {
 		}
 	},
 	enableUCL:function() {
-		var str = "用户样式管理器";
-		var dstr = "\n\n左键：用户样式菜单\n中键：重新加载已选样式\n右键：启用 / 禁用";
+		var str = "用戶樣式管理器";
+		var dstr = "\n\n左鍵：用戶樣式選單\n中鍵：重新加載已選樣式\n右鍵：啟用 / 禁用";
 		if (!UCL.UCLdisable) {
 			for (let [leafName, CSS] in Iterator(this.readCSS)) {
 				CSS.enabled = false;
@@ -251,10 +266,10 @@ window.UCL = {
 			this.rebuild();
 			UCL.UCLdisable=!UCL.UCLdisable;
 			$("usercssloader_Tools_Menu").setAttribute("state", "enable");
-			$("usercssloader_Tools_Menu").setAttribute("tooltiptext", str + "已启用" + dstr);
+			$("usercssloader_Tools_Menu").setAttribute("tooltiptext", str + "已啟用" + dstr);
 			$("usercssloader-menu").setAttribute("state", "enable");
-			$("usercssloader-menu").setAttribute("tooltiptext", str + "已启用" + dstr);
-			XULBrowserWindow.statusTextField.label = "UserCSSLoader 已启用";
+			$("usercssloader-menu").setAttribute("tooltiptext", str + "已啟用" + dstr);
+			XULBrowserWindow.statusTextField.label = "UserCSSLoader 已啟用";
 		}
 	},
 	rebuild: function() {
@@ -277,7 +292,7 @@ window.UCL = {
 			this.rebuildMenu(leafName);
 		}
 		if (this.initialized)
-			XULBrowserWindow.statusTextField.label = "重新加载样式已完成";//Rebuild しました
+			XULBrowserWindow.statusTextField.label = "重新加載樣式已完成";//Rebuild しました
 	},
 	loadCSS: function(aFile) {
 		var CSS = this.readCSS[aFile.leafName];
@@ -291,7 +306,7 @@ window.UCL = {
 		}
 		return CSS;
 	},
-//按钮css列表子菜单start
+//按鈕css列表子選單start
 	rebuildMenu: function(aLeafName) {
 		var CSS = this.readCSS[aLeafName];
 		var menuitem = $("usercssloader-" + aLeafName);
@@ -311,12 +326,12 @@ window.UCL = {
 				autocheck: "false",
 				oncommand: "UCL.toggle('"+ aLeafName +"');",
 				onclick: "UCL.itemClick(event);",
-				tooltiptext: "左键：启用 / 禁用\n中键：重新加载\n右键：编辑\nCtrl + 中键：复选启用 / 禁用"
+				tooltiptext: "左鍵：啟用 / 禁用\n中鍵：重新加載\n右鍵：編輯\nCtrl + 中鍵：複選啟用 / 禁用"
 			}));
 		}
 		menuitem.setAttribute("checked", CSS.enabled);
 	},
-//按钮css列表子菜单end
+//按鈕css列表子選單end
 	toggle: function(aLeafName) {
 		var CSS = this.readCSS[aLeafName];
 		if (!CSS) return;
@@ -338,7 +353,7 @@ window.UCL = {
 				var CSS = this.readCSS[label];
 				if (!CSS) return;
 				CSS.reloadCSS();
-				XULBrowserWindow.statusTextField.label = label + " 重新加载已完成!";
+				XULBrowserWindow.statusTextField.label = label + " 重新加載已完成!";
 			}
 		}
 		else if (event.button == 2) {
@@ -360,6 +375,13 @@ window.UCL = {
 		f.appendRelativePath(aLeafName);
 		return f;
 	},
+	styleTest: function(aWindow) {
+		aWindow || (aWindow = this.getFocusedWindow());
+		new CSSTester(aWindow, function(tester) {
+			if (tester.saved)
+				UCL.rebuild();
+		});
+	},
 	searchStyle: function() {
 		let win = this.getFocusedWindow();
 		let word = win.location.host || win.location.href;
@@ -375,7 +397,7 @@ window.UCL = {
 	},
 	edit: function(aFile) {
 		var editor = Services.prefs.getCharPref("view_source.editor.path");
-		if (!editor) return alert("未指定外部编辑器的路径。\n请在about:config中设置view_source.editor.path");//エディタのパスが未设定です。\n view_source.editor.path を设定してください
+		if (!editor) return alert("未指定外部編輯器的路徑。\n請在about:config中設置view_source.editor.path");//エディタのパスが未設定です。\n view_source.editor.path を設定してください
 		try {
 			var UI = Cc["@mozilla.org/intl/scriptableunicodeconverter"].createInstance(Ci.nsIScriptableUnicodeConverter);
 			UI.charset = window.navigator.platform.toLowerCase().indexOf("win") >= 0? "GB2312": "UTF-8";//Shift_JIS
@@ -388,12 +410,69 @@ window.UCL = {
 		} catch (e) {}
 	},
 	create: function(aLeafName) {
-		if (!aLeafName) aLeafName = prompt("请输入文件名", new Date().toLocaleFormat("%Y_%m%d_%H%M%S"));//ファイル名を入力してください
+		if (!aLeafName) aLeafName = prompt("請輸入文件名", new Date().toLocaleFormat("%Y_%m%d_%H%M%S"));//ファイル名を入力してください
 		if (aLeafName) aLeafName = aLeafName.replace(/\s+/g, " ").replace(/[\\/:*?\"<>|]/g, "");
 		if (!aLeafName || !/\S/.test(aLeafName)) return;
 		if (!/\.css$/.test(aLeafName)) aLeafName += ".css";
 		let file = this.getFileFromLeafName(aLeafName);
 		this.edit(file);
+	},
+	UCrebuild: function() {
+		let re = /^file:.*\.uc\.css(?:\?\d+)?$/i;
+		let query = "?" + new Date().getTime();
+		Array.slice(document.styleSheets).forEach(function(css) {
+			if (!re.test(css.href)) return;
+			if (css.ownerNode) {
+				css.ownerNode.parentNode.removeChild(css.ownerNode);
+			}
+			let pi = document.createProcessingInstruction('xml-stylesheet','type="text/css" href="'+ css.href.replace(/\?.*/, '') + query +'"');
+			document.insertBefore(pi, document.documentElement);
+		});
+		UCL.UCcreateMenuitem();
+	},
+	UCcreateMenuitem: function() {
+		let sep = $("usercssloader-ucsepalator");
+		let popup = sep.parentNode;
+		if (sep.nextSibling) {
+			let range = document.createRange();
+			range.setStartAfter(sep);
+			range.setEndAfter(popup.lastChild);
+			range.deleteContents();
+			range.detach();
+		}
+
+		let re = /^file:.*\.uc\.css(?:\?\d+)?$/i;
+		Array.slice(document.styleSheets).forEach(function(css) {
+			if (!re.test(css.href)) return;
+			let fileURL = decodeURIComponent(css.href).split("?")[0];
+			let aLeafName = fileURL.split("/").pop();
+			let m = popup.appendChild($C("menuitem", {
+				label: aLeafName,
+				tooltiptext: fileURL,
+				id: "usercssloader-" + aLeafName,
+				type: "checkbox",
+				autocheck: "false",
+				checked: "true",
+				oncommand: "this.setAttribute('checked', !(this.css.disabled = !this.css.disabled));",
+				onclick: "UCL.UCItemClick(event);"
+			}));
+			m.css = css;
+		});
+	},
+	UCItemClick: function(event) {
+		if (event.button == 0) return;
+		event.preventDefault();
+		event.stopPropagation();
+
+		if (event.button == 1) {
+			event.target.doCommand();
+		}
+		else if (event.button == 2) {
+			closeMenus(event.target);
+			let fileURL = event.currentTarget.getAttribute("tooltiptext");
+			let file = Services.io.getProtocolHandler("file").QueryInterface(Ci.nsIFileProtocolHandler).getFileFromURLSpec(fileURL);
+			this.edit(file);
+		}
 	},
 	userC:function(event,str) { //add by feiruo
 			if (event.button == 0) {
@@ -421,12 +500,12 @@ window.UCL = {
 			if (!rule) return;
 			inIDOMUtils.parseStyleSheet(rule, UCL.loadText(aFile));
 			rule.insertRule(":root{}", rule.cssRules.length); 
-			// 再描画处理
+			// 再描畫處理
 			var s = gBrowser.markupDocumentViewer;
 			s.authorStyleDisabled = !s.authorStyleDisabled;
 			s.authorStyleDisabled = !s.authorStyleDisabled;
 		}
-		XULBrowserWindow.statusTextField.label = "重新加载 " + str + " 已完成";
+		XULBrowserWindow.statusTextField.label = "重新加載 " + str + " 已完成";
 	},
 	getStyleSheet: function(aElement, cssURL) {
 		var rules = inIDOMUtils.getCSSStyleRules(aElement);
@@ -482,12 +561,12 @@ CSSEntry.prototype = {
 		var uri = Services.io.newURI(fileURL, null, null);
 
 		if (this.sss.sheetRegistered(uri, this.SHEET)) {
-			// すでにこのファイルが読み込まれている场合
+			// すでにこのファイルが読み込まれている場合
 			if (!isEnable || !isExists) {
 				this.sss.unregisterSheet(uri, this.SHEET);
 			}
 			else if (isForced) {
-				// 解除后に登录し直す
+				// 解除後に登錄し直す
 				this.sss.unregisterSheet(uri, this.SHEET);
 				this.sss.loadAndRegisterSheet(uri, this.SHEET);
 			}
@@ -498,7 +577,7 @@ CSSEntry.prototype = {
 			}
 		}
 		if (this.lastModifiedTime !== 1 && isEnable && isForced) {
-			log(this.leafName + " 确认已更新。");//の更新を确认しました。
+			log(this.leafName + " 確認已更新。");//の更新を確認しました。
 		}
 		this.lastModifiedTime = lastModifiedTime;
 		return this._enabled = isEnable;
@@ -516,11 +595,144 @@ CSSEntry.prototype = {
 	}
 };
 
+function CSSTester(aWindow, aCallback) {
+	this.win = aWindow || window;
+	this.doc = this.win.document;
+	this.callback = aCallback;
+	this.init();
+}
+CSSTester.prototype = {
+	sss: Cc["@mozilla.org/content/style-sheet-service;1"].getService(Ci.nsIStyleSheetService),
+	preview_code: "",
+	saved: false,
+	init: function() {
+		this.dialog = openDialog(
+			"data:text/html;charset=utf8,"+encodeURIComponent('<!DOCTYPE HTML><html lang="ja"><head><title>CSSTester</title></head><body></body></html>'),
+			"",
+			"width=550,height=400,dialog=no");
+		this.dialog.addEventListener("load", this, false);
+	},
+	destroy: function() {
+		this.preview_end();
+		this.dialog.removeEventListener("unload", this, false);
+		this.previewButton.removeEventListener("click", this, false);
+		this.saveButton.removeEventListener("click", this, false);
+		this.closeButton.removeEventListener("click", this, false);
+	},
+	handleEvent: function(event) {
+		switch(event.type) {
+			case "click":
+				if (event.button != 0) return;
+				if (this.previewButton == event.currentTarget) {
+					this.preview();
+				}
+				else if (this.saveButton == event.currentTarget) {
+					this.save();
+				}
+				else if (this.closeButton == event.currentTarget) {
+					this.dialog.close();
+				}
+				break;
+			case "load":
+				var doc = this.dialog.document;
+				doc.body.innerHTML = '\
+					<style type="text/css">\
+						:not(input):not(select) { padding: 0px; margin: 0px; }\
+						table { border-spacing: 0px; }\
+						body, html, #main, #textarea { width: 100%; height: 100%; }\
+						#textarea { font-family: monospace; }\
+					</style>\
+					<table id="main">\
+						<tr height="100%">\
+							<td colspan="4"><textarea id="textarea"></textarea></td>\
+						</tr>\
+						<tr height="40">\
+							<td><input type="button" value="預覽" /></td>\
+							<td><input type="button" value="儲存" /></td>\
+							<td width="80%"><span class="log"></span></td>\
+							<td><input type="button" value="關閉" /></td>\
+						</tr>\
+					</table>\
+				';
+				this.textbox = doc.querySelector("textarea");
+				this.previewButton = doc.querySelector('input[value="預覽"]');
+				this.saveButton = doc.querySelector('input[value="儲存"]');
+				this.closeButton = doc.querySelector('input[value="關閉"]');
+				this.logField = doc.querySelector('.log');
+
+				var code = "@namespace url(" + this.doc.documentElement.namespaceURI + ");\n";
+				code += this.win.location.protocol.indexOf("http") === 0?
+					"@-moz-document domain(" + this.win.location.host + ") {\n\n\n\n}":
+					"@-moz-document url(" + this.win.location.href + ") {\n\n\n\n}";
+				this.textbox.value = code;
+				this.dialog.addEventListener("unload", this, false);
+				this.previewButton.addEventListener("click", this, false);
+				this.saveButton.addEventListener("click", this, false);
+				this.closeButton.addEventListener("click", this, false);
+
+				this.textbox.focus();
+				let p = this.textbox.value.length - 3;
+				this.textbox.setSelectionRange(p, p);
+
+				break;
+			case "unload":
+				this.destroy();
+				this.callback(this);
+				break;
+		}
+	},
+	preview: function() {
+		var code = this.textbox.value;
+		if (!code || !/\:/.test(code))
+			return;
+		code = "data:text/css;charset=utf-8," + encodeURIComponent(this.textbox.value);
+		if (code == this.preview_code)
+			return;
+		this.preview_end();
+		var uri = Services.io.newURI(code, null, null);
+		this.sss.loadAndRegisterSheet(uri, Ci.nsIStyleSheetService.AGENT_SHEET);
+		this.preview_code = code;
+		this.log("預覽");
+	},
+	preview_end: function() {
+		if (this.preview_code) {
+			let uri = Services.io.newURI(this.preview_code, null, null);
+			this.sss.unregisterSheet(uri, Ci.nsIStyleSheetService.AGENT_SHEET);
+			this.preview_code = "";
+		}
+	},
+	save: function() {
+		var data = this.textbox.value;
+		if (!data) return;
+
+		var fp = Cc["@mozilla.org/filepicker;1"].createInstance(Ci.nsIFilePicker);
+		fp.init(window, "", Ci.nsIFilePicker.modeSave);
+		fp.appendFilter("CSS Files","*.css");
+		fp.defaultExtension = "css";
+		if (window.UCL)
+			fp.displayDirectory = UCL.FOLDER;
+		var res = fp.show();
+		if (res != fp.returnOK && res != fp.returnReplace) return;
+
+		var suConverter = Cc["@mozilla.org/intl/scriptableunicodeconverter"].createInstance(Ci.nsIScriptableUnicodeConverter);
+		suConverter.charset = "UTF-8";
+		data = suConverter.ConvertFromUnicode(data);
+		var foStream = Cc["@mozilla.org/network/file-output-stream;1"].createInstance(Ci.nsIFileOutputStream);
+		foStream.init(fp.file, 0x02 | 0x08 | 0x20, 0664, 0);
+		foStream.write(data, data.length);
+		foStream.close();
+		this.saved = true;
+	},
+	log: function() {
+		this.logField.textContent = new Date().toLocaleFormat("%H:%M:%S") + ": " + $A(arguments);
+	}
+};
+
 UCL.init();
 setTimeout(function() {
-	$("usercssloader-menu").setAttribute("tooltiptext", "用户样式管理器已启用\n\n左键：用户样式菜单\n中键：重新加载已选样式\n右键：启用 / 禁用");
-	$("userChrome-item").setAttribute("tooltiptext", "左键：重载\n右键：编辑");
-	$("userContent-item").setAttribute("tooltiptext", "左键：重载\n右键：编辑");
+	$("usercssloader-menu").setAttribute("tooltiptext", "用戶樣式管理器已啟用\n\n左鍵：用戶樣式選單\n中鍵：重新加載已選樣式\n右鍵：啟用 / 禁用");
+	$("userChrome-item").setAttribute("tooltiptext", "左鍵：重載\n右鍵：編輯");
+	$("userContent-item").setAttribute("tooltiptext", "左鍵：重載\n右鍵：編輯");
 }, 1000);
 
 function $(id) { return document.getElementById(id); }

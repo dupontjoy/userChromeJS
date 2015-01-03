@@ -1,4 +1,6 @@
 
+//2015.01.03 12:00 新增幾個TVC搜索
+//2015.01.02 18:25 複製 二级菜单
 //2014.12.22 18:50 選中文字搜索換回
 //2014.12.20 19:40 圖片另存放到二級菜單
 //2014.12.11 17:50 常用文字搜索橫排菜單
@@ -245,21 +247,59 @@ insertBefore: "context-copy",
 });
 var items = [
 //打开方式(默认当前頁面)，通过where 更改，具体tab(前台)、tabshifted(后台)、window(窗口)
-{label: "Google搜索",
+{label: "Google",
 accesskey: "G",
 url: "http://www.google.com/search?q=%s",
 image: "",
 where: 'tab'
 }, {
-label: "Baidu搜索",
+label: "Baidu",
 accesskey: "B",
 url: "http://www.baidu.com/baidu?wd=%s&ie=utf-8",
 image: "",
 where: 'tab'
-}, {
-label: "TVC搜索",
+}, 
+{},
+{
+label: "TVC外網",
 accesskey: "T",
 url: "http://www.tvc-mall.com/search?q=%s",
+image: "",
+where: 'tab'
+},
+{
+label: "TVC內網-待編輯-SKU",
+url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?Sku=%s&EditorId=0",
+image: "",
+where: 'tab'
+},
+{
+label: "TVC內網-已編輯-SKU",
+url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Sku=%s&EditorId=0",
+image: "",
+where: 'tab'
+},
+{
+label: "TVC內網-編輯質檢-SKU",
+url: "http://ic.sjlpj.cn/Product/ProductCheckingList?Sku=%s",
+image: "",
+where: 'tab'
+},
+{
+label: "TVC內網-編輯質檢-產品名稱",
+url: "http://ic.sjlpj.cn/Product/ProductCheckingList?KeyWord=%s",
+image: "",
+where: 'tab'
+},
+{
+label: "TVC內網-編輯管理-SKU",
+url: "http://ic.sjlpj.cn/Product/OperationProductEditMgtList?Sku=%s&BeginDate=2008-01-01",
+image: "",
+where: 'tab'
+},
+{
+label: "TVC內網-編輯管理-產品名稱",
+url: "http://ic.sjlpj.cn/Product/OperationProductEditMgtList?KeyWord=%s&BeginDate=2008-01-01",
 image: "",
 where: 'tab'
 },
@@ -293,13 +333,39 @@ where: 'tab'
 ];
 menu(items);
 };
+
+//複製 二级菜单
+new function() {
+var items = [{
+command: 'context-copy'
+},
+{
+label: "複製爲純文本",
+accesskey: "T",
+text: "%CLIPBOARD%",
+insertAfter: "context-copy",
+condition: "select"
+}];
+var menu = PageMenu({
+condition: 'select',
+insertBefore: 'context-viewpartialsource-selection',
+icon: 'select',
+onpopupshowing: syncHidden
+});
+menu(items);
+items.forEach(function(it) {
+if (it.command)
+css('#contentAreaContextMenu[addMenu~="select"] #' + it.command + '{ display: none !important; }')
+});
+};
+
 //选取范围内复选框的 ON/OFF
 page({
 label: "複選框的ON/OFF",
 class: "checkbox",
 condition: "select noinput nomailto nocanvas nomedia",
 accesskey: "X",
-insertBefore: "context-copy",
+insertBefore: "context-viewpartialsource-selection",
 oncommand: function(event) {
 var win = addMenu.focusedWindow;
 var sel = win.getSelection();
@@ -396,27 +462,27 @@ menu(items);
 /*——————————頁面右鍵——————————*/
 //Firefox 31+ 横排菜单，在鏈接上和非鏈接上不相同
 var openMenu = GroupMenu({
-    label: '打开...',
-    condition: 'noinput noselect nomailto nocanvas nomedia noimage nolink',
-    position: 1,
-    insertBefore: 'context-sep-navigation'
+label: '打开...',
+condition: 'noinput noselect nomailto nocanvas nomedia noimage nolink',
+position: 1,
+insertBefore: 'context-sep-navigation'
 });
 openMenu([
-    {
-        label:"复制文本+链接",
-        text:"%RLT_OR_UT%\n%RLINK_OR_URL%",
-        image:""
-    },
-    {
-        label:"在隐私窗打开",
-        oncommand: "openLinkIn(addMenu.convertText('%RLINK_OR_URL%'), 'window',{private:true});",
-        image:""
-    },
-    {
-        label: "在 IE 中打开",
-        text: "%RLINK_OR_URL%",
-        exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
-    },
+{
+label:"复制文本+链接",
+text:"%RLT_OR_UT%\n%RLINK_OR_URL%",
+image:""
+},
+{
+label:"在隐私窗打开",
+oncommand: "openLinkIn(addMenu.convertText('%RLINK_OR_URL%'), 'window',{private:true});",
+image:""
+},
+{
+label: "在 IE 中打开",
+text: "%RLINK_OR_URL%",
+exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
+},
 /*{
 label: "BackupProfiles",
 text: '%RLINK_OR_URL%',

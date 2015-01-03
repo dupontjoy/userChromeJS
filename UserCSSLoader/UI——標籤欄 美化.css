@@ -44,7 +44,7 @@ counter-increment: counter !important;
 display: none !important;
 }
 
-/*==标签计数——总数==*/
+/*标签计数—总数*/
 #main-window {
 counter-reset: tabs !important;
 }
@@ -64,7 +64,7 @@ font-weight: !important;
 font-size: 12px !important;
 display: -moz-box !important;
 width: auto !important;
-margin-right: 15px !important;
+margin-right: 12px !important;
 }
 
 #alltabs-button > :-moz-any(label, image) {

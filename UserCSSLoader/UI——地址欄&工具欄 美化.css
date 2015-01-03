@@ -1,4 +1,4 @@
-/*+++2014.12.20 17:30+++*/
+/*+++2015.01.03 15:40+++*/
 
 /*样式伪进度条*/
 @-moz-document url-prefix("http://"),url-prefix("https://"){
@@ -203,3 +203,49 @@ background: none !important;
 	color:#000 !important;
 }
 .name-container>.disabled-postfix{color:#999 !important;}
+
+/*按Alt悬浮菜单栏*/
+#toolbar-menubar[inactive="true"]{
+visibility:hidden;
+}
+#toolbar-menubar{
+position:fixed;
+top:8px;
+z-index:9999 !important;
+-moz-appearance:none !important;
+border:1px solid !important;
+-moz-border-top-colors:rgb(169,169,169) !important;
+-moz-border-bottom-colors:rgb(169,169,169) !important;
+-moz-border-left-colors:rgb(169,169,169) !important;
+-moz-border-right-colors:rgb(169,169,169) !important;
+outline-offset:-3px;
+outline:2px solid rgb(245,245,245) !important;
+background-color:rgb(240,240,240) !important;
+padding:1px !important;
+}
+
+/*顯示標題
+#main-window::after {
+content:attr(title)!important;
+position:fixed!important;
+padding:0px 5px;
+}
+#main-window[sizemode="fullscreen"]:after {content:none!important;}
+#TabsToolbar {padding-top:24px!important;}
+
+@media all and (-moz-windows-theme: aero) {
+#main-window:after {top:13px!important;}
+#main-window[sizemode="normal"]:after {top:6px!important;}
+}
+
+#main-window:after,
+#main-window:-moz-window-inactive:after{
+color: black !important;
+font-weight: normal !important;
+text-shadow: white 0 0 6px,
+white 0 0 9px,
+white 0 0 9px,
+rgba(255, 255, 255, 0.4) 0 1px 0 !important;
+font-size:12px !important;
+font-family:"微软雅黑" !important;
+}*/

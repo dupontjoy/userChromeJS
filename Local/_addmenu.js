@@ -1,6 +1,6 @@
 
+//2015.01.04 09:35 複製 二级菜單
 //2015.01.03 12:00 新增幾個TVC搜索
-//2015.01.02 18:25 複製 二级菜单
 //2014.12.22 18:50 選中文字搜索換回
 //2014.12.20 19:40 圖片另存放到二級菜單
 //2014.12.11 17:50 常用文字搜索橫排菜單
@@ -274,8 +274,20 @@ image: "",
 where: 'tab'
 },
 {
+label: "TVC內網-待編輯-產品名稱",
+url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?Name=%s&EditorId=0",
+image: "",
+where: 'tab'
+},
+{
 label: "TVC內網-已編輯-SKU",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Sku=%s&EditorId=0",
+image: "",
+where: 'tab'
+},
+{
+label: "TVC內網-已編輯-產品名稱",
+url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Name=%s&EditorId=0",
 image: "",
 where: 'tab'
 },
@@ -345,10 +357,23 @@ accesskey: "T",
 text: "%CLIPBOARD%",
 insertAfter: "context-copy",
 condition: "select"
-}];
+},
+{
+label: "複製爲HTML",
+accesskey: "H",
+class: "copy",
+condition: "select",
+oncommand: function() {
+var div = content.document.createElement('div');
+div.appendChild(content.getSelection().getRangeAt(0).cloneContents());
+addMenu.copy(div.innerHTML);
+}
+},
+
+];
 var menu = PageMenu({
 condition: 'select',
-insertBefore: 'context-viewpartialsource-selection',
+insertBefore: 'context-paste',
 icon: 'select',
 onpopupshowing: syncHidden
 });

@@ -4,10 +4,7 @@
 (function() {
 setTimeout(function() {addMenu.rebuild(true);}, 1000); //1秒
 setTimeout(function() {addMenu.rebuild(true);}, 2500);
+setTimeout(function() {addMenu.rebuild(true);}, 10000);
 setTimeout(function() {addMenu.rebuild(true);}, 20000);
-})();
-
-//調整標籤總數位置輔助
-(function() {
-document.getElementById("TabsToolbar").appendChild(document.getElementById("alltabs-button");
+setTimeout(function() {addMenu.rebuild(true);}, 60000);
 })();

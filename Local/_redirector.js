@@ -41,9 +41,15 @@ resp: false // 可选，true 表示替换 response body
 
 //單獨網站
 {
-name: "TVC內網 去掉多餘的『http//』",
+name: "TVC內網-內網參考鏈接修正-1",
 from: /^http:\/\/http\/\/(.*)/i,
 to: "$1",
+regex: true
+},
+{
+name: "TVC內網-內網參考鏈接修正-2",
+from: /^http:\/\/ic\.sjlpj\.cn\/DevProduct\/www\.(.*)/i,
+to: "www.$1",
 regex: true
 },
 {

@@ -1,4 +1,5 @@
 
+//2015.01.07 16:40  修正flickr >> 原始大图
 //2014.12.31 22.55  新增sourceforge下载 >> ftp镜像站点，更新Google搜圖去跳轉，更新500px >> 原始大圖，topit.me >> 原始大圖
 //2014.12.29 18:10  新增designspiration >> 原始大图，Google搜圖去跳轉
 //2014.12.26 10:55  跟進Google统计和tag >> mingto.tk
@@ -134,13 +135,6 @@ from: /^https?:\/\/book\.bfnn\.org\/article([\d]?\/.*)/i,
 to: "http://book.bfnn.org/books$1",
 regex: true
 },
-{
-//測試地址：http://bbs.colg.cn/thread-3334951-1-1.html
-name: "B站外鏈",
-from: /^http:\/\/static\.hdslb\.com\/miniloader\.swf\?aid\=781381\&page\=1/,
-to: "http://static.hdslb.com/miniloader.swf?aid=482215&page=1",
-regex: true
-},
 
 //Google服務轉國內鏡像
 {
@@ -214,6 +208,14 @@ from: /^https?:\/\/(.*)\.dspnimg\.com\/data\/g\/(.*)g\.jpg+(\/.*)?/i,
 to: "http://$1.dspnimg.com/data/l/$2l.jpg",
 regex: true
 },
+{
+//http://bbs.kafan.cn/thread-1801036-1-1.html
+name: "flickr >> 原始大图",
+from: /^(https?:\/\/c\d\.staticflickr\.com\/\d\/\d+\/\d+_[^\._]+)(_[a-z])?(\.jpg)$/,
+exclude: /^(https?:\/\/c\d\.staticflickr\.com\/\d\/\d+\/\d+_\w+)_b(\.jpg)$/,
+to: "$1_b$3",
+regex: true
+},
 
 //待測試
 {
@@ -229,6 +231,7 @@ from: /(.*)\.(jpg|jpeg|png|gif)\?[\w](.*)/,
 to: "$1.$2",
 regex: true
 },
+
 
 //——————以下为不启用——————
 {

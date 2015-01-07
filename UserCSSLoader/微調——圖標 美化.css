@@ -1,4 +1,4 @@
-/*+++2015.01.03 12:20+++*/
+/*+++2015.01.07 21:20+++*/
 
 /*改变新窗口打开的链接的光标*/
 :link[target="_blank"], :visited[target="_blank"],
@@ -269,6 +269,11 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 
 #urlbar menuitem[label="Paste"],#urlbar menuitem[label="粘贴"],#urlbar menuitem[label="貼上"],#searchbar menuitem[label="貼上"],#context-paste,[label="粘贴并确定"],#editBookmarkPanelContent menuitem[label="貼上"],#editBookmarkPanelContent menuitem[label="粘贴"],[label="貼上"],#mnEditPaste,#menu_paste,#header-search [label="貼上"] {
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACA0lEQVQ4jX3Sz2vTcBjH8fwPQwQPggdB8CCMUXZQUJjgDo5UQSMKC1hYvGwjMlsWUWSk0c0gLclXwcwm1HVjgg6h4g9wUAqTFaQI89CDA4ewtPQXBHYIDx8P0mCb6AOv0wNvvjx8OW5gbNtmjuPAcRzYts0G96FZTcbYWmoUa6lRLC/OgDEG3/fh+z4YY1henEFvv5qMhYOFuRgO9qs42K9C0zR4ngfXdeG6LjzPg6Zpwb4wF0MokJdH0KgY2CtOIZ+ZRTKZ7JPPzGKvOIVGxUBeHgkHctPDcLey2N1IYPfNzWgbCbhbWeSmh8OB57dO4Vf5CWqvRNTWJwPvV9LoHXNQ33FZ4iR+burYWbmBnZfXA5ZlgYgiWZaFUqn05zWZyRP48ekRqrmrqL64EjBNE0SERqOBer0eHJaIYJomTNOEYRiM068dR+1dGtvPLmH7aTyg6zqICM1msy/y90t0XQf38PIxfH+7gHJ2AuXMxYCqqiAitFqtUKQXUlUV3MLEUXx7fR+bj8fxeelCQFGUIBAVISIoigLu3vgRfF2/i4/p8/igjgVkWQYRod1uR0aICLIsg5sfO4xKYR7FB+f6SJIEIkKn04mMEBEkSQJ35+whfMmnQkRRBBGh2+1GRogIoiiCk08PsdtnhjBIEIR//oMeQRDCP7M3PM+zeDyO/+F5nv0G0AKQNKy5AuIAAAAASUVORK5CYII=") !important;
+-moz-image-region: rect(0px, 0px, 0px, 0px) !important;
+}
+
+[label="標點符號置換(中轉英)"] {
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABB0lEQVQ4jc3SvyvFURjH8ZekxKDEDbvuYpNiIqVcyurmR12RyT9gUn4MBkwiu4EUg7i3lFJSYlYGMYg/Ql3Dfe6is1wWn/p0Pk/P+b6f7zkd/ouWcII9ZH4LOUX+L39xjqm/AErYjbWE2VoB19iJXIi6Jt1iPvJ81FX1qFxy1ZMpwAMWIx9EXdVGGNZx9vPjbbz98ERiyAg2cZE8Q2HtYyzZoAOH4S1cpQGrn2eDhds+yOaK5f7801C0jrEceQ43ScDM2nt2eOHusXv05Cubu3wdmH4uR+seK5H3o+5KMepQj4ZsrlhuausdR0tMfwnPqbyTo+ilAWhEc2xqRXvcRWdMz6QANesbiGI880J6fHEAAAAASUVORK5CYII=") !important;
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 

@@ -4,9 +4,9 @@
 // @namespace      wazangg@gmail.com
 // @description    Strong lift right mouse button to copy unlocking
 // version         1.16.18
-// @version        0.0.1
+// @version        0.0.2
 // @create         2012-11-21
-// @lastmodified   2013-06-19
+// @lastmodified   2015-01-05
 // @include        http://*.zongheng.com/*
 // @include        http://*.qidian.com/*
 // @include        http://*.xxsy.net/books/*
@@ -37,6 +37,7 @@
 // @include        http://*.ltggg.com/*
 // @include        http://*.wcxiaoshuo.com/*
 // @include        http://*.shushuw.cn/*
+// @include        http://book.aavideo.net/read.php?id=*
 
 // @exclude        
 // @copyright      2012+, wazangg

@@ -3,7 +3,7 @@
 <!--
 // ==UserScript==
 // @name ExportHTMLFolder.uc.xul
-// @description 导出书签目录到html文件，根据ExportHTMLFolder扩展制作. 修复原扩展只能在工具栏导出的bug, 并新增导出icon_url, icon功能，方便交流书签/小书签
+// @description 導出书签目录到html文件，根据ExportHTMLFolder扩展制作. 修复原扩展只能在工具栏導出的bug, 并新增導出icon_url, icon功能，方便交流书签/小书签
 // @include main
 // @include chrome://browser/content/places/places.xul
 // @include chrome://browser/content/bookmarks/bookmarksPanel.xul
@@ -205,7 +205,7 @@ ExportHTMLFolder.init();
 ]]></script>
 
   <popup id="placesContext">
-    <menuitem id="placesContext_ExportHTMLFolder" label="导出到HTML"
+    <menuitem id="placesContext_ExportHTMLFolder" label="導出到HTML"
               accesskey="x"
               insertafter="placesContext_newSeparator"
               oncommand="ExportHTMLFolder.onMenuItemCommand(event)"/>

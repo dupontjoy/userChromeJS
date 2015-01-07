@@ -6,5 +6,4 @@ setTimeout(function() {addMenu.rebuild(true);}, 1000); //1秒
 setTimeout(function() {addMenu.rebuild(true);}, 2500);
 setTimeout(function() {addMenu.rebuild(true);}, 10000);
 setTimeout(function() {addMenu.rebuild(true);}, 20000);
-setTimeout(function() {addMenu.rebuild(true);}, 60000);
 })();

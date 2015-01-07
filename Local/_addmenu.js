@@ -1,4 +1,5 @@
 
+//2015.01.07 21:20 貼上 二级菜單
 //2015.01.04 09:35 複製 二级菜單
 //2015.01.03 12:00 新增幾個TVC搜索
 //2014.12.22 18:50 選中文字搜索換回
@@ -401,9 +402,33 @@ e.checked = !e.checked;
 }
 });
 
-/*——————————输入框右鍵——————————*/
-//插入code代码
-page({
+/*——————————輸入框右鍵——————————*/
+
+//貼上 二級菜單
+new function() {
+var items = [{
+command: 'context-paste'
+},
+{
+label: "標點符號置換(中轉英)",
+condition: "input",
+oncommand: function() {
+var sel = getBrowserSelection();
+var txt = addMenu.convertText('%s') || addMenu.convertText('%p');
+addMenu.copy(txt.replace(/(\s，\s|\s，|，\s|，)+/g, ", ")
+.replace(/(\s。\s|\s。|。\s|。)+/g, ". ")
+.replace(/(\s？\s|\s？|？\s|？)+/g, "? ")
+.replace(/(\s！\s|\s！|！\s|！)+/g, "! ")
+.replace(/(\s；\s|\s；|；\s|；)+/g, "; ")
+.replace(/(\s：\s|\s：|：\s|：)+/g, ": ")
+.replace(/(\s（\s|\s（|（\s|（)+/g, " (")
+.replace(/(\s）\s|\s）|）\s|）)+/g, ") ")
+.replace(/(\s—\s|\s—|—\s|—)+/g, " - ")
+.replace(/(\s…\s|\s…|…\s|…)+/g, "... "));
+if (sel) {goDoCommand("cmd_paste");}
+},
+},
+{
 label: "插入code代碼",
 condition: "input",
 accesskey: "I",
@@ -418,7 +443,21 @@ onshowing: function(menuitem) {
 var isHidden = !(content.location.host == 'bbs.kafan.cn');
 this.hidden = isHidden;
 },
+},
+];
+var menu = PageMenu({
+condition: 'input',
+insertAfter: 'context-copy',
+icon: 'input',
+onpopupshowing: syncHidden
 });
+menu(items);
+items.forEach(function(it) {
+if (it.command)
+css('#contentAreaContextMenu[addMenu~="input"] #' + it.command + '{ display: none !important; }')
+});
+};
+
 //快捷回复
 new function() {
 var menu = PageMenu({
@@ -569,6 +608,7 @@ id: "frame", //本框架又不能直接隱藏，只好移動到一個安全的�
 insertAfter: "charsetMenu",
 clone: false, // 不克隆，直接改在原来的菜单上面
 });
+
 };
 
 /*————————————————————*/

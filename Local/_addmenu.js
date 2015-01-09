@@ -1,5 +1,6 @@
 
-//2015.01.07 21:20 貼上 二级菜單
+//2015.01.08 20:40 一些搜索項只在特定網站顯示
+//2015.01.08 10:40 貼上 二级菜單
 //2015.01.04 09:35 複製 二级菜單
 //2015.01.03 12:00 新增幾個TVC搜索
 //2014.12.22 18:50 選中文字搜索換回
@@ -49,6 +50,18 @@ popup.appendChild(m);
 },
 });
 
+tab([{
+label: "複製Favicon的URL",
+text: "%FAVICON%",
+insertBefore: "context_closeOtherTabs",
+}, 
+{
+label: "複製Favicon的Base64",
+text: "%FAVICON_BASE64%",
+insertBefore: "context_closeOtherTabs",
+}
+]);
+
 /*——————————圖片右鍵————————*/
 //右鍵搜索圖片 以圖搜圖
 var imagesub = PageMenu({
@@ -59,39 +72,39 @@ where: "tab",
 insertBefore: "context-copyimage-contents",
 });
 imagesub([{
-label: 'Google Search',
+label: 'Google',
 url: 'http://www.google.com/searchbyimage?image_url=%IMAGE_URL%',
-image: "",
+image: "https://www.google.com/favicon.ico",
 where: 'tab',
 accesskey: "G"
 }, {
-label: '360識圖 Search',
+label: '360識圖',
 url: 'http://st.so.com/stu?imgurl=%IMAGE_URL%',
 image: "http://st.so.com/favicon.ico",
 where: 'tab',
 accesskey: "Q"
 }, {}, {
-label: 'Baidu識圖 Search',
+label: 'Baidu識圖',
 url: 'http://stu.baidu.com/i?rt=0&rn=10&ct=1&tn=baiduimage&objurl=%IMAGE_URL%',
 image: "http://www.baidu.com/favicon.ico",
 where: 'tab'
 }, {
-label: 'Baidu image Search',
+label: 'Baidu',
 url: 'http://image.baidu.com/i?rainbow=1&ct=1&tn=shituresultpc&objurl=%IMAGE_URL%',
 image: "http://www.baidu.com/favicon.ico",
 where: 'tab'
 }, {
-label: 'Bing Search',
+label: 'Bing',
 url: 'http://www.bing.com/images/searchbyimage?FORM=IRSBIQ&cbir=sbi&imgurl=%IMAGE_URL%&mkt=en-US',
 image: "http://cn.bing.com/s/a/bing_p.ico",
 where: 'tab'
 }, {
-label: 'Sougou Search',
+label: 'Sougou',
 url: 'http://pic.sogou.com/ris?query=%IMAGE_URL%',
 image: "http://logo.www.sogou.com/images/logo2014/new/favicon.ico",
 where: 'tab'
 }, {
-label: 'TinEye Search',
+label: 'TinEye',
 url: 'http://www.tineye.com/search?url=%IMAGE_URL%',
 image: "http://www.tineye.com/favicon.ico",
 where: 'tab'
@@ -245,75 +258,91 @@ condition: "select",
 label: "搜索選中文本",
 accesskey: "S",
 insertBefore: "context-copy",
+onpopupshowing: function (event){
+Array.slice(event.target.children).forEach(function(elem){
+if(elem.id == "TVC"){
+elem.hidden = !/ic.sjlpj.cn|tvc-mall.com/.test(content.location.host)//可排除多個網站
+}
+});
+}
 });
 var items = [
 //打开方式(默认当前頁面)，通过where 更改，具体tab(前台)、tabshifted(后台)、window(窗口)
-{label: "Google",
-accesskey: "G",
-url: "http://www.google.com/search?q=%s",
-image: "",
-where: 'tab'
-}, {
+{
 label: "Baidu",
 accesskey: "B",
 url: "http://www.baidu.com/baidu?wd=%s&ie=utf-8",
-image: "",
+image: "https://www.baidu.com/favicon.ico",
+where: 'tab'
+}, 
+{label: "Google",
+accesskey: "G",
+url: "http://www.google.com/search?q=%s",
+image: "https://www.google.com/favicon.ico",
 where: 'tab'
 }, 
 {},
 {
-label: "TVC外網",
-accesskey: "T",
+label: "TVC-Mall",
+id: "TVC",
 url: "http://www.tvc-mall.com/search?q=%s",
-image: "",
+image: "http://www.tvc-mall.com/images/favicon.ico",
 where: 'tab'
 },
 {
-label: "TVC內網-待編輯-SKU",
+label: "待編輯-SKU",
+id: "TVC",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?Sku=%s&EditorId=0",
-image: "",
+image: "http://www.tvc-mall.com/images/favicon.ico",
 where: 'tab'
 },
 {
-label: "TVC內網-待編輯-產品名稱",
+label: "待編輯-產品名稱",
+id: "TVC",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?Name=%s&EditorId=0",
-image: "",
+image: "http://www.tvc-mall.com/images/favicon.ico",
 where: 'tab'
 },
 {
-label: "TVC內網-已編輯-SKU",
+label: "已編輯-SKU",
+id: "TVC",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Sku=%s&EditorId=0",
-image: "",
+image: "http://www.tvc-mall.com/images/favicon.ico",
 where: 'tab'
 },
 {
-label: "TVC內網-已編輯-產品名稱",
+label: "已編輯-產品名稱",
+id: "TVC",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Name=%s&EditorId=0",
-image: "",
+image: "http://www.tvc-mall.com/images/favicon.ico",
 where: 'tab'
 },
 {
-label: "TVC內網-編輯質檢-SKU",
+label: "編輯質檢-SKU",
+id: "TVC",
 url: "http://ic.sjlpj.cn/Product/ProductCheckingList?Sku=%s",
-image: "",
+image: "http://www.tvc-mall.com/images/favicon.ico",
 where: 'tab'
 },
 {
-label: "TVC內網-編輯質檢-產品名稱",
+label: "編輯質檢-產品名稱",
+id: "TVC",
 url: "http://ic.sjlpj.cn/Product/ProductCheckingList?KeyWord=%s",
-image: "",
+image: "http://www.tvc-mall.com/images/favicon.ico",
 where: 'tab'
 },
 {
-label: "TVC內網-編輯管理-SKU",
+label: "編輯管理-SKU",
+id: "TVC",
 url: "http://ic.sjlpj.cn/Product/OperationProductEditMgtList?Sku=%s&BeginDate=2008-01-01",
-image: "",
+image: "http://www.tvc-mall.com/images/favicon.ico",
 where: 'tab'
 },
 {
-label: "TVC內網-編輯管理-產品名稱",
+label: "編輯管理-產品名稱",
+id: "TVC",
 url: "http://ic.sjlpj.cn/Product/OperationProductEditMgtList?KeyWord=%s&BeginDate=2008-01-01",
-image: "",
+image: "http://www.tvc-mall.com/images/favicon.ico",
 where: 'tab'
 },
 {},
@@ -353,11 +382,26 @@ var items = [{
 command: 'context-copy'
 },
 {
-label: "複製爲純文本",
-accesskey: "T",
-text: "%CLIPBOARD%",
-insertAfter: "context-copy",
-condition: "select"
+label: "標點符號置換(中轉英)",
+condition: "select",
+accesskey: "E",
+oncommand: function() {
+goDoCommand("cmd_copy");
+var sel = getBrowserSelection();
+var txt = addMenu.convertText('%p');
+addMenu.copy(txt.replace(/(\s，\s|\s，|，\s|，)+/g, ", ")
+.replace(/(\s。\s|\s。|。\s|。)+/g, ". ")
+.replace(/(\s？\s|\s？|？\s|？)+/g, "? ")
+.replace(/(\s！\s|\s！|！\s|！)+/g, "! ")
+.replace(/(\s；\s|\s；|；\s|；)+/g, "; ")
+.replace(/(\s：\s|\s：|：\s|：)+/g, ": ")
+.replace(/(\s（\s|\s（|（\s|（)+/g, " (")
+.replace(/(\s）\s|\s）|）\s|）)+/g, ") ")
+.replace(/(\s—\s|\s—|—\s|—)+/g, " - ")
+.replace(/(\s＆\s|\s＆|＆\s|＆)+/g, " & ")
+.replace(/(\s…\s|\s…|…\s|…)+/g, "... "));
+if (sel) {goDoCommand("cmd_paste");}
+},
 },
 {
 label: "複製爲HTML",
@@ -412,9 +456,11 @@ command: 'context-paste'
 {
 label: "標點符號置換(中轉英)",
 condition: "input",
+accesskey: "E",
 oncommand: function() {
+goDoCommand("cmd_copy");
 var sel = getBrowserSelection();
-var txt = addMenu.convertText('%s') || addMenu.convertText('%p');
+var txt = addMenu.convertText('%p');
 addMenu.copy(txt.replace(/(\s，\s|\s，|，\s|，)+/g, ", ")
 .replace(/(\s。\s|\s。|。\s|。)+/g, ". ")
 .replace(/(\s？\s|\s？|？\s|？)+/g, "? ")
@@ -424,6 +470,7 @@ addMenu.copy(txt.replace(/(\s，\s|\s，|，\s|，)+/g, ", ")
 .replace(/(\s（\s|\s（|（\s|（)+/g, " (")
 .replace(/(\s）\s|\s）|）\s|）)+/g, ") ")
 .replace(/(\s—\s|\s—|—\s|—)+/g, " - ")
+.replace(/(\s＆\s|\s＆|＆\s|＆)+/g, " & ")
 .replace(/(\s…\s|\s…|…\s|…)+/g, "... "));
 if (sel) {goDoCommand("cmd_paste");}
 },
@@ -438,11 +485,11 @@ var str = addMenu.convertText('[code]%P[/code]');
 addMenu.copy(str);
 goDoCommand('cmd_paste');
 },
-//限定只在kafan生效
+/*//限定只在kafan生效(此段代碼只適用一級菜單)
 onshowing: function(menuitem) {
 var isHidden = !(content.location.host == 'bbs.kafan.cn');
 this.hidden = isHidden;
-},
+},*/
 },
 ];
 var menu = PageMenu({
@@ -533,7 +580,7 @@ insertBefore: 'context-sep-navigation'
 });
 openMenu([
 {
-label:"复制文本+链接",
+label:"複製文本+链接",
 text:"%RLT_OR_UT%\n%RLINK_OR_URL%",
 image:""
 },

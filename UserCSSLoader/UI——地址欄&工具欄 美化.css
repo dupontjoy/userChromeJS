@@ -4,7 +4,7 @@
 @-moz-document url-prefix("http://"),url-prefix("https://"){
 html:before{
 content:"";
-position:fixed;height:3px;
+position:fixed;height:1px;
 z-index:10000000;top:0;left:0;
 background: -moz-linear-gradient(top, rgb(232,25,87) 0%, rgb(170,0,51) 100%);
 box-shadow:0 1px 5px rgba(190,50,0,0.5);

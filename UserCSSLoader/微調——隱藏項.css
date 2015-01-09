@@ -1,4 +1,4 @@
-/*+++2014.12.20 20:40+++*/
+/*+++2015.01.09 22:50+++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄&工具欄===*/
@@ -65,6 +65,7 @@ display: none !important;
 }
 
 /*===标签栏右键菜单===*/
+#context_reloadAllTabs,/*重新載入所有分頁*/
 #context_pinTab,/*釘選分頁*/
 #tabContextMenu > menuseparator,/*全部分割线*/
 #context_openTabInWindow,/*移动到新窗口*/

@@ -1,4 +1,5 @@
 
+//2015.01.10 10:15  刪除一個有問題的規則
 //2015.01.07 16:40  修正flickr >> 原始大图
 //2014.12.31 22.55  新增sourceforge下载 >> ftp镜像站点，更新Google搜圖去跳轉，更新500px >> 原始大圖，topit.me >> 原始大圖
 //2014.12.29 18:10  新增designspiration >> 原始大图，Google搜圖去跳轉
@@ -139,7 +140,7 @@ regex: true
 //Google服務轉國內鏡像
 {
 name: "ajax/fonts >> 360 useso",
-from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
+from: /^http:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "http://$1.useso.com/$2",
 regex: true
 },
@@ -222,13 +223,6 @@ regex: true
 name: "noMoreArchiver",
 from: /(.*)\/archiver\/(.*)tid-(.*)\.html/,
 to: "$1/viewthread.php?tid=$3",
-regex: true
-},
-{
-//測試：https://df6a.https.cdn.softlayer.net/80DF6A/static.userstyles.org/style_screenshots/108263_after.jpeg?r=1419854786
-name: "去圖片後多餘的代碼",
-from: /(.*)\.(jpg|jpeg|png|gif)\?[\w](.*)/,
-to: "$1.$2",
 regex: true
 },
 

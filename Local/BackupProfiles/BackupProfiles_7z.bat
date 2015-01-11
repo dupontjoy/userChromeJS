@@ -1,4 +1,4 @@
-::Mod 2014.12.25
+::Mod 2015.01.11
 
 echo off
 rem 设置备份路径以及临时文件夹
@@ -11,7 +11,7 @@ set TempFolder=..\..\..\Temp\Profile
 rem 复制目标文件到临时文件夹
 ::需要删除的项
 del %BackDir%\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q 
-del %BackDir%\chrome\Local\swf\  /s /q
+::del %BackDir%\chrome\Local\swf\  /s /q
 del %BackDir%\chrome\UserScriptLoader\require\  /s /q 
 del %BackDir%\chrome\UserScriptLoader\temp\  /s /q
 
@@ -21,6 +21,7 @@ xcopy "%BackDir%\adblockplus" %TempFolder%\adblockplus\  /s /y /i
 xcopy "%BackDir%\chrome" %TempFolder%\chrome\  /s /y /i
 xcopy "%BackDir%\extensions" %TempFolder%\extensions\ /s /y /i
 ::xcopy "%BackDir%\gm_scripts" %TempFolder%\gm_scripts\ /s /y /i
+xcopy "%BackDir%\Plugins" %TempFolder%\Plugins\ /s /y /i
  
 ::以下是文件
 xcopy "%BackDir%\bookmarks.html" %TempFolder%\ /y

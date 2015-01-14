@@ -45,8 +45,8 @@ UC管理器文件及神級腳本[LockMark][6]
 引導腳本
 
   [1]: https://github.com/dupontjoy/userChromeJS/blob/master/userContent/setRelativeEditPath.uc.js
-  [2]: https://github.com/dupontjoy/userChromeJS/blob/master/UCJSFiles/addMenuPlus.uc.js
+  [2]: https://github.com/ywzhaiqi/userChromeJS/tree/master/addmenuPlus
   [3]: https://github.com/dupontjoy/userChromeJS/blob/master/UserCSSLoader/%E5%BE%AE%E8%AA%BF%E2%80%94%E2%80%94%E5%9C%96%E6%A8%99%20%E7%BE%8E%E5%8C%96.css
-  [4]: https://github.com/dupontjoy/userChromeJS/blob/master/UCJSFiles/UserCSSLoaderLite_ModOos.uc.js
+  [4]: https://github.com/dupontjoy/userChromeJS/blob/master/UCJSFiles/UserCSSLoader_ModOos.uc.js
   [5]: https://github.com/dupontjoy/userChromeJS/blob/master/UCJSFiles/UserScriptLoaderPlus_ModFeiruo.uc.js
   [6]: https://github.com/dupontjoy/userChromeJS/blob/master/xul/localMark_0.6.1.uc.xul

@@ -1,4 +1,4 @@
-/*+++2014.12.18 20:45+++*/
+/*+++2015.01.11 13:26+++*/
 
 /*文本选中样式（黑底+绿字）*/
 *::-moz-selection {
@@ -18,64 +18,13 @@ color: rgb(130,130,130) !important;
 }
 
 /*超链接字体颜色渐变*/
-a:hover,a:hover em,a>font:hover,b>font:hover {
+a:hover,a:hover em,a>font:hover,b>font:hover,a:hover *,button[type="submit"]:hover *,label:hover {
 transition-property: color,text-shadow!important;
 transition-duration: 0.423s!important;
 transition-timing-function: ease!important;
 color: rgba(255,200,0,60)!important;
 text-shadow: 0 1px rgba(242,33,49,60),0 1px 1px rgba(242,33,49,60),0 -1px 1px rgba(242,33,49,60),
 1px 0 1px rgba(242,33,49,60),-1px 0 1px rgba(242,33,49,60),0 0 3px rgba(242,33,49,60)!important;
-}
-
-/*右鍵——檢視原始碼*/
-@charset "utf-8";
-
-@-moz-document url-prefix(view-source:) {
-
-*|*:root {
-background: #302D26 !important;
-}
-
-*::-moz-selection {
-background-color: #000000;
-}
-
-body {
-font: 12px Lucida Console, -moz-fixed !important;
-margin: 0;
-padding: 0.6em 1em;
-color: #FCFFE0 !important;
-}
-
-.doctype, .start-tag, .end-tag {
-color: #06cfcf !important;
-}
-
-.attribute-name {
-color: #a0a0f0 !important;
-font-weight: normal !important;
-}
-
-.attribute-value {
-color: white !important;
-}
-
-.comment, .cdata, .pi {
-color: green !important;
-}
-
-.error, .error > .start-tag, .error > .end-tag,
-.error > .comment, .error > .cdata, .error > .doctype,
-.error > .pi, .error > .entity, .error > .attribute-name,
-.error > .attribute-value {
-color: red !important;
-background: #fff !important;
-font-weight: bold !important;
-}
-
-a:link {
-color: #8fa3ff !important;
-}
 }
 
 /*右鍵菜單分割线样式*/

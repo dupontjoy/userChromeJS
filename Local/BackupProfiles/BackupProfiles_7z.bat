@@ -1,4 +1,4 @@
-::Mod 2015.01.11
+::Mod 2015.01.12
 
 echo off
 rem 设置备份路径以及临时文件夹
@@ -10,17 +10,12 @@ set TempFolder=..\..\..\Temp\Profile
 
 rem 复制目标文件到临时文件夹
 ::需要删除的项
-del %BackDir%\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q 
-::del %BackDir%\chrome\Local\swf\  /s /q
 del %BackDir%\chrome\UserScriptLoader\require\  /s /q 
-del %BackDir%\chrome\UserScriptLoader\temp\  /s /q
-
 
 ::以下是文件夹
 xcopy "%BackDir%\adblockplus" %TempFolder%\adblockplus\  /s /y /i
 xcopy "%BackDir%\chrome" %TempFolder%\chrome\  /s /y /i
 xcopy "%BackDir%\extensions" %TempFolder%\extensions\ /s /y /i
-::xcopy "%BackDir%\gm_scripts" %TempFolder%\gm_scripts\ /s /y /i
 xcopy "%BackDir%\Plugins" %TempFolder%\Plugins\ /s /y /i
  
 ::以下是文件
@@ -29,11 +24,8 @@ xcopy "%BackDir%\cert8.db" %TempFolder%\ /y
 xcopy "%BackDir%\FlashGot.exe" %TempFolder%\ /y
 xcopy "%BackDir%\foxyproxy.xml" %TempFolder%\ /y
 xcopy "%BackDir%\localstore.rdf" %TempFolder%\ /y
-xcopy "%BackDir%\MyFirefox.7z" %TempFolder%\ /y
-::xcopy "%BackDir%\permissions.sqlite" %TempFolder%\ /y
 xcopy "%BackDir%\persdict.dat" %TempFolder%\ /y
 xcopy "%BackDir%\Portable.7z" %TempFolder%\ /y
-::xcopy "%BackDir%\prefs.js" %TempFolder%\ /y
 xcopy "%BackDir%\readme.txt" %TempFolder%\ /y
 xcopy "%BackDir%\user.js" %TempFolder%\ /y
 

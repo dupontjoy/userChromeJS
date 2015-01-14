@@ -1,32 +1,7 @@
 
-//2015.01.10 10:15  刪除一個有問題的規則
-//2015.01.07 16:40  修正flickr >> 原始大图
-//2014.12.31 22.55  新增sourceforge下载 >> ftp镜像站点，更新Google搜圖去跳轉，更新500px >> 原始大圖，topit.me >> 原始大圖
-//2014.12.29 18:10  新增designspiration >> 原始大图，Google搜圖去跳轉
-//2014.12.26 10:55  跟進Google统计和tag >> mingto.tk
-//2014.12.19 16:20  科大博客已宕
-//2014.12.14 18:30  修正TVC規則  
-//2014.11.28 15:50  新增2條TVC規則
-//2014.11.22 08:40  更新topit.me 原始大圖
-//2014.11.21 19:57  修正Google统计小錯误
-//2014.11.18 12:58  去掉百度ie=utf-8
-//2014.11.16 09:45  更新topit.me 原始大圖
-//2014.11.15 20:00  精簡及禁用一些規則，添加『反百度搜索验证码』
-//2014.11.11 21:34  新增『反Google搜索验证码』
-//2014.11.11 15:17  修正『Google搜索en-US,safe=off』導致Google image不能搜圖問題
-//2014.11.10 14:50  新增topit.me 原始大圖
-//2014.11.09 20:10  新增B站外鏈
-//2014.11.03 20:15  跟进AB站規則
-//2014.11.02 21:47  加入500px原始大圖
-//2014.10.31 22:30  加入google.com.hk >> google.com快速版
-//2014.10.31 16:40  優化google.com.hk >> google.com慢速版
-//2014.10.30 21:05  加入測試規則：反Google驗證，百度搜索防繁體字亂碼，Google搜索en-US,safe=off
-//2014.10.29 09:30  跟进AB站規則
-//2014.10.27 20:20  跟进AB站規則
-//2014.10.25 23:20  跟进AB站規則
-//2014.10.25 12:55  添加網易雲音樂輔助規則
-//2014.10.23 13:20  添加TVC規則
-//2014.10.20 20:30  分組規則，添加規則
+//2015.01.14 更新sourceforge規則，禁用一些規則
+//2015.01.10 刪除一個有問題的規則
+//2015.01.07 修正flickr >> 原始大图
 
 rules = [
 {
@@ -37,7 +12,8 @@ to: "https://haoutil.googlecode.com", // 目标地址
 state: true, //可选，true 表示启用此规则
 wildcard: false, // 可选，true 表示 from 是通配符
 regex: false, // 可选，true 表示 from 是正则表达式
-resp: false // 可选，true 表示替换 response body
+resp: false, // 可选，true 表示替换 response body
+decode: false // 可选，true 表示尝试对 from 解码
 },
 
 
@@ -113,7 +89,8 @@ regex: true
 {
 name: "sourceforge下载 >> ftp镜像站点",
 from: /^https?:\/\/sourceforge\.net\/projects\/(((\w)\w).*)\/files\/(.*)\/download/i,
-to: "ftp://ftp.jaist.ac.jp/pub/sourceforge/$3/$2/$1/$4",
+/*to: "ftp://ftp.jaist.ac.jp/pub/sourceforge/$3/$2/$1/$4",*/
+to: "http://nchc.dl.sourceforge.net/project/$1/$4",
 regex: true
 },
 {
@@ -134,45 +111,6 @@ regex: true
 name: "般若文海article >> books",
 from: /^https?:\/\/book\.bfnn\.org\/article([\d]?\/.*)/i,
 to: "http://book.bfnn.org/books$1",
-regex: true
-},
-
-//Google服務轉國內鏡像
-{
-name: "ajax/fonts >> 360 useso",
-from: /^http:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
-to: "http://$1.useso.com/$2",
-regex: true
-},
-{
-//https://servers.ustclug.org/index.php/2014/06/blog-googlefonts-speedup/
-name: "ajax/fonts >> 科大博客提供",
-from: /^https:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
-to: "https://$1.lug.ustc.edu.cn/$2",
-regex: true
-},
-{
-name: "themes >> 科大博客",
-from: /^https?:\/\/themes\.googleusercontent\.com\/(.*)$/,
-to: "http://google-themes.lug.ustc.edu.cn/$1",
-regex: true
-},
-{
-name: "fonts-gstatic >> 科大博客",
-from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
-to: "http://fonts-gstatic.lug.ustc.edu.cn/$1",
-regex: true
-},
-{
-name: "Gravatar头像 >> 多说",
-from: /^https?:\/\/([0-9]?)\.gravatar\.com\/avatar\/(.*)$/,
-to: "http://gravatar.duoshuo.com/avatar/$1",
-regex: true
-},
-{
-name: "Google统计和tag >> mingto.tk",
-from: /^https?:\/\/(.*?)(google-analytics|googletagmanager|googletagservices|googleadservices)\.com\/([\w]+\/)*([\w]+(\.[\w]+)?)/i,
-to: "http://minggo.coding.io/cdn/google/$4",
 regex: true
 },
 
@@ -295,4 +233,38 @@ to: "http://www.id97.com/videos/play/$1.html",
 state: false,
 regex: true,
 },
+
+//Google服務轉國內鏡像
+/*{
+//https://servers.ustclug.org/index.php/2014/06/blog-googlefonts-speedup/
+name: "ajax/fonts >> 科大博客提供",
+from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
+to: "https://$1.lug.ustc.edu.cn/$2",
+regex: true
+},
+{
+name: "themes >> 科大博客",
+from: /^https?:\/\/themes\.googleusercontent\.com\/(.*)$/,
+to: "http://google-themes.lug.ustc.edu.cn/$1",
+regex: true
+},
+{
+name: "fonts-gstatic >> 科大博客",
+from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
+to: "http://fonts-gstatic.lug.ustc.edu.cn/$1",
+regex: true
+},
+{
+name: "Gravatar头像 >> 多说",
+from: /^https?:\/\/([0-9]?)\.gravatar\.com\/avatar\/(.*)$/,
+to: "http://gravatar.duoshuo.com/avatar/$1",
+regex: true
+},
+{
+name: "Google统计和tag >> mingto.tk",
+from: /^https?:\/\/(.*?)(google-analytics|googletagmanager|googletagservices|googleadservices)\.com\/([\w]+\/)*([\w]+(\.[\w]+)?)/i,
+to: "http://minggo.coding.io/cdn/google/$4",
+regex: true
+},*/
+
 ];

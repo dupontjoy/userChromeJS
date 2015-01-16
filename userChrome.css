@@ -1,4 +1,4 @@
-/*+++2015.01.08 22:15+++*/
+/*+++2015.01.14+++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -93,12 +93,12 @@ height: 24px !important;
 
 /*===== UI——直角标签：http://bbs.kafan.cn/thread-1726274-1-1.html =====*/
 /* 标签高度 */
-#tabbrowser-tabs { min-height: 26px !important; }
+#tabbrowser-tabs { min-height: 26px !important; margin-left:-17px !important;}
 
 /* 标签栏内外边距 */
-window[sizemode="fullscreen"] #TabsToolbar{ margin: 0px 0px 0px -15px !important; }
-window[sizemode="maximized"] #TabsToolbar{ margin: 0px -35px 0px -15px !important; }
-window[sizemode="normal"] #TabsToolbar{ margin: 20px -140px 0px -15px !important; }
+window[sizemode="fullscreen"] #TabsToolbar{ margin: 0px 0px 0px -3px !important; }
+window[sizemode="maximized"] #TabsToolbar{ margin: 0px -35px 0px -3px !important; }
+window[sizemode="normal"] #TabsToolbar{ margin: 20px -140px 0px -4px !important; }
 
 /* 去标签弧边 */
 #TabsToolbar .tab-background-start,
@@ -122,4 +122,3 @@ background: none !important;
 .tabbrowser-tab[selected="true"]{background:rgba(255,255,255,1) !important;font-weight:bold !important;}
 /*后台标签划过高亮 */
 .tabbrowser-tab:not([selected="true"]):hover{background:rgba(255,255,255,0.75) !important;}
-

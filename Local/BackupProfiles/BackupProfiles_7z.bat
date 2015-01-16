@@ -1,4 +1,4 @@
-::Mod 2015.01.12
+::Mod 2015.01.16
 
 echo off
 rem 设置备份路径以及临时文件夹
@@ -16,6 +16,7 @@ del %BackDir%\chrome\UserScriptLoader\require\  /s /q
 xcopy "%BackDir%\adblockplus" %TempFolder%\adblockplus\  /s /y /i
 xcopy "%BackDir%\chrome" %TempFolder%\chrome\  /s /y /i
 xcopy "%BackDir%\extensions" %TempFolder%\extensions\ /s /y /i
+::xcopy "%BackDir%\gm_scripts" %TempFolder%\gm_scripts\ /s /y /i
 xcopy "%BackDir%\Plugins" %TempFolder%\Plugins\ /s /y /i
  
 ::以下是文件
@@ -24,6 +25,7 @@ xcopy "%BackDir%\cert8.db" %TempFolder%\ /y
 xcopy "%BackDir%\FlashGot.exe" %TempFolder%\ /y
 xcopy "%BackDir%\foxyproxy.xml" %TempFolder%\ /y
 xcopy "%BackDir%\localstore.rdf" %TempFolder%\ /y
+xcopy "%BackDir%\MyFirefox.7z" %TempFolder%\ /y
 xcopy "%BackDir%\persdict.dat" %TempFolder%\ /y
 xcopy "%BackDir%\Portable.7z" %TempFolder%\ /y
 xcopy "%BackDir%\readme.txt" %TempFolder%\ /y

@@ -1,4 +1,5 @@
 
+//2015.01.16 21:00 更新TVC搜索項，加入特殊符號選單三級菜單
 //2015.01.08 20:40 一些搜索項只在特定網站顯示
 //2015.01.08 10:40 貼上 二级菜單
 //2015.01.04 09:35 複製 二级菜單
@@ -114,9 +115,29 @@ where: 'tab'
 new function() {
 var items = [{
 command: 'context-copyimage-contents'
-}, {
-command: 'context-copygif'
-}, {
+},
+{
+label: "複製GIF",
+condition: "image",
+insertBefore: 'context-saveimage',
+image: "",
+onclick: function(event) {
+if (event.button === 0) {
+var selection = content.getSelection();
+var ranges = [];
+for (var i = 0; i < selection.rangeCount; i++) ranges.push(selection.getRangeAt(i));
+var range = document.createRange();
+range.selectNode(document.popupNode);
+selection.removeAllRanges();
+selection.addRange(range);
+goDoCommand("cmd_copy");
+selection.removeAllRanges();
+for (i in ranges) selection.addRange(ranges);
+}
+}
+},
+
+{
 command: 'context-copyimage'
 }, /*複製圖片地址*/ {
 label: "複製圖片Base64",
@@ -290,20 +311,6 @@ image: "http://www.tvc-mall.com/images/favicon.ico",
 where: 'tab'
 },
 {
-label: "待編輯-SKU",
-id: "TVC",
-url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?Sku=%s&EditorId=0",
-image: "http://www.tvc-mall.com/images/favicon.ico",
-where: 'tab'
-},
-{
-label: "待編輯-產品名稱",
-id: "TVC",
-url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?Name=%s&EditorId=0",
-image: "http://www.tvc-mall.com/images/favicon.ico",
-where: 'tab'
-},
-{
 label: "已編輯-SKU",
 id: "TVC",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Sku=%s&EditorId=0",
@@ -332,19 +339,13 @@ image: "http://www.tvc-mall.com/images/favicon.ico",
 where: 'tab'
 },
 {
-label: "編輯管理-SKU",
+label: "編輯審核-SKU",
 id: "TVC",
-url: "http://ic.sjlpj.cn/Product/OperationProductEditMgtList?Sku=%s&BeginDate=2008-01-01",
+url: "http://ic.sjlpj.cn/Product/OperationProductEditAuditList?Sku=%s",
 image: "http://www.tvc-mall.com/images/favicon.ico",
 where: 'tab'
 },
-{
-label: "編輯管理-產品名稱",
-id: "TVC",
-url: "http://ic.sjlpj.cn/Product/OperationProductEditMgtList?KeyWord=%s&BeginDate=2008-01-01",
-image: "http://www.tvc-mall.com/images/favicon.ico",
-where: 'tab'
-},
+
 {},
 {
 label: "Baidu地圖",
@@ -380,28 +381,6 @@ menu(items);
 new function() {
 var items = [{
 command: 'context-copy'
-},
-{
-label: "標點符號置換(中轉英)",
-condition: "select",
-accesskey: "E",
-oncommand: function() {
-goDoCommand("cmd_copy");
-var sel = getBrowserSelection();
-var txt = addMenu.convertText('%p');
-addMenu.copy(txt.replace(/(\s，\s|\s，|，\s|，)+/g, ", ")
-.replace(/(\s。\s|\s。|。\s|。)+/g, ". ")
-.replace(/(\s？\s|\s？|？\s|？)+/g, "? ")
-.replace(/(\s！\s|\s！|！\s|！)+/g, "! ")
-.replace(/(\s；\s|\s；|；\s|；)+/g, "; ")
-.replace(/(\s：\s|\s：|：\s|：)+/g, ": ")
-.replace(/(\s（\s|\s（|（\s|（)+/g, " (")
-.replace(/(\s）\s|\s）|）\s|）)+/g, ") ")
-.replace(/(\s—\s|\s—|—\s|—)+/g, " - ")
-.replace(/(\s＆\s|\s＆|＆\s|＆)+/g, " & ")
-.replace(/(\s…\s|\s…|…\s|…)+/g, "... "));
-if (sel) {goDoCommand("cmd_paste");}
-},
 },
 {
 label: "複製爲HTML",
@@ -471,7 +450,9 @@ addMenu.copy(txt.replace(/(\s，\s|\s，|，\s|，)+/g, ", ")
 .replace(/(\s）\s|\s）|）\s|）)+/g, ") ")
 .replace(/(\s—\s|\s—|—\s|—)+/g, " - ")
 .replace(/(\s＆\s|\s＆|＆\s|＆)+/g, " & ")
-.replace(/(\s…\s|\s…|…\s|…)+/g, "... "));
+.replace(/(\s…\s|\s…|…\s|…)+/g, "... ")
+.replace(/(\s、\s|\s、|、\s|、)+/g, ", ")
+);
 if (sel) {goDoCommand("cmd_paste");}
 },
 },
@@ -523,52 +504,99 @@ goDoCommand("cmd_paste");
 }
 }
 });
-var items = [{
+var items = [
+{
 label: "用戶名(1)~~~",
 input_text: "dupontjoy",
 accesskey: "1",
-}, {}, {
+}, 
+{}, 
+{
 label: "163mail~~~",
 input_text: "dupontjoy@163.com",
 accesskey: "2",
 image: "http://email.163.com/favicon.ico "
-}, {
+}, 
+{
 label: "QQmail~~~",
 input_text: "dupontjoy@qq.com",
 accesskey: "3",
 image: " https://mail.qq.com/favicon.ico"
-}, {
+}, 
+{
 label: "Gmail~~~",
 input_text: "dupont2305@gmail.com",
 accesskey: "4",
 image: "https://ssl.gstatic.com/ui/v1/icons/mail/images/2/unreadcountfavicon/0.png "
-}, {}, {
-label: "谢谢你的解答~~~",
-input_text: "非常感谢你的解答！！！",
+}, 
+{}, 
+{
+label: "字數補丁~~~",
+input_text: "~~~為神馬要15字，好吧，漢賊不兩立，王業不偏安~~~",
 image: " "
-}, {
-label: "看起来很不错~~~",
-input_text: "看起来很不错哦~~~\n谢谢啦！！！",
-image: " "
-}, {}, {
-label: "不明真相的~~~",
-input_text: "不明真相的围观群众~~~\u0285\uFF08\u00B4\u25D4\u0C6A\u25D4\uFF09\u0283",
-image: " "
-}, {
-label: "不知LZ在说~~~",
-input_text: "不知道LZ在说什么\n\u2606\u002E\u3002\u002E\u003A\u002A\u0028\u563F\u00B4\u0414\uFF40\u563F\u0029\u002E\u3002\u002E\u003A\u002A\u2606",
-image: " "
-}, {
-label: "嘿嘿~~~",
-input_text: "\u2606\u002E\u3002\u002E\u003A\u002A\u0028\u563F\u00B4\u0414\uFF40\u563F\u0029\u002E\u3002\u002E\u003A\u002A\u2606",
-image: " "
-}, {}, {
-label: "為神馬要15字~~~",
-input_text: "為神馬要15字，好吧，那就來標凖15字~~~",
-image: " "
-}];
+}
+];
 menu(items);
 };
+
+//特殊符號選單，打造三級菜單
+var Punctuationsub = PageMenu({
+label:"特殊符號",
+accesskey: "S",
+condition:"input",
+insertBefore:"context-copy",
+oncommand: function(event) {
+var input_text = event.target.getAttribute('input_text');
+if (input_text) {
+addMenu.copy(input_text);
+setTimeout(function() {
+goDoCommand("cmd_paste");
+}, 100);
+}
+}
+});
+Punctuationsub([
+	{id: "Punctuation-sep", style: "display:none;"}
+]);
+var PunctuationsubMenu1 = PageMenu({
+	label: "物理",
+	condition: "input",
+	insertBefore: "Punctuation-sep",
+});
+PunctuationsubMenu1([
+{label: "°", input_text:"°"},
+{label: "°C", input_text:"°C"},
+{label: "m²", input_text:"m²"},
+{label: "cm²", input_text:"cm²"},
+{label: "km²", input_text:"km²"},
+{label: "Ω", input_text:"Ω"},//ohm
+{label: "⌀", input_text:"⌀"},//diameter
+{label: "¢", input_text:"¢"},//another way of diameter
+]);
+var PunctuationsubMenu2 = PageMenu({
+	label: "數學",
+	condition: "input",
+	insertBefore: "Punctuation-sep",
+});
+PunctuationsubMenu2([
+{label: "±", input_text:"±"},
+{label: "×", input_text:"×"},
+{label: "÷", input_text:"÷"},
+{label: "≦", input_text:"≦"},//is less than or equal
+{label: "≧", input_text:"≧"},
+{label: "≠", input_text:"≠"},//is not equal to
+{label: "≈", input_text:"≈"},//is approximately equal to
+{label: "√", input_text:"√"},
+{label: "∞", input_text:"∞"},//infinity
+]);
+var PunctuationsubMenu3 = PageMenu({
+	label: "其它",
+	condition: "input",
+	insertBefore: "Punctuation-sep",
+});
+PunctuationsubMenu3([
+{label: "·", input_text:"·"},//placeholder,位于字母中间
+]);
 
 /*——————————頁面右鍵——————————*/
 //Firefox 31+ 横排菜单，在鏈接上和非鏈接上不相同

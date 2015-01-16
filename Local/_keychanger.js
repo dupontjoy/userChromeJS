@@ -1,4 +1,4 @@
-//2015.01.02
+//2015.01.15
 
 //F功能鍵
 
@@ -38,7 +38,6 @@ keys['X'] = "gWHT.destroyToolbar();";//WordHighlight取消工具栏
 
 //組合鍵
 keys['Ctrl+F1'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键
-
 keys['Ctrl+F8'] = function() {
                 var file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile);
                 file.append("Local");
@@ -46,13 +45,6 @@ keys['Ctrl+F8'] = function() {
                 file.append("BackupProfiles_7z.bat");
                 file.launch();
             };//備份Firefox
-keys['Ctrl+F9'] = function() {
-                var file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile);
-                file.append("Local");
-                file.append("UpdateSWF");
-                file.append("UpdateGAE.bat");
-                file.launch();
-            };//下載本地SWF
 keys["Alt+X"] = "Services.appinfo.invalidateCachesOnRestart() || Application.restart();"; //删除启动缓存并重启
 
 

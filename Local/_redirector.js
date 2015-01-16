@@ -1,5 +1,5 @@
 
-//2015.01.14 更新sourceforge規則，禁用一些規則
+//2015.01.16 更新sourceforge規則
 //2015.01.10 刪除一個有問題的規則
 //2015.01.07 修正flickr >> 原始大图
 
@@ -156,6 +156,39 @@ to: "$1_b$3",
 regex: true
 },
 
+//Google服務轉國內鏡像
+{
+//https://servers.ustclug.org/index.php/2014/06/blog-googlefonts-speedup/
+name: "ajax/fonts >> 科大博客提供",
+from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
+to: "https://$1.lug.ustc.edu.cn/$2",
+regex: true
+},
+{
+name: "themes >> 科大博客",
+from: /^https?:\/\/themes\.googleusercontent\.com\/(.*)$/,
+to: "http://google-themes.lug.ustc.edu.cn/$1",
+regex: true
+},
+{
+name: "fonts-gstatic >> 科大博客",
+from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
+to: "http://fonts-gstatic.lug.ustc.edu.cn/$1",
+regex: true
+},
+{
+name: "Gravatar头像 >> 多说",
+from: /^https?:\/\/([0-9]?)\.gravatar\.com\/avatar\/(.*)$/,
+to: "http://gravatar.duoshuo.com/avatar/$1",
+regex: true
+},
+{
+name: "Google统计和tag >> mingto.tk",
+from: /^https?:\/\/(.*?)(google-analytics|googletagmanager|googletagservices|googleadservices)\.com\/([\w]+\/)*([\w]+(\.[\w]+)?)/i,
+to: "http://minggo.coding.io/cdn/google/$4",
+regex: true
+},
+
 //待測試
 {
 name: "noMoreArchiver",
@@ -234,37 +267,5 @@ state: false,
 regex: true,
 },
 
-//Google服務轉國內鏡像
-/*{
-//https://servers.ustclug.org/index.php/2014/06/blog-googlefonts-speedup/
-name: "ajax/fonts >> 科大博客提供",
-from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
-to: "https://$1.lug.ustc.edu.cn/$2",
-regex: true
-},
-{
-name: "themes >> 科大博客",
-from: /^https?:\/\/themes\.googleusercontent\.com\/(.*)$/,
-to: "http://google-themes.lug.ustc.edu.cn/$1",
-regex: true
-},
-{
-name: "fonts-gstatic >> 科大博客",
-from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
-to: "http://fonts-gstatic.lug.ustc.edu.cn/$1",
-regex: true
-},
-{
-name: "Gravatar头像 >> 多说",
-from: /^https?:\/\/([0-9]?)\.gravatar\.com\/avatar\/(.*)$/,
-to: "http://gravatar.duoshuo.com/avatar/$1",
-regex: true
-},
-{
-name: "Google统计和tag >> mingto.tk",
-from: /^https?:\/\/(.*?)(google-analytics|googletagmanager|googletagservices|googleadservices)\.com\/([\w]+\/)*([\w]+(\.[\w]+)?)/i,
-to: "http://minggo.coding.io/cdn/google/$4",
-regex: true
-},*/
 
 ];

@@ -1,4 +1,5 @@
 
+//2015.01.15 新增wsj
 //2014.12.16 增加poco
 //2014.11.25 增加chiphell,niunews
 //2014.11.09 增加pconline和postimg
@@ -10,6 +11,7 @@
 
 sites = {
     //自定义
+    'wsj.com': 'https://www.google.com/',//免登陆或订阅看全文
     'pconline.com.cn': '@FORGE',
     'postimg.org': '@FORGE',
     'chiphell.com': '@FORGE',

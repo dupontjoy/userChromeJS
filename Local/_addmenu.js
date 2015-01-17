@@ -1,5 +1,6 @@
 
-//2015.01.16 21:00 更新TVC搜索項，加入特殊符號選單三級菜單
+//2015.01.17 16:00 更新TVC搜索項
+//2015.01.16 23:00 更新TVC搜索項，加入特殊符號選單三級菜單
 //2015.01.08 20:40 一些搜索項只在特定網站顯示
 //2015.01.08 10:40 貼上 二级菜單
 //2015.01.04 09:35 複製 二级菜單
@@ -50,18 +51,6 @@ popup.appendChild(m);
 }
 },
 });
-
-tab([{
-label: "複製Favicon的URL",
-text: "%FAVICON%",
-insertBefore: "context_closeOtherTabs",
-}, 
-{
-label: "複製Favicon的Base64",
-text: "%FAVICON_BASE64%",
-insertBefore: "context_closeOtherTabs",
-}
-]);
 
 /*——————————圖片右鍵————————*/
 //右鍵搜索圖片 以圖搜圖
@@ -224,7 +213,7 @@ zipW.close();
 }, {
 command: 'context-sendimagetogmail'
 },
-// 替换 openImgRar.uc.js
+// 替換 openImgRar.uc.js
 {
 label: "打開圖像RAR",
 accesskey: "R",
@@ -288,7 +277,7 @@ elem.hidden = !/ic.sjlpj.cn|tvc-mall.com/.test(content.location.host)//可排除
 }
 });
 var items = [
-//打开方式(默认当前頁面)，通过where 更改，具体tab(前台)、tabshifted(后台)、window(窗口)
+//打開方式(默认当前頁面)，通过where 更改，具体tab(前台)、tabshifted(后台)、window(窗口)
 {
 label: "Baidu",
 accesskey: "B",
@@ -311,41 +300,62 @@ image: "http://www.tvc-mall.com/images/favicon.ico",
 where: 'tab'
 },
 {
-label: "已編輯-SKU",
+label: "Amazon",
 id: "TVC",
-url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Sku=%s&EditorId=0",
-image: "http://www.tvc-mall.com/images/favicon.ico",
+url: "http://www.amazon.com/s/?url=field-keywords=%s",
+image: "http://www.amazon.com/favicon.ico",
 where: 'tab'
 },
 {
-label: "已編輯-產品名稱",
+label: "Ebay",
 id: "TVC",
-url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Name=%s&EditorId=0",
-image: "http://www.tvc-mall.com/images/favicon.ico",
-where: 'tab'
-},
-{
-label: "編輯質檢-SKU",
-id: "TVC",
-url: "http://ic.sjlpj.cn/Product/ProductCheckingList?Sku=%s",
-image: "http://www.tvc-mall.com/images/favicon.ico",
-where: 'tab'
-},
-{
-label: "編輯質檢-產品名稱",
-id: "TVC",
-url: "http://ic.sjlpj.cn/Product/ProductCheckingList?KeyWord=%s",
-image: "http://www.tvc-mall.com/images/favicon.ico",
-where: 'tab'
-},
-{
-label: "編輯審核-SKU",
-id: "TVC",
-url: "http://ic.sjlpj.cn/Product/OperationProductEditAuditList?Sku=%s",
-image: "http://www.tvc-mall.com/images/favicon.ico",
+url: "http://www.ebay.com/sch/i.html?_nkw=%s",
+image: "http://www.ebay.com/favicon.ico",
 where: 'tab'
 },
 
+{
+label: "已編輯-SKU",
+id: "TVC",
+url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Sku=%s&EditorId=0",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "已編輯-品名",
+id: "TVC",
+url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Name=%s&EditorId=0",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "運營—質檢-SKU",
+id: "TVC",
+url: "http://ic.sjlpj.cn/Product/ProductCheckingList?Sku=%s",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "運營—質檢-品名",
+id: "TVC",
+url: "http://ic.sjlpj.cn/Product/ProductCheckingList?KeyWord=%s",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "運營—審核-SKU",
+id: "TVC",
+url: "http://ic.sjlpj.cn/Product/OperationProductEditAuditList?Sku=%s",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "運營—產品SKU管理",
+id: "TVC",
+url: "http://ic.sjlpj.cn/ProductCorrect/ProductSpuList?Sku=%s",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
 {},
 {
 label: "Baidu地圖",
@@ -601,24 +611,22 @@ PunctuationsubMenu3([
 /*——————————頁面右鍵——————————*/
 //Firefox 31+ 横排菜单，在鏈接上和非鏈接上不相同
 var openMenu = GroupMenu({
-label: '打开...',
+label: '打開...',
 condition: 'noinput noselect nomailto nocanvas nomedia noimage nolink',
 position: 1,
 insertBefore: 'context-sep-navigation'
 });
 openMenu([
 {
-label:"複製文本+链接",
-text:"%RLT_OR_UT%\n%RLINK_OR_URL%",
-image:""
+label: "複製Favicon的URL",
+text: "%FAVICON%",
+}, 
+{
+label: "複製Favicon的Base64",
+text: "%FAVICON_BASE64%",
 },
 {
-label:"在隐私窗打开",
-oncommand: "openLinkIn(addMenu.convertText('%RLINK_OR_URL%'), 'window',{private:true});",
-image:""
-},
-{
-label: "在 IE 中打开",
+label: "在IE中打開",
 text: "%RLINK_OR_URL%",
 exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
 },
@@ -628,7 +636,7 @@ text: '%RLINK_OR_URL%',
 exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\Local\\BackupProfiles\\BackupProfiles_7z.bat",
 },
 {
-label: "在 Chrome 中打开",
+label: "在 Chrome 中打開",
 text: '%RLINK_OR_URL%',
 exec: Services.dirsvc.get("LocalAppData", Ci.nsILocalFile).path + "\\Google\\Chrome\\Application\\chrome.exe",
 },*/

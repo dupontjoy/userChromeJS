@@ -100,13 +100,13 @@ from: /^https?:\/\/music\.baidu\.com\/data\/music\/fmlink(.*[&\?])rate=[^3]\d+(.
 to: "http://music.baidu.com/data/music/fmlink$1rate=320$2",
 regex: true
 },
-{
+/*{
 name: "The Economist加/print",
 from: /^https?:\/\/www\.economist\.com\/(.*)\/(.*)/i,
 to: "http://www.economist.com/$1/$2/print",
 exclude: /^http:\/\/www\.economist\.com\/.*\/print/i,
 regex: true
-},
+},*/
 {
 name: "般若文海article >> books",
 from: /^https?:\/\/book\.bfnn\.org\/article([\d]?\/.*)/i,

@@ -1,4 +1,13 @@
-/*+++2014.12.18 20:40+++*/
+/*+++2014.12.21 12:00+++*/
+
+/*新建按钮样式*/
+#TabsToolbar .tabs-newtab-button, #new-tab-button {
+margin: 0px !important;
+padding: 0px !important;
+width: 20px !important;
+}
+.tabs-newtab-button, #new-tab-button  { background: transparent !important;}
+.tabs-newtab-button:hover, #new-tab-button:hover  { background: rgba(255,255,255,0.75) !important;}
 
 /*标签样式css*/
 .tabbrowser-tab[busy] {color: blue !important;}/* 正在加载标签 */

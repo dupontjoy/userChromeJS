@@ -1,5 +1,6 @@
 
-//2015.01.17 16:00 更新TVC搜索項
+//2015.01.21 21:00 修正特殊符號，添加小書籤菜單
+//2015.01.20 10:00 更新TVC搜索項
 //2015.01.16 23:00 更新TVC搜索項，加入特殊符號選單三級菜單
 //2015.01.08 20:40 一些搜索項只在特定網站顯示
 //2015.01.08 10:40 貼上 二级菜單
@@ -293,27 +294,24 @@ where: 'tab'
 }, 
 {},
 {
-label: "TVC-Mall",
-id: "TVC",
-url: "http://www.tvc-mall.com/search?q=%s",
-image: "http://www.tvc-mall.com/images/favicon.ico",
-where: 'tab'
-},
-{
 label: "Amazon",
-id: "TVC",
 url: "http://www.amazon.com/s/?url=field-keywords=%s",
 image: "http://www.amazon.com/favicon.ico",
 where: 'tab'
 },
 {
 label: "Ebay",
-id: "TVC",
 url: "http://www.ebay.com/sch/i.html?_nkw=%s",
 image: "http://www.ebay.com/favicon.ico",
 where: 'tab'
 },
-
+{
+label: "TVC-Mall",
+id: "TVC",
+url: "http://www.tvc-mall.com/search?q=%s",
+image: "http://www.tvc-mall.com/images/favicon.ico",
+where: 'tab'
+},
 {
 label: "已編輯-SKU",
 id: "TVC",
@@ -580,7 +578,7 @@ PunctuationsubMenu1([
 {label: "cm²", input_text:"cm²"},
 {label: "km²", input_text:"km²"},
 {label: "Ω", input_text:"Ω"},//ohm
-{label: "⌀", input_text:"⌀"},//diameter
+{label: "Φ", input_text:"Φ"},//diameter
 {label: "¢", input_text:"¢"},//another way of diameter
 ]);
 var PunctuationsubMenu2 = PageMenu({
@@ -592,8 +590,10 @@ PunctuationsubMenu2([
 {label: "±", input_text:"±"},
 {label: "×", input_text:"×"},
 {label: "÷", input_text:"÷"},
-{label: "≦", input_text:"≦"},//is less than or equal
-{label: "≧", input_text:"≧"},
+{label: "≤", input_text:"≤"},
+{label: "≥", input_text:"≥"},
+/*{label: "≦", input_text:"≦"},//is less than or equal
+{label: "≧", input_text:"≧"},*/
 {label: "≠", input_text:"≠"},//is not equal to
 {label: "≈", input_text:"≈"},//is approximately equal to
 {label: "√", input_text:"√"},
@@ -642,11 +642,27 @@ exec: Services.dirsvc.get("LocalAppData", Ci.nsILocalFile).path + "\\Google\\Chr
 },*/
 ]);
 
+//小書籤
+var BookmarkletSub = PageMenu({
+label:"小書籤",
+accesskey: "B",
+condition:"noinput noselect nomailto nocanvas nomedia noimage nolink",
+insertBefore:"context-copy",
+});
+BookmarkletSub([
+{
+label:"拼寫檢查",
+tooltiptext: "需切換到其它標籤，再切回來即可生效！",
+url:"javascript:document.body.contentEditable='true';%20document.designMode='on';%20void%200",
+},
+]);
+
 //EHH元素隱藏
 page([{
 label: '選擇屏蔽內容',
 accesskey: "E",
 oncommand: "window._ehhWrapper.toggleSelection(); ",
+tooltiptext: "EEH for ABP隱藏元素",
 insertBefore: "context-viewsource",
 condition: "noinput noselect nomailto nocanvas nomedia noimage nolink",
 }, ]);

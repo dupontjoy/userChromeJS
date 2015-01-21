@@ -1,4 +1,4 @@
-/*+++2015.01.17 23:00+++*/
+/*+++2015.01.21 21:00+++*/
 
 /*改变新窗口打开的链接的光标*/
 :link[target="_blank"],:visited[target="_blank"],:link[target="_new"],:visited[target="_new"] {
@@ -7,6 +7,11 @@ cursor:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAmCAYAAADX7PtfAA
 }
 
 /*==扩展/脚本图标补充==*/
+
+[label="小書籤"] {
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB20lEQVQ4jYXTz0uaARjAcW877FXfV33fDhEh2QopF240hA4Fwbr4rmgK/aBhk2m0WBcZi40OnTqEMkkcMbcOgS4IJLS/Ich4JSkMo6AIoUs7tOt3t7GX9b574Ht6eD63x2L5a0otD3vLipDZaxG4r7IiZIryA4/FaMqKkGkkXvFr78u91d9NUlaEjCGwq1i5K2X5+fX9v+U+cFfKsqtYMQSKipXbbx9pLgRovn2mbyHA7fdPFM2AHdnKzVqMq3g/V7Gn+uL93KzF2JFNgG3ZRnM1ysWsn4tIn75ZP83VKNuyzRjIyzauVyKcTfk4m+zRN+XjeiVC3gzYctm4XJ6hHvJSf9mtL+TlcnmGLZcJsOmyc740TU3tohbs1Kd2cb40zabLbgzknHYaiQm0kQ605259Ix00EhPknCbAhtPO6WKYylA7lcE2DofdHA67qQy2URlq53QxzIYZkHWKnMyPsz/QihYKcDw3xvHcGNVwgP2BVk7mx8k6RWNg3SFSi49yoPo5ir2g0Osh3+Ph6I3KgfqEWnyUdYcJkHaIVKMq1ahK4fEjPktiOu0QU3lfJ9rrINWoStoMSEkSWiTID7+XpCT9eZqUKKYLfd1okSApSTIGkpKUSUqS7vh/u98t81pZD0oCAgAAAABJRU5ErkJggg==") !important;
+-moz-image-region: rect(0px, 0px, 0px, 0px) !important;
+}
 
 [label="特殊符號"] {
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACeUlEQVRIib2Vy0tUURzHP/cqYVaoQ6iM4mKKiXLjo3yMzUbBWaStokVtnE0Qga3GB25KVyHWROtaRFEZCEK7CCSoZpFgi9CdYCI2LaI/IL4tzrl6586d8UF14Medued7fs/v91z4j8sBXKAixFy7X+qcU2Z/B6QyVgscCXEyaPcvA0dtMqHLBbQ9ldZmeqDArINWG8QNJPXlfW7Fw7QA1aUqqQC0mR7Qen9LgdnDvUB9IMNUNBrV7NO3HuamxVQeJkAf0OAL4FxvqPr9aWVNmeyC0hMPBeSAWKkqDhogNTw8rCeLH5XJLiiTXfBwt4GTYVUcJIADfPOy98xWIeA0cCxYRQXlWeSfgbsHth2IUEgIXAxLzllnfT7rpZBFLlADnAV6Atge6yPIOBwMz2ttpvW2JQ32t18HYdj6EtiCdRAlH1b1RYf3BLPPq8JbN4BVzLDWgFEMrytLODjDLnOqCPS9yHnqQkRbS2P6+WFSG4sjSrVHBExihhrkdhTQxKsJP3uqSwVxgNXt3D39eHNJ+fmk8i+S+vygU8A6xQrdcZ6YSWjo/pAaGxsFdGI0UBTEBfRreVb510nlXyb1/VlSXx91+bOrY3cmmp6fVmImofh4XPHxuAanBj1ss21XkdDWtt6NGefPk9p8fFFLd9oEbADdmCvAU/IpQLFbMcXH42oZ2VH8FcxcTgSrcIHRVEdEubkOLc+d19LdNvW31grIhlRQZd+p6WqT5/yaTSS0Asf2eNL23Ms8i1FojML7xbX/O32Zd2O+CaEzAMOSGuusHeiyzxjhLPKCNNu2NJdz7lVRaSupw/S8jvI6cG07jrMPHfgD/TMl//X1B0+VEm/xJYWuAAAAAElFTkSuQmCC") !important;

@@ -157,7 +157,7 @@ regex: true
 },
 
 //Google服務轉國內鏡像
-{
+/*{
 //https://servers.ustclug.org/index.php/2014/06/blog-googlefonts-speedup/
 name: "ajax/fonts >> 科大博客提供",
 from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
@@ -187,7 +187,7 @@ name: "Google统计和tag >> mingto.tk",
 from: /^https?:\/\/(.*?)(google-analytics|googletagmanager|googletagservices|googleadservices)\.com\/([\w]+\/)*([\w]+(\.[\w]+)?)/i,
 to: "http://minggo.coding.io/cdn/google/$4",
 regex: true
-},
+},*/
 
 //待測試
 {
@@ -199,25 +199,22 @@ regex: true
 
 
 //——————以下为不启用——————
-{
+/*{
 name: "爱奇艺",
 from:/^http:\/\/afp\.qiyi\.com\/.*\url=([^&]*)(\?src=.*)/i,
 to: "$1",
-state: false,
 regex: true
 },
 {
 name: "tb >> taobao",
 from: /^https?:\/\/(.*?)tb\.com\/(.*)$/,
 to: "http://$1taobao.com/$2",
-state: false,
 regex: true
 },
 {
 name: "tm >> tmall",
 from: /^https?:\/\/(.*?)tm\.com\/(.*)$/,
 to: "http://$1tmall.com/$2",
-state: false,
 regex: true
 },
 
@@ -227,28 +224,24 @@ name: "【https】google",
 from: /^http:\/\/(([^\.]+\.)?google\..+)/i,
 exclude: /google\.cn/i, // 可选，排除例外规则
 to: "https://$1",
-state: false,
 regex: true
 },
 {
 name: "【https】Wiki Media",
 from: /^http:\/\/upload\.wikimedia\.org\/(.*)$/i,
 to: "https://upload.wikimedia.org/$1",
-state: false,
 regex: true
 },
 {
 name: "【https】Google Code",
 from: /^http:\/\/(.*?)googlecode\.com\/(.*)$/i,
 to: "https://$1googlecode.com/$2",
-state: false,
 regex: true
 },
 {
 name: "【https】Google User Content",
 from: /^http:\/\/(.*?)googleusercontent\.com\/(.*)$/i,
 to: "https://$1googleusercontent.com/$2",
-state: false,
 regex: true
 },
 {
@@ -256,16 +249,14 @@ name: "BiliBili",
 from: /^http:\/\/www\.bilibili\.com\/video\/av([\d]+)\/([\w]+\.html)?(.*)?/i,
 to: "http://www.bilibili.com/video/av$1/$2#alist",
 exclude: /bilibili\.com\/video\/av([\d]+)\/([\w]+\.html)?#alist$/i,
-state: false,
 regex: true
 },
 {
 name: "优酷收费视频 >> id97免费看",
 from: /^http:\/\/v\.youku\.com\/v_show\/([\w]{16})(_ev_[\d]+)?\.html(\?.*)?$/i,
 to: "http://www.id97.com/videos/play/$1.html",
-state: false,
 regex: true,
 },
-
+*/
 
 ];

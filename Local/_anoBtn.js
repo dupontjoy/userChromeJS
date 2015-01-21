@@ -1,4 +1,5 @@
-/*2015.01.17 21:00*/
+
+//2015.01.21 20:00 精簡並換一些圖標
 
 /**********************************************************************************
  *此处为按钮设置
@@ -39,79 +40,11 @@ var anomenu = [{
 		label: "网站首页",
 		oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/')",
 		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABMklEQVQ4jc2Tu2oCURRFdzIi4idMNf3AsPdu/IFU04ZACvuAFmqRR2Nhl4+wSWWZ1j/IVwhBrayCQURSmOZOmAz4SJcLBw7cs9Z9nQv8bVykaVoHcHlOcc1223YbQA0ASNL2q6TrU3BEsitpJWlFshsEN7b3kp7PgZckeyR7kpa27yTdnhL8wLYHkoaShiF/tz09JqjCI9tb21tJI5J92x+HBIfgfYhC0pP0KWkMICrDnSNwVdK3PSfZARBB0qPt+Qn4l8T2wPZc0hMkjcPWqvDM9luI2YHjvCBN0zrJ+wq8IZnHcdyM47hJMre9KUtsPyRJ0kCSJI3ieUqxzrKsVVxSlmUt2+tKzfSfCADUJE3Kk5J2oQuvQgwl7So1E4RPBpK5pEVlha+iE0NehhckcwD4BqeD7Zmx4aS4AAAAAElFTkSuQmCC"
-	},{
-		label: "火狐扩展",
-		oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/firefox-extension/')",
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABJElEQVQ4jZ1SsUoDURC8Io3/oJWFNnaCXCNPwcZ4b3dmwD6CoJVYif6BtY3WojaC+hU2CnYWtulDiCCoEAuTeJ65O8nCVjtvZnfmJUlJAdgC+EGqD2C/DDe2YoyLpPr5dpf+TUByukiQZZqvUeUygJa7RLJJqp0jeAGw6u6bAFoxcqV4705Rsb55lF/5egKCi9wGvBsM3use/iSjy/wJ22bKQggNgPcVqs9pmk6Zad1du2PNNLOFCoLmRBEOO8Y4V0sAYKOMwF17ZapnAE8BrJHqVZj4ZqaM5DHJk5yqbscZ5s5DAAeAHipjJHlTALRDCI3fp/Gp6h9cFbJ+/OvN6K8MMDofDc1sCVAXUJdUD2DHzGaGc3efJfX6jWGH1CfJmCRJ8gWPZifIwJ0eigAAAABJRU5ErkJggg=="
-	},{
-		label: "火狐主题",
-		oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/firefox-theme/')",
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABlklEQVQ4jZWTsWvUQRCFJ1EjHFoLqwQCB4fssbPfC2ijBKtgJ1aCnQqWirb+EwreWSkGBDXFSQoLG1MIQSGFjaZKKRqJIBhjRDibDSw/7kwceMUOw8fOmxkDngA7kob/qS3grgE7wOec80OgB/RrSbrfyPeABWAT2LBCe2RmB2KMU9YISSfd/VwjfQh4AfwwSUOg3263DwN3JF1PKZ3odDpHgauS1nLO1xqASUnPasADM7Oc801JfyR9BJaBX8A3SbP7AkhqA+u1WcAHdz++L0AIoQW8ari9LWng7vMhhNZeLVyQ9H3EyLYlrUi6aGYTowC9GOO0pFVJv4Ev9W4A7yQlMzs47gc9dz8D3HL3eXePwFKBvS27slh5MbqFOoDzwHtJs8DjUvcypTRTDP83IMZ4BLgSQmh1u91jkgal9nVKqZNzviHp01hAgUwV0yzGOF1NaMXdTwGXdgELxaAJM5usVL939+RNgaymlM5auapNSQPg6ThJeg7cTimdLtMaSloz4J6kr5K29tBPYCPnfBmYA9aB/l9K2PjjXsR/3gAAAABJRU5ErkJggg=="
-	},{
-		label: "火狐插件",
-		oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/firefox-plugin/')",
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABV0lEQVQ4jbWTsWpVQRCGtwspbQRjpaigtYin0SKIHM+5e/b75hUsoo3EJxJ8DwtLmyA2ESGJYlADiVFB5RpzLbLgFYLeG7AY2N1hvpnd/9/UNM0isKpuaRz8K8AfGhvq/bZtFxLEQ40vGpM5Y7+UuJc0Xp+geKIxgVhP4OHUwR74cQ7I1/S72DfAzWGI2+D72Sbw+x+AUsqy2oEf5gZojCHWNJ5rfINYB19qbEA8gnis8e6vE+Scr6rXIdZKKddyzhfULue8lFJK6t0q47GAzb7vz45Go3PgM+AScBriqfqk67pTwzBc0diZCdD3cRG4rLELbuacl7ouzoPbMwNqx93qvDP/BzBlpLc5e6OUsgy+GIa4o2aNfXAbuAX0029QjeRW3RzU5E6VdK8681Dj5xEoPtX1tJVZBT+f5DMBK6lpmsVS4sHRPWNcdR4fF1O5V8BK27YLvwCEF774kDAvMwAAAABJRU5ErkJggg=="
-	},{
-		label: "便携版本",
-		oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/firefox-portable/')",
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB2ElEQVQ4jYWTP0jVURTHj6L20MXeEPKW7vC22+/e8/m+QXBzErJBGiJptjHNxaG18O0Nbg1tbxDCoZKgQgJxskUaXqC4FrxBaTNbbmXPPx04cLl8v1/On+8x64sYYx1YkfQFOAaOy3slxljvx/eTJyR1gC6w6u5z7j4HrAJdSZ0Y48Rl/GFgDdiV1DIzazQao41GY9TMTFIL2AXWzGz4HDulNAnsu/usmQ26+wKwA+y4+0L5mwX2U0qT5wSAZUnbKaWxnPM00CutdIFeznk6pTQmaRtYvkigDWyYmbn7InAC3C954u6LBbcBtP8hV1VVSXoPfAoh1HLOM8AR8LnkUc55ptlsXpO0BXyoqqr6PfkRYF3SKdBz9wcxxrq7LwF7wJ67L8UY6znne5K+F+x6jHHEQgg1SZvA67LCA0lbkh67+5S7TwGPgI/FE6cl34YQahZCqAHvJD0xs0FJLUnPSuld4AA4OUO8UuDsWm9Iegj0LiD/X6BM/GZp6XKBMtlN4FVK6dZZl10lALwJIdTMzAaA+WKQfUkdSXerqrp+icCPgp03s4E/5br7eM75DvBS0tdi4+eSvgE/JR26+wt3v+3u4+dP6W8MSUpAW9JhuY+nkpKZDfWDfwGcN9elzC4e2gAAAABJRU5ErkJggg=="
-	},{
-		label: "UC 脚本",
-		oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/uc-script/')",
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAUElEQVQ4jWNgoAYwNDQ8YmRk9B8NHyZWngGL5H8jI6P/xMoPBwOwBZKhoeERYuUHAaBLOjAwMLCG8fX19W1IjgV0V9PfAGQvGBgYWA+edAAAYHvJ0ycnisoAAAAASUVORK5CYII="
-	},{
-		label: "油猴脚本",
-		oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/greasemonkey-scripts/')",
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABJElEQVQ4jaWSQUrEMBiFA15iBtfDTAhJ3nvgCcRFu/EArjyIzFzDjXiBgpvZC/UM4gkqsxqsu0Gpm7Z2alsRA4H8/P/38kKeMePrBMAlyXuSz5JKko8T89+L5LmkF0lVb18DSAGcjcIAriR9DMDtJnkzBC5IZpIOv8B7AIsjOISwJLmfAvsiIYRl896E5K7T3DrnZgAuJB1IfpJMrLVzkg+duR3JxEgquurW2nnjTNItgLumds7Nem4K07dXg7mkPMZISaGp697x/IhAe+7XQwLFPwReDYB0AMhJPk3UlaQKQPrjBgDriZCthxwaSW/ND0jaTGRg0/wEyfdWoE5gm4ExBzHGU5LbejZrG9771V+T6L1fHanXcc4klRNwSTJrY2yM+QKvMPkYe5i+ewAAAABJRU5ErkJggg=="
-	},{
-		label: "火狐样式",
-		oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/firefox-stylish/')",
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABdklEQVQ4jZ2TsUuWURTGD1SIiA1+CFEfuLz0XXzhPef3tEp8QyQWDQ0tTQ0O/gUhYpDo1OQY1BAu/gONgRqN4SqISU5OGdQSErwO3uT101S+Cw+Xe8+5P55zONeKohiQ9AZYAzbyfpHWJX0G3qaUWiZpWVLdp7ZM0qakGvgEzALzV9QiMGvAhqQ6IqatnwWsZQfzPaHrwANgyt0nexURj9x94r+AlFLrsh4AB03Aq14A8CcnHwI/gO/AT0mH+X7nBCDptZlZVVVDZmZFUdyU9FdS7e6TZmZlWd4yM3P3p2cAEfEcGJP0C3hnZjeA35LqlFIrIp5J2gPGG+WdAjyWdO8kcAw4yA7uAO9z3ouyLEfOK+FltvcQuN3pdIb/NSsiuu12ezCXcg24fwYALDSbWFXVUETMRcSSu99txiQ9aQLWM2DmqrPj7mV+s2uSvubDh4jonjc0PQPUjYi57GDfgJV+PxPwxYBRYBXYBnYl7Vyib1kfJRVHnrYERrq2WucAAAAASUVORK5CYII="
-	},{
-		label: "图标壁纸",
-		oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/firefox-pic/')",
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA/klEQVQ4ja2QwUrDQBRFR2kE695qyLJVwoTJO3frRwnaRbe60P6Bf+GXuBaqiEsRcaUirUrcmBBCxTQ4cHbvnnnvujiO+2Z2KGnoujxgCtyGEPY7CSR9SnrI83yvq6BYQdBzzkVdBRFwBJzGcdz/S9D8KQKOgVdJC2BaSZoC7/2GmY2BkyRJNp1zvVq4kFQAc+A8hLDVFKyZ2VjSWzkETICXMlzjHbioBGY2yrJsAMxqQwtgviRcbvJVCSQN0zTdlXT3W2AZ/ycoT5B0BTxLempDs8R1Mxvlee7b4n7KeDSzgxDC9ipkWTYoN/gA7oFZS26Aa+DMrVJYg0vv/c43/6PjyunAK00AAAAASUVORK5CYII="
-	},{
-		label: "资源聚合",
-		oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/firefox-aggregation/')",
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABGklEQVQ4jaWTvUqDQRBF0/oOeYZkznkBW20trATFImAjdiIIImJsEtFCBJEggopYBovgD9rYiI0GFMFKH0AFsRJtNoXkCwnJwoWBu3vYuczkcoMe9XcQ5YAyUAGqWYqI9Q5eBSjnIqIGHGXoFLgGboCrrDsRUevWwqN6rN51bEH9zDB2gF1gTR1TGx0AH20AYDsiltQGsNflh22AekTMpfoFWAHOewKkwIaBH+AkpfwMzAPLvQBegQNgWt1IGVSTt6mW1O+uGairQDM9nAEWU31YLBbHgbdugH+KiAVgNkHOgFH1IfnvvY5yXd1KkFt1RH1qzUFdvVQvspTCbUbEVERMJuCXWgL2+1m+CfW+UCjk+97gfD4/1Kr/ABLLJkkNyrUpAAAAAElFTkSuQmCC"
-	},{
-		label: "安卓火狐",
-		oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/android-firefox/')",
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABfUlEQVQ4jb2TMWtUURCFJ7tZCIob61c9HpcsoryZ71jZJGWKdBaWptTW1IEUbkgRRf+AvTaKEFInBDZoGUS0EAkBEQJiLZq1uZFs8jZJ5YEpLnPOYWY41+wsOsAsULj7jLvPAAUwa2adBv4oyrKcApaAd5L2Je0D74GlsiynLtK3I2Ili19JGuZ6A2xHxIqZtceqAQe+Az8kfTk2AL5KOsw9PyOs6/pqSqnr7jcjog+sAWuSViWtHr8jol/X9a1er3etKIor/44m6bmkjYhYlLQHfBxTHyQ9kLQh6ZmZdayqqmlJu3nEx5J+ndj9dP0Gnkg6lLRbVdX0iEFE9P+/QUqpCwwuu4Kk9cwdpJS6ZmZtYBl4ATzMpEYD4I+kR5m7fDITk2bWcvd7mTRugiFw38xaWTMKSbeBrRykIfBZ0ifgSNJPSTvAnfOiPJFS6kp6nUV3I2IhH28zIq6b2cT5v8GsBbwEjtx9HpjLBm8bx25CjvA3wCXdAA6Ap03cv6K13pqqY+3SAAAAAElFTkSuQmCC"
-	},{
-		label: "火狐教程",
-		oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/firefox-tutorial/')",
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB9UlEQVQ4jW1TsWpUQRS9L7vZJBhBm4DkJb7dfZvdx8zcuecUfoCdlZ0W/pBgI4iIYOsHWAUrQbC1S5VK9+0GUbSI2pm1cGZ5yF4YZuYO93LOPWeE5EOSvwEsOmtOcglg3smdxhgPSb5U1QPJQXJF8qmqDkMIs7x774/M7Ea6j1R1WNf1jqoeqOq1VF4Iya91Xe/Ihggh3NyUjzEeAvgA4LYAaFV1mt62RURUdQjgHMAXAOfe+7GISFmWewl1k5DXQnJpZlVq0HPODQBckXxLsgFwSvJzQrmVkM0ALMxsIgDaEMIsw/PejwGcOef2u3Nyzh3nu5lVJC9CCCMheUGyFhGpqmpXRHppiYgIgDcA2kyvQ2HpvR8LgHkIYbSeqkg/nbdIfiT5y8wmOZcojNYUSC5JNiIizrmBc26QzsdpgEe5OA/RzCbr2QFYZH6puKiqatc5N+gYpkjFRZLxBEAbYzwRkt86xlhL1TTNLQCvptPp9Q1W6AP4nhusSD5X1TK/OucGuVGeuplNVHWaPPIiKbMvMcYHAC4B/ADwOumdod4h+Sn9iwWANu0/zexRF1LPzO6TXHWkekJyBeCZmU2892OSjaoOu+gka16W5R6APwDuAXgH4EpV727gn6OQjjcKESkAPAZwSfL9fx9sW/55oFvUF5HeXxmgmngrw2ouAAAAAElFTkSuQmCC"
-	},{
-		label: "火狐翻墙",
-		oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/firefox-gaogent/')",
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB6klEQVQ4jYWSTYiOURiGz0SNvyY/ZfE1i1HvYvT2vvNc11p2lqLsLAnJkBQaC5SmpialxsK/YTL5KVlYmBSNlNHQpAiJ0kQWFqyUzWdzvvpm0Dybc87z3M997vs8J6V/BDACzAJvgNfAB/UFsO1f+L9CvRARu4qi6EoppaqqetUzahN4/FdDWZYrgB2NRmNZe77RaCzr7e1dM4/8pfqur69vQ0qpoyV5Wm22EsB+dRCYzA0PImKgrut1RVF0qU31c0ppcYvgDfAqpZQiYhNwQ30GfAHu5Ya7ETGWMVvUs0AjRcRWYCYXIoP71avAcXU3MB0R29WXwLU2Rx1JPa/eykpO5Ycaz+tz4Homva1OZKtzRjYJjGQFh7PkfvUJcFo9AswAR4GdwNOIWNlOcLMlCzik/gbOqb+AUfVkVnM5Iq4As/NnvkedygQb1WZEDKj3gaGIOKh+VPdkJQ8zdkgdTj09PUvUr1VVVdnGPuCi+ihP4U5WcEmdaLv4e0QMtA7D6o+24iAwCsyoU3k9q27Ot48D0/OtfI2IEymlVBRFZ1EUnSmlRer6uq6Xt3ARMaY2q6paNYegLMsVZVmunjehvREReX9A/Ql8q+t6bVoo1AvZ+yf1LfA+Io4t2NiK/OeHI2Jrd3f30v/h/gBRDLkczMjRXQAAAABJRU5ErkJggg=="
-	},{
-		label: "涨姿势了",
-		oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/firefox-knowledge/')",
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB+klEQVQ4jYWTzUtWQRTGjx+tIqwsoQKtl9Arlztzfg9EUlGhEEW1rUVSBGJRGIrUonUL6w94MfvaRi4UiorAdi1auC3a9AdUuIjQVtmiuS+DCA0cmHPPPM+c5zxzzf6tDjOzqqp2VFVVmJk1Go0uSXPAY3ffnupFo9HoSphOyzbt7r4fWJG0HkI4LGlc0rqkdWDC3Y+k/bcQwgEza09hbWZmwIkMcAvYK2kN+F1VVeXud+t6jJF0+RZLLG1mZu7+FPjQ39+/qyzLXmBe0kIIoSeE0AN8BJq2YbWbWYekF5I+A4uSTgN/JK1JWgV+uftJ4DXwCXhe325mZmVZ9mbtv3H3yTrP4pqkpUzGvhaBpIPZwQV3v7EJwbikt3U+ODi4p0VQFEV3dvClu49tQjAKvKvzoii6a3xHGuD9JGEFOJO3CywCI5J+pm8P8iF2JhuP1wB3H4sxXsj0nkszWE/vZCi3sZ7D1YxgEpjIOrju7rczORc3WmmSplLxh6Rn7n5P0mqKO8AjSd/TmakWEJgFZtz9kLtfijGecvezwBNJr4B5YFbSeWAEuBxjLIEZoGnA18S67O433f0o0OfuV0IIQ+kfGAX6YozHksXLSdoXK8typ6SHm9j2v5gDdrekDAwMbAshDAPTQDM96feSlpKNTWA6hDAcQtha4/4CYDj1lRqiCrAAAAAASUVORK5CYII="
-	},{
-		label: "火狐新闻",
-		oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/firefox-news/')",
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABgUlEQVQ4jZWTP28TQRDF5w7HAZJPYDnExaXa093+3odISYWC8hmQ6JKKSFg0FPSg1KGIFAnyD5TaLsI3cA29yxQ0pmDHWU5CmJVGt3o7782buV2z36uXvoXvQwibkg5jjAej0ejh3/Ic7JlZORwOH5lZaWYm6UbSIsVJyl3r5JWu5mBhZtY0zYaku0zgp7vwvBBCPwnekxNodV1vZeSFpEUI4YnbDyH0q6paz1vIwSK1cOJk4KMnhxD6qVDhDqyqqvVcMca407btrqQJMAWexhh30nHZnVdvqWRmwFGq+r6u6y1gG/iQsCN3kciFD7FI5GeZ7R/AO+CtpO8Zvp+1vuaWvPpLSbeSJpJugTHwJu2nwLcY4wvrrLJt2z3gs6Qb4By4AL4AZ5I+AdeSLiVdAtfAhaTnSwVJV93f9q8Avjq/AF4B8/8gzyUd+uwsu32zFQRmg8HgcTbIP4Z4toLAaXeIPbt/QMcrCBxnF2r5Ist0AyMwlvQ6D8eAcdM0ygo/+AVCl8IXxRMolQAAAABJRU5ErkJggg=="
-	},{
-		label: "新版预报",
-		oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/firefox-version-forecast/')",
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAPCAYAAADphp8SAAABkElEQVQ4jY2TPWtUQRiFT1bidyE2wrLgBrZylpl5TmEso5WWIkiqNCI2oiAExN4fIDaClT/AIo2FWkSEiIJYaCNIBAsbkxiMiF/JWngX7g53V1+Yah6ed945M1KtgGPAHWAVuN/v949otKZyznPAku1N2z9tP0spnRwCLeCc7de2B7YHwLbty3UJMG/7w5CprZcKIewGrgAbJQA86PV6eyQpxmjbHxskA2BHtm/a/tYE2H4XY+xUY18AloDVBtFXAfeAWznnG8BWAX2JMZ6oTnRA0jQwD/woRCvqdDr7JLW63e5e4HEBbAML9du2fRr4XuN+55wXRyIBrgE7hey2pKkKmQbuFvtvYowzI6KUErbXCvBFzvlQ1ehMFXv9NFdrjf5Wu93eDzwqRFvV2zkKPC/2HoYQDqupgOsN6T0FnhSS9yml442SKp1Z4POY5zCUrKeUzo+VSFII4SCwPEG0afuSpNZEkSTlnBfHSD7lnC9K2vVPSTXeDPCqGOdtSumsyoT+Q3aq+sS/gOUY4+wk/g9OKvA8w/ixtQAAAABJRU5ErkJggg=="
-	},{
-		label: "评价一下",
-		oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://koubei.baidu.com/s/www.firefoxfan.com')",
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABDUlEQVQ4ja2STWoCQRCF2yN4Ad2LZxDjToeZqp05gT/pV2tv5k5JAjmBuwhhxsUw9FStXSgkiygYdAIOPnirevVVUd1OQVsT/q5jBW1d3eazHw2gg4F2Bvqq8M6EDpUAFSoCaBx80ivB/UsHn/QCaKxCRTUAtDehDwWvVGj9x+DVb432/25Q+uS5BPcV8UARD8qX5Kn+BuCVgd5V+LPWDaqm3vsKV1Mf/A9AbyaUGTg1cKrCuYGPV2Hw8VRLDZyaUKbCry6bR83cj9q5H7XzSdyyKXUMvLwBWNqUOvkkbp3z2TxqulsqZlHXhDcXgE0xi7o3w1UKiIcqHFQ4BMTDu5pPaqinhXpaOOcaVaEf6AEi/gX3KqwAAAAASUVORK5CYII="
-	}, ]
+	},]
 },{},{
 		label: '自动更新',
 		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACn0lEQVQ4jYWRW0jTYRjGHyQkRCHCTAmZGmV0sAOYiSYVFRSSSF110YWGZWU1t4mHqX9NyZpnzdNww2yuuYPb/tt0c266zXlankohD5kEEgbdRkS8XUQjbeZz+7y/3/t+fICPtHo+hqXpZ9IBAAzj52vmv0nTTB73L2R/JEjcDSmvJ24FP7dMpXR7bm4LZrCe4MDy3vWDdQO28GrrGLJVFCseZvdX21zIUpB/We9SjXMhyidsXvocgnzdOu7J6USzQxnZMOhGvo6QraZzUnftpc6xKmTKCQX6b+zy+oF/BLFNjl48VhLytRRTb1NHNgy6wdcQ8rQ/kzpGReFV1mkUsoSH3RRdafFsgPPMc3HIVhFKjQSBhq52jlRzRP2T4KnpjnE2CQCi6+09yNUSnpgIj7rpvn462Su43jVeBK6KINRTsMiy1jj8gbO3wvwug317+e9FoaL+VeRpCQINxbU4G73FPpFFCaGewFfTabFLBgBlA/Oczc882uSQIKeHwBgpoMRo8hbhlVY5CnQEgYYOvxjSbgYZ+9QuADjV5pIiR0MoNlBQmdHgHUiVjfLBVRGKWEIRS+rZVe9XMX1zu0NEVkemYfZiVL19EUI9gaemxFbnM6+g1bNyCILfZuRqKbDU9ImxzwUydvsOCNmvgcXslwvSkTbkagklRgJXRXWu5cQNZ6Z2jEqQISMwBvIrNnw//3KsKexp33twlRRaY51PELtkKNARHigovmXIAF+JqB0YR3onnW0flt5QeHjIUhAK9RRaY52PFztluNtFQeV9C561tQCfAgDg1NnawddQRJV1+kjzkAVcFe2pMC/GS9z6kMp+J2Nf2bkl/CdpupnoYy0OSaZp5kyyfIIBT0W3dW9itgW3ypVX47xr8omTvrpfYwtHv4Wx+FgAAAAASUVORK5CYII=",
 		child: [{
-			label: "自动更新 Goagent 最新可用 IP",
-			tooltiptext: "由火狐范长期维护的 Goagent 最新可用 IP，如果你的 goagent 冒黄、冒红、速度奇慢，请点击更新一下，全程自动，三秒搞定，翻墙无忧。",
-			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\update\\Update Goagent IP.bat",
-		},{}, {
 			label: "自动备份火狐配置",
 			tooltiptext: "自动备份火狐常用配置文件，如果你有额外的文件或文件夹需要备份，请修改BackupProfiles_7z.bat文件。注意备份将关闭Firefox！",
 			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\BackupProfiles\\BackupProfiles_7z.bat",
@@ -148,7 +81,7 @@ var anomenu = [{
 		oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://shang.qq.com/wpa/qunwpa?idkey=cdf18e0c0a885d98890baf915573b71ae882c871f98c4686ccf00666132d3419')",
 		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABV0lEQVQ4jbWTsWpVQRCGtwspbQRjpaigtYin0SKIHM+5e/b75hUsoo3EJxJ8DwtLmyA2ESGJYlADiVFB5RpzLbLgFYLeG7AY2N1hvpnd/9/UNM0isKpuaRz8K8AfGhvq/bZtFxLEQ40vGpM5Y7+UuJc0Xp+geKIxgVhP4OHUwR74cQ7I1/S72DfAzWGI2+D72Sbw+x+AUsqy2oEf5gZojCHWNJ5rfINYB19qbEA8gnis8e6vE+Scr6rXIdZKKddyzhfULue8lFJK6t0q47GAzb7vz45Go3PgM+AScBriqfqk67pTwzBc0diZCdD3cRG4rLELbuacl7ouzoPbMwNqx93qvDP/BzBlpLc5e6OUsgy+GIa4o2aNfXAbuAX0029QjeRW3RzU5E6VdK8681Dj5xEoPtX1tJVZBT+f5DMBK6lpmsVS4sHRPWNcdR4fF1O5V8BK27YLvwCEF774kDAvMwAAAABJRU5ErkJggg=="
 	},{
-		label: "個人腳本備份",
+		label: "Dupont個人腳本備份",
 		oncommand: "getBrowser().selectedTab = getBrowser().addTab ('https://github.com/dupontjoy/userChromeJS')",
 		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABV0lEQVQ4jbWTsWpVQRCGtwspbQRjpaigtYin0SKIHM+5e/b75hUsoo3EJxJ8DwtLmyA2ESGJYlADiVFB5RpzLbLgFYLeG7AY2N1hvpnd/9/UNM0isKpuaRz8K8AfGhvq/bZtFxLEQ40vGpM5Y7+UuJc0Xp+geKIxgVhP4OHUwR74cQ7I1/S72DfAzWGI2+D72Sbw+x+AUsqy2oEf5gZojCHWNJ5rfINYB19qbEA8gnis8e6vE+Scr6rXIdZKKddyzhfULue8lFJK6t0q47GAzb7vz45Go3PgM+AScBriqfqk67pTwzBc0diZCdD3cRG4rLELbuacl7ouzoPbMwNqx93qvDP/BzBlpLc5e6OUsgy+GIa4o2aNfXAbuAX0029QjeRW3RzU5E6VdK8681Dj5xEoPtX1tJVZBT+f5DMBK6lpmsVS4sHRPWNcdR4fF1O5V8BK27YLvwCEF774kDAvMwAAAABJRU5ErkJggg=="
 	}, ]
@@ -160,24 +93,21 @@ var anomenu = [{
 label: "在IE中打开当前网址",
 text: "%u",
 exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
-},
-	{
-		label: "在闪游浏览器中打开当前网址",
-		tooltiptext: "闪游浏览器，IE浏览器内核，界面漂亮，体积小巧 【极个别情况下，首次点击无效，第二次点击之后就可以成功调用】",
-		text: "%u",
-		exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Browser\\saayaa.exe",
-	},
-	]
+},]
 },{},{
-	label: '软件列表',
-	image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAbklEQVQ4je3TXwqAIAzAYe+VsP32pvc/QuQx7KmIAm39eYkGwz3IB24zhCdDRBIwmVn1JDCJSFqhK8gWW6HeZVWN+3Opzayehnr5HqSq8eyAmk/zTvuHPgV59ggYDtDNT1u2UAbKBWgEsrclzZgBLQgC98zNgUMAAAAASUVORK5CYII=",
+	label: '軟件列表',
+	image: "data:image/png;base64,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",
 	child: [{
-		label: '精品工具',
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAbklEQVQ4je3TXwqAIAzAYe+VsP32pvc/QuQx7KmIAm39eYkGwz3IB24zhCdDRBIwmVn1JDCJSFqhK8gWW6HeZVWN+3Opzayehnr5HqSq8eyAmk/zTvuHPgV59ggYDtDNT1u2UAbKBWgEsrclzZgBLQgC98zNgUMAAAAASUVORK5CYII=",
+		label: 'GFW工具',
+		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADIElEQVQ4jXXP3WtaZxwH8B9UyonnzJko6lHj8aVuiqWwiy0J8RiNMS9W43vBLHFksFAIo7AUBtvtdlcGvck2mrXp1pqk9eBrXezM2plubecoBLb78sChf8Z3F0kxg/WBLzzwwOf7fYiIaM1K2isBcqz7Sdo4yZvuG36SrgTIsWYlLZ2cM9fHNFfvhvmXu2GBbctD7KasZbthgd0J8WxrcojthgVWnhLY1uQQ25ni2d0w//L6mOZqgegMfe0n8XZIOHqY86BbeBfVBRGttAsPC1600i7cn7NgP+/Fz3kv9mYtaKSdaGbc+D7IH33hJ5GuuUjqrrzD/vnsPfz9aQDdkhv99Qs4uuzD01UPOstevPjEj/6qB62cHYcf+fF82YXKvIF96SeJrvlJqmdH2UHJjoMPRTQu2dBZdmE/Z0Q7a0ItJ6GdNqGdHEElbkIjZUNz9i3cCmlPABdJ+xmRdVZceHb5Al6s+fCk5EZ76Rz6H/vwZ8mNRtqG3ooPT4tO/JqxoZGSsDdvZhuvFyizOlbPimhfktBeHEEzaYCSsqN50YDWgh73Zg2oJ0TUpnko0zrsxSz4QRYGQDNpZn+tnkNvyYlWwY3nJS+eLblQT4h4XPTi94KE7qIVtYQDhzkneik7ypHhAbAb4dmDxAiqMR0qCStacQPqUQE7ET1qcRG1iIB7QQ47URPqET2UIIfvPjh7DHzlJ6k+b2CP8nY00k78UXTjSd6B6pwZB3kPemk7OnELlAUbehkJvy3aoESNuBkTBwvKspbVZnTYm7OgNq1DLSygPKWHMmNCJcjhvsyjPG2CEhKgyFrckXXYnBoZLFBiw+ww60AvY4cyY0I360EvZUMnbj7VbEUlasQvGTd6KRtuh/Vs/TWwPckxRdaiGjrWlagRlcn/b1aiRihBDt+OcQOgEh1myowJ3RP9v83Hfz79Vl2w48eY4Rj4PECOG+9r+ltj3KtyZFgtT5xVt8c16g1Zr5aDnPrThEbdHOfUWxG9uj2hUbfGNepm6O1X30xw/bUAOchMxBet5FsZpfNFBwVyp5J8Qy6O0vmklXxmIv5f9JS03spk0uoAAAAASUVORK5CYII=",
 		child: [
     {
 			label: "Goagent",
-			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Goagent\\local\\goagent.exe",
+			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\GFW\\Goagent\\local\\goagent.exe",
+		},{},
+		{
+			label: "Psiphon",
+			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\GFW\\psiphon3.exe",
 		},{},
 		{
 			label: "GoGo Tester",
@@ -185,63 +115,10 @@ exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
 		},{},{
 			label: "Hosts Editor",
 			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Hosts Editor\\HostsEditor.exe",
-		},{},{
-			label: "FSCapture",
-			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Soft\\FSCapture\\FSCapture.exe",
-		},{},{
-			label: "音乐间谍精简版",
-			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Soft\\Music Spy\\音乐间谍精简版.exe",
 		},{},]
 	},{
-		label: '系统工具',
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAbklEQVQ4je3TXwqAIAzAYe+VsP32pvc/QuQx7KmIAm39eYkGwz3IB24zhCdDRBIwmVn1JDCJSFqhK8gWW6HeZVWN+3Opzayehnr5HqSq8eyAmk/zTvuHPgV59ggYDtDNT1u2UAbKBWgEsrclzZgBLQgC98zNgUMAAAAASUVORK5CYII=",
-		child: [{
-			label: "自行修改",
-			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Soft\\文件夹\\文件.exe",
-		},{},{
-			label: "自行修改",
-			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Soft\\文件夹\\文件.exe",
-		},{},{
-			label: "自行修改",
-			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Soft\\文件夹\\文件.exe",
-		},{}, {
-			label: "自行修改",
-			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Soft\\文件夹\\文件.exe",
-		}, {}, {
-			label: "自行修改",
-			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Soft\\文件夹\\文件.exe",
-		}, {},{
-			label: "自行修改",
-			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Soft\\文件夹\\文件.exe",
-		},{},{
-			label: "自行修改",
-			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Soft\\文件夹\\文件.exe",
-		},{},  ]
-	},{
-		label: '工作相关',
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAbklEQVQ4je3TXwqAIAzAYe+VsP32pvc/QuQx7KmIAm39eYkGwz3IB24zhCdDRBIwmVn1JDCJSFqhK8gWW6HeZVWN+3Opzayehnr5HqSq8eyAmk/zTvuHPgV59ggYDtDNT1u2UAbKBWgEsrclzZgBLQgC98zNgUMAAAAASUVORK5CYII=",
-		child: [{
-			label: "自行修改",
-			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Soft\\文件夹\\文件.exe",
-		}, {},{
-			label: "自行修改",
-			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Soft\\文件夹\\文件.exe",
-		}, {},{
-			label: "自行修改",
-			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Soft\\文件夹\\文件.exe",
-		}, {},{
-			label: "自行修改",
-			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Soft\\文件夹\\文件.exe",
-		},{}, {
-			label: "自行修改",
-			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Soft\\文件夹\\文件.exe",
-		},{}, {
-			label: "自行修改",
-			exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Soft\\文件夹\\文件.exe",
-		}, {},]
-	},{
-		label: '办公软件',
-		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAAbklEQVQ4je3TXwqAIAzAYe+VsP32pvc/QuQx7KmIAm39eYkGwz3IB24zhCdDRBIwmVn1JDCJSFqhK8gWW6HeZVWN+3Opzayehnr5HqSq8eyAmk/zTvuHPgV59ggYDtDNT1u2UAbKBWgEsrclzZgBLQgC98zNgUMAAAAASUVORK5CYII=",
+		label: '辦公軟件',
+		image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABwUlEQVQ4jZ3Tv08aYRwG8PdPabqbhmiiqO8dhNkF4sIRcMFBatJGFnFWF4emRq+hQ5uIwOCJcWEyOkBPoyWpkzFKXNSXE1G50+SbA58OtPaHR9Lrk3yG9/s868uYQyT13COpYt6nXi741MsFSRXzknrucdo6JpA2pgPLYo4viThfEvHAspgLpI1px3Fo+6Iv/KWWVHQxE9FFKlo2ZsPFq7PojqFFdmvJyG4tGd0xtHDx6ixaNmYjukgpuphRyrWp0PZFH4t9vdmfOLEfX5+28FOi2vrj7XSbOLEfYwc3FRarmJSoAolTl6pArGISU/ZMGj8C4i6NHwHKnklstGTR2CEw9s2lQ2C0ZBELblkU3gf+R3DLIjZStChYApyEyh3d+pGiRcy/2iB/zoTvBzlrQso0MfzpFv0frtGvXoN/voWUaULO/tr5cib8qw1icr5J/g0bTwodPPeAl2+P8eLNMYazD0/337dyvkmM5y2SN4G/SetteN438OpdA1xrP+vlTYDnLWLezD0NaoB37blBraNb583cExtaudN5wW5LGy24wQt2e2jlTme9i6JnIF2fHPhYT7mSrk/2Loqef/6h3fIdt9x6jwguSQ8AAAAASUVORK5CYII=",
 		child: [{
 			label: "Word 2013",
 			exec: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Microsoft Office 2013\\Word 2013.lnk"

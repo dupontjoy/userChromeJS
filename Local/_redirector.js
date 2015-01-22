@@ -1,4 +1,5 @@
 
+//2015.01.22 16:00 更新TVC規則
 //2015.01.16 更新sourceforge規則
 //2015.01.10 刪除一個有問題的規則
 //2015.01.07 修正flickr >> 原始大图
@@ -31,9 +32,9 @@ to: "www.$1",
 regex: true
 },
 {
-name: "TVC內網 產品鏈接 轉外網",
-from: /^http:\/\/ic\.sjlpj\.cn\/details\/(.*)/i,
-to: "http://www.tvc-mall.com/details/$1",
+name: "TVC內網 圖片 以圖搜圖",
+from: /(.*(google|so|baidu|bing|sougou|tineye).*)\/ic\.sjlpj\.cn\/uploads(?:\/unlogo|)\/details\/(.*)/i,
+to: "$1/img.tvc-mall.com/uploads/details/$3",
 regex: true
 },
 {

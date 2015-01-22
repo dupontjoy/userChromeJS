@@ -1,4 +1,4 @@
-/*+++2015.01.01 17:25+++*/
+/*+++2015.01.22 09:00+++*/
 
 /*输入框类chrome高亮*/
 input:not([type='submit']):not([type='reset']):not([type='button']):not([type='checkbox']):not([type='radio']):focus,
@@ -37,15 +37,6 @@ position: relative;
 width: 24px;
 height: 24px;
 }
-}
-
-/*链接去下划线*/
-* {
-text-decoration: none!important;
-}
-
-a:hover {
-text-decoration: none!important;
 }
 
 /*图片经过外发光*/

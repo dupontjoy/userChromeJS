@@ -1,5 +1,5 @@
 
-//2015.01.21 21:00 修正特殊符號，添加小書籤菜單
+//2015.01.21 22:00 修正特殊符號，添加小書籤菜單
 //2015.01.20 10:00 更新TVC搜索項
 //2015.01.16 23:00 更新TVC搜索項，加入特殊符號選單三級菜單
 //2015.01.08 20:40 一些搜索項只在特定網站顯示
@@ -652,7 +652,7 @@ insertBefore:"context-copy",
 BookmarkletSub([
 {
 label:"拼寫檢查",
-tooltiptext: "需切換到其它標籤，再切回來即可生效！",
+tooltiptext: "將進入編輯模式！需切換到其它標籤，再切回來即可生效！",
 url:"javascript:document.body.contentEditable='true';%20document.designMode='on';%20void%200",
 },
 ]);

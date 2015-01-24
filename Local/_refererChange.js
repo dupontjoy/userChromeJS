@@ -1,7 +1,7 @@
 
-
-//2015.01.18 08:00 新增economist
-//2015.01.15 新增wsj
+//2015.01.23 09:00 新增ft.com
+//2015.01.18 08:00 新增economist.com
+//2015.01.15 新增wsj.com
 //2014.12.16 增加poco
 //2014.11.25 增加chiphell,niunews
 //2014.11.09 增加pconline和postimg
@@ -13,6 +13,7 @@
 
 sites = {
     //自定义
+    'ft.com': 'https://www.google.com/',//免登陆或订阅看全文
     'economist.com': 'https://www.google.com/',//突破每週3篇限制 
     'wsj.com': 'https://www.google.com/',//免登陆或订阅看全文
     'pconline.com.cn': '@FORGE',

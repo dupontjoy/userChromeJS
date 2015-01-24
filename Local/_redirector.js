@@ -1,4 +1,5 @@
 
+//2015.01.23 22:00 添加京東，天貓大圖規則
 //2015.01.22 16:00 更新TVC規則
 //2015.01.16 更新sourceforge規則
 //2015.01.10 刪除一個有問題的規則
@@ -76,11 +77,12 @@ to: "http://www.baidu.com/s?wd=$1",
 regex: true
 },
 {
-name: "职友集去跳转",
-from:/^http:\/\/www\.jobui\.com\/.*\link=(.*)/i,
-to: "$1",
+name: "职友集|inc 去跳转",
+from:/^http:\/\/www\.(jobui|inc)\.com\/(.*)(link|destination)=(.*)/i,
+to: "$4",
 regex: true
 },
+
 {
 name: "userscripts >> webextender鏡像",
 from: /^https?:\/\/userscripts\.org(?:\:8080|)\/(.*)/i,
@@ -154,6 +156,20 @@ name: "flickr >> 原始大图",
 from: /^(https?:\/\/c\d\.staticflickr\.com\/\d\/\d+\/\d+_[^\._]+)(_[a-z])?(\.jpg)$/,
 exclude: /^(https?:\/\/c\d\.staticflickr\.com\/\d\/\d+\/\d+_\w+)_b(\.jpg)$/,
 to: "$1_b$3",
+regex: true
+},
+{
+//测试：http://img11.360buyimg.com/n5/jfs/t700/22/552651328/263602/77209a24/54c05927N3820abe9.jpg
+name: "京東 >> 原始大图",
+from: /^https?:\/\/(.*)\.360buyimg\.com\/n(1|2|3|4|5)\/(.*)\.jpg+(\/.*)?/i,
+to: "http://$1.360buyimg.com/n0/$3.jpg",
+regex: true
+},
+{
+//测试：http://gi2.md.alicdn.com/imgextra/i2/713805254/TB2PvqMbXXXXXaSXXXXXXXXXXXX_!!713805254.jpg_60x60q90.jpg
+name: "天貓 >> 原始大图",
+from: /^https?:\/\/(.*)\.(md\.alicdn|)\.com\/(imgextra|)\/(.*)\.jpg\_(.*)\.jpg/i,
+to: "http://$1.$2.com/$3/$4.jpg",
 regex: true
 },
 

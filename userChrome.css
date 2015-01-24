@@ -1,4 +1,4 @@
-/*+++2015.01.14+++*/
+/*+++2015.01.24 08:00+++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -91,34 +91,107 @@ margin-top:-1px !important;
 height: 24px !important;
 }
 
-/*===== UI——直角标签：http://bbs.kafan.cn/thread-1726274-1-1.html =====*/
-/* 标签高度 */
-#tabbrowser-tabs { min-height: 26px !important; margin-left:-17px !important;}
-
+/*===== UI——直角标签：來自陽光盒子 =====*/
 /* 标签栏内外边距 */
-window[sizemode="fullscreen"] #TabsToolbar{ margin: 0px 0px 0px -3px !important; }
-window[sizemode="maximized"] #TabsToolbar{ margin: 0px -35px 0px -3px !important; }
+window[sizemode="fullscreen"] #TabsToolbar{ margin: 0px 0px 0px -5px !important; }
+window[sizemode="maximized"] #TabsToolbar{ margin: 0px 0px 0px -3px !important; }
 window[sizemode="normal"] #TabsToolbar{ margin: 20px -140px 0px -4px !important; }
 
-/* 去标签弧边 */
-#TabsToolbar .tab-background-start,
-#TabsToolbar .tab-background-end { display: none !important; }
-
-/* 继续去标签弧边，以及解决标签两边弧边延伸对选择标签时的干扰 */
-#TabsToolbar .tab-background-middle,
-#TabsToolbar .tab-background {
-margin: 0px !important;
-background: none !important;
+/* 隐藏原梯形标签 */
+#TabsToolbar {
+background: transparent !important;
+margin-bottom: 0 !important;
 }
 
-/*===== UI——标签3種狀態顏色：http://bbs.kafan.cn/thread-1726274-1-1.html =====*/
-/* 非当前固定标签页标题有变化时样式 */
-.tabbrowser-tab:not([selected])[pinned][titlechanged="true"] { background: rgba(255,255,100,.75) !important; }
-/* 标签栏底色透明 */
-#main-window #TabsToolbar{ background: none !important; }
-/*默认标签背景色透明 */
-.tabbrowser-tab{ background: none !important; }
-/*当前标签背景色不透明 */
-.tabbrowser-tab[selected="true"]{background:rgba(255,255,255,1) !important;font-weight:bold !important;}
-/*后台标签划过高亮 */
-.tabbrowser-tab:not([selected="true"]):hover{background:rgba(255,255,255,0.75) !important;}
+#TabsToolbar .tab-background{
+margin: 0 !important;
+background: transparent !important;
+}
+
+/* 标签前后的弧形 */
+#TabsToolbar .tab-background-start,
+#TabsToolbar .tab-background-end{
+display: none !important;
+}
+
+/* 标签中间的背景 */
+#TabsToolbar .tab-background-middle{
+margin: -4px -2px !important;
+background: transparent !important;
+}
+
+/* 标签前后的竖线 */
+#TabsToolbar .tabbrowser-tab:after,
+#TabsToolbar .tabbrowser-tab:before{
+display: none !important;
+}
+/* 标签置左*/
+#TabsToolbar .arrowscrollbox-scrollbox {
+padding: 0px !important;
+margin-left:-4px !important;
+}
+
+/* 重绘新建标签按钮和每个标签 */
+#TabsToolbar .tabs-newtab-button,
+#TabsToolbar .tabbrowser-tab{
+-moz-border-image: none !important;
+border:none!important;
+border-style: solid !important;
+border-color: rgba(0,0,0,.2) !important;
+border-width: 1px 0 0 1px !important;
+text-shadow: 0 0 4px rgba(255,255,255,.75) !important;
+padding: 4px 2px !important;
+background: rgba(255,255,255,.27) !important;
+background-clip: padding-box !important;
+}
+
+/* 标签边框 */
+#TabsToolbar .tabbrowser-tab[first-tab][last-tab],
+#TabsToolbar .tabbrowser-tab[last-visible-tab]{
+border-right-width: 1px !important;
+}
+
+/* 未选中标签 */
+#TabsToolbar .tabbrowser-tab[afterselected]{
+border-left-color: rgba(0,0,0,.25) !important;
+}
+
+/* 选中标签 */
+#TabsToolbar .tabbrowser-tab[selected]{
+background: #f8f8f8 !important;
+background-clip: padding-box !important;
+border-color: rgba(0,0,0,.25) !important;
+}
+
+/* 标签和新建标签按钮得到焦点 */
+#TabsToolbar .tabs-newtab-button:hover,
+#TabsToolbar .tabbrowser-tab:hover:not([selected]){
+background-color: rgba(255,255,255,.55) !important;
+}
+
+/* 新建标签按钮调整 */
+#TabsToolbar .tabs-newtab-button{
+border-width: 1px 1px 0 0 !important;
+margin: 0 !important;
+width: auto !important;
+padding: 0 5px !important;
+}
+
+/*标签和标签栏高度*/
+.tab-background-start[selected=true]::after,
+.tab-background-start[selected=true]::before,
+.tab-background-start,
+.tab-background-end,
+.tab-background-end[selected=true]::after,
+.tab-background-end[selected=true]::before {min-height: 24px!important;}
+
+#TabsToolbar .tabbrowser-tabs {min-height: 24px !important;}
+
+/* -- 除去标签栏背景模糊效果 -- */
+#TabsToolbar::after {
+opacity: 0.1 !important;
+/* 或者display: none !Important; */
+}
+
+/*隐藏火狐标签页上方的1px间距*/
+#tabbrowser-tabs {margin-top:-1px!important;}

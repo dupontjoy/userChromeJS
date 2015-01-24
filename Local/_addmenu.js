@@ -1,4 +1,5 @@
 
+//2015.01.24 09:00 調整一些菜單順序
 //2015.01.21 22:00 修正特殊符號，添加小書籤菜單
 //2015.01.20 10:00 更新TVC搜索項
 //2015.01.16 23:00 更新TVC搜索項，加入特殊符號選單三級菜單
@@ -25,7 +26,7 @@
 var undoMenu = TabMenu({
 label: '撤銷關閉',
 accesskey: "R",
-insertAfter: "context_undoCloseTab",
+insertBefore: "context_reloadTab",
 tooltiptext: "右鍵显示所有历史记录",
 onclick: "if (event.button == 2) {PlacesCommandHook.showPlacesOrganizer('History');}",
 onpopupshowing: function(e) {
@@ -60,7 +61,7 @@ label: "以圖搜圖",
 accesskey: "I",
 condition: "image",
 where: "tab",
-insertBefore: "context-copyimage-contents",
+insertBefore: "context-viewimage",
 });
 imagesub([{
 label: 'Google',
@@ -137,7 +138,7 @@ text: "%IMAGE_BASE64%",
 }];
 var menu = PageMenu({
 condition: 'image',
-insertBefore: 'context-saveimage',
+insertBefore: 'context-viewimage',
 icon: 'image',
 onpopupshowing: syncHidden
 });
@@ -233,11 +234,14 @@ setTimeout(function() {
 file.launch();
 }, 100);
 }
-}
+},
+
+{command: 'context-sep-copyimage'},
+{command: 'context-viewimageinfo'},
 ];
 var menu = PageMenu({
 condition: 'image',
-insertBefore: 'context-viewimageinfo',
+insertBefore: 'context-viewimage',
 icon: 'image',
 onpopupshowing: syncHidden
 });
@@ -483,7 +487,7 @@ this.hidden = isHidden;
 ];
 var menu = PageMenu({
 condition: 'input',
-insertAfter: 'context-copy',
+insertBefore: 'context-copy',
 icon: 'input',
 onpopupshowing: syncHidden
 });
@@ -564,12 +568,12 @@ goDoCommand("cmd_paste");
 }
 });
 Punctuationsub([
-	{id: "Punctuation-sep", style: "display:none;"}
+{id: "Punctuation-sep", style: "display:none;"}
 ]);
 var PunctuationsubMenu1 = PageMenu({
-	label: "物理",
-	condition: "input",
-	insertBefore: "Punctuation-sep",
+label: "物理",
+condition: "input",
+insertBefore: "Punctuation-sep",
 });
 PunctuationsubMenu1([
 {label: "°", input_text:"°"},
@@ -582,9 +586,9 @@ PunctuationsubMenu1([
 {label: "¢", input_text:"¢"},//another way of diameter
 ]);
 var PunctuationsubMenu2 = PageMenu({
-	label: "數學",
-	condition: "input",
-	insertBefore: "Punctuation-sep",
+label: "數學",
+condition: "input",
+insertBefore: "Punctuation-sep",
 });
 PunctuationsubMenu2([
 {label: "±", input_text:"±"},
@@ -600,9 +604,9 @@ PunctuationsubMenu2([
 {label: "∞", input_text:"∞"},//infinity
 ]);
 var PunctuationsubMenu3 = PageMenu({
-	label: "其它",
-	condition: "input",
-	insertBefore: "Punctuation-sep",
+label: "其它",
+condition: "input",
+insertBefore: "Punctuation-sep",
 });
 PunctuationsubMenu3([
 {label: "·", input_text:"·"},//placeholder,位于字母中间

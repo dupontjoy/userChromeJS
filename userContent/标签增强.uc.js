@@ -2,6 +2,7 @@
 // @description  Tab Plus 标签页增强
 // @include      chrome://browser/content/browser.xul
 
+// 2015.01.23 21:00 新标签打开『查看图片』
 // 2014.12.07 open_in_new_tab更新到GOLF-AT 1.8.20141206版
 // 2014.09.06 重新利用空白页
 // 2014.08.31 鼠标停留标签自动聚焦
@@ -219,3 +220,6 @@ function IsBlankPage(url)
 {
     return url==""||url=="about:blank"||url=="about:home"||url=="about:newtab"||url=="http://start.firefoxchina.cn/";
 }
+
+/*新标签打开『查看图片』*/
+location == "chrome://browser/content/browser.xul" && document.querySelector("#context-viewimage").setAttribute("oncommand", 'openUILinkIn(gContextMenu.imageURL,"tab")') & document.querySelector("#context-viewbgimage").setAttribute("oncommand", 'openUILinkIn(gContextMenu.bgImageURL,"tab")')

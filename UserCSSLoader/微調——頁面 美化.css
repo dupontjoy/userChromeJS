@@ -1,4 +1,4 @@
-/*+++2015.01.22 09:00+++*/
+/*+++2015.01.24 08:00+++*/
 
 /*输入框类chrome高亮*/
 input:not([type='submit']):not([type='reset']):not([type='button']):not([type='checkbox']):not([type='radio']):focus,
@@ -50,4 +50,80 @@ img {
 -moz-transition-property: box-shadow;
 -moz-transition-duration: .31s;
 }
+
+/*根據後綴顯示不同的光標*/
+:link[target="_blank"],:visited[target="_blank"],:link[target="_new"],:visited[target="_new"] {
+/*cursor:  no-drop;*/
+cursor:url("moz-icon://.tab?size=16"), pointer;
+}
+
+a[href$=".class"]:hover { cursor:url("moz-icon://.class?size=16"), pointer; }
+
+a[href$=".sok"]:hover { cursor:url("moz-icon://.sok?size=16"), pointer; }
+
+a[href$=".vbs"]:hover { cursor:url("moz-icon://.vbs?size=16"), pointer; }
+
+a[href$=".xsb"]:hover { cursor:url("moz-icon://.xsb?size=16"), pointer; }
+
+a[href*="mailto"]:hover { cursor:url("moz-icon://.mailto?size=16"), pointer; }
+
+a[href$=".js"]:hover, a[href^="javascript:"]:hover { cursor:url("moz-icon://.js?size=16"), pointer;}
+
+a[href$=".aspx"]:hover, a[href$=".con"]:hover, a[href$=".mht"]:hover, a[href$=".psp"]:hover, a[href$=".xml"]:hover, a[href$=".xul"]:hover, a[href$=".xhtml"]:hover, a[href$=".xaml"]:hover, a[href$=".sgml"]:hover, a[href$=".arpa"]:hover, a[href$=".int"]:hover, a[href$=".mil"]:hover, a[href$=".mobi"]:hover, a[href$=".pro"]:hover, a[href$=".tel"]:hover, a[href$=".test"]:hover, a[href$=".example"]:hover, a[href$=".invalid"]:hover, a[href$=".localhost"]:hover { cursor:url("moz-icon://.xml?size=16"), pointer; }
+
+a[href$=".torrent"]:hover { cursor:url("moz-icon://.torrent?size=16"), pointer; }
+
+a[href$=".rss"]:hover, a[href$="rss.xml"]:hover { cursor:url("moz-icon://.rss?size=16"), pointer; }
+
+a[href$=".xpi"]:hover { cursor:url("moz-icon://.xpi?size=16"), pointer; }
+
+a[href$=".pdf"]:hover, a[href$=".djvu"]:hover { cursor:url("moz-icon://.pdf?size=16"), pointer; }
+
+a[href$=".doc"]:hover, a[href$=".docx"]:hover, a[href$=".docm"]:hover, a[href$=".dot"]:hover, a[href$=".dotm"]:hover, a[href$=".dotx"]:hover, a[href$=".odt"]:hover { cursor:url("moz-icon://.doc?size=16"), pointer; }
+
+a[href$=".xls"]:hover, a[href$=".xlsx"]:hover, a[href$=".xlsm"]:hover, a[href$=".xla"]:hover, a[href$=".xlam"]:hover, a[href$=".xlt"]:hover, a[href$=".xltm"]:hover, a[href$=".xltx"]:hover { cursor:url("moz-icon://.xls?size=16"), pointer; }
+
+a[href$=".ppt"]:hover, a[href$=".pptx"]:hover, a[href$=".pptm"]:hover, a[href$=".pot"]:hover, a[href$=".potx"]:hover, a[href$=".potm"]:hover, a[href$=".pps"]:hover { cursor:url("moz-icon://.ppt?size=16"), pointer; }
+
+a[href$=".txt"], a[href$=".wri"], a[href$=".rtf"], a[href$=".srt"], a[href$=".sub"]:hover { cursor:url("moz-icon://.txt?size=16"), pointer; }
+
+a[href$=".ini"]:hover, a[href$=".inf"]:hover, a[href$=".cfg"]:hover, a[href$=".lng"]:hover, a[href$=".lang"]:hover, a[href$=".locale"]:hover, a[href$=".vlng"]:hover { cursor:url("moz-icon://.ini?size=16"), pointer; }
+
+a[href$=".css"]:hover { cursor:url("moz-icon://.css?size=16"), pointer; }
+
+a[href$=".zip"]:hover, a[href$=".rar"]:hover, a[href$=".cbr"]:hover, a[href$=".f"]:hover, a[href$=".cab"]:hover, a[href$=".arj"]:hover, a[href$=".lzh"]:hover, a[href$=".tar"]:hover, a[href$=".gz"]:hover, a[href$=".bz2"]:hover, a[href$=".ace"]:hover, a[href$=".uue"]:hover, a[href$=".jar"]:hover, a[href$=".7z"]:hover, a[href$=".gzip"]:hover, a[href$=".j"]:hover, a[href$=".tgz"]:hover, a[href$=".war"]:hover, a[href$=".y"]:hover, a[href$=".yz"]:hover, a[href$=".z"]:hover, a[href$=".sit"]:hover { cursor:url("moz-icon://.zip?size=16"), pointer; }
+
+a[href$=".exe"]:hover, a[href$=".bin"]:hover, a[href$=".elf"]:hover, a[href$=".msi"]:hover { cursor:url("moz-icon://.exe?size=16"), pointer; }
+
+a[href$=".bmp"]:hover { cursor:url("moz-icon://.bmp?size=16"), pointer; }
+
+a[href$=".gif"]:hover { cursor:url("moz-icon://.gif?size=16"), pointer; }
+
+a[href$=".png"]:hover { cursor:url("moz-icon://.png?size=16"), pointer; }
+
+a[href$=".jpg"]:hover, a[href$=".jpeg"]:hover { cursor:url("moz-icon://.jpg?size=16"), pointer; }
+
+a[href$=".eps"]:hover, a[href$=".epsf"]:hover, a[href$=".svg"]:hover, a[href$=".cdr"]:hover, a[href$=".dxf"]:hover, a[href$=".ps"]:hover { cursor:url("moz-icon://.eps?size=16"), pointer; }
+
+a[href$=".cdr"]:hover { cursor:url("moz-icon://.cdr?size=16"), pointer; }
+
+a[href$=".xcf"]:hover { cursor:url("moz-icon://.xcf?size=16"), pointer; }
+
+a[href$=".psd"]:hover, a[href$=".abr"]:hover, a[href$=".eps"]:hover, a[href$=".psb"]:hover, a[href$=".pdd"]:hover { cursor:url("moz-icon://.psd?size=16"), pointer; }
+
+a[href$=".ai"]:hover, a[href$=".ait"]:hover { cursor:url("moz-icon://.ai?size=16"), pointer; }
+
+a[href$=".indd"]:hover { cursor:url("moz-icon://.indd?size=16"), pointer; }
+
+a[href$=".scr"]:hover { cursor:url("moz-icon://.scr?size=16"), pointer; }
+
+a[href$=".aac"]:hover, a[href$=".aic"]:hover, a[href$=".aif"]:hover, a[href$=".aiff"]:hover, a[href$=".aifc"]:hover, a[href$=".ac3"]:hover, a[href$=".amr"]:hover, a[href$=".au"]:hover, a[href$=".cdr"]:hover, a[href$=".cda"]:hover, a[href$=".dms"]:hover, a[href$=".dsf"]:hover, a[href$=".flac"]:hover, a[href$=".gp4"]:hover, a[href$=".gp5"]:hover, a[href$=".iff"]:hover, a[href$=".kar"]:hover, a[href$=".l"]:hover, a[href$=".hcom"]:hover, a[href$=".m3u"]:hover, a[href$=".m4a"]:hover, a[href$=".m4p"]:hover, a[href$=".maud"]:hover, a[href$=".mid"]:hover, a[href$=".midi"]:hover, a[href$=".mod"]:hover, a[href$=".mp2"]:hover, a[href$=".mp3"]:hover, a[href$=".mpc"]:hover, a[href$=".ogg"]:hover, a[href$=".psid"]:hover, a[href$=".r"]:hover, a[href$=".ra"]:hover, a[href$=".srf"]:hover, a[href$=".sb"]:hover, a[href$=".sf"]:hover, a[href$=".smp"]:hover, a[href$=".smd"]:hover, a[href$=".sw"]:hover, a[href$=".toc"]:hover, a[href$=".txw"]:hover, a[href$=".u"]:hover, a[href$=".ub"]:hover, a[href$=".uw"]:hover, a[href$=".voc"]:hover, a[href$=".wav"]:hover, a[href$=".wma"]:hover { cursor:url("moz-icon://.aac?size=16"), pointer; }
+
+a[href$=".3gp"]:hover, a[href$=".avi"]:hover, a[href$=".dat"]:hover, a[href$=".ivo"]:hover, a[href$=".mkv"]:hover, a[href$=".mod"]:hover, a[href$=".mov"]:hover, a[href$=".mp4"]:hover, a[href$=".mpg"]:hover, a[href$=".qt"]:hover, a[href$=".rm"]:hover, a[href$=".rv"]:hover, a[href$=".vob"]:hover, a[href$=".vro"]:hover, a[href$=".wmv"]:hover, a[href$=".divx"]:hover, a[href$=".vob"]:hover, a[href$=".vivo"]:hover { cursor:url("moz-icon://.mp4?size=16"), pointer; }
+
+a[href$=".swf"]:hover, a[href$=".fla"]:hover, a[href$=".flv"]:hover { cursor:url("moz-icon://.swf?size=16"), pointer; }
+
+a[href$=".iso"]:hover, a[href$=".mds"]:hover, a[href$=".nrg"]:hover, a[href$=".cue"]:hover { cursor:url("moz-icon://.iso?size=16"), pointer; }
+
+a[href$=".fnt"]:hover, a[href$=".ttf"]:hover { cursor:url("moz-icon://.fnt?size=16"), pointer; }
 

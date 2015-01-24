@@ -1,4 +1,4 @@
-/*+++2015.01.09 22:50+++*/
+/*+++2015.01.24 08:00+++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄&工具欄===*/
@@ -38,7 +38,6 @@ display: none !important;
 #context-bookmarkpage, /*此页面加入书签*/
 #context-sendlink, /*发送链接到*/
 #context-sendpage, /*发送页面链接到*/
-#context-viewimage, /*查看图片*/
 #context-sep-copyimage, /*复制图片下面的分割线*/
 #context-sendimage, /*发送图片到*/
 #context-setDesktopBackground, /*设置为桌面背景*/
@@ -65,13 +64,12 @@ display: none !important;
 }
 
 /*===标签栏右键菜单===*/
+#context_openNonRemoteWindow,
 #context_reloadAllTabs,/*重新載入所有分頁*/
 #context_pinTab,/*釘選分頁*/
 #tabContextMenu > menuseparator,/*全部分割线*/
 #context_openTabInWindow,/*移动到新窗口*/
-#context_reloadTab,/*重新载入标签页*/
 #context_bookmarkAllTabs,/*将全部标签页加为书签*/
-#context_closeTab,/*关闭标签页*/
 #context_closeTabsToTheEnd, /*关闭右侧标签页*/
 #menu_restoreAllTabs/*还原所有标签页*/ {
 display: none !important;

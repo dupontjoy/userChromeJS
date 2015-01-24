@@ -1,5 +1,5 @@
 
-//2015.01.23 22:00 添加京東，天貓大圖規則
+//2015.01.24 14:00 添加京東，天貓大圖規則
 //2015.01.22 16:00 更新TVC規則
 //2015.01.16 更新sourceforge規則
 //2015.01.10 刪除一個有問題的規則
@@ -160,9 +160,10 @@ regex: true
 },
 {
 //测试：http://img11.360buyimg.com/n5/jfs/t700/22/552651328/263602/77209a24/54c05927N3820abe9.jpg
+//方法來源：http://jingyan.baidu.com/article/3aed632e6e5f9f70108091e9.html
 name: "京東 >> 原始大图",
-from: /^https?:\/\/(.*)\.360buyimg\.com\/n(1|2|3|4|5)\/(.*)\.jpg+(\/.*)?/i,
-to: "http://$1.360buyimg.com/n0/$3.jpg",
+from: /^https?:\/\/(.*)\.360buyimg\.com\/(n[\d])\/(.*)\.jpg+(\/.*)?/i,
+to: "http://$1.360buyimg.com/imgzone/$3.jpg",
 regex: true
 },
 {

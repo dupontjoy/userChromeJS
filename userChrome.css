@@ -1,4 +1,4 @@
-/*+++2015.01.24 08:00+++*/
+/*+++2015.01.24 16:00+++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -60,6 +60,11 @@ min-width:100px !important;
 /*窗口化时标签栏置顶*/
 #main-window[sizemode="normal"] #TabsToolbar {margin-top: 0px !important;}
 
+/*anoBtn向左对齐*/
+#anobtn{
+margin: 0 0 0 -3px !important;
+}
+
 /*++第2部分+++++++++++++++++++++++以下为FX32界面调整+++++++++++++++++++++++++*/
 
 /*===== UI——FX32界面调整：http://bbs.kafan.cn/thread-1726274-1-1.html =====*/
@@ -92,11 +97,6 @@ height: 24px !important;
 }
 
 /*===== UI——直角标签：來自陽光盒子 =====*/
-/* 标签栏内外边距 */
-window[sizemode="fullscreen"] #TabsToolbar{ margin: 0px 0px 0px -5px !important; }
-window[sizemode="maximized"] #TabsToolbar{ margin: 0px 0px 0px -3px !important; }
-window[sizemode="normal"] #TabsToolbar{ margin: 20px -140px 0px -4px !important; }
-
 /* 隐藏原梯形标签 */
 #TabsToolbar {
 background: transparent !important;
@@ -120,11 +120,17 @@ margin: -4px -2px !important;
 background: transparent !important;
 }
 
+/* 标签中间的文字 */
+#TabsToolbar .tab-content{
+margin: 0px -5px !important;
+}
+
 /* 标签前后的竖线 */
 #TabsToolbar .tabbrowser-tab:after,
 #TabsToolbar .tabbrowser-tab:before{
 display: none !important;
 }
+
 /* 标签置左*/
 #TabsToolbar .arrowscrollbox-scrollbox {
 padding: 0px !important;
@@ -139,8 +145,8 @@ border:none!important;
 border-style: solid !important;
 border-color: rgba(0,0,0,.2) !important;
 border-width: 1px 0 0 1px !important;
-text-shadow: 0 0 4px rgba(255,255,255,.75) !important;
-padding: 4px 2px !important;
+text-shadow: 0 0 1px rgba(255,255,255,.75) !important;
+padding: 0px 0px !important;
 background: rgba(255,255,255,.27) !important;
 background-clip: padding-box !important;
 }
@@ -187,7 +193,7 @@ padding: 0 5px !important;
 
 #TabsToolbar .tabbrowser-tabs {min-height: 24px !important;}
 
-/* -- 除去标签栏背景模糊效果 -- */
+/*除去标签栏背景模糊效果*/
 #TabsToolbar::after {
 opacity: 0.1 !important;
 /* 或者display: none !Important; */

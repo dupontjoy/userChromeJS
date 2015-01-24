@@ -1,13 +1,4 @@
-/*+++2014.12.21 12:00+++*/
-
-/*新建按钮样式*/
-#TabsToolbar .tabs-newtab-button, #new-tab-button {
-margin: 0px !important;
-padding: 0px !important;
-width: 20px !important;
-}
-.tabs-newtab-button, #new-tab-button  { background: transparent !important;}
-.tabs-newtab-button:hover, #new-tab-button:hover  { background: rgba(255,255,255,0.75) !important;}
+/*+++2015.01.24 15:00+++*/
 
 /*标签样式css*/
 .tabbrowser-tab[busy] {color: blue !important;}/* 正在加载标签 */
@@ -31,58 +22,32 @@ margin-top: -1px!important;
 margin-bottom: 0px!important;
 }
 
-/*标签序号*/
-.tabbrowser-tab:before {
-margin: 0px -10px -10px 0px !important;
-padding: 0px 3px !important;
-border-radius: 7px !important;
-background-color: !important;
-color: black !important;
-font-size: 9px !important;
-font-weight: 700 !important;
-content: counter(tabs) !important;
-position: absolute !important;
+/*当前标签显示关闭按钮*/
+.tabbrowser-tab:not([selected]) .tab-close-button{display:none!important;}/*非当前页关闭按钮自动隐藏*/
+.tabbrowser-tab:not([pinned]):hover .tab-close-button{display:inherit!important;}
+.tab-close-button{
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAQBAMAAACigOGCAAAAJ1BMVEUAAAB/f3/MzMzPz8+EhITLy8vLy8vMAACkAADvKSnu7uzMzMyAgIC59IiNAAAAB3RSTlMAz9QVFczD0adS3gAAAG1JREFUGNNjIBpwdIBBA6bETDDAIjG9HAgqQRKpBsxhICFBBxZBFIloZaOtIAkZEceDIImq5VXLwRJGm7SVQRKOB2VEwBKrVkEkmLU3GYAkWGQOOoCNWrWqHKcETqNwWo7buTg9SChICAciAgAAPGZF/3McR18AAAAASUVORK5CYII=") !important;
+-moz-image-region: rect(0 16px 16px 0) !important;
+}
+.tab-close-button[selected]{
+-moz-image-region: rect(0 32px 16px 16px) !important;
+}
+.tab-close-button:hover{
+-moz-image-region: rect(0 48px 16px 32px) !important;
 }
 
-tab {
-counter-increment: counter !important;
-}
-
-.tab-close-button:hover::after {
-/*悬浮于关闭按钮时不显示数字*/
-display: none !important;
-}
-
-/*标签计数—总数*/
-#main-window {
-counter-reset: tabs !important;
-}
-
-.tabbrowser-tab:not(:-moz-any([pinned],[concealed])) {
-counter-increment: tabs !important;
-}
-
-#alltabs-button {
-visibility: visible !important;
-}
-
+/*标签计数*/
+#main-window {counter-reset: tabs;}
+.tabbrowser-tab:not(:-moz-any([pinned],[concealed])) {counter-increment: tabs;}
+#alltabs-button {visibility: visible!important;}
 #alltabs-button:after {
-content: counter(tabs) !important;
-color: black !important;
-font-weight: !important;
-font-size: 12px !important;
-display: -moz-box !important;
-width: auto !important;
-padding: 0px !important;
-margin-right: -15px !important;
-position: absolute !important;
+content: counter(tabs);
+font-size: 13px;
+display: -moz-box;
+z-index:999 !important;
 }
-
-#alltabs-button > :-moz-any(label, image) {
-display: none !important;
+#alltabs-button > :-moz-any(label, image) {display: none;}
+#alltabs-button menuitem {max-width: 200px !important;}
+#alltabs-button {
+margin-right: -22px!important;
 }
-
-#alltabs-button menuitem {
-max-width: 240px !important;
-}
-

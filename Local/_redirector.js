@@ -174,7 +174,7 @@ regex: true
 },
 
 //Google服務轉國內鏡像
-/*{
+{
 //https://servers.ustclug.org/index.php/2014/06/blog-googlefonts-speedup/
 name: "ajax/fonts >> 科大博客提供",
 from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
@@ -204,7 +204,7 @@ name: "Google统计和tag >> mingto.tk",
 from: /^https?:\/\/(.*?)(google-analytics|googletagmanager|googletagservices|googleadservices)\.com\/([\w]+\/)*([\w]+(\.[\w]+)?)/i,
 to: "http://minggo.coding.io/cdn/google/$4",
 regex: true
-},*/
+},
 
 //待測試
 {

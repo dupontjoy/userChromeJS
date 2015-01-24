@@ -73,7 +73,9 @@ font-weight: !important;
 font-size: 12px !important;
 display: -moz-box !important;
 width: auto !important;
-margin-right: 12px !important;
+padding: 0px !important;
+margin-right: -15px !important;
+position: absolute !important;
 }
 
 #alltabs-button > :-moz-any(label, image) {

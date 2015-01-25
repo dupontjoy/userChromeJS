@@ -1,4 +1,4 @@
-/*+++2015.01.24 08:00+++*/
+/*+++2015.01.24 22:00+++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄&工具欄===*/
@@ -222,5 +222,10 @@ display: none !important;
 /*ABP菜单项*/
 #abp-menuitem-sendReport,/*报告该页面上的问题*/
 #abp-menuitem-openbottombar/*打开可过滤项目*/ {
+display: none !important;
+}
+
+/*其它擴展/腳本隱藏項*/
+#snaplinksMenuEntry {
 display: none !important;
 }

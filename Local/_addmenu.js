@@ -1,5 +1,5 @@
 
-//2015.01.24 09:00 調整一些菜單順序
+//2015.01.24 22:00 調整一些菜單順序
 //2015.01.21 22:00 修正特殊符號，添加小書籤菜單
 //2015.01.20 10:00 更新TVC搜索項
 //2015.01.16 23:00 更新TVC搜索項，加入特殊符號選單三級菜單
@@ -487,7 +487,7 @@ this.hidden = isHidden;
 ];
 var menu = PageMenu({
 condition: 'input',
-insertBefore: 'context-copy',
+insertBefore: 'spell-undo-add-to-dictionary',
 icon: 'input',
 onpopupshowing: syncHidden
 });
@@ -498,65 +498,12 @@ css('#contentAreaContextMenu[addMenu~="input"] #' + it.command + '{ display: non
 });
 };
 
-//快捷回复
-new function() {
-var menu = PageMenu({
-label: "快速回覆",
-condition: "input noselect",
-accesskey: "W",
-insertBefore: "context-copy",
-//跟进depft更新
-oncommand: function(event) {
-var input_text = event.target.getAttribute('input_text');
-if (input_text) {
-addMenu.copy(input_text);
-setTimeout(function() {
-goDoCommand("cmd_paste");
-}, 100);
-}
-}
-});
-var items = [
-{
-label: "用戶名(1)~~~",
-input_text: "dupontjoy",
-accesskey: "1",
-}, 
-{}, 
-{
-label: "163mail~~~",
-input_text: "dupontjoy@163.com",
-accesskey: "2",
-image: "http://email.163.com/favicon.ico "
-}, 
-{
-label: "QQmail~~~",
-input_text: "dupontjoy@qq.com",
-accesskey: "3",
-image: " https://mail.qq.com/favicon.ico"
-}, 
-{
-label: "Gmail~~~",
-input_text: "dupont2305@gmail.com",
-accesskey: "4",
-image: "https://ssl.gstatic.com/ui/v1/icons/mail/images/2/unreadcountfavicon/0.png "
-}, 
-{}, 
-{
-label: "字數補丁~~~",
-input_text: "~~~為神馬要15字，好吧，漢賊不兩立，王業不偏安~~~",
-image: " "
-}
-];
-menu(items);
-};
-
 //特殊符號選單，打造三級菜單
 var Punctuationsub = PageMenu({
 label:"特殊符號",
 accesskey: "S",
 condition:"input",
-insertBefore:"context-copy",
+insertBefore:"spell-undo-add-to-dictionary",
 oncommand: function(event) {
 var input_text = event.target.getAttribute('input_text');
 if (input_text) {
@@ -612,6 +559,59 @@ PunctuationsubMenu3([
 {label: "·", input_text:"·"},//placeholder,位于字母中间
 ]);
 
+//快捷回复
+new function() {
+var menu = PageMenu({
+label: "快速回覆",
+condition: "input noselect",
+accesskey: "W",
+insertBefore: "spell-undo-add-to-dictionary",
+//跟进depft更新
+oncommand: function(event) {
+var input_text = event.target.getAttribute('input_text');
+if (input_text) {
+addMenu.copy(input_text);
+setTimeout(function() {
+goDoCommand("cmd_paste");
+}, 100);
+}
+}
+});
+var items = [
+{
+label: "用戶名(1)~~~",
+input_text: "dupontjoy",
+accesskey: "1",
+}, 
+{}, 
+{
+label: "163mail~~~",
+input_text: "dupontjoy@163.com",
+accesskey: "2",
+image: "http://email.163.com/favicon.ico "
+}, 
+{
+label: "QQmail~~~",
+input_text: "dupontjoy@qq.com",
+accesskey: "3",
+image: " https://mail.qq.com/favicon.ico"
+}, 
+{
+label: "Gmail~~~",
+input_text: "dupont2305@gmail.com",
+accesskey: "4",
+image: "https://ssl.gstatic.com/ui/v1/icons/mail/images/2/unreadcountfavicon/0.png "
+}, 
+{}, 
+{
+label: "字數補丁~~~",
+input_text: "~~~為神馬要15字，好吧，漢賊不兩立，王業不偏安~~~",
+image: " "
+}
+];
+menu(items);
+};
+
 /*——————————頁面右鍵——————————*/
 //Firefox 31+ 横排菜单，在鏈接上和非鏈接上不相同
 var openMenu = GroupMenu({
@@ -630,11 +630,16 @@ label: "複製Favicon的Base64",
 text: "%FAVICON_BASE64%",
 },
 {
+label: "SnapLinks批量操作",
+condition: "nolink noimage noinput noselect",
+oncommand: "snapLinks.init();"
+},
+/*{
 label: "在IE中打開",
 text: "%RLINK_OR_URL%",
 exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
 },
-/*{
+{
 label: "BackupProfiles",
 text: '%RLINK_OR_URL%',
 exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\Local\\BackupProfiles\\BackupProfiles_7z.bat",

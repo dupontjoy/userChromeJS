@@ -1,4 +1,4 @@
-/*+++2015.01.24 16:00+++*/
+/*+++2015.01.24 18:00+++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -63,6 +63,7 @@ min-width:100px !important;
 /*anoBtn向左对齐*/
 #anobtn{
 margin: 0 0 0 -3px !important;
+padding: 0px !important;
 }
 
 /*++第2部分+++++++++++++++++++++++以下为FX32界面调整+++++++++++++++++++++++++*/
@@ -134,7 +135,7 @@ display: none !important;
 /* 标签置左*/
 #TabsToolbar .arrowscrollbox-scrollbox {
 padding: 0px !important;
-margin-left:-4px !important;
+margin-left:-1px !important;
 }
 
 /* 重绘新建标签按钮和每个标签 */

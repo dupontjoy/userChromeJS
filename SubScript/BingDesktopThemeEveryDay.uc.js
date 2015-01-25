@@ -17,7 +17,7 @@ function getNow()
 	var t=new Date();
 	var y=t.getFullYear();
 	var m=t.getMonth()+1;if(m<10) m='0'+m;
-	var d=t.getDate();if(d<10) d='7'+d;
+	var d=t.getDate();if(d<10) d='0'+d;
 	n=parseInt(''+y+m+d);
 	return n;
 	}

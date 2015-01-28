@@ -1,21 +1,24 @@
 
+//2015.01.28 13:00 添加Business Insider 去跳轉
 //2015.01.24 14:00 添加京東，天貓大圖規則
 //2015.01.22 16:00 更新TVC規則
 //2015.01.16 更新sourceforge規則
 //2015.01.10 刪除一個有問題的規則
-//2015.01.07 修正flickr >> 原始大图
+//2015.01.07 修正flickr >> 原始大圖
+
+//規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
 
 rules = [
 {
 //自帶示例
-name: "about:haoutil", // 规则名称
+name: "about:haoutil", // 規則名称
 from: "about:haoutil", // 需要重定向的地址
 to: "https://haoutil.googlecode.com", // 目标地址
-state: true, //可选，true 表示启用此规则
-wildcard: false, // 可选，true 表示 from 是通配符
-regex: false, // 可选，true 表示 from 是正则表达式
-resp: false, // 可选，true 表示替换 response body
-decode: false // 可选，true 表示尝试对 from 解码
+state: true, //可選，true 表示啟用此規則
+wildcard: false, // 可選，true 表示 from 是通配符
+regex: false, // 可選，true 表示 from 是正則表逹式
+resp: false, // 可選，true 表示替換 response body
+decode: false // 可選，true 表示尝試對 from 解碼
 },
 
 
@@ -59,7 +62,7 @@ exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off(.*)/i,
 regex: true
 },
 {
-name: "反Google搜索验证码",
+name: "反Google搜索驗證碼",
 from: /^https?:\/\/ipv4\.google\.com\/sorry\/IndexRedirect\?continue=https?:\/\/www\.google\.com(?:\.hk|)\/search\?(.*q=.*)&q=.*/i,
 to: "https://www.google.com/ncr#$1",
 regex: true
@@ -71,18 +74,23 @@ to: "$3",
 regex: true
 },
 {
-name: "反百度搜索验证码",
+name: "反百度搜索驗證碼",
 from: /^https?:\/\/verify\.baidu\.com\/vcode\?http:\/\/www\.baidu\.com\/s\?wd=(.*)&(.*=.*)/i,
 to: "http://www.baidu.com/s?wd=$1",
 regex: true
 },
 {
-name: "职友集|inc 去跳转",
+name: "職友集|inc 去跳轉",
 from:/^http:\/\/www\.(jobui|inc)\.com\/(.*)(link|destination)=(.*)/i,
 to: "$4",
 regex: true
 },
-
+{
+name: "Business Insider 去跳轉",
+from:/^http:\/\/www\.businessinsider\.com\/(.*)\?utm\_(.*)/i,
+to: "http://www.businessinsider.com/$1",
+regex: true
+},
 {
 name: "userscripts >> webextender鏡像",
 from: /^https?:\/\/userscripts\.org(?:\:8080|)\/(.*)/i,
@@ -90,7 +98,7 @@ to: "http:\/\/webextender.net/$1",
 regex: true
 },
 {
-name: "sourceforge下载 >> ftp镜像站点",
+name: "sourceforge下載 >> ftp鏡像站點",
 from: /^https?:\/\/sourceforge\.net\/projects\/(((\w)\w).*)\/files\/(.*)\/download/i,
 /*to: "ftp://ftp.jaist.ac.jp/pub/sourceforge/$3/$2/$1/$4",*/
 to: "http://nchc.dl.sourceforge.net/project/$1/$4",
@@ -98,7 +106,7 @@ regex: true
 },
 {
 // 包含手机版界面
-name: "百度随心听音质320",
+name: "百度隨心聽音質320",
 from: /^https?:\/\/music\.baidu\.com\/data\/music\/fmlink(.*[&\?])rate=[^3]\d+(.*)/i,
 to: "http://music.baidu.com/data/music/fmlink$1rate=320$2",
 regex: true
@@ -145,30 +153,30 @@ to: "http://$1.topit.me/$2l$3.jpg",
 regex: true
 },
 {
-name: "designspiration >> 原始大图",
+name: "designspiration >> 原始大圖",
 from: /^https?:\/\/(.*)\.dspnimg\.com\/data\/g\/(.*)g\.jpg+(\/.*)?/i,
 to: "http://$1.dspnimg.com/data/l/$2l.jpg",
 regex: true
 },
 {
 //http://bbs.kafan.cn/thread-1801036-1-1.html
-name: "flickr >> 原始大图",
+name: "flickr >> 原始大圖",
 from: /^(https?:\/\/c\d\.staticflickr\.com\/\d\/\d+\/\d+_[^\._]+)(_[a-z])?(\.jpg)$/,
 exclude: /^(https?:\/\/c\d\.staticflickr\.com\/\d\/\d+\/\d+_\w+)_b(\.jpg)$/,
 to: "$1_b$3",
 regex: true
 },
 {
-//测试：http://img11.360buyimg.com/n5/jfs/t700/22/552651328/263602/77209a24/54c05927N3820abe9.jpg
+//测試：http://img11.360buyimg.com/n5/jfs/t700/22/552651328/263602/77209a24/54c05927N3820abe9.jpg
 //方法來源：http://jingyan.baidu.com/article/3aed632e6e5f9f70108091e9.html
-name: "京東 >> 原始大图",
+name: "京東 >> 原始大圖",
 from: /^https?:\/\/(.*)\.360buyimg\.com\/(n[\d])\/(.*)\.jpg+(\/.*)?/i,
 to: "http://$1.360buyimg.com/imgzone/$3.jpg",
 regex: true
 },
 {
-//测试：http://gi2.md.alicdn.com/imgextra/i2/713805254/TB2PvqMbXXXXXaSXXXXXXXXXXXX_!!713805254.jpg_60x60q90.jpg
-name: "天貓 >> 原始大图",
+//测試：http://gi2.md.alicdn.com/imgextra/i2/713805254/TB2PvqMbXXXXXaSXXXXXXXXXXXX_!!713805254.jpg_60x60q90.jpg
+name: "天貓 >> 原始大圖",
 from: /^https?:\/\/(.*)\.(md\.alicdn|)\.com\/(imgextra|)\/(.*)\.jpg\_(.*)\.jpg/i,
 to: "http://$1.$2.com/$3/$4.jpg",
 regex: true
@@ -195,13 +203,13 @@ to: "http://fonts-gstatic.lug.ustc.edu.cn/$1",
 regex: true
 },
 {
-name: "Gravatar头像 >> 多说",
+name: "Gravatar頭像 >> 多說",
 from: /^https?:\/\/([0-9]?)\.gravatar\.com\/avatar\/(.*)$/,
 to: "http://gravatar.duoshuo.com/avatar/$1",
 regex: true
 },
 {
-name: "Google统计和tag >> mingto.tk",
+name: "Google統計和tag >> mingto.tk",
 from: /^https?:\/\/(.*?)(google-analytics|googletagmanager|googletagservices|googleadservices)\.com\/([\w]+\/)*([\w]+(\.[\w]+)?)/i,
 to: "http://minggo.coding.io/cdn/google/$4",
 regex: true
@@ -216,7 +224,7 @@ regex: true
 },
 
 
-//——————以下为不启用——————
+//——————以下为不啟用——————
 /*{
 name: "爱奇艺",
 from:/^http:\/\/afp\.qiyi\.com\/.*\url=([^&]*)(\?src=.*)/i,
@@ -240,7 +248,7 @@ regex: true
 {
 name: "【https】google",
 from: /^http:\/\/(([^\.]+\.)?google\..+)/i,
-exclude: /google\.cn/i, // 可选，排除例外规则
+exclude: /google\.cn/i, // 可選，排除例外規則
 to: "https://$1",
 regex: true
 },

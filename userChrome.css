@@ -1,4 +1,4 @@
-/*+++2015.01.24 18:00+++*/
+/*+++2015.01.28 22:00+++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -124,12 +124,6 @@ background: transparent !important;
 /* 标签中间的文字 */
 #TabsToolbar .tab-content{
 margin: 0px -5px !important;
-}
-
-/* 标签前后的竖线 */
-#TabsToolbar .tabbrowser-tab:after,
-#TabsToolbar .tabbrowser-tab:before{
-display: none !important;
 }
 
 /* 标签置左*/

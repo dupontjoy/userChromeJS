@@ -1,5 +1,6 @@
 
-//2015.01.24 22:00 調整一些菜單順序
+//2015.01.28 17:00 更新TVC搜索項
+//2015.01.25 21:00 調整一些菜單順序
 //2015.01.21 22:00 修正特殊符號，添加小書籤菜單
 //2015.01.20 10:00 更新TVC搜索項
 //2015.01.16 23:00 更新TVC搜索項，加入特殊符號選單三級菜單
@@ -272,7 +273,7 @@ var menu = PageMenu({
 condition: "select",
 label: "搜索選中文本",
 accesskey: "S",
-insertBefore: "context-copy",
+insertBefore: "spell-undo-add-to-dictionary",
 onpopupshowing: function (event){
 Array.slice(event.target.children).forEach(function(elem){
 if(elem.id == "TVC"){
@@ -352,9 +353,30 @@ image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "運營—產品SKU管理",
+label: "運營—審核-品名",
+id: "TVC",
+url: "http://ic.sjlpj.cn/Product/OperationProductEditAuditList?Keyword=%s",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "運營—SPU管理列表",
 id: "TVC",
 url: "http://ic.sjlpj.cn/ProductCorrect/ProductSpuList?Sku=%s",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "運營—SPU關聯列表",
+id: "TVC",
+url: "http://ic.sjlpj.cn/Product/ProductAssociatedSpuList?Sku=%s",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "運營—批量維護属性-SKU",
+id: "TVC",
+url: "http://ic.sjlpj.cn/ProductOperationSearch/ProductOperationSearchList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
@@ -438,65 +460,6 @@ e.checked = !e.checked;
 });
 
 /*——————————輸入框右鍵——————————*/
-
-//貼上 二級菜單
-new function() {
-var items = [{
-command: 'context-paste'
-},
-{
-label: "標點符號置換(中轉英)",
-condition: "input",
-accesskey: "E",
-oncommand: function() {
-goDoCommand("cmd_copy");
-var sel = getBrowserSelection();
-var txt = addMenu.convertText('%p');
-addMenu.copy(txt.replace(/(\s，\s|\s，|，\s|，)+/g, ", ")
-.replace(/(\s。\s|\s。|。\s|。)+/g, ". ")
-.replace(/(\s？\s|\s？|？\s|？)+/g, "? ")
-.replace(/(\s！\s|\s！|！\s|！)+/g, "! ")
-.replace(/(\s；\s|\s；|；\s|；)+/g, "; ")
-.replace(/(\s：\s|\s：|：\s|：)+/g, ": ")
-.replace(/(\s（\s|\s（|（\s|（)+/g, " (")
-.replace(/(\s）\s|\s）|）\s|）)+/g, ") ")
-.replace(/(\s—\s|\s—|—\s|—)+/g, " - ")
-.replace(/(\s＆\s|\s＆|＆\s|＆)+/g, " & ")
-.replace(/(\s…\s|\s…|…\s|…)+/g, "... ")
-.replace(/(\s、\s|\s、|、\s|、)+/g, ", ")
-);
-if (sel) {goDoCommand("cmd_paste");}
-},
-},
-{
-label: "插入code代碼",
-condition: "input",
-accesskey: "I",
-insertAfter: "context-paste",
-oncommand: function() {
-var str = addMenu.convertText('[code]%P[/code]');
-addMenu.copy(str);
-goDoCommand('cmd_paste');
-},
-/*//限定只在kafan生效(此段代碼只適用一級菜單)
-onshowing: function(menuitem) {
-var isHidden = !(content.location.host == 'bbs.kafan.cn');
-this.hidden = isHidden;
-},*/
-},
-];
-var menu = PageMenu({
-condition: 'input',
-insertBefore: 'spell-undo-add-to-dictionary',
-icon: 'input',
-onpopupshowing: syncHidden
-});
-menu(items);
-items.forEach(function(it) {
-if (it.command)
-css('#contentAreaContextMenu[addMenu~="input"] #' + it.command + '{ display: none !important; }')
-});
-};
 
 //特殊符號選單，打造三級菜單
 var Punctuationsub = PageMenu({
@@ -612,6 +575,65 @@ image: " "
 menu(items);
 };
 
+//貼上 二級菜單
+new function() {
+var items = [{
+command: 'context-paste'
+},
+{
+label: "標點符號置換(中轉英)",
+condition: "input",
+accesskey: "E",
+oncommand: function() {
+goDoCommand("cmd_copy");
+var sel = getBrowserSelection();
+var txt = addMenu.convertText('%p');
+addMenu.copy(txt.replace(/(\s，\s|\s，|，\s|，)+/g, ", ")
+.replace(/(\s。\s|\s。|。\s|。)+/g, ". ")
+.replace(/(\s？\s|\s？|？\s|？)+/g, "? ")
+.replace(/(\s！\s|\s！|！\s|！)+/g, "! ")
+.replace(/(\s；\s|\s；|；\s|；)+/g, "; ")
+.replace(/(\s：\s|\s：|：\s|：)+/g, ": ")
+.replace(/(\s（\s|\s（|（\s|（)+/g, " (")
+.replace(/(\s）\s|\s）|）\s|）)+/g, ") ")
+.replace(/(\s—\s|\s—|—\s|—)+/g, " - ")
+.replace(/(\s＆\s|\s＆|＆\s|＆)+/g, " & ")
+.replace(/(\s…\s|\s…|…\s|…)+/g, "... ")
+.replace(/(\s、\s|\s、|、\s|、)+/g, ", ")
+);
+if (sel) {goDoCommand("cmd_paste");}
+},
+},
+{
+label: "插入code代碼",
+condition: "input",
+accesskey: "I",
+insertAfter: "context-paste",
+oncommand: function() {
+var str = addMenu.convertText('[code]%P[/code]');
+addMenu.copy(str);
+goDoCommand('cmd_paste');
+},
+/*//限定只在kafan生效(此段代碼只適用一級菜單)
+onshowing: function(menuitem) {
+var isHidden = !(content.location.host == 'bbs.kafan.cn');
+this.hidden = isHidden;
+},*/
+},
+];
+var menu = PageMenu({
+condition: 'input',
+insertBefore: 'spell-undo-add-to-dictionary',
+icon: 'input',
+onpopupshowing: syncHidden
+});
+menu(items);
+items.forEach(function(it) {
+if (it.command)
+css('#contentAreaContextMenu[addMenu~="input"] #' + it.command + '{ display: none !important; }')
+});
+};
+
 /*——————————頁面右鍵——————————*/
 //Firefox 31+ 横排菜单，在鏈接上和非鏈接上不相同
 var openMenu = GroupMenu({
@@ -660,6 +682,7 @@ insertBefore:"context-copy",
 });
 BookmarkletSub([
 {
+//from: http://kb.mozillazine.org/Spell_checking
 label:"拼寫檢查",
 tooltiptext: "將進入編輯模式！需切換到其它標籤，再切回來即可生效！",
 url:"javascript:document.body.contentEditable='true';%20document.designMode='on';%20void%200",

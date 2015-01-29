@@ -1,5 +1,5 @@
 
-//2015.01.28 17:00 更新TVC搜索項
+//2015.01.29 20:00 更新TVC搜索項
 //2015.01.25 21:00 調整一些菜單順序
 //2015.01.21 22:00 修正特殊符號，添加小書籤菜單
 //2015.01.20 10:00 更新TVC搜索項
@@ -318,14 +318,21 @@ image: "http://www.tvc-mall.com/images/favicon.ico",
 where: 'tab'
 },
 {
-label: "已編輯-SKU",
+label: "產品—認領-SKU",
+id: "TVC",
+url: "http://ic.sjlpj.cn/DevProduct/DevProductEditCollectList?Sku=%s",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "產品—已編輯-SKU",
 id: "TVC",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Sku=%s&EditorId=0",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "已編輯-品名",
+label: "產品—已編輯-品名",
 id: "TVC",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Name=%s&EditorId=0",
 image: "http://ic.sjlpj.cn/favicon.ico",
@@ -542,7 +549,7 @@ goDoCommand("cmd_paste");
 });
 var items = [
 {
-label: "用戶名(1)~~~",
+label: "用戶名~~~",
 input_text: "dupontjoy",
 accesskey: "1",
 }, 
@@ -644,6 +651,12 @@ insertBefore: 'context-sep-navigation'
 });
 openMenu([
 {
+//from: http://kb.mozillazine.org/Spell_checking
+label:"拼寫檢查",
+tooltiptext: "拼寫檢查！",
+url:"javascript:document.body.contentEditable='true';%20document.designMode='on';%20void%200",
+},
+{
 label: "複製Favicon的URL",
 text: "%FAVICON%",
 }, 
@@ -651,12 +664,13 @@ text: "%FAVICON%",
 label: "複製Favicon的Base64",
 text: "%FAVICON_BASE64%",
 },
-{
+
+/*{
 label: "SnapLinks批量操作",
 condition: "nolink noimage noinput noselect",
 oncommand: "snapLinks.init();"
 },
-/*{
+{
 label: "在IE中打開",
 text: "%RLINK_OR_URL%",
 exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
@@ -672,32 +686,6 @@ text: '%RLINK_OR_URL%',
 exec: Services.dirsvc.get("LocalAppData", Ci.nsILocalFile).path + "\\Google\\Chrome\\Application\\chrome.exe",
 },*/
 ]);
-
-//小書籤
-var BookmarkletSub = PageMenu({
-label:"小書籤",
-accesskey: "B",
-condition:"noinput noselect nomailto nocanvas nomedia noimage nolink",
-insertBefore:"context-copy",
-});
-BookmarkletSub([
-{
-//from: http://kb.mozillazine.org/Spell_checking
-label:"拼寫檢查",
-tooltiptext: "將進入編輯模式！需切換到其它標籤，再切回來即可生效！",
-url:"javascript:document.body.contentEditable='true';%20document.designMode='on';%20void%200",
-},
-]);
-
-//EHH元素隱藏
-page([{
-label: '選擇屏蔽內容',
-accesskey: "E",
-oncommand: "window._ehhWrapper.toggleSelection(); ",
-tooltiptext: "EEH for ABP隱藏元素",
-insertBefore: "context-viewsource",
-condition: "noinput noselect nomailto nocanvas nomedia noimage nolink",
-}, ]);
 
 /*——————————移動圖標和菜單——————————*/
 //移动圖标，代替Movebutton.uc.js，需配合RebuildWhenStart.uc.js，可惜對有的圖標還是無力

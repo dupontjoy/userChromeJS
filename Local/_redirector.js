@@ -1,4 +1,7 @@
 
+//2015.01.31 13:00 添加ZOL >> 原始大圖
+//2015.01.30 23:00 修复sourceforge規則
+//2015.01.30 09:00 添加Linkedin 去跳轉
 //2015.01.28 13:00 添加Business Insider 去跳轉
 //2015.01.24 14:00 添加京東，天貓大圖規則
 //2015.01.22 16:00 更新TVC規則
@@ -20,7 +23,6 @@ regex: false, // 可選，true 表示 from 是正則表逹式
 resp: false, // 可選，true 表示替換 response body
 decode: false // 可選，true 表示尝試對 from 解碼
 },
-
 
 //單獨網站
 {
@@ -80,8 +82,8 @@ to: "http://www.baidu.com/s?wd=$1",
 regex: true
 },
 {
-name: "職友集|inc 去跳轉",
-from:/^http:\/\/www\.(jobui|inc)\.com\/(.*)(link|destination)=(.*)/i,
+name: "職友集|inc|Linkedin 去跳轉",
+from:/^http:\/\/www\.(jobui|inc|linkedin|)\.com\/(.*)(link|destination|redirect\?url)=(.*)(&urlhash(.*))/i,
 to: "$4",
 regex: true
 },
@@ -101,7 +103,7 @@ regex: true
 name: "sourceforge下載 >> ftp鏡像站點",
 from: /^https?:\/\/sourceforge\.net\/projects\/(((\w)\w).*)\/files\/(.*)\/download/i,
 /*to: "ftp://ftp.jaist.ac.jp/pub/sourceforge/$3/$2/$1/$4",*/
-to: "http://nchc.dl.sourceforge.net/project/$1/$4",
+to: "http://softlayer-sng.dl.sourceforge.net/project/$1/$4",
 regex: true
 },
 {
@@ -170,7 +172,7 @@ regex: true
 //测試：http://img11.360buyimg.com/n5/jfs/t700/22/552651328/263602/77209a24/54c05927N3820abe9.jpg
 //方法來源：http://jingyan.baidu.com/article/3aed632e6e5f9f70108091e9.html
 name: "京東 >> 原始大圖",
-from: /^https?:\/\/(.*)\.360buyimg\.com\/(n[\d])\/(.*)\.jpg+(\/.*)?/i,
+from: /^https?:\/\/(.*)\.360buyimg\.com\/(n1)\/(.*)\.jpg+(\/.*)?/i,
 to: "http://$1.360buyimg.com/imgzone/$3.jpg",
 regex: true
 },
@@ -179,6 +181,13 @@ regex: true
 name: "天貓 >> 原始大圖",
 from: /^https?:\/\/(.*)\.(md\.alicdn|)\.com\/(imgextra|)\/(.*)\.jpg\_(.*)\.jpg/i,
 to: "http://$1.$2.com/$3/$4.jpg",
+regex: true
+},
+{
+//測試：http://2b.zol-img.com.cn/product/81_160x120/277/ceS9adRcchKUA.jpg
+name: "ZOL >> 原始大圖",
+from: /^http:\/\/(.*)\.zol-img\.com\.cn\/product\/(\d+)_(160x120)\/(.*)\.jpg$/,
+to: "http://$1.zol-img.com.cn/product/$2_1200x900/$4.jpg",
 regex: true
 },
 

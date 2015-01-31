@@ -83,8 +83,8 @@ regex: true
 },
 {
 name: "職友集|inc 去跳轉",
-from:/^http:\/\/www\.(jobui|inc|)\.com\/(.*)(link|destination|)=(.*)/i,
-to: "$4",
+from:/^http:\/\/www\.(jobui|inc|)\.com\/(.*)(link|destination|)=(.*)\.html(.*)?/i,
+to: "$4.html",
 regex: true
 },
 {

@@ -1,5 +1,5 @@
 
-//2015.01.31 13:00 添加ZOL >> 原始大圖
+//2015.01.31 13:00 添加ZOL >> 原始大圖，修复Linkedin 去跳轉
 //2015.01.30 23:00 修复sourceforge規則
 //2015.01.30 09:00 添加Linkedin 去跳轉
 //2015.01.28 13:00 添加Business Insider 去跳轉
@@ -82,8 +82,14 @@ to: "http://www.baidu.com/s?wd=$1",
 regex: true
 },
 {
-name: "職友集|inc|Linkedin 去跳轉",
-from:/^http:\/\/www\.(jobui|inc|linkedin|)\.com\/(.*)(link|destination|redirect\?url)=(.*)(&urlhash(.*))/i,
+name: "職友集|inc 去跳轉",
+from:/^http:\/\/www\.(jobui|inc|)\.com\/(.*)(link|destination|)=(.*)/i,
+to: "$4",
+regex: true
+},
+{
+name: "Linkedin 去跳轉",
+from:/^http:\/\/www\.(linkedin|)\.com\/(.*)(redirect\?url|)=(.*)(&urlhash(.*))/i,
 to: "$4",
 regex: true
 },

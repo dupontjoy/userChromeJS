@@ -1,5 +1,5 @@
 
-//2015.01.29 20:00 更新TVC搜索項
+//2015.01.31 10:00 更新TVC搜索項
 //2015.01.25 21:00 調整一些菜單順序
 //2015.01.21 22:00 修正特殊符號，添加小書籤菜單
 //2015.01.20 10:00 更新TVC搜索項
@@ -321,6 +321,13 @@ where: 'tab'
 label: "產品—認領-SKU",
 id: "TVC",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductEditCollectList?Sku=%s",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "產品—認領-品名",
+id: "TVC",
+url: "http://ic.sjlpj.cn/DevProduct/DevProductEditCollectList?Name=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },

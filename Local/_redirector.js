@@ -1,5 +1,5 @@
 
-//2015.01.31 13:00 添加ZOL >> 原始大圖，修复Linkedin 去跳轉
+//2015.01.31 22:00 修复Linkedin 去跳轉，添加BT天堂 >> 備用下載
 //2015.01.30 23:00 修复sourceforge規則
 //2015.01.30 09:00 添加Linkedin 去跳轉
 //2015.01.28 13:00 添加Business Insider 去跳轉
@@ -132,6 +132,13 @@ from: /^https?:\/\/book\.bfnn\.org\/article([\d]?\/.*)/i,
 to: "http://book.bfnn.org/books$1",
 regex: true
 },
+{
+name: "BT天堂 >> 備用下載",
+from: /^https?:\/\/www\.bttiantang\.com\/download\.php\?(n\=.*)\&temp\=yes(.*)/i,
+to: "http://www.bttiantang.com/download.php?temp=yes&down=d1$2",
+regex: true
+},
+
 
 //原始大圖系列
 /*{
@@ -187,13 +194,6 @@ regex: true
 name: "天貓 >> 原始大圖",
 from: /^https?:\/\/(.*)\.(md\.alicdn|)\.com\/(imgextra|)\/(.*)\.jpg\_(.*)\.jpg/i,
 to: "http://$1.$2.com/$3/$4.jpg",
-regex: true
-},
-{
-//測試：http://2b.zol-img.com.cn/product/81_160x120/277/ceS9adRcchKUA.jpg
-name: "ZOL >> 原始大圖",
-from: /^http:\/\/(.*)\.zol-img\.com\.cn\/product\/(\d+)_(160x120)\/(.*)\.jpg$/,
-to: "http://$1.zol-img.com.cn/product/$2_1200x900/$4.jpg",
 regex: true
 },
 

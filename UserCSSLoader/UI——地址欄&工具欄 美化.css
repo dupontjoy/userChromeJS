@@ -1,4 +1,4 @@
-/*+++2015.01.03 15:40+++*/
+/*+++2015.01.30 20:00+++*/
 
 /*样式伪进度条*/
 @-moz-document url-prefix("http://"),url-prefix("https://"){
@@ -59,8 +59,8 @@ border-top: none;
 
 #wordhighlight-toolbar-box {
 background: #FFFFFF;
-right: 0px;
-bottom: 0px;
+right: 16px; /*距右邊*/
+top: 60px; /*距上邊*/
 /*>>>自行修改数字*/
 border: 1px solid #A6A6A6;
 border-radius: 0px 0px 0px 2.5px;
@@ -224,7 +224,7 @@ background-color:rgb(240,240,240) !important;
 padding:1px !important;
 }
 
-/*顯示標題
+/*顯示標題欄
 #main-window::after {
 content:attr(title)!important;
 position:fixed!important;

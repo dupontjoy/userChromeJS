@@ -1,5 +1,5 @@
 
-//2015.01.31 22:00 修复Linkedin 去跳轉，添加BT天堂 >> 備用下載
+//2015.02.01 17:00 修复Linkedin 去跳轉，添加BT天堂 >> 備用下載，精簡
 //2015.01.30 23:00 修复sourceforge規則
 //2015.01.30 09:00 添加Linkedin 去跳轉
 //2015.01.28 13:00 添加Business Insider 去跳轉
@@ -70,33 +70,9 @@ to: "https://www.google.com/ncr#$1",
 regex: true
 },
 {
-name: "Google搜圖去跳轉",
-from:/^https?:\/\/www\.google\.com\/(.*)imgurl=(.*)&imgrefurl=(.*)\&h=(.*)/i,
-to: "$3",
-regex: true
-},
-{
 name: "反百度搜索驗證碼",
 from: /^https?:\/\/verify\.baidu\.com\/vcode\?http:\/\/www\.baidu\.com\/s\?wd=(.*)&(.*=.*)/i,
 to: "http://www.baidu.com/s?wd=$1",
-regex: true
-},
-{
-name: "職友集|inc 去跳轉",
-from:/^http:\/\/www\.(jobui|inc|)\.com\/(.*)(link|destination|)=(.*)\.html(.*)?/i,
-to: "$4.html",
-regex: true
-},
-{
-name: "Linkedin 去跳轉",
-from:/^http:\/\/www\.(linkedin|)\.com\/(.*)(redirect\?url|)=(.*)(&urlhash(.*))/i,
-to: "$4",
-regex: true
-},
-{
-name: "Business Insider 去跳轉",
-from:/^http:\/\/www\.businessinsider\.com\/(.*)\?utm\_(.*)/i,
-to: "http://www.businessinsider.com/$1",
 regex: true
 },
 {
@@ -138,7 +114,12 @@ from: /^https?:\/\/www\.bttiantang\.com\/download\.php\?(n\=.*)\&temp\=yes(.*)/i
 to: "http://www.bttiantang.com/download.php?temp=yes&down=d1$2",
 regex: true
 },
-
+{
+name: "noMoreArchiver",
+from: /(.*)\/archiver\/(.*)tid-(.*)\.html/,
+to: "$1/viewthread.php?tid=$3",
+regex: true
+},
 
 //原始大圖系列
 /*{
@@ -146,13 +127,13 @@ name: "tradingfloor 原始大圖",
 from: /^https?:\/\/www\.tradingfloor\.com\/images\/article\/max608w\/(.*)/i,
 to: "https://www.tradingfloor.com/images/article/original/$1",
 regex: true
-},*/
+},
 {
 name: "百度貼吧|百科 >> 原始大圖",
 from: /^http:\/\/(imgsrc|[\w]?\.hiphotos)\.baidu\.com\/(forum|baike)\/[\w].+\/sign=[^\/]+(\/.*).jpg/i,
 to: "http://$1.baidu.com/$2/pic/item$3.jpg",
 regex: true
-},
+},*/
 {
 name: "500px >> 原始大圖",
 from: /^https?:\/\/(.*)\.(edgecastcdn|500px)\.(net|org)\/(.*)\/[\d].jpg(.*)?/i,
@@ -231,22 +212,9 @@ regex: true
 },
 
 //待測試
-{
-name: "noMoreArchiver",
-from: /(.*)\/archiver\/(.*)tid-(.*)\.html/,
-to: "$1/viewthread.php?tid=$3",
-regex: true
-},
-
 
 //——————以下为不啟用——————
 /*{
-name: "爱奇艺",
-from:/^http:\/\/afp\.qiyi\.com\/.*\url=([^&]*)(\?src=.*)/i,
-to: "$1",
-regex: true
-},
-{
 name: "tb >> taobao",
 from: /^https?:\/\/(.*?)tb\.com\/(.*)$/,
 to: "http://$1taobao.com/$2",
@@ -257,46 +225,6 @@ name: "tm >> tmall",
 from: /^https?:\/\/(.*?)tm\.com\/(.*)$/,
 to: "http://$1tmall.com/$2",
 regex: true
-},
-
-//轉https
-{
-name: "【https】google",
-from: /^http:\/\/(([^\.]+\.)?google\..+)/i,
-exclude: /google\.cn/i, // 可選，排除例外規則
-to: "https://$1",
-regex: true
-},
-{
-name: "【https】Wiki Media",
-from: /^http:\/\/upload\.wikimedia\.org\/(.*)$/i,
-to: "https://upload.wikimedia.org/$1",
-regex: true
-},
-{
-name: "【https】Google Code",
-from: /^http:\/\/(.*?)googlecode\.com\/(.*)$/i,
-to: "https://$1googlecode.com/$2",
-regex: true
-},
-{
-name: "【https】Google User Content",
-from: /^http:\/\/(.*?)googleusercontent\.com\/(.*)$/i,
-to: "https://$1googleusercontent.com/$2",
-regex: true
-},
-{
-name: "BiliBili",
-from: /^http:\/\/www\.bilibili\.com\/video\/av([\d]+)\/([\w]+\.html)?(.*)?/i,
-to: "http://www.bilibili.com/video/av$1/$2#alist",
-exclude: /bilibili\.com\/video\/av([\d]+)\/([\w]+\.html)?#alist$/i,
-regex: true
-},
-{
-name: "优酷收费视频 >> id97免费看",
-from: /^http:\/\/v\.youku\.com\/v_show\/([\w]{16})(_ev_[\d]+)?\.html(\?.*)?$/i,
-to: "http://www.id97.com/videos/play/$1.html",
-regex: true,
 },
 */
 

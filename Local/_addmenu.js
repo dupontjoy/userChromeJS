@@ -1,6 +1,7 @@
 
-//2015.01.31 10:00 更新TVC搜索項
-//2015.01.25 21:00 調整一些菜單順序
+//2015.02.09 20:00 換了一個更好的拼寫檢查
+//2015.02.07 11:00 調整一些菜單順序
+//2015.02.03 21:00 更新TVC搜索項
 //2015.01.21 22:00 修正特殊符號，添加小書籤菜單
 //2015.01.20 10:00 更新TVC搜索項
 //2015.01.16 23:00 更新TVC搜索項，加入特殊符號選單三級菜單
@@ -62,7 +63,7 @@ label: "以圖搜圖",
 accesskey: "I",
 condition: "image",
 where: "tab",
-insertBefore: "context-viewimage",
+insertBefore: "context-inspect",
 });
 imagesub([{
 label: 'Google',
@@ -111,7 +112,6 @@ command: 'context-copyimage-contents'
 {
 label: "複製GIF",
 condition: "image",
-insertBefore: 'context-saveimage',
 image: "",
 onclick: function(event) {
 if (event.button === 0) {
@@ -139,7 +139,7 @@ text: "%IMAGE_BASE64%",
 }];
 var menu = PageMenu({
 condition: 'image',
-insertBefore: 'context-viewimage',
+insertBefore: 'context-inspect',
 icon: 'image',
 onpopupshowing: syncHidden
 });
@@ -159,7 +159,6 @@ command: 'context-saveimage'
 {
 label: "保存所有圖片到zip",
 accesskey: "Z",
-insertAfter: "context-saveimage",
 condition: 'image',
 oncommand: function() {
 // 保存ディレクトリのパスがない場合は毎回ダイアログで決める
@@ -213,9 +212,8 @@ zipW.addEntryStream(name, Date.now() * 1000, Ci.nsIZipWriter.COMPRESS_DEFAULT, s
 zipW.close();
 }
 },
-}, {
-command: 'context-sendimagetogmail'
 },
+{command: 'context-sendimagetogmail'},
 // 替換 openImgRar.uc.js
 {
 label: "打開圖像RAR",
@@ -242,7 +240,7 @@ file.launch();
 ];
 var menu = PageMenu({
 condition: 'image',
-insertBefore: 'context-viewimage',
+insertBefore: 'context-inspect',
 icon: 'image',
 onpopupshowing: syncHidden
 });
@@ -257,7 +255,7 @@ css('#contentAreaContextMenu[addMenu~="image"] #' + it.command + '{ display: non
 //鏈接和选中文字(同时选中)的分割线
 page({
 label: 'separator',
-insertAfter: "context-sep-copylink",
+insertAfter: "context-copylink",
 condition: 'link&select noimage',
 })
 //圖片和选中文字(同时选中)的分割线
@@ -278,6 +276,9 @@ onpopupshowing: function (event){
 Array.slice(event.target.children).forEach(function(elem){
 if(elem.id == "TVC"){
 elem.hidden = !/ic.sjlpj.cn|tvc-mall.com/.test(content.location.host)//可排除多個網站
+}
+if(elem.id == "A"){
+elem.hidden = !/baidu.com/.test(content.location.host)//可排除多個網站
 }
 });
 }
@@ -320,6 +321,7 @@ where: 'tab'
 {
 label: "產品—認領-SKU",
 id: "TVC",
+accesskey: "1",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductEditCollectList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
@@ -334,6 +336,7 @@ where: 'tab'
 {
 label: "產品—已編輯-SKU",
 id: "TVC",
+accesskey: "2",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Sku=%s&EditorId=0",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
@@ -348,6 +351,7 @@ where: 'tab'
 {
 label: "運營—質檢-SKU",
 id: "TVC",
+accesskey: "3",
 url: "http://ic.sjlpj.cn/Product/ProductCheckingList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
@@ -362,6 +366,7 @@ where: 'tab'
 {
 label: "運營—審核-SKU",
 id: "TVC",
+accesskey: "4",
 url: "http://ic.sjlpj.cn/Product/OperationProductEditAuditList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
@@ -376,6 +381,7 @@ where: 'tab'
 {
 label: "運營—SPU管理列表",
 id: "TVC",
+accesskey: "5",
 url: "http://ic.sjlpj.cn/ProductCorrect/ProductSpuList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
@@ -390,6 +396,7 @@ where: 'tab'
 {
 label: "運營—批量維護属性-SKU",
 id: "TVC",
+accesskey: "6",
 url: "http://ic.sjlpj.cn/ProductOperationSearch/ProductOperationSearchList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
@@ -423,37 +430,6 @@ where: 'tab'
 },
 ];
 menu(items);
-};
-
-//複製 二级菜单
-new function() {
-var items = [{
-command: 'context-copy'
-},
-{
-label: "複製爲HTML",
-accesskey: "H",
-class: "copy",
-condition: "select",
-oncommand: function() {
-var div = content.document.createElement('div');
-div.appendChild(content.getSelection().getRangeAt(0).cloneContents());
-addMenu.copy(div.innerHTML);
-}
-},
-
-];
-var menu = PageMenu({
-condition: 'select',
-insertBefore: 'context-paste',
-icon: 'select',
-onpopupshowing: syncHidden
-});
-menu(items);
-items.forEach(function(it) {
-if (it.command)
-css('#contentAreaContextMenu[addMenu~="select"] #' + it.command + '{ display: none !important; }')
-});
 };
 
 //选取范围内复选框的 ON/OFF
@@ -622,7 +598,6 @@ if (sel) {goDoCommand("cmd_paste");}
 label: "插入code代碼",
 condition: "input",
 accesskey: "I",
-insertAfter: "context-paste",
 oncommand: function() {
 var str = addMenu.convertText('[code]%P[/code]');
 addMenu.copy(str);
@@ -637,7 +612,7 @@ this.hidden = isHidden;
 ];
 var menu = PageMenu({
 condition: 'input',
-insertBefore: 'spell-undo-add-to-dictionary',
+insertBefore: 'context-delete',
 icon: 'input',
 onpopupshowing: syncHidden
 });
@@ -657,11 +632,15 @@ position: 1,
 insertBefore: 'context-sep-navigation'
 });
 openMenu([
-{
+/*{
 //from: http://kb.mozillazine.org/Spell_checking
 label:"拼寫檢查",
 tooltiptext: "拼寫檢查！",
 url:"javascript:document.body.contentEditable='true';%20document.designMode='on';%20void%200",
+},*/
+{
+label: "拼寫檢查",
+oncommand: function() {document.onkeydown=ck;content.document.body.contentEditable=true;function ck(e){k=window.event?window.event.keyCode:e.keyCode;if(k==27){content.document.body.contentEditable=false}}}
 },
 {
 label: "複製Favicon的URL",
@@ -734,7 +713,6 @@ id: "frame", //本框架又不能直接隱藏，只好移動到一個安全的�
 insertAfter: "charsetMenu",
 clone: false, // 不克隆，直接改在原来的菜单上面
 });
-
 };
 
 /*————————————————————*/

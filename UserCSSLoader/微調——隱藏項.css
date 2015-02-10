@@ -1,4 +1,4 @@
-/*+++2015.01.29 16:00+++*/
+/*+++2015.02.04 22:00+++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄&工具欄===*/
@@ -227,6 +227,8 @@ display: none !important;
 }
 
 /*其它擴展/腳本隱藏項*/
-#snaplinksMenuEntry {
+#snaplinksMenuEntry,
+[label="生成QR码 : 链接地址"]
+{
 display: none !important;
 }

@@ -26,18 +26,6 @@ decode: false // 可選，true 表示尝試對 from 解碼
 
 //單獨網站
 {
-name: "TVC內網-內網參考鏈接修正-1",
-from: /^http:\/\/http\/\/(.*)/i,
-to: "$1",
-regex: true
-},
-{
-name: "TVC內網-內網參考鏈接修正-2",
-from: /^http:\/\/ic\.sjlpj\.cn\/DevProduct\/www\.(.*)/i,
-to: "www.$1",
-regex: true
-},
-{
 name: "TVC內網 圖片 以圖搜圖",
 from: /(.*(google|so|baidu|bing|sougou|tineye).*)\/ic\.sjlpj\.cn\/uploads(?:\/unlogo|)\/details\/(.*)/i,
 to: "$1/img.tvc-mall.com/uploads/details/$3",

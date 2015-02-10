@@ -1,6 +1,7 @@
-/*+++2015.01.29 23:00+++*/
+/*+++2015.02.03 20:00+++*/
 
 /*==扩展/脚本图标补充==*/
+
 [label="SnapLinks批量操作"] {
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAUVBMVEUArNz6+vrb29vz+vzt7e06vuPW3d8Jrty03eh4zuZtyuQ9veGm2OdBweXF3eRVw+EetN46ud0MsN0Grtzj9frg6+/p6eljxuI1vOInt98QsN2hkWIgAAAAVElEQVQY053KSw6AIAxF0aqoSBFQ/O9/oTYtkBgnxjN7Nw8+GhuxlFAlOcytOGSeFzzgivQxAzEctHLaR8U47JvBAFYTC8wHeOlFzHvqhCuhTuCPG6fjAvTD7V1+AAAAAElFTkSuQmCC") !important;
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
@@ -239,7 +240,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAY
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 
-#context-copy,#context-copyemail,#placesContext_copy/*复制*/,#copyBookmark_copyTitle/*複製書簽標題*/,#AM-copy-name/*复制UC脚本名称*/,[label="複製"],#mnEditCopy,#showFlagS-copy,#menu_copy,#node-menu-copyuniqueselector/*複製唯一選擇器*/,#header-search [label="複製"] {
+#context-copy,#context-copyemail,#placesContext_copy/*复制*/,#copyBookmark_copyTitle/*複製書簽標題*/,#AM-copy-name/*复制UC脚本名称*/,[label="複製"],#mnEditCopy,#showFlagS-copy,#menu_copy,#node-menu-copyuniqueselector/*複製唯一選擇器*/,#header-search [label="複製"],[label="複製爲純文本"] {
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGxQTFRF////UFBQkZGRl5eXnZ2doaGhUFBQVlZWXFxcY2Nja2trc3Nze3t7g4ODioqKkZGRl5eXnZ2doaGhtra2ubm5u7u7vb294ODg5eXl5ubm5+fn6enp6urq7Ozs7u7u8PDw8fHx9fX1/f39////ggcw/gAAAAZ0Uk5TAJaWlpaWbyK09gAAAHhJREFUGNONyjFqAlEYRtHzj28YGRVCsv+lWbkAiwFRnvKlUCOSxvIebsG4A5ZOg+3XHbJc7/CdE8xTllsbdxzRVmSdpT33Y0Ybc1o89nOKKUNUVZWs+7nKCzbzT6+SFgUXppQXwAcw/DsO+hvs0ZLhD6BqfLYe/AJsmDdNVyCpFwAAAABJRU5ErkJggg==") !important;
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }

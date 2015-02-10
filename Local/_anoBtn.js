@@ -1,4 +1,5 @@
 
+//2015.02.09 20:00 添加清理垃圾緑色版
 //2015.01.26 21:00 更新備份模塊
 //2015.01.21 20:00 精簡並換一些圖標
 
@@ -50,9 +51,9 @@ label: "備份Fierfox配置",
 tooltiptext: "自动备份火狐常用配置文件，如果你有额外的文件或文件夹需要备份，请修改BackupProfiles_7z.bat文件。注意备份将关闭Firefox！",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\BackupProfiles\\BackupProfiles_7z.bat",
 }, {},{
-label: "自动更新 HOSTS",
-tooltiptext: "如果你是WIN8.1系统，可能会因为权限不足而导致不能自动替换HOSTS，请手动替换。",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\update",
+label: "清理垃圾",
+tooltiptext: "清理系統垃圾。",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\垃圾清理.exe",
 }, {},{
 label: "编辑 HOSTS 文件",
 tooltiptext: "",

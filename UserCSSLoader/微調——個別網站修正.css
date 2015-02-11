@@ -1,4 +1,4 @@
-/*+++2015.01.01 22:20+++*/
+/*+++2015.02.11 21:00+++*/
 
 /*取消吧内自动链接*/
 a.ps_cb {
@@ -10,4 +10,14 @@ color: #000 !important;
 LI[data-field^='{"author_name":"dupontjoy"'] {
 box-shadow: 0 0 10px #222;
 /*display: none !important; 隱藏某人的贴子*/;
+}
+
+
+/*Mercury居中显示*/
+#container .wrapInner {
+  overflow: inherit !important;
+}
+
+#featured {
+  overflow: inherit !important;
 }

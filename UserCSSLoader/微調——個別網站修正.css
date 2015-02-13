@@ -1,5 +1,6 @@
-/*+++2015.02.11 21:00+++*/
+/*+++2015.02.13 14:00+++*/
 
+@-moz-document domain("tieba.baidu.com") {
 /*取消吧内自动链接*/
 a.ps_cb {
 pointer-events: none !important;
@@ -11,13 +12,22 @@ LI[data-field^='{"author_name":"dupontjoy"'] {
 box-shadow: 0 0 10px #222;
 /*display: none !important; 隱藏某人的贴子*/;
 }
+}
 
-
+@-moz-document domain("mercurymart.com") {
 /*Mercury居中显示*/
 #container .wrapInner {
-  overflow: inherit !important;
+overflow: inherit !important;
 }
 
 #featured {
-  overflow: inherit !important;
+overflow: inherit !important;
+}
+
+}
+
+@-moz-document url("http://court.gov.cn/zgcpwsw/") {
+form#feedbacksmallform>table {
+position:absolute;top:2%;
+}
 }

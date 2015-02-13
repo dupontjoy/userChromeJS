@@ -1,5 +1,5 @@
 
-//2015.02.09 20:00 換了一個更好的拼寫檢查
+//2015.02.12 08:00 換了一個更好的拼寫檢查
 //2015.02.07 11:00 調整一些菜單順序
 //2015.02.03 21:00 更新TVC搜索項
 //2015.01.21 22:00 修正特殊符號，添加小書籤菜單
@@ -632,15 +632,14 @@ position: 1,
 insertBefore: 'context-sep-navigation'
 });
 openMenu([
-/*{
-//from: http://kb.mozillazine.org/Spell_checking
-label:"拼寫檢查",
-tooltiptext: "拼寫檢查！",
-url:"javascript:document.body.contentEditable='true';%20document.designMode='on';%20void%200",
-},*/
 {
+label:"拼寫檢查",
+tooltiptext: "拼寫檢查（當前窗口打開）！",
+oncommand: function() {document.onkeydown=ck;content.document.body.contentEditable=true;function ck(e){k=window.event?window.event.keyCode:e.keyCode;if(k==27){content.document.body.contentEditable=false}}},
+/*{
 label: "拼寫檢查",
-oncommand: function() {document.onkeydown=ck;content.document.body.contentEditable=true;function ck(e){k=window.event?window.event.keyCode:e.keyCode;if(k==27){content.document.body.contentEditable=false}}}
+tooltiptext: "拼寫檢查（新窗口打開）！",
+oncommand: function() {editableWindow=content.open(content.location.href);editableWindow.onload=function(){content.document.onkeydown=ck;content.document.body.contentEditable=true;function ck(e){k=window.event?window.event.keyCode:e.keyCode;if(k==27){content.document.body.contentEditable=false}}}},*/
 },
 {
 label: "複製Favicon的URL",

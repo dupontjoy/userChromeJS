@@ -1,5 +1,5 @@
 
-//2015.01.25 10:00 調整一些菜單順序
+//2015.02.14 13:00 調整一些菜單順序
 //2015.01.21 22:00 修正特殊符號，添加小書籤菜單
 //2015.01.20 10:00 更新TVC搜索項
 //2015.01.16 23:00 更新TVC搜索項，加入特殊符號選單三級菜單
@@ -272,7 +272,7 @@ var menu = PageMenu({
 condition: "select",
 label: "搜索選中文本",
 accesskey: "S",
-insertBefore: "spell-undo-add-to-dictionary",
+insertBefore: "context-copy",
 onpopupshowing: function (event){
 Array.slice(event.target.children).forEach(function(elem){
 if(elem.id == "TVC"){
@@ -454,7 +454,7 @@ var Punctuationsub = PageMenu({
 label:"特殊符號",
 accesskey: "S",
 condition:"input",
-insertBefore:"spell-undo-add-to-dictionary",
+insertBefore:"context-copy",
 oncommand: function(event) {
 var input_text = event.target.getAttribute('input_text');
 if (input_text) {
@@ -611,7 +611,7 @@ this.hidden = isHidden;
 ];
 var menu = PageMenu({
 condition: 'input',
-insertBefore: 'spell-undo-add-to-dictionary',
+insertBefore: 'context-copy',
 icon: 'input',
 onpopupshowing: syncHidden
 });

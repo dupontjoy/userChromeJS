@@ -1,7 +1,4 @@
-/*+++2015.02.04 22:00+++*/
-
-/*用新分頁開啟鏈結*/
-#context-openlinkintab {-moz-box-ordinal-group: 0 !important;}
+/*+++2015.02.14 14:00+++*/
 
 /*幾個qrCreator菜單順序靠後*/
 [label="生成QR码 : 选区文本"],[label="生成QR码 : 当前网址"],[label="生成QR码 : 图象地址"],[label="生成QR码 : 链接地址"] {-moz-box-ordinal-group: 2 !important;}

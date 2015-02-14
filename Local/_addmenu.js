@@ -530,7 +530,7 @@ goDoCommand("cmd_paste");
 });
 var items = [
 {
-label: "用戶名(1)~~~",
+label: "用戶名~~~",
 input_text: "dupontjoy",
 accesskey: "1",
 }, 

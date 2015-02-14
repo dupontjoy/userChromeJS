@@ -121,7 +121,7 @@ name: "百度貼吧|百科 >> 原始大圖",
 from: /^http:\/\/(imgsrc|[\w]?\.hiphotos)\.baidu\.com\/(forum|baike)\/[\w].+\/sign=[^\/]+(\/.*).jpg/i,
 to: "http://$1.baidu.com/$2/pic/item$3.jpg",
 regex: true
-},*/
+},
 {
 name: "500px >> 原始大圖",
 from: /^https?:\/\/(.*)\.(edgecastcdn|500px)\.(net|org)\/(.*)\/[\d].jpg(.*)?/i,
@@ -149,53 +149,13 @@ from: /^(https?:\/\/c\d\.staticflickr\.com\/\d\/\d+\/\d+_[^\._]+)(_[a-z])?(\.jpg
 exclude: /^(https?:\/\/c\d\.staticflickr\.com\/\d\/\d+\/\d+_\w+)_b(\.jpg)$/,
 to: "$1_b$3",
 regex: true
-},
+},*/
 {
 //测試：http://img11.360buyimg.com/n5/jfs/t700/22/552651328/263602/77209a24/54c05927N3820abe9.jpg
 //方法來源：http://jingyan.baidu.com/article/3aed632e6e5f9f70108091e9.html
 name: "京東 >> 原始大圖",
 from: /^https?:\/\/(.*)\.360buyimg\.com\/(n1)\/(.*)\.jpg+(\/.*)?/i,
 to: "http://$1.360buyimg.com/imgzone/$3.jpg",
-regex: true
-},
-{
-//测試：http://gi2.md.alicdn.com/imgextra/i2/713805254/TB2PvqMbXXXXXaSXXXXXXXXXXXX_!!713805254.jpg_60x60q90.jpg
-name: "天貓 >> 原始大圖",
-from: /^https?:\/\/(.*)\.(md\.alicdn|)\.com\/(imgextra|)\/(.*)\.jpg\_(.*)\.jpg/i,
-to: "http://$1.$2.com/$3/$4.jpg",
-regex: true
-},
-
-//Google服務轉國內鏡像
-{
-//https://servers.ustclug.org/index.php/2014/06/blog-googlefonts-speedup/
-name: "ajax/fonts >> 科大博客提供",
-from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
-to: "https://$1.lug.ustc.edu.cn/$2",
-regex: true
-},
-{
-name: "themes >> 科大博客",
-from: /^https?:\/\/themes\.googleusercontent\.com\/(.*)$/,
-to: "http://google-themes.lug.ustc.edu.cn/$1",
-regex: true
-},
-{
-name: "fonts-gstatic >> 科大博客",
-from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
-to: "http://fonts-gstatic.lug.ustc.edu.cn/$1",
-regex: true
-},
-{
-name: "Gravatar頭像 >> 多說",
-from: /^https?:\/\/([0-9]?)\.gravatar\.com\/avatar\/(.*)$/,
-to: "http://gravatar.duoshuo.com/avatar/$1",
-regex: true
-},
-{
-name: "Google統計和tag >> mingto.tk",
-from: /^https?:\/\/(.*?)(google-analytics|googletagmanager|googletagservices|googleadservices)\.com\/([\w]+\/)*([\w]+(\.[\w]+)?)/i,
-to: "http://minggo.coding.io/cdn/google/$4",
 regex: true
 },
 

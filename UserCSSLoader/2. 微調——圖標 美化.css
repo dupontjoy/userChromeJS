@@ -245,7 +245,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAM
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 
-#downloadsContextMenu menuitem[label="复制下载链接"],#downloadsContextMenu menuitem[label="複製下載鏈結"],#downloadsContextMenu menuitem[label="Copy Download Link"],#context-copylink/*复制链接地址*/,#copyBookmark_copyBoth/*複製書簽標題和網址*/,[label="複製文本+鏈接"],[label="複製Favicon的URL"] {
+#downloadsContextMenu menuitem[label="复制下载链接"],#downloadsContextMenu menuitem[label="複製下載鏈結"],#downloadsContextMenu menuitem[label="Copy Download Link"],#context-copylink/*复制链接地址*/,#copyBookmark_copyBoth/*複製書簽標題和網址*/,[label="複製文本+鏈接"],[label="複製Favicon的URL"],#context-copylink {
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACL0lEQVQ4jY3O/0sTcRzH8ftzFgj+4g/+IOEgpSyYVJ6F+0Ehkn7wh+oHi8WWhFA/KCQINYiBUAlJxTCnTu0UEcJMp27SpHkl+WVz230+593n7j53vPohZnie4QveP76fPATBNTEiPWsJS1QMS5bHzVwPSy3un2O7FpqhRZWjeMhRVDkOKEeBcuwTC7ldDcEnc7gammo9NQAAZY1jboNiOk0wkVIw+q2MREpBnnKIEQltjz8j8GD8ljc5IuFmzyxu9Mzi7uASXo7/RGJFwdQawVbegBiRIEYktD5K4vK90e4zkV+MyZheJ5ALJh6+WkXv6zTCsRQudcVlobl7wjgL+fnHTSRWFMSXyvjwtYR9YqGhc8QWrtwfY4pmY2FThZShSK6TU8lP36aRWFHwaVlBnlio7xhmwsWuOCO6jcWchvnsv4gXuTU0ieQ6weQqQYFYqAsOMeFC5wijzMayrOPLj+MRN7nxzntIGYrpDMEBtVArxphQ3zHMVGZjbZthacs7UiE33H6H+ayKuQ2KospRE4gyoS44xA6Zg8yOidQv70iF7G9/g8WchoVNFSWVo7pp0BBqxRjTDAfZPQvp396RCvl82xCIxqFoHAfURFXjQEmoCUSZZjrIFSx83/WOHJGbowAAn79PP+fvK/n8/b1CddOgoZsO5CJHrmAhu2chs2NibZthWdZPkt2rahwoqTqHZjrQDAeHzIbKbFDdBtH5SbJ7Pn9/719On/6/OyK79gc8Kc0L/8SbiQAAAABJRU5ErkJggg==") !important;
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }

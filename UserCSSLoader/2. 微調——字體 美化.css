@@ -49,3 +49,56 @@ background:-moz-linear-gradient(left,rgba(242,241,241,1) 26px,#FF9900 27px,rgba(
 background-clip:content-box!important;
 border-width:5px!important;
 }
+
+/*查看网页源码，代码样式*/
+@namespace url(http://www.w3.org/1999/xhtml);
+body#viewsource *|*:link {
+color:#8fa3ff !important;
+}
+ 
+body#viewsource {
+font-family:'MS Gothic' !important;
+color:#fff !important;
+background-color:#333 !important;
+line-height:140% !important;
+margin:0em !important;
+padding:0.5em !important;
+}
+ 
+body#viewsource .start-tag,
+body#viewsource .end-tag {
+color:#87ceeb !important;
+background-color:#333 !important;
+font-weight:bold !important;
+}
+ 
+body#viewsource .comment {
+color:#fffacd !important;
+background-color:#333 !important;
+font-style:normal !important;
+}
+ 
+body#viewsource .doctype {
+color:#ffff00 !important;
+background-color:#333 !important;
+font-style:normal !important;
+}
+ 
+body#viewsource .attribute-name {
+color:#00ff00 !important;
+background-color:#333 !important;
+font-weight:normal !important;
+}
+ 
+body#viewsource .attribute-value {
+color:#ffc0cb !important;
+background-color:#333 !important;
+font-weight:normal !important;
+}
+ 
+.error, .error &gt; .start-tag, .error &gt; .end-tag,
+.error &gt; .comment, .error &gt; .cdata, .error &gt; .doctype,
+.error &gt; .pi, .error &gt; .entity, .error &gt; .attribute-name,
+.error &gt; .attribute-value {
+border-bottom:1px solid red !important;
+}

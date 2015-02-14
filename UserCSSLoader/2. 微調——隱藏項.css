@@ -228,7 +228,8 @@ display: none !important;
 
 /*其它擴展/腳本隱藏項*/
 #snaplinksMenuEntry,
-[label="生成QR码 : 链接地址"]
+[label="生成QR码 : 链接地址"],
+[label="生成QR码 : 选区文本"]
 {
 display: none !important;
 }

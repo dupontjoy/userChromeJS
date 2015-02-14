@@ -1,7 +1,5 @@
 
-//2015.02.12 08:00 換了一個更好的拼寫檢查
-//2015.02.07 11:00 調整一些菜單順序
-//2015.02.03 21:00 更新TVC搜索項
+//2015.01.25 10:00 調整一些菜單順序
 //2015.01.21 22:00 修正特殊符號，添加小書籤菜單
 //2015.01.20 10:00 更新TVC搜索項
 //2015.01.16 23:00 更新TVC搜索項，加入特殊符號選單三級菜單
@@ -63,7 +61,7 @@ label: "以圖搜圖",
 accesskey: "I",
 condition: "image",
 where: "tab",
-insertBefore: "context-inspect",
+insertBefore: "context-viewimage",
 });
 imagesub([{
 label: 'Google',
@@ -112,6 +110,7 @@ command: 'context-copyimage-contents'
 {
 label: "複製GIF",
 condition: "image",
+insertBefore: 'context-saveimage',
 image: "",
 onclick: function(event) {
 if (event.button === 0) {
@@ -139,7 +138,7 @@ text: "%IMAGE_BASE64%",
 }];
 var menu = PageMenu({
 condition: 'image',
-insertBefore: 'context-inspect',
+insertBefore: 'context-viewimage',
 icon: 'image',
 onpopupshowing: syncHidden
 });
@@ -159,6 +158,7 @@ command: 'context-saveimage'
 {
 label: "保存所有圖片到zip",
 accesskey: "Z",
+insertAfter: "context-saveimage",
 condition: 'image',
 oncommand: function() {
 // 保存ディレクトリのパスがない場合は毎回ダイアログで決める
@@ -212,8 +212,9 @@ zipW.addEntryStream(name, Date.now() * 1000, Ci.nsIZipWriter.COMPRESS_DEFAULT, s
 zipW.close();
 }
 },
+}, {
+command: 'context-sendimagetogmail'
 },
-{command: 'context-sendimagetogmail'},
 // 替換 openImgRar.uc.js
 {
 label: "打開圖像RAR",
@@ -240,7 +241,7 @@ file.launch();
 ];
 var menu = PageMenu({
 condition: 'image',
-insertBefore: 'context-inspect',
+insertBefore: 'context-viewimage',
 icon: 'image',
 onpopupshowing: syncHidden
 });
@@ -255,7 +256,7 @@ css('#contentAreaContextMenu[addMenu~="image"] #' + it.command + '{ display: non
 //鏈接和选中文字(同时选中)的分割线
 page({
 label: 'separator',
-insertAfter: "context-copylink",
+insertAfter: "context-sep-copylink",
 condition: 'link&select noimage',
 })
 //圖片和选中文字(同时选中)的分割线
@@ -276,9 +277,6 @@ onpopupshowing: function (event){
 Array.slice(event.target.children).forEach(function(elem){
 if(elem.id == "TVC"){
 elem.hidden = !/ic.sjlpj.cn|tvc-mall.com/.test(content.location.host)//可排除多個網站
-}
-if(elem.id == "A"){
-elem.hidden = !/baidu.com/.test(content.location.host)//可排除多個網站
 }
 });
 }
@@ -532,7 +530,7 @@ goDoCommand("cmd_paste");
 });
 var items = [
 {
-label: "用戶名~~~",
+label: "用戶名(1)~~~",
 input_text: "dupontjoy",
 accesskey: "1",
 }, 
@@ -598,6 +596,7 @@ if (sel) {goDoCommand("cmd_paste");}
 label: "插入code代碼",
 condition: "input",
 accesskey: "I",
+insertAfter: "context-paste",
 oncommand: function() {
 var str = addMenu.convertText('[code]%P[/code]');
 addMenu.copy(str);
@@ -612,7 +611,7 @@ this.hidden = isHidden;
 ];
 var menu = PageMenu({
 condition: 'input',
-insertBefore: 'context-delete',
+insertBefore: 'spell-undo-add-to-dictionary',
 icon: 'input',
 onpopupshowing: syncHidden
 });
@@ -636,11 +635,12 @@ openMenu([
 label:"拼寫檢查",
 tooltiptext: "拼寫檢查（當前窗口打開）！",
 oncommand: function() {document.onkeydown=ck;content.document.body.contentEditable=true;function ck(e){k=window.event?window.event.keyCode:e.keyCode;if(k==27){content.document.body.contentEditable=false}}},
+},
 /*{
 label: "拼寫檢查",
 tooltiptext: "拼寫檢查（新窗口打開）！",
-oncommand: function() {editableWindow=content.open(content.location.href);editableWindow.onload=function(){content.document.onkeydown=ck;content.document.body.contentEditable=true;function ck(e){k=window.event?window.event.keyCode:e.keyCode;if(k==27){content.document.body.contentEditable=false}}}},*/
-},
+oncommand: function() {editableWindow=content.open(content.location.href);editableWindow.onload=function(){content.document.onkeydown=ck;content.document.body.contentEditable=true;function ck(e){k=window.event?window.event.keyCode:e.keyCode;if(k==27){content.document.body.contentEditable=false}}}},
+},*/
 {
 label: "複製Favicon的URL",
 text: "%FAVICON%",
@@ -649,13 +649,7 @@ text: "%FAVICON%",
 label: "複製Favicon的Base64",
 text: "%FAVICON_BASE64%",
 },
-
 /*{
-label: "SnapLinks批量操作",
-condition: "nolink noimage noinput noselect",
-oncommand: "snapLinks.init();"
-},
-{
 label: "在IE中打開",
 text: "%RLINK_OR_URL%",
 exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
@@ -712,6 +706,7 @@ id: "frame", //本框架又不能直接隱藏，只好移動到一個安全的�
 insertAfter: "charsetMenu",
 clone: false, // 不克隆，直接改在原来的菜单上面
 });
+
 };
 
 /*————————————————————*/

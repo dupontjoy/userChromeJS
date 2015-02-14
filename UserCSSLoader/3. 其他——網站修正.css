@@ -1,4 +1,4 @@
-/*+++2015.02.13 14:00+++*/
+/*+++2015.02.13 18:00+++*/
 
 @-moz-document domain("tieba.baidu.com") {
 /*取消吧内自动链接*/
@@ -31,3 +31,10 @@ form#feedbacksmallform>table {
 position:absolute;top:2%;
 }
 }
+
+@-moz-document domain("bbs.10moons.com") {
+#threadlisttableid {
+table-layout: inherit !important;
+}
+}
+

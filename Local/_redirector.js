@@ -1,4 +1,5 @@
 
+//2015.02.17 14:00 新增12306重定向JS
 //2015.02.01 17:00 修复Linkedin 去跳轉，添加BT天堂 >> 備用下載，精簡
 //2015.01.30 23:00 修复sourceforge規則
 //2015.01.30 09:00 添加Linkedin 去跳轉
@@ -72,8 +73,8 @@ regex: true
 {
 name: "sourceforge下載 >> ftp鏡像站點",
 from: /^https?:\/\/sourceforge\.net\/projects\/(((\w)\w).*)\/files\/(.*)\/download/i,
-/*to: "ftp://ftp.jaist.ac.jp/pub/sourceforge/$3/$2/$1/$4",*/
-to: "http://softlayer-sng.dl.sourceforge.net/project/$1/$4",
+to: "ftp://ftp.jaist.ac.jp/pub/sourceforge/$3/$2/$1/$4",
+//to: "http://softlayer-sng.dl.sourceforge.net/project/$1/$4",
 regex: true
 },
 {
@@ -94,12 +95,6 @@ regex: true
 name: "般若文海article >> books",
 from: /^https?:\/\/book\.bfnn\.org\/article([\d]?\/.*)/i,
 to: "http://book.bfnn.org/books$1",
-regex: true
-},
-{
-name: "BT天堂 >> 備用下載",
-from: /^https?:\/\/www\.bttiantang\.com\/download\.php\?(n\=.*)\&temp\=yes(.*)/i,
-to: "http://www.bttiantang.com/download.php?temp=yes&down=d1$2",
 regex: true
 },
 {
@@ -160,7 +155,13 @@ regex: true
 },
 
 //待測試
-
+{
+//方法來源：http://bbs.kafan.cn/thread-1809903-1-1.html
+name: "12306重定向JS",
+from: /(.*)kyfw\.12306\.cn\/otn\/resources\/merged\/queryLeftTicket_end_js.js(.*)/i,
+to: "https://raw.githubusercontent.com/dupontjoy/customization/master/queryLeftTicket_end_js.js",
+regex: true
+},
 //——————以下为不啟用——————
 /*{
 name: "tb >> taobao",

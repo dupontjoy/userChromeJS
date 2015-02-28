@@ -1,16 +1,20 @@
-/*+++2015.02.14 14:00+++*/
+/*+++2015.02.27 16:00+++*/
 
 /*用新分頁開啟鏈結*/
 #context-openlinkintab {-moz-box-ordinal-group: 0 !important;}
 
+/*uBlock菜單順序靠後*/
+#blockElement {-moz-box-ordinal-group: 2 !important;}
+
 /*幾個qrCreator菜單順序靠後*/
-[label="生成QR码 : 选区文本"],[label="生成QR码 : 当前网址"],[label="生成QR码 : 图象地址"],[label="生成QR码 : 链接地址"] {-moz-box-ordinal-group: 2 !important;}
+[label="生成QR码 : 选区文本"],[label="生成QR码 : 当前网址"],[label="生成QR码 : 图象地址"],[label="生成QR码 : 链接地址"] {-moz-box-ordinal-group: 3 !important;}
 
 /*地址栏图标分组*/
 #foxyproxy-toolbar-icon {-moz-box-ordinal-group: 1 !important;}
 #flashgot-media-tbb {-moz-box-ordinal-group: 2 !important;}
-#lpt_lastpass-compact-btn {-moz-box-ordinal-group: 3 !important;}
-#userChromebtnMenu {-moz-box-ordinal-group: 4 !important;}
+#ublock-button {-moz-box-ordinal-group: 3 !important;}
+#lpt_lastpass-compact-btn {-moz-box-ordinal-group: 4 !important;}
+#userChromebtnMenu {-moz-box-ordinal-group: 5 !important;}
 
 /*图标对齐*/
 #ucjs_UserAgentChanger,#redirector-icon,#gm_general_menu {

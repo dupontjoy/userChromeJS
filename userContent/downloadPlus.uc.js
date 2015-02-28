@@ -342,7 +342,7 @@
 	    var dir = [
 		["C:\\Users\\Administrator\\Desktop", "桌面"],
 		["D:\\Download", "Download"],
-		["D:\\Syuan的軟件", "Syuan的軟件"],
+		["E:\\Syuan的軟件", "Syuan的軟件"],
 	    ];
 	    var saveTo = document.documentElement._buttons.cancel.parentNode.insertBefore(document.createElement("button"), document.documentElement._buttons.cancel);
 	    var saveToMenu = saveTo.appendChild(document.createElement("menupopup"));

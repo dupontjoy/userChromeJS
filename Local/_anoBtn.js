@@ -1,4 +1,5 @@
 
+//2015.02.17 23:00 修改快捷方式
 //2015.02.09 20:00 添加清理垃圾緑色版
 //2015.01.26 21:00 更新備份模塊
 //2015.01.21 20:00 精簡並換一些圖標
@@ -128,13 +129,13 @@ label: '辦公軟件',
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABwUlEQVQ4jZ3Tv08aYRwG8PdPabqbhmiiqO8dhNkF4sIRcMFBatJGFnFWF4emRq+hQ5uIwOCJcWEyOkBPoyWpkzFKXNSXE1G50+SbA58OtPaHR9Lrk3yG9/s868uYQyT13COpYt6nXi741MsFSRXzknrucdo6JpA2pgPLYo4viThfEvHAspgLpI1px3Fo+6Iv/KWWVHQxE9FFKlo2ZsPFq7PojqFFdmvJyG4tGd0xtHDx6ixaNmYjukgpuphRyrWp0PZFH4t9vdmfOLEfX5+28FOi2vrj7XSbOLEfYwc3FRarmJSoAolTl6pArGISU/ZMGj8C4i6NHwHKnklstGTR2CEw9s2lQ2C0ZBELblkU3gf+R3DLIjZStChYApyEyh3d+pGiRcy/2iB/zoTvBzlrQso0MfzpFv0frtGvXoN/voWUaULO/tr5cib8qw1icr5J/g0bTwodPPeAl2+P8eLNMYazD0/337dyvkmM5y2SN4G/SetteN438OpdA1xrP+vlTYDnLWLezD0NaoB37blBraNb583cExtaudN5wW5LGy24wQt2e2jlTme9i6JnIF2fHPhYT7mSrk/2Loqef/6h3fIdt9x6jwguSQ8AAAAASUVORK5CYII=",
 child: [{
 label: "Word 2013",
-exec: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Microsoft Office 2013\\Word 2013.lnk"
+exec: "C:\\Program Files (x86)\\Microsoft Office\\Office15\\WINWORD.EXE"
 },{},{
 label: "Excel 2013",
-exec: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Microsoft Office 2013\\Excel 2013.lnk"
+exec: "C:\\Program Files (x86)\\Microsoft Office\\Office15\\EXCEL.EXE"
 },{},{
 label: "Powerpoint 2013",
-exec: "C:\\ProgramData\\Microsoft\\Windows\\Start Menu\\Programs\\Microsoft Office 2013\\Powerpoint 2013.lnk"
+exec: "C:\\Program Files (x86)\\Microsoft Office\\Office15\\POWERPNT.EXE"
 }, {},]
 }, ]
 }, {},{

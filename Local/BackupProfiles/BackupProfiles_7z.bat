@@ -1,3 +1,4 @@
+::2015.02.27
 ::Mod 2015.01.26搞定了时间问题
 
 echo off
@@ -16,6 +17,7 @@ del %BackDir%\chrome\UserScriptLoader\require\  /s /q
 xcopy "%BackDir%\adblockplus" %TempFolder%\adblockplus\  /s /y /i
 xcopy "%BackDir%\chrome" %TempFolder%\chrome\  /s /y /i
 xcopy "%BackDir%\extensions" %TempFolder%\extensions\ /s /y /i
+xcopy "%BackDir%\extension-data" %TempFolder%\extension-data\ /s /y /i
 xcopy "%BackDir%\gm_scripts" %TempFolder%\gm_scripts\ /s /y /i
 xcopy "%BackDir%\Plugins" %TempFolder%\Plugins\ /s /y /i
  

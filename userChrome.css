@@ -35,7 +35,7 @@ min-width:100px !important;
 #downloads-indicator,/*下载图标——完成*/
 #tidy-statusbar-panel,/*地址栏莫名空白*/
 #star-button,/*地址栏五角星*/
-#bookmarks-menu-button/* 书签五角星图标 */
+#bookmarks-menu-button/*书签五角星图标*/
 {display: none !important;}
 
 /*隐藏图标*/

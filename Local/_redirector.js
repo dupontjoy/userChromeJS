@@ -85,6 +85,13 @@ to: "http://music.baidu.com/data/music/fmlink$1rate=320$2",
 regex: true
 },
 /*{
+//重定向这个网址 http://s3.music.126.net/s/2/pt_index.js?49d138c4e4dfbd143dc16794a95a4856
+name: "网易云音乐320k辅助",
+from: /^http:\/\/.*\.music\.126\.net\/.*pt_index\.js/i,
+to: "https://raw.githubusercontent.com/dupontjoy/customization/master/pt_index.js",
+regex: true
+},
+{
 name: "The Economist加/print",
 from: /^https?:\/\/www\.economist\.com\/(.*)\/(.*)/i,
 to: "http://www.economist.com/$1/$2/print",
@@ -101,6 +108,13 @@ regex: true
 name: "noMoreArchiver",
 from: /(.*)\/archiver\/(.*)tid-(.*)\.html/,
 to: "$1/viewthread.php?tid=$3",
+regex: true
+},
+{
+//方法來源：http://bbs.kafan.cn/thread-1809903-1-1.html
+name: "12306重定向JS",
+from: /(.*)kyfw\.12306\.cn\/otn\/resources\/merged\/queryLeftTicket_end_js.js(.*)/i,
+to: "https://raw.githubusercontent.com/dupontjoy/customization/master/queryLeftTicket_end_js.js",
 regex: true
 },
 
@@ -156,12 +170,25 @@ regex: true
 
 //待測試
 {
-//方法來源：http://bbs.kafan.cn/thread-1809903-1-1.html
-name: "12306重定向JS",
-from: /(.*)kyfw\.12306\.cn\/otn\/resources\/merged\/queryLeftTicket_end_js.js(.*)/i,
-to: "https://raw.githubusercontent.com/dupontjoy/customization/master/queryLeftTicket_end_js.js",
+name: "NoRedirect",
+from: /^https?:\/\/\\w[\\x21-\\x2e\\x30-\\x7e]+\\.(com|cn|org|net|info|tv)\/url?=(.+)/i,
+to: "$1",
 regex: true
 },
+{
+name: "百度盘下载地址替换",
+from: /^https?:\/\/\d+\.\d+\.\d+\.\d+\/cdn\.baidupcs\.com\/file\/(.*)/i,
+to: 'http://www.baidupcs.com/$1',
+regex: true
+},
+{
+name: "googleapis >> useso",
+from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
+to: "http://$1.useso.com/$2",
+state: true,
+regex: true
+},
+
 //——————以下为不啟用——————
 /*{
 name: "tb >> taobao",

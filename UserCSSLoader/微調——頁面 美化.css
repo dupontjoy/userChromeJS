@@ -1,4 +1,4 @@
-/*+++2015.01.25 08:00+++*/
+/*+++2015.03.02 10:00+++*/
 
 /*输入框类chrome高亮*/
 input:not([type='submit']):not([type='reset']):not([type='button']):not([type='checkbox']):not([type='radio']):focus,
@@ -50,4 +50,3 @@ img {
 -moz-transition-property: box-shadow;
 -moz-transition-duration: .31s;
 }
-

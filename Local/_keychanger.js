@@ -5,7 +5,7 @@
 //数字       
 keys['1'] = "gBrowser.selectedTab = gBrowser.addTab('http://www.baidu.com');";//百度
 keys['2'] = "gBrowser.selectedTab = gBrowser.addTab('https://www.google.com/webhp?&complete=0');";//Google
-keys['3'] = function(){var newtabs=["http://ic.sjlpj.cn/","http://www.tvc-mall.com/"];var i=0;while(i<=newtabs.length-1){gBrowser.selectedTab=gBrowser.addTab(newtabs[i]);i=i+1;}};//一键打开标签组 
+keys['3'] = function(){var newtabs=["http://ic.sjlpj.cn/DevProduct/DevProductEditCollectList","http://www.tvc-mall.com/"];var i=0;while(i<=newtabs.length-1){gBrowser.selectedTab=gBrowser.addTab(newtabs[i]);i=i+1;}};//一键打开标签组 
 
 //字母
 keys['A'] = "gBrowser.selectedTab = gBrowser.addTab('about:config');";//参数设置
@@ -38,13 +38,6 @@ keys['X'] = "gWHT.destroyToolbar();";//WordHighlight取消工具栏
 
 //組合鍵
 keys['Ctrl+F1'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键
-keys['Ctrl+F8'] = function() {
-                var file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile);
-                file.append("Local");
-                file.append("BackupProfiles");
-                file.append("BackupProfiles_7z.bat");
-                file.launch();
-            };//備份Firefox
 keys["Alt+X"] = "Services.appinfo.invalidateCachesOnRestart() || Application.restart();"; //删除启动缓存并重启
 
 

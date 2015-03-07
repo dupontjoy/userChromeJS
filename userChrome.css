@@ -1,4 +1,4 @@
-/*+++2015.01.28 22:00+++*/
+/*+++2015.03.04 18:00+++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -39,6 +39,8 @@ min-width:100px !important;
 {display: none !important;}
 
 /*隐藏图标*/
+#social-share-button,/*分享此页面*/
+#loop-button-throttled,/*开始会话*/
 #GrabScroll-image,
 #abp-toolbarbutton,/*Adblock Plus*/
 #masonStatusbar,/*Mason*/

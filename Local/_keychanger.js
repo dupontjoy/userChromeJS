@@ -1,10 +1,10 @@
-//2015.01.15
+//2015.03.06
 
 //F功能鍵
 
 //数字       
 keys['1'] = "gBrowser.selectedTab = gBrowser.addTab('http://www.baidu.com');";//百度
-keys['2'] = "gBrowser.selectedTab = gBrowser.addTab('https://www.google.com/webhp?&complete=0');";//Google
+keys['2'] = "gBrowser.selectedTab = gBrowser.addTab('https://www.google.com/');";//Google
 keys['3'] = function(){var newtabs=["http://ic.sjlpj.cn/DevProduct/DevProductEditCollectList","http://www.tvc-mall.com/"];var i=0;while(i<=newtabs.length-1){gBrowser.selectedTab=gBrowser.addTab(newtabs[i]);i=i+1;}};//一键打开标签组 
 
 //字母

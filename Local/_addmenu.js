@@ -694,7 +694,12 @@ insertBefore: "userChromebtnMenu",
 clone: false,// 不克隆，直接改在原来的菜单上面
 }
 );
-
+tab({
+id: "NetworkIndicator-icon",
+insertBefore: "userChromebtnMenu",
+clone: false,// 不克隆，直接改在原来的菜单上面
+}
+);
 
 //右鍵菜单
 tab({

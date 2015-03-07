@@ -1,4 +1,6 @@
 
+//2015.03.07 20:00 新增百度盘搜索
+//2015.03.06 15:00 更新Google搜索
 //2015.02.17 14:00 新增12306重定向JS
 //2015.02.01 17:00 修复Linkedin 去跳轉，添加BT天堂 >> 備用下載，精簡
 //2015.01.30 23:00 修复sourceforge規則
@@ -39,10 +41,10 @@ to: "http://ic.sjlpj.cn/$1",
 regex: true
 },
 {
-name: "Google搜索en-US,safe=off",
+name: "Google搜索en-US,safe=off,sclient=psy-ab",
 from: /^https?:\/\/www\.google\.com\/(s\?|search\?|webhp\?)(.*)/i,
-to: "https://www.google.com/$1$2&hl=en-US&safe=off",
-exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off(.*)/i,
+to: "https://www.google.com/$1$2&hl=en-US&safe=off&sclient=psy-ab",
+exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off&sclient=psy-ab(.*)/i,
 regex: true
 },
 {
@@ -50,6 +52,12 @@ name: "google.com.hk >> google.com慢速版",
 from: /^https?:\/\/www\.google\.com\.hk\/search\?(.*)/i,
 to: "https://www.google.com/ncr#$1&hl=en-US&safe=off",
 exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off(.*)/i,
+regex: true
+},
+{
+name: "Google搜圖去跳轉",
+from:/^https?:\/\/www\.google\.com\/(.*)imgurl=(.*)&imgrefurl=(.*)\&h=(.*)/i,
+to: "$3",
 regex: true
 },
 {
@@ -62,6 +70,12 @@ regex: true
 name: "反百度搜索驗證碼",
 from: /^https?:\/\/verify\.baidu\.com\/vcode\?http:\/\/www\.baidu\.com\/s\?wd=(.*)&(.*=.*)/i,
 to: "http://www.baidu.com/s?wd=$1",
+regex: true
+},
+{
+name: "职友集|inc 去跳转",
+from:/^http:\/\/www\.(jobui|inc)\.com\/(.*)(link|destination)=(.*)/i,
+to: "$4",
 regex: true
 },
 {
@@ -168,6 +182,27 @@ to: "http://$1.360buyimg.com/imgzone/$3.jpg",
 regex: true
 },
 
+//Google服務轉國內鏡像
+{
+name: "googleapis >> useso",
+from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
+to: "http://$1.useso.com/$2",
+state: true,
+regex: true
+},
+{
+name: "Gravatar头像 >> 多说",
+from: /^https?:\/\/([0-9]?)\.gravatar\.com\/avatar\/(.*)$/,
+to: "http://gravatar.duoshuo.com/avatar/$1",
+regex: true
+},
+{
+name: "Google统计和tag >> mingto.tk",
+from: /^https?:\/\/(.*?)(google-analytics|googletagmanager|googletagservices|googleadservices)\.com\/([\w]+\/)*([\w]+(\.[\w]+)?)/i,
+to: "http://minggo.coding.io/cdn/google/$4",
+regex: true
+},
+
 //待測試
 {
 name: "NoRedirect",
@@ -182,10 +217,15 @@ to: 'http://www.baidupcs.com/$1',
 regex: true
 },
 {
-name: "googleapis >> useso",
-from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
-to: "http://$1.useso.com/$2",
-state: true,
+name: "百度盘wap/link >> share/link",
+from: /^https?:\/\/\pan\.baidu\.com\/wap\/link(.*)/i,
+to: 'http://yun.baidu.com/share/link$1',
+regex: true
+},
+{
+name: "百度盘wap/album/file >> pcloud/album/file",
+from: /^https?:\/\/\pan\.baidu\.com\/wap\/album\/file(.*)/i,
+to: 'http://yun.baidu.com/pcloud/album/file$1',
 regex: true
 },
 
@@ -200,6 +240,13 @@ regex: true
 name: "tm >> tmall",
 from: /^https?:\/\/(.*?)tm\.com\/(.*)$/,
 to: "http://$1tmall.com/$2",
+regex: true
+},
+{
+name: "BiliBili",
+from: /^http:\/\/www\.bilibili\.com\/video\/av([\d]+)\/([\w]+\.html)?(.*)?/i,
+to: "http://www.bilibili.com/video/av$1/$2#alist",
+exclude: /bilibili\.com\/video\/av([\d]+)\/([\w]+\.html)?#alist$/i,
 regex: true
 },
 */

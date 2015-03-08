@@ -183,7 +183,7 @@ regex: true
 },
 
 //Google服務轉國內鏡像
-{
+/*{
 name: "googleapis >> useso",
 from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "http://$1.useso.com/$2",
@@ -201,7 +201,7 @@ name: "Google统计和tag >> mingto.tk",
 from: /^https?:\/\/(.*?)(google-analytics|googletagmanager|googletagservices|googleadservices)\.com\/([\w]+\/)*([\w]+(\.[\w]+)?)/i,
 to: "http://minggo.coding.io/cdn/google/$4",
 regex: true
-},
+},*/
 
 //待測試
 {

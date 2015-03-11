@@ -1,5 +1,5 @@
 
-//2015.03.07 20:00 新增百度盘搜索
+//2015.03.10 09:00 新增百度盤搜索地址替換，重新分組
 //2015.03.06 15:00 更新Google搜索
 //2015.02.17 14:00 新增12306重定向JS
 //2015.02.01 17:00 修复Linkedin 去跳轉，添加BT天堂 >> 備用下載，精簡
@@ -38,38 +38,6 @@ regex: true
 name: "TVC內網 滾動條置頂",
 from: /^http:\/\/ic\.sjlpj\.cn\/#\/(.*)/i,
 to: "http://ic.sjlpj.cn/$1",
-regex: true
-},
-{
-name: "Google搜索en-US,safe=off,sclient=psy-ab",
-from: /^https?:\/\/www\.google\.com\/(s\?|search\?|webhp\?)(.*)/i,
-to: "https://www.google.com/$1$2&hl=en-US&safe=off&sclient=psy-ab",
-exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off&sclient=psy-ab(.*)/i,
-regex: true
-},
-{
-name: "google.com.hk >> google.com慢速版",
-from: /^https?:\/\/www\.google\.com\.hk\/search\?(.*)/i,
-to: "https://www.google.com/ncr#$1&hl=en-US&safe=off",
-exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off(.*)/i,
-regex: true
-},
-{
-name: "Google搜圖去跳轉",
-from:/^https?:\/\/www\.google\.com\/(.*)imgurl=(.*)&imgrefurl=(.*)\&h=(.*)/i,
-to: "$3",
-regex: true
-},
-{
-name: "反Google搜索驗證碼",
-from: /^https?:\/\/ipv4\.google\.com\/sorry\/IndexRedirect\?continue=https?:\/\/www\.google\.com(?:\.hk|)\/search\?(.*q=.*)&q=.*/i,
-to: "https://www.google.com/ncr#$1",
-regex: true
-},
-{
-name: "反百度搜索驗證碼",
-from: /^https?:\/\/verify\.baidu\.com\/vcode\?http:\/\/www\.baidu\.com\/s\?wd=(.*)&(.*=.*)/i,
-to: "http://www.baidu.com/s?wd=$1",
 regex: true
 },
 {
@@ -129,6 +97,67 @@ regex: true
 name: "12306重定向JS",
 from: /(.*)kyfw\.12306\.cn\/otn\/resources\/merged\/queryLeftTicket_end_js.js(.*)/i,
 to: "https://raw.githubusercontent.com/dupontjoy/customization/master/queryLeftTicket_end_js.js",
+regex: true
+},
+
+//Google系
+{
+name: "Google搜索en-US,safe=off,sclient=psy-ab",
+from: /^https?:\/\/www\.google\.com\/(s\?|search\?|webhp\?)(.*)/i,
+to: "https://www.google.com/$1$2&hl=en-US&safe=off&sclient=psy-ab",
+exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off&sclient=psy-ab(.*)/i,
+regex: true
+},
+{
+name: "google.com.hk >> google.com慢速版",
+from: /^https?:\/\/www\.google\.com\.hk\/search\?(.*)/i,
+to: "https://www.google.com/ncr#$1&hl=en-US&safe=off",
+exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off(.*)/i,
+regex: true
+},
+{
+name: "Google搜圖去跳轉",
+from:/^https?:\/\/www\.google\.com\/(.*)imgurl=(.*)&imgrefurl=(.*)\&h=(.*)/i,
+to: "$3",
+regex: true
+},
+{
+name: "反Google搜索驗證碼",
+from: /^https?:\/\/ipv4\.google\.com\/sorry\/IndexRedirect\?continue=https?:\/\/www\.google\.com(?:\.hk|)\/search\?(.*q=.*)&q=.*/i,
+to: "https://www.google.com/ncr#$1",
+regex: true
+},
+
+//百度系
+{
+name: "反百度搜索驗證碼",
+from: /^https?:\/\/verify\.baidu\.com\/vcode\?http:\/\/www\.baidu\.com\/s\?wd=(.*)&(.*=.*)/i,
+to: "http://www.baidu.com/s?wd=$1",
+regex: true
+},
+{
+name: "百度盤下載地址替換",
+from: /^https?:\/\/\d+\.\d+\.\d+\.\d+\/cdn\.baidupcs\.com\/file\/(.*)/i,
+to: 'http://www.baidupcs.com/$1',
+regex: true
+},
+{
+name: "百度盤wap/link >> share/link",
+from: /^https?:\/\/\pan\.baidu\.com\/wap\/link(.*)/i,
+to: 'http://yun.baidu.com/share/link$1',
+regex: true
+},
+{
+name: "百度盤wap/album/file >> pcloud/album/file",
+from: /^https?:\/\/\pan\.baidu\.com\/wap\/album\/file(.*)/i,
+to: 'http://yun.baidu.com/pcloud/album/file$1',
+regex: true
+},
+{
+//來源：http://bbs.kafan.cn/thread-1804863-1-1.html
+name: "百度盤lx.cdn >> qd",
+from:/^http:\/\/lx\.cdn\.baidupcs\.com\/file\/(.*)$/,
+to: "http://qd.baidupcs.com/file/$1",
 regex: true
 },
 
@@ -210,24 +239,7 @@ from: /^https?:\/\/\\w[\\x21-\\x2e\\x30-\\x7e]+\\.(com|cn|org|net|info|tv)\/url?
 to: "$1",
 regex: true
 },
-{
-name: "百度盘下载地址替换",
-from: /^https?:\/\/\d+\.\d+\.\d+\.\d+\/cdn\.baidupcs\.com\/file\/(.*)/i,
-to: 'http://www.baidupcs.com/$1',
-regex: true
-},
-{
-name: "百度盘wap/link >> share/link",
-from: /^https?:\/\/\pan\.baidu\.com\/wap\/link(.*)/i,
-to: 'http://yun.baidu.com/share/link$1',
-regex: true
-},
-{
-name: "百度盘wap/album/file >> pcloud/album/file",
-from: /^https?:\/\/\pan\.baidu\.com\/wap\/album\/file(.*)/i,
-to: 'http://yun.baidu.com/pcloud/album/file$1',
-regex: true
-},
+
 
 //——————以下为不啟用——————
 /*{

@@ -1,4 +1,4 @@
-/*+++2015.03.04 18:00+++*/
+/*+++2015.03.10 14:00+++*/
 
 /*用新分頁開啟鏈結*/
 #context-openlinkintab {-moz-box-ordinal-group: 0 !important;}
@@ -10,13 +10,12 @@
 [label="生成QR码 : 选区文本"],[label="生成QR码 : 当前网址"],[label="生成QR码 : 图象地址"],[label="生成QR码 : 链接地址"] {-moz-box-ordinal-group: 3 !important;}
 
 /*地址栏图标排序*/
-#NetworkIndicator-icon {-moz-box-ordinal-group: 1 !important;}
-#foxyproxy-toolbar-icon {-moz-box-ordinal-group: 2 !important;}
+#foxyproxy-toolbar-icon {-moz-box-ordinal-group: 1 !important;}
+#disconnect-button {-moz-box-ordinal-group: 2 !important;}
 #ublock-button {-moz-box-ordinal-group: 3 !important;}
 #flashgot-media-tbb {-moz-box-ordinal-group: 4 !important;}
 #lpt_lastpass-compact-btn {-moz-box-ordinal-group: 5 !important;}
 #userChromebtnMenu {-moz-box-ordinal-group: 6 !important;}
-
 
 /*图标对齐*/
 #ucjs_UserAgentChanger,#redirector-icon,#gm_general_menu {
@@ -24,8 +23,9 @@ padding: 0px !important;
 margin-left: 0px !important;
 }
 
-#NetworkIndicator-icon {
+#showFlagS-icon {
 padding: 0px !important;
+margin-bottom: -1px !important;
 }
 
 /*附加组件调序*/

@@ -1,4 +1,5 @@
 
+//2015.03.12 11:00 加入DnsJumper
 //2015.03.06 15:00 修改快捷方式，把文字改爲繁體
 //2015.02.09 20:00 添加清理垃圾緑色版
 //2015.01.26 21:00 更新備份模塊
@@ -106,8 +107,8 @@ label: "Psiphon",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Software\\GFW\\psiphon3.exe",
 },{},
 {
-label: "GoGo Tester",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\GoGo Tester\\GoGo Tester 2.3.9.2014.12.26.exe",
+label: "DnsJumper",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Software\\GFW\\DnsJumper\\DnsJumper.exe",
 },{},{
 label: "Hosts Editor",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Hosts Editor\\HostsEditor.exe",

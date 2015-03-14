@@ -1,4 +1,6 @@
 
+//2015.03.14 15:00 爲規則添加說明
+//2015.03.13 20:00 修正百度盤搜索地址替換
 //2015.03.10 09:00 新增百度盤搜索地址替換，重新分組
 //2015.03.06 15:00 更新Google搜索
 //2015.02.17 14:00 新增12306重定向JS
@@ -29,42 +31,50 @@ decode: false // 可選，true 表示尝試對 from 解碼
 
 //單獨網站
 {
+//個人用
 name: "TVC內網-內網參考鏈接修正-1",
 from: /^http:\/\/http\/\/(.*)/i,
 to: "$1",
 regex: true
 },
 {
+//個人用
 name: "TVC內網-內網參考鏈接修正-2",
 from: /^http:\/\/ic\.sjlpj\.cn\/DevProduct\/www\.(.*)/i,
 to: "www.$1",
 regex: true
 },
 {
+//個人用
 name: "TVC內網 圖片 以圖搜圖",
 from: /(.*(google|so|baidu|bing|sougou|tineye).*)\/ic\.sjlpj\.cn\/uploads(?:\/unlogo|)\/details\/(.*)/i,
 to: "$1/img.tvc-mall.com/uploads/details/$3",
 regex: true
 },
 {
+//個人用
 name: "TVC內網 滾動條置頂",
 from: /^http:\/\/ic\.sjlpj\.cn\/#\/(.*)/i,
 to: "http://ic.sjlpj.cn/$1",
 regex: true
 },
 {
+//測試：http://www.jobui.com/tips/redirect.php?link=http%3A%2F%2Fsearch.51job.com%2Fjob%2F65505572%2Cc.html
 name: "职友集|inc 去跳转",
 from:/^http:\/\/www\.(jobui|inc)\.com\/(.*)(link|destination)=(.*)/i,
 to: "$4",
 regex: true
 },
 {
+//userscripts.org和userscripts.org:8080都跳轉到webextender.net
 name: "userscripts >> webextender鏡像",
 from: /^https?:\/\/userscripts\.org(?:\:8080|)\/(.*)/i,
 to: "http:\/\/webextender.net/$1",
 regex: true
 },
 {
+//在這樣的頁面點擊，就直接弹下載窗口
+//測試：http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/36.x/36.0.1/x86/sse2/
 name: "sourceforge下載 >> ftp鏡像站點",
 from: /^https?:\/\/sourceforge\.net\/projects\/(((\w)\w).*)\/files\/(.*)\/download/i,
 to: "ftp://ftp.jaist.ac.jp/pub/sourceforge/$3/$2/$1/$4",
@@ -72,20 +82,17 @@ to: "ftp://ftp.jaist.ac.jp/pub/sourceforge/$3/$2/$1/$4",
 regex: true
 },
 {
-// 包含手机版界面
+//Y大寫的隨心聽320K重定向
+//現在失效了
 name: "百度隨心聽音質320",
 from: /^https?:\/\/music\.baidu\.com\/data\/music\/fmlink(.*[&\?])rate=[^3]\d+(.*)/i,
 to: "http://music.baidu.com/data/music/fmlink$1rate=320$2",
 regex: true
 },
-/*{
-//重定向这个网址 http://s3.music.126.net/s/2/pt_index.js?49d138c4e4dfbd143dc16794a95a4856
-name: "网易云音乐320k辅助",
-from: /^http:\/\/.*\.music\.126\.net\/.*pt_index\.js/i,
-to: "https://raw.githubusercontent.com/dupontjoy/customization/master/pt_index.js",
-regex: true
-},
+/*
 {
+//加/print可以無限看文章
+//現在換用改referer的方式，還更好一些
 name: "The Economist加/print",
 from: /^https?:\/\/www\.economist\.com\/(.*)\/(.*)/i,
 to: "http://www.economist.com/$1/$2/print",
@@ -93,18 +100,22 @@ exclude: /^http:\/\/www\.economist\.com\/.*\/print/i,
 regex: true
 },*/
 {
+//不用再經過一個跳轉頁面
+//測試：http://book.bfnn.org/article2/1630.htm
 name: "般若文海article >> books",
 from: /^https?:\/\/book\.bfnn\.org\/article([\d]?\/.*)/i,
 to: "http://book.bfnn.org/books$1",
 regex: true
 },
 {
+//在Google搜索時會出現某一種頁面，這個重定向用來直接跳到目標鏈接
 name: "noMoreArchiver",
 from: /(.*)\/archiver\/(.*)tid-(.*)\.html/,
 to: "$1/viewthread.php?tid=$3",
 regex: true
 },
 {
+//重定向12306的JS到修改版，用來定時刷票，但驗證碼得手動輸入。
 //方法來源：http://bbs.kafan.cn/thread-1809903-1-1.html
 name: "12306重定向JS",
 from: /(.*)kyfw\.12306\.cn\/otn\/resources\/merged\/queryLeftTicket_end_js.js(.*)/i,
@@ -114,6 +125,7 @@ regex: true
 
 //Google系
 {
+//設置Google搜索語言爲英文，關閉安全驗證，使用新版界面
 name: "Google搜索en-US,safe=off,sclient=psy-ab",
 from: /^https?:\/\/www\.google\.com\/(s\?|search\?|webhp\?)(.*)/i,
 to: "https://www.google.com/$1$2&hl=en-US&safe=off&sclient=psy-ab",
@@ -121,6 +133,7 @@ exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off&sclient=psy-ab(.*)/
 regex: true
 },
 {
+//google.com.hk的搜索重定向到國際版google.com
 name: "google.com.hk >> google.com慢速版",
 from: /^https?:\/\/www\.google\.com\.hk\/search\?(.*)/i,
 to: "https://www.google.com/ncr#$1&hl=en-US&safe=off",
@@ -128,12 +141,15 @@ exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off(.*)/i,
 regex: true
 },
 {
+//Google搜索時，中鍵點擊圖片，跳轉到原始鏈接。
+//詳細說明：http://bbs.kafan.cn/thread-1799098-1-1.html
 name: "Google搜圖去跳轉",
 from:/^https?:\/\/www\.google\.com\/(.*)imgurl=(.*)&imgrefurl=(.*)\&h=(.*)/i,
 to: "$3",
 regex: true
 },
 {
+//有時Google會要求塡驗證碼，此規則用以跳過
 name: "反Google搜索驗證碼",
 from: /^https?:\/\/ipv4\.google\.com\/sorry\/IndexRedirect\?continue=https?:\/\/www\.google\.com(?:\.hk|)\/search\?(.*q=.*)&q=.*/i,
 to: "https://www.google.com/ncr#$1",
@@ -142,24 +158,23 @@ regex: true
 
 //百度系
 {
+//參照『反Google搜索驗證碼』改的，很少遇到吶
 name: "反百度搜索驗證碼",
 from: /^https?:\/\/verify\.baidu\.com\/vcode\?http:\/\/www\.baidu\.com\/s\?wd=(.*)&(.*=.*)/i,
 to: "http://www.baidu.com/s?wd=$1",
 regex: true
 },
 {
-name: "百度盤下載地址替換",
-from: /^https?:\/\/\d+\.\d+\.\d+\.\d+\/cdn\.baidupcs\.com\/file\/(.*)/i,
-to: 'http://www.baidupcs.com/$1',
-regex: true
-},
-{
+//百度云盘分享页，手机版 重定向至 电脑版
+//詳細說明：http://bbs.kafan.cn/thread-1814510-1-1.html
 name: "百度盤wap/link >> share/link",
-from: /^https?:\/\/\pan\.baidu\.com\/wap\/link(.*)/i,
-to: 'http://yun.baidu.com/share/link$1',
+from: /^https?:\/\/\pan\.baidu\.com\/wap\/(link\?|shareview\?\&)(.*)/i,
+to: 'http://yun.baidu.com/share/link?$2',
 regex: true
 },
 {
+//百度云盘分享页，手机版 重定向至 电脑版
+//詳細說明：http://bbs.kafan.cn/thread-1814510-1-1.html
 name: "百度盤wap/album/file >> pcloud/album/file",
 from: /^https?:\/\/\pan\.baidu\.com\/wap\/album\/file(.*)/i,
 to: 'http://yun.baidu.com/pcloud/album/file$1',
@@ -215,6 +230,7 @@ to: "$1_b$3",
 regex: true
 },*/
 {
+//重定向到无Logo的大圖
 //测試：http://img11.360buyimg.com/n5/jfs/t700/22/552651328/263602/77209a24/54c05927N3820abe9.jpg
 //方法來源：http://jingyan.baidu.com/article/3aed632e6e5f9f70108091e9.html
 name: "京東 >> 原始大圖",
@@ -225,7 +241,8 @@ regex: true
 
 //Google服務轉國內鏡像
 /*{
-name: "googleapis >> useso",
+//重定向ajax|fonts到國內的360
+name: "Google ajax|fonts >> useso",
 from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "http://$1.useso.com/$2",
 state: true,
@@ -251,22 +268,30 @@ from: /^https?:\/\/\\w[\\x21-\\x2e\\x30-\\x7e]+\\.(com|cn|org|net|info|tv)\/url?
 to: "$1",
 regex: true
 },
-
+{
+name: "百度盤下載地址替換",
+from: /^https?:\/\/\d+\.\d+\.\d+\.\d+\/cdn\.baidupcs\.com\/file\/(.*)/i,
+to: 'http://www.baidupcs.com/$1',
+regex: true
+},
 
 //——————以下为不啟用——————
 /*{
+//有人求的，練手之作
 name: "tb >> taobao",
 from: /^https?:\/\/(.*?)tb\.com\/(.*)$/,
 to: "http://$1taobao.com/$2",
 regex: true
 },
 {
+//有人求的，練手之作
 name: "tm >> tmall",
 from: /^https?:\/\/(.*?)tm\.com\/(.*)$/,
 to: "http://$1tmall.com/$2",
 regex: true
 },
 {
+//打開頁面後，自動滾動到某一位置
 name: "BiliBili",
 from: /^http:\/\/www\.bilibili\.com\/video\/av([\d]+)\/([\w]+\.html)?(.*)?/i,
 to: "http://www.bilibili.com/video/av$1/$2#alist",

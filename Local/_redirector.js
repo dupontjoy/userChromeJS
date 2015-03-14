@@ -125,7 +125,7 @@ regex: true
 
 //Google系
 {
-//設置Google搜索語言爲英文，關閉安全驗證，使用新版界面
+//設置Google搜索語言爲英文，關閉安全搜索功能，使用新版界面
 name: "Google搜索en-US,safe=off,sclient=psy-ab",
 from: /^https?:\/\/www\.google\.com\/(s\?|search\?|webhp\?)(.*)/i,
 to: "https://www.google.com/$1$2&hl=en-US&safe=off&sclient=psy-ab",

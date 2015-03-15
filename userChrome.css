@@ -1,4 +1,4 @@
-/*+++2015.03.10 14:00+++*/
+/*+++2015.03.15 10:00+++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -16,10 +16,11 @@ padding:1px 1px !important;
 border-left:1px #BBC2C8 solid;
 }
 
-/*更改地址栏长度*/
+/*更改地址栏长度
 #urlbar-container {
-min-width: 750px !important;
-max-width: 750px !important;}
+min-width: 450px !important;
+max-width: 750px !important;
+}*/
 
 /*调节标签的宽度*/
 .tabbrowser-tab[fadein]:not([pinned]) {
@@ -199,3 +200,40 @@ opacity: 0.1 !important;
 
 /*隐藏火狐标签页上方的1px间距*/
 #tabbrowser-tabs {margin-top:-1px!important;}
+
+/*++第3部分+++++++++++++++++++++++以下为書簽欄自動隱藏+++++++++++++++++++++++++*/
+
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+#PersonalToolbar {
+visibility: hidden !important;
+opacity: 0;
+-moz-transition-duration: 0.1s;
+-moz-transition-property: visibility, opacity, margin;
+-moz-transition-delay: 1s} /*设置多少秒bookmark消失*/
+
+#nav-bar:hover~#PersonalToolbar,#PersonalToolbar:hover /*此处为hover地址栏自动弹出bookmark，若想hover地址栏+标签栏，请改#navigator-toolbox:hover > */
+{
+visibility: visible !important;
+opacity: 1;
+-moz-transition-delay: 0.1s} /*设置多少秒后延迟出现*/
+
+#PersonalToolbar {
+position: fixed !important;
+margin-top: 40px !important}
+ 
+#nav-bar:hover~#PersonalToolbar,#PersonalToolbar:hover /*此处为hover地址栏自动弹出bookmark，若想hover地址栏+标签栏，请改#navigator-toolbox:hover > */
+{
+margin-top: 0px !important}
+ 
+#main-window[stylish-url="about:addons"] #PersonalToolbar {
+margin-top: 25px !important;
+background: transparent !important; border: none !important}
+
+#main-window[stylish-url="about:addons"] #PersonalToolbar {
+display: none !important}
+
+
+#PersonalToolbar {
+background-color: #e6e7e7 !important;
+}

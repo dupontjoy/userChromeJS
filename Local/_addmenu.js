@@ -1,4 +1,5 @@
 
+//2015.03.17 10:00 調整選中文字搜索
 //2015.03.10 15:00 調整一些菜單順序
 //2015.01.21 22:00 修正特殊符號，添加小書籤菜單
 //2015.01.20 10:00 更新TVC搜索項
@@ -346,6 +347,7 @@ url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Name=%s&Ed
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
+{},
 {
 label: "運營—質檢-SKU",
 id: "TVC",
@@ -376,6 +378,7 @@ url: "http://ic.sjlpj.cn/Product/OperationProductEditAuditList?Keyword=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
+{},
 {
 label: "運營—SPU管理列表",
 id: "TVC",
@@ -392,10 +395,17 @@ image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "運營—批量維護属性-SKU",
+label: "運營—外網運營查詢-SKU",
 id: "TVC",
 accesskey: "6",
 url: "http://ic.sjlpj.cn/ProductOperationSearch/ProductOperationSearchList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "運營—外網運營查詢-品名",
+id: "TVC",
+url: "http://ic.sjlpj.cn/ProductOperationSearch/ProductOperationSearchList?KeyWord=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
@@ -416,14 +426,9 @@ url: "http://www.zdic.net/search?q=%s",
 image: "http://www.zdic.net/favicon.ico",
 where: 'tab'
 }, {}, {
-label: "torrentkitty",
-url: "http://www.torrentkitty.org/search/%s",
-image: "http://www.torrentkitty.org/favicon.ico",
-where: 'tab'
-}, {
-label: "Kickass",
-url: "http://kickass.so/usearch/?q=%s",
-image: "http://kastatic.com/images/favicon.ico",
+label: "BT天堂",
+url: "http://www.bttiantang.com/s.php?q=%s",
+image: "http://www.bttiantang.com/favicon.ico",
 where: 'tab'
 },
 ];

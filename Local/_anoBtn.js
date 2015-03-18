@@ -1,5 +1,5 @@
 
-//2015.03.12 11:00 加入DnsJumper
+//2015.03.16 16:00 加入DnsJumper, FastStone Capture
 //2015.03.06 15:00 修改快捷方式，把文字改爲繁體
 //2015.02.09 20:00 添加清理垃圾緑色版
 //2015.01.26 21:00 更新備份模塊
@@ -125,7 +125,10 @@ exec: "C:\\Program Files (x86)\\Microsoft Office\\Office15\\EXCEL.EXE"
 },{},{
 label: "Powerpoint 2013",
 exec: "C:\\Program Files (x86)\\Microsoft Office\\Office15\\POWERPNT.EXE"
-}, {},]
+}, {},{
+label: "FastStone Capture",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Software\\FastStone Capture\\FSCapture.exe",
+},{},]
 }, ]
 }, {},{
 label: '他人配置',

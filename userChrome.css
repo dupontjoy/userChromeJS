@@ -1,4 +1,4 @@
-/*+++2015.03.15 10:00+++*/
+/*+++2015.03.16 17:00+++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -216,18 +216,20 @@ opacity: 0;
 {
 visibility: visible !important;
 opacity: 1;
--moz-transition-delay: 0.1s} /*设置多少秒后延迟出现*/
+-moz-transition-delay: 0.4s} /*设置多少秒后延迟出现*/
 
 #PersonalToolbar {
 position: fixed !important;
-margin-top: 40px !important}
+margin-top: 0px !important;/*接近地址欄才觸發*/
+margin-left: 0% !important;
+}
  
 #nav-bar:hover~#PersonalToolbar,#PersonalToolbar:hover /*此处为hover地址栏自动弹出bookmark，若想hover地址栏+标签栏，请改#navigator-toolbox:hover > */
 {
 margin-top: 0px !important}
  
 #main-window[stylish-url="about:addons"] #PersonalToolbar {
-margin-top: 25px !important;
+margin-top: 0px !important;
 background: transparent !important; border: none !important}
 
 #main-window[stylish-url="about:addons"] #PersonalToolbar {

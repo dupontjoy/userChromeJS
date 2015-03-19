@@ -2,6 +2,7 @@
 // @description  Tab Plus 标签页增强
 // @include      chrome://browser/content/browser.xul
 
+// 2015.03.19 16:00 open_in_new_tab更新到GOLF-AT 2.1.20150305版
 // 2015.01.23 21:00 新标签打开『查看图片』
 // 2014.12.07 open_in_new_tab更新到GOLF-AT 1.8.20141206版
 // 2014.09.06 重新利用空白页
@@ -15,17 +16,30 @@
 //地址栏、搜索栏、书签菜单、书签工具栏、历史菜单、主页按钮
 
 (function() {
+    try {
+        eval('isBlankPageURL = ' + isBlankPageURL.toString().replace(
+            'return ', '$&aURL=="" || aURL=="about:privatebrowsing" '
+            +'|| '));
+    }catch(e){}
+
+    /* 在当前标签页打开 Bookmarklet */
+    try {
+        eval('openLinkIn = ' + openLinkIn.toString().replace(
+            'if (where == "save")', 'if (url.match(/^javascript:/))\n'+
+            '    where = "current";\n  $&'));
+    }catch(e){}
+
     /* open bookmark/history in new tab */
     try {
         eval("whereToOpenLink = " + whereToOpenLink.toString().replace(
-            /var shift/,"var Class=e.target.getAttribute('class');\n  "
-            +"try {\n    if (Class=='')\n      Class=e.target.parentNo"
-            +"de.getAttribute('class');\n  }catch(e) {}\n  Browser=get"
-            +"TopWin().document.getElementById('content');\n  if ((!Is"
-            +"BlankPage(Browser.currentURI.spec)||Browser.webProgress."
-            +"isLoadingDocument) && Class && (Class=='sidebar-placesTr"
-            +"eechildren'||Class.indexOf('placesTree')>=0||Class.index"
-            +"Of('bookmark-item')>=0))\n    return 'tab';\n  $&"));
+            'return "window";',"$&\n\n  var Class = e.target?e.target."
+            +"getAttribute('class') : null;\n  try {\n    if (Class=='"
+            +"')\n      Class=e.target.parentNode.getAttribute('class'"
+            +");\n  }catch(e) {}\n  if ((!isBlankPageURL(gBrowser.curr"
+            +"entURI.spec) || gBrowser.webProgress.isLoadingDocument) "
+            +"&& Class && (Class.indexOf('bookmark-item')>=0 || Class."
+            +"indexOf('placesTree')>=0 || Class=='subviewbutton') && !"
+            +"IsInSideBar(e.target))\n    return 'tab';"));
     }catch(e){}
 
     /* bookmark/history on sidebar/place-manager */
@@ -64,9 +78,9 @@
         var searchbar = document.getElementById("searchbar");
         eval("searchbar.handleSearchCommand="+searchbar.handleSearchCommand.
             toString().replace(/this.doSearch\(textValue,/,
-            "if (!gBrowser.webProgress.isLoadingDocument&&\n\t\tIsBlankPage"
-            +"(gBrowser.currentURI.spec))\n\t\twhere='current';\n\telse\n\t"
-            +"\twhere='tab';\n\t$&"));
+            "if (!gBrowser.webProgress.isLoadingDocument&&\n\t\tisBlankPage"
+            +"URL(gBrowser.currentURI.spec))\n\t\twhere='current';\n\telse"+
+            "\n\t\twhere='tab';\n\t$&"));
     }catch(e){}
 
 })();
@@ -80,33 +94,24 @@ function _LoadURL(aTriggeringEvent, aPostData)
     return true;
 }
 
-function IsBlankPage(url)
+function IsInSideBar(target)
 {
-    return url=="" || url=="about:blank" || url=="about:home"
-        || url=="about:newtab";
+    if (!target) return false;
+    try {
+        var node = target._placesNode;
+    }catch(e) { node = null; }
+    try {
+        if (!node && (target.parentNode.id=='placeContent'
+            || target.parentNode.id=='bookmarks-view'))
+            node = target.parentNode.selectedNode;
+        return node && PlacesUtils.nodeIsBookmark(node) &&
+            PlacesUtils.annotations.itemHasAnnotation(node
+            .itemId,PlacesUIUtils.LOAD_IN_SIDEBAR_ANNO);
+    }catch(e) { return false; }
 }
 
 
-//总在当前标签页打开Bookmarklet
-eval("openLinkIn = " + openLinkIn.toString()
-  .replace(/(?=if \(where == "save"\))/, 'if (url.substr(0, 11) == "javascript:") where = "current";')
-  .replace(/(?=var loadInBackground)/, 'if (w.gBrowser.currentURI.spec == "about:blank" && !w.gBrowser.mCurrentTab.hasAttribute("busy")) where = "current";')
-);
-
-//书签、历史侧边栏
-document.getElementById("sidebar-box").addEventListener("load", function(event) {
-  var document = event.target;
-  if (document.location == "chrome://browser/content/bookmarks/bookmarksPanel.xul"
-      || document.location == "chrome://browser/content/history/history-panel.xul") {
-    eval("document.defaultView.whereToOpenLink = " + document.defaultView.whereToOpenLink.toString()
-      .replace(/return "current";/g, 'return "tab";')
-    );
-    eval("document.defaultView.openLinkIn = " + document.defaultView.openLinkIn.toString()
-      .replace(/(?=if \(where == "save"\))/, 'if (url.substr(0, 11) == "javascript:") where = "current";')
-      .replace(/(?=var loadInBackground)/, 'if (w.gBrowser.currentURI.spec == "about:blank" && !w.gBrowser.mCurrentTab.hasAttribute("busy")) where = "current";')
-    );
-  }
-}, true);
+/*=====以下爲另外收集整合的腳本=====*/
 
 //地址栏回车键在新标签页打开，Alt+回车键在当前标签页打开
 eval("gURLBar.handleCommand = " + gURLBar.handleCommand.toString()
@@ -115,7 +120,7 @@ eval("gURLBar.handleCommand = " + gURLBar.handleCommand.toString()
   .replace("aTriggeringEvent.stopPropagation();", "")
 );
 
-	// 标签上双击刷新
+//标签上双击刷新
 gBrowser.mTabContainer.addEventListener('dblclick', function (event){
 if (event.target.localName == 'tab' && event.button == 0){
 getBrowser().getBrowserForTab(event.target).reload();
@@ -164,7 +169,7 @@ getBrowser().getBrowserForTab(event.target).reload();
 
 })();
 
-    //自动关闭下载产生的空白标签
+//自动关闭下载产生的空白标签
     eval("gBrowser.mTabProgressListener = " + gBrowser.mTabProgressListener.toString().replace(/(?=var location)/, '\
       if (aWebProgress.DOMWindow.document.documentURI == "about:blank"\
           && aRequest.QueryInterface(nsIChannel).URI.spec != "about:blank") {\
@@ -174,13 +179,13 @@ getBrowser().getBrowserForTab(event.target).reload();
       }\
     '));
     
-/*// 滚轮切换标签
+/*//滚轮切换标签
     gBrowser.mTabContainer.addEventListener("DOMMouseScroll", function(event){
         this.advanceSelectedTab(event.detail > 0 ? +1 : -1, true);
     }, true);
  */
     
-	// 點擊頁面恢復原來的地址
+//點擊頁面恢復原來的地址
 gBrowser.addEventListener("DOMWindowCreated", function () {
 window.content.document.addEventListener("click", function (e) {
 document.getElementById("urlbar").handleRevert();
@@ -207,19 +212,5 @@ document.getElementById("urlbar").handleRevert();
     false); 
 */
 
-/* 重用空白页、新标签页，可自由添加 */
-function _LoadURL(aTriggeringEvent, aPostData)
-{
-    var where = (gBrowser.currentURI.spec!='about:blank' ||
-        gBrowser.webProgress.isLoadingDocument) ? 'tab' :
-        'current';
-    if (gURLBar.value!='') openUILinkIn(gURLBar.value, where);
-    return true;
-}
-function IsBlankPage(url)
-{
-    return url==""||url=="about:blank"||url=="about:home"||url=="about:newtab"||url=="http://start.firefoxchina.cn/";
-}
-
-/*新标签打开『查看图片』*/
+//新标签打开『查看图片』
 location == "chrome://browser/content/browser.xul" && document.querySelector("#context-viewimage").setAttribute("oncommand", 'openUILinkIn(gContextMenu.imageURL,"tab")') & document.querySelector("#context-viewbgimage").setAttribute("oncommand", 'openUILinkIn(gContextMenu.bgImageURL,"tab")')

@@ -1,4 +1,4 @@
-//2015.03.06
+//2015.03.19
 
 //F功能鍵
 
@@ -9,26 +9,25 @@ keys['3'] = function(){var newtabs=["http://ic.sjlpj.cn/DevProduct/DevProductEdi
 
 //字母
 keys['A'] = "gBrowser.selectedTab = gBrowser.addTab('about:config');";//参数设置
-keys['B'] = "var s = prompt('百度站内搜索——请输入待搜索字符串', '');if (s.length > 0) gBrowser.addTab('http://www.baidu.com/baidu?wd=site:' + encodeURIComponent(content.location.host) + ' ' + encodeURIComponent(s));";//Baidu站内搜索
 keys['G'] = "var s = prompt('站内搜索——请输入待搜索字符串', '');if (s.length > 0) gBrowser.addTab('http://www.google.com/search?q=site:' + encodeURIComponent(content.location.host) + ' ' + encodeURIComponent(s));";//Google站内搜索
 keys['J'] = "BrowserDownloadsUI();";//下载
 keys['F'] = "BrowserOpenAddonsMgr();";//附加组件
 keys['H'] = "PlacesCommandHook.showPlacesOrganizer('History');";//我的足迹（历史）
 keys['I'] = function() {
-					try {
-						var file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProgF", Components.interfaces.nsILocalFile);
-						file.append("Internet Explorer");
-						file.append("iexplore.exe");
-						var process = Cc["@mozilla.org/process/util;1"].createInstance(Ci.nsIProcess);
-						process.init(file);
-						process.run(false, [content.location.href], 1);
-					} catch (ex) {
-						alert("\u6253\u5f00IE\u5931\u8d25!")
-					}
-				};//用IE打开当前页
+try {
+var file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProgF", Components.interfaces.nsILocalFile);
+file.append("Internet Explorer");
+file.append("iexplore.exe");
+var process = Cc["@mozilla.org/process/util;1"].createInstance(Ci.nsIProcess);
+process.init(file);
+process.run(false, [content.location.href], 1);
+} catch (ex) {
+alert("\u6253\u5f00IE\u5931\u8d25!")
+}
+};//用IE打开当前页
 keys['O'] = function() {
-					Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile).reveal();
-				};//Chrome文件夹
+Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile).reveal();
+};//Chrome文件夹
 keys['P'] = "openPreferences();";//选项
 keys['S'] = "BrowserStop();";//停止载入当前页
 keys['T'] = "BrowserOpenTab()";//打开新标签

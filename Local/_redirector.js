@@ -1,5 +1,5 @@
 
-//2015.03.18 14:00 修正百度盤搜索地址替換
+//2015.03.20 13:00 修正百度盤搜索地址替換
 //2015.03.14 15:00 爲規則添加說明
 //2015.03.10 09:00 新增百度盤搜索地址替換，重新分組
 //2015.03.06 15:00 更新Google搜索
@@ -168,24 +168,24 @@ regex: true
 //百度云盘分享页，手机版 重定向至 电脑版
 //詳細說明：http://bbs.kafan.cn/thread-1814510-1-1.html
 name: "百度盤wap/link >> share/link",
-from: /^https?:\/\/\pan\.baidu\.com\/wap\/(link\?|shareview\?\&)(.*)/i,
-to: 'http://pan.baidu.com/share/link?$2',
+from: /^https?:\/\/(pan|yun)\.baidu\.com\/wap\/(link\?|shareview\?\&)(.*)/i,
+to: 'http://pan.baidu.com/share/link?$3',
 regex: true
 },
 {
 //百度云盘分享页，手机版 重定向至 电脑版
 //詳細說明：http://bbs.kafan.cn/thread-1814510-1-1.html
 name: "百度盤wap/album/file >> pcloud/album/file",
-from: /^https?:\/\/\pan\.baidu\.com\/wap\/album\/file(.*)/i,
-to: 'http://pan.baidu.com/pcloud/album/file$1',
+from: /^https?:\/\/(pan|yun)\.baidu\.com\/wap\/album\/file(.*)/i,
+to: 'http://pan.baidu.com/pcloud/album/file$2',
 regex: true
 },
 {
 //百度云盘分享页，手机版 重定向至 电脑版
 //詳細說明：http://bbs.kafan.cn/thread-1814510-1-1.html
 name: "百度盤wap/share/home >> share/home",
-from: /^https?:\/\/\pan\.baidu\.com\/wap\/share\/(home\?|)(.*)/i,
-to: 'http://pan.baidu.com/share/home?$2',
+from: /^https?:\/\/(pan|yun)\.baidu\.com\/wap\/share\/(home\?|)(.*)/i,
+to: 'http://pan.baidu.com/share/home?$3',
 regex: true
 },
 {

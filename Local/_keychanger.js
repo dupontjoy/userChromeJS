@@ -9,6 +9,7 @@ keys['3'] = function(){var newtabs=["http://ic.sjlpj.cn/DevProduct/DevProductEdi
 
 //字母
 keys['A'] = "gBrowser.selectedTab = gBrowser.addTab('about:config');";//参数设置
+keys['B'] = "gBrowser.selectedTab = gBrowser.addTab('https://www.google.com/search?q=site:pan.baidu.com%20&hl=en-US&safe=off&sclient=psy-ab');";//百度盤文件搜索
 keys['G'] = "var s = prompt('站内搜索——请输入待搜索字符串', '');if (s.length > 0) gBrowser.addTab('http://www.google.com/search?q=site:' + encodeURIComponent(content.location.host) + ' ' + encodeURIComponent(s));";//Google站内搜索
 keys['J'] = "BrowserDownloadsUI();";//下载
 keys['F'] = "BrowserOpenAddonsMgr();";//附加组件

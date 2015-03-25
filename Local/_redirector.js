@@ -1,11 +1,11 @@
 
+//2015.03.25 10:00 修复sourceforge規則
 //2015.03.20 13:00 修正百度盤搜索地址替換
 //2015.03.14 15:00 爲規則添加說明
 //2015.03.10 09:00 新增百度盤搜索地址替換，重新分組
 //2015.03.06 15:00 更新Google搜索
 //2015.02.17 14:00 新增12306重定向JS
 //2015.02.01 17:00 修复Linkedin 去跳轉，添加BT天堂 >> 備用下載，精簡
-//2015.01.30 23:00 修复sourceforge規則
 //2015.01.30 09:00 添加Linkedin 去跳轉
 //2015.01.28 13:00 添加Business Insider 去跳轉
 //2015.01.24 14:00 添加京東，天貓大圖規則
@@ -52,13 +52,6 @@ to: "$1/img.tvc-mall.com/uploads/details/$3",
 regex: true
 },
 {
-//個人用
-name: "TVC內網 滾動條置頂",
-from: /^http:\/\/ic\.sjlpj\.cn\/#\/(.*)/i,
-to: "http://ic.sjlpj.cn/$1",
-regex: true
-},
-{
 //測試：http://www.jobui.com/tips/redirect.php?link=http%3A%2F%2Fsearch.51job.com%2Fjob%2F65505572%2Cc.html
 name: "职友集|inc 去跳转",
 from:/^http:\/\/www\.(jobui|inc)\.com\/(.*)(link|destination)=(.*)/i,
@@ -77,7 +70,8 @@ regex: true
 //測試：http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/36.x/36.0.1/x86/sse2/
 name: "sourceforge下載 >> ftp鏡像站點",
 from: /^https?:\/\/sourceforge\.net\/projects\/(((\w)\w).*)\/files\/(.*)\/download/i,
-to: "ftp://ftp.jaist.ac.jp/pub/sourceforge/$3/$2/$1/$4",
+to: "http://liquidtelecom.dl.sourceforge.net/project/$1/$4",
+//to: "ftp://ftp.jaist.ac.jp/pub/sourceforge/$3/$2/$1/$4",
 //to: "http://softlayer-sng.dl.sourceforge.net/project/$1/$4",
 regex: true
 },

@@ -1,5 +1,5 @@
 
-//2015.03.19 15:00 調整選中文字搜索
+//2015.03.21 12:00 調整選中文字搜索
 //2015.03.10 15:00 調整一些菜單順序
 //2015.01.21 22:00 修正特殊符號，添加小書籤菜單
 //2015.01.20 10:00 更新TVC搜索項
@@ -285,6 +285,13 @@ elem.hidden = !/ic.sjlpj.cn|tvc-mall.com/.test(content.location.host)//可排除
 var items = [
 //打開方式(默认当前頁面)，通过where 更改，具体tab(前台)、tabshifted(后台)、window(窗口)
 {
+label: "360好搜",
+accesskey: "s",
+url: "http://www.haosou.com/s?ie=utf-8&q=%s",
+image: "http://www.haosou.com/favicon.ico",
+where: 'tab'
+}, 
+{
 label: "Baidu",
 accesskey: "B",
 url: "http://www.baidu.com/baidu?wd=%s&ie=utf-8",
@@ -500,8 +507,6 @@ PunctuationsubMenu2([
 {label: "÷", input_text:"÷"},
 {label: "≤", input_text:"≤"},
 {label: "≥", input_text:"≥"},
-/*{label: "≦", input_text:"≦"},//is less than or equal
-{label: "≧", input_text:"≧"},*/
 {label: "≠", input_text:"≠"},//is not equal to
 {label: "≈", input_text:"≈"},//is approximately equal to
 {label: "√", input_text:"√"},
@@ -573,30 +578,6 @@ menu(items);
 new function() {
 var items = [{
 command: 'context-paste'
-},
-{
-label: "標點符號置換(中轉英)",
-condition: "input",
-accesskey: "E",
-oncommand: function() {
-goDoCommand("cmd_copy");
-var sel = getBrowserSelection();
-var txt = addMenu.convertText('%p');
-addMenu.copy(txt.replace(/(\s，\s|\s，|，\s|，)+/g, ", ")
-.replace(/(\s。\s|\s。|。\s|。)+/g, ". ")
-.replace(/(\s？\s|\s？|？\s|？)+/g, "? ")
-.replace(/(\s！\s|\s！|！\s|！)+/g, "! ")
-.replace(/(\s；\s|\s；|；\s|；)+/g, "; ")
-.replace(/(\s：\s|\s：|：\s|：)+/g, ": ")
-.replace(/(\s（\s|\s（|（\s|（)+/g, " (")
-.replace(/(\s）\s|\s）|）\s|）)+/g, ") ")
-.replace(/(\s—\s|\s—|—\s|—)+/g, " - ")
-.replace(/(\s＆\s|\s＆|＆\s|＆)+/g, " & ")
-.replace(/(\s…\s|\s…|…\s|…)+/g, "... ")
-.replace(/(\s、\s|\s、|、\s|、)+/g, ", ")
-);
-if (sel) {goDoCommand("cmd_paste");}
-},
 },
 {
 label: "插入code代碼",

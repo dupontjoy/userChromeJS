@@ -8,7 +8,7 @@
 // @homepageURL     https://github.com/Harv/userChromeJS/blob/master/redirector_ui.uc.js
 // @startup         Redirector.init();
 // @shutdown        Redirector.destroy(true);
-// @version         1.5.1
+// @version         1.5.5.1
 // ==/UserScript==
 (function() {
 	Cu.import("resource://gre/modules/XPCOMUtils.jsm");
@@ -23,6 +23,21 @@
 		this.disableIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA4klEQVQ4jaWTQREDIQxFMYACFKyDGEBBFCAgAhDAHQE5c14BkRBPv6duly7t7LSHf2CGefz/E0IIAX8qwN1/0gTY9x2qilorRAQ5ZxARYozHaykllFJgZjPAzNB7BxHdsr1tG8xsHeEupNa6Bpwtq+p0Puv0UFgVg5QS3B0isgTknK8AVb3kLKUsAa21K6D3fis/M1/H+M3u2XZrbb0H7g5mnkoaYxwlxhghIp8X6X2ERAR3nyDPcp8uJsC7/ZTSsXEryOn+y4GZQVUhImBmMDNUFWYGIoKIYIzxOcLPn+kfPQAVduEGEMliqAAAAABJRU5ErkJggg==";
 	}
 	RedirectorUI.prototype = {
+		hash: new Date().getTime(),
+		_mm: null,
+		_ppmm: null,
+		get mm() {
+			if (!this._mm) {
+				this._mm = Cc["@mozilla.org/childprocessmessagemanager;1"].getService(Ci.nsISyncMessageSender);
+			}
+			return this._mm;
+		},
+		get ppmm() {
+			if (!this._ppmm) {
+				this._ppmm = Cc["@mozilla.org/parentprocessmessagemanager;1"].getService(Ci.nsIMessageBroadcaster);
+			}
+			return this._ppmm;
+		},
 		get redirector() {
 			if (!Services.redirector) {
 				XPCOMUtils.defineLazyGetter(Services, "redirector", function() {
@@ -34,16 +49,22 @@
 		init: function() {
 			this.redirector.init(window);
 			this.drawUI();
+			// register self as a messagelistener
+			this.mm.addMessageListener("redirector:toggle", this);
+			this.mm.addMessageListener("redirector:toggle-item", this);
+			this.mm.addMessageListener("redirector:reload", this);
 		},
 		destroy: function(shouldDestoryUI) {
 			this.redirector.destroy(window);
 			if (shouldDestoryUI) {
 				this.destoryUI();
 			}
+			// this.mm.removeMessageListener("redirector:toggle", this);
+			// this.mm.removeMessageListener("redirector:toggle-item", this);
+			// this.mm.removeMessageListener("redirector:reload", this);
 		},
 		edit: function() {
-			let aFile = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIDirectoryService).QueryInterface(Ci.nsIProperties).get('UChrm', Ci.nsILocalFile);
-			aFile.appendRelativePath(this.redirector.rulesFile);
+			let aFile = FileUtils.getFile("UChrm", this.redirector.rulesFile, false);
 			if (!aFile || !aFile.exists() || !aFile.isFile()) return;
 			var editor;
 			try {
@@ -65,14 +86,20 @@
 				alert("編輯器不正確！")
 			}
 		},
-		toggle: function(i) {
+		toggle: function(i, callfromMessage) {
 			if (i) {
-				this.redirector.rules[i].state = !this.redirector.rules[i].state;
 				// update checkbox state
 				let item = document.getElementById("redirector-item-" + i);
+				if (!callfromMessage) {
+					this.redirector.rules[i].state = !this.redirector.rules[i].state;
+				}
 				if (item) item.setAttribute("checked", this.redirector.rules[i].state);
 				// clear cache
 				this.redirector.clearCache();
+				if (!callfromMessage) {
+					// notify other windows to update
+					this.ppmm.broadcastAsyncMessage("redirector:toggle-item", {hash: this.hash, item: i});
+				}
 			} else {
 				let menuitems = document.querySelectorAll("menuitem[id^='redirector-item-']");
 				this.state = !this.state;
@@ -93,6 +120,10 @@
 				let icon = document.getElementById("redirector-icon");
 				if (icon) {
 					icon.style.listStyleImage = "url(" + (this.state ? this.enableIcon : this.disableIcon) + ")";
+				}
+				if (!callfromMessage) {
+					// notify other windows to update
+					this.ppmm.broadcastAsyncMessage("redirector:toggle", {hash: this.hash});
 				}
 			}
 		},
@@ -190,17 +221,40 @@
 				menu.removeChild(menuitems[i]);
 			}
 		},
-		reload: function() {
-			this.redirector.reload();
+		reload: function(callfromMessage) {
+			if (!callfromMessage) {
+				this.redirector.reload();
+			}
 			this.clearItems();
 			this.buildItems();
 //			XULBrowserWindow.statusTextField.label = "Redirector 規則已重新載入";
 			Cc['@mozilla.org/alerts-service;1'].getService(Ci.nsIAlertsService).showAlertNotification("", "Redirector", "規則已重新載入", false, "", null);
+			if (!callfromMessage) {
+				// notify other windows to update
+				this.ppmm.broadcastAsyncMessage("redirector:reload", {hash: this.hash});
+			}
+		},
+		// nsIMessageListener interface implementation
+		receiveMessage: function(message) {
+			if (this.hash == message.data.hash) {
+				return;
+			}
+			switch (message.name) {
+				case "redirector:toggle":
+					this.toggle(null, true);
+					break;
+				case "redirector:toggle-item":
+					this.toggle(message.data.item, true);
+					break;
+				case "redirector:reload":
+					this.reload(true);
+					break;
+			}
 		}
 	};
 
 	function Redirector() {
-		this.rulesFile = "local\\_redirector.js";
+		this.rulesFile = ["local", "_redirector.js"];
 		this.rules = [];
 	}
 	Redirector.prototype = {
@@ -249,8 +303,7 @@
 			this.loadRule();
 		},
 		loadRule: function() {
-			var aFile = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIDirectoryService).QueryInterface(Ci.nsIProperties).get('UChrm', Ci.nsILocalFile);
-			aFile.appendRelativePath(this.rulesFile);
+			var aFile = FileUtils.getFile("UChrm", this.rulesFile, false);
 			if (!aFile.exists() || !aFile.isFile()) return null;
 			var fstream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
 			var sstream = Cc["@mozilla.org/scriptableinputstream;1"].createInstance(Ci.nsIScriptableInputStream);
@@ -271,12 +324,12 @@
 			this.rules = sandbox.rules;
 		},
 		getRedirectUrl: function(originUrl) {
-			let url = originUrl;
-			let redirectUrl = this._cache.redirectUrl[url];
+			let redirectUrl = this._cache.redirectUrl[originUrl];
 			if(typeof redirectUrl != "undefined") {
 				return redirectUrl;
 			}
 			redirectUrl = null;
+			let url, redirect;
 			let regex, from, to, exclude, decode;
 			for each (let rule in this.rules) {
 				if (typeof rule.state == "undefined") rule.state = true;
@@ -291,24 +344,22 @@
 					}
 					rule.computed = {regex: regex, from: from, to: to, exclude: exclude, decode: decode};
 				}
-				if (decode) {
-					url = this.decodeUrl(originUrl);
-				}
-				let redirect = regex
+				url = decode ? this.decodeUrl(originUrl) : originUrl;
+				redirect = regex
 					? from.test(url) ? !(exclude && exclude.test(url)) : false
 					: from == url ? !(exclude && exclude == url) : false;
 				if (redirect) {
-					let reurl = typeof to == "function"
+					url = typeof to == "function"
 						? regex ? to(url.match(from)) : to(from)
 						: regex ? url.replace(from, to) : to;
 					redirectUrl = {
-						url : decode ? reurl : this.decodeUrl(reurl),   // 避免二次解碼
+						url : decode ? url : this.decodeUrl(url),   // 避免二次解碼
 						resp: rule.resp
 					};
 					break;
 				}
 			}
-			this._cache.redirectUrl[url] = redirectUrl;
+			this._cache.redirectUrl[originUrl] = redirectUrl;
 			return redirectUrl;
 		},
 		decodeUrl: function(encodedUrl) {
@@ -361,7 +412,7 @@
 			// don't redirect clicking links with "_blank" target attribute
 			// cause links will be loaded in current tab/window
 			if (this._cache.clickUrl[contentLocation.spec]) {
-				delete this._cache.clickUrl[contentLocation.spec];
+				this._cache.clickUrl[contentLocation.spec] = false;
 				return Ci.nsIContentPolicy.ACCEPT;
 			}
 			// only redirect documents

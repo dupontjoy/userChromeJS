@@ -285,13 +285,6 @@ elem.hidden = !/ic.sjlpj.cn|tvc-mall.com/.test(content.location.host)//可排除
 var items = [
 //打開方式(默认当前頁面)，通过where 更改，具体tab(前台)、tabshifted(后台)、window(窗口)
 {
-label: "360好搜",
-accesskey: "s",
-url: "http://www.haosou.com/s?ie=utf-8&q=%s",
-image: "http://www.haosou.com/favicon.ico",
-where: 'tab'
-}, 
-{
 label: "Baidu",
 accesskey: "B",
 url: "http://www.baidu.com/baidu?wd=%s&ie=utf-8",
@@ -302,6 +295,13 @@ where: 'tab'
 accesskey: "G",
 url: "http://www.google.com/search?q=%s",
 image: "https://www.google.com/favicon.ico",
+where: 'tab'
+}, 
+{
+label: "360好搜",
+accesskey: "s",
+url: "http://www.haosou.com/s?ie=utf-8&q=%s",
+image: "http://www.haosou.com/favicon.ico",
 where: 'tab'
 }, 
 {},

@@ -1,5 +1,7 @@
 
-//2015.03.16 16:00 加入DnsJumper, FastStone Capture
+//2015.03.29 20:00 Software和 Plugins分離出配置文件夾
+//2015.03.26 12:00 加入FoxitReader，ReRe，Winmaster
+//2015.03.25 20:00 加入DnsJumper, FastStone Capture
 //2015.03.06 15:00 修改快捷方式，把文字改爲繁體
 //2015.02.09 20:00 添加清理垃圾緑色版
 //2015.01.26 21:00 更新備份模塊
@@ -55,11 +57,11 @@ exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrom
 }, {},{
 label: "清理垃圾",
 tooltiptext: "清理系統垃圾。",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Software\\垃圾清理.exe",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\垃圾清理.exe",
 }, {},{
-label: "編輯 HOSTS 文件",
-tooltiptext: "",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\update\\EditHosts.bat",
+label: "winmaster",
+tooltiptext: "魔方winmaster。",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\winmaster.exe",
 }, {},]
 },{},{
 label: "长期維護",
@@ -100,18 +102,15 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADIE
 child: [
     {
 label: "Goagent",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Software\\GFW\\Goagent\\local\\goagent.exe",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GFW\\Goagent\\local\\goagent.exe",
 },{},
 {
 label: "Psiphon",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Software\\GFW\\psiphon3.exe",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GFW\\psiphon3.exe",
 },{},
 {
 label: "DnsJumper",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Software\\GFW\\DnsJumper\\DnsJumper.exe",
-},{},{
-label: "Hosts Editor",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Hosts Editor\\HostsEditor.exe",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GFW\\DnsJumper\\DnsJumper.exe",
 },{},]
 },{
 label: '辦公軟件',
@@ -126,8 +125,14 @@ exec: "C:\\Program Files (x86)\\Microsoft Office\\Office15\\EXCEL.EXE"
 label: "Powerpoint 2013",
 exec: "C:\\Program Files (x86)\\Microsoft Office\\Office15\\POWERPNT.EXE"
 }, {},{
+label: "ReRe定時",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\ReRe\\ReRe.exe",
+},{},{
+label: "FoxitReader",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\FoxitReader.exe",
+},{},{
 label: "FastStone Capture",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\profile\\chrome\\local\\Software\\FastStone Capture\\FSCapture.exe",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\FastStone Capture\\FSCapture.exe",
 },{},]
 }, ]
 }, {},{

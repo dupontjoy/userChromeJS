@@ -1,9 +1,10 @@
 
+//2015.03.29 Software分離，相應Path修改
 //2015.03.06 移动文件夾
 //2014.08.27 添加油猴Greasemonkey外部编辑器
 location == 'chrome://browser/content/browser.xul' && (function(){
 
-    var PATH = '/chrome/Local/Software/Notepad2/Notepad2.exe';
+    var PATH = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\Notepad2\\Notepad2.exe";
 
     var handleRelativePath = function (path) {
         if (path) {

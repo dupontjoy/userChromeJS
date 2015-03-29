@@ -1,4 +1,4 @@
-//2015.03.19
+//2015.03.29
 
 //F功能鍵
 
@@ -26,13 +26,12 @@ process.run(false, [content.location.href], 1);
 alert("\u6253\u5f00IE\u5931\u8d25!")
 }
 };//用IE打开当前页
-keys['O'] = function() {
+keys['U'] = function() {
 Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile).reveal();
 };//Chrome文件夹
 keys['P'] = "openPreferences();";//选项
 keys['S'] = "BrowserStop();";//停止载入当前页
 keys['T'] = "BrowserOpenTab()";//打开新标签
-keys['U'] = "undoCloseTab();";//恢复关闭的标签
 keys['W'] = "gWHT.addWord();";//WordHighlight添加词
 keys['X'] = "gWHT.destroyToolbar();";//WordHighlight取消工具栏
 

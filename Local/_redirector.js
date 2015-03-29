@@ -1,15 +1,15 @@
 
+//2015.03.26 15:00 更新TVC規則
+//2015.03.26 11:00 更新Google搜索定向到新界面
 //2015.03.25 10:00 修复sourceforge規則
 //2015.03.20 13:00 修正百度盤搜索地址替換
 //2015.03.14 15:00 爲規則添加說明
 //2015.03.10 09:00 新增百度盤搜索地址替換，重新分組
-//2015.03.06 15:00 更新Google搜索
 //2015.02.17 14:00 新增12306重定向JS
 //2015.02.01 17:00 修复Linkedin 去跳轉，添加BT天堂 >> 備用下載，精簡
 //2015.01.30 09:00 添加Linkedin 去跳轉
 //2015.01.28 13:00 添加Business Insider 去跳轉
 //2015.01.24 14:00 添加京東，天貓大圖規則
-//2015.01.22 16:00 更新TVC規則
 //2015.01.16 更新sourceforge規則
 //2015.01.10 刪除一個有問題的規則
 //2015.01.07 修正flickr >> 原始大圖
@@ -42,6 +42,13 @@ regex: true
 name: "TVC內網-內網參考鏈接修正-2",
 from: /^http:\/\/ic\.sjlpj\.cn\/DevProduct\/www\.(.*)/i,
 to: "www.$1",
+regex: true
+},
+{
+//個人用
+name: "TVC內網 滾動條置頂",
+from: /^http:\/\/ic\.sjlpj\.cn\/#\/DevProduct\/(Copy|)?DevProduct(EditDetail|EditList)(.*)/i,
+to: "http://ic.sjlpj.cn/DevProduct/$1DevProduct$2$3",
 regex: true
 },
 {
@@ -130,8 +137,8 @@ regex: true
 //google.com.hk的搜索重定向到國際版google.com
 name: "google.com.hk >> google.com慢速版",
 from: /^https?:\/\/www\.google\.com\.hk\/search\?(.*)/i,
-to: "https://www.google.com/ncr#$1&hl=en-US&safe=off",
-exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off(.*)/i,
+to: "https://www.google.com/ncr#$1&hl=en-US&safe=off&sclient=psy-ab",
+exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off&sclient=psy-ab(.*)/i,
 regex: true
 },
 {

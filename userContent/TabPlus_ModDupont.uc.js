@@ -2,17 +2,13 @@
 // @description  Tab Plus 标签页增强
 // @include      chrome://browser/content/browser.xul
 
+// 2015.04.02 10:00 精簡
 // 2015.03.19 16:00 open_in_new_tab更新到GOLF-AT 2.1.20150305版
 // 2015.01.23 21:00 新标签打开『查看图片』
-// 2014.12.07 open_in_new_tab更新到GOLF-AT 1.8.20141206版
-// 2014.09.06 重新利用空白页
-// 2014.08.31 鼠标停留标签自动聚焦
 // 2014.07.26 點擊頁面恢復原來的地址
-// 2014.05.27 添加滚轮切换
 // 2014.05.14 修改激活左侧标签
 // ==/UserScript==
 
- /* Open Bookmarks/History/Homepage/URL/Search in New Tab */
 //地址栏、搜索栏、书签菜单、书签工具栏、历史菜单、主页按钮
 
 (function() {
@@ -110,24 +106,7 @@ function IsInSideBar(target)
     }catch(e) { return false; }
 }
 
-
 /*=====以下爲另外收集整合的腳本=====*/
-
-//地址栏回车键在新标签页打开，Alt+回车键在当前标签页打开
-eval("gURLBar.handleCommand = " + gURLBar.handleCommand.toString()
-  .replace(/aTriggeringEvent\s*&&\s*aTriggeringEvent.altKey/, "!($&)")
-  .replace("aTriggeringEvent.preventDefault();", "")
-  .replace("aTriggeringEvent.stopPropagation();", "")
-);
-
-//标签上双击刷新
-gBrowser.mTabContainer.addEventListener('dblclick', function (event){
-if (event.target.localName == 'tab' && event.button == 0){
-getBrowser().getBrowserForTab(event.target).reload();
-}
-}, false);
-
-
 
 //紧邻当前标签新建标签页
 (function() {
@@ -169,22 +148,6 @@ getBrowser().getBrowserForTab(event.target).reload();
 
 })();
 
-//自动关闭下载产生的空白标签
-    eval("gBrowser.mTabProgressListener = " + gBrowser.mTabProgressListener.toString().replace(/(?=var location)/, '\
-      if (aWebProgress.DOMWindow.document.documentURI == "about:blank"\
-          && aRequest.QueryInterface(nsIChannel).URI.spec != "about:blank") {\
-        aWebProgress.DOMWindow.setTimeout(function() {\
-          !aWebProgress.isLoadingDocument && aWebProgress.DOMWindow.close();\
-        }, 100);\
-      }\
-    '));
-    
-/*//滚轮切换标签
-    gBrowser.mTabContainer.addEventListener("DOMMouseScroll", function(event){
-        this.advanceSelectedTab(event.detail > 0 ? +1 : -1, true);
-    }, true);
- */
-    
 //點擊頁面恢復原來的地址
 gBrowser.addEventListener("DOMWindowCreated", function () {
 window.content.document.addEventListener("click", function (e) {
@@ -192,25 +155,5 @@ document.getElementById("urlbar").handleRevert();
 }, false);
 }, false);
     
-/*	//鼠标停留标签自动聚焦
-     (document.getElementById("tabbrowser-tabs") || gBrowser.mTabBox).addEventListener('mouseover',
-    function self(e) {
-        if ((self.target = e.target).localName === 'tab') {
-            if (!self.timeoutID) {
-                this.addEventListener('mouseout',
-                function() {
-                    clearTimeout(self.timeoutID);
-                },
-                false);
-            }
-            self.timeoutID = setTimeout(function() {
-                gBrowser.selectedTab = self.target;
-            },
-            50);
-        }
-    },
-    false); 
-*/
-
 //新标签打开『查看图片』
 location == "chrome://browser/content/browser.xul" && document.querySelector("#context-viewimage").setAttribute("oncommand", 'openUILinkIn(gContextMenu.imageURL,"tab")') & document.querySelector("#context-viewbgimage").setAttribute("oncommand", 'openUILinkIn(gContextMenu.bgImageURL,"tab")')

@@ -1,4 +1,4 @@
-::2015.03.12
+::2015.03.31
 ::Mod 2015.01.26搞定了时间问题
 
 echo off
@@ -24,11 +24,14 @@ xcopy "%BackDir%\Plugins" %TempFolder%\Plugins\ /s /y /i
 ::以下是文件
 xcopy "%BackDir%\bookmarks.html" %TempFolder%\ /y
 xcopy "%BackDir%\cert8.db" %TempFolder%\ /y
+xcopy "%BackDir%\extensions.ini" %TempFolder%\ /y
+xcopy "%BackDir%\extensions.json" %TempFolder%\ /y
 xcopy "%BackDir%\FlashGot.exe" %TempFolder%\ /y
 xcopy "%BackDir%\foxyproxy.xml" %TempFolder%\ /y
 xcopy "%BackDir%\localstore.rdf" %TempFolder%\ /y
 xcopy "%BackDir%\MyFirefox.7z" %TempFolder%\ /y
 xcopy "%BackDir%\persdict.dat" %TempFolder%\ /y
+xcopy "%BackDir%\places.sqlite" %TempFolder%\ /y
 xcopy "%BackDir%\Portable.7z" %TempFolder%\ /y
 xcopy "%BackDir%\readme.txt" %TempFolder%\ /y
 xcopy "%BackDir%\user.js" %TempFolder%\ /y

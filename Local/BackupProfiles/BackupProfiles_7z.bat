@@ -1,4 +1,5 @@
-::2015.03.31
+
+::2015.04.06 07:00 更新備份項
 ::Mod 2015.01.26搞定了时间问题
 
 echo off
@@ -31,7 +32,7 @@ xcopy "%BackDir%\foxyproxy.xml" %TempFolder%\ /y
 xcopy "%BackDir%\localstore.rdf" %TempFolder%\ /y
 xcopy "%BackDir%\MyFirefox.7z" %TempFolder%\ /y
 xcopy "%BackDir%\persdict.dat" %TempFolder%\ /y
-xcopy "%BackDir%\places.sqlite" %TempFolder%\ /y
+xcopy "%BackDir%\pluginreg.dat" %TempFolder%\ /y
 xcopy "%BackDir%\Portable.7z" %TempFolder%\ /y
 xcopy "%BackDir%\readme.txt" %TempFolder%\ /y
 xcopy "%BackDir%\user.js" %TempFolder%\ /y

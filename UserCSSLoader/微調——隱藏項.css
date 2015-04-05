@@ -1,4 +1,4 @@
-/*+++2015.03.15 20:00+++*/
+/*+++2015.04.04 19:00+++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄&工具欄===*/
@@ -64,6 +64,9 @@ display: none !important;
 }
 
 /*===标签栏右键菜单===*/
+#toolbar-context-reloadAllTabs,/*重新載入所有分頁*/
+#toolbar-context-bookmarkAllTabs,/*將所有分頁加入書籤*/
+#toolbar-context-undoCloseTab,/*復原已關閉分頁*/
 #context_undoCloseTab,/*復原已關閉分頁*/
 #context_openNonRemoteWindow,
 #context_reloadAllTabs,/*重新載入所有分頁*/
@@ -77,6 +80,7 @@ display: none !important;
 }
 
 /*隐藏项 - 书签右键*/
+[class="openintabs-menuitem"],/*全部用分頁開啟*/
 #placesContext_editSeparator,.hide-if-empty-places-result,#placesContext_sortSeparator,[class="bookmarks-actions-menuseparator"],#placesContext_openSeparator,#placesContext_deleteSeparator,/*分隔符*/
 #subscribeToPageMenuitem  /*订阅此页…*/,
 [id="placesContext_open:newtab"], /*在标签页中打开*/

@@ -1,13 +1,11 @@
-/*+++2015.04.01 15:00+++*/
+/*+++2015.04.10 07:00+++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
-/*沉浸式地址欄*/
-#urlbar{
-  box-shadow:1px 1px 2px #aaa inset !important;
-  border-radius:1px !important;
-  border:1px solid #949494 !important;
-  background: #f0f0f0 !important;
+/*调节标签的宽度*/
+.tabbrowser-tab[fadein]:not([pinned]) {
+max-width:100px !important;
+min-width:100px !important;
 }
 
 /*地址栏图标加分隔线*/
@@ -16,193 +14,13 @@ padding:1px 1px !important;
 border-left:1px #BBC2C8 solid;
 }
 
-/*更改地址栏长度
-#urlbar-container {
-min-width: 450px !important;
-max-width: 750px !important;
-}*/
-
-/*调节标签的宽度*/
-.tabbrowser-tab[fadein]:not([pinned]) {
-max-width:100px !important;
-min-width:100px !important;
-}
-
-/*隐藏地址栏图标*/
-[anonid="close-button"],/*標簽頁關閉按鈕*/
-#notification-popup-box,/*地址欄左側的Flash提示*/
-#PanelUI-menu-button,/*三道杠*/
-#downloads-button,/*下载图标*/
-#downloads-indicator,/*下载图标——完成*/
-#tidy-statusbar-panel,/*地址栏莫名空白*/
-#star-button,/*地址栏五角星*/
-#bookmarks-menu-button/*书签五角星图标*/
-{display: none !important;}
-
-/*隐藏图标*/
-#stylish-toolbar-button,/*Stylish導航欄圖標*/
-#ghostery-button-badge,/*Ghostery计数*/
-#social-share-button,/*分享此页面*/
-#loop-button-throttled,/*开始会话*/
-#GrabScroll-image,
-#abp-toolbarbutton,/*Adblock Plus*/
-#masonStatusbar,/*Mason*/
-#noscript-tbb,/*Noscript*/
-#ScrapBookStatusPanel,/*ScrapBook*/
-#scriptish-button, /*Scriptish*/
-#greasemonkey-tbb,
-#box-inherit toolbarbutton-menubutton-button/*Greasemonkey*/
-{display: none !important;}
-
-/*去小三角*/
-.autocomplete-history-dropmarker.urlbar-history-dropmarker/*下拉历史*/
-{display: none !important;}
-#navigator-toolbox toolbarbutton:not(#bookmarks-menu-button) dropmarker { display: none !important; }/* 除书签菜单按钮外，工具栏去下拉三角 */
-
-/*标签页上方的1px间距缩进*/
-#tabbrowser-tabs{margin-top:-1px!important;}
-
-/*窗口化时标签栏置顶*/
-#main-window[sizemode="normal"] #TabsToolbar {margin-top: 0px !important;}
-
 /*anoBtn向左对齐*/
 #anobtn{
 margin: 0 0 0 -3px !important;
 padding: 0px !important;
 }
 
-/*++第2部分+++++++++++++++++++++++以下为FX32界面调整+++++++++++++++++++++++++*/
-
-/*===== UI——FX32界面调整：http://bbs.kafan.cn/thread-1726274-1-1.html =====*/
-/*导航栏按钮*/
-#nav-bar toolbarbutton {
-padding: 0px !important;
-margin: 0px !important;
-}
-
-/*导航栏按钮图标*/
-#nav-bar toolbarbutton >.toolbarbutton-icon {
-padding: 0px !important;
-margin: 0px !important;
-}
-
-/*地址框、搜索框 放大*/
-#urlbar, #searchbar .searchbar-textbox {
-margin:0px!important;
-min-height:24px!important;
-}
-
-/*地址框图标及文字居中*/
-#urlbar > *{
-margin-top:-1px !important;
-}
-
-/*網址列高度*/
-#urlbar {
-height: 24px !important;
-}
-
-/*===== UI——直角标签：來自陽光盒子 =====*/
-/* 隐藏原梯形标签 */
-#TabsToolbar {
-background: transparent !important;
-margin-bottom: 0 !important;
-}
-
-#TabsToolbar .tab-background{
-margin: 0 !important;
-background: transparent !important;
-}
-
-/* 标签前后的弧形 */
-#TabsToolbar .tab-background-start,
-#TabsToolbar .tab-background-end{
-display: none !important;
-}
-
-/* 标签中间的背景 */
-#TabsToolbar .tab-background-middle{
-margin: -4px -2px !important;
-background: transparent !important;
-}
-
-/* 标签中间的文字 */
-#TabsToolbar .tab-content{
-margin: 0px -5px !important;
-}
-
-/* 标签置左*/
-#TabsToolbar .arrowscrollbox-scrollbox {
-padding: 0px !important;
-margin-left:-1px !important;
-}
-
-/* 重绘新建标签按钮和每个标签 */
-#TabsToolbar .tabs-newtab-button,
-#TabsToolbar .tabbrowser-tab{
--moz-border-image: none !important;
-border:none!important;
-border-style: solid !important;
-border-color: rgba(0,0,0,.2) !important;
-border-width: 1px 0 0 1px !important;
-text-shadow: 0 0 1px rgba(255,255,255,.75) !important;
-padding: 0px 0px !important;
-background: rgba(255,255,255,.27) !important;
-background-clip: padding-box !important;
-}
-
-/* 标签边框 */
-#TabsToolbar .tabbrowser-tab[first-tab][last-tab],
-#TabsToolbar .tabbrowser-tab[last-visible-tab]{
-border-right-width: 1px !important;
-}
-
-/* 未选中标签 */
-#TabsToolbar .tabbrowser-tab[afterselected]{
-border-left-color: rgba(0,0,0,.25) !important;
-}
-
-/* 选中标签 */
-#TabsToolbar .tabbrowser-tab[selected]{
-background: #f8f8f8 !important;
-background-clip: padding-box !important;
-border-color: rgba(0,0,0,.25) !important;
-}
-
-/* 标签和新建标签按钮得到焦点 */
-#TabsToolbar .tabs-newtab-button:hover,
-#TabsToolbar .tabbrowser-tab:hover:not([selected]){
-background-color: rgba(255,255,255,.55) !important;
-}
-
-/* 新建标签按钮调整 */
-#TabsToolbar .tabs-newtab-button{
-border-width: 1px 1px 0 0 !important;
-margin: 0 !important;
-width: auto !important;
-padding: 0 5px !important;
-}
-
-/*标签和标签栏高度*/
-.tab-background-start[selected=true]::after,
-.tab-background-start[selected=true]::before,
-.tab-background-start,
-.tab-background-end,
-.tab-background-end[selected=true]::after,
-.tab-background-end[selected=true]::before {min-height: 24px!important;}
-
-#TabsToolbar .tabbrowser-tabs {min-height: 24px !important;}
-
-/*除去标签栏背景模糊效果*/
-#TabsToolbar::after {
-opacity: 0.1 !important;
-/* 或者display: none !Important; */
-}
-
-/*隐藏火狐标签页上方的1px间距*/
-#tabbrowser-tabs {margin-top:-1px!important;}
-
-/*++第3部分+++++++++++++++++++++++以下为書簽欄自動隱藏+++++++++++++++++++++++++*/
+/*++第2部分+++++++++++++++++++++++以下为書簽欄自動隱藏+++++++++++++++++++++++++*/
 
 @namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 

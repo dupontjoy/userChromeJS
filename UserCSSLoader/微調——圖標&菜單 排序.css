@@ -1,11 +1,4 @@
-/*+++2015.03.31 21:00+++*/
-
-/*適應新界面，地址圖標調整到左側*/
-#urlbar-icons {-moz-box-ordinal-group: 0 !important;}
-#identity-box {-moz-box-ordinal-group: 1 !important;
-padding: 0px !important;
-margin-left: -5px !important;
-}
+/*+++2015.04.11 07:00+++*/
 
 /*幾個qrCreator菜單順序靠後*/
 [label="生成QR码 : 选区文本"],[label="生成QR码 : 当前网址"],[label="生成QR码 : 图象地址"],[label="生成QR码 : 链接地址"] {-moz-box-ordinal-group: 5 !important;}
@@ -18,7 +11,7 @@ margin-left: -5px !important;
 #userChromebtnMenu {-moz-box-ordinal-group: 6 !important;}
 
 /*图标对齐*/
-#ucjs_UserAgentChanger,#redirector-icon,#gm_general_menu {
+#ucjs_UserAgentChanger,#gm_general_menu {
 padding: 0px !important;
 margin-left: 0px !important;
 }

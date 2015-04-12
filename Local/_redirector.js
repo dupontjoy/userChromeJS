@@ -1,4 +1,5 @@
 
+//2015.04.06 21:00 修正百度盤搜索地址替換
 //2015.03.26 15:00 更新TVC規則
 //2015.03.26 11:00 更新Google搜索定向到新界面
 //2015.03.25 10:00 修复sourceforge規則
@@ -169,8 +170,8 @@ regex: true
 //百度云盘分享页，手机版 重定向至 电脑版
 //詳細說明：http://bbs.kafan.cn/thread-1814510-1-1.html
 name: "百度盤wap/link >> share/link",
-from: /^https?:\/\/(pan|yun)\.baidu\.com\/wap\/(link\?|shareview\?\&)(.*)/i,
-to: 'http://pan.baidu.com/share/link?$3',
+from: /^https?:\/\/(pan|yun)\.baidu\.com\/(wap\/link)(.*)/i,
+to: 'http://pan.baidu.com/share/link$3',
 regex: true
 },
 {
@@ -275,12 +276,6 @@ regex: true
 name: "NoRedirect",
 from: /^https?:\/\/\\w[\\x21-\\x2e\\x30-\\x7e]+\\.(com|cn|org|net|info|tv)\/url?=(.+)/i,
 to: "$1",
-regex: true
-},
-{
-name: "百度盤下載地址替換",
-from: /^https?:\/\/\d+\.\d+\.\d+\.\d+\/cdn\.baidupcs\.com\/file\/(.*)/i,
-to: 'http://www.baidupcs.com/$1',
 regex: true
 },
 

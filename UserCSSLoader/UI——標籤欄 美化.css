@@ -1,4 +1,4 @@
-/*+++2015.01.28 22:00+++*/
+/*+++2015.04.11 07:00+++*/
 
 /*标签样式css*/
 .tabbrowser-tab[busy] {color: blue !important;}/* 正在加载标签 */
@@ -48,24 +48,5 @@ display: -moz-box !important;
 #alltabs-button > :-moz-any(label, image) {display: none !important;}
 #alltabs-button menuitem {max-width: 200px !important;}
 #alltabs-button {
-margin-right: -22px!important;
-}
-
-/*标签序号*/
-.tabbrowser-tab:before {
-margin: -2px -10px -10px -2px !important;
-padding: 0px 3px !important;
-border-radius: 7px !important;
-background-color: !important;
-color: black !important;
-font-size: 9px !important;
-font-weight: bold !important;
-content: counter(tabs) !important;
-position: absolute !important;
-}
-tab {
-counter-increment: counter !important;
-}
-.tab-close-button:hover::after {
-display: none !important;/*悬浮于关闭按钮时不显示数字*/
+margin-right: -10px!important;
 }

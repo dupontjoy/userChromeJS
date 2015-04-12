@@ -1,0 +1,21 @@
+/*+++2015.04.11 09:00+++*/
+
+/*有些网站无LOGO图标，加空白图标*/
+.tab-icon-image:not([src]):not([pinned]) {
+display: block !important;
+list-style-image: url("chrome://mozapps/skin/places/defaultFavicon.png");
+padding: 0px !important;
+margin-right: -10px !important;/*MX4的Bug，相应调整数值*/
+}
+
+.tab-throbber:not([busy]),
+.tab-throbber[busy] + .tab-icon-image:not([src]):not([pinned]) {
+display: none !important;
+}
+
+/*MX4的Bug，相应调整*/
+[label="打開..."] {/*AddmenuPlus添加的橫排菜單*/
+padding: 0px !important;
+margin-left: 0px !important;
+height: 30px !important;
+}

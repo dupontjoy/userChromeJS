@@ -1,14 +1,17 @@
-/*附加组件栏 紧缩样式*/
-/* 这行说明应用于chrome而非用户页面 */
 @namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 @-moz-document url("chrome://mozapps/content/extensions/extensions.xul"), url("about:addons") {
+
 
 /*
 By banthaz
 Version 1.4.1 (Sep 04 2013)
 */
 
+
 /************************** LIST ITEMS STYLE ***************************/
+#category-discover,#category-theme,#category-service{
+    display:none !important;
+}
 
 /* Description & Buttons, but not Update Available Message - Hide on not selected items */
 .addon:not([selected]) :-moz-any(
@@ -224,7 +227,7 @@ transition: margin-left 0.5s !important;
 }
 #addons-page:not(.inSidebar) #categories:not(:hover)
 {
-margin-left: -55px !important;
+margin-left: -50px !important;
 transition: margin-left 0.5s 200ms !important;
 }
 #addons-page:not(.inSidebar) #categories .category
@@ -379,5 +382,6 @@ display:none!important;
 {
 display: none !important;
 }
+
 
 }

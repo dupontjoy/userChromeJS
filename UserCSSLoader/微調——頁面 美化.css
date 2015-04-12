@@ -1,15 +1,5 @@
 /*+++2015.03.02 10:00+++*/
 
-/*输入框类chrome高亮*/
-input:not([type='submit']):not([type='reset']):not([type='button']):not([type='checkbox']):not([type='radio']):focus,
-textarea:focus, select:focus {
-border: 1px solid #8A2BE2;
-box-shadow: 1px 1px 0 #8A2BE2, 1px -1px 0 #8A2BE2, -1px 1px 0 #8A2BE2, -1px -1px 0
-#8A2BE2, 0px 0px 5px 1px #8A2BE2
-!important;
-border-radius: 3px!important;
-}
-
 /*去干扰码*/
 FONT.jammer {
 display: none !important;

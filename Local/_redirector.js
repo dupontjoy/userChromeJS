@@ -1,4 +1,5 @@
 
+//2015.04.14 13:00 新增鳳凰網 只顯示首圖修正
 //2015.04.06 21:00 修正百度盤搜索地址替換
 //2015.03.26 15:00 更新TVC規則
 //2015.03.26 11:00 更新Google搜索定向到新界面
@@ -57,6 +58,13 @@ regex: true
 name: "TVC內網 圖片 以圖搜圖",
 from: /(.*(google|so|baidu|bing|sougou|tineye).*)\/ic\.sjlpj\.cn\/uploads(?:\/unlogo|)\/details\/(.*)/i,
 to: "$1/img.tvc-mall.com/uploads/details/$3",
+regex: true
+},
+{
+//方法來源：http://tieba.baidu.com/p/3699558655
+name: "鳳凰網 只顯示首圖修正",
+from: /^https?:\/\/(.*)\.ifeng\.com\/a\/(ydzx|)\/(.*)/i,
+to: "http://$1.ifeng.com/a/$3",
 regex: true
 },
 {

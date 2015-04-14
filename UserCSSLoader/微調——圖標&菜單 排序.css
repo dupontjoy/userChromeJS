@@ -1,4 +1,4 @@
-/*+++2015.04.11 07:00+++*/
+/*+++2015.04.14 20:00+++*/
 
 /*幾個qrCreator菜單順序靠後*/
 [label="生成QR码 : 选区文本"],[label="生成QR码 : 当前网址"],[label="生成QR码 : 图象地址"],[label="生成QR码 : 链接地址"] {-moz-box-ordinal-group: 5 !important;}
@@ -18,6 +18,9 @@ margin-left: 0px !important;
 
 /*調整uBlock圖標邊框*/
 #ublock-button .toolbarbutton-badge-container{padding: 0px !important;}
+
+/*調整圖標邊框*/
+#back-button >image, #forward-button >image, #downloads-button >image, #ublock-button >image, #flashgot-media-tbb >image, #lpt_lastpass-compact-btn > image, #greasemonkey-tbb > image, #stylish-toolbar-button >image, #userChromebtnMenu >image{padding: 0px !important;}
 
 /*附加组件调序*/
 #category-extension {-moz-box-ordinal-group: 0 !important;}

@@ -1,4 +1,4 @@
-/*+++2015.04.10 07:00+++*/
+/*+++2015.04.14 19:00+++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -19,6 +19,22 @@ border-left:1px #BBC2C8 solid;
 margin: 0 0 0 -3px !important;
 padding: 0px !important;
 }
+
+/*隐藏图标*/
+#home-button,
+#stylish-toolbar-button,/*Stylish導航欄圖標*/
+#ghostery-button-badge,/*Ghostery计数*/
+#social-share-button,/*分享此页面*/
+#loop-button-throttled,/*开始会话*/
+#GrabScroll-image,
+#abp-toolbarbutton,/*Adblock Plus*/
+#masonStatusbar,/*Mason*/
+#noscript-tbb,/*Noscript*/
+#ScrapBookStatusPanel,/*ScrapBook*/
+#scriptish-button, /*Scriptish*/
+#greasemonkey-tbb,
+#box-inherit toolbarbutton-menubutton-button/*Greasemonkey*/
+{display: none !important;}
 
 /*++第2部分+++++++++++++++++++++++以下为書簽欄自動隱藏+++++++++++++++++++++++++*/
 
@@ -58,3 +74,755 @@ display: none !important}
 #PersonalToolbar {
 background-color: #e6e7e7 !important;
 }
+
+/*++第3部分+++++++++++++++++++++++Yosemite+++++++++++++++++++++++++*/
+/*START=====================================Yosemite色彩主题=====================================*/
+
+#main-window {
+    background: #ededed!important;
+    }
+			
+    #titlebar-buttonbox-container {
+    height: 0px !important;
+    width: 0px !important;
+    }
+    #titlebar-buttonbox {
+    -moz-appearance: none !Important;
+    position: fixed !important;
+    right: 13px !important;
+    top: 13px !important;
+    height: auto !important;
+    width: auto !important;
+    padding: 0px !Important;
+    display: block !important;
+    border-top: none !Important;
+    border-radius: 0 !important;
+    opacity: 1 !important;
+    z-index:10000000!important;
+    
+    }
+    #main-window[sizemode="maximized"] #titlebar-buttonbox{
+    right: 10px !important;
+    top:20px !important;  
+    opacity: 1 !important;
+    z-index:10000000000!important;
+    }
+    
+    #main-window[sizemode="maximized"] #TabsToolbar{
+    z-index:9999!important;
+    }
+    
+     
+    #titlebar-buttonbox .titlebar-button{
+    -moz-appearance:none !Important;
+    padding: 0px!important;
+    margin: 0 !important;
+    display: inline-block !important;
+    }
+
+    #main-window:not([inFullscreen]) #titlebar-min, #main-window:not([inFullscreen]) #titlebar-max, #main-window:not([inFullscreen]) #titlebar-close {
+    list-style-image: none !important;
+    }
+    #main-window:not([inFullscreen]) #titlebar-max, #main-window:not([inFullscreen]) #titlebar-max:hover, #main-window:not([inFullscreen]) #titlebar-min, #main-window:not([inFullscreen]) #titlebar-min:hover, #main-window:not([inFullscreen]) #titlebar-close, #main-window:not([inFullscreen]) #titlebar-close:hover, #main-window[sizemode="maximized"]:not([inFullscreen]) #titlebar-max {
+    border: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -moz-appearance: none !important;
+    background-repeat: no-repeat !important;
+    background-position: 0px 0px, center center, top left !important;
+    }
+		
+/*===========================================Yosemite色彩主题=====================================END*/		
+
+
+
+
+
+
+
+/*START=====================================Yosemite图标替换=====================================*/
+
+#undoclosetab-button .toolbarbutton-icon, 
+#Snapshot .toolbarbutton-icon, 
+#netvideohunter-toolbarbutton .toolbarbutton-icon,
+#RIL_toolbar_button > toolbarbutton > image,
+#RIL_urlbar_add,
+#RIL_urlbar_mark,
+#readable_by_evernote__button .toolbarbutton-icon,
+#feedly-toolbar-button .toolbarbutton-icon,
+#xnotifier-toolbar-button .toolbarbutton-icon,
+#show-mozblogger-btn .toolbarbutton-icon,
+#show-mozblogger-btn[data-status="message"] .toolbarbutton-icon,
+#ctraddon_back-button>.toolbarbutton-icon,
+#ctraddon_forward-button>.toolbarbutton-icon,
+#Sidebar-button>.toolbarbutton-icon,
+.bookmark-item[type="menu"] > .toolbarbutton-icon,
+#PersonalToolbar toolbarbutton[class="bookmark-item"][type="menu"],menu[container="true"][class="menu-iconic bookmark-item"]
+
+{list-style-image: url("chrome://userchromejs/content/images/custom_toolbar_16.png")!important;}
+
+
+/*后退按钮*/
+#ctraddon_back-button>.toolbarbutton-icon {-moz-image-region: rect(16px,80px,32px,64px);opacity: 1 !important;}
+
+/*后退按钮*/
+#ctraddon_forward-button>.toolbarbutton-icon {-moz-image-region: rect(16px,96px,32px,80px);opacity: 1 !important;}
+
+/*恢复关闭的标签页*/
+#undoclosetab-button .toolbarbutton-icon {-moz-image-region: rect(0px, 16px, 16px, 0px)!important; opacity: 1 !important;}
+
+/*侧边栏图标*/
+#Sidebar-button>.toolbarbutton-icon {-moz-image-region: rect(0px, 48px, 16px, 32px)!important; opacity: 1 !important;}
+
+/*Evernote*/
+#readable_by_evernote__button .toolbarbutton-icon {
+margin-top: -5px !important;
+margin-bottom: -5px !important;
+margin-left: -2px !important;
+margin-right:-2px !important;
+padding-left: 5px !important;
+padding-right:5px !important;
+border-top-left-radius:2px !important;
+border-bottom-left-radius: 2px !important;
+-moz-image-region: rect(0px, 144px, 16px, 128px)!important;
+}
+
+/*Pocket*/
+#RIL_toolbar_button > toolbarbutton > image {-moz-image-region: rect(16px, 64px, 32px, 48px)!important;}
+#RIL_urlbar_add{-moz-image-region: rect(0px, 80px, 16px, 64px)!important;opacity: 0.6;}
+#RIL_urlbar_mark{-moz-image-region: rect(0px, 96px, 16px, 80px)!important;}
+
+/*截图*/
+#Snapshot .toolbarbutton-icon {-moz-image-region: rect(16px, 48px, 32px, 32px)!important;}
+
+/*微博*/
+#show-mozblogger-btn .toolbarbutton-icon{-moz-image-region: rect(16px, 144px, 32px, 128px)!important;}
+#show-mozblogger-btn[data-status="message"] .toolbarbutton-icon {-moz-image-region: rect(16px, 160px, 32px, 144px)!important;}
+
+/*Feedly*/
+#feedly-toolbar-button .toolbarbutton-icon {-moz-image-region: rect(0px, 112px, 16px, 96px)!important;}
+
+/*书签文件夹图标*/
+.bookmark-item[type="menu"] > .toolbarbutton-icon {-moz-image-region: rect(16px, 32px, 32px, 16px)!important;}
+	
+/*书签栏工具栏图标*/
+#PersonalToolbar toolbarbutton[class="bookmark-item"][type="menu"],menu[container="true"][class="menu-iconic bookmark-item"]
+{-moz-image-region: rect(16px, 32px, 32px, 16px)!important;}
+
+
+/*地址栏收藏按钮*/
+#bookmarks-menu-button[cui-areatype="toolbar"] .toolbarbutton-icon {
+	list-style-image:url("chrome://userchromejs/content/images/urlbarbookmark.png")!important;
+	-moz-image-region:rect(0px 16px 16px 0px);
+}
+
+#bookmarks-menu-button:hover {
+	background-image:radial-gradient(circle closest-side,hsla(45,100%,73%,.3),hsla(45,100%,73%,0));
+	-moz-image-region:rect(0px 48px 16px 32px);
+}
+#bookmarks-menu-button:hover:active {
+	background-image:radial-gradient(circle closest-side,hsla(45,100%,73%,.1),hsla(45,100%,73%,0));
+	-moz-image-region:rect(0px 48px 16px 32px);
+}
+
+/*加星书签&下拉地址栏加星书签*/
+#bookmarks-menu-button[cui-areatype="toolbar"][starred] .toolbarbutton-icon,
+.ac-result-type-bookmark,.autocomplete-treebody::-moz-tree-image(bookmark,treecolAutoCompleteImage) {
+  list-style-image:url("chrome://userchromejs/content/images/urlbarbookmark.png")!important;
+	-moz-image-region:rect(0px 48px 16px 32px);
+}
+
+
+/*标签关闭按钮*/
+.close-icon {
+  list-style-image: url("chrome://userchromejs/content/images/tabbottom_close.png")!important;
+}
+
+
+/*标签锁定按钮*/
+.tabbrowser-tab[protected] .tab-close-button {
+list-style-image: url(chrome://browser/skin/Secure24.png)!important;
+margin-bottom: -4px !important;
+}
+
+ 
+/*AUP图标替换*/
+#aup-toolbarbutton image{ list-style-image:url("chrome://userchromejs/content/images/autoproxy.png")!important;
+}
+#aup-toolbarbutton[panproxystate="auto"] image {-oz-image-region:rect(0px,16px,16px,0px);
+}
+#aup-toolbarbutton[panproxystate="disabled"] image {-moz-image-region:rect(16px,16px,32px,0px);
+}
+#aup-toolbarbutton[panproxystate="global"] image {-moz-image-region:rect(32px,16px,48px,0px);
+}
+
+
+/*彩色stylish代替空白stylish*/
+#stylish-toolbar-button {
+	list-style-image:url("chrome://stylish/skin/16.png") !important;
+}
+
+
+/*userChromeJS*/
+#userChromebtnMenu>.toolbarbutton-icon {list-style-image:url("chrome://userchromejs/content/images/userchrome.png");}
+
+#toolbtn_restartApp .toolbarbutton-icon,
+#toolbtn_openPrefs .toolbarbutton-icon, 
+#jscmd_edit_del .toolbarbutton-icon
+{background-color:transparent!important;}
+
+
+/*ublock*/
+#ublock-button>.toolbarbutton-icon{
+list-style-image:url("chrome://userchromejs/content/images/ublock.png")!important;
+}
+
+/*=========================================Yosemite图标替换=====================================END*/
+
+
+
+
+/*START=====================================导航栏调整=====================================*/
+
+/*identity-box标识栏*/
+#identity-box {
+	padding:2px 2px;
+  border: none !important;
+}
+
+/*导航栏无边框*/
+#nav-bar {border-top:0px solid #d2d2d2 !important;}
+#navigator-toolbox,#PersonalToolbar{border:0px solid #0063dc !important;}
+#nav-bar {border-bottom:0px solid #0063dc !important;}
+
+/*导航栏高度*/
+#nav-bar {
+	height:30px !important;
+  z-index: 1000000 !important;
+}
+.searchbar-textbox {
+	height:25px !important;
+}
+#urlbar-wrapper {
+	height:26px !important;
+}
+
+/*导航栏图标距离调整*/
+#navigator-toolbox> #nav-bar {
+	padding-right:3px !important;
+	padding-left:3px !important;
+}
+#navigator-toolbox #nav-bar:not([tabsontop="false"]) .toolbarbutton-1 > .toolbarbutton-menubutton-button,
+#navigator-toolbox #nav-bar:not([tabsontop="false"]) .toolbarbutton-1 > .toolbarbutton-menubutton-dropmarker,
+#navigator-toolbox #nav-bar:not([tabsontop="false"]) .toolbarbutton-1 {
+	padding:0px 0px !important;
+	margin:0px 0px 0px 0px !important;
+}
+#nav-bar-customization-target{
+	padding-right: 4px !important;
+	padding-left:4px !important;
+}
+
+
+/*导航栏图标经过样式*/
+#nav-bar toolbarbutton.toolbarbutton-1:not([disabled]):not([checked]):not(:active):hover .toolbarbutton-icon
+{
+	background-color:#e5e5e5;
+	border-color:transparent;
+  border-radius:0px;
+	/*transition: background-color 0.5s;*/
+}
+
+/*导航栏图标激活样式*/
+#nav-bar .toolbarbutton-1:not([disabled=true]):-moz-any([open],[checked],:hover:active) > .toolbarbutton-icon{
+	border-radius:2px;
+	box-shadow:none;
+	text-shadow:none;
+}
+
+
+
+/*书签栏图片经过样式*/
+toolbarbutton.bookmark-item:not(.subviewbutton),
+#personal-bookmarks[cui-areatype="toolbar"]:not([overflowedItem=true]) > #bookmarks-toolbar-placeholder {
+  margin-bottom: 2px;
+  border: 1px solid transparent;
+  border-radius: 0px;
+}
+
+toolbarbutton.bookmark-item:hover {
+  border: 1px solid transparent;
+  border-radius: 0px;
+  background-image: none;
+  background-color: #e5e5e5;
+}
+
+toolbarbutton.bookmark-item:not([disabled="true"]):not(.subviewbutton):hover:active,
+toolbarbutton.bookmark-item[open="true"] {
+  margin-bottom:-1px;
+  border-radius: 0px;
+  background-image: none;
+  border: 1px solid transparent;
+}
+
+/*==========================================导航栏调整=====================================END*/
+
+
+
+
+
+
+
+
+
+
+
+/*START=====================================ControlBox主题=====================================*/
+
+/*Min*/
+#main-window:not([inFullscreen]) #titlebar-min,#main-window:not([inFullscreen]) #titlebar-min:hover,#main-window:not([inFullscreen]) #titlebar-min:active	{
+	list-style-image:url("chrome://userchromejs/content/images/contolbox_min.png") !important;
+}
+#main-window:not([inFullscreen]) #titlebar-min {
+	-moz-image-region:rect(0,23px,19px,0px) !important;
+}
+#main-window:not([inFullscreen]) #titlebar-min:hover {
+	-moz-image-region:rect(0,46px,19px,23px) !important; margin-bottom: -2px !important;
+}
+#main-window:not([inFullscreen]) #titlebar-min:active {
+	-moz-image-region:rect(0,69px,19px,46px) !important;
+}
+
+/*Max*/
+#main-window:not([inFullscreen]) #titlebar-max,#main-window:not([inFullscreen]) #titlebar-max:hover,#main-window:not([inFullscreen]) #titlebar-max:active {
+	list-style-image:url("chrome://userchromejs/content/images/contolbox_max.png") !important;
+}
+#main-window:not([inFullscreen]) #titlebar-max {
+	-moz-image-region:rect(0,23px,19px,0px) !important;
+}
+#main-window:not([inFullscreen]) #titlebar-max:hover {
+	-moz-image-region:rect(0,46px,19px,23px) !important;margin-bottom: -2px !important;
+}
+#main-window:not([inFullscreen]) #titlebar-max:active {
+	-moz-image-region:rect(0,69px,19px,46px) !important;
+}
+
+   
+
+/*Close*/
+ #main-window:not([inFullscreen]) #titlebar-close,#main-window:not([inFullscreen]) #titlebar-close:hover,#main-window:not([inFullscreen]) #titlebar-close:active	{
+	list-style-image:url("chrome://userchromejs/content/images/contolbox_close.png") !important;
+}
+#main-window:not([inFullscreen]) #titlebar-close {
+	-moz-image-region:rect(0,23px,19px,0px) !important;
+}
+#main-window:not([inFullscreen]) #titlebar-close:hover {
+	-moz-image-region:rect(0,46px,19px,23px) !important;margin-bottom: -2px !important;
+}
+#main-window:not([inFullscreen]) #titlebar-close:active {
+	-moz-image-region:rect(0,69px,19px,46px) !important;
+}
+
+
+
+/*Restore*/
+#main-window[sizemode="maximized"]:not([inFullscreen]) #titlebar-max,#main-window[sizemode="maximized"]:not([inFullscreen]) #titlebar-max:hover,#main-window[sizemode="maximized"]:not([inFullscreen]) #titlebar-max:active {
+	list-style-image:url("chrome://userchromejs/content/images/contolbox_restore.png") !important;
+}
+#main-window[sizemode="maximized"]:not([inFullscreen]) #titlebar-max {
+	-moz-image-region:rect(0,23px,19px,0px) !important;
+}
+#main-window[sizemode="maximized"]:not([inFullscreen]) #titlebar-max:hover{
+	-moz-image-region:rect(0,46px,19px,23px) !important;margin-bottom: -2px !important;
+}
+#main-window[sizemode="maximized"]:not([inFullscreen]) #titlebar-max:active {
+	-moz-image-region:rect(0,69px,19px,46px) !important;
+}
+
+/*==========================================ControlBox主题=====================================END*/
+
+
+
+
+
+/*START=====================================Firefox菜单主题=====================================*/
+popupset menupopup,
+
+#PlacesToolbarItems menupopup,
+
+#toolbar-menubar menupopup,
+
+textbox menupopup{
+
+    -moz-appearance: none !important;
+
+    background-color:#FFF !important;
+
+    padding-top:4px !important;
+
+    padding-bottom:4px !important;
+
+    /*阴影*/
+
+    background-clip:padding-box!important;
+
+    margin:-5px !important;
+
+    border:5px solid transparent !important;
+
+    border-image: url("chrome://userchromejs/content/images/menushadow.png") 5 stretch !important;
+
+        }
+
+popupset menupopup menu[_moz-menuactive="true"],
+
+popupset menupopup menuitem[_moz-menuactive="true"],
+
+#PlacesToolbarItems menupopup menu[_moz-menuactive="true"],
+
+#PlacesToolbarItems menupopup menuitem[_moz-menuactive="true"],
+
+#toolbar-menubar menupopup menu[_moz-menuactive="true"],
+
+#toolbar-menubar menupopup menuitem[_moz-menuactive="true"],
+
+textbox menupopup menu[_moz-menuactive="true"],
+
+textbox menupopup menuitem[_moz-menuactive="true"]{
+
+    border:1px solid #ededed !important;
+
+    background-color:#ededed !important;
+
+    -moz-appearance: none !important;
+
+}
+
+popupset menupopup menu,
+
+popupset menupopup menuitem,
+
+textbox menupopup menu,
+
+textbox menupopup menuitem,
+
+#PlacesToolbarItems menupopup menu,
+
+#PlacesToolbarItems menupopup menuitem,
+
+#toolbar-menubar menupopup menu,
+
+#toolbar-menubar menupopup menuitem{
+
+    padding-top:0px;
+
+    padding-bottom:0px;
+
+    padding-right:0px;
+
+    padding-left:2px !important;
+
+    border:1px solid #FFF !important;
+
+    background-color:#FFF !important;
+
+    -moz-appearance: none !important;
+
+    margin-left:4px;
+
+    margin-right:4px;
+
+}
+
+
+popupset menupopup .menu-iconic-left,
+textbox menupopup .menu-iconic-left,
+#PlacesToolbarItems  menupopup .menu-iconic-left,
+#toolbar-menubar  menupopup .menu-iconic-left{
+    margin-left:-4px !important;
+}
+
+popupset menupopup .menu-iconic-text,
+textbox menupopup .menu-iconic-text,
+#PlacesToolbarItems  menupopup .menu-iconic-text,
+#toolbar-menubar  menupopup .menu-iconic-text{
+    margin-left:-2px !important;
+}
+
+popupset menupopup .menu-text,
+textbox menupopup .menu-text,
+#PlacesToolbarItems  menupopup .menu-text,
+#toolbar-menubar  menupopup .menu-text{
+    margin-left:8px !important;
+    -moz-appearance: none !important;
+
+}
+
+
+
+popupset menupopup menuseparator,
+
+textbox menupopup menuseparator,
+
+#PlacesToolbarItems menupopup menuseparator,
+
+#toolbar-menubar menupopup menuseparator{
+
+    -moz-appearance: none !important;
+
+    border-top:1px solid #D4D4D5 !important;
+
+    padding:0px;
+
+    margin-top:2px;
+
+    margin-bottom:2px;
+
+}
+
+
+/*==========添加右键图标==========*/
+/*右键菜单文字位置调整*/
+#context-viewinfo .menu-iconic-text,
+#context-inspect .menu-iconic-text,
+#context-viewsource .menu-iconic-text,
+#context-viewpartialsource-selection .menu-iconic-text,
+#context-viewimage .menu-iconic-text
+{margin-left: 8px !important;}
+
+
+
+/*==========标签菜单文字位置调整==========*/
+[label="锁定标签页"] .menu-iconic-text,
+[label="选择单个标签页"] .menu-iconic-text,
+[label="图标化标签页"] .menu-iconic-text,
+[label="保护标签页"] .menu-iconic-text
+{margin-left: -4px !important;}
+
+
+/*inspect*/
+#context-inspect{
+    -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZUlEQVQ4jaVTUQpAIQxa7yidqvtfpPfTQKSWW0IUOLXYMosxL7x9AddplzFWMq+REXuqP6ErJixGA8mExTu4iU7cgtpB2KAYz6e6+g0kAhAGPXdhZ5KaAzYpTSLCU9N/AaF2po4fwVYqq5MUvBgAAAAASUVORK5CYII=")!important;
+    padding-left: 6px !important; padding-top: 1px !important; padding-bottom: 1px !important;
+}
+
+
+/*viewsource*/
+#context-viewsource,#context-viewpartialsource-selection{
+    -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAS1BMVEUAAADBwcEFBQXV1dWrq6v9/f34+Pje3t6Li4tjY2MaGhoQEBAAAADMzMzAwMC6urqsrKyHh4eBgYF1dXVvb29VVVVJSUktLS0nJydF8apsAAAAAXRSTlMAQObYZgAAAFlJREFUGNOdjEcSwCAMA02v6fX/Lw0RJucMOni1gw39i3jHoQC4LMMlKwU7yhK4NFwT17m6igaPmrLH3bYDPpPGhokD1Q0+HG/+riGsn6PY5ArhiFAnQH15APjLAbhBikauAAAAAElFTkSuQmCC")!important;
+     padding-left: 6px !important; padding-top: 1px !important; padding-bottom: 1px !important;
+}
+
+
+/*viewinfo*/
+#context-viewinfo{
+    -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAlUlEQVQ4jcWSQQrDIBBFJ6EnKC7iokjdiTcOzAmCB8iiniL3+d2IMSagqQU/KA7634yjRL01EBFaIS0AjGnEzkNqC6kt2PlqcDwolEGIEdZF7+NukkTDaZOdh1AGQpnaKyBO7Dymt42mrA+4GEdAMIPXDbxuICJIbUtV7IDny5yyJI0sVzAvH+SvUNGHHfCj8Jev3FdfBE9YlSEhiGUAAAAASUVORK5CYII=")!important;
+     padding-left: 6px !important; padding-top: 1px !important; padding-bottom: 1px !important;
+}
+
+/*viewimage*/
+#context-viewimage{
+    -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAgVBMVEUAAAD4+PgZGRlXV1f9/f3Z2dmfn5/09PTx8fHh4eHKysqzs7N0dHRgYGBHR0dDQ0MvLy8hISEeHh7Q0NC7u7uhoaGZmZmVlZWEhIRnZ2dTU1M/Pz8nJycSEhLp6eni4uLd3d3U1NTFxcWnp6eQkJCNjY2FhYWDg4NsbGxmZmY+Pj4UJ42CAAAAAXRSTlMAQObYZgAAAHxJREFUGNOdy8cNwzAUwFDqy3Kvcm/pff8Bo8BABjBv70D2Zp5ZNtR/RtqmrZ9Kcd7cyKAwJ9RtbX/25QJvkRHq6u5sDcSLUkvs5qonKwJIZpgTULnG03mAKqepVISF9sB7lYaw80PiKnV2devYHKNEyxW2Do+PlbwP2NcXHOgGBwDkvbYAAAAASUVORK5CYII=")!important;
+ padding-left: 6px !important; padding-top: 1px !important; padding-bottom: 1px !important;
+}
+
+
+/*context-searcher*/
+#context-searcher .menu-iconic-icon{
+    -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdklEQVQ4jc2SsQ3AIAwEbwGK1NmFDdIwE3OxCCOkZYAU+RSRMEFyIuUkN7Z5vwH4IxtQgKYoyk2RgQokICiScnlmcgWWTm1RbeikaJpFUo9J47RsEdTznYB7BfclwvgZGxCfBC4nvY8UgX1WxOJVkdUj4jp84wDU6yD4kZGU+wAAAABJRU5ErkJggg==")!important;
+}
+
+
+/*QuickFoxNote*/
+#qfn-context3 .menu-iconic-icon{
+    -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAqElEQVQ4ja2SQQqDMBBFX7tx5SU8R3YuFHtFT9Iz9BiFFrIqHkA3PzJJIwnigwGj83/+DMKFdMBaWV0Q3Y3BA5iBW6Fm9f4ZjMBTz0c3o54xjd8AP6CtGLVVb2MT9MALWCrmX9TbW4PBxC/tIIwx2FgfwGfmtdhvXpodD7jE0J5dInDSRO6WSYJw41vvDjW5yCVWiP+DU1xm8CVeWgknzU66tFLllnqODcQBSVVEfuY+AAAAAElFTkSuQmCC")!important;
+}
+
+/*=====================================Firefox菜单主题=====================================END*/
+
+
+
+
+
+/*START=====================================标签页样式调整================================*/
+
+/* 重绘新建标签按钮和每个标签 */
+#TabsToolbar .tabs-newtab-button,
+#TabsToolbar .tabbrowser-tab{
+border-image: none !important;
+border:none!important;
+border-style: solid !important;
+border-color: #d2d2d2 !important; /*#d2d2d2*/ 
+border-width: 1px 0 0 1px !important;
+text-shadow: 0 0 4px rgba(255,255,255,.75) !important;
+padding: 2px 4px !important;
+background: rgba(255,255,255,.25) !important;
+background-clip: padding-box !important;
+}
+
+
+/* 标签边框 */
+#TabsToolbar .tabbrowser-tab[first-tab][last-tab],
+#TabsToolbar .tabbrowser-tab[last-visible-tab]{
+border-right-width: 1px !important;
+}
+
+/* 未选中标签 */
+#TabsToolbar .tabbrowser-tab[afterselected]{
+border-left-color: rgba(0,0,0,.25) !important;
+}
+
+/* 固定标签 */
+#TabsToolbar .tabbrowser-tab[pinned="true"]:not([selected]){
+border-right: 1px solid #d2d2d2 !important;
+}
+
+
+/* 选中标签 */
+#TabsToolbar .tabbrowser-tab[selected]{
+background: #fafafa !important;
+background-clip: padding-box !important;
+border-color: #b9b9b9 !important;
+border-right-width: 1px !important;
+}
+
+/* 标签和新建标签按钮得到焦点 */
+#TabsToolbar .tabs-newtab-button:hover,
+#TabsToolbar .tabbrowser-tab:hover:not([selected]){
+background-color: #fafafa !important;
+}
+
+/* 新建标签按钮调整 */
+#TabsToolbar .tabs-newtab-button{
+border-width: 1px 1px 0 0 !important;
+margin: 0 !important;
+width: auto !important;
+padding: 0 6px !important;
+background: transparent !important;
+}
+
+
+/*#TabsToolbar .tabs-newtab-button[actived]{
+border-width: 1px 1px 0 0 !important;
+border-color: transparent !important;
+}*/
+
+
+/* 标签高度 */
+#tabbrowser-tabs{height: 29px !important; }
+
+/* 标签页位置调整 */
+#main-window[tabsintitlebar][sizemode="normal"]:not([tabsontop="false"]) #toolbar-menubar[autohide="true"][inactive] ~ #TabsToolbar {margin-top:13px !important;}
+
+
+/* 标签页字体 */
+.tabbrowser-tab .tab-text.tab-label {
+	font-family:"Segoe ui","Microsoft Yahei","tahoma"!important;
+}
+/* 鼠标移上去才显示标签关闭按钮 */
+tab .tab-close-button .toolbarbutton-icon,tab .tabs-closebutton .toolbarbutton-icon {
+	opacity:0 !important;
+}
+tab:hover .tab-close-button .toolbarbutton-icon,tab:hover .tabs-closebutton .toolbarbutton-icon {
+	opacity:1 !important;
+}
+
+/* 标签最小宽度 */
+.tabbrowser-tab:not([pinned]) {
+	max-width:220px !important;
+	min-width:36px !important;
+}
+
+
+/*隐藏边框*/
+#browser-bottombox{border:none !important;}
+#browser-border-start,#browser-border-end {display: none !important;}
+
+/*无边框Border*/
+#browser-panel{border:#787878 1px solid !important; border-radius: 0px !important;}
+#nav-bar {border-left:none !important; border-right:none !important; border-radius: 0px !important;}
+
+/*=====================================标签页样式调整================================END*/
+
+/*++第4部分+++++++++++++++++++++++Yosemite Patch+++++++++++++++++++++++++*/
+
+/* AGENT_SHEET */
+
+/*SimpleMusicPlayer*/
+#SimpleMusicPlayer .toolbarbutton-icon
+{list-style-image: url("chrome://userchromejs/content/images/custom_toolbar_16.png")!important;}
+#SimpleMusicPlayer .toolbarbutton-icon {-moz-image-region: rect(0px, 32px, 16px, 16px)!important;}
+#SimpleMusicPlayer {margin: 3px 0px !important;}		
+#SimpleMusicPlayer:hover{background-color: #e5e5e5 !important; }
+#SimpleMusicPlayer-panel .panel-arrow{padding-right: 15px !important;}
+
+
+/*Feed Button*/
+#urlbar-container #urlbar #urlbar-icons #feed-button .toolbarbutton-icon{
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkMzREM4QjE2REEyRTExRTQ4NkVGRkY1MzJDRURGNjE5IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkMzREM4QjE3REEyRTExRTQ4NkVGRkY1MzJDRURGNjE5Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QzNEQzhCMTREQTJFMTFFNDg2RUZGRjUzMkNFREY2MTkiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QzNEQzhCMTVEQTJFMTFFNDg2RUZGRjUzMkNFREY2MTkiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz48pwFuAAABSUlEQVR42sSTPU7DQBCFn712/JsESEgEERIVHcoFAIkSiSNQpKDgFIgTwAX4OwEoFRJFJKgIBQVQcwAQoqAFmzdrG5yABZILnvTJmtXO08zs2IjjGGVkoqRKG1gjgWncvsfa9JpckBtyV1GAw5tvEVBzgYhdP76mrcsMMpqBPmqQZXJArsieozAniZ4NtKvAdPiVN2Lg298qbLsWDpWJAStY8X8zGFdQSS5Tm2QYOlidqQGtarHBkJyQdRnJFFtqhp9+PdPAma0wb6kCg0kfC7y4Rvrksu6i2woTE/lyBvs83yXGjwYyqJx68gJ1D4s01q0EDjrpC3X/NANqgwyIzdLhJo9+RLaKDKT3HdLJmfTT80xL5LjI4EVWg2znEmQmp7lY9uQ+yxlf5XPyJBvIfvViTXh4YDzLZdJxI8Az9yLKEox//xs/BBgAYoS58MqWxOkAAAAASUVORK5CYII=")!important;
+margin-bottom: -2px !important;
+margin-right: -2px !important;
+opacity: .4!important;
+}
+
+
+/*=Feedly Notifier=*/
+[label="Feedly Notifier"] .toolbarbutton-icon {
+background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkY1RTczOUFFRDk1RDExRTRBN0NGODc4MEM5NTRBNzk5IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkY1RTczOUFGRDk1RDExRTRBN0NGODc4MEM5NTRBNzk5Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RjVFNzM5QUNEOTVEMTFFNEE3Q0Y4NzgwQzk1NEE3OTkiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RjVFNzM5QUREOTVEMTFFNEE3Q0Y4NzgwQzk1NEE3OTkiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5m3OAdAAAAx0lEQVR42mL8//8/AyWAiYFSAHIB1BX/ofgkEFcAsRIxeuEuEOVh4AJSykBcA8S8QHwZiK8CsT2xLsAGIqGumgG0gBObXkIGMEA1boe6RoBkA5DABJAhyC5BNwBEvIYq1MZhyAqQd7AaADVZGxoDWP0N5f+HBSw+LwhA/X0SS+BFQsODqDDYDvUSRgSAXEuMAQIwxWjirUBcj25AK1RxK5riCiyucAV5D1sswDAy0IbGDjJQggQBES5ACnkMMZA+RkqzM0CAAQBvQJpDuJPuHgAAAABJRU5ErkJggg==") !important; 
+background-repeat:no-repeat!important;
+background-position: center!important;
+}
+
+/*GoAgent*/
+#goagent-button[cui-areatype="toolbar"] .toolbarbutton-icon {list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDIxIDc5LjE1NTc3MiwgMjAxNC8wMS8xMy0xOTo0NDowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTQgKFdpbmRvd3MpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkRDOUNFQTJFREMyRDExRTQ4MEJGQUUxREUzNzlGM0RCIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkRDOUNFQTJGREMyRDExRTQ4MEJGQUUxREUzNzlGM0RCIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6REM5Q0VBMkNEQzJEMTFFNDgwQkZBRTFERTM3OUYzREIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6REM5Q0VBMkREQzJEMTFFNDgwQkZBRTFERTM3OUYzREIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5/y4H6AAABP0lEQVR42qSTPUsDQRCGjYVowCYW6VSiEhAOImqVv2AjCYiVnWChtaUgQlotU9rb2FiKjZ3XKFiITfArpLI6EOV8Rt6FMblLk4WHHW5m3pvZnS2kaTo20soQKMMJxJAIs4/k+5c73pfcgAeYhn2YEWaX5GvkVWCON1gbUrDFdIPIX64ErLQeRBlJU7ADt4pZ1V72LezBOdy7xGU4hQ404Ucxd9oPfAt2SHWXXIFPaMMsTMA7VOW32Ni3kCgorBZcqN9FVXDt/Bab5AnY/gFLcAhPcAPbTqBoFfozeIR12Zu6rhd4hUlYUEVhrcCzGUHgErZk7+rOO/qrzcA8fDkBi73yhxiucUN/Poa5nFmI/DX2D5L1XhsySJGGbWCQvIipn+mqiqKubz0/ylkC/jHZwX5rHmJ9G3hMhVGf868AAwC0eYNo8VbOkgAAAABJRU5ErkJggg==")!important;}
+
+
+/*bookmarks-menu-button*/
+#bookmarks-menu-button>.toolbarbutton-menubutton-button{margin-left: -6px !important;margin-right: -6px !important;}
+
+
+/* 标签页位置调整 */
+#main-window[tabsintitlebar][sizemode="normal"] #TabsToolbar{padding-right: 95px !important;}
+#main-window[tabsintitlebar][sizemode="maximized"] #TabsToolbar{padding-right: 95px !important;}
+
+
+/*===================================APP按钮调============================*/
+#main-window #ctraddon_appbutton2 {visibility: hidden !important;}
+
+/*正常*/
+#main-window[tabsintitlebar][sizemode="normal"]:not([tabsontop="false"]) #toolbar-menubar[autohide="true"][inactive] ~ #TabsToolbar{
+margin-left:8px !important;
+}
+
+/*最大*/
+#main-window[tabsintitlebar][sizemode="maximized"]:not([tabsontop="false"]) #toolbar-menubar[autohide="true"][inactive] ~ #TabsToolbar {
+margin-top:13px !important;
+margin-left:8px !important;
+}
+
+/*正常*//*定制*/
+#main-window[tabsintitlebar][customizing][sizemode="normal"]:not([tabsontop="false"]) #toolbar-menubar[autohide="true"][inactive] ~ #TabsToolbar{
+margin-left:-13px !important;
+}
+
+/*最大*//*定制*/
+#main-window[tabsintitlebar][customizing][sizemode="maximized"]:not([tabsontop="false"]) #toolbar-menubar[autohide="true"][inactive] ~ #TabsToolbar {
+margin-left:-5px !important;
+margin-top:18px !important;
+}	
+
+/*正常*//*按Alt键	*/
+#main-window[tabsintitlebar]:not([tabsontop="false"]) #titlebar:not([hidden]) ~ * #TabsToolbar {
+        -moz-margin-start:8px;
+}
+
+/*最大*//*按Alt键*/
+/*#main-window[tabsintitlebar][sizemode="maximized"]:not([tabsontop="false"]) #titlebar:not([hidden]) ~ * #TabsToolbar {
+        -moz-margin-start:-4px;
+}*/

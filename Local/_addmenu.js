@@ -621,11 +621,11 @@ css('#contentAreaContextMenu[addMenu~="input"] #' + it.command + '{ display: non
 };
 
 /*——————————頁面右鍵——————————*/
-//Firefox 31+ 横排菜單，在鏈接上和非鏈接上不相同
-var openMenu = GroupMenu({
-label: '打開...',
+var openMenu = PageMenu({
+label: '小功能',
 condition: 'noinput noselect nomailto nocanvas nomedia noimage nolink',
 position: 1,
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdElEQVQ4jc3QQQrCQAwF0CeeQKZlUDyGl1ev0IX1CiIuxDPoJsuOLQTBD28xYRJI4J3klmS30L5hUXPFWiP3GQ8M2P5sQHqF9BHnVpjjleSQ9AfpUbAK5ct7MiOO2KDDOXRRO4XSGvDEJT5UXEON2hj6qeYP+LhgfWentcAAAAAASUVORK5CYII=",
 insertBefore: 'context-sep-navigation'
 });
 openMenu([
@@ -647,21 +647,7 @@ text: "%FAVICON%",
 label: "複製Favicon的Base64",
 text: "%FAVICON_BASE64%",
 },
-/*{
-label: "在IE中打開",
-text: "%RLINK_OR_URL%",
-exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
-},
-{
-label: "BackupProfiles",
-text: '%RLINK_OR_URL%',
-exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\Local\\BackupProfiles\\BackupProfiles_7z.bat",
-},
-{
-label: "在 Chrome 中打開",
-text: '%RLINK_OR_URL%',
-exec: Services.dirsvc.get("LocalAppData", Ci.nsILocalFile).path + "\\Google\\Chrome\\Application\\chrome.exe",
-},*/
+
 ]);
 
 /*——————————移動圖標和菜單——————————*/
@@ -717,7 +703,7 @@ page(
 "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAv9JREFUeNp0U01IVFEU/u59Y/5XOhJjaEapVDaLFlFRlBFIYYqLwoWbaBFtXLWIWrRoFeVO2mRGCwVN+tEUBLMspFIqHdMpHQVNLcvSaSZ/xnn3ns59mkTYg3l33nnnO+c73/keiAhKRWFOrTWuP/vmaWwbeEean0nBNnGTY5OT8+9PgpOkhAMWQmEHBQe7fF/2XLqMFPBrwXEoficV1rqkqQK4OEFC8fnW/2X9QkRj/4mPdYKxJi4ty8J/LimkC5qhpn5zq78mGLT5n0Zv/48CMKPHHSN0o/qVLcjCWhykuQklYMoMTYTKjh3InNYkMBsM48GTTxdu1b5Gc8cgqlq7c/+mYXiTGd+UVZbAg7axC+6UJIx2/cqLj7cgYMHX+7ni8+w8QvMReOLcfgNgSR00OZoJLiDN5IRgcKYiLXHdRMZB99mtmalcQONl3yhc5IKlYlBV320JscJBwBGemKnU3Knh7rR3JrgAEUeJLjV3OT05eWIxQpiLLPECotyJ8HUqhKa2oT7T888KHQaSpQ4nTvblbEmpL8zPTS06unND8fFtmeHFRbg3JSMpORaK29iuGDQ/D3jZFODGcNjwKLLpxQi9D8xi8lu0tPHp5EUTbGoPtA8OBZGRloB090YnWTCwp38K91omSgTpVTEFKbNsYQaClo51cLuul8an57C7/JDrFGlVdP4+Tc3MwOKEwvwcXCk/IlZHYCdgWOTEEp+mclW7L7emeYCtsIRQg8+urvdRamIMhM2ykmRfBFBZOZxhwGrZBxrZCESM6oaqx07o8WyKQ8bm9VBkw7aiOLxvGztyhTavL84THjc+sBjD/jGK8H4ZfOfmh6wWX3/CmbJdI8WH87KJBWaiuM9mPvm102569tFYF7UP/aCkse3nCkpG5LISpj8fqZHR0e8hjAWm801YMViy5Kf5i/N63Ve1Kcj9wpEI6GfWMIvCPhHLjr5W2UmPOj6YrwNdA6HxrLaBN8UFeXuNuI1PA3UNLf5SyY5lsrBYCxYaLq3ptwADADgQi9wCmSZlAAAAAElFTkSuQmCC"
 });
 
-//复制图像地址
+//Anobtn圖標
 page(
 { id: 'anobtn_set', clone :false,image:
 "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADnklEQVQ4jU3M3U9bdQDG8XPB/+CSLSgQGcNVjpSOFjinh3Pa4TnlFMpgbLKB6/KjlIGZyHgZbxUMbAJxiIBuEHCUlXalox3LFCQ5WliJBq+Mpou70C1RuZDx4u5+PF6MoBff5Mlz8WEEhkm4a06VI9Y0V1jWkbA9k4ROGUnojJmEKiwvOyOS0CmOhB0GEi5kSeTtdNesOVUWGCaB+XA4XZ4iuo1IdvJeWP8qDWen0EjeMbqQr6MPLJn0gVVPF0SWRrh0GjGm0nBWEo2cSN67fyFz4+5AlswMhlnyeeQNeq36FVxOOoT3XzuMxuQjaEpJRFNKIq7s78bkRDQkHcaVpEPwnzuCdX8e1YJmwgyGWDK+oqMd/mQIch4sFisKZBmKzQan04m6ujqoqgpZUWCxnkRxQR5WvSziyxLV/PvARFRHu/wpkGw8ZFmGqqooP12GR6ur+P23p6h1u6GqKhTFhlIbj9hMJuJLEtV8B0AG9QReh1UVoMgK7HY7qior8Tj+GFvPd9Da0oIiux2KrRCnVQExnx7xbywvgf4gS8ajGdQTSIOlUIDbVYPJiQnMBQP484+/sLP9D75++BDT01+iva0N5fZ8rN3JQnxxH7gWZMnNKEs7/WmQFB5+/yx2d15ge2sXm5tb2Pz7Oba3drC7+wLr6z/iQrmCNa8e8a8kqt3mCNMbZMnYdyxt8x2DUMChrvYSZrxeRMLzePLrEzx7+gxLi4vwz87C0+VBWSGPtalMxBdEqk1yhOkJsuRTjaXNM2ngJBNEUYQsy6iqrERsdQW//PwTWpqbYLPZIFmsKDppRGycRfyemWo3OcJ0+lkyuJxBG6aOIps3gON4iKKIEocDC/fvYe1RFK5qAkmSwJvNUPL1WB09jniAo9qIkTDtPpZcX8qgtbdS8Fb2mzBkGWAymcDzPCrPVcDtqoYo5iMnNweGE9mQTMcR/eQo4l4T1W4YCdPqY0l7iKdVA/VQSA/s1b1w1F5HaX0/SusHDiq59DGKavrgcPXgRq8bsVEz1QYNhKnoMZKa/n763tAyGkY0tHwRRedkDD3e79HnW0ff7Do+mvkBXVNraL21gg9Gv8XloSV0dXfTkQYjYcxOUbbVD20UN07vlTRP07KrPnq2I0DPe+ZoVfc8fbd7np73zNF3OgK07OodWtI0TYsab+8V13+2UV5eLDOMICTkOofl3ItjrhwyRnKc/8X9r4OfjJHci2OuXOewLAiehH8BvoYzQRRPJj8AAAAASUVORK5CYII="
@@ -763,24 +749,6 @@ page(
 page(
 { id: 'context-copy', clone :false,image:
 "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAGxQTFRF////UFBQkZGRl5eXnZ2doaGhUFBQVlZWXFxcY2Nja2trc3Nze3t7g4ODioqKkZGRl5eXnZ2doaGhtra2ubm5u7u7vb294ODg5eXl5ubm5+fn6enp6urq7Ozs7u7u8PDw8fHx9fX1/f39////ggcw/gAAAAZ0Uk5TAJaWlpaWbyK09gAAAHhJREFUGNONyjFqAlEYRtHzj28YGRVCsv+lWbkAiwFRnvKlUCOSxvIebsG4A5ZOg+3XHbJc7/CdE8xTllsbdxzRVmSdpT33Y0Ybc1o89nOKKUNUVZWs+7nKCzbzT6+SFgUXppQXwAcw/DsO+hvs0ZLhD6BqfLYe/AJsmDdNVyCpFwAAAABJRU5ErkJggg=="
-});
-
-//頁面右鍵 檢視原始碼
-page(
-{ id: 'context-viewsource', clone :false,image:
-"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC6klEQVQ4jV3QyU8TYRzG8TnpP+LJfUk0URODQeOWevLkxlJMjFIIJAYT0aAmqHjBuERFjR48eDIuKK17W6ZV6lYoKEj3FuhUOus7M+/7zuNhTCu+yff4++TJKwiCIGztftuw55IY8PSJv/deFg1Pn0g8fSLxXBaJpy9CPJeGye4LodGNJ4L9y/Y9WiT8/3acDwYl2ZB+ayYraybKai1JMSEpBOMFBd1PMmi5Oqkv2Xll8QJgV29oTjFsJqZsRNMU0QxFJEURTlp4P2niZUKDSYFnEwa6H6fh7Z80FiB7Lg4bsm4hlmX4nKWIZSk+ZSgiKQsfpkz4EzpMyhErMETzNs4PZlDX9eZhbcGFMJF1C1+yDF9zFF9yDLEsw8e0jdAvC69+GEjOapAUApVQzM7rqD/9ni4AKpqFeIFhtMAQL3J8yzHEshSRlI0PUyYCCR3PR1U8/S6jopnY1hMkVWBnb5jMaxbGiw4SRY6xIsdogeN7gWEkTSEmXeT1TwOBCQPzmo1tZ8M1YEdvmJQ1CxMzDiZmHIzPOEgUHcTz7pKRNIWYshH85f5JWbNR3/MPsP1cmEiqhUT1mFeXxPMcX3MUI1l3yXDSxpxio+7MP0B9T4iUFBOJYu04UeQYK/DqiliG4VOaIpqmUAjFllOhGlB3JkRmZBNjeXe2G0M8z/Atx/A5wzCSYYimKCJpCmJzbDrxrgZsORUkhQpBubERUmMTpIYmSIcOQzp8CKWDfztwANJ+N91iWO97WwM2d70j2TKB2nUSzv0HcO7eAx8YAL91B+zmANiN22DXb4JfuwG5vQMaoVhzJFADNrS/0ZMl3VE7O6F0dkBu74Dsa4Psa4PS2oZKqw/ycR/kYz4ora0wKefLvUNqFVh3NDA9VzGVpET4dMnA9JyBqb+VVBsl1f15lTBoJuPccSpLGwbHqsDao/5jq7z+V6tb/OVVLX5SzesnK71+ssI75NY8RFY2D80vaxx8vbzpRbMgCMIffPnKqtWQ3n0AAAAASUVORK5CYII="
-});
-
-//頁面右鍵 檢視頁面資訊
-page(
-{ id: 'context-viewinfo', clone :false,image:
-"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC90lEQVQ4jXXQT0xbBRzA8Rc9ezQx2fSkiQez3ebBs948EpdVpyIsWQnJUIlmF9ls9kddWbFlJagtffQNFptAMYNifeX9aSlCC6uSSQvLsK+vXaGFUf6uZV8PcKCL+yXf/G6f/PITxH6RaDSKruvPbXx8HJvNdtdqtb4iPDu6rnN09nlK7ek+1f0a1VqVJ9UqpXIJr9dbdTgcP7e2tr5cD0Sj1PaeUEjcx4jdw4jew4jOkY3OkdVnyeqz/BOepK/nJ3rc7lpHR4evsbHxpTpgb2OTVO8QM3Y/CbufRKdEslNi9nAn7H7Urn7+Ts4xPDKcbWpqOn4E0Nl5XCHVO0TCLpG8eZu4XWTY5kS60sXtK10EbS5mewKsF0uoqpq1WCzH636wt7WNEZ9mWYmS/n0C8Qcng5LE9PQ0iqoi+UQkh5uiWXgOsLvBo38DFB760GUnI78NkclkyGQyzM/Pk0qlCI4EicVi/w/s7qxjLnnJpZ0Ef71GMpkklUoRj8eZmpoiFosxMzOD2C8SDofrAU3T2dlew1zsI5d2EQxcY3IyjqqqyLKMoijIskwkEsHlcjE6Olr/RE3T2d4sYy71kct0o/9xncGBPnRdJxQKMTY2Rjgcxu1245f8RCKRrKXpmQu2KiXMRS/Ggovl+06Cgav4JRFZlpmYiOB2u7nQ3MaNlu/pbL9hnH3/7Gt1wGZlFXPRS3bBhZHuJpv+hZFQhKsOkW+v/8il73r5ouESF99p5/NTF7bPHGs4LwjCC4eARmVjhdzhBcaCi/yil8nUMp5RA8/dB/hCOS5/5cN6ohnbex20n2ornjnW8IkgCC8Kmqax8XgVc2kAI+PByHjIPxjgz78eMijnuRMxuTNRwBOY4ssP2rGeOHeAvN1WsLx6ukXQNI2trU3W14usreVZK5uUS3mKKyVyhVWM/ApZc4WsWSSmx7j40df71rfO7V5+9xtaTp4vC2K/iKZpqOrR1MOUg5SDFEXhVvetRx++ebqn+Y1PK5+9/vH4f/LuuP0v+2auAAAAAElFTkSuQmCC"
-});
-
-//選中文字右鍵 檢視選取範圍原始碼
-page(
-{ id: 'context-viewpartialsource-selection', clone :false,image:
-"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABMklEQVQ4ja2RrWvDUBTFnypTg7lBTek/k5hBZIhO1CryfKZmnqhZAqEizxRSGM+Xik7MT81FRT0VURKRkA84U1lp89qlsAOHe839ce69hPyH5psC802Bsf1As/UB5L14+suz9UENIISQMYCLs9OVVCZYit1WCAEhBJZit52upDrB41uqBMRxjF5xHOOZf9y2AuccXdf9mnOOKIrCwezD67cyQRAEqKrqxEEQwPf9U8j9y5cSwBhDnucDM8bAGDtLogB4nocsy07cti3atoXnecd73LmfygSUUkgp0TQNpJSQUoJSCkopXNc9Jpgs9pgs9jjvHcdBXdfoa5qmcBwHtm0PD6mSaZqhZVnoa5IkSJIElmVdeecFGYaBsixRliUMw7gdoGlaqOs6dF2HpmnjVhijHw/CYx9/nPyMAAAAAElFTkSuQmCC"
 });
 
 //圖片右鍵檢視圖片
@@ -842,6 +810,7 @@ page(
 { id: 'context_closeOtherTabs', clone :false,image:
 "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACaUlEQVQ4ja1S0UtTcRS+IAwiQkzv3XXLu029y/6TXvY4rg9SVIjPokYwq5UPjZlb08EedoXNmq2JUZaIGQomg8aMO6fyK7erm2i1jdBWNqv59XAlbVs9dV4O/L7f951zvnMo6n9GjS1a/c8P5lAVZQ5VVcROu1bO0+6VfJ17ldQ6JG0pftK+wta5Vwk9tCpXD8UMZZXpweU8/3wHhrGPYAbj8nER2h5haVecGMY+wDCeAeNaTlHWkOpIwRpSMc6lNV1wG2fnCtAFt6G+F5NrHZKWtkdYxhkjuuDWIbYFxhkjZaPUOiQtOyDJ3Ogmmma+gAtsgh2Q5HqHRLhA+vAtjXqHRGh7hK3og8YW5TT9Ubnh/gZ0UzvgnmbBPclCN7WDhpF1aPqjfycfiSxwWlskpRl/D81EFtrgJvR9r9B0aXTPKAzv861imBe8FqPZU2a0Yph1juXuhIk6mAYbWIf+6hRMvgQ6UkXY80BHqgiTLwFeEANlInrrHKvvWyCsJ46aR2mcuTkLkz8J91fgytufaGnzoT1RxOMCYPInwQteyx9kw+15onZLOBWQoXZLaL74YK8zc4DuHAAAd/NKvrULdGUBvlUMK2xzqKrROksY1yJO+N+BcS2i0TpLjMLw/vx3oKXNh4mCQn62D5y7MIJcEeAFsfBboPnGzFqdMwLa8Rr89ZdE3zPJ8q1iuDNzgMtLPwAAb5SE9mSxpAOKonS90wa+90XK2DtN9D2TLEVRFC94LSZ/ErbPQHdO6eTaJ+DhtwoeHHaiOn5hRrNHywtiwORPoisL7B4osyvkCluoFIqI16LsXyyU3sEvFqyTjwg/d5sAAAAASUVORK5CYII="
 });
+
 
 /*————————————————————*/
 //隱藏相同項。必須，不能刪除

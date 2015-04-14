@@ -1,7 +1,8 @@
-/*+++2015.04.04 19:00+++*/
+/*+++2015.04.14 17:00+++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄&工具欄===*/
+[label="书签"],[label="書籤"],
 #downloadsListBox,/*下載框彈窗*/
 #PlacesChevron,/*书签工具栏产生的箭头*/
 #nav-bar-overflow-button {
@@ -231,6 +232,8 @@ display: none !important;
 }
 
 /*其它擴展/腳本隱藏項*/
+#loop-button-throttled,/*Loop通話*/
+#feed-button,/*分享此頁*/
 #blockElement,/*rBlock右鍵菜單*/
 #snaplinksMenuEntry,
 [label="生成QR码 : 链接地址"],

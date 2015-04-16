@@ -14,19 +14,10 @@ blink, .blink, *[style*="blink"] {
 text-decoration: inherit !important;
 }
 
-/*显示缺失图片占位符*/
+/*显示丢失图片*/
 @-moz-document url-prefix(http), url-prefix(https), url-prefix(file) {
-img {
-font: 12px Arial!important;
-}
-
-img:-moz-broken {
--moz-force-broken-image-icon: 1 !important;
-background-repeat: no-repeat;
-position: relative;
-width: 24px;
-height: 24px;
-}
+img{font: 12px Arial!important;}
+img:-moz-broken{-moz-force-broken-image-icon: 1 !important; width: 48px; height: 24px;}
 }
 
 /*图片经过外发光*/

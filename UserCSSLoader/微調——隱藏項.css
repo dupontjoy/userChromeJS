@@ -1,4 +1,4 @@
-/*+++2015.04.14 17:00+++*/
+/*+++2015.04.15 07:00+++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄&工具欄===*/
@@ -130,6 +130,7 @@ display: none !important;
 }
 
 /*隐藏项 - 书签编辑右键*/
+#placesContext_ExportHTMLFolderSep,
 #editBookmarkPanelContent menuitem[label="復原"],
 #editBookmarkPanelContent menuitem[label="剪下"],
 #editBookmarkPanelContent menuitem[label="複製"],

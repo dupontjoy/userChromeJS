@@ -1,4 +1,5 @@
 
+::2015.04.16 08:00 更新備份項，添加說明
 ::2015.04.06 07:00 更新備份項
 ::Mod 2015.01.26搞定了时间问题
 
@@ -23,20 +24,44 @@ xcopy "%BackDir%\gm_scripts" %TempFolder%\gm_scripts\ /s /y /i
 xcopy "%BackDir%\Plugins" %TempFolder%\Plugins\ /s /y /i
  
 ::以下是文件
+::bookmarks.html：自动导出的书签备份。
 xcopy "%BackDir%\bookmarks.html" %TempFolder%\ /y
+::cert_override.txt：储存使用者指定的例外证书(certification exceptions)。
+xcopy "%BackDir%\cert_override.txt" %TempFolder%\ /y
+::cert8.db：安全证书。
 xcopy "%BackDir%\cert8.db" %TempFolder%\ /y
+::extensions.ini：扩展相關。
 xcopy "%BackDir%\extensions.ini" %TempFolder%\ /y
+::extensions.json：扩展相關。
 xcopy "%BackDir%\extensions.json" %TempFolder%\ /y
+::FlashGot.exe：FlashGot的下载工具。
 xcopy "%BackDir%\FlashGot.exe" %TempFolder%\ /y
+::foxyproxy.xml：FoxyProxy的设置及网址列表备份。
 xcopy "%BackDir%\foxyproxy.xml" %TempFolder%\ /y
+::localstore.rdf：工具列与视窗大小／位置的设定，有时删掉可以解决一些介面上的问题。
 xcopy "%BackDir%\localstore.rdf" %TempFolder%\ /y
+::mimeTypes.rdf：下载特定类型的档案时要执行的动作。 可删掉来还原原来下载的设定。
+xcopy "%BackDir%\mimeTypes.rdf" %TempFolder%\ /y
+::MyFirefox.7z：用於官方FX的便携设置。
 xcopy "%BackDir%\MyFirefox.7z" %TempFolder%\ /y
+::permissions.sqlite：存放特定网站是否可存取密码、cookies、弹出视窗、图片载入与附加元件……等权限的资料库。
+xcopy "%BackDir%\permissions.sqlite" %TempFolder%\ /y
+::persdict.dat：个人的拼字字典。
 xcopy "%BackDir%\persdict.dat" %TempFolder%\ /y
+::pluginreg.dat：用于plugin的MIME types。
 xcopy "%BackDir%\pluginreg.dat" %TempFolder%\ /y
+::Portable.7z：PCXFirefox的便携设置。
 xcopy "%BackDir%\Portable.7z" %TempFolder%\ /y
+::readme.txt：个人配置修改说明。
 xcopy "%BackDir%\readme.txt" %TempFolder%\ /y
+::secmod.db：安全模组资料库。
+xcopy "%BackDir%\secmod.db" %TempFolder%\ /y
+::stylish.sqlite：Stylish样式数据库。
+xcopy "%BackDir%\stylish.sqlite" %TempFolder%\ /y
+::user.js：使用者自订的设定，在这里的设定覆盖prefs.js的设定。
 xcopy "%BackDir%\user.js" %TempFolder%\ /y
-
+::xulstore.json：界面的一些状态。
+xcopy "%BackDir%\xulstore.json" %TempFolder%\ /y
 
 ::读取版本号和日期及时间
 for /f "usebackq eol=; tokens=1,2 delims==" %%i in ("..\..\..\..\Firefox\application.ini")do (if %%i==Version set ver=%%j)

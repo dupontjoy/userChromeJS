@@ -1,5 +1,5 @@
 
-//2015.04.05 09:00 調整菜單順序
+//2015.04.15 08:00 調整菜單順序
 //2015.03.29 20:00 Software和 Plugins分離出配置文件夾
 //2015.03.26 12:00 加入FoxitReader，ReRe，Winmaster
 //2015.03.25 20:00 加入DnsJumper, FastStone Capture
@@ -96,7 +96,7 @@ exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GF
 {
 label: "DnsJumper",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GFW\\DnsJumper\\DnsJumper.exe",
-},{},]
+},]
 },{
 label: '辦公軟件',
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABwUlEQVQ4jZ3Tv08aYRwG8PdPabqbhmiiqO8dhNkF4sIRcMFBatJGFnFWF4emRq+hQ5uIwOCJcWEyOkBPoyWpkzFKXNSXE1G50+SbA58OtPaHR9Lrk3yG9/s868uYQyT13COpYt6nXi741MsFSRXzknrucdo6JpA2pgPLYo4viThfEvHAspgLpI1px3Fo+6Iv/KWWVHQxE9FFKlo2ZsPFq7PojqFFdmvJyG4tGd0xtHDx6ixaNmYjukgpuphRyrWp0PZFH4t9vdmfOLEfX5+28FOi2vrj7XSbOLEfYwc3FRarmJSoAolTl6pArGISU/ZMGj8C4i6NHwHKnklstGTR2CEw9s2lQ2C0ZBELblkU3gf+R3DLIjZStChYApyEyh3d+pGiRcy/2iB/zoTvBzlrQso0MfzpFv0frtGvXoN/voWUaULO/tr5cib8qw1icr5J/g0bTwodPPeAl2+P8eLNMYazD0/337dyvkmM5y2SN4G/SetteN438OpdA1xrP+vlTYDnLWLezD0NaoB37blBraNb583cExtaudN5wW5LGy24wQt2e2jlTme9i6JnIF2fHPhYT7mSrk/2Loqef/6h3fIdt9x6jwguSQ8AAAAASUVORK5CYII=",
@@ -118,7 +118,7 @@ exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\Fo
 },{},{
 label: "FastStone Capture",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\FastStone Capture\\FSCapture.exe",
-},{},]
+},]
 }, ]
 }, {},{
 label: "长期維護",

@@ -1,5 +1,5 @@
 
-//2015.04.15 18:00 調整一些菜單順序
+//2015.04.17 13:00 調整一些菜單順序
 //2015.04.02 12:00 調整選中文字搜索
 //2015.03.31 21:00 升級FX36，調整加圖標方式
 //2015.01.21 22:00 修正特殊符號，添加小書籤菜單
@@ -354,6 +354,7 @@ where: 'tab'
 {
 label: "產品—已編輯-品名",
 id: "TVC",
+accesskey: "3",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Name=%s&EditorId=0",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
@@ -361,7 +362,6 @@ where: 'tab'
 {
 label: "產品—關聯SPU-所有列表",
 id: "TVC",
-accesskey: "3",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductAssociatedSpuList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
@@ -673,7 +673,7 @@ clone: false,// 不克隆，直接改在原来的菜單上面
 }
 );
 tab({
-id: "ublock-button",
+id: "abp-toolbarbutton",
 insertBefore: "userChromebtnMenu",
 clone: false,// 不克隆，直接改在原来的菜單上面
 }

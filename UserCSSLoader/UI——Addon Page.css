@@ -96,8 +96,7 @@
 #category-availableUpdates{-moz-box-ordinal-group: 5;}
 #category-recentUpdates{-moz-box-ordinal-group: 6;}
 #category-service{-moz-box-ordinal-group: 7;}
-	
-	
+
 	
 	
 /*分类图标定义*/
@@ -473,9 +472,6 @@ progressmeter {
 #view-port-container{background: rgba(248,248,248,1) !important;}
 }
 
-/*隐藏附加组件管理器里的"外观"选项*/
-#category-theme {display: none!important
-}
 /*隐藏附加组件管理器里的"显示发行说明"选项*/
 .relnotes-toggle{ opacity: 0 !important;}
 /*隐藏拓展版本信息*/

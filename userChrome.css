@@ -1,4 +1,4 @@
-/*+++2015.04.14 19:00+++*/
+/*+++2015.04.17 13:00+++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -27,12 +27,10 @@ padding: 0px !important;
 #social-share-button,/*分享此页面*/
 #loop-button-throttled,/*开始会话*/
 #GrabScroll-image,
-#abp-toolbarbutton,/*Adblock Plus*/
 #masonStatusbar,/*Mason*/
 #noscript-tbb,/*Noscript*/
 #ScrapBookStatusPanel,/*ScrapBook*/
 #scriptish-button, /*Scriptish*/
-#greasemonkey-tbb,
 #box-inherit toolbarbutton-menubutton-button/*Greasemonkey*/
 {display: none !important;}
 
@@ -74,4 +72,3 @@ display: none !important}
 #PersonalToolbar {
 background-color: #e6e7e7 !important;
 }
-

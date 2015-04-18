@@ -81,6 +81,13 @@ location == "chrome://browser/content/browser.xul" && (function(){
         //         context: "stylish-popup"
         //     }
         // },
+        
+ {id: "greasemonkey-tbb",
+    attr: {
+        type: "",
+        context: "_child"
+    }
+},
     ];
 
     if (window.MyMoveButton) {

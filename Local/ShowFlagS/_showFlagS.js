@@ -564,7 +564,7 @@ var Menus = [{
  *这里是自定义UserAgent设置
  *******************************************************************************************************************/
 var UAList = [
-{name : "分隔线",},
+
 {name: "IE8 - Win7",//此处文字显示在右键菜单上，中文字符请转换成javascript编码，否则乱码(推荐http://rishida.net/tools/conversion/)
 ua: "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)",
 label: "IE8 - Win7",//此处文字显示在状态栏上，如果你设置状态栏不显示图标

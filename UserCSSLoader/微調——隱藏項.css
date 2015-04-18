@@ -2,7 +2,6 @@
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄&工具欄===*/
-[label="书签"],[label="書籤"],
 #downloadsListBox,/*下載框彈窗*/
 #PlacesChevron,/*书签工具栏产生的箭头*/
 #nav-bar-overflow-button {

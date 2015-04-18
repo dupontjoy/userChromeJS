@@ -21,17 +21,18 @@ padding: 0px !important;
 }
 
 /*隐藏图标*/
+[label="書籤"],[label="书签"],/*書籤圖標*/
 #home-button,
 #stylish-toolbar-button,/*Stylish導航欄圖標*/
 #ghostery-button-badge,/*Ghostery计数*/
 #social-share-button,/*分享此页面*/
 #loop-button-throttled,/*开始会话*/
+#loop-button,/*Loop通話*/
 #GrabScroll-image,
 #masonStatusbar,/*Mason*/
 #noscript-tbb,/*Noscript*/
 #ScrapBookStatusPanel,/*ScrapBook*/
-#scriptish-button, /*Scriptish*/
-#box-inherit toolbarbutton-menubutton-button/*Greasemonkey*/
+#scriptish-button /*Scriptish*/
 {display: none !important;}
 
 /*++第2部分+++++++++++++++++++++++以下为書簽欄自動隱藏+++++++++++++++++++++++++*/

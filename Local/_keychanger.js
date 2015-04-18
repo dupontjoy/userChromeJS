@@ -1,6 +1,7 @@
-//2015.04.18
+//2015.04.19 06:00
 
 //F功能鍵
+
 
 //数字       
 keys['1'] = "gBrowser.selectedTab = gBrowser.addTab('http://www.baidu.com/');";//百度
@@ -11,11 +12,17 @@ keys['5'] = function(){var newtabs=["http://ic.sjlpj.cn/DevProduct/DevProductEdi
 
 //字母
 keys['A'] = "gBrowser.selectedTab = gBrowser.addTab('about:config');";//参数设置
+
 keys['B'] = "gBrowser.selectedTab = gBrowser.addTab('https://www.google.com/search?q=site:pan.baidu.com%20&hl=en-US&safe=off&sclient=psy-ab');";//百度盤文件搜索
+
 keys['G'] = "var s = prompt('站内搜索——请输入待搜索字符串', '');if (s.length > 0) gBrowser.addTab('http://www.google.com/search?q=site:' + encodeURIComponent(content.location.host) + ' ' + encodeURIComponent(s));";//Google站内搜索
+
 keys['J'] = "BrowserDownloadsUI();";//下载
+
 keys['F'] = "BrowserOpenAddonsMgr();";//附加组件
+
 keys['H'] = "PlacesCommandHook.showPlacesOrganizer('History');";//我的足迹（历史）
+
 keys['I'] = function() {
 try {
 var file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProgF", Components.interfaces.nsILocalFile);
@@ -28,18 +35,36 @@ process.run(false, [content.location.href], 1);
 alert("\u6253\u5f00IE\u5931\u8d25!")
 }
 };//用IE打开当前页
+
+keys['P'] = "openPreferences();";//选项
+
+keys['R'] = function() {
+KeyChanger.makeKeyset(true);//KeyChanger
+UCL.rebuild();//UserCSSLoader
+addMenu.rebuild(true);//AddmenuPlus
+anobtn.reload(true);//anobtn
+Redirector.reload();//Redirector
+showFlagS.rebuild(true);//showFlagS
+};//群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
+
+keys['S'] = "BrowserStop();";//停止载入当前页
+
+keys['T'] = "BrowserOpenTab()";//打开新标签
+
 keys['U'] = function() {
 Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile).reveal();
 };//Chrome文件夹
-keys['P'] = "openPreferences();";//选项
-keys['S'] = "BrowserStop();";//停止载入当前页
-keys['T'] = "BrowserOpenTab()";//打开新标签
+
 keys['W'] = "gWHT.addWord();";//WordHighlight添加词
+
 keys['X'] = "gWHT.destroyToolbar();";//WordHighlight取消工具栏
 
 //組合鍵
-keys['Shift+X'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键
 keys["Alt+X"] = "Services.appinfo.invalidateCachesOnRestart() || Application.restart();"; //删除启动缓存并重启
+
+keys['Shift+X'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键
+
+keys['Shift+A'] = "XULBrowserWindow.statusTextField.label = 'Adblock Plus 條件偏好設定'; gBrowser.selectedTab = gBrowser.addTab('chrome://adblockplus/content/ui/filters.xul');";
 
 
 //keys['Ctrl+F'] = function() {var path = addMenu.handleRelativePath('\\chrome\\local\\FSCapture\\FSCapture.exe');addMenu.exec(path, []);};//启动FSCapture

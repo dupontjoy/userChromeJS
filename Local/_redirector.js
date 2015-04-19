@@ -1,4 +1,5 @@
 
+//2015.04.19 10:00 新增鳳凰網 圖片修正
 //2015.04.14 13:00 新增鳳凰網 只顯示首圖修正
 //2015.04.06 21:00 修正百度盤搜索地址替換
 //2015.03.26 15:00 更新TVC規則
@@ -65,6 +66,13 @@ regex: true
 name: "鳳凰網 只顯示首圖修正",
 from: /^https?:\/\/(.*)\.ifeng\.com\/a\/(ydzx|)\/(.*)/i,
 to: "http://$1.ifeng.com/a/$3",
+regex: true
+},
+{
+//方法來源：http://tieba.baidu.com/p/3708648047
+name: "鳳凰網 圖片修正",
+from: /^https?:\/\/(.*)\.ifeng\.com\/(.+)?shtml.+?(#p=.)/,
+to: "http://$1.ifeng.com/$2shtml",
 regex: true
 },
 {

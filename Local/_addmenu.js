@@ -1,4 +1,5 @@
 
+//2015.04.21 10:00 調整特殊符號
 //2015.04.17 13:00 調整一些菜單順序
 //2015.04.02 12:00 調整選中文字搜索
 //2015.03.31 21:00 升級FX36，調整加圖標方式
@@ -500,12 +501,11 @@ insertBefore: "Punctuation-sep",
 PunctuationsubMenu1([
 {label: "°", input_text:"°"},
 {label: "°C", input_text:"°C"},
+{label: "Ω", input_text:"Ω"},//ohm
+{label: "Φ", input_text:"Φ"},//diameter
 {label: "m²", input_text:"m²"},
 {label: "cm²", input_text:"cm²"},
 {label: "km²", input_text:"km²"},
-{label: "Ω", input_text:"Ω"},//ohm
-{label: "Φ", input_text:"Φ"},//diameter
-{label: "¢", input_text:"¢"},//another way of diameter
 ]);
 var PunctuationsubMenu2 = PageMenu({
 label: "數學",

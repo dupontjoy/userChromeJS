@@ -206,13 +206,6 @@ from: /^https?:\/\/(pan|yun)\.baidu\.com\/wap\/share\/(home\?|)(.*)/i,
 to: 'http://pan.baidu.com/share/home?$3',
 regex: true
 },
-{
-//來源：http://bbs.kafan.cn/thread-1804863-1-1.html
-name: "百度盤lx.cdn >> qd",
-from:/^http:\/\/lx\.cdn\.baidupcs\.com\/file\/(.*)$/,
-to: "http://qd.baidupcs.com/file/$1",
-regex: true
-},
 
 //原始大圖系列
 /*{
@@ -266,7 +259,7 @@ regex: true
 },
 
 //Google服務轉國內鏡像
-/*{
+{
 //重定向ajax|fonts到國內的360
 name: "Google ajax|fonts >> useso",
 from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
@@ -285,7 +278,7 @@ name: "Google统计和tag >> mingto.tk",
 from: /^https?:\/\/(.*?)(google-analytics|googletagmanager|googletagservices|googleadservices)\.com\/([\w]+\/)*([\w]+(\.[\w]+)?)/i,
 to: "http://minggo.coding.io/cdn/google/$4",
 regex: true
-},*/
+},
 
 //待測試
 {

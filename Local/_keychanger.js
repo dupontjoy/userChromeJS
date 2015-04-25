@@ -1,4 +1,4 @@
-//2015.04.19 06:00
+//2015.04.21 10:00
 
 //F功能鍵
 
@@ -60,11 +60,13 @@ keys['W'] = "gWHT.addWord();";//WordHighlight添加词
 keys['X'] = "gWHT.destroyToolbar();";//WordHighlight取消工具栏
 
 //組合鍵
-keys["Alt+X"] = "Services.appinfo.invalidateCachesOnRestart() || Application.restart();"; //删除启动缓存并重启
+keys['Alt+A'] = "XULBrowserWindow.statusTextField.label = 'Adblock Plus 條件偏好設定'; gBrowser.selectedTab = gBrowser.addTab('chrome://adblockplus/content/ui/filters.xul');";
 
-keys['Shift+X'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键
+keys["Alt+R"] = "Services.appinfo.invalidateCachesOnRestart() || Application.restart();"; //删除启动缓存并重启
 
-keys['Shift+A'] = "XULBrowserWindow.statusTextField.label = 'Adblock Plus 條件偏好設定'; gBrowser.selectedTab = gBrowser.addTab('chrome://adblockplus/content/ui/filters.xul');";
+keys['Alt+X'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键
+
+
 
 
 //keys['Ctrl+F'] = function() {var path = addMenu.handleRelativePath('\\chrome\\local\\FSCapture\\FSCapture.exe');addMenu.exec(path, []);};//启动FSCapture

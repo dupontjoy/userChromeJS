@@ -5,6 +5,8 @@
 // @description     中键书签工具栏书签文件夹添加书签至对应文件夹
 // @version         0.0.4.4
 // @updateURL     https://j.mozest.com/ucscript/script/108.meta.js
+
+// 2015.04.23  取消添加描述
 // ==/UserScript==
 
 (function () {
@@ -37,6 +39,8 @@
             eval("StarUI.handleEvent="+StarUI.handleEvent.toString()
                 .replace(/"expander\-up"\)? \|\|/,
                 '$& aEvent.target.id == "editBMPanel_descriptionField" ||'));
+             //取消添加描述 2014.10.05
+             eval("PlacesCommandHook.bookmarkPage="+PlacesCommandHook.bookmarkPage.toString().replace(/\[descAnno\]/, "null"));
         },
 
         getAnchorElementByItemId: function(target, itemId) {

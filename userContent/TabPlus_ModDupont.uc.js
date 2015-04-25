@@ -2,6 +2,7 @@
 // @description  Tab Plus 标签页增强
 // @include      chrome://browser/content/browser.xul
 
+// 2015.04.21 14:00 加入滾輪切換，自動聚焦
 // 2015.04.02 10:00 精簡
 // 2015.03.19 16:00 open_in_new_tab更新到GOLF-AT 2.1.20150305版
 // 2015.01.23 21:00 新标签打开『查看图片』
@@ -157,3 +158,29 @@ document.getElementById("urlbar").handleRevert();
     
 //新标签打开『查看图片』
 location == "chrome://browser/content/browser.xul" && document.querySelector("#context-viewimage").setAttribute("oncommand", 'openUILinkIn(gContextMenu.imageURL,"tab")') & document.querySelector("#context-viewbgimage").setAttribute("oncommand", 'openUILinkIn(gContextMenu.bgImageURL,"tab")')
+
+//滚轮切换标签
+    gBrowser.mTabContainer.addEventListener("DOMMouseScroll", function(event){
+        this.advanceSelectedTab(event.detail > 0 ? +1 : -1, true);
+    }, true);
+
+/*
+//鼠标停留标签自动聚焦
+     (document.getElementById("tabbrowser-tabs") || gBrowser.mTabBox).addEventListener('mouseover',
+    function self(e) {
+        if ((self.target = e.target).localName === 'tab') {
+            if (!self.timeoutID) {
+                this.addEventListener('mouseout',
+                function() {
+                    clearTimeout(self.timeoutID);
+                },
+                false);
+            }
+            self.timeoutID = setTimeout(function() {
+                gBrowser.selectedTab = self.target;
+            },
+            50);
+        }
+    },
+    false); 
+*/

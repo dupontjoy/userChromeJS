@@ -1,4 +1,5 @@
 
+::2015.04.21 09:00 更新說明
 ::2015.04.16 08:00 更新備份項，添加說明
 ::2015.04.06 07:00 更新備份項
 ::Mod 2015.01.26搞定了时间问题
@@ -16,11 +17,17 @@ rem 复制目标文件到临时文件夹
 del %BackDir%\chrome\UserScriptLoader\require\  /s /q 
 
 ::以下是文件夹
+::adblockplus：ABP規則備份。
 xcopy "%BackDir%\adblockplus" %TempFolder%\adblockplus\  /s /y /i
+::chrome：UC腳本。
 xcopy "%BackDir%\chrome" %TempFolder%\chrome\  /s /y /i
+::extensions：安裝的擴展。
 xcopy "%BackDir%\extensions" %TempFolder%\extensions\ /s /y /i
+::extension-data：uBlock的數據文件，包含設置。
 xcopy "%BackDir%\extension-data" %TempFolder%\extension-data\ /s /y /i
+::gm_scripts：安裝的油猴腳本。
 xcopy "%BackDir%\gm_scripts" %TempFolder%\gm_scripts\ /s /y /i
+::Plugins：便㩦版插件。
 xcopy "%BackDir%\Plugins" %TempFolder%\Plugins\ /s /y /i
  
 ::以下是文件

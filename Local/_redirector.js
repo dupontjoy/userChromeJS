@@ -1,4 +1,5 @@
 
+//2015.04.25 08:00 新增Google搜天氣时 圖標
 //2015.04.19 10:00 新增鳳凰網 圖片修正
 //2015.04.14 13:00 新增鳳凰網 只顯示首圖修正
 //2015.04.06 21:00 修正百度盤搜索地址替換
@@ -173,6 +174,14 @@ from: /^https?:\/\/ipv4\.google\.com\/sorry\/IndexRedirect\?continue=https?:\/\/
 to: "https://www.google.com/ncr#$1",
 regex: true
 },
+{
+//來源：http://bbs.kafan.cn/thread-1824493-1-1.html
+name: "Google搜天氣时 圖標",
+from: /^https?:\/\/www\.gstatic\.cn\/onebox\/weather\/(.*)/i,
+to: "https://ssl.gstatic.com/onebox/weather/$1",
+regex: true
+},
+
 
 //百度系
 {

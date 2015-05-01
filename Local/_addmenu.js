@@ -1,11 +1,10 @@
 
+//2015.05.01 21:00 調整一些菜單順序和添加圖標
 //2015.04.29 21:00 貼上 二级菜單
 //2015.04.21 10:00 調整特殊符號
-//2015.04.17 13:00 調整一些菜單順序
 //2015.04.02 12:00 調整選中文字搜索
 //2015.03.31 21:00 升級FX36，調整加圖標方式
 //2015.01.21 22:00 修正特殊符號，添加小書籤菜單
-//2015.01.20 10:00 更新TVC搜索項
 //2015.01.16 23:00 更新TVC搜索項，加入特殊符號選單三級菜單
 //2015.01.08 20:40 一些搜索項只在特定網站顯示
 //2015.01.04 09:35 複製 二级菜單
@@ -28,7 +27,7 @@
 //撤销关闭二级菜單 By feiruo
 var undoMenu = TabMenu({
 label: '撤銷關閉',
-accesskey: "R",
+accesskey: "F",
 insertBefore: "context_reloadTab",
 tooltiptext: "右鍵显示所有历史记录",
 onclick: "if (event.button == 2) {PlacesCommandHook.showPlacesOrganizer('History');}",
@@ -110,10 +109,11 @@ where: 'tab'
 //圖片右鍵 複製 二级菜單
 new function() {
 var items = [{
-command: 'context-copyimage-contents'
+command: 'context-copyimage-contents',
 },
 {
 label: "複製GIF",
+accesskey: "G",
 condition: "image",
 insertBefore: 'context-saveimage',
 image: "",
@@ -648,6 +648,7 @@ css('#contentAreaContextMenu[addMenu~="input"] #' + it.command + '{ display: non
 /*——————————頁面右鍵——————————*/
 var openMenu = PageMenu({
 label: '小功能',
+accesskey: "E",
 condition: 'noinput noselect nomailto nocanvas nomedia noimage nolink',
 position: 1,
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdElEQVQ4jc3QQQrCQAwF0CeeQKZlUDyGl1ev0IX1CiIuxDPoJsuOLQTBD28xYRJI4J3klmS30L5hUXPFWiP3GQ8M2P5sQHqF9BHnVpjjleSQ9AfpUbAK5ct7MiOO2KDDOXRRO4XSGvDEJT5UXEON2hj6qeYP+LhgfWentcAAAAAASUVORK5CYII=",
@@ -656,6 +657,7 @@ insertBefore: 'context-sep-navigation'
 openMenu([
 {
 label:"拼寫檢查",
+accesskey: "A",
 tooltiptext: "拼寫檢查（當前窗口打開）！",
 oncommand: function() {document.onkeydown=ck;content.document.body.contentEditable=true;function ck(e){k=window.event?window.event.keyCode:e.keyCode;if(k==27){content.document.body.contentEditable=false}}},
 },
@@ -674,6 +676,17 @@ text: "%FAVICON_BASE64%",
 },
 
 ]);
+
+/*——————————書籤右鍵——————————*/
+/*爲書籤右鍵添加 移動 功能*/
+page({
+label: '移动...',
+accesskey: "M",
+insertAfter: "placesContext_newSeparator",
+command: "placesCmd_moveBookmarks",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABgUlEQVQ4jcXST0vCcBzH8T2EorL806hd8tAziOgQgSBIghCE0PPoUgRJVKKryENBwQopkgRByRhJRkFlUVhhTuaPtaA8qAiKRX46CA6ZxS7RF96MDb4vfvwYRf31dKw+ks61J7RKE9DOPtA6NkmYg3cMnn010q08aAMoiqLaF67pbs9dYYCvwByrwhyrosd7rwBOXuad/Ct+amj3GTSXBRMtgYkUwURLMLhvFGDyWMb2B1o2FZdh2kjBePgG45aAPncCxm0BpsUrBZg4esFmGarxxiUY1pPQ7dWfTl7CeIig13VOaNeFAjjCEnzF5mX2lEDP3qKNE6Bnb+GJEfiKgCMswTB7TPfPxUkDsIcI2JyynC9/YNhzgS42gR73JbwnYh3NAfYQUd++LZjFktx8ArlQwcjyGVg+0/i2JAO2YFYNWAMi5kXgE83lK59N7/MiYA2IasCyn8FMqoZSDb82k6rBsp9RA2N+AdPJqqbG/IIaGOXSkdGdNDTFpSOt/tb/m2/dZssonB/5IgAAAABJRU5ErkJggg==",
+})
+
 
 /*——————————移動圖標和菜單——————————*/
 //移动圖標，代替Movebutton.uc.js，需配合RebuildWhenStart.uc.js，可惜對有的圖標還是無力
@@ -816,6 +829,24 @@ page(
 page(
 { id: 'placesContext_show:info', clone :false,image:
 "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAlBJREFUeNpi/P//PwMy8KvcJwikEoHYGIgNgZgJiC9A8ZxN7U5vkNUzIhvgU7angYOdpVhXXYxVXISbWVSYm4kRqOb1u29/X7/99vfijZe/v//4PWFLl0sthgFexTt7FGQEspxsVDhefv7L+OHbX4ZP3/8ygGT5OJkZ+IFYio/l/6GT937cvv92xrZe9yK4Ae7522qV5YUqTU2VOS88+sbw+y/E0GvPn4JpLUlpMM0CdI++HBfDxQv3v9+8+6Z350SvWkanrI1SHOysN7089LkvPv3BiBwks5OUwHTqvHso4aQvw/l/955LX798/anO9Pf3n2RdDQm2C4+/Mf789Zfh128EhgFkMRA+//Aro4ayGBtIL8uf33/c/7Jxsnz58ocBHVg1HwLT8oJiKOK/QAQfF0ivL8ufX3803v5gYPr16y+GAfsqrMF09OQbGHIvvzAzAfUqAU35/fv1+x///zMyMjLgAD9/YbruF1AMqJcB5Iy7379+E2Nk48BjAKbr/v/69Q+o9wnICzv/vP9g+l9QlA2XAdi8x/jx4x+g3j1MQFPmvn/y7NfPn7//o4c2KEpBGF0c5Px3jx7/AuqdA05Iqo4Tm9mFhUvY5RQ5GIgAPx4//PHrzetJt/fnl8OTsqJtbx+rkEgmu6wCOyMTE/bw+PeP4cfTRz9+v3k1/f7h4iKMzCRn2dXMxMpawCImycbCL8TCxM7OBAmwn//+fHz/5/erF7///fo56dHxsiqsuREEZMzaZYBUChAHALESVPghEG8GZecnpypR0jVAgAEAzPVNyh34CewAAAAASUVORK5CYII="
+});
+
+//書簽右鍵 在此书签后面添加新书签
+page(
+{ id: 'addnewbookmarkMenuItem', clone :false,image:
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACoElEQVQ4jX3MX0hTYRzG8Z8UZYJFRl40CoICISEXoQVb5Z+mG26gEERg4szNbbp0zQnD5R92MUG8EIKGiUxS0C6kyNQrLQgJJpGaiEY15xgYNtp21O2c9zzd2AiP9cCX9+b3foj2LUjUuUH04k9Bos79Nwfu8eiotmNszLAgk83D7Qba2wG3Gwsy2XzH2Jhhrwv/BNpGRowcYwhVVAAuF0S7HXC5ENDpEIhG8W5xEW0jI8aW4eGLBwKtPp8xnkxiXaeD6HRCaG6G6HRiTaPBUiiEN3NzAIBWn8/YMjgoRR4NDNRzPI/vWi2YwwG+sRHM4cCqWo3lcBjPJyZSXa2qapYATV6vaZvn8bW8HILNhoTJBMFmw6pajS+bm1gOh7EUCiEQjaLJ6zVJAEtfn2lXELCm0YC3WrFdVwfeasWKWo1gJJJCAtEoLH19UqC2t9ecYAwrajWSZjPiNTVIms1YLivDZiyWQoKxGGp7e80SoNrjsSQZw+fSUiQMBkSrqpAwGLCgUmErHk8hYY5DtcdjkQD3uroaeFHEJ5UKgtGIXb0egtGIjyUliHActuJx3J+zIm+6COcGrr2XAJVOZyMTRcwXFwP19anXX1SEXzs7iHAcLr8uxIOfLUgfPLsuAbR2u5WJImaVSswqFFjp7saMQoEZhQI1b63IG7+FvPGbuPPDgPSnsnV6luWn/pPeFHC7oeEhALwqKEBwagpJQUBgchIv8/MhH72BwnClJHpywp8Cruv1TQAgiiKYKEJgDElBQILnUTvdCPmQEvIhJXLXlTjiOR2knuN+6sn0EhFlEFH2eZXKjr/G9iBeFJFkDAnGcKVfgTPfLuGQKytIRNl7fymLiHIzcnIMmXJ56/86fPfUhzT9sY208qNTRJRLRFm/AYwr7+SwM3+WAAAAAElFTkSuQmCC"
+});
+
+//書簽右鍵 更新当前书签
+page(
+{ id: 'updatebookmarkMenuItem', clone :false,image:
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACrklEQVQ4jXXQT0jTcRjH8ecsdNBDIF4KCgwkEgIRpojZL3/DSXUJIokWbm7OpTYVR9YKD0bgwS4JWQglaYWRaSJBfyy8JJGWf1Naa0mCSHNzut+fdwdrWKsHPnzh4ft5HR6RvyYkcvmryP3fCYlc/vvPP+dib68t0NfnmMjKGqe1FS5dgtZWJrKyxgN9fY5f2fNf4EJPjzNmGISPHYOWFkyfD1paCJaXE4xEeDU5yYWeHmfD3bt7/wk0dXc7o4kEX8rLMf1+9Lo6TL+feauVD+EwQ2NjADR1dzsbbt9ORc53dVXFNI3PNhtGYyNaTQ1GYyNzqsrU0hJ3BgeTOVhRUZcC1HZ2utY1jcWyMvT6ejZdLvT6euZUlU/Ly0wtLfEhHCYYiVDb2elKAao7Olwbus681Yrm9bJeWYnm9TKjqoRWV5NIMBKhuqMjFTjb3u7eNAxmVJWE2030zBkSbjdTpaUsr60lkdDaGm2VldcWRPpHRYqSwOm2tuqEYfDxyBE2HQ4iFRVsOhxMKAor0WgSeb+wgNdmGyAQ4JHIyyRw8soVj2aavFcUdKeTDbsd3enkXUkJq7EYK9Eoi4vD3OvvJx6PU5KZ2d4loiSB435/jWGajB86BFVVyfdtcTE/4nGCwRFeDpQS/9bMgcLCwfT09P1/3MDm83kN0+RFQQEvLBZmrl7lucXCc4uFr1+eMTqgEv/WzINbRZyqKbuecsTDHs85gMd5eYSGh0noOsGnTxk4uo/XT6xb5ZtFzM6McNjjOZcC5NvttQCmaWKYJrphsPJ9mjeDW+WHXUVMfxwipmnk2+2127tpIrJzt6L42DaGaTI2FIDoLP23ilmYHWFD19kwDHYrik9Edv7qSoaI5KRlZzt25OY2bY+IcEJNm8ix7LqxfZ+Wne0QkRwRyfgJ/WP7KVCw7+QAAAAASUVORK5CYII="
+});
+
+//書簽右鍵 新增資料夾...
+page(
+{ id: 'placesContext_new:folder', clone :false,image:
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHElEQVQ4ja3TP2sCMRzGcd9N9pa+gzj1H51dOlinW7raEioIAYdyUCRIKWlvcOiBoAbFwVJcvEFBTsFBcOlwL6BNz+3pUHr1mnSwNvAhQ8g3vyWZzH8u6nD8tNFFJhXCSCeYVKAOx+HZFQ4KJewXSvY4dTjCSONp9mJosSoe9k5wv3sMuXOEFqsijPR3wDb2ul6uiFgNET8+I1ZD9HLF9BRfr/+mkc1jJbt4v/axkl00svnkLBVoj5dWglDosofX8xvosgdBKNrjpRnwg4WVLeAHCzPgDeZWtoA3mJuBWn9qJQiFrtTxdnELXalDEIpaf2oG3M7EShCK+E6ldrczMQO8ObJyTy8/L63tvDkyA8wPNmIE/iIJbGPrH/wB1oFX2e+MUlUAAAAASUVORK5CYII="
 });
 
 //標簽右鍵 重新載入分頁

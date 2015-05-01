@@ -1,4 +1,4 @@
-/*+++2015.04.18 21:00+++*/
+/*+++2015.04.30 13:00+++*/
 
 /*新標籤打開菜單順序置頂*/
 #context-openlinkintab {-moz-box-ordinal-group: 0 !important;}
@@ -9,10 +9,11 @@
 /*地址栏图标排序*/
 [label="书签"],[label="書籤"] {-moz-box-ordinal-group: 1 !important;}
 #foxyproxy-toolbar-icon {-moz-box-ordinal-group: 2 !important;}
-#abp-toolbarbutton {-moz-box-ordinal-group: 3 !important;}
-#flashgot-media-tbb {-moz-box-ordinal-group: 4 !important;}
-#lpt_lastpass-compact-btn {-moz-box-ordinal-group: 5 !important;}
-#userChromebtnMenu {-moz-box-ordinal-group: 6 !important;}
+#ucjsPermission_Toolmenu {-moz-box-ordinal-group: 3 !important;}
+#abp-toolbarbutton {-moz-box-ordinal-group: 4 !important;}
+#flashgot-media-tbb {-moz-box-ordinal-group: 5 !important;}
+#lpt_lastpass-compact-btn {-moz-box-ordinal-group: 6 !important;}
+#userChromebtnMenu {-moz-box-ordinal-group: 7 !important;}
 
 /*更多工具圖標排序*/
 #addMenu-rebuild {-moz-box-ordinal-group: 1 !important;}
@@ -33,14 +34,27 @@ padding: 0px !important;
 margin-left: 0px !important;
 }
 
+/*調整圖標邊框*/
+#back-button >image, 
+#forward-button >image, 
+#abp-toolbarbutton >image, 
+#ublock-button >image, 
+#flashgot-media-tbb >image, 
+#lpt_lastpass-compact-btn > image, 
+#greasemonkey-tbb > image, 
+#stylish-toolbar-button >image, 
+#userChromebtnMenu >image 
+{padding: 0px !important;}
+
 /*調整uBlock圖標邊框*/
 #ublock-button .toolbarbutton-badge-container {padding: 0px !important;}
 
 /*調整FoxyProxy圖標邊框*/
 #foxyproxy-toolbar-icon .toolbarbutton-icon {padding: 0px !important;}
 
-/*調整圖標邊框*/
-#back-button >image, #forward-button >image, #abp-toolbarbutton >image, #ublock-button >image, #flashgot-media-tbb >image, #lpt_lastpass-compact-btn > image, #greasemonkey-tbb > image, #stylish-toolbar-button >image, #userChromebtnMenu >image {padding: 0px !important;}
+/*ucjsPermission圖標距離調整（两句要同時用）*/
+toolbarbutton#ucjsPermission_Toolmenu {padding: 0px !important;}
+toolbarbutton#ucjsPermission_Toolmenu>image {margin: 0px !important;}
 
 /*附加组件调序*/
 #category-extension {-moz-box-ordinal-group: 0 !important;}

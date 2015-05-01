@@ -1,4 +1,5 @@
 
+//2015.04.29 21:00 貼上 二级菜單
 //2015.04.21 10:00 調整特殊符號
 //2015.04.17 13:00 調整一些菜單順序
 //2015.04.02 12:00 調整選中文字搜索
@@ -7,7 +8,6 @@
 //2015.01.20 10:00 更新TVC搜索項
 //2015.01.16 23:00 更新TVC搜索項，加入特殊符號選單三級菜單
 //2015.01.08 20:40 一些搜索項只在特定網站顯示
-//2015.01.08 10:40 貼上 二级菜單
 //2015.01.04 09:35 複製 二级菜單
 //2015.01.03 12:00 新增幾個TVC搜索
 //2014.12.22 18:50 選中文字搜索換回
@@ -589,6 +589,31 @@ menu(items);
 new function() {
 var items = [{
 command: 'context-paste'
+},
+{
+label: "標點符號置換(中轉英)",
+condition: "input",
+accesskey: "E",
+oncommand: function() {
+goDoCommand("cmd_copy");
+var sel = getBrowserSelection();
+var txt = addMenu.convertText('%p');
+addMenu.copy(txt.replace(/(\s，\s|\s，|，\s|，)+/g, ", ")
+.replace(/(\s。\s|\s。|。\s|。)+/g, ". ")
+.replace(/(\s？\s|\s？|？\s|？)+/g, "? ")
+.replace(/(\s！\s|\s！|！\s|！)+/g, "! ")
+.replace(/(\s；\s|\s；|；\s|；)+/g, "; ")
+.replace(/(\s：\s|\s：|：\s|：)+/g, ": ")
+.replace(/(\s（\s|\s（|（\s|（)+/g, " (")
+.replace(/(\s）\s|\s）|）\s|）)+/g, ") ")
+.replace(/(\s—\s|\s—|—\s|—)+/g, " - ")
+.replace(/(\s＆\s|\s＆|＆\s|＆)+/g, " & ")
+.replace(/(\s…\s|\s…|…\s|…)+/g, "... ")
+.replace(/(\s、\s|\s、|、\s|、)+/g, ", ")
+.replace(/(\s’\s|\s’|’\s|’)+/g, "'")
+);
+if (sel) {goDoCommand("cmd_paste");}
+},
 },
 {
 label: "插入code代碼",

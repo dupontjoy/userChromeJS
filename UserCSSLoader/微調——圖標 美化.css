@@ -1,4 +1,4 @@
-/*+++2015.04.26 12:00+++*/
+/*+++2015.04.28 18:00+++*/
 
 /*==扩展/脚本图标补充==*/
 
@@ -10,6 +10,11 @@ list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYA
 /*userChromebtnMenu*/
 #userChromebtnMenu {
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAgMAAABinRfyAAAACVBMVEUAAAB7hpFteIJ9g56wAAAAAXRSTlMAQObYZgAAACpJREFUCNdjAANJxgk4iNCpIQxSq1atYBAFsRiAYigEWGzVCiARGgI2CQDoDQytxXvvaQAAAABJRU5ErkJggg==")!important;
+}
+
+[label="標點符號置換(中轉英)"] {
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABB0lEQVQ4jc3SvyvFURjH8ZekxKDEDbvuYpNiIqVcyurmR12RyT9gUn4MBkwiu4EUg7i3lFJSYlYGMYg/Ql3Dfe6is1wWn/p0Pk/P+b6f7zkd/ouWcII9ZH4LOUX+L39xjqm/AErYjbWE2VoB19iJXIi6Jt1iPvJ81FX1qFxy1ZMpwAMWIx9EXdVGGNZx9vPjbbz98ERiyAg2cZE8Q2HtYyzZoAOH4S1cpQGrn2eDhds+yOaK5f7801C0jrEceQ43ScDM2nt2eOHusXv05Cubu3wdmH4uR+seK5H3o+5KMepQj4ZsrlhuausdR0tMfwnPqbyTo+ilAWhEc2xqRXvcRWdMz6QANesbiGI880J6fHEAAAAASUVORK5CYII=") !important;
+-moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 
 [label="拼寫檢查"] {

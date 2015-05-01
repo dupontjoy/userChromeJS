@@ -1,9 +1,10 @@
 
+//2015.04.30 17:00 精簡很久不用的規則
+//2015.04.28 16:00 更新TVC規則
 //2015.04.25 08:00 新增Google搜天氣时 圖標
 //2015.04.19 10:00 新增鳳凰網 圖片修正
 //2015.04.14 13:00 新增鳳凰網 只顯示首圖修正
 //2015.04.06 21:00 修正百度盤搜索地址替換
-//2015.03.26 15:00 更新TVC規則
 //2015.03.26 11:00 更新Google搜索定向到新界面
 //2015.03.25 10:00 修复sourceforge規則
 //2015.03.20 13:00 修正百度盤搜索地址替換
@@ -14,9 +15,7 @@
 //2015.01.30 09:00 添加Linkedin 去跳轉
 //2015.01.28 13:00 添加Business Insider 去跳轉
 //2015.01.24 14:00 添加京東，天貓大圖規則
-//2015.01.16 更新sourceforge規則
-//2015.01.10 刪除一個有問題的規則
-//2015.01.07 修正flickr >> 原始大圖
+//2015.01.16       更新sourceforge規則
 
 //規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
 
@@ -44,7 +43,7 @@ regex: true
 {
 //個人用
 name: "TVC內網-內網參考鏈接修正-2",
-from: /^http:\/\/ic\.sjlpj\.cn\/DevProduct\/www\.(.*)/i,
+from: /^http:\/\/ic\.sjlpj\.cn(?:\/DevProduct|)\/www\.(.*)/i,
 to: "www.$1",
 regex: true
 },
@@ -217,46 +216,6 @@ regex: true
 },
 
 //原始大圖系列
-/*{
-name: "tradingfloor 原始大圖",
-from: /^https?:\/\/www\.tradingfloor\.com\/images\/article\/max608w\/(.*)/i,
-to: "https://www.tradingfloor.com/images/article/original/$1",
-regex: true
-},
-{
-name: "百度貼吧|百科 >> 原始大圖",
-from: /^http:\/\/(imgsrc|[\w]?\.hiphotos)\.baidu\.com\/(forum|baike)\/[\w].+\/sign=[^\/]+(\/.*).jpg/i,
-to: "http://$1.baidu.com/$2/pic/item$3.jpg",
-regex: true
-},
-{
-name: "500px >> 原始大圖",
-from: /^https?:\/\/(.*)\.(edgecastcdn|500px)\.(net|org)\/(.*)\/[\d].jpg(.*)?/i,
-to: "https://$1.$2.$3/$4/2048.jpg",
-exclude: /^https?:\/\/(.*)\.(edgecastcdn|500px)\.(net|org)\/(.*)\/(1|2).jpg(.*)?/i,//排除頭像縮略圖
-regex: true
-},
-{
-//測試：http://i11.topit.me/m/201103/12/12998645416093.jpg, http://f8.topit.me/8/69/94/11889296294ef94698m.jpg
-name: "topit.me >> 原始大圖",
-from: /^https?:\/\/(.*)\.topit\.me\/(.*)?m(.*)?\.jpg$/,
-to: "http://$1.topit.me/$2l$3.jpg",
-regex: true
-},
-{
-name: "designspiration >> 原始大圖",
-from: /^https?:\/\/(.*)\.dspnimg\.com\/data\/g\/(.*)g\.jpg+(\/.*)?/i,
-to: "http://$1.dspnimg.com/data/l/$2l.jpg",
-regex: true
-},
-{
-//http://bbs.kafan.cn/thread-1801036-1-1.html
-name: "flickr >> 原始大圖",
-from: /^(https?:\/\/c\d\.staticflickr\.com\/\d\/\d+\/\d+_[^\._]+)(_[a-z])?(\.jpg)$/,
-exclude: /^(https?:\/\/c\d\.staticflickr\.com\/\d\/\d+\/\d+_\w+)_b(\.jpg)$/,
-to: "$1_b$3",
-regex: true
-},*/
 {
 //重定向到无Logo的大圖
 //测試：http://img11.360buyimg.com/n5/jfs/t700/22/552651328/263602/77209a24/54c05927N3820abe9.jpg
@@ -264,28 +223,6 @@ regex: true
 name: "京東 >> 原始大圖",
 from: /^https?:\/\/(.*)\.360buyimg\.com\/(n1)\/(.*)\.jpg+(\/.*)?/i,
 to: "http://$1.360buyimg.com/imgzone/$3.jpg",
-regex: true
-},
-
-//Google服務轉國內鏡像
-{
-//重定向ajax|fonts到國內的360
-name: "Google ajax|fonts >> useso",
-from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
-to: "http://$1.useso.com/$2",
-state: true,
-regex: true
-},
-{
-name: "Gravatar头像 >> 多说",
-from: /^https?:\/\/([0-9]?)\.gravatar\.com\/avatar\/(.*)$/,
-to: "http://gravatar.duoshuo.com/avatar/$1",
-regex: true
-},
-{
-name: "Google统计和tag >> mingto.tk",
-from: /^https?:\/\/(.*?)(google-analytics|googletagmanager|googletagservices|googleadservices)\.com\/([\w]+\/)*([\w]+(\.[\w]+)?)/i,
-to: "http://minggo.coding.io/cdn/google/$4",
 regex: true
 },
 
@@ -298,20 +235,7 @@ regex: true
 },
 
 //——————以下为不啟用——————
-/*{
-//有人求的，練手之作
-name: "tb >> taobao",
-from: /^https?:\/\/(.*?)tb\.com\/(.*)$/,
-to: "http://$1taobao.com/$2",
-regex: true
-},
-{
-//有人求的，練手之作
-name: "tm >> tmall",
-from: /^https?:\/\/(.*?)tm\.com\/(.*)$/,
-to: "http://$1tmall.com/$2",
-regex: true
-},
+/*
 {
 //打開頁面後，自動滾動到某一位置
 name: "BiliBili",

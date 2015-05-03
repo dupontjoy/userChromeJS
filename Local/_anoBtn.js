@@ -1,5 +1,5 @@
 
-//2015.04.30 13:00 調整菜單順序，加入Win8.1優化批處理
+//2015.05.03 14:00 調整菜單順序，加入Win8.1優化批處理
 //2015.04.27 09:00 加入GoGo Tester
 //2015.03.29 20:00 Software和 Plugins分離出配置文件夾
 //2015.03.26 12:00 加入FoxitReader，ReRe，Winmaster
@@ -105,6 +105,10 @@ exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GF
 {
 label: "Psiphon",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GFW\\psiphon\\psiphon3.exe",
+},{},
+{
+label: "Freegate",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GFW\\Freegate\\fg.exe",
 },{},
 {
 label: "DnsJumper",

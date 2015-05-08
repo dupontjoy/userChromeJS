@@ -1,5 +1,5 @@
 
-//2015.04.30 17:00 精簡很久不用的規則
+//2015.05.07 16:00 精簡很久不用的規則
 //2015.04.28 16:00 更新TVC規則
 //2015.04.25 08:00 新增Google搜天氣时 圖標
 //2015.04.19 10:00 新增鳳凰網 圖片修正
@@ -77,8 +77,8 @@ regex: true
 },
 {
 //測試：http://www.jobui.com/tips/redirect.php?link=http%3A%2F%2Fsearch.51job.com%2Fjob%2F65505572%2Cc.html
-name: "职友集|inc 去跳转",
-from:/^http:\/\/www\.(jobui|inc)\.com\/(.*)(link|destination)=(.*)/i,
+name: "职友集 去跳轉",
+from:/^https?:\/\/www\.(jobui|)\.com\/(.*)(link|)=(.*)/i,
 to: "$4",
 regex: true
 },
@@ -99,24 +99,6 @@ to: "http://liquidtelecom.dl.sourceforge.net/project/$1/$4",
 //to: "http://softlayer-sng.dl.sourceforge.net/project/$1/$4",
 regex: true
 },
-{
-//Y大寫的隨心聽320K重定向
-//現在失效了
-name: "百度隨心聽音質320",
-from: /^https?:\/\/music\.baidu\.com\/data\/music\/fmlink(.*[&\?])rate=[^3]\d+(.*)/i,
-to: "http://music.baidu.com/data/music/fmlink$1rate=320$2",
-regex: true
-},
-/*
-{
-//加/print可以無限看文章
-//現在換用改referer的方式，還更好一些
-name: "The Economist加/print",
-from: /^https?:\/\/www\.economist\.com\/(.*)\/(.*)/i,
-to: "http://www.economist.com/$1/$2/print",
-exclude: /^http:\/\/www\.economist\.com\/.*\/print/i,
-regex: true
-},*/
 {
 //不用再經過一個跳轉頁面
 //測試：http://book.bfnn.org/article2/1630.htm
@@ -242,6 +224,15 @@ name: "BiliBili",
 from: /^http:\/\/www\.bilibili\.com\/video\/av([\d]+)\/([\w]+\.html)?(.*)?/i,
 to: "http://www.bilibili.com/video/av$1/$2#alist",
 exclude: /bilibili\.com\/video\/av([\d]+)\/([\w]+\.html)?#alist$/i,
+regex: true
+},
+{
+//加/print可以無限看文章
+//現在換用改referer的方式，還更好一些
+name: "The Economist加/print",
+from: /^https?:\/\/www\.economist\.com\/(.*)\/(.*)/i,
+to: "http://www.economist.com/$1/$2/print",
+exclude: /^http:\/\/www\.economist\.com\/.*\/print/i,
 regex: true
 },
 */

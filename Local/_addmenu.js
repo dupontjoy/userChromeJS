@@ -1,14 +1,14 @@
 
-//2015.05.01 21:00 調整一些菜單順序和添加圖標
+//2015.05.06 16:00 更新TVC搜索
+//2015.05.05 17:00 調整一些菜單順序和添加圖標
 //2015.04.29 21:00 貼上 二级菜單
 //2015.04.21 10:00 調整特殊符號
 //2015.04.02 12:00 調整選中文字搜索
 //2015.03.31 21:00 升級FX36，調整加圖標方式
 //2015.01.21 22:00 修正特殊符號，添加小書籤菜單
-//2015.01.16 23:00 更新TVC搜索項，加入特殊符號選單三級菜單
+//2015.01.16 23:00 加入特殊符號選單三級菜單
 //2015.01.08 20:40 一些搜索項只在特定網站顯示
 //2015.01.04 09:35 複製 二级菜單
-//2015.01.03 12:00 新增幾個TVC搜索
 //2014.12.22 18:50 選中文字搜索換回
 //2014.12.20 19:40 圖片另存放到二級菜單
 //2014.12.11 17:50 常用文字搜索橫排菜單
@@ -345,6 +345,13 @@ image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
+label: "產品—待編輯-SKU",
+id: "TVC",
+url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?Sku=%s&EditorId=0",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
 label: "產品—已編輯-SKU",
 id: "TVC",
 accesskey: "2",
@@ -364,6 +371,7 @@ where: 'tab'
 label: "產品—關聯SPU-所有列表",
 id: "TVC",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductAssociatedSpuList?Sku=%s",
+tooltiptext: "加顏色時在此關聯，一步到位！",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
@@ -394,7 +402,7 @@ where: 'tab'
 {
 label: "運營—審核-品名",
 id: "TVC",
-url: "http://ic.sjlpj.cn/Product/OperationProductEditAuditList?Keyword=%s",
+url: "http://ic.sjlpj.cn/Product/OperationProductEditAuditList?Keyword=%s&pageSize=100",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },

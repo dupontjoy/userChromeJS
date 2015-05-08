@@ -1,8 +1,9 @@
 
+//2015.05.08 09:00 加入SumatraPDF
 //2015.05.03 14:00 調整菜單順序，加入Win8.1優化批處理
 //2015.04.27 09:00 加入GoGo Tester
 //2015.03.29 20:00 Software和 Plugins分離出配置文件夾
-//2015.03.26 12:00 加入FoxitReader，ReRe，Winmaster
+//2015.03.26 12:00 加入ReRe，Winmaster
 //2015.03.25 20:00 加入DnsJumper, FastStone Capture
 //2015.03.06 15:00 修改快捷方式，把文字改爲繁體
 //2015.02.09 20:00 添加清理垃圾緑色版
@@ -130,8 +131,8 @@ exec: "C:\\Program Files (x86)\\Microsoft Office\\Office15\\POWERPNT.EXE"
 label: "ReRe定時",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\ReRe\\ReRe.exe",
 },{},{
-label: "FoxitReader",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\FoxitReader.exe",
+label: "SumatraPDF",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Plugins\\SumatraPDF.exe",
 },{},{
 label: "FastStone Capture",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\FastStone Capture\\FSCapture.exe",

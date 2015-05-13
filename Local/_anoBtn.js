@@ -1,4 +1,5 @@
 
+//2015.05.11 17:00 精簡並換一些圖標
 //2015.05.08 09:00 加入SumatraPDF
 //2015.05.03 14:00 調整菜單順序，加入Win8.1優化批處理
 //2015.04.27 09:00 加入GoGo Tester
@@ -8,7 +9,6 @@
 //2015.03.06 15:00 修改快捷方式，把文字改爲繁體
 //2015.02.09 20:00 添加清理垃圾緑色版
 //2015.01.26 21:00 更新備份模塊
-//2015.01.21 20:00 精簡並換一些圖標
 
 /**********************************************************************************
  *此處爲按鈕設置
@@ -17,7 +17,7 @@ var anobtnset = {
 //※必須設置按鈕放在哪個id之前，alltabs-button，back-button等
 intags: "tabbrowser-tabs",
 
-//※必須設置按鈕圖標
+//※必須設置按鈕圖標，像素59x27（默認）
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADsAAAAbCAYAAADCifeFAAADZElEQVRYhe2XXWhTZxjHvW7TJF2W0iU9OUnTnNa1jFrTNsfRdWOCFwG3yZDB5r6uXDcZnSIUdOhuLE0/Uk1jyxZsm8TaZVXKlmoLbtI5ImNdg1PEwi4yrIUqKqz1YnH97WIk5KNhMnVn1lz84fCe533f/+95nvfwnnWuggKeFK1T2kAeNg+bh83D3hdsX7GKU88Z6dUX55zQWaTCYyrFL+SO+b8qDdajKWRGNuC32+g3ldBZWJgW3KPTcsQqMG4XCZm1ipt/INjDGhWXmwyM11vw1pTTZzHgflpLt6YIj1GPt0qkV7Jw8UWRMfNjXtnDGhWRTQKfmYwcMgsMbbBy3F7B8Y1WAnYbR6tEPtEbmJLNjFl1ipt/IFi3WoW3wkBLSRkBewUhuYqRRomRRolRRyVfyRIHLCL7BCMDek3WYuGdW4lHfUktR7x4JCFtLB71EXTKLITb08bOH3gvuc5qcxLvlyNe5obaHgKsTsux2nKmX5A43bwef72UhA022BiVJS5sqSbwrMjR8tKcsKsZzzS4EG5nOeJd1VTmnLmhNuJRH75NNQ8PdqS5mt9cr/OD3cSZ5vUEGyROOCS+dPwNe/L5Kr5vMHPpHZkLe52KwmbulZqERHymlzTYmU+3cS+ym5lt1UzWmQk4KvHbbQTrbQzXS3ztsHGuoYwbJz9icayFPoNuVdiE5obasloyAZjZxkGnnLONlyNezu55Iw0qF2zQKROP+vip84PclR19qYbFU638ebmb22f2Mb7BSJfwDB1mEy6LQIfFhF/UMud6l3sxH3enWpl4pfY/qWyq7qeysdDBZJLCO7dmw4bffpWlqxP8EZuEu1Nc7d5B71NFdIhldFlF2tVqzr3lIH7zNCvXvyF+ZYCz77+sGGxqBRPPqfEeScg630nYLrWaE5ubWJz+gpX5MVYWhpna0USnTovbUMJwnYnfZ4/AnfMszXzOxJub6SnWKAabWsFY6GBWEuJRH7e+7Uk7Hll3476yUq7074FrAe786CLYaMVbUkQs1MrKzUnmJwcYrKv8V19DpZXzR2D649dYmnXz6+AuLh7aztIv/cy699Orf/wuE/8I6yoo4LsWJ/Ph/cRCu/nZ9aHiZh8pbL/VSGjLRo7VVjBYJylu9pHCrjXlYdeq8rBrVU8U7F9cpEwugKahCwAAAABJRU5ErkJggg==",
 
 //菜單彈出方向，不設置就默認,參考 https://developer.mozilla.org/en-US/docs/XUL/PopupGuide/Positioning
@@ -43,17 +43,29 @@ gBrowser.loadURI("javascript:内容")
  
 //下面添加菜單
 var anomenu = [{
-label: "火狐範兒",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACvklEQVQ4jY2TW0iTYQCGv27qtgIh3e+/f/vd4VfE2XJzYpqKh0Koq7oIMyhJCIwOCIVopqKmlYcUxZRcuelEJ5WkeBo2s7SyJM8HnIqWppVNcW76dpFaskW98F693/PAB99HyGYGg6g4fSCnJv9IgZfQ/4mcr+9Tkf07hs8Rzhca/ViUHRIPaOSM1BFc5s0k5nkI0XuYN2k3zoRTMQMhfJTKWJTJWBS6M8lbW5GQEj3w4PflcALo5QxmI6iPdoLRcCqmM0CAW3wKOW40SjyF0CrE41qVpEN9UGQu5PhI4FFQe/IxHckfsBO8DRbEJAhcEbXPCRXeLHQqCapUEmiVYuhUUuiUYqQwNE7vdYIhgHlnJ6jwdotK4tGoD+Sg95dCoxBDq/yjvhI0HuFwj2Nxl6ab7ARDBSeT2hQidIdyqPGTQu3zG9YoJVD7iGEIdUenjEXHOeXIDrhPd3P3+nDuVP8Vf7SyLBqCOGh8paj2+9VKlRS1/lIY5CIYQzisGBNh6806vi1YbIiPXTXGY7XpIl4GS1Hn7oZiLxalmy30EKJKLkKzUIjx+6dg7c2EuT72KSGEkLm21OjF9jTTcmc28OU5pnSXoGVESD9AIc3VBRk0D8kuziiiWXRfDQEWmmHpuYPVtmsw18eeJctjrcdWTMZ2y4wR659agB8G9CQeRS4lQLbAFXkSGhkufDwL52A16YGlLtjGNbANFi+svk8P276GZaLhxtpoNTZmarE+qUHdCRmyeAxyXRiUSARYMKQCS29gHauBdfhhtaOXSlb6dArbWPnXjalKLHZk4pHMDfk0i6GSM9iYb8HatAFrQ5rzDuGtjIzk7bH2FzTaJh5joDAar6+HwTJchpVxg8ky1OjwjzjM91e3y7915cD8IX920ZhjIoTs+m+YEEI+t6eFz7Wmxs2/SImcN6Rc/tu5n3AjiZeW30teAAAAAElFTkSuQmCC",
-child: [{
-label: "網站首頁",
+label: "長期維護",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABV0lEQVQ4jaWToUstURDGB4Po32AQk+EG88WyVrl373y/4SGC5b0gCIIgBhFE0KBR8ILNavGBQZOYH++9ahXEYhcRvcE17K4uKxvUga/MnPmd+ThzzN3ngRuJ+88I4k6KdYMYQGRflUk8fQPwYBCPEFdS/C4FnAAn1dxH8Rfi0SAy91iySrRarWFJHfdYdI9lST+tFmnKDERmEJkU62Zm7XZ71N2TXo85YNPdE0lTknaB606nM1YCJP14AwAbZSEHcitpP0mSkTLvHisQg263O2Fmll9SA5TJUnVrEM/AQSMgHzVvluK0ZnuomO5fIwDYeZ+AHSlW3dkyM5udZbwAHDUC3D2pWpA4TtN0Mn8VziCyNGW6EZDb4E/R/CJxLMVesbqZxGV5rhFQWLmob121+QNA0q/6ovR6zEnRl+LQ3RfqdUntygTx353tzwg4Lz6T1r76maTovwLv6V7BBm3W0gAAAABJRU5ErkJggg==",
+child: [
+{
+label: "火狐範首頁",
 oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/')",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABMklEQVQ4jc2Tu2oCURRFdzIi4idMNf3AsPdu/IFU04ZACvuAFmqRR2Nhl4+wSWWZ1j/IVwhBrayCQURSmOZOmAz4SJcLBw7cs9Z9nQv8bVykaVoHcHlOcc1223YbQA0ASNL2q6TrU3BEsitpJWlFshsEN7b3kp7PgZckeyR7kpa27yTdnhL8wLYHkoaShiF/tz09JqjCI9tb21tJI5J92x+HBIfgfYhC0pP0KWkMICrDnSNwVdK3PSfZARBB0qPt+Qn4l8T2wPZc0hMkjcPWqvDM9luI2YHjvCBN0zrJ+wq8IZnHcdyM47hJMre9KUtsPyRJ0kCSJI3ieUqxzrKsVVxSlmUt2+tKzfSfCADUJE3Kk5J2oQuvQgwl7So1E4RPBpK5pEVlha+iE0NehhckcwD4BqeD7Zmx4aS4AAAAAElFTkSuQmCC"
-},{
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACo0lEQVQ4jZWSW0iTYRjHv6sIwxIKmzsf3L45bcnC/Na0RZCZ2FVCh6sVwqALL0KhJPBDtzxkJ80TKyqnbX04Cc2MMROnaakYZdrAlVrNmCvzUM027d+FIY4l0h+eq+f9/Z4H3ocg/qb/oERnSyWziA1SqxRldVA8XVhj+hCr5OE+KcyUjF4PrkmQGO7tFsF3hF0Y1vRlsOkBrQCmxFjcVUnctfF8xerUeL7CtEvsvi4X45mGj28Z7JwwgSdTTPftF8Ig5KFSJsAtpXjRSskYK0Uyt5WSxRtSPgr5PPRrhfBmCs6FCUbSYukLfC6yo2Jwf08sGDUJKyWDlSLBqEk0qCTQbWWhSMSB56j4bJjgTqKYLuBy0ZoaB5tGDkuyLKSaU+SwaeSgeVwwcvapMMFw2fHqLhUfL9MTYKVkaNgrXYXNSVI8oEi8SlOgWyPBkOHY+RB4fpDeAZdxfvgMBUc8B4+0CljUJJo0cjRp5LCoSTw+oEBH3E68zT0MfCx/EyL48iQvP/giFwvNp+GkBGCUQlQliGFSrlSNUoJmBQe9aXLMOfMR6MnDj3Z9xgrcadTNdhfP+AcqgIUWTNTpYYregiJWDIr5HFzicWCMjkajaCu8rYXAbAv8PQXwO3LsK+tPPk/xf+pzBKZ6AN9TYK4ZvXotSiMicE0mRLmQh6uRmzFacgII9gKeNiy9NyM4Whl6TIvjbTkBNwP4bAi4bsKSSuLK9ihc3haJ9pNJgM+G39NOBMcaZwOjJirsFwiCIH6NMYrld/VT+GzGVPtF1LIiYUkWY2GoDMveDgQm7faREXrTP+G1WXLVMUF3HVzV2Riv1yP4oQk/Pf25G4Jr87XLaP/+usI1P1g6MdNXZfgvmCAIYrqzKH2msyTF5zSqvA5aud67Px4LdlWnQ6WmAAAAAElFTkSuQmCC"
+},
+{
+label: "代理 可用IP",
+oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/firefox-gaogent/goagent-ip.html')",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABJElEQVQ4jZ1SsUoDURC8Io3/oJWFNnaCXCNPwcZ4b3dmwD6CoJVYif6BtY3WojaC+hU2CnYWtulDiCCoEAuTeJ65O8nCVjtvZnfmJUlJAdgC+EGqD2C/DDe2YoyLpPr5dpf+TUByukiQZZqvUeUygJa7RLJJqp0jeAGw6u6bAFoxcqV4705Rsb55lF/5egKCi9wGvBsM3use/iSjy/wJ22bKQggNgPcVqs9pmk6Zad1du2PNNLOFCoLmRBEOO8Y4V0sAYKOMwF17ZapnAE8BrJHqVZj4ZqaM5DHJk5yqbscZ5s5DAAeAHipjJHlTALRDCI3fp/Gp6h9cFbJ+/OvN6K8MMDofDc1sCVAXUJdUD2DHzGaGc3efJfX6jWGH1CfJmCRJ8gWPZifIwJ0eigAAAABJRU5ErkJggg=="
+},
+{
 label: "淸 配置發佈頁",
 oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://bbs.kafan.cn/thread-1792671-1-1.html')",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABMklEQVQ4jc2Tu2oCURRFdzIi4idMNf3AsPdu/IFU04ZACvuAFmqRR2Nhl4+wSWWZ1j/IVwhBrayCQURSmOZOmAz4SJcLBw7cs9Z9nQv8bVykaVoHcHlOcc1223YbQA0ASNL2q6TrU3BEsitpJWlFshsEN7b3kp7PgZckeyR7kpa27yTdnhL8wLYHkoaShiF/tz09JqjCI9tb21tJI5J92x+HBIfgfYhC0pP0KWkMICrDnSNwVdK3PSfZARBB0qPt+Qn4l8T2wPZc0hMkjcPWqvDM9luI2YHjvCBN0zrJ+wq8IZnHcdyM47hJMre9KUtsPyRJ0kCSJI3ieUqxzrKsVVxSlmUt2+tKzfSfCADUJE3Kk5J2oQuvQgwl7So1E4RPBpK5pEVlha+iE0NehhckcwD4BqeD7Zmx4aS4AAAAAElFTkSuQmCC"
-},]
+},
+{
+label: "淸 Github腳本備份",
+oncommand: "getBrowser().selectedTab = getBrowser().addTab ('https://github.com/dupontjoy/userChromeJS')",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABV0lEQVQ4jbWTsWpVQRCGtwspbQRjpaigtYin0SKIHM+5e/b75hUsoo3EJxJ8DwtLmyA2ESGJYlADiVFB5RpzLbLgFYLeG7AY2N1hvpnd/9/UNM0isKpuaRz8K8AfGhvq/bZtFxLEQ40vGpM5Y7+UuJc0Xp+geKIxgVhP4OHUwR74cQ7I1/S72DfAzWGI2+D72Sbw+x+AUsqy2oEf5gZojCHWNJ5rfINYB19qbEA8gnis8e6vE+Scr6rXIdZKKddyzhfULue8lFJK6t0q47GAzb7vz45Go3PgM+AScBriqfqk67pTwzBc0diZCdD3cRG4rLELbuacl7ouzoPbMwNqx93qvDP/BzBlpLc5e6OUsgy+GIa4o2aNfXAbuAX0029QjeRW3RzU5E6VdK8681Dj5xEoPtX1tJVZBT+f5DMBK6lpmsVS4sHRPWNcdR4fF1O5V8BK27YLvwCEF774kDAvMwAAAABJRU5ErkJggg=="
+}, ]
 },{},{
 label: '備份清理',
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACn0lEQVQ4jYWRW0jTYRjGHyQkRCHCTAmZGmV0sAOYiSYVFRSSSF110YWGZWU1t4mHqX9NyZpnzdNww2yuuYPb/tt0c266zXlankohD5kEEgbdRkS8XUQjbeZz+7y/3/t+fICPtHo+hqXpZ9IBAAzj52vmv0nTTB73L2R/JEjcDSmvJ24FP7dMpXR7bm4LZrCe4MDy3vWDdQO28GrrGLJVFCseZvdX21zIUpB/We9SjXMhyidsXvocgnzdOu7J6USzQxnZMOhGvo6QraZzUnftpc6xKmTKCQX6b+zy+oF/BLFNjl48VhLytRRTb1NHNgy6wdcQ8rQ/kzpGReFV1mkUsoSH3RRdafFsgPPMc3HIVhFKjQSBhq52jlRzRP2T4KnpjnE2CQCi6+09yNUSnpgIj7rpvn462Su43jVeBK6KINRTsMiy1jj8gbO3wvwug317+e9FoaL+VeRpCQINxbU4G73FPpFFCaGewFfTabFLBgBlA/Oczc882uSQIKeHwBgpoMRo8hbhlVY5CnQEgYYOvxjSbgYZ+9QuADjV5pIiR0MoNlBQmdHgHUiVjfLBVRGKWEIRS+rZVe9XMX1zu0NEVkemYfZiVL19EUI9gaemxFbnM6+g1bNyCILfZuRqKbDU9ImxzwUydvsOCNmvgcXslwvSkTbkagklRgJXRXWu5cQNZ6Z2jEqQISMwBvIrNnw//3KsKexp33twlRRaY51PELtkKNARHigovmXIAF+JqB0YR3onnW0flt5QeHjIUhAK9RRaY52PFztluNtFQeV9C561tQCfAgDg1NnawddQRJV1+kjzkAVcFe2pMC/GS9z6kMp+J2Nf2bkl/CdpupnoYy0OSaZp5kyyfIIBT0W3dW9itgW3ypVX47xr8omTvrpfYwtHv4Wx+FgAAAAASUVORK5CYII=",
@@ -110,10 +122,6 @@ exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GF
 {
 label: "Freegate",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GFW\\Freegate\\fg.exe",
-},{},
-{
-label: "DnsJumper",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GFW\\DnsJumper\\DnsJumper.exe",
 },]
 },{
 label: '辦公軟件',
@@ -144,65 +152,17 @@ child: [{
 label: "winmaster",
 tooltiptext: "魔方winmaster。",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\winmaster.exe",
-}, {},{
+}, {},
+{
+label: "DnsJumper",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GFW\\DnsJumper\\DnsJumper.exe",
+},{},
+{
 label: "Windows8.1UpdateSettingTool",
 tooltiptext: "Win8.1優化批處理。",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\Windows8.1UpdateSettingTool.bat",
 },]
 }, ]
-}, {},{
-label: "長期維護",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABV0lEQVQ4jaWToUstURDGB4Po32AQk+EG88WyVrl373y/4SGC5b0gCIIgBhFE0KBR8ILNavGBQZOYH++9ahXEYhcRvcE17K4uKxvUga/MnPmd+ThzzN3ngRuJ+88I4k6KdYMYQGRflUk8fQPwYBCPEFdS/C4FnAAn1dxH8Rfi0SAy91iySrRarWFJHfdYdI9lST+tFmnKDERmEJkU62Zm7XZ71N2TXo85YNPdE0lTknaB606nM1YCJP14AwAbZSEHcitpP0mSkTLvHisQg263O2Fmll9SA5TJUnVrEM/AQSMgHzVvluK0ZnuomO5fIwDYeZ+AHSlW3dkyM5udZbwAHDUC3D2pWpA4TtN0Mn8VziCyNGW6EZDb4E/R/CJxLMVesbqZxGV5rhFQWLmob121+QNA0q/6ovR6zEnRl+LQ3RfqdUntygTx353tzwg4Lz6T1r76maTovwLv6V7BBm3W0gAAAABJRU5ErkJggg==",
-child: [{
-label: "免翻牆 HOSTS",
-oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/firefox-gaogent/hosts-ipv4-firefoxfan.html')",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABMklEQVQ4jc2Tu2oCURRFdzIi4idMNf3AsPdu/IFU04ZACvuAFmqRR2Nhl4+wSWWZ1j/IVwhBrayCQURSmOZOmAz4SJcLBw7cs9Z9nQv8bVykaVoHcHlOcc1223YbQA0ASNL2q6TrU3BEsitpJWlFshsEN7b3kp7PgZckeyR7kpa27yTdnhL8wLYHkoaShiF/tz09JqjCI9tb21tJI5J92x+HBIfgfYhC0pP0KWkMICrDnSNwVdK3PSfZARBB0qPt+Qn4l8T2wPZc0hMkjcPWqvDM9luI2YHjvCBN0zrJ+wq8IZnHcdyM47hJMre9KUtsPyRJ0kCSJI3ieUqxzrKsVVxSlmUt2+tKzfSfCADUJE3Kk5J2oQuvQgwl7So1E4RPBpK5pEVlha+iE0NehhckcwD4BqeD7Zmx4aS4AAAAAElFTkSuQmCC"
-},{
-label: "代理規則 gfwlist.txt",
-oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/firefox-gaogent/gfwlist.html')",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABJElEQVQ4jZ1SsUoDURC8Io3/oJWFNnaCXCNPwcZ4b3dmwD6CoJVYif6BtY3WojaC+hU2CnYWtulDiCCoEAuTeJ65O8nCVjtvZnfmJUlJAdgC+EGqD2C/DDe2YoyLpPr5dpf+TUByukiQZZqvUeUygJa7RLJJqp0jeAGw6u6bAFoxcqV4705Rsb55lF/5egKCi9wGvBsM3use/iSjy/wJ22bKQggNgPcVqs9pmk6Zad1du2PNNLOFCoLmRBEOO8Y4V0sAYKOMwF17ZapnAE8BrJHqVZj4ZqaM5DHJk5yqbscZ5s5DAAeAHipjJHlTALRDCI3fp/Gp6h9cFbJ+/OvN6K8MMDofDc1sCVAXUJdUD2DHzGaGc3efJfX6jWGH1CfJmCRJ8gWPZifIwJ0eigAAAABJRU5ErkJggg=="
-},{
-label: "代理 可用IP",
-oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/firefox-gaogent/goagent-ip.html')",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABJElEQVQ4jZ1SsUoDURC8Io3/oJWFNnaCXCNPwcZ4b3dmwD6CoJVYif6BtY3WojaC+hU2CnYWtulDiCCoEAuTeJ65O8nCVjtvZnfmJUlJAdgC+EGqD2C/DDe2YoyLpPr5dpf+TUByukiQZZqvUeUygJa7RLJJqp0jeAGw6u6bAFoxcqV4705Rsb55lF/5egKCi9wGvBsM3use/iSjy/wJ22bKQggNgPcVqs9pmk6Zad1du2PNNLOFCoLmRBEOO8Y4V0sAYKOMwF17ZapnAE8BrJHqVZj4ZqaM5DHJk5yqbscZ5s5DAAeAHipjJHlTALRDCI3fp/Gp6h9cFbJ+/OvN6K8MMDofDc1sCVAXUJdUD2DHzGaGc3efJfX6jWGH1CfJmCRJ8gWPZifIwJ0eigAAAABJRU5ErkJggg=="
-},
-{
-label: "淸 Github腳本備份",
-oncommand: "getBrowser().selectedTab = getBrowser().addTab ('https://github.com/dupontjoy/userChromeJS')",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABV0lEQVQ4jbWTsWpVQRCGtwspbQRjpaigtYin0SKIHM+5e/b75hUsoo3EJxJ8DwtLmyA2ESGJYlADiVFB5RpzLbLgFYLeG7AY2N1hvpnd/9/UNM0isKpuaRz8K8AfGhvq/bZtFxLEQ40vGpM5Y7+UuJc0Xp+geKIxgVhP4OHUwR74cQ7I1/S72DfAzWGI2+D72Sbw+x+AUsqy2oEf5gZojCHWNJ5rfINYB19qbEA8gnis8e6vE+Scr6rXIdZKKddyzhfULue8lFJK6t0q47GAzb7vz45Go3PgM+AScBriqfqk67pTwzBc0diZCdD3cRG4rLELbuacl7ouzoPbMwNqx93qvDP/BzBlpLc5e6OUsgy+GIa4o2aNfXAbuAX0029QjeRW3RzU5E6VdK8681Dj5xEoPtX1tJVZBT+f5DMBK6lpmsVS4sHRPWNcdR4fF1O5V8BK27YLvwCEF774kDAvMwAAAABJRU5ErkJggg=="
-}, ]
-},{},{
-label: '他人配置',
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABTElEQVQ4jYXSP0jVURjG8Y/3yvUWOgSC5MXNEEQUCQwECYciEEQnZ3FyECQRHASdpMSWliZ1ChoiMDBaCkHM0UXxHyIoIoKmDk46OJxzQS+/e+8D73Ie3vN+z/MeHiuNPqzgBnc4whwalFEaIzjDP0xhFAs4xR80lrqgGxf4gtoH5ym8iSRfkU1qTmEe23heZMD7OOBlkvkU63FCMb3CFQaSzKwQ3A8hiyS9xjX6k8wKzAhhtSf4aXzGMV4UQ2wSMlhFZ6RKow4TuBQ2U4wQvBPWeIG/+Ikt3Ar51JRqbsE3Iahd/MaS8CfOsYdhPElq7sAmdjCEHDIRtzr6i0KIs6h62JzDGjbQWoIwizF8ihc8QxtM4z/elnpfpKmIVY/vOIB9LBdiFSiDj8I2mvELJxgkpD5eZnolJiPpYayevNkl7LqcsvggfKbe/OE9OXdCGta25zQAAAAASUVORK5CYII=",
-child: [ {
-label: "陽光盒子",
-text: "-no-remote -profile ..\\Myself\\Sunbox",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Firefox\\firefox.exe",
-}, {
-label: "RunningCheese",
-text: "-no-remote -profile ..\\Myself\\RunningCheese",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Firefox\\firefox.exe",
-},{
-label: "Kingtung",
-text: "-no-remote -profile ..\\Myself\\kingtung",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Firefox\\firefox.exe",
-},{
-label: "Dupontjoy",
-text: "-no-remote -profile ..\\Myself\\dupontjoy",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Firefox\\firefox.exe",
-},{
-label: "Fannyhenry",
-text: "-no-remote -profile ..\\Myself\\fannyhenry",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Firefox\\firefox.exe",
-},{
-label: "RunningCheese",
-text: "-no-remote -profile ..\\Myself\\RunningCheese",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Firefox\\firefox.exe",
-},{
-label: "zwt_1008",
-text: "-no-remote -profile ..\\Myself\\zwt_1008",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Firefox\\firefox.exe",
-}]
 }, {},{
 label: "常用功能",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgUlEQVQ4jdVTwQ2AIAx0A0ZwFD/3Ilc6EqMxkiPow9SACphoTGxyj9K7a9rQYTgEGaKILlcgQzzyiwDgamLDSdQTdA1fMJBpgz1aXkPJO43SXFKLlxdEdBbROavt+TcGj0d4bPDzHdQOBoDLD817PxYEUtPd70tqqnTom5CaADjTrW77Ai0wH7nFAAAAAElFTkSuQmCC",

@@ -1,4 +1,4 @@
-/*+++2015.04.17 13:00+++*/
+/*+++2015.05.10 10:00+++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -11,7 +11,7 @@ min-width:100px !important;
 /*地址栏图标加分隔线*/
 #urlbar-icons{
 padding:1px 1px !important;
-border-left:1px #BBC2C8 solid;
+border-left:1px #BBC2C8 solid !important;
 }
 
 /*anoBtn向左对齐*/
@@ -21,7 +21,6 @@ padding: 0px !important;
 }
 
 /*隐藏图标*/
-[label="書籤"],[label="书签"],/*書籤圖標*/
 #home-button,
 #stylish-toolbar-button,/*Stylish導航欄圖標*/
 #ghostery-button-badge,/*Ghostery计数*/

@@ -1,11 +1,12 @@
 
+//2015.05.12 09:00 調整反Google搜索驗證碼
+//2015.05.11 16:00 修正Google搜索重定向
 //2015.05.07 16:00 精簡很久不用的規則
 //2015.04.28 16:00 更新TVC規則
-//2015.04.25 08:00 新增Google搜天氣时 圖標
+//2015.04.25 08:00 新增Google搜天氣時 圖標
 //2015.04.19 10:00 新增鳳凰網 圖片修正
 //2015.04.14 13:00 新增鳳凰網 只顯示首圖修正
 //2015.04.06 21:00 修正百度盤搜索地址替換
-//2015.03.26 11:00 更新Google搜索定向到新界面
 //2015.03.25 10:00 修复sourceforge規則
 //2015.03.20 13:00 修正百度盤搜索地址替換
 //2015.03.14 15:00 爲規則添加說明
@@ -15,7 +16,7 @@
 //2015.01.30 09:00 添加Linkedin 去跳轉
 //2015.01.28 13:00 添加Business Insider 去跳轉
 //2015.01.24 14:00 添加京東，天貓大圖規則
-//2015.01.16       更新sourceforge規則
+
 
 //規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
 
@@ -77,7 +78,7 @@ regex: true
 },
 {
 //測試：http://www.jobui.com/tips/redirect.php?link=http%3A%2F%2Fsearch.51job.com%2Fjob%2F65505572%2Cc.html
-name: "职友集 去跳轉",
+name: "職友集 去跳轉",
 from:/^https?:\/\/www\.(jobui|)\.com\/(.*)(link|)=(.*)/i,
 to: "$4",
 regex: true
@@ -135,29 +136,20 @@ regex: true
 {
 //google.com.hk的搜索重定向到國際版google.com
 name: "google.com.hk >> google.com慢速版",
-from: /^https?:\/\/www\.google\.com\.hk\/search\?(.*)/i,
-to: "https://www.google.com/ncr#$1&hl=en-US&safe=off&sclient=psy-ab",
-exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off&sclient=psy-ab(.*)/i,
-regex: true
-},
-{
-//Google搜索時，中鍵點擊圖片，跳轉到原始鏈接。
-//詳細說明：http://bbs.kafan.cn/thread-1799098-1-1.html
-name: "Google搜圖去跳轉",
-from:/^https?:\/\/www\.google\.com\/(.*)imgurl=(.*)&imgrefurl=(.*)\&h=(.*)/i,
-to: "$3",
+from: /^https?:\/\/www\.google\.com\.hk\/(s\?|search\?|webhp\?)(.*)/i,
+to: "https://www.google.com/ncr#$2",
 regex: true
 },
 {
 //有時Google會要求塡驗證碼，此規則用以跳過
 name: "反Google搜索驗證碼",
-from: /^https?:\/\/ipv4\.google\.com\/sorry\/IndexRedirect\?continue=https?:\/\/www\.google\.com(?:\.hk|)\/search\?(.*q=.*)&q=.*/i,
-to: "https://www.google.com/ncr#$1",
+from: /^https?:\/\/(ipv4|ipv6)\.google\.com\/sorry\/IndexRedirect\?continue=https?:\/\/www\.google\.com(?:\.hk|)\/search\?(.*q=.*)&q=.*/i,
+to: "https://www.google.com/ncr#$2",
 regex: true
 },
 {
 //來源：http://bbs.kafan.cn/thread-1824493-1-1.html
-name: "Google搜天氣时 圖標",
+name: "Google搜天氣時 圖標",
 from: /^https?:\/\/www\.gstatic\.cn\/onebox\/weather\/(.*)/i,
 to: "https://ssl.gstatic.com/onebox/weather/$1",
 regex: true

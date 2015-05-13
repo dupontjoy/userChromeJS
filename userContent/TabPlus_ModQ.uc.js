@@ -2,8 +2,8 @@
 // @description  Tab Plus 标签页增强
 // @include      chrome://browser/content/browser.xul
 
-// 2015.04.21 14:00 加入滾輪切換，自動聚焦
-// 2015.04.02 10:00 精簡
+// 2015.05.13 09:00 精簡
+// 2015.04.21 14:00 加入滾輪切換
 // 2015.03.19 16:00 open_in_new_tab更新到GOLF-AT 2.1.20150305版
 // 2015.01.23 21:00 新标签打开『查看图片』
 // 2014.07.26 點擊頁面恢復原來的地址
@@ -109,46 +109,6 @@ function IsInSideBar(target)
 
 /*=====以下爲另外收集整合的腳本=====*/
 
-//紧邻当前标签新建标签页
-(function() {
-    try {
-        if(!gBrowser) return;
-    }catch(e) {
-        return;
-    }
-    
-    gBrowser.tabContainer.addEventListener("TabOpen", tabOpenHandler, false);
-
-    function tabOpenHandler(event) {
-        var tab = event.target;
-        gBrowser.moveTabTo(tab, gBrowser.mCurrentTab._tPos + 1);
-    }
-
-})();
-
-//标签页关闭后激活左侧标签页
-(function() {
-    try {
-        if(!gBrowser) return;
-    }catch(e) {
-        return;
-    }
-
-    gBrowser.tabContainer.addEventListener("TabClose", tabCloseHandler, false);
-
-    function tabCloseHandler(event) {
-        var tab = event.target;
-                // 如果是因下载而产生的空白页
-                if (tab.linkedBrowser.contentDocument.URL == 'about:blank') return;
-                if (tab._tPos <= gBrowser.mTabContainer.selectedIndex){
-                        if (tab.previousSibling) {
-                                gBrowser.mTabContainer.selectedIndex--;
-                        }
-                }
-    }
-
-})();
-
 //點擊頁面恢復原來的地址
 gBrowser.addEventListener("DOMWindowCreated", function () {
 window.content.document.addEventListener("click", function (e) {
@@ -164,23 +124,3 @@ location == "chrome://browser/content/browser.xul" && document.querySelector("#c
         this.advanceSelectedTab(event.detail > 0 ? +1 : -1, true);
     }, true);
 
-/*
-//鼠标停留标签自动聚焦
-     (document.getElementById("tabbrowser-tabs") || gBrowser.mTabBox).addEventListener('mouseover',
-    function self(e) {
-        if ((self.target = e.target).localName === 'tab') {
-            if (!self.timeoutID) {
-                this.addEventListener('mouseout',
-                function() {
-                    clearTimeout(self.timeoutID);
-                },
-                false);
-            }
-            self.timeoutID = setTimeout(function() {
-                gBrowser.selectedTab = self.target;
-            },
-            50);
-        }
-    },
-    false); 
-*/

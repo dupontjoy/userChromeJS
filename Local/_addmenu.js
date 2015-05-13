@@ -1,8 +1,8 @@
 
-//2015.05.06 16:00 更新TVC搜索
+//2015.05.13 17:00 更新TVC搜索，調整特殊符號
+//2015.05.10 10:00 五角星書籤圖標放入地址欄
 //2015.05.05 17:00 調整一些菜單順序和添加圖標
 //2015.04.29 21:00 貼上 二级菜單
-//2015.04.21 10:00 調整特殊符號
 //2015.04.02 12:00 調整選中文字搜索
 //2015.03.31 21:00 升級FX36，調整加圖標方式
 //2015.01.21 22:00 修正特殊符號，添加小書籤菜單
@@ -13,12 +13,9 @@
 //2014.12.20 19:40 圖片另存放到二級菜單
 //2014.12.11 17:50 常用文字搜索橫排菜單
 //2014.12.09 22:45 將菜單換成正體中文
-//2014.12.07 12:40 四个複製圖片放到二级菜單，添加分割线
+//2014.12.07 12:40 四個複製圖片放到二级菜單，添加分割线
 //2014.12.04 08:23 備份換用Keychanger
 //2014.11.30 11:00 將圖標統一放到『圖標美化』css中
-//2014.11.28 21:40 添加EHH元素隱藏
-//2014.11.25 21:50 將圖標統一放到『圖標美化』css中
-//2014.11.23 15:52 修正百度搜索，torrentkitty搜索，灌水圖標
 //2014.11.13 21:50 新增『保存所有圖片到zip』和『横排菜單』，调整菜單顺序，调整幾個conditions
 //2014.11.06 21:55 調整Send to Gmail幾個菜單順序
 //2014.11.02 09:10 調整搜圖順序
@@ -392,6 +389,13 @@ image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
+label: "運營—正在編輯的產品列表-SKU",
+id: "TVC",
+url: "http://ic.sjlpj.cn/#/Product/OperationProductEditMgtList?Sku=%s&Mode=processed",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
 label: "運營—審核-SKU",
 id: "TVC",
 accesskey: "5",
@@ -418,7 +422,7 @@ where: 'tab'
 {
 label: "運營—SPU關聯列表",
 id: "TVC",
-url: "http://ic.sjlpj.cn/Product/ProductAssociatedSpuList?Sku=%s",
+url: "http://ic.sjlpj.cn/Product/ProductAssociatedSpuList?Sku=%s&IsFirstRequest=true&BeginDate=2008-01-01",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
@@ -485,7 +489,7 @@ e.checked = !e.checked;
 //特殊符號選單，打造三級菜單
 var Punctuationsub = PageMenu({
 label:"特殊符號",
-accesskey: "S",
+accesskey: "T",
 condition:"input",
 insertBefore:"context-copy",
 oncommand: function(event) {
@@ -503,6 +507,7 @@ Punctuationsub([
 ]);
 var PunctuationsubMenu1 = PageMenu({
 label: "物理",
+accesskey: "W",
 condition: "input",
 insertBefore: "Punctuation-sep",
 });
@@ -517,15 +522,16 @@ PunctuationsubMenu1([
 ]);
 var PunctuationsubMenu2 = PageMenu({
 label: "數學",
+accesskey: "S",
 condition: "input",
 insertBefore: "Punctuation-sep",
 });
 PunctuationsubMenu2([
 {label: "±", input_text:"±"},
+{label: "≥", input_text:"≥"},
+{label: "≤", input_text:"≤"},
 {label: "×", input_text:"×"},
 {label: "÷", input_text:"÷"},
-{label: "≤", input_text:"≤"},
-{label: "≥", input_text:"≥"},
 {label: "≠", input_text:"≠"},//is not equal to
 {label: "≈", input_text:"≈"},//is approximately equal to
 {label: "√", input_text:"√"},
@@ -699,7 +705,7 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABgU
 /*——————————移動圖標和菜單——————————*/
 //移动圖標，代替Movebutton.uc.js，需配合RebuildWhenStart.uc.js，可惜對有的圖標還是無力
 new function() {
-//几个扩展圖標
+//幾個擴展圖標
 tab({
 id: "flashgot-media-tbb",
 insertBefore: "userChromebtnMenu",
@@ -709,19 +715,19 @@ clone: false,// 不克隆，直接改在原来的菜單上面
 tab({
 id: "lpt_lastpass-compact-btn",
 insertBefore: "userChromebtnMenu",
-clone: false,// 不克隆，直接改在原来的菜單上面
+clone: false,
 }
 );
 tab({
 id: "foxyproxy-toolbar-icon",
 insertBefore: "userChromebtnMenu",
-clone: false,// 不克隆，直接改在原来的菜單上面
+clone: false,
 }
 );
 tab({
 id: "abp-toolbarbutton",
 insertBefore: "userChromebtnMenu",
-clone: false,// 不克隆，直接改在原来的菜單上面
+clone: false,
 }
 );
 
@@ -729,16 +735,28 @@ clone: false,// 不克隆，直接改在原来的菜單上面
 tab({
 id: "frame", //本框架又不能直接隱藏，只好移動到一個安全的位置，嘿嘿
 insertAfter: "charsetMenu",
-clone: false, // 不克隆，直接改在原来的菜單上面
+clone: false, 
 });
 
 tab({
 id: "context-openlinkintab", 
 insertBefore: "context-copylink",
-clone: false, // 不克隆，直接改在原来的菜單上面
+clone: false, 
 });
 
+//地址欄圖標
+tab({
+id: "bookmarks-menu-button", //五角星書籤按鈕 放入地址欄
+insertBefore: "urlbar-reload-button",
+clone: false, 
+});
 
+//更多工具
+tab({
+id: "InspectElement-menuitem", //InspectElementModY菜單
+insertBefore: "toolsbar_KeyChanger_rebuild",
+clone: false, 
+});
 };
 
 
@@ -753,6 +771,12 @@ page(
 page(
 { id: 'anobtn_set', clone :false,image:
 "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADnklEQVQ4jU3M3U9bdQDG8XPB/+CSLSgQGcNVjpSOFjinh3Pa4TnlFMpgbLKB6/KjlIGZyHgZbxUMbAJxiIBuEHCUlXalox3LFCQ5WliJBq+Mpou70C1RuZDx4u5+PF6MoBff5Mlz8WEEhkm4a06VI9Y0V1jWkbA9k4ROGUnojJmEKiwvOyOS0CmOhB0GEi5kSeTtdNesOVUWGCaB+XA4XZ4iuo1IdvJeWP8qDWen0EjeMbqQr6MPLJn0gVVPF0SWRrh0GjGm0nBWEo2cSN67fyFz4+5AlswMhlnyeeQNeq36FVxOOoT3XzuMxuQjaEpJRFNKIq7s78bkRDQkHcaVpEPwnzuCdX8e1YJmwgyGWDK+oqMd/mQIch4sFisKZBmKzQan04m6ujqoqgpZUWCxnkRxQR5WvSziyxLV/PvARFRHu/wpkGw8ZFmGqqooP12GR6ur+P23p6h1u6GqKhTFhlIbj9hMJuJLEtV8B0AG9QReh1UVoMgK7HY7qior8Tj+GFvPd9Da0oIiux2KrRCnVQExnx7xbywvgf4gS8ajGdQTSIOlUIDbVYPJiQnMBQP484+/sLP9D75++BDT01+iva0N5fZ8rN3JQnxxH7gWZMnNKEs7/WmQFB5+/yx2d15ge2sXm5tb2Pz7Oba3drC7+wLr6z/iQrmCNa8e8a8kqt3mCNMbZMnYdyxt8x2DUMChrvYSZrxeRMLzePLrEzx7+gxLi4vwz87C0+VBWSGPtalMxBdEqk1yhOkJsuRTjaXNM2ngJBNEUYQsy6iqrERsdQW//PwTWpqbYLPZIFmsKDppRGycRfyemWo3OcJ0+lkyuJxBG6aOIps3gON4iKKIEocDC/fvYe1RFK5qAkmSwJvNUPL1WB09jniAo9qIkTDtPpZcX8qgtbdS8Fb2mzBkGWAymcDzPCrPVcDtqoYo5iMnNweGE9mQTMcR/eQo4l4T1W4YCdPqY0l7iKdVA/VQSA/s1b1w1F5HaX0/SusHDiq59DGKavrgcPXgRq8bsVEz1QYNhKnoMZKa/n763tAyGkY0tHwRRedkDD3e79HnW0ff7Do+mvkBXVNraL21gg9Gv8XloSV0dXfTkQYjYcxOUbbVD20UN07vlTRP07KrPnq2I0DPe+ZoVfc8fbd7np73zNF3OgK07OodWtI0TYsab+8V13+2UV5eLDOMICTkOofl3ItjrhwyRnKc/8X9r4OfjJHci2OuXOewLAiehH8BvoYzQRRPJj8AAAAASUVORK5CYII="
+});
+
+//GrabScroll圖標
+page(
+{ id: 'GrabScroll_optionsMenu', clone :false,image:
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAlklEQVQ4jaWTuw0EIQxEd8UFBFeEczoYCYkm6IeiSU+zySIZjs9+JrKQ52GDvW1jGQA84905953k/gsASVJBlvoAKAajAeq8yu/eqE0l1uciYqcl6+QeYNpSm9wCvPe/nDNDCKxMABhjNG0VI1VVFFNKia8Ad/QK0HvE/Q5k+AuP+n8CWY72DHJpL0aAy0slIlYv0Gp8D2h34zRWWYjjAAAAAElFTkSuQmCC"
 });
 
 //InspectElementModY菜單

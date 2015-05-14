@@ -1,5 +1,5 @@
 
-//2015.05.12 13:00
+//2015.05.14 09:00
 
 //F功能鍵
 
@@ -57,7 +57,10 @@ Components.classes["@mozilla.org/file/directory_service;1"].getService(Component
 
 keys['W'] = "gWHT.addWord();";//WordHighlight添加词
 
-keys['X'] = "gWHT.destroyToolbar();";//WordHighlight取消工具栏
+keys['X'] = function() {
+gWHT.destroyToolbar();//WordHighlight取消工具栏
+ucjsDownloadsStatusModoki.toggleDownloadsStatusModokiBar();//ucjsDownloadsStatusModoki底部狀態欄
+};
 
 //組合鍵
 keys['Alt+A'] = "XULBrowserWindow.statusTextField.label = 'Adblock Plus 條件偏好設定'; gBrowser.selectedTab = gBrowser.addTab('chrome://adblockplus/content/ui/filters.xul');";

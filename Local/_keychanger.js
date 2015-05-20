@@ -1,5 +1,5 @@
 
-//2015.05.14 09:00
+//2015.05.18 13:00
 
 //F功能鍵
 
@@ -45,6 +45,7 @@ addMenu.rebuild(true);//AddmenuPlus
 anobtn.reload(true);//anobtn
 Redirector.reload();//Redirector
 showFlagS.rebuild(true);//showFlagS
+MyMoveButton.delayRun();//Movebutton
 };//群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
 
 keys['S'] = "BrowserStop();";//停止载入当前页
@@ -55,20 +56,19 @@ keys['U'] = function() {
 Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile).reveal();
 };//Chrome文件夹
 
-keys['W'] = "gWHT.addWord();";//WordHighlight添加词
-
-keys['X'] = function() {
-gWHT.destroyToolbar();//WordHighlight取消工具栏
-ucjsDownloadsStatusModoki.toggleDownloadsStatusModokiBar();//ucjsDownloadsStatusModoki底部狀態欄
-};
-
 //組合鍵
 keys['Alt+A'] = "XULBrowserWindow.statusTextField.label = 'Adblock Plus 條件偏好設定'; gBrowser.selectedTab = gBrowser.addTab('chrome://adblockplus/content/ui/filters.xul');";
 
 keys["Alt+R"] = "Services.appinfo.invalidateCachesOnRestart() || Application.restart();"; //删除启动缓存并重启
 
-keys['Alt+X'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键
+keys['Alt+W'] = "gWHT.addWord();";//WordHighlight添加詞
 
+keys['Alt+X'] = function() {
+gWHT.destroyToolbar();//WordHighlight取消工具栏
+ucjsDownloadsStatusModoki.toggleDownloadsStatusModokiBar();//ucjsDownloadsStatusModoki底部狀態欄
+};
+
+keys['Alt+F1'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键
 
 
 

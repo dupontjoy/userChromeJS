@@ -1,21 +1,26 @@
 // ==UserScript==
-// @name           textLink.uc.js
+// @name           textLink_e10s.uc.js
 // @namespace      http://space.geocities.yahoo.co.jp/gl/alice0775
 // @description    TextLinkもどき
 // @include        main
 // @include        chrome://messenger/content/messenger.xul
 // @include        chrome://messenger/content/messageWindow.xul
-// @compatibility  Firefox 10, Thunderbird 10
+// @compatibility  Firefox 24, Thunderbird 24
 // @author         Alice0775
 // @note           Left DblClick        : open link on  new tab
 // @note           ctrl + Left DblClick : open current tab
 // @note           shift + Left DblClick: save as link
 // @note           全角で書かれたURLを解釈するには,user.jsにおいて,user_pref("network.enableIDN", true);
+// @version        2015/04/08 12:30 focusedWindow
+// @version        2015/02/15 23:30 Bug 1127927 Make link saving safe for e10s
 // @version        2014/10/12 23:30 !
+// @version        2014/10/10 00:00 use gBrowser.selectedBrowser.contentWindowAsCPOW instead of content
+// @version        2014/10/10 00:00 Detect DOM instances by constructor function instead of XPCOM interface 
+// @version        2014/06/20 07:00 experiments e10s
 // @version        2014/06/18 13:30 working with autoCopyToClipboard.uc.js
+// @version        2014/06/18 13:30 experiments e10s
 // @version        2014/06/18 13:30 Fix Thunderbird
 // @version        2014/06/18 12:30 remove experiments e10s
-// @version        2014/06/18 07:10 experiments e10s event
 // @version        2014/06/18 07:04 experiments e10s
 // @version        2014/06/18 07:00 experiments e10s
 // @version        2014/03/15 06:00 Fix Issue#21
@@ -124,7 +129,7 @@ function ucjs_textlink(event){
   var str1, text, str2;
 
   //textarea かどうか
-  var node = isParentEditableNode(document.commandDispatcher.focusedElement);
+  var node = isParentEditableNode(_getFocusedWindow());
   if (!node) {
   // このif ブロックは textarea等以外の処理
   //ダブルクリックで選択された選択文字列のレンジを得る
@@ -270,6 +275,7 @@ function ucjs_textlink(event){
 //すべての文字列の中でURLと思しき文字列を配列として得る
   var i1, i2;
   var arrUrl = allStr.match(urlRegex);
+
   if (arrUrl) {
 //見つかったURLと思しき文字列の中にレンジが含まれているかどうか
     i2 = 0;
@@ -408,11 +414,17 @@ function ucjs_textlink(event){
   }
 
   function _getFocusedWindow(){ //現在のウインドウを得る
-    var focusedWindow = document.commandDispatcher.focusedWindow;
-    if (!focusedWindow || focusedWindow == window)
-        return window._content;
-    else
-        return focusedWindow;
+    let element, focusedWindow;
+    try {
+	    [element, focusedWindow] = BrowserUtils.getFocusSync(document);
+      return focusedWindow;
+    } catch(ex) {
+	    focusedWindow = document.commandDispatcher.focusedWindow;
+	    if (!focusedWindow || focusedWindow == window)
+	      return window.gBrowser.selectedBrowser.contentWindowAsCPOW;
+	    else
+	      return focusedWindow;
+   }
   }
 
 //レンジの要素が所属する親ブロック要素を得る
@@ -486,49 +498,14 @@ function ucjs_textlink(event){
       autoCopy.forceDisable = true;
       setTimeout(function(){ autoCopy.forceDisable = false;}, 1500);
     }
+
     try{
-      if(event.shiftKey)
-        saveAsURL(uri, doc);
-      else
-        openNewTab(uri, doc);
+      openURL(uri, doc);
     }catch(e){}
     closeContextMenu();
   }
 
-  function saveAsURL(uri, doc){
-    var linkText = uri.spec;
-    var aReferrer = doc;
-    if (aReferrer instanceof HTMLDocument) {
-      aReferrer = aReferrer.documentURIObject;
-    }
-    //Thunderbird
-    if (/^chrome:\/\/messenger\/content\//.test(window.location.href)) {
-      // URL Loading Security Check
-      const nsIScriptSecurityManager = Components.interfaces.nsIScriptSecurityManager;
-      var secMan = Components.classes["@mozilla.org/scriptsecuritymanager;1"]
-                             .getService(nsIScriptSecurityManager);
-      try {
-        if (uri instanceof Components.interfaces.nsIURI)
-         secMan.checkLoadURIWithPrincipal(doc.nodePrincipal, uri, nsIScriptSecurityManager.STANDARD);
-        else
-         secMan.checkLoadURIStrWithPrincipal(doc.nodePrincipal, uri, nsIScriptSecurityManager.STANDARD);
-      } catch (e) {
-        throw "Load denied.";
-      }
-      saveURL( uri.spec, linkText, null, true, false ,aReferrer , doc);
-      return;
-    }
-
-    // urlSecurityCheck wanted a URL-as-string for Fx 2.0, but an nsIPrincipal on trunk
-    if(activeBrowser().contentPrincipal)
-      urlSecurityCheck(uri.spec, activeBrowser().contentPrincipal,Ci.nsIScriptSecurityManager.DISALLOW_INHERIT_PRINCIPAL);
-    else
-      urlSecurityCheck(uri.spec, activeBrowser().currentURI.spec,Ci.nsIScriptSecurityManager.DISALLOW_SCRIPT);
-
-    saveURL( uri.spec, linkText, null, true, false, aReferrer , doc );
-  }
-
-  function openNewTab(uri, doc){
+  function openURL(uri, doc){
     //Thunderbird
     if (/^chrome:\/\/messenger\/content\//.test(window.location.href)) {
       // Make sure we are allowed to open this URL
@@ -538,9 +515,9 @@ function ucjs_textlink(event){
                              .getService(nsIScriptSecurityManager);
       try {
         if (uri instanceof Components.interfaces.nsIURI)
-         secMan.checkLoadURIWithPrincipal(doc.nodePrincipal, uri, nsIScriptSecurityManager.STANDARD);
+         secMan.checkLoadURIWithPrincipal(_unremotePrincipal(doc.nodePrincipal), uri, nsIScriptSecurityManager.STANDARD);
         else
-         secMan.checkLoadURIStrWithPrincipal(doc.nodePrincipal, uri, nsIScriptSecurityManager.STANDARD);
+         secMan.checkLoadURIStrWithPrincipal(_unremotePrincipal(doc.nodePrincipal), uri, nsIScriptSecurityManager.STANDARD);
       } catch (e) {
         throw "Load denied.";
       }
@@ -550,18 +527,24 @@ function ucjs_textlink(event){
       return;
     }
 
-    // urlSecurityCheck wanted a URL-as-string for Fx 2.0, but an nsIPrincipal on trunk
-    if(activeBrowser().contentPrincipal)
-      urlSecurityCheck(uri.spec, activeBrowser().contentPrincipal,Ci.nsIScriptSecurityManager.DISALLOW_INHERIT_PRINCIPAL);
-    else
-      urlSecurityCheck(uri.spec, activeBrowser().currentURI.spec,Ci.nsIScriptSecurityManager.DISALLOW_SCRIPT);
-    if( (event.ctrlKey) ){
+    try {
+      var pribcipal = gBrowser.selectedBrowser.contentPrincipal;
+    } catch(ex) {
+      pribcipal = doc.nodePrincipal;
+    }
+
+    urlSecurityCheck(uri.spec, pribcipal);
+    if (event.shiftKey) {
+      openLinkIn(uri.spec, "save", {referrerURI: doc.referrer, 
+                                    referrerPolicy: Components.interfaces.nsIHttpChannel.REFERRER_POLICY_DEFAULT,
+                                    initiatingDoc: doc ? doc : null,
+      });
+    } else if (event.ctrlKey) {
       openLinkIn(uri.spec, "current", {});
-    }else{
+    } else {
       if ('TreeStyleTabService' in window)
         TreeStyleTabService.readyToOpenChildTab(activeBrowser().selectedTab);
       openLinkIn(uri.spec, "tab", {relatedToCurrent:true});
-      //openNewTabWith(uri.spec, null,  null, null, false)
     }
   }
 
@@ -625,7 +608,7 @@ function ucjs_textlink(event){
   }
 
   function getDocumentBody(aDocument) {
-    if (aDocument instanceof Components.interfaces.nsIDOMHTMLDocument)
+    if (aDocument.body)
       return aDocument.body;
 
     try {
@@ -677,11 +660,10 @@ function ucjs_textlink(event){
     if (!aTarget) return null;
 
     const nsIDOMNSEditableElement = Components.interfaces.nsIDOMNSEditableElement;
-    const nsIDOMWindow = Components.interfaces.nsIDOMWindow;
     try {
       return (aTarget instanceof nsIDOMNSEditableElement) ?
             aTarget.QueryInterface(nsIDOMNSEditableElement).editor.selectionController :
-          (aTarget instanceof nsIDOMWindow) ?
+          (typeof aTarget.Window == 'function' && aTarget instanceof aTarget.Window) ?
             DocShellIterator.prototype.getDocShellFromFrame(aTarget)
               .QueryInterface(Components.interfaces.nsIInterfaceRequestor)
               .getInterface(Components.interfaces.nsISelectionDisplay)
@@ -767,14 +749,26 @@ var textLinkForSidebar = {
     }catch(e){}
   }
 }
+
 //for contents area
-if (/^chrome:\/\/messenger\/content\//.test(window.location.href)) {
-  var target = document.getElementById("messagepane");
-} else {
-  var target = document.getElementById("appcontent");
+if (parseInt(Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo).version.substr(0,3) * 10,10) / 10 > 24) { // fx25 and more
+  var script = 'data:application/javascript,' + encodeURIComponent('addEventListener("dblclick", function(event) {sendSyncMessage("textlink_dblclick", {}, {event: event}); }, false);');
+  window.messageManager.loadFrameScript(script, true);
+  window.messageManager.addMessageListener("textlink_dblclick", 
+    function(m){setTimeout(ucjs_textlink, 100, m.objects.event);}
+  );
+
+  script = 'data:application/javascript,' + encodeURIComponent('addEventListener("keypress", function(event) {sendSyncMessage("textlink_keypress", {}, {event: event}); }, false);');
+  window.messageManager.loadFrameScript(script, true);
+  window.messageManager.addMessageListener("textlink_keypress",
+    function(m){setTimeout(ucjs_textlink, 100, m.objects.event);}
+  );
+
+} else { //Fx24 and less
+  window.document.addEventListener('dblclick', function(event){setTimeout(ucjs_textlink, 100, event);}, false);
+  window.document.addEventListener('keypress', function(event){setTimeout(ucjs_textlink, 100, event);}, false);
 }
-target.addEventListener('dblclick',function(event){setTimeout(ucjs_textlink,100,event);},false);
-target.addEventListener('keypress',function(event){ucjs_textlink(event);},false);
+
 //for already loaded chrome://browser/content/web-panels.xul
 if (!/^chrome:\/\/messenger\/content\//.test(window.location.href)) {
   setTimeout(function(){

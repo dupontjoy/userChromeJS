@@ -1,6 +1,6 @@
 /*+++2015.03.17 21:00+++*/
 
-/*样式伪进度条*/
+/*样式伪进度条
 @-moz-document url-prefix("http://"),url-prefix("https://"){
 html:before{
 content:"";
@@ -16,6 +16,7 @@ box-shadow:0 1px 5px rgba(190,50,0,0.5);
 100%{width:0;}
 }
 }
+*/
 
 /*LASTPASS菜单宽度*/
 #lpt_lastpass-compact-menu,#lpt_lastpass-compact-menu menupopup {

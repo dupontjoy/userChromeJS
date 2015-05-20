@@ -1,4 +1,4 @@
-/*+++2015.05.01 21:00+++*/
+/*+++2015.05.20 22:00+++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄&工具欄===*/
@@ -129,7 +129,7 @@ display: none !important;
 }
 
 /*隐藏项 - 书签编辑右键*/
-[id="placesContext_new:bookmark"],/*新建書籤*/
+[id="placesContext_open:newprivatewindow"],/*用新隱私視窗開啟*/
 #copyBookmark_copyTitle,/*複製標題*/
 #placesContext_ExportHTMLFolderSep,
 #editBookmarkPanelContent menuitem[label="復原"],
@@ -184,7 +184,7 @@ display: none !important;
 
 /*LastPass菜单*/
 [label="分享"],/*Lastpass密碼庫分享*/
-#lpt_separator3000,#lpt_menudelim2,/*分隔条*/
+#lpt_separator3000,#lpt_menudelim2,#menudelim2,#separator3000,/*分隔条*/
 #lpt_menu_search_box,/*搜索密码库*/
 #lpt_comp-bar-accts,/*站点*/
 #lpt_lpfillformsmenu1,/*表单填写*/
@@ -236,7 +236,7 @@ display: none !important;
 /*其它擴展/腳本隱藏項*/
 #loop-button-throttled,/*Loop通話*/
 #feed-button,/*分享此頁*/
-#blockElement,/*rBlock右鍵菜單*/
+#blockElement,/*uBlock右鍵菜單*/
 #snaplinksMenuEntry,
 [label="生成QR码 : 链接地址"],
 [label="生成QR码 : 选区文本"]

@@ -1,4 +1,4 @@
-/*+++2015.05.13 13:00+++*/
+/*+++2015.05.19 14:00+++*/
 
 /*新標籤打開菜單順序置頂*/
 #context-openlinkintab {-moz-box-ordinal-group: 0 !important;}
@@ -14,22 +14,6 @@
 #flashgot-media-tbb {-moz-box-ordinal-group: 5 !important;}
 #lpt_lastpass-compact-btn {-moz-box-ordinal-group: 6 !important;}
 #userChromebtnMenu {-moz-box-ordinal-group: 7 !important;}
-
-/*更多工具圖標排序*/
-#addMenu-rebuild {-moz-box-ordinal-group: 1 !important;}
-#anobtn_set {-moz-box-ordinal-group: 2 !important;}
-#AutoClick-enable-menuitem {-moz-box-ordinal-group: 3 !important;}
-#FeiRuoTabplus_set {-moz-box-ordinal-group: 4 !important;}
-#InspectElement-menuitem {-moz-box-ordinal-group: 5 !important;}
-#toolsbar_KeyChanger_rebuild {-moz-box-ordinal-group: 6 !important;}
-#uc-movebutton {-moz-box-ordinal-group: 7 !important;}
-#wordhighlight-toolbar-menuitem {-moz-box-ordinal-group: 8 !important;}
-#GrabScroll_optionsMenu {-moz-box-ordinal-group: 9 !important;}
-#redirector-icon {-moz-box-ordinal-group: 10 !important;}
-#usercssloader_Tools_Menu {-moz-box-ordinal-group: 11 !important;}
-#abp-menuitem {-moz-box-ordinal-group: 12 !important;}
-#flashgot-menu {-moz-box-ordinal-group: 13 !important;}
-#gm_general_menu {-moz-box-ordinal-group: 14 !important;}
 
 /*图标对齐*/
 #ucjs_UserAgentChanger,#gm_general_menu {

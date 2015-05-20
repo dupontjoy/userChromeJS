@@ -1,5 +1,5 @@
 
-//2015.05.12 09:00 調整反Google搜索驗證碼
+//2015.05.18 12:00 調整反Google搜索驗證碼
 //2015.05.11 16:00 修正Google搜索重定向
 //2015.05.07 16:00 精簡很久不用的規則
 //2015.04.28 16:00 更新TVC規則
@@ -124,6 +124,7 @@ to: "https://raw.githubusercontent.com/dupontjoy/customization/master/queryLeftT
 regex: true
 },
 
+
 //Google系
 {
 //設置Google搜索語言爲英文，關閉安全搜索功能，使用新版界面
@@ -141,10 +142,10 @@ to: "https://www.google.com/ncr#$2",
 regex: true
 },
 {
-//有時Google會要求塡驗證碼，此規則用以跳過
+//有時Google會要求塡驗證碼，此規則用以跳過。是否有效有待驗證。
 name: "反Google搜索驗證碼",
-from: /^https?:\/\/(ipv4|ipv6)\.google\.com\/sorry\/IndexRedirect\?continue=https?:\/\/www\.google\.com(?:\.hk|)\/search\?(.*q=.*)&q=.*/i,
-to: "https://www.google.com/ncr#$2",
+from: /^https?:\/\/(ipv4|ipv6)\.google\.com\/sorry\/IndexRedirect\?continue=(.*)&q=.*/i,
+to: "$2",
 regex: true
 },
 {
@@ -200,13 +201,6 @@ to: "http://$1.360buyimg.com/imgzone/$3.jpg",
 regex: true
 },
 
-//待測試
-{
-name: "NoRedirect",
-from: /^https?:\/\/\\w[\\x21-\\x2e\\x30-\\x7e]+\\.(com|cn|org|net|info|tv)\/url?=(.+)/i,
-to: "$1",
-regex: true
-},
 
 //——————以下为不啟用——————
 /*

@@ -21,7 +21,7 @@
 (function() {
 	if (location == "chrome://browser/content/browser.xul") {
 		//是否移动添加书签五角星到地址栏
-		var olduimod = false;
+		var olduimod = true;
 
 		//是否隐藏dropmarker，配合bookmarkBtn.uc.js效果更佳
 		var hidedropmarker = false;

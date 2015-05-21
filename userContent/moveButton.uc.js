@@ -82,7 +82,7 @@ location == "chrome://browser/content/browser.xul" && (function(){
         //     }
         // },
         
- //更多工具的菜單移動到UC管理器中
+//更多工具的菜單移動到UC管理器中
 { id: "addMenu-rebuild", insertBefore: "anobtn_set" },
 { id: "anobtn_set", insertBefore: "AutoClick-enable-menuitem" },
 { id: "AutoClick-enable-menuitem", insertBefore: "toolsbar_KeyChanger_rebuild" },
@@ -93,13 +93,21 @@ location == "chrome://browser/content/browser.xul" && (function(){
 //保留在更多工具中
 { id: "InspectElement-menuitem", insertBefore: "abp-menuitem" },//InspectElementModY默認不在MoreTools中，單獨移動
 
+//右鍵菜單
+{id: "frame", insertAfter: "charsetMenu"}, //页面右键本框架不能直接隱藏，只好移動到一個安全的位置
+{id: "context-openlinkintab", insertBefore: "context-copylink"},
+
+//地址欄圖標
+{id: "bookmarks-menu-button", insertBefore: "urlbar-reload-button"},//五角星書籤按鈕 放入地址欄
+
 //Greasemonkey圖標右鍵菜單
- {id: "greasemonkey-tbb",
+{id: "greasemonkey-tbb",
     attr: {
         type: "",
         context: "_child"
     }
 },
+
     ];
 
     if (window.MyMoveButton) {

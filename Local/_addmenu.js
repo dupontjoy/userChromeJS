@@ -703,7 +703,7 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABgU
 
 /*——————————移動圖標和菜單——————————*/
 //移动圖標，代替Movebutton.uc.js，需配合RebuildWhenStart.uc.js，可惜對有的圖標還是無力
-new function() {
+/*new function() {
 //幾個擴展圖標
 tab({
 id: "flashgot-media-tbb",
@@ -711,49 +711,12 @@ insertBefore: "userChromebtnMenu",
 clone: false,// 不克隆，直接改在原来的菜單上面
 }
 );
-tab({
-id: "lpt_lastpass-compact-btn",
-insertBefore: "userChromebtnMenu",
-clone: false,
-}
-);
-tab({
-id: "foxyproxy-toolbar-icon",
-insertBefore: "userChromebtnMenu",
-clone: false,
-}
-);
-tab({
-id: "abp-toolbarbutton",
-insertBefore: "userChromebtnMenu",
-clone: false,
-}
-);
-
-//右鍵菜單
-tab({
-id: "frame", //本框架又不能直接隱藏，只好移動到一個安全的位置，嘿嘿
-insertAfter: "charsetMenu",
-clone: false, 
-});
-
-tab({
-id: "context-openlinkintab", 
-insertBefore: "context-copylink",
-clone: false, 
-});
-
-//地址欄圖標
-tab({
-id: "bookmarks-menu-button", //五角星書籤按鈕 放入地址欄
-insertBefore: "urlbar-reload-button",
-clone: false, 
-});
 
 };
+*/
 
 /*——————————菜單加圖標系列——————————*/
-//以app的形式加图标，即使腳本不在，也不会多出一个undefine的菜單
+//以app的形式加图标，如果腳本不在，undefined的菜單将会出现在左上角APP按钮中，至少不会影响正常视觉
 //Addmenuplus菜單
 app(
 { id: 'addMenu-rebuild', clone :false,image:

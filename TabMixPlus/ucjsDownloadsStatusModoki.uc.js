@@ -342,7 +342,7 @@ var ucjsDownloadsStatusModoki = {
       moveDownloads2History();
 
       // close toolbar
-      var closeWhenDone = false;
+      var closeWhenDone = true;
       try {
         closeWhenDone = Services.prefs.getBoolPref("userChrome.downloadsStatusModoki.closeWhenDone");
       } catch(e) {}

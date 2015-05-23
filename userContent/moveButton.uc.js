@@ -81,7 +81,11 @@ location == "chrome://browser/content/browser.xul" && (function(){
         //         context: "stylish-popup"
         //     }
         // },
-        
+//不常用圖標移動到aidBar
+{ id: "ucjsPermission_Toolmenu", bar: "TabsToolbar_aidBar", pos: 1 },//ucjsPermission腳本
+{ id: "abp-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 2 },// AdBlockPlus扩展
+{ id: "greasemonkey-tbb", bar: "TabsToolbar_aidBar", pos: 3 },// Greasemonkey扩展
+
 //更多工具的菜單移動到UC管理器中
 { id: "addMenu-rebuild", insertBefore: "anobtn_set" },
 { id: "anobtn_set", insertBefore: "AutoClick-enable-menuitem" },

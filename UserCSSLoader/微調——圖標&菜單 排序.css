@@ -1,4 +1,4 @@
-/*+++2015.05.23 07:00+++*/
+/*+++2015.05.23 14:00+++*/
 
 /*新標籤打開菜單順序置頂*/
 #context-openlinkintab {-moz-box-ordinal-group: 0 !important;}
@@ -21,7 +21,8 @@ padding: 0px !important;
 margin-left: 6px !important;
 }
 
-/*調整圖標邊框*/
+/*調整圖標邊框——方法1*/
+#PanelUI-menu-button >image,/*三道杠圖標*/
 #back-button >image, 
 #forward-button >image, 
 #abp-toolbarbutton >image, 
@@ -33,11 +34,17 @@ margin-left: 6px !important;
 #userChromebtnMenu >image 
 {padding: 0px !important;}
 
-/*調整uBlock圖標邊框*/
+/*調整圖標邊框——方法2*/
 #ublock-button .toolbarbutton-badge-container {padding: 0px !important;}
 
-/*調整FoxyProxy圖標邊框*/
-#foxyproxy-toolbar-icon .toolbarbutton-icon {padding: 0px !important;}
+/*調整圖標邊框——方法3*/
+#downloads-button .toolbarbutton-icon,
+#foxyproxy-toolbar-icon .toolbarbutton-icon 
+{padding: 0px !important;}
+
+/*ucjsPermission圖標距離調整（两句要同時用）*/
+toolbarbutton#ucjsPermission_Toolmenu {padding: 0px !important;}
+toolbarbutton#ucjsPermission_Toolmenu>image {margin: 0px !important;}
 
 /*五角星書籤圖標邊框及左右距離*/
 #bookmarks-menu-button .toolbarbutton-icon {
@@ -46,10 +53,6 @@ margin-left: 5px !important;
 margin-right: 5px !important;
 border-right:1px #BBC2C8 solid !important;
 }
-
-/*ucjsPermission圖標距離調整（两句要同時用）*/
-toolbarbutton#ucjsPermission_Toolmenu {padding: 0px !important;}
-toolbarbutton#ucjsPermission_Toolmenu>image {margin: 0px !important;}
 
 /*附加组件调序*/
 #category-extension {-moz-box-ordinal-group: 0 !important;}

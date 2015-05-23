@@ -238,6 +238,9 @@ display: none !important;
 #feed-button,/*分享此頁*/
 #blockElement,/*uBlock右鍵菜單*/
 #snaplinksMenuEntry,
+[label="生成二维码 : 链接地址"],
+[label="生成二维码 : 图象地址"],
+[label="生成二维码 : 选区文本"],
 [label="生成QR码 : 链接地址"],
 [label="生成QR码 : 选区文本"]
 {

@@ -1,6 +1,5 @@
 
-//2015.05.18 12:00 調整反Google搜索驗證碼
-//2015.05.11 16:00 修正Google搜索重定向
+//2015.05.22 23:00 修正Google搜索重定向
 //2015.05.07 16:00 精簡很久不用的規則
 //2015.04.28 16:00 更新TVC規則
 //2015.04.25 08:00 新增Google搜天氣時 圖標
@@ -129,23 +128,9 @@ regex: true
 {
 //設置Google搜索語言爲英文，關閉安全搜索功能，使用新版界面
 name: "Google搜索en-US,safe=off,sclient=psy-ab",
-from: /^https?:\/\/www\.google\.com\/(s\?|search\?|webhp\?)(.*)/i,
+from: /^https?:\/\/www\.google\.com(?:\.hk|)\/(s\?|search\?|webhp\?)(.*)/i,
 to: "https://www.google.com/$1$2&hl=en-US&safe=off&sclient=psy-ab",
 exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off&sclient=psy-ab(.*)/i,
-regex: true
-},
-{
-//google.com.hk的搜索重定向到國際版google.com
-name: "google.com.hk >> google.com慢速版",
-from: /^https?:\/\/www\.google\.com\.hk\/(s\?|search\?|webhp\?)(.*)/i,
-to: "https://www.google.com/ncr#$2",
-regex: true
-},
-{
-//有時Google會要求塡驗證碼，此規則用以跳過。是否有效有待驗證。
-name: "反Google搜索驗證碼",
-from: /^https?:\/\/(ipv4|ipv6)\.google\.com\/sorry\/IndexRedirect\?continue=(.*)&q=.*/i,
-to: "$2",
 regex: true
 },
 {
@@ -158,13 +143,6 @@ regex: true
 
 
 //百度系
-{
-//參照『反Google搜索驗證碼』改的，很少遇到吶
-name: "反百度搜索驗證碼",
-from: /^https?:\/\/verify\.baidu\.com\/vcode\?http:\/\/www\.baidu\.com\/s\?wd=(.*)&(.*=.*)/i,
-to: "http://www.baidu.com/s?wd=$1",
-regex: true
-},
 {
 //百度云盘分享页，手机版 重定向至 电脑版
 //詳細說明：http://bbs.kafan.cn/thread-1814510-1-1.html

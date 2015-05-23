@@ -86,12 +86,11 @@ location == "chrome://browser/content/browser.xul" && (function(){
 { id: "addMenu-rebuild", insertBefore: "anobtn_set" },
 { id: "anobtn_set", insertBefore: "AutoClick-enable-menuitem" },
 { id: "AutoClick-enable-menuitem", insertBefore: "toolsbar_KeyChanger_rebuild" },
-{ id: "toolsbar_KeyChanger_rebuild", insertBefore: "GrabScroll_optionsMenu" },
-{ id: "GrabScroll_optionsMenu", insertBefore: "redirector-icon" },
+{ id: "toolsbar_KeyChanger_rebuild", insertBefore: "redirector-icon" },
 { id: "redirector-icon", insertBefore: "usercssloader_Tools_Menu" },
 { id: "usercssloader_Tools_Menu", insertBefore: "jscmdseparator" },
 //保留在更多工具中
-{ id: "InspectElement-menuitem", insertBefore: "abp-menuitem" },//InspectElementModY默認不在MoreTools中，單獨移動
+{ id: "InspectElement-menuitem", insertAfter: "gm_general_menu" },//InspectElementModY默認不在MoreTools中，單獨移動
 
 //右鍵菜單
 {id: "frame", insertAfter: "charsetMenu"}, //页面右键本框架不能直接隱藏，只好移動到一個安全的位置

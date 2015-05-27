@@ -1,4 +1,4 @@
-/*+++2015.05.10 10:00+++*/
+/*+++2015.05.25 21:00+++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -11,7 +11,7 @@ min-width:100px !important;
 /*地址栏图标加分隔线*/
 #urlbar-icons{
 padding:1px 1px !important;
-border-left:1px #BBC2C8 solid !important;
+border-right:1px #BBC2C8 solid !important;
 }
 
 /*anoBtn向左对齐*/
@@ -34,41 +34,36 @@ padding: 0px !important;
 #scriptish-button /*Scriptish*/
 {display: none !important;}
 
-/*++第2部分+++++++++++++++++++++++以下为書簽欄自動隱藏+++++++++++++++++++++++++*/
+/*調整圖標邊框——方法1*/
+#PanelUI-menu-button >image,/*三道杠圖標*/
+#back-button >image, 
+#forward-button >image, 
+#abp-toolbarbutton >image, 
+#ublock-button >image, 
+#flashgot-media-tbb >image, 
+#lpt_lastpass-compact-btn > image, 
+#greasemonkey-tbb > image, 
+#stylish-toolbar-button >image, 
+#userChromebtnMenu >image 
+{padding: 0px !important;}
 
-@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+/*調整圖標邊框——方法2*/
+#ublock-button .toolbarbutton-badge-container {padding: 0px !important;}
 
-#PersonalToolbar {
-visibility: hidden !important;
-opacity: 0;
--moz-transition-duration: 0.1s;
--moz-transition-property: visibility, opacity, margin;
--moz-transition-delay: 1s} /*设置多少秒bookmark消失*/
+/*調整圖標邊框——方法3*/
+#downloads-button .toolbarbutton-icon,
+#foxyproxy-toolbar-icon .toolbarbutton-icon 
+{padding: 0px !important;}
 
-#nav-bar:hover~#PersonalToolbar,#PersonalToolbar:hover /*此处为hover地址栏自动弹出bookmark，若想hover地址栏+标签栏，请改#navigator-toolbox:hover > */
-{
-visibility: visible !important;
-opacity: 1;
--moz-transition-delay: 0.4s} /*设置多少秒后延迟出现*/
+/*ucjsPermission圖標距離調整（两句要同時用）*/
+toolbarbutton#ucjsPermission_Toolmenu {padding: 0px !important;}
+toolbarbutton#ucjsPermission_Toolmenu>image {margin: 0px !important;}
 
-#PersonalToolbar {
-position: fixed !important;
-margin-top: 0px !important;/*接近地址欄才觸發*/
-margin-left: 0% !important;
+/*五角星書籤圖標邊框及左右距離*/
+#bookmarks-menu-button .toolbarbutton-icon {
+padding: 0px !important;
+margin-left: 5px !important;
+margin-right: 5px !important;
+border-right:1px #BBC2C8 solid !important;
 }
- 
-#nav-bar:hover~#PersonalToolbar,#PersonalToolbar:hover /*此处为hover地址栏自动弹出bookmark，若想hover地址栏+标签栏，请改#navigator-toolbox:hover > */
-{
-margin-top: 0px !important}
- 
-#main-window[stylish-url="about:addons"] #PersonalToolbar {
-margin-top: 0px !important;
-background: transparent !important; border: none !important}
 
-#main-window[stylish-url="about:addons"] #PersonalToolbar {
-display: none !important}
-
-
-#PersonalToolbar {
-background-color: #e6e7e7 !important;
-}

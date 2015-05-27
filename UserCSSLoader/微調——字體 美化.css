@@ -1,4 +1,4 @@
-/*+++2015.01.11 13:26+++*/
+/*+++2015.05.27 09:00+++*/
 
 /*文本选中样式（黑底+绿字）*/
 *::-moz-selection {
@@ -27,44 +27,3 @@ text-shadow: 0 1px rgba(242,33,49,60),0 1px 1px rgba(242,33,49,60),0 -1px 1px rg
 1px 0 1px rgba(242,33,49,60),-1px 0 1px rgba(242,33,49,60),0 0 3px rgba(242,33,49,60)!important;
 }
 
-/*網頁源碼字體美化*/
-@charset "utf-8";
-@-moz-document url-prefix(view-source:){
-
-*|*:root {
-	background: #272822 !important;
-}
-*::-moz-selection {
-	background-color:#49483E;
-}
-body {
-	font: 12px Monaco, -moz-fixed !important;
-	margin: 0;
-	padding: 0.6em 1em;
-	color: #FCFFE0 !important;
-}
-.doctype, .start-tag, .end-tag {
-color: #06cfcf !important;
-}
-.attribute-name {
-color: #a0a0f0 !important;
-font-weight: normal !important;
-}
-.attribute-value {
-color: white !important;
-}
-.comment, .cdata, .pi {
-color: green !important;
-}
-.error, .error > .start-tag, .error > .end-tag,
-.error > .comment, .error > .cdata, .error > .doctype,
-.error > .pi, .error > .entity, .error > .attribute-name,
-.error > .attribute-value {
-color: red !important;
-background: #fff !important;
-font-weight: bold !important;
-}
-a:link {
-color: #8fa3ff !important;
-}
-}

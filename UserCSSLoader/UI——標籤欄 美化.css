@@ -1,4 +1,4 @@
-/*+++2015.04.14 14:00+++*/
+/*+++2015.05.27 09:00+++*/
 
 /*标签样式css*/
 .tabbrowser-tab[busy] {color: blue !important;}/* 正在加载标签 */
@@ -10,16 +10,9 @@
 display: block !important;
 list-style-image: url("chrome://mozapps/skin/places/defaultFavicon.png");
 }
-
 .tab-throbber:not([busy]),
 .tab-throbber[busy] + .tab-icon-image:not([src]):not([pinned]) {
 display: none !important;
-}
-
-/* 标签栏上下外边距设置 */
-#TabsToolbar {
-margin-top: -1px!important;
-margin-bottom: 0px!important;
 }
 
 /*当前标签显示关闭按钮*/

@@ -1,7 +1,8 @@
 
-//2015.05.22 23:00 修正Google搜索重定向
+//2015.05.27 22:00 找回Google服務轉國內鏡像
+//2015.05.26 17:00 更新TVC規則
+//2015.05.25 10:00 修正Google搜索重定向
 //2015.05.07 16:00 精簡很久不用的規則
-//2015.04.28 16:00 更新TVC規則
 //2015.04.25 08:00 新增Google搜天氣時 圖標
 //2015.04.19 10:00 新增鳳凰網 圖片修正
 //2015.04.14 13:00 新增鳳凰網 只顯示首圖修正
@@ -56,8 +57,8 @@ regex: true
 },
 {
 //個人用
-name: "TVC內網 圖片 以圖搜圖",
-from: /(.*(google|so|baidu|bing|sougou|tineye).*)\/ic\.sjlpj\.cn\/uploads(?:\/unlogo|)\/details\/(.*)/i,
+name: "TVC內網 圖片以圖搜圖",
+from: /(.*(google|so|baidu|bing|sougou|tineye).*)\/ic\.sjlpj\.cn\/Product\/ViewImage\?id=\/uploads(?:\/unlogo|)\/details\/(.*)/i,
 to: "$1/img.tvc-mall.com/uploads/details/$3",
 regex: true
 },
@@ -108,13 +109,6 @@ to: "http://book.bfnn.org/books$1",
 regex: true
 },
 {
-//在Google搜索時會出現某一種頁面，這個重定向用來直接跳到目標鏈接
-name: "noMoreArchiver",
-from: /(.*)\/archiver\/(.*)tid-(.*)\.html/,
-to: "$1/viewthread.php?tid=$3",
-regex: true
-},
-{
 //重定向12306的JS到修改版，用來定時刷票，但驗證碼得手動輸入。
 //方法來源：http://bbs.kafan.cn/thread-1809903-1-1.html
 name: "12306重定向JS",
@@ -128,9 +122,16 @@ regex: true
 {
 //設置Google搜索語言爲英文，關閉安全搜索功能，使用新版界面
 name: "Google搜索en-US,safe=off,sclient=psy-ab",
-from: /^https?:\/\/www\.google\.com(?:\.hk|)\/(s\?|search\?|webhp\?)(.*)/i,
+from: /^https?:\/\/www\.google\.com\/(s\?|search\?|webhp\?)(.*)/i,
 to: "https://www.google.com/$1$2&hl=en-US&safe=off&sclient=psy-ab",
-exclude: /^https:\/\/www\.google\.com\/.*\&hl=en-US&safe=off&sclient=psy-ab(.*)/i,
+exclude: /^https?:\/\/www\.google\.com\/.*\&hl=en-US&safe=off&sclient=psy-ab(.*)/i,
+regex: true
+},
+{
+//google.com.hk的搜索重定向到國際版google.com
+name: "google.com.hk >> google.com慢速版",
+from: /^https?:\/\/www\.google\.com\.hk\/(s\?|search\?|webhp\?)(.*)/i,
+to: "https://www.google.com/ncr#$2",
 regex: true
 },
 {
@@ -179,26 +180,56 @@ to: "http://$1.360buyimg.com/imgzone/$3.jpg",
 regex: true
 },
 
-
-//——————以下为不啟用——————
-/*
+//Google服務轉國內鏡像
+//參考https://github.com/jiacai2050/gooreplacer
 {
-//打開頁面後，自動滾動到某一位置
-name: "BiliBili",
-from: /^http:\/\/www\.bilibili\.com\/video\/av([\d]+)\/([\w]+\.html)?(.*)?/i,
-to: "http://www.bilibili.com/video/av$1/$2#alist",
-exclude: /bilibili\.com\/video\/av([\d]+)\/([\w]+\.html)?#alist$/i,
+name: "ajax/fonts >> 360 useso",
+from: /^http:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
+to: "http://$1.useso.com/$2",
 regex: true
 },
 {
-//加/print可以無限看文章
-//現在換用改referer的方式，還更好一些
-name: "The Economist加/print",
-from: /^https?:\/\/www\.economist\.com\/(.*)\/(.*)/i,
-to: "http://www.economist.com/$1/$2/print",
-exclude: /^http:\/\/www\.economist\.com\/.*\/print/i,
+//https://servers.ustclug.org/index.php/2014/06/blog-googlefonts-speedup/
+name: "ajax/fonts >> 科大博客提供",
+from: /^https:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
+to: "http://$1.lug.ustc.edu.cn/$2",
 regex: true
 },
-*/
+{
+name: "themes >> 科大博客",
+from: /^https?:\/\/themes\.googleusercontent\.com\/(.*)$/,
+to: "http://google-themes.lug.ustc.edu.cn/$1",
+regex: true
+},
+{
+name: "fonts-gstatic >> 科大博客",
+from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
+to: "http://fonts-gstatic.lug.ustc.edu.cn/$1",
+regex: true
+},
+{
+name: "platform.twitter.com/widgets.js重定向",
+from: /^https?:\/\/platform\.twitter\.com\/widgets.js(.*)/i,
+to: "https://raw.githubusercontent.com/jiacai2050/gooreplacer/gh-pages/proxy/widgets.js",
+regex: true
+},
+{
+name: "apis.google.com/js/api.js和plusone.js重定向",
+from: /^https?:\/\/apis\.google\.com\/js\/(api|plusone).js(.*)/i,
+to: "https://raw.githubusercontent.com/jiacai2050/gooreplacer/gh-pages/proxy/$1.js",
+regex: true
+},
+{
+name: "Google统计和tag >> mingto.tk",
+from: /^https?:\/\/(.*?)(google-analytics|googletagmanager|googletagservices|googleadservices)\.com\/([\w]+\/)*([\w]+(\.[\w]+)?)/i,
+to: "http://minggo.coding.io/cdn/google/$4",
+regex: true
+},
+{
+name: "Gravatar头像 >> 多说",
+from: /^https?:\/\/([0-9]?)\.gravatar\.com\/avatar\/(.*)$/,
+to: "http://gravatar.duoshuo.com/avatar/$1",
+regex: true
+},
 
 ];

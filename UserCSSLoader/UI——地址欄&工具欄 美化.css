@@ -1,4 +1,4 @@
-/*+++2015.03.17 21:00+++*/
+/*+++2015.05.27 09:00+++*/
 
 /*样式伪进度条
 @-moz-document url-prefix("http://"),url-prefix("https://"){
@@ -28,6 +28,12 @@ border: 1px solid ThreeDShadow !important;
 #unknownContentType {
 height: 340px !important;
 width: 450px!important;
+}
+
+/*書籤工具欄*/
+#PersonalToolbar {
+margin-top: -3px !important;
+margin-bottom: 0px !important;
 }
 
 /*书签栏左右变窄*/
@@ -61,7 +67,7 @@ border-top: none;
 #wordhighlight-toolbar-box {
 background: #FFFFFF;
 right: 16px; /*距右邊*/
-top: 76px; /*距上邊*/
+top: 97px; /*距上邊*/
 /*>>>自行修改数字*/
 border: 1px solid #A6A6A6;
 border-radius: 0px 0px 0px 2.5px;
@@ -123,35 +129,6 @@ visibility: collapse;
 display: -moz-box!important;
 }
 
-/*Oos定制 —— 颜色区分*/
-#UserScriptLoader-popup #UserScriptLoader-menuseparator {
--moz-box-ordinal-group: 95!important;
-}
-
-#UserScriptLoader-popup .UserScriptLoader-item[checked="true"][style="font-weight: bold;"] {
--moz-box-ordinal-group: 96!important;
-color: blue!important;
-}
-
-#UserScriptLoader-popup .UserScriptLoader-item[checked="true"] {
--moz-box-ordinal-group: 97!important;
-color: black!important;
-}
-
-#UserScriptLoader-popup .UserScriptLoader-item {
--moz-box-ordinal-group: 98!important;
-color: red!important;
-}
-
-#redirector-menupopup .redirector-item[checked="false"],
-#userChromejs_options .uc-item[checked="false"],
-#userChromejs_options .userChromejs_script[checked="false"],
-#usercssloader-menupopup .usercssloader-item[checked="false"],
-#UserScriptLoader-popup .UserScriptLoader-item[checked="false"] {
--moz-box-ordinal-group: 99!important;
-color: gray!important;
-}
-
 /*網站標識*/
 #identity-box:not(:hover) #identity-icon-label,
 #identity-box:not(:hover) #identity-icon-labels {
@@ -165,45 +142,6 @@ border-radius:12px 0px 0px 12px !important;
 #identity-box {
 background: none !important;
 }
-
-/*附加组件栏图标动画*/
-.category-icon {
-	width:36px !important;
-	height:36px !important;
-  -moz-margin-start: 0px !important;
-	transition-duration: 0.3s;
-  transition-timing-function: ease-out;
-}
-		
-.category[selected="true"] .category-icon,
-.category:hover .category-icon{
-	opacity:1 !important;
-}
-
-.category:hover .category-icon{
-	margin-left: -4px !important;
-}
-
-/*附加组件栏图标名称文字调整*/
-.category-name{
-    padding-left:2px;
-    font-size: 100% !important;
-    display:block !important;
-	  color: #000;
-		transition-duration: 0.2s;
-    transition-timing-function: ease-out;
-}
-
-.category-name:hover{
-	  color: #027cff !important;
-}
-
-/*附加组件栏项目文字调整*/
-.name-container {
-  font-weight: normal!important;
-	color:#000 !important;
-}
-.name-container>.disabled-postfix{color:#999 !important;}
 
 /*按Alt悬浮菜单栏*/
 #toolbar-menubar[inactive="true"]{

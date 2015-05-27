@@ -1,5 +1,5 @@
 
-//2015.05.18 13:00
+//2015.05.27 13:00
 
 //F功能鍵
 
@@ -43,7 +43,6 @@ KeyChanger.makeKeyset(true);//KeyChanger
 UCL.rebuild();//UserCSSLoader
 addMenu.rebuild(true);//AddmenuPlus
 anobtn.reload(true);//anobtn
-Redirector.reload();//Redirector
 showFlagS.rebuild(true);//showFlagS
 MyMoveButton.delayRun();//Movebutton
 };//群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
@@ -56,6 +55,10 @@ keys['U'] = function() {
 Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile).reveal();
 };//Chrome文件夹
 
+keys['X'] = function() {
+ucjsDownloadsStatusModoki.toggleDownloadsStatusModokiBar();//ucjsDownloadsStatusModoki底部狀態欄
+};
+
 //組合鍵
 keys['Alt+A'] = "XULBrowserWindow.statusTextField.label = 'Adblock Plus 條件偏好設定'; gBrowser.selectedTab = gBrowser.addTab('chrome://adblockplus/content/ui/filters.xul');";
 
@@ -65,7 +68,6 @@ keys['Alt+W'] = "gWHT.addWord();";//WordHighlight添加詞
 
 keys['Alt+X'] = function() {
 gWHT.destroyToolbar();//WordHighlight取消工具栏
-ucjsDownloadsStatusModoki.toggleDownloadsStatusModokiBar();//ucjsDownloadsStatusModoki底部狀態欄
 };
 
 keys['Alt+F1'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键

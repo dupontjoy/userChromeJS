@@ -1,8 +1,10 @@
 
-::2015.04.21 09:00 更新說明
-::2015.04.16 08:00 更新備份項，添加說明
-::2015.04.06 07:00 更新備份項
-::Mod 2015.01.26搞定了时间问题
+::2015.05.27 18:00  換用Autoproxy
+::2015.05.25 17:00  加入foxyproxy訂閱列表設置
+::2015.04.21 09:00  更新說明
+::2015.04.16 08:00  更新備份項，添加說明
+::2015.04.06 07:00  更新備份項
+::2015.01.26 12:00  搞定了时间问题
 
 echo off
 rem 设置备份路径以及临时文件夹
@@ -19,6 +21,8 @@ del %BackDir%\chrome\UserScriptLoader\require\  /s /q
 ::以下是文件夹
 ::adblockplus：ABP規則備份。
 xcopy "%BackDir%\adblockplus" %TempFolder%\adblockplus\  /s /y /i
+::autoproxy：Autoproxy規則備份。
+::xcopy "%BackDir%\autoproxy" %TempFolder%\autoproxy\  /s /y /i
 ::chrome：UC腳本。
 xcopy "%BackDir%\chrome" %TempFolder%\chrome\  /s /y /i
 ::extensions：安裝的擴展。
@@ -51,6 +55,8 @@ xcopy "%BackDir%\localstore.rdf" %TempFolder%\ /y
 xcopy "%BackDir%\mimeTypes.rdf" %TempFolder%\ /y
 ::MyFirefox.7z：用於官方FX的便携设置。
 xcopy "%BackDir%\MyFirefox.7z" %TempFolder%\ /y
+::patternSubscriptions.json：FoxyProxy的訂閱列表設置。
+xcopy "%BackDir%\patternSubscriptions.json" %TempFolder%\ /y
 ::permissions.sqlite：存放特定网站是否可存取密码、cookies、弹出视窗、图片载入与附加元件……等权限的资料库。
 xcopy "%BackDir%\permissions.sqlite" %TempFolder%\ /y
 ::persdict.dat：个人的拼字字典。

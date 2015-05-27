@@ -82,9 +82,13 @@ location == "chrome://browser/content/browser.xul" && (function(){
         //     }
         // },
 //不常用圖標移動到aidBar
-{ id: "ucjsPermission_Toolmenu", bar: "TabsToolbar_aidBar", pos: 1 },//ucjsPermission腳本
-{ id: "abp-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 2 },// AdBlockPlus扩展
-{ id: "greasemonkey-tbb", bar: "TabsToolbar_aidBar", pos: 3 },// Greasemonkey扩展
+{ id: "flashgot-media-tbb", bar: "TabsToolbar_aidBar", pos: 1 },//Flashgot扩展
+{ id: "lpt_lastpass-compact-btn", bar: "TabsToolbar_aidBar", pos: 2 },//Lastpass扩展
+{ id: "foxyproxy-toolbar-icon", bar: "TabsToolbar_aidBar", pos: 3 },//Foxyproxy擴展
+{ id: "ucjsPermission_Toolmenu", bar: "TabsToolbar_aidBar", pos: 4 },//ucjsPermission腳本
+{ id: "abp-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 5 },//AdBlockPlus扩展
+{ id: "greasemonkey-tbb", bar: "TabsToolbar_aidBar", pos: 6 },//Greasemonkey扩展
+{ id: "userChromebtnMenu", bar: "TabsToolbar_aidBar", pos: 7 },//UC管理器
 
 //更多工具的菜單移動到UC管理器中
 { id: "addMenu-rebuild", insertBefore: "anobtn_set" },

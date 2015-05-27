@@ -294,7 +294,7 @@ where: 'tab'
 }, 
 {label: "Google",
 accesskey: "G",
-url: "http://www.google.com/search?q=%s",
+url: "https://www.google.com/search?q=%s",
 image: "https://www.google.com/favicon.ico",
 where: 'tab'
 }, 
@@ -676,7 +676,8 @@ tooltiptext: "拼寫檢查（當前窗口打開）！",
 oncommand: function() {document.onkeydown=ck;content.document.body.contentEditable=true;function ck(e){k=window.event?window.event.keyCode:e.keyCode;if(k==27){content.document.body.contentEditable=false}}},
 },
 /*
-Google Chrome版拼寫檢查小書籤：
+//from: http://kb.mozillazine.org/Spell_checking
+Firefox和Chrome通用 拼寫檢查小書籤（Firefox不能实时生效）：
 javascript:document.body.contentEditable='true'; document.designMode='on'; void 0
 */
 {

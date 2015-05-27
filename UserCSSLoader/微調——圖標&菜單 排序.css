@@ -1,18 +1,12 @@
-/*+++2015.05.23 14:00+++*/
-
-/*新標籤打開菜單順序置頂*/
-#context-openlinkintab {-moz-box-ordinal-group: 0 !important;}
-
-/*幾個qrCreator菜單順序靠後*/
-#FeiRuoMouse_QRCreator,[label="生成QR码 : 选区文本"],[label="生成QR码 : 当前网址"],[label="生成QR码 : 图象地址"],[label="生成QR码 : 链接地址"] {-moz-box-ordinal-group: 5 !important;}
+/*+++2015.05.23 17:00+++*/
 
 /*地址栏图标排序*/
 [label="书签"],[label="書籤"] {-moz-box-ordinal-group: 1 !important;}
-#foxyproxy-toolbar-icon {-moz-box-ordinal-group: 2 !important;}
-#ucjsPermission_Toolmenu {-moz-box-ordinal-group: 3 !important;}
-#abp-toolbarbutton {-moz-box-ordinal-group: 4 !important;}
-#flashgot-media-tbb {-moz-box-ordinal-group: 5 !important;}
-#lpt_lastpass-compact-btn {-moz-box-ordinal-group: 6 !important;}
+#flashgot-media-tbb {-moz-box-ordinal-group: 2 !important;}
+#lpt_lastpass-compact-btn {-moz-box-ordinal-group: 3 !important;}
+#foxyproxy-toolbar-icon {-moz-box-ordinal-group: 4 !important;}
+#ucjsPermission_Toolmenu {-moz-box-ordinal-group: 5 !important;}
+#abp-toolbarbutton {-moz-box-ordinal-group: 6 !important;}
 #userChromebtnMenu {-moz-box-ordinal-group: 7 !important;}
 
 /*图标对齐*/
@@ -55,10 +49,12 @@ border-right:1px #BBC2C8 solid !important;
 }
 
 /*附加组件调序*/
-#category-extension {-moz-box-ordinal-group: 0 !important;}
-#category-userscript {-moz-box-ordinal-group: 1 !important;}
-#category-plugin {-moz-box-ordinal-group: 2 !important;}
-#category-theme {-moz-box-ordinal-group: 3 !important;}
+#category-extension {-moz-box-ordinal-group: 0 !important;}/*扩展*/
+#category-greasemonkey-user-script {-moz-box-ordinal-group: 1 !important;}/*GM脚本*/
+#category-userchromejs {-moz-box-ordinal-group: 2 !important;}/*UC脚本*/
+#category-userstyle {-moz-box-ordinal-group: 3 !important;}/*Stylish样式*/
+#category-plugin {-moz-box-ordinal-group: 4 !important;}/*Plugins*/
+#category-theme {-moz-box-ordinal-group: 5 !important;}/*外观主题*/
 
 /*標簽右鍵菜單調序*/
 #context_undoCloseTab {-moz-box-ordinal-group: 0 !important;}
@@ -78,3 +74,8 @@ border-right:1px #BBC2C8 solid !important;
 -moz-box-ordinal-group: 0 !important;
 }
 
+/*新標籤打開菜單順序置頂*/
+#context-openlinkintab {-moz-box-ordinal-group: 0 !important;}
+
+/*幾個qrCreator菜單順序靠後*/
+#FeiRuoMouse_QRCreator,[label="生成QR码 : 选区文本"],[label="生成QR码 : 当前网址"],[label="生成QR码 : 图象地址"],[label="生成QR码 : 链接地址"] {-moz-box-ordinal-group: 5 !important;}

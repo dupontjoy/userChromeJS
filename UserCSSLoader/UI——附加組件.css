@@ -1,7 +1,7 @@
 @namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 @-moz-document url("chrome://mozapps/content/extensions/extensions.xul"), url("about:addons") {
   /*隐藏项目*/	
-	#category-discover,#category-theme,#category-locale{
+	#category-discover,#category-locale{
     display:none !important;
 }
   
@@ -439,7 +439,7 @@ textbox#header-search {
   
   #categories {
 	margin:0 !important;
-	padding-top:100px !important;
+	padding-top:0px !important;
   width:180px !important;
 	background:rgb(235,235,235) !important;
 }

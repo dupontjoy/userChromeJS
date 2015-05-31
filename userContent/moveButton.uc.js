@@ -84,7 +84,7 @@ location == "chrome://browser/content/browser.xul" && (function(){
 //不常用圖標移動到aidBar
 { id: "flashgot-media-tbb", bar: "TabsToolbar_aidBar", pos: 1 },//Flashgot扩展
 { id: "lpt_lastpass-compact-btn", bar: "TabsToolbar_aidBar", pos: 2 },//Lastpass扩展
-{ id: "foxyproxy-toolbar-icon", bar: "TabsToolbar_aidBar", pos: 3 },//Foxyproxy擴展
+{ id: "aup-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 3 },//Autoproxy擴展
 { id: "ucjsPermission_Toolmenu", bar: "TabsToolbar_aidBar", pos: 4 },//ucjsPermission腳本
 { id: "abp-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 5 },//AdBlockPlus扩展
 { id: "greasemonkey-tbb", bar: "TabsToolbar_aidBar", pos: 6 },//Greasemonkey扩展
@@ -97,8 +97,10 @@ location == "chrome://browser/content/browser.xul" && (function(){
 { id: "toolsbar_KeyChanger_rebuild", insertBefore: "redirector-icon" },
 { id: "redirector-icon", insertBefore: "usercssloader_Tools_Menu" },
 { id: "usercssloader_Tools_Menu", insertBefore: "jscmdseparator" },
+
 //保留在更多工具中
 { id: "InspectElement-menuitem", insertAfter: "gm_general_menu" },//InspectElementModY默認不在MoreTools中，單獨移動
+{ id: "noscript-context-menu", insertAfter: "gm_general_menu" },//Noscript右鍵菜單
 
 //右鍵菜單
 {id: "frame", insertAfter: "charsetMenu"}, //页面右键本框架不能直接隱藏，只好移動到一個安全的位置

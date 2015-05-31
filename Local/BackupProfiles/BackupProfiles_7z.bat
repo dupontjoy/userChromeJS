@@ -1,86 +1,87 @@
 
-::2015.05.27 18:00  æ›ç”¨Autoproxyï¼Œä¸å†å‚™ä»½Foxyæ•¸æ“š
-::2015.05.25 17:00  åŠ å…¥foxyproxyè¨‚é–±åˆ—è¡¨è¨­ç½®
-::2015.04.21 09:00  æ›´æ–°èªªæ˜Ž
-::2015.04.16 08:00  æ›´æ–°å‚™ä»½é …ï¼Œæ·»åŠ èªªæ˜Ž
-::2015.04.06 07:00  æ›´æ–°å‚™ä»½é …
-::2015.01.26 12:00  æžå®šäº†æ—¶é—´é—®é¢˜
+::2015.05.27 18:00  “QÓÃAutoproxy£¬²»ÔÙ‚ä·ÝFoxy”µ“þ
+::2015.05.25 17:00  ¼ÓÈëfoxyproxyÓ†é†ÁÐ±íÔOÖÃ
+::2015.04.21 09:00  ¸üÐÂÕfÃ÷
+::2015.04.16 08:00  ¸üÐÂ‚ä·Ýí—£¬Ìí¼ÓÕfÃ÷
+::2015.04.06 07:00  ¸üÐÂ‚ä·Ýí—
+::2015.01.26 12:00  ¸ã¶¨ÁËÊ±¼äÎÊÌâ
 
 echo off
-rem è®¾ç½®å¤‡ä»½è·¯å¾„ä»¥åŠä¸´æ—¶æ–‡ä»¶å¤¹
+Title ‚ä·ÝFirefoxÅäÖÃÎÄ¼þŠA
+rem ÉèÖÃ±¸·ÝÂ·¾¶ÒÔ¼°ÁÙÊ±ÎÄ¼þ¼Ð
 taskkill /im firefox.exe
-@echo å…³é—­ç«ç‹æµè§ˆå™¨åŽè‡ªåŠ¨å¼€å§‹å¤‡ä»½â€¦â€¦
+@echo ¹Ø±Õ»ðºüä¯ÀÀÆ÷ºó×Ô¶¯¿ªÊ¼±¸·Ý¡­¡­
 cd /d %~dp0
 set BackDir=..\..\..
 set TempFolder=..\..\..\Temp\Profile
 
-rem å¤åˆ¶ç›®æ ‡æ–‡ä»¶åˆ°ä¸´æ—¶æ–‡ä»¶å¤¹
-::éœ€è¦åˆ é™¤çš„é¡¹
+rem ¸´ÖÆÄ¿±êÎÄ¼þµ½ÁÙÊ±ÎÄ¼þ¼Ð
+::ÐèÒªÉ¾³ýµÄÏî
 del %BackDir%\chrome\UserScriptLoader\require\  /s /q 
 
-::ä»¥ä¸‹æ˜¯æ–‡ä»¶å¤¹
-::adblockplusï¼šABPè¦å‰‡å‚™ä»½ã€‚
+::ÒÔÏÂÊÇÎÄ¼þ¼Ð
+::adblockplus£ºABPÒŽ„t‚ä·Ý¡£
 xcopy "%BackDir%\adblockplus" %TempFolder%\adblockplus\  /s /y /i
-::autoproxyï¼šAutoproxyè¦å‰‡å‚™ä»½ã€‚
+::autoproxy£ºAutoproxyÒŽ„t‚ä·Ý¡£
 xcopy "%BackDir%\autoproxy" %TempFolder%\autoproxy\  /s /y /i
-::chromeï¼šUCè…³æœ¬ã€‚
+::chrome£ºUCÄ_±¾¡£
 xcopy "%BackDir%\chrome" %TempFolder%\chrome\  /s /y /i
-::extensionsï¼šå®‰è£çš„æ“´å±•ã€‚
+::extensions£º°²ÑbµÄ”UÕ¹¡£
 xcopy "%BackDir%\extensions" %TempFolder%\extensions\ /s /y /i
-::extension-dataï¼šuBlockçš„æ•¸æ“šæ–‡ä»¶ï¼ŒåŒ…å«è¨­ç½®ã€‚
+::extension-data£ºuBlockµÄ”µ“þÎÄ¼þ£¬°üº¬ÔOÖÃ¡£
 xcopy "%BackDir%\extension-data" %TempFolder%\extension-data\ /s /y /i
-::gm_scriptsï¼šå®‰è£çš„æ²¹çŒ´è…³æœ¬ã€‚
+::gm_scripts£º°²ÑbµÄÓÍºïÄ_±¾¡£
 xcopy "%BackDir%\gm_scripts" %TempFolder%\gm_scripts\ /s /y /i
-::Pluginsï¼šä¾¿ã©¦ç‰ˆæ’ä»¶ã€‚
+::Plugins£º±ã?°æ²å¼þ¡£
 xcopy "%BackDir%\Plugins" %TempFolder%\Plugins\ /s /y /i
  
-::ä»¥ä¸‹æ˜¯æ–‡ä»¶
-::bookmarks.htmlï¼šè‡ªåŠ¨å¯¼å‡ºçš„ä¹¦ç­¾å¤‡ä»½ã€‚
+::ÒÔÏÂÊÇÎÄ¼þ
+::bookmarks.html£º×Ô¶¯µ¼³öµÄÊéÇ©±¸·Ý¡£
 xcopy "%BackDir%\bookmarks.html" %TempFolder%\ /y
-::cert_override.txtï¼šå‚¨å­˜ä½¿ç”¨è€…æŒ‡å®šçš„ä¾‹å¤–è¯ä¹¦(certification exceptions)ã€‚
+::cert_override.txt£º´¢´æÊ¹ÓÃÕßÖ¸¶¨µÄÀýÍâÖ¤Êé(certification exceptions)¡£
 xcopy "%BackDir%\cert_override.txt" %TempFolder%\ /y
-::cert8.dbï¼šå®‰å…¨è¯ä¹¦ã€‚
+::cert8.db£º°²È«Ö¤Êé¡£
 xcopy "%BackDir%\cert8.db" %TempFolder%\ /y
-::extensions.iniï¼šæ‰©å±•ç›¸é—œã€‚
+::extensions.ini£ºÀ©Õ¹ÏàêP¡£
 xcopy "%BackDir%\extensions.ini" %TempFolder%\ /y
-::extensions.jsonï¼šæ‰©å±•ç›¸é—œã€‚
+::extensions.json£ºÀ©Õ¹ÏàêP¡£
 xcopy "%BackDir%\extensions.json" %TempFolder%\ /y
-::FlashGot.exeï¼šFlashGotçš„ä¸‹è½½å·¥å…·ã€‚
+::FlashGot.exe£ºFlashGotµÄÏÂÔØ¹¤¾ß¡£
 xcopy "%BackDir%\FlashGot.exe" %TempFolder%\ /y
-::foxyproxy.xmlï¼šFoxyProxyçš„è®¾ç½®åŠç½‘å€åˆ—è¡¨å¤‡ä»½ã€‚
+::foxyproxy.xml£ºFoxyProxyµÄÉèÖÃ¼°ÍøÖ·ÁÐ±í±¸·Ý¡£
 ::xcopy "%BackDir%\foxyproxy.xml" %TempFolder%\ /y
-::localstore.rdfï¼šå·¥å…·åˆ—ä¸Žè§†çª—å¤§å°ï¼ä½ç½®çš„è®¾å®šï¼Œæœ‰æ—¶åˆ æŽ‰å¯ä»¥è§£å†³ä¸€äº›ä»‹é¢ä¸Šçš„é—®é¢˜ã€‚
+::localstore.rdf£º¹¤¾ßÁÐÓëÊÓ´°´óÐ¡£¯Î»ÖÃµÄÉè¶¨£¬ÓÐÊ±É¾µô¿ÉÒÔ½â¾öÒ»Ð©½éÃæÉÏµÄÎÊÌâ¡£
 xcopy "%BackDir%\localstore.rdf" %TempFolder%\ /y
-::mimeTypes.rdfï¼šä¸‹è½½ç‰¹å®šç±»åž‹çš„æ¡£æ¡ˆæ—¶è¦æ‰§è¡Œçš„åŠ¨ä½œã€‚ å¯åˆ æŽ‰æ¥è¿˜åŽŸåŽŸæ¥ä¸‹è½½çš„è®¾å®šã€‚
+::mimeTypes.rdf£ºÏÂÔØÌØ¶¨ÀàÐÍµÄµµ°¸Ê±ÒªÖ´ÐÐµÄ¶¯×÷¡£ ¿ÉÉ¾µôÀ´»¹Ô­Ô­À´ÏÂÔØµÄÉè¶¨¡£
 xcopy "%BackDir%\mimeTypes.rdf" %TempFolder%\ /y
-::MyFirefox.7zï¼šç”¨æ–¼å®˜æ–¹FXçš„ä¾¿æºè®¾ç½®ã€‚
+::MyFirefox.7z£ºÓÃì¶¹Ù·½FXµÄ±ãÐ¯ÉèÖÃ¡£
 xcopy "%BackDir%\MyFirefox.7z" %TempFolder%\ /y
-::patternSubscriptions.jsonï¼šFoxyProxyçš„è¨‚é–±åˆ—è¡¨è¨­ç½®ã€‚
+::patternSubscriptions.json£ºFoxyProxyµÄÓ†é†ÁÐ±íÔOÖÃ¡£
 ::xcopy "%BackDir%\patternSubscriptions.json" %TempFolder%\ /y
-::permissions.sqliteï¼šå­˜æ”¾ç‰¹å®šç½‘ç«™æ˜¯å¦å¯å­˜å–å¯†ç ã€cookiesã€å¼¹å‡ºè§†çª—ã€å›¾ç‰‡è½½å…¥ä¸Žé™„åŠ å…ƒä»¶â€¦â€¦ç­‰æƒé™çš„èµ„æ–™åº“ã€‚
+::permissions.sqlite£º´æ·ÅÌØ¶¨ÍøÕ¾ÊÇ·ñ¿É´æÈ¡ÃÜÂë¡¢cookies¡¢µ¯³öÊÓ´°¡¢Í¼Æ¬ÔØÈëÓë¸½¼ÓÔª¼þ¡­¡­µÈÈ¨ÏÞµÄ×ÊÁÏ¿â¡£
 xcopy "%BackDir%\permissions.sqlite" %TempFolder%\ /y
-::persdict.datï¼šä¸ªäººçš„æ‹¼å­—å­—å…¸ã€‚
+::persdict.dat£º¸öÈËµÄÆ´×Ö×Öµä¡£
 xcopy "%BackDir%\persdict.dat" %TempFolder%\ /y
-::pluginreg.datï¼šç”¨äºŽpluginçš„MIME typesã€‚
+::pluginreg.dat£ºÓÃÓÚpluginµÄMIME types¡£
 xcopy "%BackDir%\pluginreg.dat" %TempFolder%\ /y
-::Portable.7zï¼šPCXFirefoxçš„ä¾¿æºè®¾ç½®ã€‚
+::Portable.7z£ºPCXFirefoxµÄ±ãÐ¯ÉèÖÃ¡£
 xcopy "%BackDir%\Portable.7z" %TempFolder%\ /y
-::readme.txtï¼šä¸ªäººé…ç½®ä¿®æ”¹è¯´æ˜Žã€‚
+::readme.txt£º¸öÈËÅäÖÃÐÞ¸ÄËµÃ÷¡£
 xcopy "%BackDir%\readme.txt" %TempFolder%\ /y
-::secmod.dbï¼šå®‰å…¨æ¨¡ç»„èµ„æ–™åº“ã€‚
+::secmod.db£º°²È«Ä£×é×ÊÁÏ¿â¡£
 xcopy "%BackDir%\secmod.db" %TempFolder%\ /y
-::stylish.sqliteï¼šStylishæ ·å¼æ•°æ®åº“ã€‚
+::stylish.sqlite£ºStylishÑùÊ½Êý¾Ý¿â¡£
 xcopy "%BackDir%\stylish.sqlite" %TempFolder%\ /y
-::user.jsï¼šä½¿ç”¨è€…è‡ªè®¢çš„è®¾å®šï¼Œåœ¨è¿™é‡Œçš„è®¾å®šè¦†ç›–prefs.jsçš„è®¾å®šã€‚
+::user.js£ºÊ¹ÓÃÕß×Ô¶©µÄÉè¶¨£¬ÔÚÕâÀïµÄÉè¶¨¸²¸Çprefs.jsµÄÉè¶¨¡£
 xcopy "%BackDir%\user.js" %TempFolder%\ /y
-::xulstore.jsonï¼šç•Œé¢çš„ä¸€äº›çŠ¶æ€ã€‚
+::xulstore.json£º½çÃæµÄÒ»Ð©×´Ì¬¡£
 xcopy "%BackDir%\xulstore.json" %TempFolder%\ /y
 
-::è¯»å–ç‰ˆæœ¬å·å’Œæ—¥æœŸåŠæ—¶é—´
+::¶ÁÈ¡°æ±¾ºÅºÍÈÕÆÚ¼°Ê±¼ä
 for /f "usebackq eol=; tokens=1,2 delims==" %%i in ("..\..\..\..\Firefox\application.ini")do (if %%i==Version set ver=%%j)
-::è®¾ç½®å¤‡ä»½æ–‡ä»¶è·¯å¾„ä»¥åŠæ–‡ä»¶å
+::ÉèÖÃ±¸·ÝÎÄ¼þÂ·¾¶ÒÔ¼°ÎÄ¼þÃû
 
-::å®Œæ•´æ—¥æœŸå’Œæ—¶é—´
+::ÍêÕûÈÕÆÚºÍÊ±¼ä
 set tm1=%time:~0,2%
 set tm2=%time:~3,2%
 set tm3=%time:~6,2%
@@ -90,12 +91,14 @@ set da2=%date:~5,2%
 set da3=%date:~8,2%
 set ArchiveName=D:\Profile_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
 
-::å°æ—¶æ•°å°äºŽ10ç‚¹æ—¶çš„ä¿®æ­£
+::Ð¡Ê±ÊýÐ¡ÓÚ10µãÊ±µÄÐÞÕý
 set /a tm1=%time:~0,2%*1
 if %tm1% LSS 10 set tm1=0%tm1%
 set ArchiveName=D:\Profile_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
 
-rem å¼€å§‹å¤‡ä»½
+rem ¿ªÊ¼±¸·Ý
 7z.exe u -up1q3r2x2y2z2w2 %ArchiveName% "%TempFolder%"
-@echo å¤‡ä»½å®Œæˆï¼åˆ é™¤ä¸´æ—¶æ–‡ä»¶å¤¹
+@echo ±¸·ÝÍê³É£¡É¾³ýÁÙÊ±ÎÄ¼þ¼Ð
 rd "%TempFolder%" /s/q
+
+ECHO.&ECHO.FirefoxÅäÖÃÒÑ´ò°üÍê³É,ÇëÖØÆôFirefox,²¢°´ÈÎÒâ¼üÍË³ö! &PAUSE >NUL 2>NUL

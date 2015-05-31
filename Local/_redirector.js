@@ -182,7 +182,7 @@ regex: true
 
 //Google服務轉國內鏡像
 //參考https://github.com/jiacai2050/gooreplacer
-{
+/*{
 name: "ajax/fonts >> 360 useso",
 from: /^http:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "http://$1.useso.com/$2",
@@ -230,6 +230,6 @@ name: "Gravatar头像 >> 多说",
 from: /^https?:\/\/([0-9]?)\.gravatar\.com\/avatar\/(.*)$/,
 to: "http://gravatar.duoshuo.com/avatar/$1",
 regex: true
-},
+},*/
 
 ];

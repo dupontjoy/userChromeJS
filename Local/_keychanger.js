@@ -1,5 +1,5 @@
 
-//2015.05.27 13:00
+//2015.05.31 18:00
 
 //F功能鍵
 
@@ -41,10 +41,10 @@ keys['P'] = "openPreferences();";//选项
 keys['R'] = function() {
 KeyChanger.makeKeyset(true);//KeyChanger
 UCL.rebuild();//UserCSSLoader
-addMenu.rebuild(true);//AddmenuPlus
 anobtn.reload(true);//anobtn
-showFlagS.rebuild(true);//showFlagS
+addMenu.rebuild(true);//AddmenuPlus
 MyMoveButton.delayRun();//Movebutton
+showFlagS.rebuild(true);//showFlagS
 };//群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
 
 keys['S'] = "BrowserStop();";//停止载入当前页

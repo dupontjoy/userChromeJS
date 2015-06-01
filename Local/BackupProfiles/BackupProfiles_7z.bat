@@ -1,4 +1,5 @@
 
+::2015.06.01 20:00  更名爲Profiles，刪除一些不必要的項目
 ::2015.05.27 18:00  換用Autoproxy，不再備份Foxy數據
 ::2015.05.25 17:00  加入foxyproxy訂閱列表設置
 ::2015.04.21 09:00  更新說明
@@ -13,7 +14,7 @@ taskkill /im firefox.exe
 @echo 关闭火狐浏览器后自动开始备份……
 cd /d %~dp0
 set BackDir=..\..\..
-set TempFolder=..\..\..\Temp\Profile
+set TempFolder=..\..\..\Temp\Profiles
 
 rem 复制目标文件到临时文件夹
 ::需要删除的项
@@ -42,10 +43,6 @@ xcopy "%BackDir%\bookmarks.html" %TempFolder%\ /y
 xcopy "%BackDir%\cert_override.txt" %TempFolder%\ /y
 ::cert8.db：安全证书。
 xcopy "%BackDir%\cert8.db" %TempFolder%\ /y
-::extensions.ini：扩展相關。
-xcopy "%BackDir%\extensions.ini" %TempFolder%\ /y
-::extensions.json：扩展相關。
-xcopy "%BackDir%\extensions.json" %TempFolder%\ /y
 ::FlashGot.exe：FlashGot的下载工具。
 xcopy "%BackDir%\FlashGot.exe" %TempFolder%\ /y
 ::foxyproxy.xml：FoxyProxy的设置及网址列表备份。
@@ -68,8 +65,6 @@ xcopy "%BackDir%\pluginreg.dat" %TempFolder%\ /y
 xcopy "%BackDir%\Portable.7z" %TempFolder%\ /y
 ::readme.txt：个人配置修改说明。
 xcopy "%BackDir%\readme.txt" %TempFolder%\ /y
-::secmod.db：安全模组资料库。
-xcopy "%BackDir%\secmod.db" %TempFolder%\ /y
 ::stylish.sqlite：Stylish样式数据库。
 xcopy "%BackDir%\stylish.sqlite" %TempFolder%\ /y
 ::user.js：使用者自订的设定，在这里的设定覆盖prefs.js的设定。
@@ -89,12 +84,12 @@ set tm4=%time:~0,8%
 set da1=%date:~0,4%
 set da2=%date:~5,2%
 set da3=%date:~8,2%
-set ArchiveName=D:\Profile_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
+set ArchiveName=D:\Profiles_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
 
 ::小时数小于10点时的修正
 set /a tm1=%time:~0,2%*1
 if %tm1% LSS 10 set tm1=0%tm1%
-set ArchiveName=D:\Profile_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
+set ArchiveName=D:\Profiles_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
 
 rem 开始备份
 7z.exe u -up1q3r2x2y2z2w2 %ArchiveName% "%TempFolder%"

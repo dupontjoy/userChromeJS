@@ -1,6 +1,5 @@
 
-//2015.05.22 23:00 更新TVC搜索，調整特殊符號
-//2015.05.10 10:00 五角星書籤圖標放入地址欄
+//2015.06.01 17:00 精簡搜索
 //2015.05.05 17:00 調整一些菜單順序和添加圖標
 //2015.04.29 21:00 貼上 二级菜單
 //2015.04.02 12:00 調整選中文字搜索
@@ -70,38 +69,28 @@ url: 'http://www.google.com/searchbyimage?image_url=%IMAGE_URL%',
 image: "https://www.google.com/favicon.ico",
 where: 'tab',
 accesskey: "G"
-}, {
+}, 
+{
 label: '360識圖',
 url: 'http://st.so.com/stu?imgurl=%IMAGE_URL%',
 image: "http://st.so.com/favicon.ico",
 where: 'tab',
 accesskey: "Q"
-}, {}, {
-label: 'Baidu識圖',
-url: 'http://stu.baidu.com/i?rt=0&rn=10&ct=1&tn=baiduimage&objurl=%IMAGE_URL%',
-image: "http://www.baidu.com/favicon.ico",
-where: 'tab'
-}, {
+}, 
+{}, 
+{
 label: 'Baidu',
-url: 'http://image.baidu.com/i?rainbow=1&ct=1&tn=shituresultpc&objurl=%IMAGE_URL%',
+url: 'http://image.baidu.com/n/pc_search?queryImageUrl=%IMAGE_URL%',
 image: "http://www.baidu.com/favicon.ico",
 where: 'tab'
-}, {
+}, 
+{
 label: 'Bing',
 url: 'http://www.bing.com/images/searchbyimage?FORM=IRSBIQ&cbir=sbi&imgurl=%IMAGE_URL%&mkt=en-US',
 image: "http://cn.bing.com/s/a/bing_p.ico",
 where: 'tab'
-}, {
-label: 'Sougou',
-url: 'http://pic.sogou.com/ris?query=%IMAGE_URL%',
-image: "http://logo.www.sogou.com/images/logo2014/new/favicon.ico",
-where: 'tab'
-}, {
-label: 'TinEye',
-url: 'http://www.tineye.com/search?url=%IMAGE_URL%',
-image: "http://www.tineye.com/favicon.ico",
-where: 'tab'
-}, ]);
+},
+]);
 
 //圖片右鍵 複製 二级菜單
 new function() {
@@ -285,13 +274,6 @@ elem.hidden = !/ic.sjlpj.cn|tvc-mall.com/.test(content.location.host)//可排除
 });
 var items = [
 //打開方式(默认当前頁面)，通过where 更改，具体tab(前台)、tabshifted(后台)、window(窗口)
-{
-label: "Baidu",
-accesskey: "B",
-url: "http://www.baidu.com/baidu?wd=%s&ie=utf-8",
-image: "https://www.baidu.com/favicon.ico",
-where: 'tab'
-}, 
 {label: "Google",
 accesskey: "G",
 url: "https://www.google.com/search?q=%s",
@@ -299,10 +281,10 @@ image: "https://www.google.com/favicon.ico",
 where: 'tab'
 }, 
 {
-label: "360好搜",
-accesskey: "s",
-url: "http://www.haosou.com/s?ie=utf-8&q=%s",
-image: "http://www.haosou.com/favicon.ico",
+label: "Baidu",
+accesskey: "B",
+url: "http://www.baidu.com/baidu?wd=%s&ie=utf-8",
+image: "https://www.baidu.com/favicon.ico",
 where: 'tab'
 }, 
 {},
@@ -441,28 +423,7 @@ url: "http://ic.sjlpj.cn/ProductOperationSearch/ProductOperationSearchList?KeyWo
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
-{},
-{
-label: "Baidu地圖",
-url: "http://map.baidu.com/m?word=%s",
-image: "http://map.baidu.com/favicon.ico",
-where: 'tab'
-}, {
-label: "Google地圖",
-url: "http://maps.google.com/maps?q=%s&ie=utf-8",
-image: "http://maps.gstatic.com/favicon3.ico",
-where: 'tab'
-}, {}, {
-label: "漢典",
-url: "http://www.zdic.net/search?q=%s",
-image: "http://www.zdic.net/favicon.ico",
-where: 'tab'
-}, {}, {
-label: "BT天堂",
-url: "http://www.bttiantang.com/s.php?q=%s",
-image: "http://www.bttiantang.com/favicon.ico",
-where: 'tab'
-},
+
 ];
 menu(items);
 };

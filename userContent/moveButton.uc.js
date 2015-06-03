@@ -100,6 +100,7 @@ location == "chrome://browser/content/browser.xul" && (function(){
 
 //保留在更多工具中
 { id: "InspectElement-menuitem", insertAfter: "gm_general_menu" },//InspectElementModY默認不在MoreTools中，單獨移動
+{ id: "wordhighlight-toolbar-menuitem", insertAfter: "gm_general_menu" },
 { id: "noscript-context-menu", insertAfter: "gm_general_menu" },//Noscript右鍵菜單
 
 //右鍵菜單

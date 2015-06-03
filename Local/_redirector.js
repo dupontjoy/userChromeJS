@@ -1,4 +1,5 @@
 
+//2015.06.03 18:00 完成ajax >> github，重新分組12306的js文件
 //2015.05.27 22:00 找回Google服務轉國內鏡像
 //2015.05.26 17:00 更新TVC規則
 //2015.05.25 10:00 修正Google搜索重定向
@@ -113,7 +114,7 @@ regex: true
 //方法來源：http://bbs.kafan.cn/thread-1809903-1-1.html
 name: "12306重定向JS",
 from: /(.*)kyfw\.12306\.cn\/otn\/resources\/merged\/queryLeftTicket_end_js.js(.*)/i,
-to: "https://raw.githubusercontent.com/dupontjoy/customization/master/queryLeftTicket_end_js.js",
+to: "https://raw.githubusercontent.com/dupontjoy/customization/master/12306/queryLeftTicket_end_js.js",
 regex: true
 },
 
@@ -181,44 +182,33 @@ regex: true
 },
 
 //Google服務轉國內鏡像
+{
+name: "fonts.googleapis >> useso",
+from: /^https?:\/\/fonts\.googleapis\.com\/(.*)$/,
+to: "http://fonts.useso.com/$1",
+regex: true
+},
+{
+//自制。參考https://developers.google.com/speed/libraries/
+name: "ajax >> github",
+from: /^https?:\/\/ajax\.googleapis\.com\/ajax\/libs\/(jquery|angularjs|angular_material|dojo|ext-core|jquerymobile|jqueryui|mootools|prototype|scriptaculous|spf|swfobject|threejs|webfont|)(\/.*)\/(jquery\.min.\js|angular\.min.\js|angular-material\.min.\js|dojo.\js|ext-core.\js|jquery\.mobile\.min.\js|jquery-ui.css|jquery-ui\.min.\js|mootools-yui-compressed.\js|prototype.\js|scriptaculous.\js|spf.\js|swfobject.\js|three\.min.\js|webfont.\js|)(.*)/i,
+to: "https://raw.githubusercontent.com/dupontjoy/customization/master/google/ajax/libs/$1/$3",
+regex: true
+},
 //參考https://github.com/jiacai2050/gooreplacer
-/*{
-name: "ajax/fonts >> 360 useso",
-from: /^http:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
-to: "http://$1.useso.com/$2",
-regex: true
-},
 {
-//https://servers.ustclug.org/index.php/2014/06/blog-googlefonts-speedup/
-name: "ajax/fonts >> 科大博客提供",
-from: /^https:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
-to: "http://$1.lug.ustc.edu.cn/$2",
-regex: true
-},
-{
-name: "themes >> 科大博客",
-from: /^https?:\/\/themes\.googleusercontent\.com\/(.*)$/,
-to: "http://google-themes.lug.ustc.edu.cn/$1",
-regex: true
-},
-{
-name: "fonts-gstatic >> 科大博客",
-from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
-to: "http://fonts-gstatic.lug.ustc.edu.cn/$1",
-regex: true
-},
-{
-name: "platform.twitter.com/widgets.js重定向",
+name: "twitter.com/widgets.js >> github",
 from: /^https?:\/\/platform\.twitter\.com\/widgets.js(.*)/i,
-to: "https://raw.githubusercontent.com/jiacai2050/gooreplacer/gh-pages/proxy/widgets.js",
+to: "https://raw.githubusercontent.com/dupontjoy/customization/master/twitter/widgets.js",
 regex: true
 },
 {
-name: "apis.google.com/js/api.js和plusone.js重定向",
-from: /^https?:\/\/apis\.google\.com\/js\/(api|plusone).js(.*)/i,
-to: "https://raw.githubusercontent.com/jiacai2050/gooreplacer/gh-pages/proxy/$1.js",
+name: "apis.google.com/js/api.js和plusone.js >> github",
+from: /^https?:\/\/apis\.google\.com\/js\/(api\.js|plusone\.js)(.*)/i,
+to: "https://raw.githubusercontent.com/dupontjoy/customization/master/google/apis/$1",
 regex: true
 },
+//搬運
 {
 name: "Google统计和tag >> mingto.tk",
 from: /^https?:\/\/(.*?)(google-analytics|googletagmanager|googletagservices|googleadservices)\.com\/([\w]+\/)*([\w]+(\.[\w]+)?)/i,
@@ -230,6 +220,6 @@ name: "Gravatar头像 >> 多说",
 from: /^https?:\/\/([0-9]?)\.gravatar\.com\/avatar\/(.*)$/,
 to: "http://gravatar.duoshuo.com/avatar/$1",
 regex: true
-},*/
+},
 
 ];

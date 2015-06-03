@@ -33,7 +33,7 @@ xcopy "%BackDir%\extensions" %TempFolder%\extensions\ /s /y /i
 xcopy "%BackDir%\extension-data" %TempFolder%\extension-data\ /s /y /i
 ::gm_scripts：安裝的油猴腳本。
 xcopy "%BackDir%\gm_scripts" %TempFolder%\gm_scripts\ /s /y /i
-::Plugins：便?版插件。
+::Plugins：便携版插件。
 xcopy "%BackDir%\Plugins" %TempFolder%\Plugins\ /s /y /i
  
 ::以下是文件

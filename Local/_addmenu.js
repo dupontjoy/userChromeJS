@@ -1,8 +1,8 @@
 
+//2015.06.04 12:00 調整選中文字搜索
 //2015.06.01 17:00 精簡搜索
 //2015.05.05 17:00 調整一些菜單順序和添加圖標
 //2015.04.29 21:00 貼上 二级菜單
-//2015.04.02 12:00 調整選中文字搜索
 //2015.03.31 21:00 升級FX36，調整加圖標方式
 //2015.01.21 22:00 修正特殊符號，添加小書籤菜單
 //2015.01.16 23:00 加入特殊符號選單三級菜單
@@ -409,21 +409,13 @@ image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "運營—外網運營查詢-SKU",
+label: "運營—外網批量管理-SKU",
 id: "TVC",
 accesskey: "7",
-url: "http://ic.sjlpj.cn/ProductOperationSearch/ProductOperationSearchList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
+url: "http://ic.sjlpj.cn/#/Product/BatchManagementProductList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
-{
-label: "運營—外網運營查詢-品名",
-id: "TVC",
-url: "http://ic.sjlpj.cn/ProductOperationSearch/ProductOperationSearchList?KeyWord=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-
 ];
 menu(items);
 };

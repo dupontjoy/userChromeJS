@@ -1,4 +1,5 @@
 
+//2015.06.04 21:00 http走useso，https走github
 //2015.06.03 18:00 完成ajax >> github，重新分組12306的js文件
 //2015.05.27 22:00 找回Google服務轉國內鏡像
 //2015.05.26 17:00 更新TVC規則
@@ -183,14 +184,14 @@ regex: true
 
 //Google服務轉國內鏡像
 {
-name: "fonts.googleapis >> useso",
-from: /^https?:\/\/fonts\.googleapis\.com\/(.*)$/,
-to: "http://fonts.useso.com/$1",
+name: "ajax|fonts(http) >> useso",
+from: /^http:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
+to: "http://$1.useso.com/$2",
 regex: true
 },
 {
 //自制。參考https://developers.google.com/speed/libraries/
-name: "ajax >> github",
+name: "ajax(https) >> github",
 from: /^https?:\/\/ajax\.googleapis\.com\/ajax\/libs\/(jquery|angularjs|angular_material|dojo|ext-core|jquerymobile|jqueryui|mootools|prototype|scriptaculous|spf|swfobject|threejs|webfont|)(\/.*)\/(jquery\.min.\js|angular\.min.\js|angular-material\.min.\js|dojo.\js|ext-core.\js|jquery\.mobile\.min.\js|jquery-ui.css|jquery-ui\.min.\js|mootools-yui-compressed.\js|prototype.\js|scriptaculous.\js|spf.\js|swfobject.\js|three\.min.\js|webfont.\js|)(.*)/i,
 to: "https://raw.githubusercontent.com/dupontjoy/customization/master/google/ajax/libs/$1/$3",
 regex: true

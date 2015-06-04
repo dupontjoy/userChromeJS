@@ -4,7 +4,7 @@ Chrome文件夾
 
 ***1. Local：***
 
- 一些腳本的配置文件，內置Notepad2（[設置爲默認編輯器][1]）和備份批處理
+ 一些腳本的配置文件，[設置Notepad2爲默認編輯器][1]和[備份批處理][8]
 
 *_addmenu.js：*[Addmenuplus][2]配置，圖標外置，統一整合在[CSS][3]文件中
 
@@ -47,3 +47,4 @@ UC管理器文件
   [5]: https://github.com/dupontjoy/userChromeJS/blob/master/UCJSFiles/UserCSSLoader_ModOos.uc.js
   [6]: https://github.com/dupontjoy/userChromeJS/blob/master/xul/localMark_0.6.1.uc.xul
   [7]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/ucjsPermission2.uc.xul
+  [8]: https://github.com/dupontjoy/userChromeJS/tree/master/Local/BackupProfiles

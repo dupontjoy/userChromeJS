@@ -25,7 +25,7 @@ Chrome文件夾
 自己有一些小修攺的腳本
 
 ***6. UserCSSLoader：***
-CSS文件集，使用[UCL][5]（userCSSLoader.uc.js）引導
+CSS文件集，使用[userCSSLoader.uc.js][5]引導
 
 ***7. xul：***
 UC管理器文件

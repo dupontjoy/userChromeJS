@@ -1,10 +1,8 @@
 
+//2015.06.05 07:00 簡化ajax(https) >> github
 //2015.06.04 21:00 http走useso，https走github
 //2015.06.03 18:00 完成ajax >> github，重新分組12306的js文件
 //2015.05.27 22:00 找回Google服務轉國內鏡像
-//2015.05.26 17:00 更新TVC規則
-//2015.05.25 10:00 修正Google搜索重定向
-//2015.05.07 16:00 精簡很久不用的規則
 //2015.04.25 08:00 新增Google搜天氣時 圖標
 //2015.04.19 10:00 新增鳳凰網 圖片修正
 //2015.04.14 13:00 新增鳳凰網 只顯示首圖修正
@@ -12,11 +10,7 @@
 //2015.03.25 10:00 修复sourceforge規則
 //2015.03.20 13:00 修正百度盤搜索地址替換
 //2015.03.14 15:00 爲規則添加說明
-//2015.03.10 09:00 新增百度盤搜索地址替換，重新分組
 //2015.02.17 14:00 新增12306重定向JS
-//2015.02.01 17:00 修复Linkedin 去跳轉，添加BT天堂 >> 備用下載，精簡
-//2015.01.30 09:00 添加Linkedin 去跳轉
-//2015.01.28 13:00 添加Business Insider 去跳轉
 //2015.01.24 14:00 添加京東，天貓大圖規則
 
 
@@ -192,8 +186,8 @@ regex: true
 {
 //自制。參考https://developers.google.com/speed/libraries/
 name: "ajax(https) >> github",
-from: /^https?:\/\/ajax\.googleapis\.com\/ajax\/libs\/(jquery|angularjs|angular_material|dojo|ext-core|jquerymobile|jqueryui|mootools|prototype|scriptaculous|spf|swfobject|threejs|webfont|)(\/.*)\/(jquery\.min.\js|angular\.min.\js|angular-material\.min.\js|dojo.\js|ext-core.\js|jquery\.mobile\.min.\js|jquery-ui.css|jquery-ui\.min.\js|mootools-yui-compressed.\js|prototype.\js|scriptaculous.\js|spf.\js|swfobject.\js|three\.min.\js|webfont.\js|)(.*)/i,
-to: "https://raw.githubusercontent.com/dupontjoy/customization/master/google/ajax/libs/$1/$3",
+from: /^https?:\/\/ajax\.googleapis\.com\/ajax\/libs\/(.*)(\/.*)\/(.*)(\.js|\.css)(.*)/i,
+to: "https://raw.githubusercontent.com/dupontjoy/customization/master/google/ajax/libs/$1/$3$4",
 regex: true
 },
 //參考https://github.com/jiacai2050/gooreplacer

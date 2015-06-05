@@ -515,7 +515,14 @@ setTimeout(function() {
 goDoCommand("cmd_paste");
 }, 100);
 }
+},
+onpopupshowing: function (event){
+Array.slice(event.target.children).forEach(function(elem){
+if(elem.id == "TVC"){
+elem.hidden = !/ic.sjlpj.cn/.test(content.location.host)//可排除多個網站
 }
+});
+},
 });
 var items = [
 {
@@ -547,7 +554,21 @@ image: "https://ssl.gstatic.com/ui/v1/icons/mail/images/2/unreadcountfavicon/0.p
 label: "字數補丁~~~",
 input_text: "~~~為神馬要15字，好吧，漢賊不兩立，王業不偏安~~~",
 image: " "
-}
+},
+{}, 
+{
+label: "Nillkin",
+id: "TVC",
+input_text: "深圳Nillkin耐尔金品牌：http://www.nillkin.com/english",
+image: " "
+},
+{
+label: "Remax",
+id: "TVC",
+input_text: "香港Remax品牌：www.iremax.hk",
+image: " "
+},
+
 ];
 menu(items);
 };

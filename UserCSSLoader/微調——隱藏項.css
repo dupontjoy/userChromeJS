@@ -236,6 +236,7 @@ display: none !important;
 }
 
 /*其它擴展/腳本隱藏項*/
+#alltabs_undoCloseTab,/*復原已關閉分頁*/
 #loop-button-throttled,/*Loop通話*/
 #feed-button,/*分享此頁*/
 #blockElement,/*uBlock右鍵菜單*/

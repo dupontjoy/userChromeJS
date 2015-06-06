@@ -559,13 +559,19 @@ image: " "
 {
 label: "Nillkin",
 id: "TVC",
-input_text: "深圳Nillkin耐尔金品牌：http://www.nillkin.com/english",
+input_text: "深圳Nillkin耐尔金品牌 网址http://www.nillkin.com/english",
 image: " "
 },
 {
 label: "Remax",
 id: "TVC",
-input_text: "香港Remax品牌：www.iremax.hk",
+input_text: "香港Remax品牌 网址www.iremax.hk",
+image: " "
+},
+{
+label: "Benks",
+id: "TVC",
+input_text: "深圳邦克仕Benks品牌 网址www.benks.com.cn",
 image: " "
 },
 
@@ -634,36 +640,20 @@ css('#contentAreaContextMenu[addMenu~="input"] #' + it.command + '{ display: non
 };
 
 /*——————————頁面右鍵——————————*/
-var openMenu = PageMenu({
-label: '小功能',
-accesskey: "E",
-condition: 'noinput noselect nomailto nocanvas nomedia noimage nolink',
-position: 1,
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdElEQVQ4jc3QQQrCQAwF0CeeQKZlUDyGl1ev0IX1CiIuxDPoJsuOLQTBD28xYRJI4J3klmS30L5hUXPFWiP3GQ8M2P5sQHqF9BHnVpjjleSQ9AfpUbAK5ct7MiOO2KDDOXRRO4XSGvDEJT5UXEON2hj6qeYP+LhgfWentcAAAAAASUVORK5CYII=",
-insertBefore: 'context-sep-navigation'
-});
-openMenu([
-{
+page({
 label:"拼寫檢查",
 accesskey: "A",
+insertBefore: "context-viewsource",
+condition: 'noinput noselect nomailto nocanvas nomedia noimage nolink',
 tooltiptext: "拼寫檢查（當前窗口打開）！",
 oncommand: function() {document.onkeydown=ck;content.document.body.contentEditable=true;function ck(e){k=window.event?window.event.keyCode:e.keyCode;if(k==27){content.document.body.contentEditable=false}}},
-},
+})
+
 /*
 //from: http://kb.mozillazine.org/Spell_checking
 Firefox和Chrome通用 拼寫檢查小書籤（Firefox不能实时生效）：
 javascript:document.body.contentEditable='true'; document.designMode='on'; void 0
 */
-{
-label: "複製Favicon的URL",
-text: "%FAVICON%",
-}, 
-{
-label: "複製Favicon的Base64",
-text: "%FAVICON_BASE64%",
-},
-
-]);
 
 /*——————————書籤右鍵——————————*/
 /*爲書籤右鍵添加 移動 功能*/

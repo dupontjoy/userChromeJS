@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+
+<bindings xmlns="http://www.mozilla.org/xbl"
+          xmlns:xbl="http://www.mozilla.org/xbl"
+          xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <binding id="page-proxy-plug">
+        <content context="_child">
+            <xul:menupopup>
+                <xul:menuitem label="复制站点图标地址"
+                              onmousedown="event.preventDefault();event.stopPropagation();"
+                              onclick="event.preventDefault();event.stopPropagation();"
+                              oncommand="this.parentNode.parentNode.do('copy_favicon_url');" />
+                <xul:menuitem label="复制站点图标(base64编码)"
+                              onmousedown="event.preventDefault();event.stopPropagation();"
+                              onclick="event.preventDefault();event.stopPropagation();"
+                              oncommand="this.parentNode.parentNode.do('copy_favicon_base64');" />
+                <xul:menuitem label="复制当前标签标题+地址"
+                              onmousedown="event.preventDefault();event.stopPropagation();"
+                              onclick="event.preventDefault();event.stopPropagation();"
+                              oncommand="this.parentNode.parentNode.do('copy_title+url');" />
+                <xul:menuseparator />
+                <xul:menuitem label="向上一层"
+                              onmousedown="event.preventDefault();event.stopPropagation();"
+                              onclick="event.preventDefault();event.stopPropagation();"
+                              oncommand="this.parentNode.parentNode.do('go_upper_level');" />
+                <xul:menuitem label="向上到根域名"
+                              onmousedown="event.preventDefault();event.stopPropagation();"
+                              onclick="event.preventDefault();event.stopPropagation();"
+                              oncommand="this.parentNode.parentNode.do('go_upper_root');" />
+                <xul:menuseparator />
+                <xul:menuitem label="可见区域截图"
+                              onmousedown="event.preventDefault();event.stopPropagation();"
+                              onclick="event.preventDefault();event.stopPropagation();"
+                              oncommand="this.parentNode.parentNode.do('screen_shot');" />
+                <xul:menuitem label="整个网页截图"
+                              onmousedown="event.preventDefault();event.stopPropagation();"
+                              onclick="event.preventDefault();event.stopPropagation();"
+                              oncommand="this.parentNode.parentNode.do('screen_shot_web');" />
+            </xul:menupopup>
+            <children />
+        </content>
+        <implementation>
+            <method name="do">
+                <parameter name="command" />
+                <body>
+                    <![CDATA[
+                        switch (command) {
+                            case 'clear_url' :
+                                (gURLBar.value = "") || gURLBar.focus();
+                                break;
+                            case 'revert_url' :
+                                (gURLBar.value = gBrowser.currentURI.spec) || gURLBar.focus();
+                                break;
+                            case 'copy_url' :
+                                this.writeToClipboard(gBrowser.currentURI.spec);
+                                break;
+                            case 'copy_title+url' :
+                                this.writeToClipboard(content.document.title + "\n" + gBrowser.currentURI.spec);
+                                break;
+                            case 'copy_title+url_clean' :
+                                this.writeToClipboard(content.document.title.replace(/\s-\s.*/i,"").replace(/_[^\[\]【】]+$/,"") + "\n" + gBrowser.currentURI.spec);
+                                break;
+                            case 'pasteandgo_url_current' :
+                                openUILinkIn(readFromClipboard(), "current", true);
+                                break;
+                            case 'pasteandgo_url_tab_foreground' :
+                                openUILinkIn(readFromClipboard(), "tab", true);
+                                break;
+                            case 'pasteandgo_url_tab_background' :
+                                gBrowser.loadOneTab(readFromClipboard(), null, null, null, true);
+                                break;
+                            case 'go_upper_level' :
+                                this.goUpperLevel();
+                                break;
+                            case 'go_upper_root' :
+                                this.goUpperRoot();
+                                break;
+                            case 'screen_shot' :
+                                this.ScreenShot();
+                                break;
+                            case 'screen_shot_web' :
+                                this.WebScreenShot();
+                                break;
+                            case 'copy_favicon_url' :
+                                this.writeToClipboard(gBrowser.mCurrentTab.image);
+                                break;
+                            case 'copy_favicon_base64' :
+                                this.toBase64(gBrowser.mCurrentTab.image);
+                                break;
+                            case 'save_favicon' :
+                                saveURL(gBrowser.mCurrentTab.image, null, null, false, null, null, document);
+                                break;
+                        }
+                    ]]>
+                </body>
+            </method>
+            <method name="goUpperLevel">
+                <parameter name="string" />
+                <body>
+                    <![CDATA[
+                        var uri = gBrowser.currentURI;
+                        if (uri.path == "/")
+                                return;
+                        var pathList = uri.path.split("/");
+                        if (!pathList.pop())
+                                pathList.pop();
+                        loadURI(uri.prePath + pathList.join("/") + "/");
+                    ]]>
+                </body>
+            </method>
+            <method name="goUpperRoot">
+                <parameter name="string" />
+                <body>
+                    <![CDATA[
+                        var uri = gBrowser.currentURI;
+                        loadURI(uri.prePath + "/");
+                    ]]>
+                </body>
+            </method>
+            <method name="writeToClipboard">
+                <parameter name="string" />
+                <body>
+                    <![CDATA[
+                        Components.classes["@mozilla.org/widget/clipboardhelper;1"]
+                                  .getService(Components.interfaces.nsIClipboardHelper)
+                                  .copyString(string);
+                    ]]>
+                </body>
+            </method>
+            <method name="toBase64">
+                <parameter name="icon" />
+                <body>
+                    <![CDATA[
+                        const NSURI = "http://www.w3.org/1999/xhtml";
+                        var img = new Image();
+                        var that = this;
+                        img.onload = function () {
+                            var width = this.naturalWidth,
+                                height = this.naturalHeight;
+                            var canvas = document.createElementNS(NSURI, "canvas");
+                            canvas.width = width;
+                            canvas.height = height;
+                            var ctx = canvas.getContext("2d");
+                            ctx.drawImage(this, 0, 0);
+                            that.writeToClipboard(canvas.toDataURL("image/png"));
+                        };
+                        img.onerror = function () {
+                            Components.utils.reportError("Count not load: " + icon);
+                        };
+                        img.src = icon;
+                    ]]>
+                </body>
+            </method>
+            <method name="ScreenShot">
+                <parameter name="string" />
+                <body>
+                    <![CDATA[
+                        var canvas = document.createElementNS("http://www.w3.org/1999/xhtml", "canvas");
+                        canvas.width = content.innerWidth;
+                        canvas.height = content.innerHeight;
+                        var ctx = canvas.getContext("2d");
+                        ctx.drawWindow(content, content.pageXOffset, content.pageYOffset, canvas.width, canvas.height, "rgb(255,255,255)");
+                        saveImageURL(canvas.toDataURL(), content.document.title + ".png",null,false,null,null,document);
+                    ]]>
+                </body>
+            </method>
+            <method name="WebScreenShot">
+                <parameter name="string" />
+                <body>
+                    <![CDATA[
+                        var canvas =document.createElementNS('http://www.w3.org/1999/xhtml', 'html:canvas');
+                        canvas.width = content.document.body.clientWidth;
+                        canvas.height = content.document.body.clientHeight;
+                        var ctx = canvas.getContext("2d");
+                        ctx.drawWindow(content, 0, 0, canvas.width, canvas.height, "rgb(255,255,255)");
+                        saveImageURL(canvas.toDataURL(), content.document.title + ".png",null,false,null,null,document);
+                    ]]>
+                </body>
+            </method>
+        </implementation>
+    </binding>
+</bindings>

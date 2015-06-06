@@ -1,11 +1,11 @@
 
+//2015.06.06 15:00 特殊符號與快速回覆整合
 //2015.06.04 12:00 調整選中文字搜索
 //2015.06.01 17:00 精簡搜索
 //2015.05.05 17:00 調整一些菜單順序和添加圖標
 //2015.04.29 21:00 貼上 二级菜單
 //2015.03.31 21:00 升級FX36，調整加圖標方式
 //2015.01.21 22:00 修正特殊符號，添加小書籤菜單
-//2015.01.16 23:00 加入特殊符號選單三級菜單
 //2015.01.08 20:40 一些搜索項只在特定網站顯示
 //2015.01.04 09:35 複製 二级菜單
 //2014.12.22 18:50 選中文字搜索換回
@@ -439,69 +439,9 @@ e.checked = !e.checked;
 
 /*——————————輸入框右鍵——————————*/
 
-//特殊符號選單，打造三級菜單
-var Punctuationsub = PageMenu({
-label:"特殊符號",
-accesskey: "T",
-condition:"input",
-insertBefore:"context-copy",
-oncommand: function(event) {
-var input_text = event.target.getAttribute('input_text');
-if (input_text) {
-addMenu.copy(input_text);
-setTimeout(function() {
-goDoCommand("cmd_paste");
-}, 100);
-}
-}
-});
-Punctuationsub([
-{id: "Punctuation-sep", style: "display:none;"}
-]);
-var PunctuationsubMenu1 = PageMenu({
-label: "物理",
-accesskey: "W",
-condition: "input",
-insertBefore: "Punctuation-sep",
-});
-PunctuationsubMenu1([
-{label: "°", input_text:"°"},
-{label: "°C", input_text:"°C"},
-{label: "Ω", input_text:"Ω"},//ohm
-{label: "Φ", input_text:"Φ"},//diameter
-{label: "m²", input_text:"m²"},
-{label: "cm²", input_text:"cm²"},
-{label: "km²", input_text:"km²"},
-]);
-var PunctuationsubMenu2 = PageMenu({
-label: "數學",
-accesskey: "S",
-condition: "input",
-insertBefore: "Punctuation-sep",
-});
-PunctuationsubMenu2([
-{label: "±", input_text:"±"},
-{label: "≥", input_text:"≥"},
-{label: "≤", input_text:"≤"},
-{label: "×", input_text:"×"},
-{label: "÷", input_text:"÷"},
-{label: "≠", input_text:"≠"},//is not equal to
-{label: "≈", input_text:"≈"},//is approximately equal to
-{label: "√", input_text:"√"},
-{label: "∞", input_text:"∞"},//infinity
-]);
-var PunctuationsubMenu3 = PageMenu({
-label: "其它",
-condition: "input",
-insertBefore: "Punctuation-sep",
-});
-PunctuationsubMenu3([
-{label: "·", input_text:"·"},//placeholder,位于字母中间
-]);
-
-//快捷回复
+//快捷回复，打造多級菜單
 new function() {
-var menu = PageMenu({
+var  QuickReplySub = PageMenu({
 label: "快速回覆",
 condition: "input noselect",
 accesskey: "W",
@@ -518,65 +458,112 @@ goDoCommand("cmd_paste");
 },
 onpopupshowing: function (event){
 Array.slice(event.target.children).forEach(function(elem){
-if(elem.id == "TVC"){
+if(elem.id == "TVC-Brand"){
 elem.hidden = !/ic.sjlpj.cn/.test(content.location.host)//可排除多個網站
 }
 });
 },
+
 });
-var items = [
-{
-label: "用戶名~~~",
-input_text: "dupontjoy",
-accesskey: "1",
-}, 
-{}, 
-{
-label: "163mail~~~",
-input_text: "dupontjoy@163.com",
-accesskey: "2",
-image: "http://email.163.com/favicon.ico "
-}, 
-{
-label: "QQmail~~~",
-input_text: "dupontjoy@qq.com",
-accesskey: "3",
-image: " https://mail.qq.com/favicon.ico"
-}, 
-{
-label: "Gmail~~~",
-input_text: "dupont2305@gmail.com",
-accesskey: "4",
-image: "https://ssl.gstatic.com/ui/v1/icons/mail/images/2/unreadcountfavicon/0.png "
-}, 
-{}, 
-{
-label: "字數補丁~~~",
-input_text: "~~~為神馬要15字，好吧，漢賊不兩立，王業不偏安~~~",
-image: " "
-},
-{}, 
+QuickReplySub([
+{id: "QuickReply-sep", style: "display:none;"}
+]);
+var QuickReplySubMenu1 = PageMenu({
+id: "TVC-Brand",
+label: "TVC品牌",
+accesskey: "A",
+condition: "input",
+insertBefore: "QuickReply-sep",
+image: "http://ic.sjlpj.cn/favicon.ico",
+});
+QuickReplySubMenu1([
 {
 label: "Nillkin",
-id: "TVC",
+accesskey: "1",
 input_text: "深圳Nillkin耐尔金品牌 网址http://www.nillkin.com/english",
-image: " "
+image: "http://www.nillkin.com/english/favicon.ico"
 },
 {
 label: "Remax",
-id: "TVC",
+accesskey: "2",
 input_text: "香港Remax品牌 网址www.iremax.hk",
 image: " "
 },
 {
 label: "Benks",
-id: "TVC",
+accesskey: "3",
 input_text: "深圳邦克仕Benks品牌 网址www.benks.com.cn",
 image: " "
-},
-
-];
-menu(items);
+}, 
+]);
+var QuickReplySubMenu2 = PageMenu({
+label: "物理符號",
+accesskey: "B",
+condition: "input",
+insertBefore: "QuickReply-sep",
+image: "",
+});
+QuickReplySubMenu2([
+{label: "°", input_text:"°", accesskey: "1",},
+{label: "°C", input_text:"°C", accesskey: "2",},
+{label: "Ω", input_text:"Ω", accesskey: "3",},//ohm
+{label: "Φ", input_text:"Φ", accesskey: "4",},//diameter
+{label: "m²", input_text:"m²", accesskey: "5",},
+{label: "cm²", input_text:"cm²", accesskey: "6",},
+{label: "km²", input_text:"km²", accesskey: "7",},
+]);
+var QuickReplySubMenu3 = PageMenu({
+label: "數學符號",
+accesskey: "C",
+condition: "input",
+insertBefore: "QuickReply-sep",
+image: "",
+});
+QuickReplySubMenu3([
+{label: "±", input_text:"±", accesskey: "1",},
+{label: "≥", input_text:"≥", accesskey: "2",},
+{label: "≤", input_text:"≤", accesskey: "3",},
+{label: "×", input_text:"×", accesskey: "4",},
+{label: "÷", input_text:"÷", accesskey: "5",},
+{label: "≠", input_text:"≠", accesskey: "6",},//is not equal to
+{label: "≈", input_text:"≈", accesskey: "7",},//is approximately equal to
+{label: "√", input_text:"√", accesskey: "8",},
+{label: "∞", input_text:"∞", accesskey: "9",},//infinity
+]);
+page({
+label: "用戶名~~~",
+input_text: "dupontjoy",
+accesskey: "1",
+insertBefore: "QuickReply-sep",
+});
+page({
+label: "163mail~~~",
+input_text: "dupontjoy@163.com",
+accesskey: "2",
+image: "http://email.163.com/favicon.ico ",
+insertBefore: "QuickReply-sep",
+});
+page({
+label: "QQmail~~~",
+input_text: "dupontjoy@qq.com",
+accesskey: "3",
+image: " https://mail.qq.com/favicon.ico",
+insertBefore: "QuickReply-sep",
+});
+page({
+label: "Gmail~~~",
+input_text: "dupont2305@gmail.com",
+accesskey: "4",
+image: "https://ssl.gstatic.com/ui/v1/icons/mail/images/2/unreadcountfavicon/0.png",
+insertBefore: "QuickReply-sep",
+});
+page({
+label: "字數補丁~~~",
+accesskey: "5",
+input_text: "~~~爲神馬要15字，『漢賊不兩立，王業不偏安』~~~",
+image: " ",
+insertBefore: "QuickReply-sep",
+});
 };
 
 //貼上 二級菜單

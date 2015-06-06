@@ -1,4 +1,4 @@
-/*+++2015.06.06 12:00+++*/
+/*+++2015.06.06 15:00+++*/
 
 /*==扩展/脚本图标补充==*/
 
@@ -90,6 +90,16 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 
 [label="用戶名~~~"] {
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABbElEQVRIia3Wv0scQRjG8Y+Q2CSNokmZQhTT6B+hfYiQ1mAjkYhWAdtgp7UYIQkR9H+QBAMpbFLlCtMIGvwZEJPOoBfOFDN7mGW525u7B55qZ5/v7rwz7wzNdR+T2MJB9Baex2dtqQdvcImbnC+xht7U8C68Rq0gPHMNi3FsyxrAfoPwzD8wmAKYQLUE4C+epQBmS4Rnnk8BvGwBMJcCeILrEuFVYTpb1iAOSwCOMJQCuIONEoBN3E0BwBh+NQj/jfHUcMJfLCnebDUsxzFtqQ9fCgA76G83nNAG1gsAHyS2iNt6gCmcFAD28FRis3uEBXzDVUF45j/4ilfxnaa6h2nsatxFiwr+HTManBH9eNfki5v5WqjXw3x4N1baCM57LWbWNYzTDgLOYmZdo7joIOAiZtbVi+0OAj4rWL7DeItj5U6yvKvCfnmPx/nwTN0YEZbqKj6iIpzNZziP/ilcXyr4JNw8XsRp+a+4/wCW1xLWbMWACgAAAABJRU5ErkJggg==") !important;
+-moz-image-region: rect(0px, 0px, 0px, 0px) !important;
+}
+
+[label="物理符號"] {
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABBElEQVQ4ja3SO0sDURAF4C9hRYtgSBMQEbUQCahgZecrlooRCxsbC/EBRrQMIvisVATxVShYiZVY+yP8SxZ7AyFsYFc8zWFgzrnnzgzpUcIhngOXMmjBPuoYDVzPIi7gBuVQl3GN3rQGES4xj3zgc3RlSVEJr14FrmQRN1HAYOD/Rx65vwi7URMP5QiTKTQRRjAHWzjFGGZwL3lAOfRhGRfiYa7BGwZaGlew01IXMYsGbrEXUvY0G9oNajjAOHbFB9QIJsWk/2ziOMSexjc+cYYnLCSJWtGPF/zgFRsYxioecSe+/46oYhsT4o3AIj4whXW8Y6iTQfvuI5wEg4eQ4gtLSeJfNhQkTGxVeLEAAAAASUVORK5CYII=") !important;
+-moz-image-region: rect(0px, 0px, 0px, 0px) !important;
+}
+
+[label="數學符號"] {
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABH0lEQVQ4jaXTvUoDURCG4cdoQCOohVUSEwkIprBLYWGhiGhtTLAQRMEmjRrw5y5sEkHbXIa912VxZs2SxCJ44OOwu2fenTnzDTziE8MJDTAKDWZ8/4xYH9hHFTXUYy+jFyrHu0zViPkQtJq0SrjEcjx3Q7NWLWINsYVNnEXKJ9hAJ7SIFg5CO5OAKnbxii88oYGLAJRwg3s84DRK/QVkJazhBavzlpABCljHwjyAkXTTnTic7W28hdo5WHamF7FTgO68gHwJk2uuNpbiTw2co2jcxhVcGRvr2B9duMM3rnMZdLAkOe8QR1LLpzIo4hnv6E8ASriVvN+XDFefBWhKNm5KrczuoIA9yY0tbOczyA9TJWAV08NUyaksN0z/Gucfql5K3J1MTKEAAAAASUVORK5CYII=") !important;
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 

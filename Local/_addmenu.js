@@ -1,5 +1,5 @@
 
-//2015.06.06 15:00 特殊符號與快速回覆整合
+//2015.06.06 16:00 特殊符號與快速回覆整合
 //2015.06.04 12:00 調整選中文字搜索
 //2015.06.01 17:00 精簡搜索
 //2015.05.05 17:00 調整一些菜單順序和添加圖標
@@ -458,7 +458,7 @@ goDoCommand("cmd_paste");
 },
 onpopupshowing: function (event){
 Array.slice(event.target.children).forEach(function(elem){
-if(elem.id == "TVC-Brand"){
+if(elem.id == "TVC-Brand"|elem.id == "Physics-Symbols"|elem.id == "Math-Symbols"){
 elem.hidden = !/ic.sjlpj.cn/.test(content.location.host)//可排除多個網站
 }
 });
@@ -498,6 +498,7 @@ image: " "
 ]);
 var QuickReplySubMenu2 = PageMenu({
 label: "物理符號",
+id: "Physics-Symbols",
 accesskey: "B",
 condition: "input",
 insertBefore: "QuickReply-sep",
@@ -514,6 +515,7 @@ QuickReplySubMenu2([
 ]);
 var QuickReplySubMenu3 = PageMenu({
 label: "數學符號",
+id: "Math-Symbols",
 accesskey: "C",
 condition: "input",
 insertBefore: "QuickReply-sep",

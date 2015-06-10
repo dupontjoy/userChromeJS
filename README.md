@@ -32,7 +32,7 @@ UC管理器文件
 
 神級腳本[LockMark][6]：記住浏览位置，以坐标方式保存在prefs.js中
 
-[ucjsPermission2][7]：利用自带permissions.sqlite管理第三方腳本等
+神級腳本[ucjsPermission2][7]：利用自带permissions.sqlite管理第三方腳本等。個人[第三方腳本白名單][9]。
 
 ***8. userChrome.css：***
 優先級較高的CSS文件，作用於于Firefox界面框，優先啓動防界面抖動
@@ -48,3 +48,4 @@ UC管理器文件
   [6]: https://github.com/dupontjoy/userChromeJS/blob/master/xul/localMark_0.6.1.uc.xul
   [7]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/ucjsPermission2.uc.xul
   [8]: https://github.com/dupontjoy/userChromeJS/tree/master/Local/BackupProfiles
+  [9]: https://github.com/dupontjoy/customization/blob/master/Rules/ucjsPermission-Whitelist.txt

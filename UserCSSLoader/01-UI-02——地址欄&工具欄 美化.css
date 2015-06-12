@@ -1,0 +1,35 @@
+/*+++2015.06.12 14:00+++*/
+
+/*LASTPASS菜单宽度*/
+#lpt_lastpass-compact-menu,#lpt_lastpass-compact-menu menupopup {
+max-width: 210px !important;
+border: 1px solid ThreeDShadow !important;
+}
+
+/*Https协议地址栏变色*/
+#urlbar[level="low"] {
+background-color: #FFFFB7 !important;
+}
+
+#urlbar[level="high"] {
+background-color: #DDF9CC !important;
+}
+
+#urlbar[level="broken"] {
+background-color: #F7DFDF !important;
+}
+
+/*網站標識*/
+#identity-box:not(:hover) #identity-icon-label,
+#identity-box:not(:hover) #identity-icon-labels {
+display: none !important;
+}
+
+#identity-box,#notification-popup-box {
+border-radius:12px 0px 0px 12px !important;
+}
+
+#identity-box {
+background: none !important;
+}
+

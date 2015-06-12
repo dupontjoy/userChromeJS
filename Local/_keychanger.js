@@ -1,13 +1,13 @@
 
-//2015.05.31 18:00
+//2015.06.10 16:00
 
 //F功能鍵
 
-//数字       
-keys['1'] = "gBrowser.selectedTab = gBrowser.addTab('http://www.baidu.com/');";//百度
-keys['2'] = "gBrowser.selectedTab = gBrowser.addTab('https://www.google.com/ncr');";//Google
-keys['3'] = "gBrowser.selectedTab = gBrowser.addTab('http://www.amazon.com/');";//Amazon
-keys['4'] = "gBrowser.selectedTab = gBrowser.addTab('http://www.ebay.com/');";//Ebay
+//数字
+keys['1'] = "gBrowser.selectedTab = gBrowser.addTab('https://www.google.com/ncr');";//Google    
+keys['2'] = "gBrowser.selectedTab = gBrowser.addTab('http://www.baidu.com/');";//百度
+keys['3'] = "gBrowser.selectedTab = gBrowser.addTab('http://www.ebay.com/');";//Ebay
+keys['4'] = "gBrowser.selectedTab = gBrowser.addTab('http://www.amazon.com/');";//Amazon
 keys['5'] = function(){var newtabs=["http://ic.sjlpj.cn/DevProduct/DevProductEditCollectList","http://www.tvc-mall.com/"];var i=0;while(i<=newtabs.length-1){gBrowser.selectedTab=gBrowser.addTab(newtabs[i]);i=i+1;}};//一键打开标签组 
 
 //字母

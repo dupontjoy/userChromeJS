@@ -1,6 +1,6 @@
 
+//2015.06.10 16:00 調整選中文字搜索，加入OCR文字識別
 //2015.06.06 16:00 特殊符號與快速回覆整合
-//2015.06.04 12:00 調整選中文字搜索
 //2015.06.01 17:00 精簡搜索
 //2015.05.05 17:00 調整一些菜單順序和添加圖標
 //2015.04.29 21:00 貼上 二级菜單
@@ -90,6 +90,7 @@ url: 'http://www.bing.com/images/searchbyimage?FORM=IRSBIQ&cbir=sbi&imgurl=%IMAG
 image: "http://cn.bing.com/s/a/bing_p.ico",
 where: 'tab'
 },
+
 ]);
 
 //圖片右鍵 複製 二级菜單
@@ -97,6 +98,9 @@ new function() {
 var items = [{
 command: 'context-copyimage-contents',
 },
+{
+command: 'context-copyimage',/*複製圖片地址*/
+},  
 {
 label: "複製GIF",
 accesskey: "G",
@@ -118,15 +122,77 @@ for (i in ranges) selection.addRange(ranges);
 }
 }
 },
-
 {
-command: 'context-copyimage'
-}, /*複製圖片地址*/ {
 label: "複製圖片Base64",
 condition: "image",
 accesskey: "B",
 text: "%IMAGE_BASE64%",
-}];
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbElEQVQ4jWNgGAzgPwUYbgC5FmMYcBTJdA8smo4yMDAo4zIgD4oZoIrQXZYHFcNpALLp6EAZKo/XBf+RbEH3AkwjUQbg8xpBA5ABsq3o0aeMzYCZaM7GFr14XQBTgGwLyQaQAlAMoCgpDywAAF13Uxwj2+klAAAAAElFTkSuQmCC",
+},
+{
+label: "OCR文字識別",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABOElEQVQ4jaXTsS6EURQE4I9lJYpNREdIVEo2EonH4Dk8AFES1WpXxRNsQrUkGqJSaKhFiEpJRSQUZve/Catxkyn+c2Ymc+9/DrzgAzeYVp0h1IOhoj4d7ke03rCFZYyigVXsoxvsp9YIZzmaN3FbiXsTJ7hHB9tBJ7WTcERz04s0ksYtjrGIWhG7ltpxOM1o+lduJOoRJlMbw1xQT20ynG40/bOGuyLeLA7xhHNMFdxmuGulQTv3rOWRDvEZXMVgJklq4bZ74noi7eR7Dg+FwTuucZmecLu9q43jFLsYxjweC4MeHtMbDvc0Wh08h3CGC7z+YvCa3lm4z9Fa9z0Ue4m2iY0B2AxnL5r18h1aOMCEwWcinJbq1/YHaUk1SAt+DtKCapCWFIP071EetExt1TK1/bFM/1rnL0aZaKARA/d3AAAAAElFTkSuQmCC",
+oncommand: function() {
+//打開http://apistore.baidu.com/apiworks/servicedetail/146.html，填入apikey
+var apikey = "5887465f000b887614bc3ad930fe1b15";
+  
+var base64str = img2base64(gContextMenu.mediaURL || gContextMenu.imageURL || gContextMenu.bgImageURL).replace("data:image/jpeg;base64,", "");
+var xmlHttp = new XMLHttpRequest();
+xmlHttp.open("POST", "http://apis.baidu.com/apistore/idlocr/ocr", true);
+xmlHttp.setRequestHeader("apikey", apikey);
+var formData = new FormData();
+for(var d of ("fromdevice=pc&clientip=10.10.10.0&detecttype=LocateRecognize&languagetype=CHN_ENG&imagetype=1&image=" + base64str).split('&'))
+formData.append.apply(formData, d.split('=', 2));
+xmlHttp.send(formData);
+xmlHttp.onload = function() {
+if (xmlHttp.status == 200) {
+var data = JSON.parse(xmlHttp.responseText);
+if (data.errNum != 0)
+alert("错误：" + data.errMsg);
+else {
+var str = "";
+for (var i in data.retData) str += data.retData[i].word;
+alert(str);
+}
+}
+};
+  
+function img2base64(imgsrc) {
+if (typeof imgsrc == 'undefined') return "";
+  
+const NSURI = "http://www.w3.org/1999/xhtml";
+var img = new Image();
+var that = this;
+var canvas,
+isCompleted = false;
+img.onload = function() {
+var width = this.naturalWidth,
+height = this.naturalHeight;
+canvas = document.createElementNS(NSURI, "canvas");
+canvas.width = width;
+canvas.height = height;
+var ctx = canvas.getContext("2d");
+ctx.drawImage(this, 0, 0);
+isCompleted = true;
+};
+img.onerror = function() {
+Components.utils.reportError("Count not load: " + imgsrc);
+isCompleted = true;
+};
+img.src = imgsrc;
+  
+var thread = Cc['@mozilla.org/thread-manager;1'].getService().mainThread;
+while (!isCompleted) {
+thread.processNextEvent(true);
+}
+  
+var data = canvas ? canvas.toDataURL("image/jpeg", 1) : "";
+canvas = null;
+return data;
+}
+}
+},
+];
 var menu = PageMenu({
 condition: 'image',
 insertBefore: 'context-viewimage',
@@ -203,7 +269,8 @@ zipW.addEntryStream(name, Date.now() * 1000, Ci.nsIZipWriter.COMPRESS_DEFAULT, s
 zipW.close();
 }
 },
-}, {
+}, 
+{
 command: 'context-sendimagetogmail'
 },
 // 替換 openImgRar.uc.js
@@ -228,7 +295,7 @@ file.launch();
 },
 
 {command: 'context-sep-copyimage'},
-{command: 'context-viewimageinfo'},
+{command: 'context-viewimageinfo',},
 ];
 var menu = PageMenu({
 condition: 'image',
@@ -266,8 +333,11 @@ accesskey: "S",
 insertBefore: "context-copy",
 onpopupshowing: function (event){
 Array.slice(event.target.children).forEach(function(elem){
-if(elem.id == "TVC"){
-elem.hidden = !/ic.sjlpj.cn|tvc-mall.com/.test(content.location.host)//可排除多個網站
+if(elem.id == "TVC-1"){
+elem.hidden = !/tvc-mall.com|ic.sjlpj.cn/.test(content.location.host)//可排除多個網站
+}
+else if(elem.id == "TVC-2"){
+elem.hidden = !/ic.sjlpj.cn/.test(content.location.host)//可排除多個網站
 }
 });
 }
@@ -289,15 +359,15 @@ where: 'tab'
 }, 
 {},
 {
-label: "Amazon",
-url: "http://www.amazon.com/s/?url=field-keywords=%s",
-image: "http://www.amazon.com/favicon.ico",
-where: 'tab'
-},
-{
 label: "Ebay",
 url: "http://www.ebay.com/sch/i.html?_nkw=%s",
 image: "http://www.ebay.com/favicon.ico",
+where: 'tab'
+},
+{
+label: "Amazon",
+url: "http://www.amazon.com/s/?url=field-keywords=%s",
+image: "http://www.amazon.com/favicon.ico",
 where: 'tab'
 },
 {
@@ -310,7 +380,7 @@ where: 'tab'
 {},
 {
 label: "產品—認領-SKU",
-id: "TVC",
+id: "TVC-2",
 accesskey: "1",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductEditCollectList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
@@ -318,21 +388,21 @@ where: 'tab'
 },
 {
 label: "產品—認領-品名",
-id: "TVC",
+id: "TVC-2",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductEditCollectList?Name=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
 label: "產品—待編輯-SKU",
-id: "TVC",
+id: "TVC-2",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?Sku=%s&EditorId=0",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
 label: "產品—已編輯-SKU",
-id: "TVC",
+id: "TVC-2",
 accesskey: "2",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Sku=%s&EditorId=0",
 image: "http://ic.sjlpj.cn/favicon.ico",
@@ -340,7 +410,7 @@ where: 'tab'
 },
 {
 label: "產品—已編輯-品名",
-id: "TVC",
+id: "TVC-2",
 accesskey: "3",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Name=%s&EditorId=0",
 image: "http://ic.sjlpj.cn/favicon.ico",
@@ -348,7 +418,7 @@ where: 'tab'
 },
 {
 label: "產品—關聯SPU-所有列表",
-id: "TVC",
+id: "TVC-2",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductAssociatedSpuList?Sku=%s",
 tooltiptext: "加顏色時在此關聯，一步到位！",
 image: "http://ic.sjlpj.cn/favicon.ico",
@@ -357,7 +427,7 @@ where: 'tab'
 {},
 {
 label: "運營—質檢-SKU",
-id: "TVC",
+id: "TVC-1",
 accesskey: "4",
 url: "http://ic.sjlpj.cn/Product/ProductCheckingList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
@@ -365,21 +435,21 @@ where: 'tab'
 },
 {
 label: "運營—質檢-品名",
-id: "TVC",
+id: "TVC-2",
 url: "http://ic.sjlpj.cn/Product/ProductCheckingList?KeyWord=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
 label: "運營—正在編輯的產品列表-SKU",
-id: "TVC",
+id: "TVC-2",
 url: "http://ic.sjlpj.cn/#/Product/OperationProductEditMgtList?Sku=%s&Mode=processed",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
 label: "運營—審核-SKU",
-id: "TVC",
+id: "TVC-1",
 accesskey: "5",
 url: "http://ic.sjlpj.cn/Product/OperationProductEditAuditList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
@@ -387,7 +457,7 @@ where: 'tab'
 },
 {
 label: "運營—審核-品名",
-id: "TVC",
+id: "TVC-2",
 url: "http://ic.sjlpj.cn/Product/OperationProductEditAuditList?Keyword=%s&pageSize=100",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
@@ -395,7 +465,7 @@ where: 'tab'
 {},
 {
 label: "運營—SPU管理列表",
-id: "TVC",
+id: "TVC-1",
 accesskey: "6",
 url: "http://ic.sjlpj.cn/ProductCorrect/ProductSpuList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
@@ -403,14 +473,14 @@ where: 'tab'
 },
 {
 label: "運營—SPU關聯列表",
-id: "TVC",
+id: "TVC-2",
 url: "http://ic.sjlpj.cn/Product/ProductAssociatedSpuList?Sku=%s&IsFirstRequest=true&BeginDate=2008-01-01",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
 label: "運營—外網批量管理-SKU",
-id: "TVC",
+id: "TVC-2",
 accesskey: "7",
 url: "http://ic.sjlpj.cn/#/Product/BatchManagementProductList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
 image: "http://ic.sjlpj.cn/favicon.ico",
@@ -458,7 +528,7 @@ goDoCommand("cmd_paste");
 },
 onpopupshowing: function (event){
 Array.slice(event.target.children).forEach(function(elem){
-if(elem.id == "TVC-Brand"|elem.id == "Physics-Symbols"|elem.id == "Math-Symbols"){
+if(elem.id == "Physics-Symbols"|elem.id == "Math-Symbols"){
 elem.hidden = !/ic.sjlpj.cn/.test(content.location.host)//可排除多個網站
 }
 });
@@ -469,34 +539,6 @@ QuickReplySub([
 {id: "QuickReply-sep", style: "display:none;"}
 ]);
 var QuickReplySubMenu1 = PageMenu({
-id: "TVC-Brand",
-label: "TVC品牌",
-accesskey: "A",
-condition: "input",
-insertBefore: "QuickReply-sep",
-image: "http://ic.sjlpj.cn/favicon.ico",
-});
-QuickReplySubMenu1([
-{
-label: "Nillkin",
-accesskey: "1",
-input_text: "深圳Nillkin耐尔金品牌 网址http://www.nillkin.com/english",
-image: "http://www.nillkin.com/english/favicon.ico"
-},
-{
-label: "Remax",
-accesskey: "2",
-input_text: "香港Remax品牌 网址www.iremax.hk",
-image: " "
-},
-{
-label: "Benks",
-accesskey: "3",
-input_text: "深圳邦克仕Benks品牌 网址www.benks.com.cn",
-image: " "
-}, 
-]);
-var QuickReplySubMenu2 = PageMenu({
 label: "物理符號",
 id: "Physics-Symbols",
 accesskey: "B",
@@ -504,7 +546,7 @@ condition: "input",
 insertBefore: "QuickReply-sep",
 image: "",
 });
-QuickReplySubMenu2([
+QuickReplySubMenu1([
 {label: "°", input_text:"°", accesskey: "1",},
 {label: "°C", input_text:"°C", accesskey: "2",},
 {label: "Ω", input_text:"Ω", accesskey: "3",},//ohm
@@ -513,7 +555,7 @@ QuickReplySubMenu2([
 {label: "cm²", input_text:"cm²", accesskey: "6",},
 {label: "km²", input_text:"km²", accesskey: "7",},
 ]);
-var QuickReplySubMenu3 = PageMenu({
+var QuickReplySubMenu2 = PageMenu({
 label: "數學符號",
 id: "Math-Symbols",
 accesskey: "C",
@@ -521,7 +563,7 @@ condition: "input",
 insertBefore: "QuickReply-sep",
 image: "",
 });
-QuickReplySubMenu3([
+QuickReplySubMenu2([
 {label: "±", input_text:"±", accesskey: "1",},
 {label: "≥", input_text:"≥", accesskey: "2",},
 {label: "≤", input_text:"≤", accesskey: "3",},
@@ -571,7 +613,7 @@ insertBefore: "QuickReply-sep",
 //貼上 二級菜單
 new function() {
 var items = [{
-command: 'context-paste'
+command: 'context-paste',
 },
 {
 label: "標點符號置換(中轉英)",
@@ -600,6 +642,7 @@ if (sel) {goDoCommand("cmd_paste");}
 },
 {
 label: "插入code代碼",
+id: "BBCode",
 condition: "input",
 accesskey: "I",
 insertAfter: "context-paste",
@@ -608,18 +651,19 @@ var str = addMenu.convertText('[code]%P[/code]');
 addMenu.copy(str);
 goDoCommand('cmd_paste');
 },
-/*//限定只在kafan生效(此段代碼只適用一級菜單)
-onshowing: function(menuitem) {
-var isHidden = !(content.location.host == 'bbs.kafan.cn');
-this.hidden = isHidden;
-},*/
 },
 ];
 var menu = PageMenu({
 condition: 'input',
 insertBefore: 'context-copy',
 icon: 'input',
-onpopupshowing: syncHidden
+onpopupshowing: function (event){
+Array.slice(event.target.children).forEach(function(elem){
+if(elem.id == "BBCode"){
+elem.hidden = !/bbs.kafan.cn/.test(content.location.host)//可排除多個網站
+}
+});
+},
 });
 menu(items);
 items.forEach(function(it) {
@@ -686,7 +730,7 @@ app(
 //GrabScroll圖標
 app(
 { id: 'GrabScroll_optionsMenu', clone :false,image:
-"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAENElEQVRIiaWVTajcVBTH/5NMppnMTGbyMZnk5mOSzJ2be5MZsLagRdpFsbpwLQhuVWh3bRGhin3TLgqKSruQIgpuLIggCIJfKNT6tehCqW1BrWiLr9NHQftaBKEwbt48Z2rrG+p/lZz7O+d/7kluAtxe8sy1VBTFE8Ph8NJwOJwMh8Obw+HwcyHEjjvk3lmcc0sIsbsoileFEHsYYzZjzC6K4tvBYHB6MBgsFUXx8mAw+LkoitNFUTyf5/moKIonhRDeRvUrnPOXhBCreZ7/JIS4xjl/N8uyB/I8vyyEODwF8zw/kuf5RAhxVQjxgxBilXP+Hud8C+d8yBizAZTmqne7XY8xdiHLsjeEEB7n/CnO+ZgxdirLshuc86UpyxgbZVm2yjl/mFLaZoztybLsGmNshTG2kmXZl5TSh+ZMKKVBv99fppQemM6+1+vt7/f7f/X7/QmldGmGHVFKx5TSYJrb6/WW+/3+N5TSA5TSM5TS871eb8u6ge/7Vq/XO50kydtxHKvTWJqmn6ZpOknT9OCUTdN0lKbp2Pf9YI0L0jQdJ0lyeG39wTRNryRJcmx2SqU4jo/EcXwlDMPt02Acx3uTJJnEcbw0ExslSTJnkCTJOI7jEQC02+16kiTvd7vdc3PPIYqiIoqiH8MwPBEEQRUAwjDcHkXR9SiKRjPcKIqiOYNutzueZcIwfDEMw5vTe7nVarVM09R93z9MCFnxfX8bABBCIkLIFULIejIhZEQIGZumuW7g+/44CIJ1JgiCpSAIJjAMo+l53j7Xdb/yPO8jz/Ned133uud5zwGAbdsNQsghQsiuGYNdhJBDtm03AMA0zcB13bHruusGrusueZ43gW3bLziOc81xnI8dxznZ6XT+7HQ6E8dxPjRNU5/uEPPvdQkzp73dbruO43znOM6+acxxnFGn05nAsqwblmW91Ww2DV3XTdu2n7Ys66plWcuWZQksJrndbm+u1WqdaQOmaR61LGsVhmFMWq3WvlnYMIxnDMNY1XX9sQUN5tRsNg3DME6Zpvk1Wq3WJV3XP6nX6+0p0Gg0smazeU7X9T13Y1Cv13c0Go2VVqt1CLVabW+j0fhD07RnAZTXmLKmaffWajX3LurLmqYdq9frv2qathUAmpqmvalp2kq1Wn30bjqelaIom6vV6kVN044DqAAAVFVNVFX9QlXVX1RV3fk/6lc2bdp0XFXVy+VyedutzvcpivJ9pVI5Wy6Xd+LWz+0CKpfL2yqVymVFUY7in3HPAdsVRTkjy/JFWZYfx3SLC3Yvy/JriqJcBHDPf4FbZVn+TJKk3yVJ2g9AWdBgiyRJv0mS9Armf7m3VSRJ0olSqXQVwCMLGhwslUorAO5fkEcfwFkA7wCobsA2AZwE8AGA+qIGAHAUwAUAG52HHoBlAAc34P6lEYAxgGADbusat/vWhb8BUoPa7EjYx6UAAAAASUVORK5CYII="
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAATlBMVEUAAAAAAAC0tLQYGBjw8PBKSkoHBwf39/fW1tbMzMxdXV1HR0cQEBDt7e3c3NxoaGgxMTEfHx/Gxsa8vLyvr6+cnJyWlpaDg4N4eHhSUlIK+8xuAAAAAXRSTlMAQObYZgAAAGNJREFUGNN1zEkOgCAQRNGuFhnEAZy9/0WFgIkQ/azqJTT9tZdzJBR7kQG6FzAovklVAF3DWsORJpjh0YTyXevYajMKM7sEWl4txYaeUicSiAeUr4C42VT4MQXPGSsB2Qn66AYLXQJg+rPQRQAAAABJRU5ErkJggg=="
 });
 
 //InspectElementModY菜單

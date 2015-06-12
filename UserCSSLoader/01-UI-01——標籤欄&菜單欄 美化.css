@@ -1,4 +1,22 @@
-/*+++2015.05.27 09:00+++*/
+/*+++2015.06.12 14:00+++*/
+
+/*按Alt悬浮菜单栏*/
+#toolbar-menubar[inactive="true"]{
+visibility:hidden;
+}
+#toolbar-menubar{
+position:fixed;
+top:8px;
+z-index:9999 !important;
+-moz-appearance:none !important;
+border:1px solid !important;
+-moz-border-top-colors:rgb(169,169,169) !important;
+-moz-border-bottom-colors:rgb(169,169,169) !important;
+-moz-border-left-colors:rgb(169,169,169) !important;
+-moz-border-right-colors:rgb(169,169,169) !important;
+background-color:rgb(240,240,240) !important;
+padding:1px !important;
+}
 
 /*标签样式css*/
 .tabbrowser-tab[busy] {color: blue !important;}/* 正在加载标签 */

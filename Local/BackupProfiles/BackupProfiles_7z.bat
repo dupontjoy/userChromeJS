@@ -1,5 +1,5 @@
 
-::2015.06.07 20:00  添加開始備份前的提示
+::2015.06.08 14:00  添加開始備份前的提示
 ::2015.06.01 20:00  更名爲Profiles，刪除一些不必要的項目
 ::2015.05.27 18:00  換用Autoproxy，不再備份Foxy數據
 ::2015.05.25 17:00  加入foxyproxy訂閱列表設置
@@ -10,12 +10,13 @@
 
 echo off
 Title 備份Firefox配置文件夾
-ECHO.&ECHO.即將開始Firefox配置打包。現在需要關閉Firefox，請保存必要的資料! 按任意鍵繼續！&PAUSE >NUL 2>NUL
+ECHO.&ECHO.即將開始Profiles配置打包。需要關閉Firefox程序，請保存必要的資料! 按任意鍵繼續！&PAUSE >NUL 2>NUL
 
 rem 設置備份路徑以及臨時文件夾
 taskkill /im firefox.exe
 @echo 關閉火狐瀏覽器后自動開始備份……
 cd /d %~dp0
+::从批处理所在位置到配置文件夹（Profiles），共跨了3层
 set BackDir=..\..\..
 set TempFolder=..\..\..\Temp\Profiles
 
@@ -76,6 +77,7 @@ xcopy "%BackDir%\user.js" %TempFolder%\ /y
 xcopy "%BackDir%\xulstore.json" %TempFolder%\ /y
 
 ::讀取版本號和日期及時間
+::从批处理所在位置到Firefox程序文件夹（firefox），共跨了4层
 for /f "usebackq eol=; tokens=1,2 delims==" %%i in ("..\..\..\..\Firefox\application.ini")do (if %%i==Version set ver=%%j)
 ::設置備份文件路徑以及文件名
 
@@ -99,4 +101,4 @@ rem 開始備份
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%" /s/q
 
-ECHO.&ECHO.Firefox配置已打包完成,請按任意鍵退出，并重啟Firefox! &PAUSE >NUL 2>NUL
+ECHO.&ECHO.Firefox配置已打包完成，請按任意鍵退出！&PAUSE >NUL 2>NUL

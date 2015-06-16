@@ -1,4 +1,4 @@
-/*+++2015.06.12 14:00+++*/
+/*+++2015.06.16 16:00+++*/
 
 /*样式伪进度条
 @-moz-document url-prefix("http://"),url-prefix("https://"){
@@ -22,12 +22,6 @@ box-shadow:0 1px 5px rgba(190,50,0,0.5);
 #unknownContentType {
 height: 340px !important;
 width: 450px!important;
-}
-
-/*書籤工具欄*/
-#PersonalToolbar {
-margin-top: -3px !important;
-margin-bottom: 0px !important;
 }
 
 /*书签栏左右变窄*/

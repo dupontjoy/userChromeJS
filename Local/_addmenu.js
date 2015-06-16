@@ -102,27 +102,6 @@ command: 'context-copyimage-contents',
 command: 'context-copyimage',/*複製圖片地址*/
 },  
 {
-label: "複製GIF",
-accesskey: "G",
-condition: "image",
-insertBefore: 'context-saveimage',
-image: "",
-onclick: function(event) {
-if (event.button === 0) {
-var selection = content.getSelection();
-var ranges = [];
-for (var i = 0; i < selection.rangeCount; i++) ranges.push(selection.getRangeAt(i));
-var range = document.createRange();
-range.selectNode(document.popupNode);
-selection.removeAllRanges();
-selection.addRange(range);
-goDoCommand("cmd_copy");
-selection.removeAllRanges();
-for (i in ranges) selection.addRange(ranges);
-}
-}
-},
-{
 label: "複製圖片Base64",
 condition: "image",
 accesskey: "B",
@@ -480,7 +459,7 @@ where: 'tab'
 },
 {
 label: "運營—外網批量管理-SKU",
-id: "TVC-2",
+id: "TVC-1",
 accesskey: "7",
 url: "http://ic.sjlpj.cn/#/Product/BatchManagementProductList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
 image: "http://ic.sjlpj.cn/favicon.ico",

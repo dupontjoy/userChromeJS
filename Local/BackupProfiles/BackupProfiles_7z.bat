@@ -1,4 +1,5 @@
 
+::2015.06.12 20:00  先複製後刪除，不影响原文件
 ::2015.06.08 14:00  添加開始備份前的提示
 ::2015.06.01 20:00  更名爲Profiles，刪除一些不必要的項目
 ::2015.05.27 18:00  換用Autoproxy，不再備份Foxy數據
@@ -21,8 +22,6 @@ set BackDir=..\..\..
 set TempFolder=..\..\..\Temp\Profiles
 
 rem 复制目标文件到臨時文件夾
-::需要刪除的项
-del %BackDir%\chrome\UserScriptLoader\require\  /s /q 
 
 ::以下是文件夾
 ::adblockplus：ABP規則備份。
@@ -40,6 +39,9 @@ xcopy "%BackDir%\gm_scripts" %TempFolder%\gm_scripts\ /s /y /i
 ::Plugins：便携版插件。
 xcopy "%BackDir%\Plugins" %TempFolder%\Plugins\ /s /y /i
  
+::需要刪除的项
+del %TempFolder%\chrome\UserScriptLoader\require\  /s /q
+
 ::以下是文件
 ::bookmarks.html：自動导出的书签備份。
 xcopy "%BackDir%\bookmarks.html" %TempFolder%\ /y

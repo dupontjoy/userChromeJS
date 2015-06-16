@@ -47,5 +47,5 @@ UC管理器文件
   [5]: https://github.com/dupontjoy/userChromeJS/blob/master/UCJSFiles/UserCSSLoader_ModOos.uc.js
   [6]: https://github.com/dupontjoy/userChromeJS/blob/master/xul/localMark_0.6.1.uc.xul
   [7]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/ucjsPermission2.uc.xul
-  [8]: https://github.com/dupontjoy/userChromeJS/tree/master/Local/BackupProfiles
+  [8]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/BackupProfiles_7z
   [9]: https://github.com/dupontjoy/customization/blob/master/Rules/ucjsPermission-Whitelist.txt

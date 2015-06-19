@@ -1,4 +1,5 @@
 
+::2015.06.19 16:00  添加重啟
 ::2015.06.12 21:00  加入需要刪除的項目（先複製後刪除，不影响原文件）
 ::2015.06.12 18:00  Create
 
@@ -13,6 +14,8 @@ cd /d %~dp0
 ::从批处理所在位置到Mozilla Firefox大文件夾，共跨了4层
 set BackDir=..\..\..\..
 set TempFolder=..\..\..\..\QingFox
+
+taskkill /im firefox.exe
 
 @echo 備份firefox文件夾================================
 ::firefox：pcxFirefox主程序
@@ -54,6 +57,7 @@ xcopy "%BackDir%\Profiles\Plugins" %TempFolder%\Profiles\Plugins\ /s /y /i
 
 ::需要刪除的项
 del %TempFolder%\Profiles\chrome\UserScriptLoader\require\  /s /q
+del %TempFolder%\Profiles\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q
  
 ::以下是文件
 ::cert_override.txt：储存使用者指定的例外证书(certification exceptions)。
@@ -115,3 +119,8 @@ rem 開始備份
 rd "%TempFolder%" /s/q
 
 ECHO.&ECHO.Firefox完整包已打包完成，請按任意鍵退出！&PAUSE >NUL 2>NUL
+
+@ping 127.0.0.1>nul
+@start ..\..\..\..\Firefox\firefox.exe
+
+@exit

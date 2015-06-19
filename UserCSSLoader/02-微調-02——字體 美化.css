@@ -1,4 +1,4 @@
-/*+++2015.05.27 09:00+++*/
+/*+++2015.06.19 17:00+++*/
 
 /*文本选中样式（黑底+绿字）*/
 *::-moz-selection {
@@ -27,3 +27,82 @@ text-shadow: 0 1px rgba(242,33,49,60),0 1px 1px rgba(242,33,49,60),0 -1px 1px rg
 1px 0 1px rgba(242,33,49,60),-1px 0 1px rgba(242,33,49,60),0 0 3px rgba(242,33,49,60)!important;
 }
 
+/*TXT Viewer*/
+@namespace url(http://www.w3.org/1999/xhtml);
+@-moz-document regexp(".*\.(t|T)(x|X)(t|T)"){
+
+/*报纸版*/
+html > body:not([bgcolor]){
+background-color:#f3f2ee !important;
+}
+
+html > body:not([bgcolor]) > pre{
+width:55% !important;
+margin:40px auto !important;
+padding:25px !important;
+white-space:pre-wrap !important;
+word-wrap:break-word !important;
+font-size:14px !important;
+color:#1f0909 !important;
+line-height:25px !important;
+}
+}
+
+
+/*黑夜版*/
+/*html > body:not([bgcolor]){
+background-color:#2d2d2d !important;
+}
+
+html > body:not([bgcolor]) > pre{
+width:65% !important;
+margin:40px auto !important;
+padding:25px !important;
+white-space:pre-wrap !important;
+word-wrap:break-word !important;
+font-size:14px !important;
+color:#e3e3e3 !important;
+line-height:25px !important;
+}*/
+
+/*查看源代碼字體美化*/
+@charset "utf-8";
+@-moz-document url-prefix(view-source:){
+
+*|*:root {
+	background: #272822 !important;
+}
+*::-moz-selection {
+	background-color:#49483E;
+}
+body {
+	font: 12px Monaco, -moz-fixed !important;
+	margin: 0;
+	padding: 0.6em 1em;
+	color: #FCFFE0 !important;
+}
+.doctype, .start-tag, .end-tag {
+color: #06cfcf !important;
+}
+.attribute-name {
+color: #a0a0f0 !important;
+font-weight: normal !important;
+}
+.attribute-value {
+color: white !important;
+}
+.comment, .cdata, .pi {
+color: green !important;
+}
+.error, .error > .start-tag, .error > .end-tag,
+.error > .comment, .error > .cdata, .error > .doctype,
+.error > .pi, .error > .entity, .error > .attribute-name,
+.error > .attribute-value {
+color: red !important;
+background: #fff !important;
+font-weight: bold !important;
+}
+a:link {
+color: #8fa3ff !important;
+}
+}

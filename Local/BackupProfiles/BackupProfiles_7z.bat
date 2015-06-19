@@ -1,12 +1,10 @@
 
+::2015.06.19 16:00  添加重啟
 ::2015.06.12 20:00  先複製後刪除，不影响原文件
 ::2015.06.08 14:00  添加開始備份前的提示
 ::2015.06.01 20:00  更名爲Profiles，刪除一些不必要的項目
 ::2015.05.27 18:00  換用Autoproxy，不再備份Foxy數據
-::2015.05.25 17:00  加入foxyproxy訂閱列表設置
-::2015.04.21 09:00  更新說明
 ::2015.04.16 08:00  更新備份項，添加說明
-::2015.04.06 07:00  更新備份項
 ::2015.01.26 12:00  搞定了時間问题
 
 echo off
@@ -20,6 +18,8 @@ cd /d %~dp0
 ::从批处理所在位置到配置文件夹（Profiles），共跨了3层
 set BackDir=..\..\..
 set TempFolder=..\..\..\Temp\Profiles
+
+taskkill /im firefox.exe
 
 rem 复制目标文件到臨時文件夾
 
@@ -41,6 +41,7 @@ xcopy "%BackDir%\Plugins" %TempFolder%\Plugins\ /s /y /i
  
 ::需要刪除的项
 del %TempFolder%\chrome\UserScriptLoader\require\  /s /q
+del %TempFolder%\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q
 
 ::以下是文件
 ::bookmarks.html：自動导出的书签備份。
@@ -103,4 +104,9 @@ rem 開始備份
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%" /s/q
 
-ECHO.&ECHO.Firefox配置已打包完成，請按任意鍵退出！&PAUSE >NUL 2>NUL
+ECHO.&ECHO.Firefox配置已打包完成，請按任意鍵 重啟Firefox 並退出！&PAUSE >NUL 2>NUL
+
+@ping 127.0.0.1>nul
+@start ..\..\..\..\Firefox\firefox.exe
+
+@exit

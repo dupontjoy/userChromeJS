@@ -8,7 +8,7 @@ Chrome文件夾
 
  一些腳本的配置文件，[設置Notepad2爲默認編輯器][1]和[備份批處理][8]
 
-*_addmenu.js：*[Addmenuplus][2]配置，圖標外置，統一整合在[CSS][3]文件中
+*_addmenu.js：*[Addmenuplus][2]配置，圖標外置，統一整合在CSS文件中
 
 *_keychanger.js：*鍵盘快捷操作
 
@@ -44,7 +44,6 @@ UC管理器文件
 
   [1]: https://github.com/dupontjoy/userChromeJS/blob/master/userContent/setRelativeEditPath.uc.js
   [2]: https://github.com/ywzhaiqi/userChromeJS/tree/master/addmenuPlus
-  [3]: https://github.com/dupontjoy/userChromeJS/blob/master/UserCSSLoader/%E5%BE%AE%E8%AA%BF%E2%80%94%E2%80%94%E5%9C%96%E6%A8%99%20%E7%BE%8E%E5%8C%96.css
   [4]: https://github.com/Drager-oos/userChrome/blob/master/MainScript/Redirector.uc.js
   [5]: https://github.com/dupontjoy/userChromeJS/blob/master/UCJSFiles/UserCSSLoader_ModOos.uc.js
   [6]: https://github.com/dupontjoy/userChromeJS/blob/master/xul/localMark_0.6.1.uc.xul

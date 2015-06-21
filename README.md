@@ -2,6 +2,8 @@ Chrome文件夾
 ----------------
 目前配置中，正在使用的腳本
 
+![Chrome-Folder][10]
+
 ***1. Local：***
 
  一些腳本的配置文件，[設置Notepad2爲默認編輯器][1]和[備份批處理][8]
@@ -49,3 +51,5 @@ UC管理器文件
   [7]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/ucjsPermission2.uc.xul
   [8]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/BackupProfiles_7z
   [9]: https://github.com/dupontjoy/customization/blob/master/Rules/ucjsPermission-Whitelist.txt
+  [10]: [1]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/MemoryMonitor/img/Chrome-Folder.jpg
+  

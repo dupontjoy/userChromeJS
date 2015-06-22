@@ -1,5 +1,5 @@
 
-//2015.06.19 18:00 快捷回覆加入顏文字，換黑白圖標
+//2015.06.21 10:00 快捷回覆加入顏文字，換黑白圖標
 //2015.06.10 16:00 調整選中文字搜索，加入OCR文字識別
 //2015.06.01 17:00 精簡搜索
 //2015.05.05 17:00 調整一些菜單順序和添加圖標
@@ -190,67 +190,13 @@ new function() {
 var items = [{
 command: 'context-saveimage'
 },
-//保存所有圖片到zip
 {
-label: "保存所有圖片到zip",
-accesskey: "Z",
-insertAfter: "context-saveimage",
-condition: 'image',
+label: "檢查所有圖片",
+accesskey: "C",
 oncommand: function() {
-// 保存ディレクトリのパスがない場合は毎回ダイアログで決める
-//var path = "C:\\Users\\azu\\Downloads"; // エスケープしたディレクトリのパス
-var path = "";
-if (!path) {
-// ファイル保存ダイアログ
-var nsIFilePicker = Ci.nsIFilePicker;
-var FP = Cc['@mozilla.org/filepicker;1'].createInstance(nsIFilePicker);
-FP.init(window, 'Choose save folder.', nsIFilePicker.modeGetFolder);
-// ダイアログ表示
-if (FP.show() == nsIFilePicker.returnOK) {
-path = FP.file.path;
-} else {
-return false;
-}
-}
-// ダウンロードしたページを表示するために URI オブジェクト生成
-var hostURL = Components.classes['@mozilla.org/network/io-service;1'].getService(Components.interfaces.nsIIOService).newURI(location.href, null, null);
-// ページに貼り付けられた画像を保存する
-var links = content.document.images;
-var pack = [];
-for (var i = 0, length = links.length; i < length; i++) {
-// JPEG と PNG を保存する
-if (links[i].src.match(/\.jpe?g|\.png|img\.blogs\.yahoo(.*)folder[^thumb]/i)) {
-pack.push([links[i].src.split("/").pop(), links[i].src]);
-}
-}
-zipDeKure(pack, path);
-
-function zipDeKure(urls, savePath) {
-const ioService = Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService);
-const zipWriter = Components.Constructor("@mozilla.org/zipwriter;1", "nsIZipWriter");
-var uri = content.window.location.href;
-var fileName = uri.substring(uri.lastIndexOf('://') + 3, uri.length);
-fileName = fileName.split(".").join("_");
-fileName = fileName.split("/").join("_");
-fileName = fileName.split("?").join("_");
-var path = savePath + "\\" + fileName + ".zip";
-var file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
-file.initWithPath(path);
-var zipW = new zipWriter();
-var ioFlag = 0x04 | 0x08 | 0x20;
-zipW.open(file, ioFlag);
-for (var i = 0, len = urls.length; i < len; i++) {
-var [name, url] = urls[i];
-var ch = ioService.newChannel(url, "UTF-8", null);
-var stream = ch.open();
-zipW.addEntryStream(name, Date.now() * 1000, Ci.nsIZipWriter.COMPRESS_DEFAULT, stream, false);
-}
-zipW.close();
-}
+gBrowser.loadURI("javascript:outText='';for(i=0;i<document.images.length;i++){if(outText.indexOf(document.images%5Bi%5D.src)==-1){outText+='<tr><td><img%20src='+document.images%5Bi%5D.src+'></td><td>'+document.images%5Bi%5D.height+'</td><td>'+document.images%5Bi%5D.width+'</td><td>'+document.images%5Bi%5D.src+'</td></tr>'}};if(outText!=''){imgWindow=window.open('','imgWin','width=800,height=600');imgWindow.document.write%20('<table%20border=1%20cellpadding=10><tr><th>Image</th><th>Height</th><th>Width</th><th>URL</th></tr>'+outText+'</table>');imgWindow.document.close()}else{alert('No%20images!')}");
 },
-}, 
-{
-command: 'context-sendimagetogmail'
+image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAv0lEQVR42mNkoBAwUssAByAOB2IOIvX9AeKNQLwFZsBzIJYk0fLXQCwKM+A/1DURQOwMxJ1AfIeAAfeBWBHdgN9AzALEa4A4FEkxDxBrAPEZQgYcB2ILIM4F4ilImrcDsQEQewLxEXwGgIAIEL9B02wD5X9BMgSnASDFyUBcCMSbkTQzIBmiCMSnsRlgA7URZPMHIBbAE/1YXfAZqpmY9IPVgP1EpgFHdAPeA7EgJQkJlIDcSTTgJBDPYBzw3AgApMktEXd8LEwAAAAASUVORK5CYII="
 },
 // 替換 openImgRar.uc.js
 {
@@ -750,6 +696,7 @@ new function () {
 var items = [
 {
 label:"複製此頁標題+地址",
+accesskey: "C",
 text:"%TITLES%\n%URL%",
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVQ4jWNgoCL4TyQWwGcAIQtgNFZDiDUAp1piDEDGBA3A6VdCBhAKRIIGEAOGqAuINoBiFwysAaRg6gAAE7tI6EZZDKkAAAAASUVORK5CYII="
 },

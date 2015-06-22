@@ -1,5 +1,5 @@
 
-//2015.06.10 16:00
+//2015.06.22 15:00
 
 //F功能鍵
 
@@ -40,6 +40,7 @@ keys['P'] = "openPreferences();";//选项
 
 keys['R'] = function() {
 KeyChanger.makeKeyset(true);//KeyChanger
+Redirector.reload();//Redirector
 UCL.rebuild();//UserCSSLoader
 anobtn.reload(true);//anobtn
 addMenu.rebuild(true);//AddmenuPlus

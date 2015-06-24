@@ -1,14 +1,12 @@
 
-//2015.06.21 10:00 快捷回覆加入顏文字，換黑白圖標
+//2015.06.24 18:00 快捷回覆加入顏文字，換黑白圖標
 //2015.06.10 16:00 調整選中文字搜索，加入OCR文字識別
-//2015.06.01 17:00 精簡搜索
 //2015.05.05 17:00 調整一些菜單順序和添加圖標
 //2015.04.29 21:00 貼上 二级菜單
 //2015.03.31 21:00 升級FX36，調整加圖標方式
 //2015.01.21 22:00 修正特殊符號，添加小書籤菜單
 //2015.01.08 20:40 一些搜索項只在特定網站顯示
 //2015.01.04 09:35 複製 二级菜單
-//2014.12.22 18:50 選中文字搜索換回
 //2014.12.20 19:40 圖片另存放到二級菜單
 //2014.12.11 17:50 常用文字搜索橫排菜單
 //2014.12.09 22:45 將菜單換成正體中文
@@ -259,7 +257,7 @@ insertBefore: "context-copy",
 onpopupshowing: function (event){
 Array.slice(event.target.children).forEach(function(elem){
 if(elem.id == "TVC-1"){
-elem.hidden = !/tvc-mall.com|ic.sjlpj.cn/.test(content.location.host)//可排除多個網站
+elem.hidden = !/ic.sjlpj.cn|tvc-mall.com|secu-star.com/.test(content.location.host)//可排除多個網站
 }
 else if(elem.id == "TVC-2"){
 elem.hidden = !/ic.sjlpj.cn/.test(content.location.host)//可排除多個網站
@@ -296,8 +294,15 @@ image: "http://www.amazon.com/favicon.ico",
 where: 'tab'
 },
 {
+label: "Pandawill",
+id: "TVC-2",
+url: "http://www.pandawill.com/search/result/?c=&q=%s",
+image: "http://pic.pandawill.com/skin/frontend/default/pandawill/favicon.ico",
+where: 'tab'
+},
+{
 label: "TVC-Mall",
-id: "TVC",
+id: "TVC-2",
 url: "http://www.tvc-mall.com/search?q=%s",
 image: "http://www.tvc-mall.com/images/favicon.ico",
 where: 'tab'
@@ -408,6 +413,13 @@ label: "運營—外網批量管理-SKU",
 id: "TVC-1",
 accesskey: "7",
 url: "http://ic.sjlpj.cn/#/Product/BatchManagementProductList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "運營—外網批量管理-品名",
+id: "TVC-2",
+url: "http://ic.sjlpj.cn/#/Product/BatchManagementProductList?Sku=&KeyWord=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
@@ -695,18 +707,18 @@ javascript:document.body.contentEditable='true'; document.designMode='on'; void 
 new function () {
 var items = [
 {
-label:"複製此頁標題+地址",
+label:"複製標題+地址",
 accesskey: "C",
 text:"%TITLES%\n%URL%",
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVQ4jWNgoCL4TyQWwGcAIQtgNFZDiDUAp1piDEDGBA3A6VdCBhAKRIIGEAOGqAuINoBiFwysAaRg6gAAE7tI6EZZDKkAAAAASUVORK5CYII="
 },
 {
-label:"複製此頁Favicon地址",
+label:"複製Favicon地址",
 text:"%FAVICON%",
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4jbWTLw6DMBjFfwaDmauq5QhY9C4wyQWQOA6whAtwBS6wO0xOzeKQO8REH6EUwsqWvaRpk37vT7+28AfYX8gZ8NIcIgf6GJESGAATpBqAc2ySFrgDCZACD6CKJU/oNW5Ad5SMnEdc9OQbgQp4SqA8QsyAWu6W+WZaoPhEblQ8sGxah+vFKKHdyFbFl0C4A064G6lDsmV+QIWc0o19G6xXDkbxffcJtdyNaht/0z/jKp6Hq2pWbyPDNSffIU8oJLT1X47jDR7gLDGf5CLwAAAAAElFTkSuQmCC"
 },
 {
-label:"複製此頁Favicon Base64碼",
+label:"複製Favicon Base64碼",
 text:"%FAVICON_BASE64%",
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbElEQVQ4jWNgGAzgPwUYbgC5FmMYcBTJdA8smo4yMDAo4zIgD4oZoIrQXZYHFcNpALLp6EAZKo/XBf+RbEH3AkwjUQbg8xpBA5ABsq3o0aeMzYCZaM7GFr14XQBTgGwLyQaQAlAMoCgpDywAAF13Uxwj2+klAAAAAElFTkSuQmCC"
 },

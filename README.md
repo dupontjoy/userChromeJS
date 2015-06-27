@@ -6,12 +6,10 @@
 
 | | |
 | :--- | :--- |
-[[[
-||;hcr4; **Local** | 一些腳本的配置文件，[設置Notepad2爲默認編輯器][1]和[備份批處理][8] |
+| **Local** | 一些腳本的配置文件，[設置Notepad2爲默認編輯器][1]和[備份批處理][8] |
 | | _addmenu.js：[Addmenuplus][2]配置，圖標外置，統一整合在CSS文件中 |
 | | _keychanger.js：鍵盘快捷操作 |
 | | _redirector.js：[Redirector.uc.js][4]規則 |
-]]]
 | **SubScript** | 一般功能性腳本 |
 | **TabMixPlus** | 與Firefox界面相關腳本 |
 | **UCJSFiles** | 配置外置的腳本+庫 |

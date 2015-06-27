@@ -17,8 +17,7 @@
 | **UserCSSLoader** | CSS文件集，使用[userCSSLoader.uc.js][5]引導 |
 | **xul** | UC管理器文件 |
 | | 神級腳本[LockMark][6]：記住浏览位置，以坐标方式保存在prefs.js中 |
-| | 神級腳本[ucjsPermission2][7]：利用自带permissions.sqlite管理第三方腳本等。
-個人[第三方腳本白名單][9] |
+| | 神級腳本[ucjsPermission2][7]：利用自带permissions.sqlite管理第三方腳本等。<br>個人[第三方腳本白名單][9] |
 | **userChrome.css** | 優先級較高的CSS文件，作用於于Firefox界面框，優先啓動防界面抖動 |
 
   [1]: https://github.com/dupontjoy/userChromeJS/blob/master/userContent/setRelativeEditPath.uc.js

@@ -1,15 +1,16 @@
-/*+++2015.06.17 16:00+++*/
+/*+++2015.06.28 18:00+++*/
 
 /*地址栏图标排序*/
-[label="书签"],[label="書籤"] {-moz-box-ordinal-group: 1 !important;}
+#bookmarks-menu-button {-moz-box-ordinal-group: 1 !important;}
 #flashgot-media-tbb {-moz-box-ordinal-group: 2 !important;}
 #lpt_lastpass-compact-btn {-moz-box-ordinal-group: 3 !important;}
 #foxyproxy-toolbar-icon {-moz-box-ordinal-group: 4 !important;}
 #ucjsPermission_Toolmenu {-moz-box-ordinal-group: 5 !important;}
 #RPBT-icon {-moz-box-ordinal-group: 6 !important;}
 #abp-toolbarbutton {-moz-box-ordinal-group: 7 !important;}
-#greasemonkey-tbb {-moz-box-ordinal-group: 8 !important;}
-#userChromebtnMenu {-moz-box-ordinal-group: 9 !important;}
+#pocket-button {-moz-box-ordinal-group: 8 !important;}
+#greasemonkey-tbb {-moz-box-ordinal-group: 9 !important;}
+#userChromebtnMenu {-moz-box-ordinal-group: 10 !important;}
 
 /*图标对齐*/
 #gm_general_menu {

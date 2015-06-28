@@ -1,4 +1,4 @@
-/*+++2015.06.19 18:00+++*/
+/*+++2015.06.28 19:00+++*/
 
 /*==扩展/脚本图标补充==*/
 
@@ -89,13 +89,8 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 
-[label="圖片另存新檔…"] {
+[label="圖片另存新檔…"],[command="context-saveimage"] {
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAv0lEQVR42mNkoBAwUssAByAOB2IOIvX9AeKNQLwFZsBzIJYk0fLXQCwKM+A/1DURQOwMxJ1AfIeAAfeBWBHdgN9AzALEa4A4FEkxDxBrAPEZQgYcB2ILIM4F4ilImrcDsQEQewLxEXwGgIAIEL9B02wD5X9BMgSnASDFyUBcCMSbkTQzIBmiCMSnsRlgA7URZPMHIBbAE/1YXfAZqpmY9IPVgP1EpgFHdAPeA7EgJQkJlIDcSTTgJBDPYBzw3AgApMktEXd8LEwAAAAASUVORK5CYII=") !important;
--moz-image-region: rect(0px, 0px, 0px, 0px) !important;
-}
-
-[label="保存所有圖片到zip"] {
-list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABcklEQVQ4ja3TsUvDQBTH8SMlEAhkCCGYIZASml5yhUeGdmmnZOrWKV1aaxTEv0XQUVcX3TtkdJOmf0cWFxeH0lKHn4vmFKSk4MGHt7z33Y6x/3hhGN5FUYQ4jhsJw/D6V4BzjsfHJxAR8vwcRISqqmppmiJNU1RVBSJClmXodrv3dSAIAlxeXkEIgcXiDEIIlGVZIyIQEcqyhBACNze3CIIAdcD3feT5BTjnmM9PwTlHURQ1y7JgWRaKogDnHHl+Ad/3ZcDzPMxmc3Q6nXoul8s/fe94nicDrusiy6Zot9uNZNkUruvKgOM4mEwmR3EcRwZs28Z4PD6KbdsyYJomkiTB7uOjkSRJYJqmDBiGgdFoiM1+j5f1+qDNfo/RaAjDMGRA13UMBn2873aNDAZ96LouA5qmIY4Jb9stnlerg962W8QxQdM0GVBVFb1ehNfNppFeL4KqqjKgKMpDq9XCMRRFefj5nzTG2AljzGvo5OuGfQL41bjseiPunQAAAABJRU5ErkJggg==") !important;
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 
@@ -106,17 +101,17 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 
 /*===页面右键图标补充===*/
 
-#context-copyimage-contents/*复制图片*/,[label="複製圖片"] {
+#context-copyimage-contents/*复制图片*/,[label="複製圖片"],[label="Copy Image"] {
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAhUlEQVQ4jbWQyw2DMBBEHxFNTA10kR6oB9JjelilCrjwsS17DbGYiw8jP80+aEwHIGnJdLOZfS5RUoCkRdJX0lT7+3K6NzDWIL3T/bZ3AIqnHA7MrEvLK268BQCE4A04SmKHeA5KidxUF2QSubkFyJxzLigIa4sH3bt/JEZpBlQlPuImzAon1SmKukhOFgAAAABJRU5ErkJggg==") !important;
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 
-#context-copyimage/*复制图片地址*/,[label="複製圖片網址"],[label="复制站点图标地址"] {
+#context-copyimage/*复制图片地址*/,[label="複製圖片網址"],[label="复制站点图标地址"],[command="context-copyimage"] {
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4jbWTLw6DMBjFfwaDmauq5QhY9C4wyQWQOA6whAtwBS6wO0xOzeKQO8REH6EUwsqWvaRpk37vT7+28AfYX8gZ8NIcIgf6GJESGAATpBqAc2ySFrgDCZACD6CKJU/oNW5Ad5SMnEdc9OQbgQp4SqA8QsyAWu6W+WZaoPhEblQ8sGxah+vFKKHdyFbFl0C4A064G6lDsmV+QIWc0o19G6xXDkbxffcJtdyNaht/0z/jKp6Hq2pWbyPDNSffIU8oJLT1X47jDR7gLDGf5CLwAAAAAElFTkSuQmCC") !important;
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 
-[label="粘贴"],#urlbar menuitem[label="Paste"],#urlbar menuitem[label="粘贴"],#urlbar menuitem[label="貼上"],#searchbar menuitem[label="貼上"],#context-paste,[label="粘贴并确定"],#editBookmarkPanelContent menuitem[label="貼上"],#editBookmarkPanelContent menuitem[label="粘贴"],[label="貼上"],#mnEditPaste,#menu_paste,#header-search [label="貼上"], #urlbar menuitem[label="貼上並瀏覽"] {
+[label="Paste"],[label="粘贴"],#urlbar menuitem[label="Paste"],#urlbar menuitem[label="粘贴"],#urlbar menuitem[label="貼上"],#searchbar menuitem[label="貼上"],#context-paste,[label="粘贴并确定"],#editBookmarkPanelContent menuitem[label="貼上"],#editBookmarkPanelContent menuitem[label="粘贴"],[label="貼上"],#mnEditPaste,#menu_paste,#header-search [label="貼上"], #urlbar menuitem[label="貼上並瀏覽"] {
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVQ4jWNgoCL4TyQWwGcAIQtgNFZDiDUAp1piDEDGBA3A6VdCBhAKRIIGEAOGqAuINoBiFwysAaRg6gAAE7tI6EZZDKkAAAAASUVORK5CYII=") !important;
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }

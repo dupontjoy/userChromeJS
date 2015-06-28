@@ -88,8 +88,9 @@ location == "chrome://browser/content/browser.xul" && (function(){
 { id: "ucjsPermission_Toolmenu", bar: "TabsToolbar_aidBar", pos: 4 },//ucjsPermission腳本
 { id: "RPBT-icon", bar: "TabsToolbar_aidBar", pos: 5 },//RequestpolicyRuleForABP腳本
 { id: "abp-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 6 },//AdBlockPlus扩展
-{ id: "greasemonkey-tbb", bar: "TabsToolbar_aidBar", pos: 7 },//Greasemonkey扩展
-{ id: "userChromebtnMenu", bar: "TabsToolbar_aidBar", pos: 8 },//UC管理器
+{ id: "pocket-button", bar: "TabsToolbar_aidBar", pos: 7 },//Pocket
+{ id: "greasemonkey-tbb", bar: "TabsToolbar_aidBar", pos: 8 },//Greasemonkey扩展
+{ id: "userChromebtnMenu", bar: "TabsToolbar_aidBar", pos: 9 },//UC管理器
 
 //更多工具的菜單移動到UC管理器中
 { id: "addMenu-rebuild", insertBefore: "anobtn_set" },

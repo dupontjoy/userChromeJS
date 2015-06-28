@@ -1,5 +1,5 @@
 
-//2015.06.27 07:00 調整文件夾結構
+//2015.06.28 12:00 調整文件夾結構
 //2015.06.06 12:00 精簡並換一些圖標
 //2015.05.31 18:00 加入更新IP批處理
 //2015.05.08 09:00 加入SumatraPDF
@@ -155,8 +155,8 @@ exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Plugins\\Sum
 label: "PicPick",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\Other\\PicPick\\PicPick.exe",
 },{},{
-label: "GifCam",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\Other\\GifCam.exe",
+label: "ScreenToGif",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\Other\\ScreenToGif.exe",
 },]
 },]
 }, {},{

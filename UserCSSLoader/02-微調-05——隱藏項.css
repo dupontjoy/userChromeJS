@@ -1,4 +1,4 @@
-/*+++2015.05.27 16:00+++*/
+/*+++2015.05.28 12:00+++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄&工具欄===*/
@@ -43,6 +43,7 @@ display: none !important;
 #context-sep-copyimage, /*复制图片下面的分割线*/
 #context-sendimage, /*发送图片到*/
 #context-setDesktopBackground, /*设置为桌面背景*/
+#context-reloadimage, /*重新载入图片*/
 #context-blockimage, /*阻止图片*/
 #context-viewbgimage, /*查看背景图片*/
 #context-savelink, /*链接另存为*/

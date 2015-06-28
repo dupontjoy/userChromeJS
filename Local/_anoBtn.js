@@ -1,5 +1,5 @@
 
-//2015.06.23 18:00 調整文件夾結構
+//2015.06.27 07:00 調整文件夾結構
 //2015.06.06 12:00 精簡並換一些圖標
 //2015.05.31 18:00 加入更新IP批處理
 //2015.05.08 09:00 加入SumatraPDF
@@ -80,6 +80,10 @@ label: "備份QingFox完整包",
 tooltiptext: "一鍵打包QingFox完整包。注意备份将關闭Firefox！",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\chrome\\local\\BackupProfiles\\BackupFullProfiles_7z.bat",
 } , {},{
+label: "備份插件和軟件包",
+tooltiptext: "一鍵打包插件和軟件包。",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\chrome\\local\\BackupProfiles\\BackupPlugins-n-Software_7z.bat",
+} , {},{
 label: "提取Flash32位插件",
 tooltiptext: "一鍵提取Flash32位插件。注意需要先安装Flash軟件！",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\chrome\\local\\BackupProfiles\\提取Flash32位插件.bat",
@@ -134,40 +138,27 @@ label: "Psiphon",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GFW\\psiphon\\psiphon3.exe",
 },
 ]
-},{
-label: '辦公軟件',
+},
+/*{
+label: '系統優化',
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACDklEQVQ4jZXOsUsyARzG8ecveDcH/whvuJcGQTgEoeWGaO6oSYcoKgxsuJCGKKGzDsqxhpaO1rCWDgfhEAcX4UJBEtySOGr/vos3Bb01fPlNz4efJGUlrUgq/6KVxU6StN7r9eK3tzd+Wq/XiyWtp8DmbDajUCiwvLz83wqFArPZDEmbKbA9nU4plUocHh6ytbX17S2VSkynUyRtp8DuZDLBsizK5TK1Wu3ba1kWk8kESbspsD8ej8nn8ziOw+XlJY7j0Gq1+Pz8pNFo4DgOV1dXOI5DPp9nPB4jaT8FDuI4xjRNfN8nSRKenp64v7/n4+OD29tbnp+feX9/5/z8HNM0ieMYSQcp4A6HQ3K5HLZt8/j4SJIkjEYjXl5eGI1GJEnCw8MDtm2Ty+UYDodIclPgaDAYYBgG1WoVz/OIooiTkxMsy+Ls7IwoivA8j2q1imEYDAYDJB2lwHG/3yeOY9rtNkEQcHd3h2EYGIaBaZoEQUAQBLTbbeI4pt/vI+k4BRpRFOG6LvP5nL29Per1OmtraywtLbGxsUG9XmdnZ4f5fI7rukRRhKRGCnjdbpdisUgYhtzc3LC6uvql6+trwjCkWCzS7XaR5KXARafTIZPJUKlU8H2fbDb7Jd/3qVQqZDIZOp0Oki5S4LTZbL6GYchPazabr5JOU8BevNP6Rd5iJ0n6I8mQ9PcXGYud/gF//OGff/Oi9wAAAABJRU5ErkJggg==",
+child: []
+},*/
+ {
+label: '其它軟件',
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABwUlEQVQ4jZ3Tv08aYRwG8PdPabqbhmiiqO8dhNkF4sIRcMFBatJGFnFWF4emRq+hQ5uIwOCJcWEyOkBPoyWpkzFKXNSXE1G50+SbA58OtPaHR9Lrk3yG9/s868uYQyT13COpYt6nXi741MsFSRXzknrucdo6JpA2pgPLYo4viThfEvHAspgLpI1px3Fo+6Iv/KWWVHQxE9FFKlo2ZsPFq7PojqFFdmvJyG4tGd0xtHDx6ixaNmYjukgpuphRyrWp0PZFH4t9vdmfOLEfX5+28FOi2vrj7XSbOLEfYwc3FRarmJSoAolTl6pArGISU/ZMGj8C4i6NHwHKnklstGTR2CEw9s2lQ2C0ZBELblkU3gf+R3DLIjZStChYApyEyh3d+pGiRcy/2iB/zoTvBzlrQso0MfzpFv0frtGvXoN/voWUaULO/tr5cib8qw1icr5J/g0bTwodPPeAl2+P8eLNMYazD0/337dyvkmM5y2SN4G/SetteN438OpdA1xrP+vlTYDnLWLezD0NaoB37blBraNb583cExtaudN5wW5LGy24wQt2e2jlTme9i6JnIF2fHPhYT7mSrk/2Loqef/6h3fIdt9x6jwguSQ8AAAAASUVORK5CYII=",
-child: [{
-label: "ReRe定時",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\ReRe\\ReRe.exe",
-},{},{
+child: [
+{
 label: "SumatraPDF",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Plugins\\SumatraPDF.exe",
 },{},{
 label: "PicPick",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\PicPick\\PicPick.exe",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\Other\\PicPick\\PicPick.exe",
+},{},{
+label: "GifCam",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\Other\\GifCam.exe",
 },]
-},{
-label: '系統優化',
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACDklEQVQ4jZXOsUsyARzG8ecveDcH/whvuJcGQTgEoeWGaO6oSYcoKgxsuJCGKKGzDsqxhpaO1rCWDgfhEAcX4UJBEtySOGr/vos3Bb01fPlNz4efJGUlrUgq/6KVxU6StN7r9eK3tzd+Wq/XiyWtp8DmbDajUCiwvLz83wqFArPZDEmbKbA9nU4plUocHh6ytbX17S2VSkynUyRtp8DuZDLBsizK5TK1Wu3ba1kWk8kESbspsD8ej8nn8ziOw+XlJY7j0Gq1+Pz8pNFo4DgOV1dXOI5DPp9nPB4jaT8FDuI4xjRNfN8nSRKenp64v7/n4+OD29tbnp+feX9/5/z8HNM0ieMYSQcp4A6HQ3K5HLZt8/j4SJIkjEYjXl5eGI1GJEnCw8MDtm2Ty+UYDodIclPgaDAYYBgG1WoVz/OIooiTkxMsy+Ls7IwoivA8j2q1imEYDAYDJB2lwHG/3yeOY9rtNkEQcHd3h2EYGIaBaZoEQUAQBLTbbeI4pt/vI+k4BRpRFOG6LvP5nL29Per1OmtraywtLbGxsUG9XmdnZ4f5fI7rukRRhKRGCnjdbpdisUgYhtzc3LC6uvql6+trwjCkWCzS7XaR5KXARafTIZPJUKlU8H2fbDb7Jd/3qVQqZDIZOp0Oki5S4LTZbL6GYchPazabr5JOU8BevNP6Rd5iJ0n6I8mQ9PcXGYud/gF//OGff/Oi9wAAAABJRU5ErkJggg==",
-child: [{
-label: "打開System Tools文件夾",
-tooltiptext: "打開System Tools文件夾。",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\System Tools",
-}, {},
-{
-label: "WinASO Registry Optimizer",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\System Tools\\WinASO Registry Optimizer\\RegOpt.exe",
-},{},
-{
-label: "ProcessLasso",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\System Tools\\ProcessLassoPortable\\ProcessLassoLauncher.exe",
-},{},
-{
-label: "DnsJumper",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\System Tools\\DnsJumper\\DnsJumper.exe",
 },]
-}, ]
 }, {},{
 label: "書簽管理",
 oncommand: "PlacesCommandHook.showPlacesOrganizer('AllBookmarks');",

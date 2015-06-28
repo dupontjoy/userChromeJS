@@ -1,4 +1,5 @@
 
+::2015.06.27 11:00  添加提取時間
 ::2015.06.25 13:00  實現獲取Flash版本號
 ::2015.06.23 18:00  Create
 
@@ -19,8 +20,20 @@ xcopy "%BackDir%\plugin.vch" %TempFolder%\  /s /y /i
 for /f "delims=" %%i in ('dir /a-d /b "%BackDir%\NPSWF32*.dll"') do (set ver=%%i)
 echo %ver%
 
-::壓縮包名稱
-set ArchiveName=D:\%ver%.7z
+::完整日期和時間
+set tm1=%time:~0,2%
+set tm2=%time:~3,2%
+set tm3=%time:~6,2%
+set tm4=%time:~0,8%
+set da1=%date:~0,4%
+set da2=%date:~5,2%
+set da3=%date:~8,2%
+set ArchiveName=D:\%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
+
+::小時數小于10点時的修正
+set /a tm1=%time:~0,2%*1
+if %tm1% LSS 10 set tm1=0%tm1%
+set ArchiveName=D:\%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 
 rem 開始備份
 7z.exe u -up1q3r2x2y2z2w2 %ArchiveName% "%TempFolder%"

@@ -302,7 +302,7 @@ where: 'tab'
 },
 {
 label: "TVC-Mall",
-id: "TVC-2",
+id: "TVC-1",
 url: "http://www.tvc-mall.com/search?q=%s",
 image: "http://www.tvc-mall.com/images/favicon.ico",
 where: 'tab'

@@ -1,4 +1,5 @@
 
+::2015.06.27 11:00  添加刪除項
 ::2015.06.12 21:00  統一放到Local文件夾中
 ::2015.06.11 11:00  Create
 
@@ -22,7 +23,9 @@ xcopy "%BackDir%\Software" %TempFolder%\Software\  /s /y /i
 
 ::需要刪除的项
 del %TempFolder%\Plugins\sumatrapdfcache\  /s /q 
- 
+del %TempFolder%\Software\GFW\psiphon\psiphon3.exe.orig  /s /q 
+del %TempFolder%\Software\GFW\GoGoTester\gogo_cache  /s /q 
+
 ::以下是文件
 ::patternSubscriptions.json：FoxyProxy的訂閱列表設置。
 ::xcopy "%BackDir%\patternSubscriptions.json" %TempFolder%\ /y

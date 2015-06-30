@@ -1,5 +1,5 @@
 
-//2015.06.22 15:00
+//2015.06.29 15:00
 
 //F功能鍵
 
@@ -55,10 +55,6 @@ keys['T'] = "BrowserOpenTab()";//打开新标签
 keys['U'] = function() {
 Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile).reveal();
 };//Chrome文件夹
-
-keys['X'] = function() {
-ucjsDownloadsStatusModoki.toggleDownloadsStatusModokiBar();//ucjsDownloadsStatusModoki底部狀態欄
-};
 
 //組合鍵
 keys['Alt+A'] = "XULBrowserWindow.statusTextField.label = 'Adblock Plus 條件偏好設定'; gBrowser.selectedTab = gBrowser.addTab('chrome://adblockplus/content/ui/filters.xul');";

@@ -1,4 +1,5 @@
 
+::2015.06.30 13:00  加入prefs.js
 ::2015.06.19 16:00  添加重啟
 ::2015.06.12 20:00  先複製後刪除，不影响原文件
 ::2015.06.08 14:00  添加開始備份前的提示
@@ -70,6 +71,8 @@ xcopy "%BackDir%\persdict.dat" %TempFolder%\ /y
 xcopy "%BackDir%\pluginreg.dat" %TempFolder%\ /y
 ::Portable.7z：PCXFirefox的便携設置。
 xcopy "%BackDir%\Portable.7z" %TempFolder%\ /y
+::prefs.js：About:config中儲存的設定。
+xcopy "%BackDir%\prefs.js" %TempFolder%\ /y
 ::readme.txt：个人配置修改说明。
 xcopy "%BackDir%\readme.txt" %TempFolder%\ /y
 ::stylish.sqlite：Stylish样式數据库。

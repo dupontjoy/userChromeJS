@@ -8,6 +8,8 @@
 // @author         Xiao Shan
 // @homepage       www.slimeden.com
 // @version        0.6 - 20110119
+
+// 2015.06.29  調出列表改成l單鍵
 // ==UserScript==
 -->
 <?xml-stylesheet href="data:text/css,@namespace%20url('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul');@namespace%20html%20url('http://www.w3.org/1999/xhtml');
@@ -81,7 +83,7 @@
         markPrefixKey: 77,//m
         goPrefixKey: 222,//'
         escapeKey: 27,//escape
-        marksListKey: 77,//m
+        marksListKey: 76,//l
 
         keySequence: [],
 
@@ -587,7 +589,7 @@
         },
 
         isListKey: function(e) {
-            return e.keyCode == this.marksListKey && e.ctrlKey && !e.shiftKey && e.altKey;
+            return e.keyCode == this.marksListKey;
         },
 
         isWritable: function(event) {

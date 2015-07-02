@@ -1,4 +1,5 @@
 
+::2015.07.02 11:00  添加刪除項，其它小調整
 ::2015.06.19 16:00  添加重啟
 ::2015.06.12 21:00  加入需要刪除的項目（先複製後刪除，不影响原文件）
 ::2015.06.12 18:00  Create
@@ -13,7 +14,7 @@ taskkill /im firefox.exe
 cd /d %~dp0
 ::从批处理所在位置到Mozilla Firefox大文件夾，共跨了4层
 set BackDir=..\..\..\..
-set TempFolder=..\..\..\..\QingFox
+set TempFolder=..\..\..\..\CingFox
 
 taskkill /im firefox.exe
 
@@ -35,6 +36,8 @@ xcopy "%BackDir%\Software" %TempFolder%\Software\  /s /y /i
 ::需要刪除的项
 del %TempFolder%\Software\GFW\goagent\local\proxy.user.ini  /s /q
 del %TempFolder%\Software\GFW\Shadowsocks\gui-config.json  /s /q
+del %TempFolder%\Software\GFW\psiphon\psiphon3.exe.orig  /s /q 
+del %TempFolder%\Software\GFW\GoGoTester\gogo_cache  /s /q 
 
 @echo 備份Profiles文件夾================================
 rem 复制目标文件到臨時文件夾
@@ -106,19 +109,19 @@ set tm4=%time:~0,8%
 set da1=%date:~0,4%
 set da2=%date:~5,2%
 set da3=%date:~8,2%
-set ArchiveName=D:\QingFox_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
+set ArchiveName=D:\CingFox_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
 
 ::小時數小于10点時的修正
 set /a tm1=%time:~0,2%*1
 if %tm1% LSS 10 set tm1=0%tm1%
-set ArchiveName=D:\QingFox_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
+set ArchiveName=D:\CingFox_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
 
 rem 開始備份
 7z.exe u -up1q3r2x2y2z2w2 %ArchiveName% "%TempFolder%"
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%" /s/q
 
-ECHO.&ECHO.Firefox完整包已打包完成，請按任意鍵退出！&PAUSE >NUL 2>NUL
+ECHO.&ECHO.Firefox完整包已打包完成，請按任意鍵 重啟Firefox 並退出！&PAUSE >NUL 2>NUL
 
 @ping 127.0.0.1>nul
 @start ..\..\..\..\Firefox\firefox.exe

@@ -444,3 +444,26 @@ textbox#header-search {
 	background:rgb(235,235,235) !important;
 }
 }
+
+@-moz-document url("about:addons") {
+/* 附加管理器 显示计数*/
+.addon {counter-increment: addoncount !important;content: counter(addoncount) !important;}
+.addon:first-child {counter-reset: addoncount !important;}
+.addon[active="false"] {counter-increment: disabled !important;}
+#addon-list:after {content: "[ "counter(addoncount)" 启用, "counter(disabled)" 禁用 ]" !important;position: fixed !important;top: 15px !important;left: 18px !important;color:rgba(0,0,0,0.8);cursor: default;white-space: nowrap !important;}
+/*修正附加组件左侧动画方框距离*/
+.category {
+	background:transparent !important;
+	height:55px !important;
+	padding-left:20px !important;
+	cursor: pointer;
+	margin-left: 0px !important;
+}
+  
+  #categories {
+	margin:0 !important;
+/*	padding-top:100px !important;*/
+  width:170px !important;
+/*	background:rgb(235,235,235) !important;*/
+}
+}

@@ -1,5 +1,5 @@
 
-::2015.07.02 11:00  添加刪除項，其它小調整
+::2015.07.02 19:00  添加刪除項，其它小調整
 ::2015.06.19 16:00  添加重啟
 ::2015.06.12 21:00  加入需要刪除的項目（先複製後刪除，不影响原文件）
 ::2015.06.12 18:00  Create
@@ -61,6 +61,10 @@ xcopy "%BackDir%\Profiles\Plugins" %TempFolder%\Profiles\Plugins\ /s /y /i
 ::需要刪除的项
 del %TempFolder%\Profiles\chrome\UserScriptLoader\require\  /s /q
 del %TempFolder%\Profiles\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q
+del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Darwin\  /s /q
+del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Darwin_x86_64-gcc3\  /s /q
+del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Linux_x86_64-gcc3\  /s /q
+del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Linux_x86-gcc3\  /s /q
  
 ::以下是文件
 ::cert_override.txt：储存使用者指定的例外证书(certification exceptions)。

@@ -1,4 +1,4 @@
-/*+++2015.05.25 21:00+++*/
+/*+++2015.07.02 20:00+++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -37,27 +37,12 @@ padding: 0px !important;
 /*調整圖標邊框——方法1*/
 #PanelUI-menu-button >image,/*三道杠圖標*/
 #back-button >image, 
-#forward-button >image, 
-#abp-toolbarbutton >image, 
-#ublock-button >image, 
-#flashgot-media-tbb >image, 
-#lpt_lastpass-compact-btn > image, 
-#greasemonkey-tbb > image, 
-#stylish-toolbar-button >image, 
-#userChromebtnMenu >image 
+#forward-button >image
 {padding: 0px !important;}
-
-/*調整圖標邊框——方法2*/
-#ublock-button .toolbarbutton-badge-container {padding: 0px !important;}
 
 /*調整圖標邊框——方法3*/
-#downloads-button .toolbarbutton-icon,
-#foxyproxy-toolbar-icon .toolbarbutton-icon 
+#downloads-button .toolbarbutton-icon
 {padding: 0px !important;}
-
-/*ucjsPermission圖標距離調整（两句要同時用）*/
-toolbarbutton#ucjsPermission_Toolmenu {padding: 0px !important;}
-toolbarbutton#ucjsPermission_Toolmenu>image {margin: 0px !important;}
 
 /*五角星書籤圖標邊框及左右距離*/
 #bookmarks-menu-button .toolbarbutton-icon {

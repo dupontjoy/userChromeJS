@@ -1,4 +1,5 @@
 
+::2015.07.02 18:00  添加刪除項
 ::2015.06.30 13:00  加入prefs.js
 ::2015.06.19 16:00  添加重啟
 ::2015.06.12 20:00  先複製後刪除，不影响原文件
@@ -43,6 +44,10 @@ xcopy "%BackDir%\Plugins" %TempFolder%\Plugins\ /s /y /i
 ::需要刪除的项
 del %TempFolder%\chrome\UserScriptLoader\require\  /s /q
 del %TempFolder%\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q
+del %TempFolder%\extensions\support@lastpass.com\platform\Darwin\  /s /q
+del %TempFolder%\extensions\support@lastpass.com\platform\Darwin_x86_64-gcc3\  /s /q
+del %TempFolder%\extensions\support@lastpass.com\platform\Linux_x86_64-gcc3\  /s /q
+del %TempFolder%\extensions\support@lastpass.com\platform\Linux_x86-gcc3\  /s /q
 
 ::以下是文件
 ::bookmarks.html：自動导出的书签備份。

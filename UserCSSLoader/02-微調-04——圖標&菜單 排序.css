@@ -1,10 +1,10 @@
-/*+++2015.06.28 18:00+++*/
+/*+++2015.07.03 14:00+++*/
 
 /*地址栏图标排序*/
 #bookmarks-menu-button {-moz-box-ordinal-group: 1 !important;}
 #flashgot-media-tbb {-moz-box-ordinal-group: 2 !important;}
 #lpt_lastpass-compact-btn {-moz-box-ordinal-group: 3 !important;}
-#foxyproxy-toolbar-icon {-moz-box-ordinal-group: 4 !important;}
+#aup-toolbarbutton {-moz-box-ordinal-group: 4 !important;}
 #ucjsPermission_Toolmenu {-moz-box-ordinal-group: 5 !important;}
 #RPBT-icon {-moz-box-ordinal-group: 6 !important;}
 #abp-toolbarbutton {-moz-box-ordinal-group: 7 !important;}
@@ -40,8 +40,10 @@ margin-left: 6px !important;
 {padding: 0px !important;}
 
 /*ucjsPermission圖標距離調整（两句要同時用）*/
-toolbarbutton#ucjsPermission_Toolmenu {padding: 0px !important;}
-toolbarbutton#ucjsPermission_Toolmenu>image {margin: 0px !important;}
+toolbarbutton#ucjsPermission_Toolmenu,toolbarbutton#ucjsPermission_Toolmenu>image {padding: 0px !important;margin:0px !important;}
+
+/*Lastpass圖標距離調整（两句要同時用）*/
+toolbarbutton#lpt_lastpass-compact-btn,toolbarbutton#lpt_lastpass-compact-btn>image {padding: 0px !important;margin:0px !important;}
 
 /*五角星書籤圖標邊框及左右距離*/
 #bookmarks-menu-button .toolbarbutton-icon {

@@ -1,5 +1,6 @@
 
-//2015.07.02 11:00 參考貼吧长丝绾月版加入新功能，補齊黑白系圖標
+//2015.07.03 13:00 補齊黑白系圖標
+//2015.07.02 12:00 參考貼吧长丝绾月版加入新功能
 //2015.07.01 21:00 終於折騰出了左中右三鍵
 //2015.06.29 07:00 快捷回覆加入顏文字，換黑白圖標
 //2015.06.10 16:00 調整選中文字搜索，加入OCR文字識別
@@ -58,6 +59,7 @@ accesskey: "I",
 condition: "image",
 where: "tab",
 insertBefore: "context-viewimage",
+image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZElEQVQ4jWNgGMzAl4GB4T8a9iVWcwtUQxADAwMvFAdBxVqItVkQi5wgMS6B2YwLwFyCE3xhgDgZF+CluQEUe4HiQLRjQMQ7ydEI02wHtWUfkmH7iLXZDp8iXECaEs3IhtAfAAAJGiQnfMavIgAAAABJRU5ErkJggg==",
 });
 imagesub([{
 label: 'Google',
@@ -184,7 +186,8 @@ css('#contentAreaContextMenu[addMenu~="image"] #' + it.command + '{ display: non
 //圖片右鍵 保存等 二级菜單
 new function() {
 var items = [{
-command: 'context-saveimage'
+command: 'context-saveimage',
+image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAv0lEQVR42mNkoBAwUssAByAOB2IOIvX9AeKNQLwFZsBzIJYk0fLXQCwKM+A/1DURQOwMxJ1AfIeAAfeBWBHdgN9AzALEa4A4FEkxDxBrAPEZQgYcB2ILIM4F4ilImrcDsQEQewLxEXwGgIAIEL9B02wD5X9BMgSnASDFyUBcCMSbkTQzIBmiCMSnsRlgA7URZPMHIBbAE/1YXfAZqpmY9IPVgP1EpgFHdAPeA7EgJQkJlIDcSTTgJBDPYBzw3AgApMktEXd8LEwAAAAASUVORK5CYII=",
 },
 {
 label: "檢查所有圖片",
@@ -199,6 +202,7 @@ image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAv0l
 label: "打開圖像RAR",
 accesskey: "R",
 condition: 'image',
+image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAWklEQVQ4jWNgGCwghoGB4Q8DA8N/IvEfBgYGT2QDPjIwMFijGfofB5sBqvYZLsXIYsgYmzxBA4iVp50BZHmBjZouoNgAor3wjIHCdOAJFSA2JT5jQEuJQxgAAFeqQ1dXIFWxAAAAAElFTkSuQmCC",
 oncommand: function() {
 var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
 try {
@@ -218,7 +222,7 @@ file.launch();
 {command: 'context-sep-copyimage'},
 {label:"重新載入圖片",oncommand:"gContextMenu.reloadImage();",image:
 "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgElEQVQ4jcWSyw2AIBAF5+rNDuyE2AG9WIK1UQpVeMHLEggKLCHRSQgH9u3vAR+wzYovwMwkMZLEjogs4IAgx8ut6uQUgQVWuQNwaCt7EULawa5t3fGcdciFkFWv0UzYS7BITJW3EXKiO82AfIk5K8mdJqWN0UovbyrKj9Qb7UdupJYfIj9YalkAAAAASUVORK5CYII="},
-{command: 'context-viewimageinfo',},
+{command: 'context-viewimageinfo',image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXklEQVQ4jaVTQQ4AMATzFq/y/49sFxIRoWiyU9eWDaIar+FLsBrwVCgqjEcmYku1Fqya0iSKvQFkgvRrJjiBBGUP5jnk3q2ClkCDzr+QmYzmIJqsJtFjvQsep22E8AGEZDOcIlQ9sgAAAABJRU5ErkJggg=="},
 ];
 var menu = PageMenu({
 condition: 'image',
@@ -254,6 +258,7 @@ condition: "select",
 label: "搜索選中文本",
 accesskey: "S",
 insertBefore: "context-copy",
+image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdklEQVQ4jc2SsQ3AIAwEbwGK1NmFDdIwE3OxCCOkZYAU+RSRMEFyIuUkN7Z5vwH4IxtQgKYoyk2RgQokICiScnlmcgWWTm1RbeikaJpFUo9J47RsEdTznYB7BfclwvgZGxCfBC4nvY8UgX1WxOJVkdUj4jp84wDU6yD4kZGU+wAAAABJRU5ErkJggg==",
 onpopupshowing: function (event){
 Array.slice(event.target.children).forEach(function(elem){
 if(elem.id == "TVC-1"){
@@ -327,6 +332,13 @@ where: 'tab'
 label: "產品—待編輯-SKU",
 id: "TVC-2",
 url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?Sku=%s&EditorId=0",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "產品—待編輯-品名",
+id: "TVC-2",
+url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?Name=%s&EditorId=0",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
@@ -506,7 +518,7 @@ label: "快速回覆",
 condition: "input noselect",
 accesskey: "W",
 insertBefore: "spell-undo-add-to-dictionary",
-image: "",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA6klEQVQ4jc2SIW7DQBBFBwRUWu16vf9VCiwIKGykHKWgRygsyAHCCnuEwgLDHKDABygMCAgMDAgscIktuc7WNcxIQ1b73oy+xuxqStIrcASaYUs6AGszsxDCoiiK1S8YWEvamdnyn54Be0nfKaXH/vRDCGExtqH3/l5SZWa3wFnSqb9BMwH+BGqgbiXPkwQ9+KPLpCzLp2EGWUEOTim9XHzMCVp4B5xH4b8EwJdzbg68dXCM8cHMbqYKGknvkqpuMrCPMd7lBEfn3HzwtgE2vcBmkk7eey4E7RXWNnJEkipgm82gtU865eurH5ZsTgQIYhNoAAAAAElFTkSuQmCC",
 //跟进depft更新
 oncommand: function(event) {
 var input_text = event.target.getAttribute('input_text');
@@ -534,7 +546,7 @@ label: "顏文字",
 accesskey: "A",
 condition: "input",
 insertBefore: "QuickReply-sep",
-image: "",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAYFBMVEUAAAD4+PghISERERExMTEUFBSVlZVPT08eHh4YGBi8vLyioqKBgYF4eHhJSUlBQUHg4ODR0dG1tbWamppzc3NgYGBXV1ft7e3i4uKvr6+oqKiPj4+JiYkoKCgkJCQICAgmMdadAAAAAXRSTlMAQObYZgAAAINJREFUGNNti1cSAyEMQwX20mGzJb3d/5YxJX+rGSw/IeNQJztp7eflz4ayAlSiPPij+qLc3vokPBIfZNqMmCpuT0QWnxT8F3WZ5IlrqfYjma4HQwMI4FsrcAPML6QC0dlirY2FJGSzlfcV7t5+GIi2GAW+oGn3j2qrGwwEJq1JBxzpB9l0A8JvhjyGAAAAAElFTkSuQmCC",
 });
 QuickReplySubMenu1([
 {label: "^_^", input_text:"^_^"},
@@ -559,7 +571,7 @@ id: "Physics-Symbols",
 accesskey: "B",
 condition: "input",
 insertBefore: "QuickReply-sep",
-image: "",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABBElEQVQ4ja3SO0sDURAF4C9hRYtgSBMQEbUQCahgZecrlooRCxsbC/EBRrQMIvisVATxVShYiZVY+yP8SxZ7AyFsYFc8zWFgzrnnzgzpUcIhngOXMmjBPuoYDVzPIi7gBuVQl3GN3rQGES4xj3zgc3RlSVEJr14FrmQRN1HAYOD/Rx65vwi7URMP5QiTKTQRRjAHWzjFGGZwL3lAOfRhGRfiYa7BGwZaGlew01IXMYsGbrEXUvY0G9oNajjAOHbFB9QIJsWk/2ziOMSexjc+cYYnLCSJWtGPF/zgFRsYxioecSe+/46oYhsT4o3AIj4whXW8Y6iTQfvuI5wEg4eQ4gtLSeJfNhQkTGxVeLEAAAAASUVORK5CYII=",
 });
 QuickReplySubMenu2([
 {label: "°", input_text:"°", accesskey: "1",},
@@ -576,7 +588,7 @@ id: "Math-Symbols",
 accesskey: "C",
 condition: "input",
 insertBefore: "QuickReply-sep",
-image: "",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABH0lEQVQ4jaXTvUoDURCG4cdoQCOohVUSEwkIprBLYWGhiGhtTLAQRMEmjRrw5y5sEkHbXIa912VxZs2SxCJ44OOwu2fenTnzDTziE8MJDTAKDWZ8/4xYH9hHFTXUYy+jFyrHu0zViPkQtJq0SrjEcjx3Q7NWLWINsYVNnEXKJ9hAJ7SIFg5CO5OAKnbxii88oYGLAJRwg3s84DRK/QVkJazhBavzlpABCljHwjyAkXTTnTic7W28hdo5WHamF7FTgO68gHwJk2uuNpbiTw2co2jcxhVcGRvr2B9duMM3rnMZdLAkOe8QR1LLpzIo4hnv6E8ASriVvN+XDFefBWhKNm5KrczuoIA9yY0tbOczyA9TJWAV08NUyaksN0z/Gucfql5K3J1MTKEAAAAASUVORK5CYII=",
 });
 QuickReplySubMenu3([
 {label: "±", input_text:"±", accesskey: "1",},
@@ -595,6 +607,7 @@ label: "用戶名~~~",
 input_text: "dupontjoy",
 accesskey: "1",
 insertBefore: "QuickReply-sep",
+image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYElEQVQ4jWNgGAzgP4UYQlBgOaoBCgoK/xUUFIg1FNUAGRkZuNOgbKoZgNXvWL0gIyNDrO2YBsjLy8PZaOFA2AVQzSiaiAhMhAHS0tIYtiB5hbgwoDgWyABwAyhKygMLAMKlZCE3z+FaAAAAAElFTkSuQmCC",
 });
 page({
 label: "163mail~~~",
@@ -647,6 +660,7 @@ command: 'context-paste',
 label: "標點符號置換(中轉英)",
 condition: "input",
 accesskey: "E",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABB0lEQVQ4jc3SvyvFURjH8ZekxKDEDbvuYpNiIqVcyurmR12RyT9gUn4MBkwiu4EUg7i3lFJSYlYGMYg/Ql3Dfe6is1wWn/p0Pk/P+b6f7zkd/ouWcII9ZH4LOUX+L39xjqm/AErYjbWE2VoB19iJXIi6Jt1iPvJ81FX1qFxy1ZMpwAMWIx9EXdVGGNZx9vPjbbz98ERiyAg2cZE8Q2HtYyzZoAOH4S1cpQGrn2eDhds+yOaK5f7801C0jrEceQ43ScDM2nt2eOHusXv05Cubu3wdmH4uR+seK5H3o+5KMepQj4ZsrlhuausdR0tMfwnPqbyTo+ilAWhEc2xqRXvcRWdMz6QANesbiGI880J6fHEAAAAASUVORK5CYII=",
 oncommand: function() {
 goDoCommand("cmd_copy");
 var sel = getBrowserSelection();
@@ -674,6 +688,7 @@ id: "BBCode",
 condition: "input",
 accesskey: "I",
 insertAfter: "context-paste",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJ1BMVEUAAAAAAADd3d1EREQiIiKIiIh3d3czMzPMzMyqqqpVVVURERHu7u6A1ky6AAAAAXRSTlMAQObYZgAAADtJREFUCNdjwASCECDAIADhIzMYBQsMpRWADBaGCiO2ALCIg6EgRCTViHMBjLEILFVjKN2AxRyEFRgAAGitCNm3Ki02AAAAAElFTkSuQmCC",
 oncommand: function() {
 var str = addMenu.convertText('[code]%P[/code]');
 addMenu.copy(str);
@@ -706,30 +721,20 @@ var items = [
 {
 label: "複製此頁標題+地址",
 tooltiptext: "左鍵：標題+地址\n中鍵：Favicon地址\n右鍵：Favicon的Base64碼",
-onclick: function(event) {
-var title = addMenu.convertText("%RLT_OR_UT%"),
-url = addMenu.convertText("%RLINK_OR_URL%"),
-favicon = addMenu.convertText("%FAVICON%"),
-favicon_base64 = addMenu.convertText("%FAVICON_BASE64%");
-
-// 简化下标题
-// [/\s(·|::|-|\|)\s.*/i, /_[^\[\]【】]+$/].forEach(function(r){title = title.replace(r, "");});
-
-var formats = [
-title + "\n" + url + "",
-favicon,
-favicon_base64,
-];
-
-var str = formats[event.button];
-addMenu.copy(str);
-
-if (event.button === 1) { // 中鍵竟然不会自动关闭
-var node = event.target;
-while (node.localName != 'menupopup') {
-node = node.parentNode;
-}
-node.hidePopup();
+onclick: function(e) {
+switch(e.button) {
+case 0:
+addMenu.copy(addMenu.convertText("%TITLE%") +"\n"+ addMenu.convertText("%RLINK_OR_URL%"));
+closeMenus(this);
+break;
+case 1:
+addMenu.copy(addMenu.convertText("%FAVICON%"));
+closeMenus(this);
+break;
+case 2:
+addMenu.copy(addMenu.convertText("%FAVICON_BASE64%"));
+closeMenus(this);
+break;
 }
 },
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVQ4jWNgoCL4TyQWwGcAIQtgNFZDiDUAp1piDEDGBA3A6VdCBhAKRIIGEAOGqAuINoBiFwysAaRg6gAAE7tI6EZZDKkAAAAASUVORK5CYII="
@@ -738,7 +743,7 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPk
 label: "UTF-8 : Big5 : GBK",
 tooltiptext: "左鍵：UTF-8\n中鍵：Big5\n右鍵：GBK",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAlUlEQVQ4ja2TwQ2AIAxF3wau4QCuwCxcPTKMI7iBO7iCA3BiArxUJaSCik2a0NL/+1MK/Gg9MAMBiDcepKbXwB4Yga7QpJMan5PMcvHUnGBOC5XOmpKQJuILsIpJg5VraA7Y5OwBWyMYBHScYxb7JwSpAs1NiWDimq6RvE3ipabAiMyoKCnOoPkZmxepeZUPks+f6bPtGg1LLkKBszsAAAAASUVORK5CYII=",
-onclick: "var code = ['UTF-8', 'Big5', 'GBK']; BrowserSetForcedCharacterSet(code[event.button]);"
+onclick: "var code = ['UTF-8', 'Big5', 'GBK']; BrowserSetForcedCharacterSet(code[event.button]);closeMenus(this);"
 },
 
 {
@@ -794,8 +799,9 @@ menu(items);
 page({
 label:"拼寫檢查",
 accesskey: "A",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXElEQVQ4jWNgGCzgPxZMSA2GJKkWEmXAfwYGBg9yDfBgYGCYCcXEWogCjjIwMChDaZIBssY8KCYJ5DGghjhJrlBmwPTjTKg4ToCsAVvAeaCJ0S8dkGQARUl54AAAWsMsNkwmkt8AAAAASUVORK5CYII=",
 insertBefore: "context-viewsource",
-condition: 'noinput noselect nomailto nocanvas nomedia noimage nolink',
+condition: 'normal',
 tooltiptext: "拼寫檢查（當前窗口打開）！",
 oncommand: function() {document.onkeydown=ck;content.document.body.contentEditable=true;function ck(e){k=window.event?window.event.keyCode:e.keyCode;if(k==27){content.document.body.contentEditable=false}}},
 })
@@ -836,37 +842,37 @@ clone: false,// 不克隆，直接改在原来的菜單上面
 //Addmenuplus菜單
 app(
 { id: 'addMenu-rebuild', clone :false,image:
-"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAv9JREFUeNp0U01IVFEU/u59Y/5XOhJjaEapVDaLFlFRlBFIYYqLwoWbaBFtXLWIWrRoFeVO2mRGCwVN+tEUBLMspFIqHdMpHQVNLcvSaSZ/xnn3ns59mkTYg3l33nnnO+c73/keiAhKRWFOrTWuP/vmaWwbeEean0nBNnGTY5OT8+9PgpOkhAMWQmEHBQe7fF/2XLqMFPBrwXEoficV1rqkqQK4OEFC8fnW/2X9QkRj/4mPdYKxJi4ty8J/LimkC5qhpn5zq78mGLT5n0Zv/48CMKPHHSN0o/qVLcjCWhykuQklYMoMTYTKjh3InNYkMBsM48GTTxdu1b5Gc8cgqlq7c/+mYXiTGd+UVZbAg7axC+6UJIx2/cqLj7cgYMHX+7ni8+w8QvMReOLcfgNgSR00OZoJLiDN5IRgcKYiLXHdRMZB99mtmalcQONl3yhc5IKlYlBV320JscJBwBGemKnU3Knh7rR3JrgAEUeJLjV3OT05eWIxQpiLLPECotyJ8HUqhKa2oT7T888KHQaSpQ4nTvblbEmpL8zPTS06unND8fFtmeHFRbg3JSMpORaK29iuGDQ/D3jZFODGcNjwKLLpxQi9D8xi8lu0tPHp5EUTbGoPtA8OBZGRloB090YnWTCwp38K91omSgTpVTEFKbNsYQaClo51cLuul8an57C7/JDrFGlVdP4+Tc3MwOKEwvwcXCk/IlZHYCdgWOTEEp+mclW7L7emeYCtsIRQg8+urvdRamIMhM2ykmRfBFBZOZxhwGrZBxrZCESM6oaqx07o8WyKQ8bm9VBkw7aiOLxvGztyhTavL84THjc+sBjD/jGK8H4ZfOfmh6wWX3/CmbJdI8WH87KJBWaiuM9mPvm102569tFYF7UP/aCkse3nCkpG5LISpj8fqZHR0e8hjAWm801YMViy5Kf5i/N63Ve1Kcj9wpEI6GfWMIvCPhHLjr5W2UmPOj6YrwNdA6HxrLaBN8UFeXuNuI1PA3UNLf5SyY5lsrBYCxYaLq3ptwADADgQi9wCmSZlAAAAAElFTkSuQmCC"
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXElEQVQ4jWNgGCzgPxZMSA2GJKkWEmXAfwYGBg9yDfBgYGCYCcXEWogCjjIwMChDaZIBssY8KCYJ5DGghjhJrlBmwPTjTKg4ToCsAVvAeaCJ0S8dkGQARUl54AAAWsMsNkwmkt8AAAAASUVORK5CYII="
 });
 
 //Anobtn圖標
 app(
 { id: 'anobtn_set', clone :false,image:
-"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADnklEQVQ4jU3M3U9bdQDG8XPB/+CSLSgQGcNVjpSOFjinh3Pa4TnlFMpgbLKB6/KjlIGZyHgZbxUMbAJxiIBuEHCUlXalox3LFCQ5WliJBq+Mpou70C1RuZDx4u5+PF6MoBff5Mlz8WEEhkm4a06VI9Y0V1jWkbA9k4ROGUnojJmEKiwvOyOS0CmOhB0GEi5kSeTtdNesOVUWGCaB+XA4XZ4iuo1IdvJeWP8qDWen0EjeMbqQr6MPLJn0gVVPF0SWRrh0GjGm0nBWEo2cSN67fyFz4+5AlswMhlnyeeQNeq36FVxOOoT3XzuMxuQjaEpJRFNKIq7s78bkRDQkHcaVpEPwnzuCdX8e1YJmwgyGWDK+oqMd/mQIch4sFisKZBmKzQan04m6ujqoqgpZUWCxnkRxQR5WvSziyxLV/PvARFRHu/wpkGw8ZFmGqqooP12GR6ur+P23p6h1u6GqKhTFhlIbj9hMJuJLEtV8B0AG9QReh1UVoMgK7HY7qior8Tj+GFvPd9Da0oIiux2KrRCnVQExnx7xbywvgf4gS8ajGdQTSIOlUIDbVYPJiQnMBQP484+/sLP9D75++BDT01+iva0N5fZ8rN3JQnxxH7gWZMnNKEs7/WmQFB5+/yx2d15ge2sXm5tb2Pz7Oba3drC7+wLr6z/iQrmCNa8e8a8kqt3mCNMbZMnYdyxt8x2DUMChrvYSZrxeRMLzePLrEzx7+gxLi4vwz87C0+VBWSGPtalMxBdEqk1yhOkJsuRTjaXNM2ngJBNEUYQsy6iqrERsdQW//PwTWpqbYLPZIFmsKDppRGycRfyemWo3OcJ0+lkyuJxBG6aOIps3gON4iKKIEocDC/fvYe1RFK5qAkmSwJvNUPL1WB09jniAo9qIkTDtPpZcX8qgtbdS8Fb2mzBkGWAymcDzPCrPVcDtqoYo5iMnNweGE9mQTMcR/eQo4l4T1W4YCdPqY0l7iKdVA/VQSA/s1b1w1F5HaX0/SusHDiq59DGKavrgcPXgRq8bsVEz1QYNhKnoMZKa/n763tAyGkY0tHwRRedkDD3e79HnW0ff7Do+mvkBXVNraL21gg9Gv8XloSV0dXfTkQYjYcxOUbbVD20UN07vlTRP07KrPnq2I0DPe+ZoVfc8fbd7np73zNF3OgK07OodWtI0TYsab+8V13+2UV5eLDOMICTkOofl3ItjrhwyRnKc/8X9r4OfjJHci2OuXOewLAiehH8BvoYzQRRPJj8AAAAASUVORK5CYII="
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAJElEQVQ4jWNgGDbgPxrGJoYL4zSAYhdQbABJXhh4MBoLQxoAAO4bR7kvBjV/AAAAAElFTkSuQmCC"
 });
 
 //GrabScroll圖標
 app(
 { id: 'GrabScroll_optionsMenu', clone :false,image:
-"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAATlBMVEUAAAAAAAC0tLQYGBjw8PBKSkoHBwf39/fW1tbMzMxdXV1HR0cQEBDt7e3c3NxoaGgxMTEfHx/Gxsa8vLyvr6+cnJyWlpaDg4N4eHhSUlIK+8xuAAAAAXRSTlMAQObYZgAAAGNJREFUGNN1zEkOgCAQRNGuFhnEAZy9/0WFgIkQ/azqJTT9tZdzJBR7kQG6FzAovklVAF3DWsORJpjh0YTyXevYajMKM7sEWl4txYaeUicSiAeUr4C42VT4MQXPGSsB2Qn66AYLXQJg+rPQRQAAAABJRU5ErkJggg=="
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA3klEQVQ4jcWT3WoCQQxG5y0238mb1PWHKvVJ6qUtBd+00lfYdRF61eLV9saROJVVodDAQJhJTpKZb1L6CwPeJU3uiH8AtqcNM5sBnZnN8p67v4WEdfBHQCNpeUaVNAF2VVU9HgF9gH0ek2ugAZ4utiZpDLTAogTkAu4+vzZfDTQF4FCOeKn6s7v3Ye0DtIlnkl4Gu/gfk7QqRvjKZ+7+XYzwOgQaA21xiT3QAYtrXZy0UALcfT4Iycn5qUpASimZ2RTY/RJSkPI0JEUpb4JfA+2ZlIHtnZ9pBHzcGj9oP3TiU7Bc9Gx1AAAAAElFTkSuQmCC"
 });
 
 //InspectElementModY菜單
 app(
 { id: 'InspectElement-menuitem', clone :false,image:
-"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAjFJREFUeNqUkk2IUlEUx//6dPxOtHhp0ZCjpEgRFD4opSD6EHdCq5mdweBrM21atGsztG71ZBChRWHUSssksha10ZhIhEQaUfAjSZB0VNQ+7N7XOEyOE9MfzrvnnXPv755775GMx2NMFIlErpNhmdjZrdA6sbVAIPAUe0hCAaFQyE78FYvFwtvtdhiNRjHZarVQKBRQKpUE8rsaDAZr0wAZ/YxGoxW32807HA50Oh00Gg0xqdPp4PF4oNfr+UwmQ0M3pwGMRqNZtNls91wuFyqVirjrYDDAcDhEt9sVfZJHtVp1JZPJz2Sj3E6AlEzknU4n2u02rQQMw0Aul4tGfQrq9XrgOI76/K4jkB04lmXRbDahUChmXhQFGAwGWs2pWYA/jkwGqVQ6E0AroTkyl5kFyNRqNY/JZMIENi21Wo16vU7zH6dzUhIUUqmUOEmpVIrH2GkqlQpzc3OIxWIUIOwChMPhR+l0WkgkEtBqtSCvsr2Y+tTi8Tjy+fxX8lIP9+qD1Wg0imw2y/t8PlitVjFZLBZBweVyuSmRSL44zxvZW/evjgej/oXQ7XdvtztxIr/f7yUDfSpuK0S7R/B6vS++HXgN06F5HDt4Gk9erqE/6F56cPfDm78A/9LinZPj4wtHYGbnccLsxuPnArr9zmUp9qnNzua5T7kNFEo5vN94Bv+1G/j5/derfVdAdSXAcqQf0uYFI0yHj6JVGeK/AFQXl/RnyIWuyxUMRoMfS78FGAD3+u24CjYfQAAAAABJRU5ErkJggg=="
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdklEQVQ4jc2SsQ3AIAwEbwGK1NmFDdIwE3OxCCOkZYAU+RSRMEFyIuUkN7Z5vwH4IxtQgKYoyk2RgQokICiScnlmcgWWTm1RbeikaJpFUo9J47RsEdTznYB7BfclwvgZGxCfBC4nvY8UgX1WxOJVkdUj4jp84wDU6yD4kZGU+wAAAABJRU5ErkJggg=="
 });
 
 //KeyChanger腳本
 app(
 { id: 'toolsbar_KeyChanger_rebuild', clone :false,image:
-"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAXCAYAAAARIY8tAAADSklEQVRIia2VS2hdVRSGj87sQNDYPMRXW1Io9Mmt93DPPWfv//sxaURjikhIfRQdqMWCYK1NMzBQp5Ymk6JoBQfqQLAWixQHwYEDLbZNbXBgJ9oqSC2odaBQgnXgTkluol5pF/zsNViPvf611t5Zdo0CPAN8Ua/XO6411iKRdJvt48AntVptWduOeZ53xRgHJe2Q9FhVVfVGo3FrlmU3zNlUVdVj+zXgoqSBtoPb7ge+tP2r7Qu2LwG/AKeBd23vt/2m7TO2f7D9VJZlN7YbvADOA5/HGAdDCGuApqRngUPAZ7a/tn0SeCPG2Jhf1b9Ko9G4yfZHtr8JIaxZyqZWqy2r1+sdeZ7f3HbgOQkh9AI/AWP/y/G/pCzLu9KoHQQuA+9IenEOtne3AnipBXtaYfvpEMKdGfBxatpeYI+kUdt72wUwNne26IdsH82AmWazeft1pSXLMkl3ADMZMF1V1fKqqtYDR4AXgO22j0oaSJR8ADSB14GDkjbbfj9V259st0raCRypqmp9nuddwPTVBEAEfk7LM277kqQngbdsXwAesn3K9vEYYx/wI/A2sB34TdJO2xMpRiiKovNqgjzPu1KSIdshxtiQtBWoSVoLbAkhrJO0OcbYV5bl6hhjA4ghhN4YIzHGeyWVwFBipGdBBbYL22fTop23fc72OWAYeM/2V+nmJ2wfBrYA3wL7EjXfJ7+ztosFFBVF0RlC2AQcA6YSPgWm0tNxwPaHMcaG7cO2J1NPpoDnbG+b53dM0sYFCfI870qcDUsasb1N0sb0dDxcluVKSQMxxvtt353oa5ZluVrSIwkjkkaA4UT5QookCfgd+DNhPO3HbHI8AXyXqLmYJudx27O2r8zz+0PSfYuaHEJYAbwMvJIQgaHE8VpJO4BdtldJGgUeTaO9L2HObzxV3N3ag17b+yWNxBixPZmmYtj2pO2JhMnUkwnbT6SLHLAdElWvLkqQpsi2Z9Nsj6Wyn097cGUp8Pf/sDvpu9IiXl60B1VVLa/X6x2SHgQ22F6VfrR7gA0xxsGlEELYVJblyqSvCCGsAx4oy/KWNEWnM2AmxthXVVVPURSdkroldbfqS+GfbNN32m/7TJZevmnbJ68ngGlJo38Bqdv+Kwn4dicAAAAASUVORK5CYII="
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4jWNgGBTA2tr6PwMDA8kYqo+BASpADqC+AeTSw9UFuDBtXUCeAdRIiUMYAADhUkeATSuqLgAAAABJRU5ErkJggg=="
 });
 
 //Movebutton重載
 app(
 { id: 'uc-movebutton', clone :false,image:
-"chrome://browser/skin/syncProgress-toolbar-XPVista7.png"
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgElEQVQ4jcWSyw2AIBAF5+rNDuyE2AG9WIK1UQpVeMHLEggKLCHRSQgH9u3vAR+wzYovwMwkMZLEjogs4IAgx8ut6uQUgQVWuQNwaCt7EULawa5t3fGcdciFkFWv0UzYS7BITJW3EXKiO82AfIk5K8mdJqWN0UovbyrKj9Qb7UdupJYfIj9YalkAAAAASUVORK5CYII="
 });
 
 //FlashGot
@@ -884,13 +890,13 @@ app(
 //頁面右鍵 添加到字典
 app(
 { id: 'spell-add-to-dictionary', clone :false,image:
-"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAC30lEQVQ4jYXR3U+TZxiA8f4PZI5kpxxsp8SMzM40ISOr1nSFtgZi3CrrViOhJpBauhBonM4PcCqslOEHocGPF4Kzaiz9QCBoqfQddJTaVCW1zjYNrBgb4T0Y49pBI4Usi09y5U6e5PndB48MwOfzYbVaEX/Vv7fEnXa2HhmA1WplOBDAPTmJd3qaqbk5fo/HiSeTvMxm+ev1a95KEuvr6wz5/f8FdDodev37t79ryO9nXBSLQE1NDXa7nSVPM+k75v9tydPMjFPHPxsbCD5fEdBoNLS1tfHK3cjTm0bi174l6jIwP1DoyeAhnt4w8srdSMihZWV1lQG3uwio1WpaW1tJ3TrCgsvAy4keWFncLJ8I8Ef/17wYOUKwu5rF5WX6BKEIqFQqbDYbz4TvSY518/dSgqCzlmBPLVOO/eRiXlaeeEnc+I6pCxr6BIH4wkIRUCqVWCwWoi4DUibG1C965oVjSJkYUibGRJcOKRMj6jIwce4r1kIhxF27eDM+XgCqqqpoampi7upB8qkIExdryKci+Do15FMRHpyvJp+KMHf1ILeOq/E4HGC381ChKACVlZWYzWbCl+rIPQ8TOKcm9zyM58y+bTPYV0lHowpJkjhaV0fa6y0ACoWChoYGHvfuJxsP4j2rYrq/gWw8SOT2abLxILO3zYz2foSUsfGNycTdrd8ol8sxmUw87tUTFtr5c36S+6eUeE4r8XfsJXDxM+45PkTK2LjcXsJi4gGXR0aKQEVFBUajkRmnlkDHHkLXW0nOjpGcHSP8W+PmY9eJHVz7YScrq6v0DQ8XgfLycurr6wk5qhnvVBI48yWjp6q4d1LO3e4dSBkb/cdL8P68G8HyBYvLy3QPDhaAdDpNWVkZBoOBGaeWR13qzYbtH8PbBAM/fsBop5wZp5ZLhz+n88oV+oeGWFtbQyaKIi0tLZSWlnL+wKfbkslkWLQl/FT7yeZdV/MBRFEkGo2Sy+X4F6/t89VS8NqbAAAAAElFTkSuQmCC"
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcElEQVQ4je3SsQnDMBCF4a9KoSaTuNM4GSIjeIE0qTWT2ozi0imkBGNsocqYkAcHx/3wuOLnLIl4IGOq88ITtwaLn4IZYz0EXOs+brCwYt+CvXSxf8HPFCTFsKVtqYOhaHrHgIti21BvU4PlxncH5Q0Y/znXzG7xKgAAAABJRU5ErkJggg=="
 });
 
 //頁面右鍵 還原「新增到字典」
 app(
 { id: 'spell-undo-add-to-dictionary', clone :false,image:
-"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAABDklEQVQ4jZ3SPShFcRjH8Q8JN2IgI4pJorxkMJDNYlE27AZWG4vBJoOymewMshtsdzHIQilKUl7SDde9hnNuTqdzLuc+9UzP8/2e/uf3kFyNWMVwyrxqNWEddxjPCuewiQJeMJYFbsU2PlDGM0b/C7dhF58hXA5FR9jDBhbQh/o43IV9FCNwUhdxgx30RwWHKP0BxzuPiYpgCbcZBWWco7cimcV1bKGEJzziPUHwja3oU2ZwFVl4xTwGMYUVHMdkl/EfOokLvzGOxOY5LOI+3CnEBQTHk8eb9ENaw1fYiTWEU+mn3C2I9CFNAD3oTJm1CFI4qSaoVu04w3KtggEcoKMWuA5zmK71682CeBvgB+93YAIjVuYDAAAAAElFTkSuQmCC"
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeklEQVQ4jeWRwQ2AIAxF39WbG7AJcQN2cQRmYxSm4FIPfhKjJXLWnzQN/fzfFuDTSEABTFFUm0IGqgSrIqmWZzpXie5YL8ZDvI3aV3sgKJs6Be+SOPPEDYgik86eiWuAxI1zRwO2wQTDFTppwD7gpx4xOrVFeeob/4YD1pEcog/2J/oAAAAASUVORK5CYII="
 });
 
 //頁面右鍵 複製

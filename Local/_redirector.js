@@ -92,7 +92,7 @@ regex: true
 //測試：http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/36.x/36.0.1/x86/sse2/
 name: "sourceforge下載 >> ftp鏡像站點",
 from: /^https?:\/\/sourceforge\.net\/projects\/(((\w)\w).*)\/files\/(.*)\/download/i,
-to: "http://master.dl.sourceforge.net/project/$1/$4",
+to: "http://master.dl.sourceforge.net/project/$1/$4",//這個源速度眞快
 //to: "ftp://ftp.jaist.ac.jp/pub/sourceforge/$3/$2/$1/$4",
 //to: "http://softlayer-sng.dl.sourceforge.net/project/$1/$4",
 regex: true

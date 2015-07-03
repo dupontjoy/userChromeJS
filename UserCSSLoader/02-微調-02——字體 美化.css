@@ -1,4 +1,4 @@
-/*+++2015.06.19 17:00+++*/
+/*+++2015.07.02 15:00+++*/
 
 /*文本选中样式（黑底+绿字）*/
 *::-moz-selection {
@@ -26,6 +26,20 @@ color: rgba(255,200,0,60)!important;
 text-shadow: 0 1px rgba(242,33,49,60),0 1px 1px rgba(242,33,49,60),0 -1px 1px rgba(242,33,49,60),
 1px 0 1px rgba(242,33,49,60),-1px 0 1px rgba(242,33,49,60),0 0 3px rgba(242,33,49,60)!important;
 }
+
+/*tooltip
+tooltip,tooltiptext {
+    -moz-appearance: none !important;
+    background: white !important;
+    opacity: 0.9 !important;
+    border: 1px solid #55BBEC !important;
+    border-radius: 0px !important;
+}
+tooltip label,tooltiptext label {
+    color: #FF9900 !important;
+    border-radius: 3px !important;
+}
+tooltip,tooltiptext *{font-family:sitka text,Microsoft Yahei !important;}*/
 
 /*TXT Viewer*/
 @namespace url(http://www.w3.org/1999/xhtml);

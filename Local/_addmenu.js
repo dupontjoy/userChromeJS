@@ -1,5 +1,5 @@
 
-//2015.07.03 13:00 補齊黑白系圖標
+//2015.07.04 17:00 補齊黑白系圖標
 //2015.07.02 12:00 參考貼吧长丝绾月版加入新功能
 //2015.07.01 21:00 終於折騰出了左中右三鍵
 //2015.06.29 07:00 快捷回覆加入顏文字，換黑白圖標
@@ -443,7 +443,7 @@ menu(items);
 new function () {
 var items = [
 { command: 'context-copy',
-  image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAhUlEQVQ4jbWQyw2DMBBEHxFNTA10kR6oB9JjelilCrjwsS17DbGYiw8jP80+aEwHIGnJdLOZfS5RUoCkRdJX0lT7+3K6NzDWIL3T/bZ3AIqnHA7MrEvLK268BQCE4A04SmKHeA5KidxUF2QSubkFyJxzLigIa4sH3bt/JEZpBlQlPuImzAon1SmKukhOFgAAAABJRU5ErkJggg==" },
+  image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=" },
 
 {
 label: "保存選中文本",
@@ -483,7 +483,7 @@ aFile.launch();
 }}
 ];
 
-var menu = PageMenu({ condition:'select', insertBefore:'context-paste', onpopupshowing: syncHidden,image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAhUlEQVQ4jbWQyw2DMBBEHxFNTA10kR6oB9JjelilCrjwsS17DbGYiw8jP80+aEwHIGnJdLOZfS5RUoCkRdJX0lT7+3K6NzDWIL3T/bZ3AIqnHA7MrEvLK268BQCE4A04SmKHeA5KidxUF2QSubkFyJxzLigIa4sH3bt/JEZpBlQlPuImzAon1SmKukhOFgAAAABJRU5ErkJggg=="  });
+var menu = PageMenu({ condition:'select', insertBefore:'context-paste', onpopupshowing: syncHidden,image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII="  });
 menu(items);
 //page({ condition:'select', insertBefore:'context-sep-copylink' });
 items.forEach(function(it){
@@ -607,7 +607,7 @@ label: "用戶名~~~",
 input_text: "dupontjoy",
 accesskey: "1",
 insertBefore: "QuickReply-sep",
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYElEQVQ4jWNgGAzgP4UYQlBgOaoBCgoK/xUUFIg1FNUAGRkZuNOgbKoZgNXvWL0gIyNDrO2YBsjLy8PZaOFA2AVQzSiaiAhMhAHS0tIYtiB5hbgwoDgWyABwAyhKygMLAMKlZCE3z+FaAAAAAElFTkSuQmCC",
+image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAfUlEQVQ4jc2T0QnAIAwFb5IuUhco1C6ti5RS10h/FIIYqQWhgXxE8i7hYQACIIMZUCGA4324GiQDYj10KdopAA/cOXcDIEC0AKdqugxAuxgAdE08gJTTG4B5Jm55clkz5bcaYJqoxRpSA9pFQyydnh/9xJFjWqlM/HLOsdAehABlcm57OHUAAAAASUVORK5CYII=",
 });
 page({
 label: "163mail~~~",
@@ -660,7 +660,7 @@ command: 'context-paste',
 label: "標點符號置換(中轉英)",
 condition: "input",
 accesskey: "E",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABB0lEQVQ4jc3SvyvFURjH8ZekxKDEDbvuYpNiIqVcyurmR12RyT9gUn4MBkwiu4EUg7i3lFJSYlYGMYg/Ql3Dfe6is1wWn/p0Pk/P+b6f7zkd/ouWcII9ZH4LOUX+L39xjqm/AErYjbWE2VoB19iJXIi6Jt1iPvJ81FX1qFxy1ZMpwAMWIx9EXdVGGNZx9vPjbbz98ERiyAg2cZE8Q2HtYyzZoAOH4S1cpQGrn2eDhds+yOaK5f7801C0jrEceQ43ScDM2nt2eOHusXv05Cubu3wdmH4uR+seK5H3o+5KMepQj4ZsrlhuausdR0tMfwnPqbyTo+ilAWhEc2xqRXvcRWdMz6QANesbiGI880J6fHEAAAAASUVORK5CYII=",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA+0lEQVQ4jcWSMUoEURBES9EVDIZh8DP9XyUGIoKGXsBEMBQ9gCZGXsTEyCsogiYmHkEMTAb2AsImHsBYk1kYVt3Z3cSCTrqriu6mpH/AMnAfEWlhh5zzse0mIjYlSba/xgV8RsTuhGbJ9nOX13JffrgD58AQWO/0Lm2/SlqRpIg4Aoa2t39dEbgDbiSprus94COltNWZ36aU4s8bq6oqcs4nktZsN7bPZnrOJGxf235YSAwcAu9FUVSLiDdsjyLiQNJg7hOAJ+BKksqyLG2Pcs777Xh6kHLOF8CbpMG4FxGnthtJqy1nepCAnUlj248zBWkW9AapD71Bmgff1GdAhwyuwRgAAAAASUVORK5CYII=",
 oncommand: function() {
 goDoCommand("cmd_copy");
 var sel = getBrowserSelection();
@@ -799,7 +799,7 @@ menu(items);
 page({
 label:"拼寫檢查",
 accesskey: "A",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXElEQVQ4jWNgGCzgPxZMSA2GJKkWEmXAfwYGBg9yDfBgYGCYCcXEWogCjjIwMChDaZIBssY8KCYJ5DGghjhJrlBmwPTjTKg4ToCsAVvAeaCJ0S8dkGQARUl54AAAWsMsNkwmkt8AAAAASUVORK5CYII=",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVQ4je2Q0Q2AQAhD3y4uwzTsw0A31/nDmUowJvqpTfig0JY7+KFwYEg/gJl1xRtlEMAm/UJIiBUNpChy6E3SbExPiJvlldwamIiWWV32vNLlwiMkCmnJ6ROiiNpPfIz5sj6PHbYtNU5+tMktAAAAAElFTkSuQmCC",
 insertBefore: "context-viewsource",
 condition: 'normal',
 tooltiptext: "拼寫檢查（當前窗口打開）！",
@@ -902,7 +902,7 @@ app(
 //頁面右鍵 複製
 app(
 { id: 'context-copy', clone :false,image:
-"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAhUlEQVQ4jbWQyw2DMBBEHxFNTA10kR6oB9JjelilCrjwsS17DbGYiw8jP80+aEwHIGnJdLOZfS5RUoCkRdJX0lT7+3K6NzDWIL3T/bZ3AIqnHA7MrEvLK268BQCE4A04SmKHeA5KidxUF2QSubkFyJxzLigIa4sH3bt/JEZpBlQlPuImzAon1SmKukhOFgAAAABJRU5ErkJggg=="
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII="
 });
 
 //鏈接右鍵 用新分頁開啟鏈結
@@ -932,7 +932,7 @@ app(
 //書簽右鍵 複製書簽標題和網址
 app(
 { id: 'copyBookmark_copyBoth', clone :false,image:
-"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAWklEQVQ4jWNgoAaQlJT8j44lJCTqSTIAnS8hIXGFaEOwGSAuLi5GtCHYDEDGJBuAyyCcYYPPAHQ+Vm+RYgDWsCHFAKxhQ6wBOOWwBRahGKAodoaYAeSED0kAAOILU0uDB0+zAAAAAElFTkSuQmCC"
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII="
 });
 
 //書簽右鍵 刪除
@@ -944,7 +944,7 @@ app(
 //書簽右鍵 菜單属性
 app(
 { id: 'placesContext_show:info', clone :false,image:
-"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABK0lEQVQ4jc2STytEYRTG70e4i7d73/N7NvMxlCJhKWJBU74HNljMNCsiG9mq2VnYzEaSomRhRyGEmCxl9jbv5fZyixVnd855zvOcf0nyL817XwPqwJyZzQN1733tJ4WDkg4kPQJtSU1JTaANPEvaz/O879viALwDpqsEQlf3wGJcvAIcAi4AHdCS9AR0A3k5dwosFazjwEUBCLEW0HHOmXPOgA6wXso74NZ7P5RIupQ0HLXadc5Z4QeS1zLGzCYlnSSSrs1sICJ4KRNkWZYDvQgzBpwlZjYFnJdHCDvZBVyapimwA2xFI9wAo0VgA9iLFrUGvAE9SZtR7lhSI77EqqQrYOLL/T6VZ8Kpl6sAI8CRpAdgW1IjfiSgv0rgw7z3NTObNbOFX73yn9g7LsdV8hjN95UAAAAASUVORK5CYII="
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABA0lEQVQ4ja2TMW7CQBBFXSUFLlnW2tn3jxAoKHwPciIiUQeuFOoIyBHoDF1SOGlI4ySWsbFkZcrZ/W/2z84kyX9HCGEMrICDpFJSCeyAZQhhfFMcY1wAhaS1meXOudQ5l5pZLmkNnGKMi1vio5nNugqY2Qw4XkGyLHPAqSmWtAVeGpApUHjvJ79JYClp06woaStp25LfAKs6YGdmedfTW6zkwKFOLJMkuWupdJF0aWHcS/ocDHDOpcB7r4UuQGVhXwd0NbEVUM3EXxO99xOgMLNpHyDG+HD1jdXB8EGqXXgEzjHGZ2DuvR9570fAvMqdO8U/UVumN0lfwIekV+Cpd5mGxDdxo1Tjgl/dlwAAAABJRU5ErkJggg=="
 });
 
 //書簽右鍵 在此书签后面添加新书签

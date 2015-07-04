@@ -1,4 +1,4 @@
-/*+++2015.07.03 12:00+++*/
+/*+++2015.07.04 17:00+++*/
 
 /*==扩展/脚本图标补充==*/
 
@@ -35,7 +35,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 }
 
 [label="Paste"],[label="粘贴"],#urlbar menuitem[label="Paste"],#urlbar menuitem[label="粘贴"],#urlbar menuitem[label="貼上"],#searchbar menuitem[label="貼上"],#context-paste,[label="粘贴并确定"],#editBookmarkPanelContent menuitem[label="貼上"],#editBookmarkPanelContent menuitem[label="粘贴"],[label="貼上"],#mnEditPaste,#menu_paste,#header-search [label="貼上"], #urlbar menuitem[label="貼上並瀏覽"] {
-list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVQ4jWNgoCL4TyQWwGcAIQtgNFZDiDUAp1piDEDGBA3A6VdCBhAKRIIGEAOGqAuINoBiFwysAaRg6gAAE7tI6EZZDKkAAAAASUVORK5CYII=") !important;
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAWklEQVQ4jWNgoAaQlJT8j44lJCTqSTIAnS8hIXGFaEOwGSAuLi5GtCHYDEDGJBuAyyCcYYPPAHQ+Vm+RYgDWsCHFAKxhQ6wBOOWwBRahGKAodoaYAeSED0kAAOILU0uDB0+zAAAAAElFTkSuQmCC") !important;
 -moz-image-region: rect(0px, 0px, 0px, 0px) !important;
 }
 

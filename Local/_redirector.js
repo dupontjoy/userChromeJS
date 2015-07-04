@@ -1,5 +1,5 @@
 
-//2015.06.22 11:00 科大恢復
+//2015.07.04 10:00 科大恢復
 //2015.06.05 07:00 簡化ajax(https) >> github
 //2015.06.04 21:00 http走useso，https走github
 //2015.06.03 18:00 完成ajax >> github，重新分組12306的js文件
@@ -90,7 +90,7 @@ regex: true
 {
 //在這樣的頁面點擊，就直接弹下載窗口
 //測試：http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/36.x/36.0.1/x86/sse2/
-name: "sourceforge下載 >> ftp鏡像站點",
+name: "sourceforge下載 >> 鏡像站點",
 from: /^https?:\/\/sourceforge\.net\/projects\/(((\w)\w).*)\/files\/(.*)\/download/i,
 to: "http://master.dl.sourceforge.net/project/$1/$4",//這個源速度眞快
 //to: "ftp://ftp.jaist.ac.jp/pub/sourceforge/$3/$2/$1/$4",
@@ -221,19 +221,6 @@ regex: true
 name: "apis.google.com/js/api.js和plusone.js >> github",
 from: /^https?:\/\/apis\.google\.com\/js\/(api\.js|plusone\.js)(.*)/i,
 to: "https://raw.githubusercontent.com/dupontjoy/customization/master/google/apis/$1",
-regex: true
-},
-//搬運
-{
-name: "Google统计和tag >> mingto.tk",
-from: /^https?:\/\/(.*?)(google-analytics|googletagmanager|googletagservices|googleadservices)\.com\/([\w]+\/)*([\w]+(\.[\w]+)?)/i,
-to: "http://minggo.coding.io/cdn/google/$4",
-regex: true
-},
-{
-name: "Gravatar头像 >> 多说",
-from: /^https?:\/\/([0-9]?)\.gravatar\.com\/avatar\/(.*)$/,
-to: "http://gravatar.duoshuo.com/avatar/$1",
 regex: true
 },
 

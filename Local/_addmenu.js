@@ -1,5 +1,5 @@
 
-//2015.07.05 17:00 補齊黑白系圖標
+//2015.07.05 18:00 補齊黑白系圖標
 //2015.07.02 12:00 參考貼吧长丝绾月版加入新功能
 //2015.07.01 21:00 終於折騰出了左中右三鍵
 //2015.06.29 07:00 快捷回覆加入顏文字，換黑白圖標
@@ -110,7 +110,8 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbE
 },
 {
 label: "OCR文字識別",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABOElEQVQ4jaXTsS6EURQE4I9lJYpNREdIVEo2EonH4Dk8AFES1WpXxRNsQrUkGqJSaKhFiEpJRSQUZve/Catxkyn+c2Ymc+9/DrzgAzeYVp0h1IOhoj4d7ke03rCFZYyigVXsoxvsp9YIZzmaN3FbiXsTJ7hHB9tBJ7WTcERz04s0ksYtjrGIWhG7ltpxOM1o+lduJOoRJlMbw1xQT20ynG40/bOGuyLeLA7xhHNMFdxmuGulQTv3rOWRDvEZXMVgJklq4bZ74noi7eR7Dg+FwTuucZmecLu9q43jFLsYxjweC4MeHtMbDvc0Wh08h3CGC7z+YvCa3lm4z9Fa9z0Ue4m2iY0B2AxnL5r18h1aOMCEwWcinJbq1/YHaUk1SAt+DtKCapCWFIP071EetExt1TK1/bFM/1rnL0aZaKARA/d3AAAAAElFTkSuQmCC",
+accesskey: "A",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXElEQVQ4jWNgGCzgPxZMSA2GJKkWEmXAfwYGBg9yDfBgYGCYCcXEWogCjjIwMChDaZIBssY8KCYJ5DGghjhJrlBmwPTjTKg4ToCsAVvAeaCJ0S8dkGQARUl54AAAWsMsNkwmkt8AAAAASUVORK5CYII=",
 oncommand: function() {
 //打開http://apistore.baidu.com/apiworks/servicedetail/146.html，填入apikey
 var apikey = "5887465f000b887614bc3ad930fe1b15";
@@ -194,11 +195,11 @@ image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAv0l
 },
 {
 label: "檢查所有圖片",
-accesskey: "C",
+accesskey: "A",
 oncommand: function() {
 gBrowser.loadURI("javascript:outText='';for(i=0;i<document.images.length;i++){if(outText.indexOf(document.images%5Bi%5D.src)==-1){outText+='<tr><td><img%20src='+document.images%5Bi%5D.src+'></td><td>'+document.images%5Bi%5D.height+'</td><td>'+document.images%5Bi%5D.width+'</td><td>'+document.images%5Bi%5D.src+'</td></tr>'}};if(outText!=''){imgWindow=window.open('','imgWin','width=800,height=600');imgWindow.document.write%20('<table%20border=1%20cellpadding=10><tr><th>Image</th><th>Height</th><th>Width</th><th>URL</th></tr>'+outText+'</table>');imgWindow.document.close()}else{alert('No%20images!')}");
 },
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAv0lEQVR42mNkoBAwUssAByAOB2IOIvX9AeKNQLwFZsBzIJYk0fLXQCwKM+A/1DURQOwMxJ1AfIeAAfeBWBHdgN9AzALEa4A4FEkxDxBrAPEZQgYcB2ILIM4F4ilImrcDsQEQewLxEXwGgIAIEL9B02wD5X9BMgSnASDFyUBcCMSbkTQzIBmiCMSnsRlgA7URZPMHIBbAE/1YXfAZqpmY9IPVgP1EpgFHdAPeA7EgJQkJlIDcSTTgJBDPYBzw3AgApMktEXd8LEwAAAAASUVORK5CYII="
+image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAl0lEQVQ4jWNgGDbgPwMDw3kGBob9ROLjUD0oBpBjKQangYGBYTsDA0MOFg0ixBjgA3WiBZKcAAMDw3yoGgdCBqADGQYGhuVQ+f8MDAzfGRgYeEgxoB1JMwyfJ8UADqghuxkYGD4zMDCsZ2Bg8MBlwHMGBob7UDyfARIOMOdqINmM1VJ0ZyLj6wwMDLeh7MMMeNIBOXg4AADwHkmSVhVYJQAAAABJRU5ErkJggg=="
 },
 // 替換 openImgRar.uc.js
 {
@@ -223,8 +224,10 @@ file.launch();
 },
 
 {command: 'context-sep-copyimage'},
-{label:"重新載入圖片",oncommand:"gContextMenu.reloadImage();",image:
-"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgElEQVQ4jcWSyw2AIBAF5+rNDuyE2AG9WIK1UQpVeMHLEggKLCHRSQgH9u3vAR+wzYovwMwkMZLEjogs4IAgx8ut6uQUgQVWuQNwaCt7EULawa5t3fGcdciFkFWv0UzYS7BITJW3EXKiO82AfIk5K8mdJqWN0UovbyrKj9Qb7UdupJYfIj9YalkAAAAASUVORK5CYII="},
+{label:"重新載入圖片",
+accesskey: "T",
+oncommand:"gContextMenu.reloadImage();",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgElEQVQ4jcWSyw2AIBAF5+rNDuyE2AG9WIK1UQpVeMHLEggKLCHRSQgH9u3vAR+wzYovwMwkMZLEjogs4IAgx8ut6uQUgQVWuQNwaCt7EULawa5t3fGcdciFkFWv0UzYS7BITJW3EXKiO82AfIk5K8mdJqWN0UovbyrKj9Qb7UdupJYfIj9YalkAAAAASUVORK5CYII="},
 {command: 'context-viewimageinfo',image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXklEQVQ4jaVTQQ4AMATzFq/y/49sFxIRoWiyU9eWDaIar+FLsBrwVCgqjEcmYku1Fqya0iSKvQFkgvRrJjiBBGUP5jnk3q2ClkCDzr+QmYzmIJqsJtFjvQsep22E8AGEZDOcIlQ9sgAAAABJRU5ErkJggg=="},
 ];
 var menu = PageMenu({
@@ -450,6 +453,7 @@ var items = [
 
 {
 label: "保存選中文本",
+accesskey: "S",
 condition: "select",
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeElEQVQ4jWNgoBJYz8DA8J8Afs7AwNDOwMDAgs2A/1B6O5IGZHCZgYFBgoGB4ToDA8NqbIbANMzHYcB+KI3TEGINQDaEJBfcxqEeQyACqvg+Gr5MrAHEgkFsgBgDA8N7BkioY8NEGbAfXRKL+CA04DQD4cyEjqkDAH5+TabhljjtAAAAAElFTkSuQmCC",
 oncommand: function() {
@@ -658,6 +662,7 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAApU
 new function() {
 var items = [{
 command: 'context-paste',
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbklEQVQ4jWNgoAFoZWBg+M7AwPAfir9DxUjSKIskLkusQX8YGBj48RjADzUEJ/gPpY8gOR+Gj6CpwWsAMh8bJskAdP51BgaGBkoMEMdnCDEG4PUKIQMIylFsACwdkG0AehIm2QBSFBFtAD5MHQAA8vtEFZXqsUkAAAAASUVORK5CYII=",
 },
 {
 label: "標點符號置換(中轉英)",
@@ -703,6 +708,7 @@ var menu = PageMenu({
 condition: 'input',
 insertBefore: 'context-copy',
 icon: 'input',
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbklEQVQ4jWNgoAFoZWBg+M7AwPAfir9DxUjSKIskLkusQX8YGBj48RjADzUEJ/gPpY8gOR+Gj6CpwWsAMh8bJskAdP51BgaGBkoMEMdnCDEG4PUKIQMIylFsACwdkG0AehIm2QBSFBFtAD5MHQAA8vtEFZXqsUkAAAAASUVORK5CYII=",
 onpopupshowing: function (event){
 Array.slice(event.target.children).forEach(function(elem){
 if(elem.id == "BBCode"){
@@ -845,7 +851,7 @@ clone: false,// 不克隆，直接改在原来的菜單上面
 //Addmenuplus菜單
 app(
 { id: 'addMenu-rebuild', clone :false,image:
-"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXElEQVQ4jWNgGCzgPxZMSA2GJKkWEmXAfwYGBg9yDfBgYGCYCcXEWogCjjIwMChDaZIBssY8KCYJ5DGghjhJrlBmwPTjTKg4ToCsAVvAeaCJ0S8dkGQARUl54AAAWsMsNkwmkt8AAAAASUVORK5CYII="
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQklEQVQ4jWNgoBI4wsDA8B8PPoJF3RFkA/4TsOA/Go2hZxgYQHEgUgzQXYDNRlyuwvQPA3Y/owO8gTgSDaA4FsgGAKDqU/mCtSo8AAAAAElFTkSuQmCC"
 });
 
 //Anobtn圖標

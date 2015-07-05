@@ -1,4 +1,4 @@
-/*+++2015.06.12 14:00+++*/
+/*+++2015.07.04 19:00+++*/
 
 /*按Alt悬浮菜单栏*/
 #toolbar-menubar[inactive="true"]{
@@ -96,3 +96,9 @@ counter-increment: counter !important;
 .tab-close-button:hover::after {
 display: none !important;/*悬浮于关闭按钮时不显示数字*/
 }
+
+/*浏览器界面上下反转：标签栏和导航栏底部
+#browser-panel{-moz-box-direction:reverse!important;}
+#TabsToolbar {-moz-box-ordinal-group: 0 !important;}
+#nav-bar {-moz-box-ordinal-group: 1 !important;}
+*/

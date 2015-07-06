@@ -20,7 +20,9 @@
 | | 神級腳本[ucjsPermission2][7]：利用自带permissions.sqlite管理第三方腳本等。<br>個人[第三方腳本白名單][9] |
 | **userChrome.css** | 優先級較高的CSS文件，作用於于Firefox界面框，優先啓動防界面抖動 |
 
-####[個人Firefox完整包（CingFox）分享](https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox)
+| | |
+| :--- | :--- |
+| CingFox | [個人Firefox完整包（CingFox）分享](https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox) |
 
   [1]: https://github.com/dupontjoy/userChromeJS/blob/master/userContent/setRelativeEditPath.uc.js
   [2]: https://github.com/ywzhaiqi/userChromeJS/tree/master/addmenuPlus

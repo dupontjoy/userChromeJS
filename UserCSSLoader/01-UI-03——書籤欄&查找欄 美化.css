@@ -1,4 +1,4 @@
-/*+++2015.06.16 16:00+++*/
+/*+++2015.07.06 21:00+++*/
 
 /*样式伪进度条
 @-moz-document url-prefix("http://"),url-prefix("https://"){
@@ -28,6 +28,13 @@ width: 450px!important;
 .bookmark-item > .toolbarbutton-icon {
 margin: 0px 0px 0px -2px !important;
 padding: 0px !important;
+}
+
+/*书签文件夹下拉过长显示滚动条 Show ScrollBar On Bookmark Folder*/
+@-moz-document url(chrome://browser/content/browser.xul) {
+	.bookmark-item[container="true"]  scrollbox {
+	overflow-y:auto !important;
+}
 }
 
 /*Oos定制 —— WordHighlightToolbar & 查找栏样式*/

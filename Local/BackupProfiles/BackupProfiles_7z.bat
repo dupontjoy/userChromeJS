@@ -1,5 +1,5 @@
 
-::2015.07.02 18:00  添加刪除項
+::2015.07.05 22:00  添加刪除項
 ::2015.06.30 13:00  加入prefs.js
 ::2015.06.19 16:00  添加重啟
 ::2015.06.12 20:00  先複製後刪除，不影响原文件
@@ -44,10 +44,23 @@ xcopy "%BackDir%\Plugins" %TempFolder%\Plugins\ /s /y /i
 ::需要刪除的项
 del %TempFolder%\chrome\UserScriptLoader\require\  /s /q
 del %TempFolder%\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q
+del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\de\  /s /q
+del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\en-GB\  /s /q
+del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\pl\  /s /q
+del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\ru\  /s /q
+del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\sk\  /s /q
 del %TempFolder%\extensions\support@lastpass.com\platform\Darwin\  /s /q
 del %TempFolder%\extensions\support@lastpass.com\platform\Darwin_x86_64-gcc3\  /s /q
 del %TempFolder%\extensions\support@lastpass.com\platform\Linux_x86_64-gcc3\  /s /q
 del %TempFolder%\extensions\support@lastpass.com\platform\Linux_x86-gcc3\  /s /q
+del %TempFolder%\gm_scripts\picviewer_CE.db  /s /q
+del %TempFolder%\gm_scripts\picviewer_CE.db-shm  /s /q
+del %TempFolder%\gm_scripts\picviewer_CE.db-wal  /s /q
+del %TempFolder%\gm_scripts\YouTube_Auto_Buffer_&_Auto_HD.db  /s /q
+del %TempFolder%\gm_scripts\繞過站點等待、識別碼及登錄.db  /s /q
+del %TempFolder%\gm_scripts\跳过网站等待、验证码及登录.db  /s /q
+del %TempFolder%\gm_scripts\繞過站點等待、識別碼及登錄.db-shm  /s /q
+del %TempFolder%\gm_scripts\跳过网站等待、验证码及登录.db-wal  /s /q
 
 ::以下是文件
 ::bookmarks.html：自動导出的书签備份。

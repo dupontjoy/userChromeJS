@@ -1,4 +1,4 @@
-/*+++2015.05.29 07:00+++*/
+/*+++2015.07.06 21:00+++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄&工具欄===*/
@@ -9,6 +9,9 @@
 #nav-bar-overflow-button {
 display: none !important;
 }
+
+/*隐藏identity bar*/
+#identity-icon-labels, #identity-popup {display: none!important; }
 
 /*===标签栏隐藏项===*/
 [class="scrollbutton-up"],/*标签占满时的左箭头*/
@@ -102,16 +105,16 @@ display: none !important;
 /*隐藏项 - 地址栏右键*/
 #urlbar menuitem[label="復原"],
 #urlbar menuitem[label="剪下"],
-#urlbar menuitem[label="複製"],
 #urlbar menuitem[label="刪除"],
 #urlbar menuitem[label="撤销"],
 #urlbar menuitem[label="剪切"],
-#urlbar menuitem[label="复制"],
 #urlbar menuitem[label="删除"],
 #urlbar menuitem[label="Undo"],
 #urlbar menuitem[label="Cut"],
-#urlbar menuitem[label="Copy"],
-#urlbar menuitem[label="Delete"] {
+#urlbar menuitem[label="Delete"],
+#urlbar menuitem[cmd="cmd_undo"],
+#urlbar menuitem[cmd="cmd_cut"],
+#urlbar menuitem[cmd="cmd_delete"] {
 display: none !important;
 }
 

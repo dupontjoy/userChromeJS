@@ -1,4 +1,4 @@
-/*+++2015.07.03 14:00+++*/
+/*+++2015.07.06 22:00+++*/
 
 /*地址栏图标排序*/
 #bookmarks-menu-button {-moz-box-ordinal-group: 1 !important;}
@@ -13,9 +13,9 @@
 #userChromebtnMenu {-moz-box-ordinal-group: 10 !important;}
 
 /*图标对齐*/
-#gm_general_menu {
+#AutoClick-enable-menuitem {
 padding: 0px !important;
-margin-left: 6px !important;
+margin-left: 2px !important;
 }
 
 /*調整圖標邊框——方法1*/
@@ -46,11 +46,9 @@ toolbarbutton#ucjsPermission_Toolmenu,toolbarbutton#ucjsPermission_Toolmenu>imag
 toolbarbutton#lpt_lastpass-compact-btn,toolbarbutton#lpt_lastpass-compact-btn>image {padding: 0px !important;margin:0px !important;}
 
 /*五角星書籤圖標邊框及左右距離*/
-#bookmarks-menu-button .toolbarbutton-icon {
-padding: 0px !important;
-margin-left: 5px !important;
-margin-right: 5px !important;
-border-right:1px #BBC2C8 solid !important;
+#bookmarks-menu-button>.toolbarbutton-menubutton-button{
+margin-left: -6px !important;
+margin-right: -6px !important;
 }
 
 /*附加组件调序*/
@@ -78,9 +76,6 @@ border-right:1px #BBC2C8 solid !important;
 #context-pasteandgo-forms {
 -moz-box-ordinal-group: 0 !important;
 }
-
-/*新標籤打開菜單順序置頂*/
-#context-openlinkintab {-moz-box-ordinal-group: 0 !important;}
 
 /*幾個qrCreator菜單順序靠後*/
 #FeiRuoMouse_QRCreator,[label="生成QR码 : 选区文本"],[label="生成QR码 : 当前网址"],[label="生成QR码 : 图象地址"],[label="生成QR码 : 链接地址"] {-moz-box-ordinal-group: 5 !important;}

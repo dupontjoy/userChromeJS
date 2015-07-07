@@ -1,5 +1,5 @@
 
-//2015.07.05 18:00 補齊黑白系圖標
+//2015.07.07 16:00 補齊黑白系圖標
 //2015.07.02 12:00 參考貼吧长丝绾月版加入新功能
 //2015.07.01 21:00 終於折騰出了左中右三鍵
 //2015.06.29 07:00 快捷回覆加入顏文字，換黑白圖標
@@ -55,7 +55,7 @@ popup.appendChild(m);
 //右鍵搜索圖片 以圖搜圖
 var imagesub = PageMenu({
 label: "以圖搜圖",
-accesskey: "I",
+accesskey: "P",
 condition: "image",
 where: "tab",
 insertBefore: "context-viewimage",
@@ -756,9 +756,10 @@ onclick: "var code = ['UTF-8', 'Big5', 'GBK']; BrowserSetForcedCharacterSet(code
 },
 
 {
+//代碼來源：https://getpocket.com/welcome?b=Bookmarklet
 label: "+ Pocket",
 oncommand: function() {
-gBrowser.loadURI("javascript:(function(){var%20e=function(t,n,r,i,s){var%20o=[8444021,4186837,9422079,3587501,1930633,2159150,1068322,4393503,2787864,3698723];var%20i=i||0,u=0,n=n||[],r=r||0,s=s||0;var%20a={'a':97,'b':98,'c':99,'d':100,'e':101,'f':102,'g':103,'h':104,'i':105,'j':106,'k':107,'l':108,'m':109,'n':110,'o':111,'p':112,'q':113,'r':114,'s':115,'t':116,'u':117,'v':118,'w':119,'x':120,'y':121,'z':122,'A':65,'B':66,'C':67,'D':68,'E':69,'F':70,'G':71,'H':72,'I':73,'J':74,'K':75,'L':76,'M':77,'N':78,'O':79,'P':80,'Q':81,'R':82,'S':83,'T':84,'U':85,'V':86,'W':87,'X':88,'Y':89,'Z':90,'0':48,'1':49,'2':50,'3':51,'4':52,'5':53,'6':54,'7':55,'8':56,'9':57,'\/':47,':':58,'?':63,'=':61,'-':45,'_':95,'&':38,'$':36,'!':33,'.':46};if(!s||s==0){t=o[0]+t}for(var%20f=0;f<t.length;f++){var%20l=function(e,t){return%20a[e[t]]?a[e[t]]:e.charCodeAt(t)}(t,f);if(!l*1)l=3;var%20c=l*(o[i]+l*o[u%o.length]);n[r]=(n[r]?n[r]+c:c)+s+u;var%20p=c%(50*1);if(n[p]){var%20d=n[r];n[r]=n[p];n[p]=d}u+=c;r=r==50?0:r+1;i=i==o.length-1?0:i+1}if(s==411){var%20v='';for(var%20f=0;f<n.length;f++){v+=String.fromCharCode(n[f]%(25*1)+97)}o=function(){};return%20v+'0374af0ddd'}else{return%20e(u+'',n,r,i,s+1)}};var%20t=document,n=t.location.href,r=t.title;var%20i=e(n);var%20s=t.createElement('script');s.type='text/javascript';s.src='https://getpocket.com/b/r4.js?h='+i+'&u='+encodeURIComponent(n)+'&t='+encodeURIComponent(r);e=i=function(){};var%20o=t.getElementsByTagName('head')[0]||t.documentElement;o.appendChild(s)})()");
+gBrowser.loadURI("javascript:(function(){var%20e=function(t,n,r,i,s){var%20o=[2035120,3068561,4746347,4970120,6888016,4880111,6690539,6153817,4568836,2928202];var%20i=i||0,u=0,n=n||[],r=r||0,s=s||0;var%20a={'a':97,'b':98,'c':99,'d':100,'e':101,'f':102,'g':103,'h':104,'i':105,'j':106,'k':107,'l':108,'m':109,'n':110,'o':111,'p':112,'q':113,'r':114,'s':115,'t':116,'u':117,'v':118,'w':119,'x':120,'y':121,'z':122,'A':65,'B':66,'C':67,'D':68,'E':69,'F':70,'G':71,'H':72,'I':73,'J':74,'K':75,'L':76,'M':77,'N':78,'O':79,'P':80,'Q':81,'R':82,'S':83,'T':84,'U':85,'V':86,'W':87,'X':88,'Y':89,'Z':90,'0':48,'1':49,'2':50,'3':51,'4':52,'5':53,'6':54,'7':55,'8':56,'9':57,'\/':47,':':58,'?':63,'=':61,'-':45,'_':95,'&':38,'$':36,'!':33,'.':46};if(!s||s==0){t=o[0]+t}for(var%20f=0;f<t.length;f++){var%20l=function(e,t){return%20a[e[t]]?a[e[t]]:e.charCodeAt(t)}(t,f);if(!l*1)l=3;var%20c=l*(o[i]+l*o[u%o.length]);n[r]=(n[r]?n[r]+c:c)+s+u;var%20p=c%(50*1);if(n[p]){var%20d=n[r];n[r]=n[p];n[p]=d}u+=c;r=r==50?0:r+1;i=i==o.length-1?0:i+1}if(s==269){var%20v='';for(var%20f=0;f<n.length;f++){v+=String.fromCharCode(n[f]%(25*1)+97)}o=function(){};return%20v+'e8dd7f9d42'}else{return%20e(u+'',n,r,i,s+1)}};var%20t=document,n=t.location.href,r=t.title;var%20i=e(n);var%20s=t.createElement('script');s.type='text/javascript';s.src='https://getpocket.com/b/r4.js?h='+i+'&u='+encodeURIComponent(n)+'&t='+encodeURIComponent(r);e=i=function(){};var%20o=t.getElementsByTagName('head')[0]||t.documentElement;o.appendChild(s)})()");
 },
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABAklEQVQ4jWN44Rz0nxLMQFUD3iTm/X+bX40Xv0nIxW7Ax67J/4kFH9onYBrwbcc+og34tnU3FgN27v///////3+ePv//+849DE2/bt39/+f5S4gB2/bgNuBj3/T/Lz3D//88cwGu+efp8/9feob//zRpNmED/n3+8v9tZinEkNMX4Jrf5pT///flKx4DkMIA2RB0zZAw2IVpwNc1m1H8/O/zl/9vs8r+v82pQNH8/////19WrMc04G1uJWZw//uHVextZin2hPR5zhIskYYKPs1YgD8pvytr/P/z0jVU2//9+//zwpX/70rqic8LL/1i/r9JL/7/Jq34/0vfaDplJnIwAOYABoVuT3JbAAAAAElFTkSuQmCC"
 },
@@ -806,13 +807,14 @@ menu(items);
 };
 
 page({
-label:"拼寫檢查",
+label:"此頁拼寫檢查",
 accesskey: "A",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVQ4je2Q0Q2AQAhD3y4uwzTsw0A31/nDmUowJvqpTfig0JY7+KFwYEg/gJl1xRtlEMAm/UJIiBUNpChy6E3SbExPiJvlldwamIiWWV32vNLlwiMkCmnJ6ROiiNpPfIz5sj6PHbYtNU5+tMktAAAAAElFTkSuQmCC",
 insertBefore: "context-viewsource",
 condition: 'normal',
 tooltiptext: "拼寫檢查（當前窗口打開）！",
-oncommand: function() {document.onkeydown=ck;content.document.body.contentEditable=true;function ck(e){k=window.event?window.event.keyCode:e.keyCode;if(k==27){content.document.body.contentEditable=false}}},
+oncommand: "content.document.body.contentEditable = content.document.body.contentEditable == \"true\" ? \"false\" : \"true\";"
+//oncommand: function() {document.onkeydown=ck;content.document.body.contentEditable=true;function ck(e){k=window.event?window.event.keyCode:e.keyCode;if(k==27){content.document.body.contentEditable=false}}},
 })
 
 /*

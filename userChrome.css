@@ -1,6 +1,14 @@
-/*+++2015.07.02 20:00+++*/
+/*+++2015.07.06 21:00+++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
+
+/*工具栏图标倒三角下拉选项隐藏*/
+.toolbarbutton-menubutton-dropmarker, .toolbarbutton-menu-dropmarker { display:none !important; }
+
+/*地址栏下拉栏隐藏*/
+.urlbar-history-dropmarker {
+	display:none!important;
+}
 
 /*调节标签的宽度*/
 .tabbrowser-tab[fadein]:not([pinned]) {

@@ -1,7 +1,8 @@
 
-//2015.06.29 15:00
+//2015.07.07 16:00
 
 //F功能鍵
+keys['F5'] = "BrowserReloadSkipCache();";//跳过缓存刷新页面
 
 //数字
 keys['1'] = "gBrowser.selectedTab = gBrowser.addTab('https://www.google.com/ncr');";//Google    
@@ -58,6 +59,8 @@ Components.classes["@mozilla.org/file/directory_service;1"].getService(Component
 
 //組合鍵
 keys['Alt+A'] = "XULBrowserWindow.statusTextField.label = 'Adblock Plus 條件偏好設定'; gBrowser.selectedTab = gBrowser.addTab('chrome://adblockplus/content/ui/filters.xul');";
+
+keys['Alt+P'] = "gBrowser.selectedTab = gBrowser.addTab('https://getpocket.com/a/queue/list/');";//Pocket
 
 keys["Alt+R"] = "Services.appinfo.invalidateCachesOnRestart() || Application.restart();"; //删除启动缓存并重启
 

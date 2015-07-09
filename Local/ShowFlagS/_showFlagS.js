@@ -50,6 +50,7 @@ var RefererChange = {
 //2014.11.25 增加chiphell,niunews
 //2014.11.09 增加pconline和postimg
     //自定义
+    'bjguahao.gov.cn': '@BLOCK',//从其它网址跳转打不开
     'bimg.126.net': '@FORGE',
     'tankr.net': '@FORGE',
     '51cto.com': '@FORGE',

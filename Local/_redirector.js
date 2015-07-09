@@ -1,7 +1,5 @@
 
-//2015.07.04 10:00 科大恢復
-//2015.06.05 07:00 簡化ajax(https) >> github
-//2015.06.04 21:00 http走useso，https走github
+//2015.07.07 21:00 http和https都走useso
 //2015.06.03 18:00 完成ajax >> github，重新分組12306的js文件
 //2015.05.27 22:00 找回Google服務轉國內鏡像
 //2015.04.25 08:00 新增Google搜天氣時 圖標
@@ -14,7 +12,7 @@
 //2015.02.17 14:00 新增12306重定向JS
 //2015.01.24 14:00 添加京東，天貓大圖規則
 
-
+//Redirector說明頁面：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
 
 rules = [
@@ -179,12 +177,12 @@ regex: true
 
 //Google服務轉國內鏡像
 {
-name: "ajax|fonts(http) >> useso",
-from: /^http:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
+name: "ajax|fonts(https?) >> useso",
+from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "http://$1.useso.com/$2",
 regex: true
 },
-{
+/*{
 //参考：https://servers.ustclug.org/2014/06/blog-googlefonts-speedup/
 name: "ajax|fonts(https) >> 科大",
 from: /^https:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
@@ -202,7 +200,7 @@ name: "fonts-gstatic >> 科大",
 from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
 to: "https://fonts-gstatic.lug.ustc.edu.cn/$1",
 regex: true
-},
+},*/
 /*{
 //自制。參考https://developers.google.com/speed/libraries/
 name: "ajax(https) >> github",

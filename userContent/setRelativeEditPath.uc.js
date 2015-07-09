@@ -6,7 +6,7 @@
 
 location == 'chrome://browser/content/browser.xul' && (function(){
 
-    var PATH1 = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\Notepad2\\Notepad2.exe";
+    var PATH1 = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Notepad2\\Notepad2.exe";
     
     var PATH2 = Services.dirsvc.get("TmpD", Ci.nsIFile).path;
     

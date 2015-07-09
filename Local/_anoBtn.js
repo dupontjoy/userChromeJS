@@ -1,5 +1,5 @@
 
-//2015.07.01 18:00 調整文件夾結構
+//2015.07.07 22:00 調整文件夾結構
 //2015.06.06 12:00 精簡並換一些圖標
 //2015.05.31 18:00 加入更新IP批處理
 //2015.05.08 09:00 加入SumatraPDF
@@ -111,31 +111,31 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADIE
 child: [
 {
 label: "Goagent",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GFW\\Goagent\\local\\goagent.exe",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Goagent\\local\\goagent.exe",
 },{},
 {
 label: "更新proxy.ini",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GFW\\IP-Update\\更新IP.bat",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\IP-Update\\更新IP.bat",
 },{},
 {
 label: "打開Goagent文件夾",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GFW\\Goagent\\local",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Goagent\\local",
 },{},
 {
 label: "GoGo Tester",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GFW\\GoGo Tester\\GoGo Tester.exe",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\GoGo Tester\\GoGo Tester.exe",
 },{},
 {
 label: "Shadowsocks",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GFW\\Shadowsocks\\Shadowsocks.exe",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Shadowsocks\\Shadowsocks.exe",
 },{},
 {
 label: "Freegate",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GFW\\Freegate\\fg.exe",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Freegate\\fg.exe",
 },{},
 {
 label: "Psiphon",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\GFW\\psiphon\\psiphon3.exe",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\psiphon\\psiphon3.exe",
 },
 ]
 },
@@ -150,13 +150,13 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABwU
 child: [
 {
 label: "SumatraPDF",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Plugins\\SumatraPDF.exe",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Plugins\\SumatraPDF.exe",
 },{},{
 label: "PicPick",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\Other\\PicPick\\PicPick.exe",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\PicPick\\PicPick.exe",
 },{},{
 label: "ScreenToGif",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "..\\..\\Software\\Other\\ScreenToGif.exe",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\ScreenToGif.exe",
 },]
 },]
 }, {},

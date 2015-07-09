@@ -1,5 +1,5 @@
 
-//2015.07.07 16:00
+//2015.07.08 16:00
 
 //F功能鍵
 keys['F5'] = "BrowserReloadSkipCache();";//跳过缓存刷新页面
@@ -60,8 +60,6 @@ Components.classes["@mozilla.org/file/directory_service;1"].getService(Component
 //組合鍵
 keys['Alt+A'] = "XULBrowserWindow.statusTextField.label = 'Adblock Plus 條件偏好設定'; gBrowser.selectedTab = gBrowser.addTab('chrome://adblockplus/content/ui/filters.xul');";
 
-keys['Alt+P'] = "gBrowser.selectedTab = gBrowser.addTab('https://getpocket.com/a/queue/list/');";//Pocket
-
 keys["Alt+R"] = "Services.appinfo.invalidateCachesOnRestart() || Application.restart();"; //删除启动缓存并重启
 
 keys['Alt+W'] = "gWHT.addWord();";//WordHighlight添加詞
@@ -71,7 +69,6 @@ gWHT.destroyToolbar();//WordHighlight取消工具栏
 };
 
 keys['Alt+F1'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键
-
 
 
 //keys['Ctrl+F'] = function() {var path = addMenu.handleRelativePath('\\chrome\\local\\FSCapture\\FSCapture.exe');addMenu.exec(path, []);};//启动FSCapture

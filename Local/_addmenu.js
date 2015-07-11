@@ -1,5 +1,6 @@
 
-//2015.07.07 16:00 補齊黑白系圖標
+//2015.07.11 10:00 補齊黑白系圖標
+//2015.07.09 18:00 加入閱讀模式
 //2015.07.02 12:00 參考貼吧长丝绾月版加入新功能
 //2015.07.01 21:00 終於折騰出了左中右三鍵
 //2015.06.29 07:00 快捷回覆加入顏文字，換黑白圖標
@@ -627,7 +628,7 @@ page({
 label: "QQmail~~~",
 input_text: "dupontjoy@qq.com",
 accesskey: "3",
-image: " https://mail.qq.com/favicon.ico",
+image: "https://mail.qq.com/favicon.ico",
 insertBefore: "QuickReply-sep",
 });
 page({
@@ -761,11 +762,11 @@ label: "+ Pocket",
 oncommand: function() {
 gBrowser.loadURI("javascript:(function(){var%20e=function(t,n,r,i,s){var%20o=[2035120,3068561,4746347,4970120,6888016,4880111,6690539,6153817,4568836,2928202];var%20i=i||0,u=0,n=n||[],r=r||0,s=s||0;var%20a={'a':97,'b':98,'c':99,'d':100,'e':101,'f':102,'g':103,'h':104,'i':105,'j':106,'k':107,'l':108,'m':109,'n':110,'o':111,'p':112,'q':113,'r':114,'s':115,'t':116,'u':117,'v':118,'w':119,'x':120,'y':121,'z':122,'A':65,'B':66,'C':67,'D':68,'E':69,'F':70,'G':71,'H':72,'I':73,'J':74,'K':75,'L':76,'M':77,'N':78,'O':79,'P':80,'Q':81,'R':82,'S':83,'T':84,'U':85,'V':86,'W':87,'X':88,'Y':89,'Z':90,'0':48,'1':49,'2':50,'3':51,'4':52,'5':53,'6':54,'7':55,'8':56,'9':57,'\/':47,':':58,'?':63,'=':61,'-':45,'_':95,'&':38,'$':36,'!':33,'.':46};if(!s||s==0){t=o[0]+t}for(var%20f=0;f<t.length;f++){var%20l=function(e,t){return%20a[e[t]]?a[e[t]]:e.charCodeAt(t)}(t,f);if(!l*1)l=3;var%20c=l*(o[i]+l*o[u%o.length]);n[r]=(n[r]?n[r]+c:c)+s+u;var%20p=c%(50*1);if(n[p]){var%20d=n[r];n[r]=n[p];n[p]=d}u+=c;r=r==50?0:r+1;i=i==o.length-1?0:i+1}if(s==269){var%20v='';for(var%20f=0;f<n.length;f++){v+=String.fromCharCode(n[f]%(25*1)+97)}o=function(){};return%20v+'e8dd7f9d42'}else{return%20e(u+'',n,r,i,s+1)}};var%20t=document,n=t.location.href,r=t.title;var%20i=e(n);var%20s=t.createElement('script');s.type='text/javascript';s.src='https://getpocket.com/b/r4.js?h='+i+'&u='+encodeURIComponent(n)+'&t='+encodeURIComponent(r);e=i=function(){};var%20o=t.getElementsByTagName('head')[0]||t.documentElement;o.appendChild(s)})()");
 },
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABAklEQVQ4jWN44Rz0nxLMQFUD3iTm/X+bX40Xv0nIxW7Ax67J/4kFH9onYBrwbcc+og34tnU3FgN27v///////3+ePv//+849DE2/bt39/+f5S4gB2/bgNuBj3/T/Lz3D//88cwGu+efp8/9feob//zRpNmED/n3+8v9tZinEkNMX4Jrf5pT///flKx4DkMIA2RB0zZAw2IVpwNc1m1H8/O/zl/9vs8r+v82pQNH8/////19WrMc04G1uJWZw//uHVextZin2hPR5zhIskYYKPs1YgD8pvytr/P/z0jVU2//9+//zwpX/70rqic8LL/1i/r9JL/7/Jq34/0vfaDplJnIwAOYABoVuT3JbAAAAAElFTkSuQmCC"
+image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAvElEQVQ4jcXSIXICQRCF4a+KqhWYOUE8Zs+A4hYcBBmzEoNGIlHY2NwhMi4mKmoliG4xbC3FhlCV30zVTM+b97qHJ9LjC2/YYPFbgXleWqHDJ96xfNTRDOsU2ucDD1FwSjflL252KXLTSY8PbN1u4EHEGaVBKybwbTx3ET2529iCoxhpMzhbiyiTOIrsNbN00U4RKOJzDYs7vA6LO/zkWrMRja1ZiXhX9DinSE0rplPzks4mOWhS/N7eP3EBkgkmEdZryUkAAAAASUVORK5CYII="
 },
 {label: '收藏到百度雲',
 tooltiptext: "左鍵：收藏到百度云\n右鍵：收藏到百度相册",
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABYElEQVRIiWPgbD78n5aYYXhaINh+9H/Yqmv/Ww4+/B+37sZ/hf6TGGokuo/D1YStuvZfsP0ocRboTD39/+KLL//Rwbprr/+Ldh77z9t65P/0U88w5B+8//7fes55/BYIth/9f+PNNwzNMHD00cf/m268wSn/4fvv/zK9J3BbULn7Hk7NxILpp57htmDXnXcUW3DjzTfcFnz++YdiC/7//4/bgg/ff9PWAnwRSCy4+OILbgsKd9yh2IL+409wWyDRffz/i88/yTb8+++//zUmn8af0ZI23CTbgsb9D4grKg4++ECy4VdffcVaXGC1QLTz2P+jjz4SbfiNN9+wlld4S1PRzmN4iw0YePH553+ViafIK64V+k9iLfhg4M7b7/8Npp0hvbhG9wm2/HHwwQeMgo0sC2C4du/9/7///vv//////91HH//nbT1ClD6SajTnBRf/+y27QrR6ki0gBw99CwCR55zq4ZIcmgAAAABJRU5ErkJggg==",
+image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB40lEQVQ4jXVSz4tPURT/TL68e9/k3de39333ns/BAgspi68miRJ/AAtRJMpGKUWz0NRQzAwzCWFBsrTwt1CUUiMjMgqzs7F+Fu6bufO+5qzuPed+fpxzD9AJkodIDrv5EMLeEMKxbn41iqLok3wBoAHQkLyYgE+1+SzLFuu69uvAInI+gh5XVbWV5J54f6Kqd+J5CMCSXLDW/hGRSwDGUBTFm7Isv4nIRKeVYasqIkfSmvd+X57nP6213yEiVwE0IYQDsb5JVScBNKo6qaqX4/kGgM0JwW9VvdmqHY9K16y1P4wxy977na1iv9/f1uv1fuV5vkLySmzpTHf6863lEMKgO+SyLMs8z1ci+Glay1T1eXQwoaoPI8kFAGMAoKqnY/0ZyaFz7ouqviSZQ1WnATR1Xe9K3OwH0BRF8cE59y6qHk7q22NuAQC2iMhsVDiXPDqBtZ04m3z5yZi7D8Cu9tE6McZ8VtW70cFr59zb+AuPSL5KwOuD5JSIPCA5Y4xZCiEMSE6RnC/LsjTGfCJ5j+TtOPARguvGmOWqqiQlTR9XVSXGmK8kb40QeO/HRWQu2p3Gv7VtCWzboojMee/HRwgS1R1Zln0E0Djn3jvnFuNslgaDwe4Ngf9xdBBri3V0o3d/AaQafE2/njBpAAAAAElFTkSuQmCC",
 onclick: function(e){
 switch(e.button){
 case 0:
@@ -778,6 +779,13 @@ break;
 },
 },
 {},
+{
+label: "閱讀模式",
+accesskey: "R",
+insertBefore: "context-viewsource",
+url:"about:reader?url=%u",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcElEQVQ4je3SsQnDMBCF4a9KoSaTuNM4GSIjeIE0qTWT2ozi0imkBGNsocqYkAcHx/3wuOLnLIl4IGOq88ITtwaLn4IZYz0EXOs+brCwYt+CvXSxf8HPFCTFsKVtqYOhaHrHgIti21BvU4PlxncH5Q0Y/znXzG7xKgAAAABJRU5ErkJggg=="
+},
 {
 label:"在侧边栏中打開",
 oncommand:"openWebPanel(content.document.title, content.location);",
@@ -896,7 +904,7 @@ app(
 //頁面右鍵 添加到字典
 app(
 { id: 'spell-add-to-dictionary', clone :false,image:
-"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcElEQVQ4je3SsQnDMBCF4a9KoSaTuNM4GSIjeIE0qTWT2ozi0imkBGNsocqYkAcHx/3wuOLnLIl4IGOq88ITtwaLn4IZYz0EXOs+brCwYt+CvXSxf8HPFCTFsKVtqYOhaHrHgIti21BvU4PlxncH5Q0Y/znXzG7xKgAAAABJRU5ErkJggg=="
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbklEQVQ4jZ1SwQ0AIQjrLizDNO7DQDeX9+GMR0CtTRqTBpoCAhw6ACV7BhSAOa/wABB/l+iJNjc2J2XQXP+4TBENJNHM9V9TxWxxmmhlAhqZgYVU9BLjzNtT7gzozxRHuDKII0hRe2xAJzi+AoUXqVMteWRFMNQAAAAASUVORK5CYII="
 });
 
 //頁面右鍵 還原「新增到字典」
@@ -944,7 +952,7 @@ app(
 //書簽右鍵 刪除
 app(
 { id: 'placesContext_delete', clone :false,image:
-"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaUlEQVQ4jc2SMQ6AMAwD72E8ow/h7x06mqkIRYakYgBLWVr5UieFP0mLZQErzfyhoAuaudwEvQJognGFTLNgTwERYsw5IECiuQyYnYeZSRrhfLabySPAZTaQdI0x8wkpRSjoFvDqK3+jA/GGavGQYz2lAAAAAElFTkSuQmCC"
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAY0lEQVQ4jWNgGEzgP4kYqwGkWIZT8DMDA0MIFnkbqBxBA0IYGBi+oxkC01xAjAHohqBrJsoAZEPQNRNtAMxmdO8QZQCys7GFCV4DsPkZ3RCC0YjuZ2RDCBpADMBpAEVJeWAAAMJDQxk7lwhpAAAAAElFTkSuQmCC"
 });
 
 //書簽右鍵 菜單属性

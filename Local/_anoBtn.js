@@ -74,19 +74,19 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACn0
 child: [{
 label: "備份Firefox配置",
 tooltiptext: "自動备份火狐常用配置文件，如果你有额外的文件或文件夹需要备份，请修改BackupProfiles_7z.bat文件。注意备份将關闭Firefox！",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\chrome\\local\\BackupProfiles\\BackupProfiles_7z.bat",
+exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\local\\BackupProfiles\\BackupProfiles_7z.bat",
 }, {},{
 label: "備份QingFox完整包",
 tooltiptext: "一鍵打包QingFox完整包。注意备份将關闭Firefox！",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\chrome\\local\\BackupProfiles\\BackupFullProfiles_7z.bat",
+exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\local\\BackupProfiles\\BackupFullProfiles_7z.bat",
 } , {},{
 label: "備份插件和軟件包",
 tooltiptext: "一鍵打包插件和軟件包。",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\chrome\\local\\BackupProfiles\\BackupPlugins-n-Software_7z.bat",
+exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\local\\BackupProfiles\\BackupPlugins-n-Software_7z.bat",
 } , {},{
 label: "提取Flash32位插件",
 tooltiptext: "一鍵提取Flash32位插件。注意需要先安装Flash軟件！",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\chrome\\local\\BackupProfiles\\提取Flash32位插件.bat",
+exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\local\\BackupProfiles\\提取Flash32位插件.bat",
 },]
 },{},{
 label: '外部打開',

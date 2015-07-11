@@ -1,4 +1,16 @@
-//2015.04.02 09:00 必应美图改到配置文件夹下
+//==UserScript==
+// @name         BingDesktopThemeEveryDay.uc.js
+// @description  每天第一次运行Firefox，将下载Bing首页背景，并设置为系统桌面背景。每天換背景，天天好心情，哦㖿！
+// @author       527836355
+// @include      main
+// @charset      utf-8
+// @version      1.0
+// @downloadURL  https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/BingDesktopThemeEveryDay/BingDesktopThemeEveryDay.uc.js
+// @homepageURL  https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/BingDesktopThemeEveryDay
+
+// @note         2015.04.02 09:00 必应美图改到配置文件夹下
+
+//==/UserScript==
 
 function  setBingTheme()
 {

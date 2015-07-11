@@ -1,4 +1,4 @@
-/*+++2015.07.06 22:00+++*/
+/*+++2015.07.10 18:00+++*/
 
 /*地址栏图标排序*/
 #bookmarks-menu-button {-moz-box-ordinal-group: 1 !important;}
@@ -49,6 +49,11 @@ toolbarbutton#lpt_lastpass-compact-btn,toolbarbutton#lpt_lastpass-compact-btn>im
 #bookmarks-menu-button>.toolbarbutton-menubutton-button{
 margin-left: -6px !important;
 margin-right: -6px !important;
+}
+
+/*橫排菜單修正*/
+#contentAreaContextMenu > menugroup:nth-child(2) {
+padding: 0px !important;
 }
 
 /*附加组件调序*/

@@ -9,7 +9,7 @@
 | **Local** | 一些腳本的配置文件，[設置Notepad2爲默認編輯器][1]和[備份批處理][8] |
 | | _addmenu.js：[Addmenuplus][2]配置，圖標外置，統一整合在CSS文件中 |
 | | _keychanger.js：鍵盘快捷操作 |
-| | _redirector.js：[Redirector.uc.js][4]規則 |
+| | _redirector.js：[Redirector][4]規則 |
 | **SubScript** | 一般功能性腳本 |
 | **TabMixPlus** | 與Firefox界面相關腳本 |
 | **UCJSFiles** | 配置外置的腳本+庫 |
@@ -26,7 +26,7 @@
 
   [1]: https://github.com/dupontjoy/userChromeJS/blob/master/userContent/setRelativeEditPath.uc.js
   [2]: https://github.com/ywzhaiqi/userChromeJS/tree/master/addmenuPlus
-  [4]: https://github.com/Drager-oos/userChrome/blob/master/MainScript/Redirector.uc.js
+  [4]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
   [5]: https://github.com/dupontjoy/userChromeJS/blob/master/UCJSFiles/UserCSSLoader_ModOos.uc.js
   [6]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/localMark.uc.xul
   [7]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/ucjsPermission2.uc.xul

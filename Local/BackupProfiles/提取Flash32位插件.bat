@@ -1,11 +1,61 @@
 
+::2015.07.11 22:00  加入選項
 ::2015.06.27 11:00  添加提取時間
 ::2015.06.25 13:00  實現獲取Flash版本號
 ::2015.06.23 18:00  Create
 
-echo off
-Title 提取Flash32位插件
-rem 設置備份路徑以及臨時文件夾
+@echo off
+Title 提取Flash32位插件 by Cing
+::color 2E
+echo.
+echo    *** 提取Flash32位插件 ***
+echo.
+echo ============================================================
+echo    **注意：
+echo.
+echo    1.需要先安装非IE的Adobe Flash Player插件！
+echo.
+echo    2.本批处理用以提取32位插件，并打包
+echo.
+echo    3.如需提取64位Flash，请修改BackDir位置
+echo.
+echo    Edit By yndoc！
+echo.
+echo    Mod By Cing(Dupontjoy)
+echo.
+echo    按任意键继续……
+echo =============================================================
+pause>nul
+cls
+echo.
+echo   1、到官方下载非IE版Flash插件安装后提取！
+echo.
+echo   2、已经安装非IE版Flash插件的直接提取！
+echo.
+echo   3、退出此批处理。
+echo.
+echo.
+
+set /p id=请选择，按回车键执行:
+cls
+
+if "%id%"=="1" goto install
+if "%id%"=="2" goto set
+if "%id%"=="3" goto exit
+
+:install
+echo.
+echo    按任意键进入Flash官方下载地址……
+echo.
+pause>nul&start "" http://www.adobe.com/in/products/flashplayer/distribution3.html
+cls
+echo.
+echo    *请暂时不要关闭该批处理……
+echo.
+echo    *如果您已安装完毕Adobe Flash Player插件，请按任意键继续……
+pause>nul
+
+:set
 cd /d %~dp0
 set BackDir=C:\Windows\SysWOW64\Macromed\Flash
 set TempFolder=D:\Flash32

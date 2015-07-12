@@ -5,7 +5,7 @@
 ::2015.06.12 18:00  Create
 
 echo off
-Title QingFox完整包制作
+Title QingFox完整包制作 by Cing
 ECHO.&ECHO.即將開始Firefox完整包制作。需要關閉Firefox程序，請保存必要的資料! 按任意鍵繼續！&PAUSE >NUL 2>NUL
 
 rem 設置備份路徑以及臨時文件夾

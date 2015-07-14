@@ -2,7 +2,7 @@
 
 目前配置中，正在使用的腳本
 
-![chrome-folder][10]
+<img width="650" src="https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/CingFox/img/chrome-folder.jpg">
 
 | | |
 | :--- | :--- |
@@ -32,5 +32,4 @@
   [7]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/ucjsPermission2.uc.xul
   [8]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/BackupProfiles_7z
   [9]: https://github.com/dupontjoy/customization/blob/master/Rules/ucjsPermission-Whitelist.txt
-  [10]: https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/CingFox/img/chrome-folder.jpg
   

@@ -1,5 +1,5 @@
 
-//2015.07.16 10:00 加入鏈接右鍵雲播放
+//2015.07.16 12:00 加入鏈接右鍵雲播放（在指定網站顯示菜單）
 //2015.07.11 10:00 補齊黑白系圖標
 //2015.07.09 18:00 加入閱讀模式
 //2015.07.02 12:00 參考貼吧长丝绾月版加入新功能
@@ -734,7 +734,11 @@ insertAfter: "context-copylink",
 condition: "link",
 url:"http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=%RLINK_OR_URL%",
 where: 'tab',
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcklEQVQ4jd3SsQ2DMBBG4U9iAIagYQcKaiZhGpqswyDZwE2GMI1BVmQjFKRIyZOuu/9Zvjv+hgkBsVIh9ew0eOSCgOHkgSH1QIs1iQ/ie6JARIcnlk8FAXMpc0XwwljLXBXkc/r+FyJ6lSHeXuPtQ/phNpewMd4q2yEXAAAAAElFTkSuQmCC"
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcklEQVQ4jd3SsQ2DMBBG4U9iAIagYQcKaiZhGpqswyDZwE2GMI1BVmQjFKRIyZOuu/9Zvjv+hgkBsVIh9ew0eOSCgOHkgSH1QIs1iQ/ie6JARIcnlk8FAXMpc0XwwljLXBXkc/r+FyJ6lSHeXuPtQ/phNpewMd4q2yEXAAAAAElFTkSuQmCC",
+onshowing: function(menuitem) {
+var isHidden = !/918ys.net/.test(content.location.host);//可排除多個網站
+this.hidden = isHidden;
+},
 });
 
 /*——————————頁面右鍵——————————*/

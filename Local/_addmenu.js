@@ -1,4 +1,5 @@
 
+//2015.07.16 10:00 加入鏈接右鍵雲播放
 //2015.07.11 10:00 補齊黑白系圖標
 //2015.07.09 18:00 加入閱讀模式
 //2015.07.02 12:00 參考貼吧长丝绾月版加入新功能
@@ -724,6 +725,17 @@ if (it.command)
 css('#contentAreaContextMenu[addMenu~="input"] #' + it.command + '{ display: none !important; }')
 });
 };
+
+/*——————————鏈接右鍵——————————*/
+page({
+label: "雲播放",
+accesskey: "C",
+insertAfter: "context-copylink",
+condition: "link",
+url:"http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=%RLINK_OR_URL%",
+where: 'tab',
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcklEQVQ4jd3SsQ2DMBBG4U9iAIagYQcKaiZhGpqswyDZwE2GMI1BVmQjFKRIyZOuu/9Zvjv+hgkBsVIh9ew0eOSCgOHkgSH1QIs1iQ/ie6JARIcnlk8FAXMpc0XwwljLXBXkc/r+FyJ6lSHeXuPtQ/phNpewMd4q2yEXAAAAAElFTkSuQmCC"
+});
 
 /*——————————頁面右鍵——————————*/
 new function () {//多功能菜单

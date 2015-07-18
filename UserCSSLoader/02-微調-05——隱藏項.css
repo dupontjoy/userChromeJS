@@ -1,4 +1,4 @@
-/*+++2015.07.06 21:00+++*/
+/*+++2015.07.18 17:00+++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄&工具欄===*/
@@ -103,15 +103,6 @@ display: none !important;
 }
 
 /*隐藏项 - 地址栏右键*/
-#urlbar menuitem[label="復原"],
-#urlbar menuitem[label="剪下"],
-#urlbar menuitem[label="刪除"],
-#urlbar menuitem[label="撤销"],
-#urlbar menuitem[label="剪切"],
-#urlbar menuitem[label="删除"],
-#urlbar menuitem[label="Undo"],
-#urlbar menuitem[label="Cut"],
-#urlbar menuitem[label="Delete"],
 #urlbar menuitem[cmd="cmd_undo"],
 #urlbar menuitem[cmd="cmd_cut"],
 #urlbar menuitem[cmd="cmd_delete"] {
@@ -119,20 +110,9 @@ display: none !important;
 }
 
 /*隐藏项 - 搜索栏右键*/
-#searchbar menuitem[label="復原"],
-#searchbar menuitem[label="剪下"],
-#searchbar menuitem[label="複製"],
-#searchbar menuitem[label="刪除"],
-#searchbar menuitem[label="撤销"],
-#searchbar menuitem[label="剪切"],
-#searchbar menuitem[label="复制"],
-#searchbar menuitem[label="删除"],
-#searchbar menuitem[label="全选"],
-#searchbar menuitem[label="Undo"],
-#searchbar menuitem[label="Cut"],
-#searchbar menuitem[label="Copy"],
-#searchbar menuitem[label="Delete"],
-#searchbar menuitem[label="Select All"] {
+#searchbar menuitem[cmd="cmd_undo"],
+#searchbar menuitem[cmd="cmd_delete"]
+{
 display: none !important;
 }
 

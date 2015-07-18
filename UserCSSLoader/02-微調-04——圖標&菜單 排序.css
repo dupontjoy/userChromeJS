@@ -1,4 +1,4 @@
-/*+++2015.07.10 18:00+++*/
+/*+++2015.07.18 17:00+++*/
 
 /*地址栏图标排序*/
 #bookmarks-menu-button {-moz-box-ordinal-group: 1 !important;}
@@ -69,16 +69,19 @@ padding: 0px !important;
 #context_reloadAllTabs {-moz-box-ordinal-group: 2 !important;}
 #context_closeOtherTabs {-moz-box-ordinal-group: 3 !important;}
 
-/*粘贴并转到、搜索置顶*/
+/*粘貼/粘貼並轉到置顶*/
+.urlbar-textbox-container menuitem[cmd="cmd_paste"]/*:not([disabled="true"])*/ {
+-moz-box-ordinal-group: 0 !important;
+}
 .urlbar-textbox-container menuitem[anonid="paste-and-go"]/*:not([disabled="true"])*/ {
 -moz-box-ordinal-group: 0 !important;
 }
 
-.searchbar-textbox menuitem[anonid="paste-and-search"] {
+/*粘貼/粘貼並搜索置顶*/
+.searchbar-textbox menuitem[cmd="cmd_paste"] {
 -moz-box-ordinal-group: 0 !important;
 }
-
-#context-pasteandgo-forms {
+.searchbar-textbox menuitem[anonid="paste-and-search"] {
 -moz-box-ordinal-group: 0 !important;
 }
 

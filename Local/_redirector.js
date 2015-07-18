@@ -1,4 +1,5 @@
 
+//2015.07.18 17:00 調整規則
 //2015.07.07 21:00 http和https都走useso
 //2015.06.03 18:00 完成ajax >> github，重新分組12306的js文件
 //2015.05.27 22:00 找回Google服務轉國內鏡像
@@ -31,16 +32,11 @@ decode: false // 可選，true 表示尝試對 from 解碼
 //單獨網站
 {
 //個人用
-name: "TVC內網-內網參考鏈接修正-1",
-from: /^http:\/\/http\/\/(.*)/i,
-to: "$1",
-regex: true
-},
-{
-//個人用
-name: "TVC內網-內網參考鏈接修正-2",
-from: /^http:\/\/ic\.sjlpj\.cn(?:\/DevProduct|)\/www\.(.*)/i,
-to: "www.$1",
+//http://ic.sjlpj.cn/DevProduct/www.rockphone.cn
+//http://http//www.rockphone.cn
+name: "TVC內網-內網參考鏈接修正",
+from: /^http:\/\/(http\/\/|ic\.sjlpj\.cn\/DevProduct\/)www\.(.*)/i,
+to: "www.$2",
 regex: true
 },
 {
@@ -129,14 +125,6 @@ from: /^https?:\/\/www\.google\.com\.hk\/(s\?|search\?|webhp\?)(.*)/i,
 to: "https://www.google.com/ncr#$2",
 regex: true
 },
-{
-//來源：http://bbs.kafan.cn/thread-1824493-1-1.html
-name: "Google搜天氣時 圖標",
-from: /^https?:\/\/www\.gstatic\.cn\/onebox\/weather\/(.*)/i,
-to: "https://ssl.gstatic.com/onebox/weather/$1",
-regex: true
-},
-
 
 //百度系
 {
@@ -182,34 +170,8 @@ from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "http://$1.useso.com/$2",
 regex: true
 },
-/*{
-//参考：https://servers.ustclug.org/2014/06/blog-googlefonts-speedup/
-name: "ajax|fonts(https) >> 科大",
-from: /^https:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
-to: "https://$1.lug.ustc.edu.cn/$2",
-regex: true
-},
 {
-name: "themes >> 科大",
-from: /^https?:\/\/themes\.googleusercontent\.com\/(.*)$/,
-to: "https://google-themes.lug.ustc.edu.cn/$1",
-regex: true
-},
-{
-name: "fonts-gstatic >> 科大",
-from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
-to: "https://fonts-gstatic.lug.ustc.edu.cn/$1",
-regex: true
-},*/
-/*{
-//自制。參考https://developers.google.com/speed/libraries/
-name: "ajax(https) >> github",
-from: /^https:\/\/ajax\.googleapis\.com\/ajax\/libs\/(jquery|angularjs|angular_material|dojo|ext-core|jquerymobile|jqueryui|mootools|prototype|scriptaculous|spf|swfobject|threejs|webfont|)(\/.*)\/(jquery\.min.\js|angular\.min.\js|angular-material\.min.\js|dojo.\js|ext-core.\js|jquery\.mobile\.min.\js|jquery-ui.css|jquery-ui\.min.\js|mootools-yui-compressed.\js|prototype.\js|scriptaculous.\js|spf.\js|swfobject.\js|three\.min.\js|webfont.\js|)(.*)/i,
-to: "https://raw.githubusercontent.com/dupontjoy/customization/master/google/ajax/libs/$1/$3",
-regex: true
-},*/
 //參考https://github.com/jiacai2050/gooreplacer
-{
 name: "twitter.com/widgets.js >> github",
 from: /^https?:\/\/platform\.twitter\.com\/widgets.js(.*)/i,
 to: "https://raw.githubusercontent.com/dupontjoy/customization/master/twitter/widgets.js",

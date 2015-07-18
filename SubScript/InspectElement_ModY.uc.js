@@ -177,7 +177,7 @@ window.InspectElement = {
 		menuitem.setAttribute('class', 'menuitem-iconic');
         menuitem.setAttribute('label', 'Inspect Element 设置');
         menuitem.setAttribute('oncommand', 'InspectElement.openPref();');
-		menuitem.setAttribute('image', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABtklEQVQ4jY2SPWtUQRSGB0VBFLSw8AcoCOJfsBBJpwbCKIYs3s2yM+d5CwuRdCJi5RYx4BciGJtEsUgRrNKksJAQN4okIEFBu2AjWC+uzblhvDHiwMCdc995znvOnCBpQdJQ0rqkj8BrSfOS5oFFSe+BT8AG8MG1N0K9JPUlTRXn88ArSQvAuIf3VFV1LIQQgDng2TYAWDOzS375jaQhsAKs+PdmjHF/oX8EPC8Bb4ELnvFnzvlKjHGv/xuV9FXSVqF/3AS8AN5J+p5SOuqxe5JmY4wH3NnQzGZ2A7z0xkzlnE8AEfjsl8a63e4pM7sp6YfD7v8BqF/BzK45cNGBQ2DDY1eBXyGEYGYzTQdzLu6llPYBPWDgsScxxkOSpoFvrn+ww4E/2xZw3UXngHad3R1d/msPJK2a2VngtmdNhbvRws2466ebJawBE17f3br+epvZw2I+NiWtA3eagzRZn1ut1sGc80UzG0spHXZNrwG91XTQDv9YVVUd8ezbkJzzmf8GFP3qN0ocCZKWgAGw7GO9Y0vq+3OvlgDgaeh0OseBtpllM5vcbQMmaSSldBr4AgxSSid/A+KiWncz4IGlAAAAAElFTkSuQmCC')
+		menuitem.setAttribute('image', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdklEQVQ4jc2SsQ3AIAwEbwGK1NmFDdIwE3OxCCOkZYAU+RSRMEFyIuUkN7Z5vwH4IxtQgKYoyk2RgQokICiScnlmcgWWTm1RbeikaJpFUo9J47RsEdTznYB7BfclwvgZGxCfBC4nvY8UgX1WxOJVkdUj4jp84wDU6yD4kZGU+wAAAABJRU5ErkJggg==')
 
         let ins = document.getElementById('devToolsEndSeparator');
         ins.parentNode.insertBefore(menuitem, ins);

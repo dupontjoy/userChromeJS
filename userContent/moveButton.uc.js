@@ -107,7 +107,8 @@ location == "chrome://browser/content/browser.xul" && (function(){
 
 //右鍵菜單
 {id: "frame", insertAfter: "charsetMenu"}, //页面右键本框架不能直接隱藏，只好移動到一個安全的位置
-{id: "context-openlinkintab", insertBefore: "context-copylink"},
+{id: "context-openlinkintab", insertBefore: "context-copylink"},/*新分頁打開鏈接 在 複製鏈接地址 前*/
+{id: "context-copylink", insertBefore: "yun-player-context"},/*複製鏈接地址 在 yunPlayer 前*/
 
 //地址欄圖標
 {id: "bookmarks-menu-button", insertBefore: "urlbar-reload-button"},//五角星書籤按鈕 放入地址欄

@@ -39,7 +39,7 @@ table-layout: inherit !important;
 }
 
 @-moz-document domain("520tieba.net") {
-div.t_fsz:nth-child(5) {
+.t_fsz {
 position:relative;left:-863.8px;
 }
 }

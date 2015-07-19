@@ -1,4 +1,4 @@
-/*+++2015.07.06 21:00+++*/
+/*+++2015.07.19 19:00+++*/
 
 /*样式伪进度条
 @-moz-document url-prefix("http://"),url-prefix("https://"){
@@ -17,12 +17,6 @@ box-shadow:0 1px 5px rgba(190,50,0,0.5);
 }
 }
 */
-
-/*下载弹窗大小调整*/
-#unknownContentType {
-height: 340px !important;
-width: 450px!important;
-}
 
 /*书签栏左右变窄*/
 .bookmark-item > .toolbarbutton-icon {

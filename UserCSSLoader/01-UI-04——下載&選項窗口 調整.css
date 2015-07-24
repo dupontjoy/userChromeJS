@@ -1,4 +1,4 @@
-/*2015.07.19 19:00*/
+/*2015.07.21 12:00*/
 
 /*下载弹窗大小调整*/
 #unknownContentType {
@@ -6,15 +6,12 @@ height: 340px !important;
 width: 450px!important;
 }
 
-/*ucjsPermission2選項菜單左列調整*/
-/*3個圓圈選項*/
-#miscGroup > groupbox > hbox:nth-child(4) > radiogroup:nth-child(4) > hbox, 
-#miscGroup > groupbox > hbox:nth-child(5) > radiogroup:nth-child(4) > hbox, 
-#cookieRadio > hbox, 
-#miscGroup > groupbox > hbox:nth-child(7) > radiogroup:nth-child(4) > hbox, 
-#miscGroup > groupbox > hbox:last-child > radiogroup:nth-child(4) > hbox {
-margin-left: -30px !important;
+/*選項弹窗大小调整*/
+#BrowserPreferences {
+height: 530px !important;
 }
+
+/*ucjsPermission2選項菜單右列調整*/
 /*方形按鈕*/
 #miscGroup > groupbox > hbox:nth-child(4) > button:last-child,
 #miscGroup > groupbox > hbox:nth-child(5) > button:last-child,

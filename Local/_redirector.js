@@ -1,5 +1,7 @@
 
-//2015.07.18 17:00 調整規則
+//2015.07.23 18:00 修正職友集規則
+//2015.07.21 12:00 修正sourceforge規則鏡像
+//2015.07.20 16:00 調整規則，原始大圖換用picViewer
 //2015.07.07 21:00 http和https都走useso
 //2015.06.03 18:00 完成ajax >> github，重新分組12306的js文件
 //2015.05.27 22:00 找回Google服務轉國內鏡像
@@ -7,7 +9,6 @@
 //2015.04.19 10:00 新增鳳凰網 圖片修正
 //2015.04.14 13:00 新增鳳凰網 只顯示首圖修正
 //2015.04.06 21:00 修正百度盤搜索地址替換
-//2015.03.25 10:00 修复sourceforge規則
 //2015.03.20 13:00 修正百度盤搜索地址替換
 //2015.03.14 15:00 爲規則添加說明
 //2015.02.17 14:00 新增12306重定向JS
@@ -70,8 +71,8 @@ regex: true
 {
 //測試：http://www.jobui.com/tips/redirect.php?link=http%3A%2F%2Fsearch.51job.com%2Fjob%2F65505572%2Cc.html
 name: "職友集 去跳轉",
-from:/^https?:\/\/www\.(jobui|)\.com\/(.*)(link|)=(.*)/i,
-to: "$4",
+from:/^https?:\/\/www\.jobui\.com\/tips\/redirect\.php\?link=(.*)/i,
+to: "$1",
 regex: true
 },
 {
@@ -86,8 +87,8 @@ regex: true
 //測試：http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/36.x/36.0.1/x86/sse2/
 name: "sourceforge下載 >> 鏡像站點",
 from: /^https?:\/\/sourceforge\.net\/projects\/(((\w)\w).*)\/files\/(.*)\/download/i,
-to: "http://master.dl.sourceforge.net/project/$1/$4",//這個源速度眞快
-//to: "ftp://ftp.jaist.ac.jp/pub/sourceforge/$3/$2/$1/$4",
+to: "http://nchc.dl.sourceforge.net/project/$1/$4",//2015.07.21修正
+//to: "http://master.dl.sourceforge.net/project/$1/$4",
 //to: "http://softlayer-sng.dl.sourceforge.net/project/$1/$4",
 regex: true
 },
@@ -153,15 +154,7 @@ regex: true
 },
 
 //原始大圖系列
-{
-//重定向到无Logo的大圖
-//测試：http://img11.360buyimg.com/n5/jfs/t700/22/552651328/263602/77209a24/54c05927N3820abe9.jpg
-//方法來源：http://jingyan.baidu.com/article/3aed632e6e5f9f70108091e9.html
-name: "京東 >> 原始大圖",
-from: /^https?:\/\/(.*)\.360buyimg\.com\/(n1)\/(.*)\.jpg+(\/.*)?/i,
-to: "http://$1.360buyimg.com/imgzone/$3.jpg",
-regex: true
-},
+
 
 //Google服務轉國內鏡像
 {

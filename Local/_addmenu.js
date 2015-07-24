@@ -1,5 +1,5 @@
 
-//2015.07.18 20:00 純粹加圖標的用CSS方式
+//2015.07.20 15:00 純粹加圖標的用CSS方式
 //2015.07.16 19:00 加入鏈接右鍵雲播放
 //2015.07.11 10:00 補齊黑白系圖標
 //2015.07.09 18:00 加入閱讀模式
@@ -69,14 +69,12 @@ label: 'Google',
 url: 'http://www.google.com/searchbyimage?image_url=%IMAGE_URL%',
 image: "https://www.google.com/favicon.ico",
 where: 'tab',
-accesskey: "G"
 }, 
 {
 label: '360識圖',
 url: 'http://st.so.com/stu?imgurl=%IMAGE_URL%',
 image: "http://st.so.com/favicon.ico",
 where: 'tab',
-accesskey: "Q"
 }, 
 {}, 
 {
@@ -282,14 +280,12 @@ elem.hidden = !/ic.sjlpj.cn/.test(content.location.host)//可排除多個網站
 var items = [
 //打開方式(默认当前頁面)，通过where 更改，具体tab(前台)、tabshifted(后台)、window(窗口)
 {label: "Google",
-accesskey: "G",
 url: "https://www.google.com/search?q=%s",
 image: "https://www.google.com/favicon.ico",
 where: 'tab'
 }, 
 {
 label: "Baidu",
-accesskey: "B",
 url: "http://www.baidu.com/baidu?wd=%s&ie=utf-8",
 image: "https://www.baidu.com/favicon.ico",
 where: 'tab'

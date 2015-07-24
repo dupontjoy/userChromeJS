@@ -111,10 +111,6 @@ label: "打開Goagent文件夾",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Goagent\\local",
 },{},
 {
-label: "GoGo Tester",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\GoGoTester\\GoGo Tester.exe",
-},{},
-{
 label: "Shadowsocks",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Shadowsocks\\Shadowsocks.exe",
 },{},

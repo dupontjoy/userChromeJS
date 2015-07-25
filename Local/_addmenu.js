@@ -1,4 +1,5 @@
 
+//2015.07.24 22:00 複製圖片地址和鏈接地址換成左右鍵
 //2015.07.20 15:00 純粹加圖標的用CSS方式
 //2015.07.16 19:00 加入鏈接右鍵雲播放
 //2015.07.11 10:00 補齊黑白系圖標
@@ -94,20 +95,28 @@ where: 'tab'
 
 //圖片右鍵 複製 二级菜單
 new function() {
-var items = [{
+var items = [
+{
 command: 'context-copyimage-contents',/*複製圖片*/
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=",
 },
 {
-command: 'context-copyimage',/*複製圖片地址*/
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4jbWTLw6DMBjFfwaDmauq5QhY9C4wyQWQOA6whAtwBS6wO0xOzeKQO8REH6EUwsqWvaRpk37vT7+28AfYX8gZ8NIcIgf6GJESGAATpBqAc2ySFrgDCZACD6CKJU/oNW5Ad5SMnEdc9OQbgQp4SqA8QsyAWu6W+WZaoPhEblQ8sGxah+vFKKHdyFbFl0C4A064G6lDsmV+QIWc0o19G6xXDkbxffcJtdyNaht/0z/jKp6Hq2pWbyPDNSffIU8oJLT1X47jDR7gLDGf5CLwAAAAAElFTkSuQmCC",
-},  
-{
-label: "複製圖片Base64",
-condition: "image",
-accesskey: "B",
-text: "%IMAGE_BASE64%",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbElEQVQ4jWNgGAzgPwUYbgC5FmMYcBTJdA8smo4yMDAo4zIgD4oZoIrQXZYHFcNpALLp6EAZKo/XBf+RbEH3AkwjUQbg8xpBA5ABsq3o0aeMzYCZaM7GFr14XQBTgGwLyQaQAlAMoCgpDywAAF13Uxwj2+klAAAAAElFTkSuQmCC",
+label: "複製圖片",
+tooltiptext: "左鍵：複製圖片地址\n右鍵：複製圖片Base64碼",
+onclick: function(e) {
+switch(e.button) {
+case 0:
+addMenu.copy(addMenu.convertText("%IMAGE_URL%"));/*複製圖片地址*/
+closeMenus(this);
+break;
+case 2:
+addMenu.copy(addMenu.convertText("%IMAGE_BASE64%"));
+closeMenus(this);
+break;
+}
+},
+accesskey: "O",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4jbWTLw6DMBjFfwaDmauq5QhY9C4wyQWQOA6whAtwBS6wO0xOzeKQO8REH6EUwsqWvaRpk37vT7+28AfYX8gZ8NIcIgf6GJESGAATpBqAc2ySFrgDCZACD6CKJU/oNW5Ad5SMnEdc9OQbgQp4SqA8QsyAWu6W+WZaoPhEblQ8sGxah+vFKKHdyFbFl0C4A064G6lDsmV+QIWc0o19G6xXDkbxffcJtdyNaht/0z/jKp6Hq2pWbyPDNSffIU8oJLT1X47jDR7gLDGf5CLwAAAAAElFTkSuQmCC"
 },
 {
 label: "OCR文字識別",
@@ -731,19 +740,28 @@ css('#contentAreaContextMenu[addMenu~="input"] #' + it.command + '{ display: non
 };
 
 /*——————————鏈接右鍵——————————*/
-page({
-label: "雲播放",
-accesskey: "C",
-insertAfter: "context-copylink",
+page(
+{
+label: "複製鏈結網址",
+accesskey: "A",
 condition: "link",
-url:"http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=%RLINK_OR_URL%",
-where: 'tab',
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcklEQVQ4jd3SsQ2DMBBG4U9iAIagYQcKaiZhGpqswyDZwE2GMI1BVmQjFKRIyZOuu/9Zvjv+hgkBsVIh9ew0eOSCgOHkgSH1QIs1iQ/ie6JARIcnlk8FAXMpc0XwwljLXBXkc/r+FyJ6lSHeXuPtQ/phNpewMd4q2yEXAAAAAElFTkSuQmCC",
-/*onshowing: function(menuitem) {
-var isHidden = !/918ys.net/.test(content.location.host);//可排除多個網站
-this.hidden = isHidden;
-},*/
-});
+insertAfter: "context-openlinkintab",
+tooltiptext: "左鍵：複製鏈結網址\n右鍵：迅雷雲播放",
+onclick: function(e) {
+switch(e.button) {
+case 0:
+addMenu.copy(addMenu.convertText("%RLINK%"));
+closeMenus(this);
+break;
+case 2:
+gBrowser.addTab("http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=" + addMenu.convertText("%RLINK_OR_URL%"));
+closeMenus(this);
+break;
+}
+},
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4jbWTLw6DMBjFfwaDmauq5QhY9C4wyQWQOA6whAtwBS6wO0xOzeKQO8REH6EUwsqWvaRpk37vT7+28AfYX8gZ8NIcIgf6GJESGAATpBqAc2ySFrgDCZACD6CKJU/oNW5Ad5SMnEdc9OQbgQp4SqA8QsyAWu6W+WZaoPhEblQ8sGxah+vFKKHdyFbFl0C4A064G6lDsmV+QIWc0o19G6xXDkbxffcJtdyNaht/0z/jKp6Hq2pWbyPDNSffIU8oJLT1X47jDR7gLDGf5CLwAAAAAElFTkSuQmCC"
+}
+)
 
 /*——————————頁面右鍵——————————*/
 new function () {//多功能菜单

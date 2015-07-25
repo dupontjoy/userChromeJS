@@ -1,4 +1,4 @@
-/*+++2015.07.18 17:00+++*/
+/*+++2015.07.24 22:00+++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄&工具欄===*/
@@ -66,6 +66,8 @@ display: none !important;
 #context-openlinkincurrent,/*打开链接*/
 #context-savelinktopocket,/*發送鏈接至Pocket*/
 #context-pocket,/*發送頁面到Pocket*/
+#context-copyimage,/*複製圖片地址*/
+#context-copylink,/*複製鏈結網址*/
 #spell-add-dictionaries-main/*新增字典*/ {
 display: none !important;
 }

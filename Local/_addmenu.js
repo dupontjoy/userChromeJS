@@ -307,24 +307,25 @@ url:"http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=%S
 where: 'tab',
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcklEQVQ4jd3SsQ2DMBBG4U9iAIagYQcKaiZhGpqswyDZwE2GMI1BVmQjFKRIyZOuu/9Zvjv+hgkBsVIh9ew0eOSCgOHkgSH1QIs1iQ/ie6JARIcnlk8FAXMpc0XwwljLXBXkc/r+FyJ6lSHeXuPtQ/phNpewMd4q2yEXAAAAAElFTkSuQmCC",
 },
+{
+label: "Pan.baidu資源",
+url:"https://www.google.com/search?q=site:pan.baidu.com+%SEL%&hl=en-US&safe=off&sclient=psy-ab",
+where: 'tab',
+image: "https://www.google.com/favicon.ico",
+},
 {},
 {
 label: "Ebay",
+id: "TVC-1",
 url: "http://www.ebay.com/sch/i.html?_nkw=%s",
 image: "http://www.ebay.com/favicon.ico",
 where: 'tab'
 },
 {
 label: "Amazon",
+id: "TVC-1",
 url: "http://www.amazon.com/s/?url=field-keywords=%s",
 image: "http://www.amazon.com/favicon.ico",
-where: 'tab'
-},
-{
-label: "Pandawill",
-id: "TVC-2",
-url: "http://www.pandawill.com/search/result/?c=&q=%s",
-image: "http://pic.pandawill.com/skin/frontend/default/pandawill/favicon.ico",
 where: 'tab'
 },
 {
@@ -336,55 +337,16 @@ where: 'tab'
 },
 {},
 {
-label: "產品—認領-SKU",
-id: "TVC-2",
-accesskey: "1",
-url: "http://ic.sjlpj.cn/DevProduct/DevProductEditCollectList?Sku=%s",
+label: "運營—價格變更-SKU",
+id: "TVC-1",
+url: "http://ic.sjlpj.cn/PriceChangeRequest/UnChangedProductList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "產品—認領-品名",
-id: "TVC-2",
-url: "http://ic.sjlpj.cn/DevProduct/DevProductEditCollectList?Name=%s",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
-label: "產品—待編輯-SKU",
-id: "TVC-2",
-url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?Sku=%s&EditorId=0",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
-label: "產品—待編輯-品名",
-id: "TVC-2",
-url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?Name=%s&EditorId=0",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
-label: "產品—已編輯-SKU",
-id: "TVC-2",
-accesskey: "2",
-url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Sku=%s&EditorId=0",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
-label: "產品—已編輯-品名",
-id: "TVC-2",
-accesskey: "3",
-url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Name=%s&EditorId=0",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
-label: "產品—關聯SPU-所有列表",
-id: "TVC-2",
-url: "http://ic.sjlpj.cn/DevProduct/DevProductAssociatedSpuList?Sku=%s",
-tooltiptext: "加顏色時在此關聯，一步到位！",
+label: "運營—價格變更審核-SKU",
+id: "TVC-1",
+url: "http://ic.sjlpj.cn/PriceChangeRequest/OperationAuditList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
@@ -405,13 +367,6 @@ image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "運營—正在編輯的產品列表-SKU",
-id: "TVC-2",
-url: "http://ic.sjlpj.cn/#/Product/OperationProductEditMgtList?Sku=%s&Mode=processed",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
 label: "運營—審核-SKU",
 id: "TVC-1",
 accesskey: "5",
@@ -423,22 +378,6 @@ where: 'tab'
 label: "運營—審核-品名",
 id: "TVC-2",
 url: "http://ic.sjlpj.cn/Product/OperationProductEditAuditList?Keyword=%s&pageSize=100",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{},
-{
-label: "運營—SPU管理列表",
-id: "TVC-1",
-accesskey: "6",
-url: "http://ic.sjlpj.cn/ProductCorrect/ProductSpuList?Sku=%s",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
-label: "運營—SPU關聯列表",
-id: "TVC-2",
-url: "http://ic.sjlpj.cn/Product/ProductAssociatedSpuList?Sku=%s&IsFirstRequest=true&BeginDate=2008-01-01",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
@@ -827,7 +766,8 @@ gBrowser.loadURI("javascript:(function(){var%20e=function(t,n,r,i,s){var%20o=[20
 },
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAvElEQVQ4jcXSIXICQRCF4a+KqhWYOUE8Zs+A4hYcBBmzEoNGIlHY2NwhMi4mKmoliG4xbC3FhlCV30zVTM+b97qHJ9LjC2/YYPFbgXleWqHDJ96xfNTRDOsU2ucDD1FwSjflL252KXLTSY8PbN1u4EHEGaVBKybwbTx3ET2529iCoxhpMzhbiyiTOIrsNbN00U4RKOJzDYs7vA6LO/zkWrMRja1ZiXhX9DinSE0rplPzks4mOWhS/N7eP3EBkgkmEdZryUkAAAAASUVORK5CYII="
 },
-{label: '收藏到百度雲',
+{//代碼來源：http://yun.baidu.com/tools
+label: '收藏到百度雲',
 tooltiptext: "左鍵：收藏到百度云\n右鍵：收藏到百度相册",
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB40lEQVQ4jXVSz4tPURT/TL68e9/k3de39333ns/BAgspi68miRJ/AAtRJMpGKUWz0NRQzAwzCWFBsrTwt1CUUiMjMgqzs7F+Fu6bufO+5qzuPed+fpxzD9AJkodIDrv5EMLeEMKxbn41iqLok3wBoAHQkLyYgE+1+SzLFuu69uvAInI+gh5XVbWV5J54f6Kqd+J5CMCSXLDW/hGRSwDGUBTFm7Isv4nIRKeVYasqIkfSmvd+X57nP6213yEiVwE0IYQDsb5JVScBNKo6qaqX4/kGgM0JwW9VvdmqHY9K16y1P4wxy977na1iv9/f1uv1fuV5vkLySmzpTHf6863lEMKgO+SyLMs8z1ci+Glay1T1eXQwoaoPI8kFAGMAoKqnY/0ZyaFz7ouqviSZQ1WnATR1Xe9K3OwH0BRF8cE59y6qHk7q22NuAQC2iMhsVDiXPDqBtZ04m3z5yZi7D8Cu9tE6McZ8VtW70cFr59zb+AuPSL5KwOuD5JSIPCA5Y4xZCiEMSE6RnC/LsjTGfCJ5j+TtOPARguvGmOWqqiQlTR9XVSXGmK8kb40QeO/HRWQu2p3Gv7VtCWzboojMee/HRwgS1R1Zln0E0Djn3jvnFuNslgaDwe4Ngf9xdBBri3V0o3d/AaQafE2/njBpAAAAAElFTkSuQmCC",
 onclick: function(e){

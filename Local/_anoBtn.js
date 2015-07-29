@@ -1,4 +1,5 @@
 
+//2015.07.29 14:00 增加在線編碼工具
 //2015.07.19 16:00 統一黑白系圖標
 //2015.06.06 12:00 精簡並換一些圖標
 //2015.05.31 18:00 加入更新IP批處理
@@ -124,12 +125,7 @@ exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\
 },
 ]
 },
-/*{
-label: '系統優化',
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACDklEQVQ4jZXOsUsyARzG8ecveDcH/whvuJcGQTgEoeWGaO6oSYcoKgxsuJCGKKGzDsqxhpaO1rCWDgfhEAcX4UJBEtySOGr/vos3Bb01fPlNz4efJGUlrUgq/6KVxU6StN7r9eK3tzd+Wq/XiyWtp8DmbDajUCiwvLz83wqFArPZDEmbKbA9nU4plUocHh6ytbX17S2VSkynUyRtp8DuZDLBsizK5TK1Wu3ba1kWk8kESbspsD8ej8nn8ziOw+XlJY7j0Gq1+Pz8pNFo4DgOV1dXOI5DPp9nPB4jaT8FDuI4xjRNfN8nSRKenp64v7/n4+OD29tbnp+feX9/5/z8HNM0ieMYSQcp4A6HQ3K5HLZt8/j4SJIkjEYjXl5eGI1GJEnCw8MDtm2Ty+UYDodIclPgaDAYYBgG1WoVz/OIooiTkxMsy+Ls7IwoivA8j2q1imEYDAYDJB2lwHG/3yeOY9rtNkEQcHd3h2EYGIaBaZoEQUAQBLTbbeI4pt/vI+k4BRpRFOG6LvP5nL29Per1OmtraywtLbGxsUG9XmdnZ4f5fI7rukRRhKRGCnjdbpdisUgYhtzc3LC6uvql6+trwjCkWCzS7XaR5KXARafTIZPJUKlU8H2fbDb7Jd/3qVQqZDIZOp0Oki5S4LTZbL6GYchPazabr5JOU8BevNP6Rd5iJ0n6I8mQ9PcXGYud/gF//OGff/Oi9wAAAABJRU5ErkJggg==",
-child: []
-},*/
- {
+{
 label: '其它軟件',
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABwUlEQVQ4jZ3Tv08aYRwG8PdPabqbhmiiqO8dhNkF4sIRcMFBatJGFnFWF4emRq+hQ5uIwOCJcWEyOkBPoyWpkzFKXNSXE1G50+SbA58OtPaHR9Lrk3yG9/s868uYQyT13COpYt6nXi741MsFSRXzknrucdo6JpA2pgPLYo4viThfEvHAspgLpI1px3Fo+6Iv/KWWVHQxE9FFKlo2ZsPFq7PojqFFdmvJyG4tGd0xtHDx6ixaNmYjukgpuphRyrWp0PZFH4t9vdmfOLEfX5+28FOi2vrj7XSbOLEfYwc3FRarmJSoAolTl6pArGISU/ZMGj8C4i6NHwHKnklstGTR2CEw9s2lQ2C0ZBELblkU3gf+R3DLIjZStChYApyEyh3d+pGiRcy/2iB/zoTvBzlrQso0MfzpFv0frtGvXoN/voWUaULO/tr5cib8qw1icr5J/g0bTwodPPeAl2+P8eLNMYazD0/337dyvkmM5y2SN4G/SetteN438OpdA1xrP+vlTYDnLWLezD0NaoB37blBraNb583cExtaudN5wW5LGy24wQt2e2jlTme9i6JnIF2fHPhYT7mSrk/2Loqef/6h3fIdt9x6jwguSQ8AAAAASUVORK5CYII=",
 child: [
@@ -144,6 +140,37 @@ label: "ScreenToGif",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\ScreenToGif.exe",
 },]
 },]
+}, {},
+{
+label:"編碼工具",
+image : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAlUlEQVQ4ja2TwQ2AIAxF3wau4QCuwCxcPTKMI7iBO7iCA3BiArxUJaSCik2a0NL/+1MK/Gg9MAMBiDcepKbXwB4Yga7QpJMan5PMcvHUnGBOC5XOmpKQJuILsIpJg5VraA7Y5OwBWyMYBHScYxb7JwSpAs1NiWDimq6RvE3ipabAiMyoKCnOoPkZmxepeZUPks+f6bPtGg1LLkKBszsAAAAASUVORK5CYII=",
+child:[
+{
+label: "Javascript格式化",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaElEQVQ4jWNgoCL4TwA3EGMAPrnrhAwhZIA4IUMIGcBAyBBCBqBjkgwgSi264Ewo7YFk60wcavEacBRNTJlUA/KgckfxqMVrAAzADCLoAnSnIyvOY0CECV4DkAOM7EDEB3AaQAqmDgAAtlxHLWMw/vEAAAAASUVORK5CYII=",
+oncommand: 'gBrowser.selectedTab = gBrowser.addTab("http://tool.oschina.net/codeformat/js");',
+},
+{
+label: "CSS格式化",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAhElEQVQ4jWNgQID/BDBBgE/RfwYGhgZiDfDAYut/BgaG64QMgWk4CqXzoIbB5MQJGQIzYCYeObyGoLvAA+oKmBzBQMUXBrjUEhYkx4CZUPZRHHyCBsAUKuPgEzQgjwE1DND5BA3QhdJbGRDpgIGBgeEkA2q6wGnAakpdQAzAaQApmDoAABPeUU+r3umtAAAAAElFTkSuQmCC",
+oncommand: 'gBrowser.selectedTab = gBrowser.addTab("http://tool.oschina.net/codeformat/css");',
+},
+{
+label: "線上圖片編輯",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA6klEQVQ4jc2SIW7DQBBFBwRUWu16vf9VCiwIKGykHKWgRygsyAHCCnuEwgLDHKDABygMCAgMDAgscIktuc7WNcxIQ1b73oy+xuxqStIrcASaYUs6AGszsxDCoiiK1S8YWEvamdnyn54Be0nfKaXH/vRDCGExtqH3/l5SZWa3wFnSqb9BMwH+BGqgbiXPkwQ9+KPLpCzLp2EGWUEOTim9XHzMCVp4B5xH4b8EwJdzbg68dXCM8cHMbqYKGknvkqpuMrCPMd7lBEfn3HzwtgE2vcBmkk7eey4E7RXWNnJEkipgm82gtU865eurH5ZsTgQIYhNoAAAAAElFTkSuQmCC",
+oncommand: 'gBrowser.selectedTab = gBrowser.addTab("http://apps.pixlr.com/editor/");',
+},
+{
+label: "JavaScript壓縮",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA3klEQVQ4jcWT3WoCQQxG5y0238mb1PWHKvVJ6qUtBd+00lfYdRF61eLV9saROJVVodDAQJhJTpKZb1L6CwPeJU3uiH8AtqcNM5sBnZnN8p67v4WEdfBHQCNpeUaVNAF2VVU9HgF9gH0ek2ugAZ4utiZpDLTAogTkAu4+vzZfDTQF4FCOeKn6s7v3Ye0DtIlnkl4Gu/gfk7QqRvjKZ+7+XYzwOgQaA21xiT3QAYtrXZy0UALcfT4Iycn5qUpASimZ2RTY/RJSkPI0JEUpb4JfA+2ZlIHtnZ9pBHzcGj9oP3TiU7Bc9Gx1AAAAAElFTkSuQmCC",
+oncommand: 'gBrowser.selectedTab = gBrowser.addTab("http://closure-compiler.appspot.com/home");',
+},
+{
+label: "CSS壓縮",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA3klEQVQ4jcWT3WoCQQxG5y0238mb1PWHKvVJ6qUtBd+00lfYdRF61eLV9saROJVVodDAQJhJTpKZb1L6CwPeJU3uiH8AtqcNM5sBnZnN8p67v4WEdfBHQCNpeUaVNAF2VVU9HgF9gH0ek2ugAZ4utiZpDLTAogTkAu4+vzZfDTQF4FCOeKn6s7v3Ye0DtIlnkl4Gu/gfk7QqRvjKZ+7+XYzwOgQaA21xiT3QAYtrXZy0UALcfT4Iycn5qUpASimZ2RTY/RJSkPI0JEUpb4JfA+2ZlIHtnZ9pBHzcGj9oP3TiU7Bc9Gx1AAAAAElFTkSuQmCC",
+oncommand: 'gBrowser.selectedTab = gBrowser.addTab("http://csscompressor.com/");',
+},
+]
 }, {},
 {
 label:"常用功能",

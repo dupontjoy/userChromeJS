@@ -42,13 +42,6 @@ regex: true
 },
 {
 //個人用
-name: "TVC內網 滾動條置頂",
-from: /^http:\/\/ic\.sjlpj\.cn\/#\/DevProduct\/(Copy|)?DevProduct(EditDetail|EditList)(.*)/i,
-to: "http://ic.sjlpj.cn/DevProduct/$1DevProduct$2$3",
-regex: true
-},
-{
-//個人用
 name: "TVC內網 圖片以圖搜圖",
 from: /(.*(google|so|baidu|bing|sougou|tineye).*)\/ic\.sjlpj\.cn\/Product\/ViewImage\?id=\/uploads(?:\/unlogo|)\/details\/(.*)/i,
 to: "$1/img.tvc-mall.com/uploads/details/$3",

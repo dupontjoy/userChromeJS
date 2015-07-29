@@ -207,3 +207,4 @@ location == "chrome://browser/content/browser.xul" && document.querySelector("#c
             selection.addRange(ranges[i]);
     }, false);
 })()
+

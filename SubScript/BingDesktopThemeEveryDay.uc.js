@@ -8,7 +8,8 @@
 // @downloadURL  https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/BingDesktopThemeEveryDay/BingDesktopThemeEveryDay.uc.js
 // @homepageURL  https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/BingDesktopThemeEveryDay
 
-// @note         2015.04.02 09:00 必应美图改到配置文件夹下
+// @note         2015.07.30 修正Bing图下載地址
+// @note         2015.04.02 必应美图改到配置文件夹下
 
 //==/UserScript==
 
@@ -52,7 +53,7 @@ function getDate()
 function init()
 {
 var xhr=new XMLHttpRequest();
-xhr.open('GET','http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&nc='+new Date().getTime(),false);
+xhr.open('GET','http://cn.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1&nc='+new Date().getTime() + '&pid=hp&scope=web',false);
 
 xhr.onload=function()
 			{

@@ -30,7 +30,7 @@ insertBefore: "context_reloadTab",
 tooltiptext: "右鍵显示所有历史记录",
 onclick: "if (event.button == 2) {PlacesCommandHook.showPlacesOrganizer('History');}",
 image:
-"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeklEQVQ4jeWRwQ2AIAxF39WbG7AJcQN2cQRmYxSm4FIPfhKjJXLWnzQN/fzfFuDTSEABTFFUm0IGqgSrIqmWZzpXie5YL8ZDvI3aV3sgKJs6Be+SOPPEDYgik86eiWuAxI1zRwO2wQTDFTppwD7gpx4xOrVFeeob/4YD1pEcog/2J/oAAAAASUVORK5CYII=",
+"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA5ElEQVQ4jaXTr0oFQRTH8c8yIBgWBMFg2ifwBa5oEsRguWCxGQwGq+9hMvgItxgEww0Gg+m+w02bBYtJw8zCsO64q35hYObMnN+cPzN8Z2fANpljtNj6j/PsL87beMdnYbzhCecIJZF5imAvs52gThfM8YqlH1LsRLoDL9jP9gNuk0gxkiab3+Fq4MwSlyWBnOsk0ucoRTfKIVbY7NlrsbCj1FhgjbOe/WOKQMcMN9l6cgolnkMIF0MbDe7FEIcIYlGLbez6vBbb12ADu+IrXFVV9WjCXzkQi9eKT7nFA07HHH/NFwrNKkyQLvLzAAAAAElFTkSuQmCC",
 onpopupshowing: function(e) {
 var popup = e.target;
 popup.setAttribute('id', 'addUndoMneun');
@@ -308,10 +308,10 @@ where: 'tab',
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcklEQVQ4jd3SsQ2DMBBG4U9iAIagYQcKaiZhGpqswyDZwE2GMI1BVmQjFKRIyZOuu/9Zvjv+hgkBsVIh9ew0eOSCgOHkgSH1QIs1iQ/ie6JARIcnlk8FAXMpc0XwwljLXBXkc/r+FyJ6lSHeXuPtQ/phNpewMd4q2yEXAAAAAElFTkSuQmCC",
 },
 {
-label: "Pan.baidu資源",
+label: "Pan資源",
 url:"https://www.google.com/search?q=site:pan.baidu.com+%SEL%&hl=en-US&safe=off&sclient=psy-ab",
 where: 'tab',
-image: "https://www.google.com/favicon.ico",
+image: "http://pan.baidu.com/res/static/images/favicon.ico",
 },
 {},
 {
@@ -378,6 +378,14 @@ where: 'tab'
 label: "運營—審核-品名",
 id: "TVC-2",
 url: "http://ic.sjlpj.cn/Product/OperationProductEditAuditList?Keyword=%s&pageSize=100",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "運營—SPU管理列表",
+id: "TVC-1",
+accesskey: "6",
+url: "http://ic.sjlpj.cn/ProductCorrect/ProductSpuList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
@@ -731,7 +739,7 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZ0
 new function () {//多功能菜单
 var items = [
 {
-label: "複製此頁標題+地址",
+label: "複製標題+地址",
 tooltiptext: "左鍵：標題+地址\n中鍵：Favicon地址\n右鍵：Favicon的Base64碼",
 onclick: function(e) {
 switch(e.button) {
@@ -749,10 +757,10 @@ closeMenus(this);
 break;
 }
 },
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVQ4jWNgoCL4TyQWwGcAIQtgNFZDiDUAp1piDEDGBA3A6VdCBhAKRIIGEAOGqAuINoBiFwysAaRg6gAAE7tI6EZZDKkAAAAASUVORK5CYII="
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII="
 },
 {
-label: "UTF-8 : Big5 : GBK",
+label: "UTF-8|Big5|GBK",
 tooltiptext: "左鍵：UTF-8\n中鍵：Big5\n右鍵：GBK",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAlUlEQVQ4ja2TwQ2AIAxF3wau4QCuwCxcPTKMI7iBO7iCA3BiArxUJaSCik2a0NL/+1MK/Gg9MAMBiDcepKbXwB4Yga7QpJMan5PMcvHUnGBOC5XOmpKQJuILsIpJg5VraA7Y5OwBWyMYBHScYxb7JwSpAs1NiWDimq6RvE3ipabAiMyoKCnOoPkZmxepeZUPks+f6bPtGg1LLkKBszsAAAAASUVORK5CYII=",
 onclick: "var code = ['UTF-8', 'Big5', 'GBK']; BrowserSetForcedCharacterSet(code[event.button]);closeMenus(this);"
@@ -760,15 +768,15 @@ onclick: "var code = ['UTF-8', 'Big5', 'GBK']; BrowserSetForcedCharacterSet(code
 
 {
 //代碼來源：https://getpocket.com/welcome?b=Bookmarklet
-label: "+ Pocket",
+label: "+Pocket",
 oncommand: function() {
 gBrowser.loadURI("javascript:(function(){var%20e=function(t,n,r,i,s){var%20o=[2035120,3068561,4746347,4970120,6888016,4880111,6690539,6153817,4568836,2928202];var%20i=i||0,u=0,n=n||[],r=r||0,s=s||0;var%20a={'a':97,'b':98,'c':99,'d':100,'e':101,'f':102,'g':103,'h':104,'i':105,'j':106,'k':107,'l':108,'m':109,'n':110,'o':111,'p':112,'q':113,'r':114,'s':115,'t':116,'u':117,'v':118,'w':119,'x':120,'y':121,'z':122,'A':65,'B':66,'C':67,'D':68,'E':69,'F':70,'G':71,'H':72,'I':73,'J':74,'K':75,'L':76,'M':77,'N':78,'O':79,'P':80,'Q':81,'R':82,'S':83,'T':84,'U':85,'V':86,'W':87,'X':88,'Y':89,'Z':90,'0':48,'1':49,'2':50,'3':51,'4':52,'5':53,'6':54,'7':55,'8':56,'9':57,'\/':47,':':58,'?':63,'=':61,'-':45,'_':95,'&':38,'$':36,'!':33,'.':46};if(!s||s==0){t=o[0]+t}for(var%20f=0;f<t.length;f++){var%20l=function(e,t){return%20a[e[t]]?a[e[t]]:e.charCodeAt(t)}(t,f);if(!l*1)l=3;var%20c=l*(o[i]+l*o[u%o.length]);n[r]=(n[r]?n[r]+c:c)+s+u;var%20p=c%(50*1);if(n[p]){var%20d=n[r];n[r]=n[p];n[p]=d}u+=c;r=r==50?0:r+1;i=i==o.length-1?0:i+1}if(s==269){var%20v='';for(var%20f=0;f<n.length;f++){v+=String.fromCharCode(n[f]%(25*1)+97)}o=function(){};return%20v+'e8dd7f9d42'}else{return%20e(u+'',n,r,i,s+1)}};var%20t=document,n=t.location.href,r=t.title;var%20i=e(n);var%20s=t.createElement('script');s.type='text/javascript';s.src='https://getpocket.com/b/r4.js?h='+i+'&u='+encodeURIComponent(n)+'&t='+encodeURIComponent(r);e=i=function(){};var%20o=t.getElementsByTagName('head')[0]||t.documentElement;o.appendChild(s)})()");
 },
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAvElEQVQ4jcXSIXICQRCF4a+KqhWYOUE8Zs+A4hYcBBmzEoNGIlHY2NwhMi4mKmoliG4xbC3FhlCV30zVTM+b97qHJ9LjC2/YYPFbgXleWqHDJ96xfNTRDOsU2ucDD1FwSjflL252KXLTSY8PbN1u4EHEGaVBKybwbTx3ET2529iCoxhpMzhbiyiTOIrsNbN00U4RKOJzDYs7vA6LO/zkWrMRja1ZiXhX9DinSE0rplPzks4mOWhS/N7eP3EBkgkmEdZryUkAAAAASUVORK5CYII="
 },
 {//代碼來源：http://yun.baidu.com/tools
-label: '收藏到百度雲',
-tooltiptext: "左鍵：收藏到百度云\n右鍵：收藏到百度相册",
+label: '百度雲|百度相冊',
+tooltiptext: "左鍵：收藏到百度雲\n右鍵：收藏到百度相冊",
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB40lEQVQ4jXVSz4tPURT/TL68e9/k3de39333ns/BAgspi68miRJ/AAtRJMpGKUWz0NRQzAwzCWFBsrTwt1CUUiMjMgqzs7F+Fu6bufO+5qzuPed+fpxzD9AJkodIDrv5EMLeEMKxbn41iqLok3wBoAHQkLyYgE+1+SzLFuu69uvAInI+gh5XVbWV5J54f6Kqd+J5CMCSXLDW/hGRSwDGUBTFm7Isv4nIRKeVYasqIkfSmvd+X57nP6213yEiVwE0IYQDsb5JVScBNKo6qaqX4/kGgM0JwW9VvdmqHY9K16y1P4wxy977na1iv9/f1uv1fuV5vkLySmzpTHf6863lEMKgO+SyLMs8z1ci+Glay1T1eXQwoaoPI8kFAGMAoKqnY/0ZyaFz7ouqviSZQ1WnATR1Xe9K3OwH0BRF8cE59y6qHk7q22NuAQC2iMhsVDiXPDqBtZ04m3z5yZi7D8Cu9tE6McZ8VtW70cFr59zb+AuPSL5KwOuD5JSIPCA5Y4xZCiEMSE6RnC/LsjTGfCJ5j+TtOPARguvGmOWqqiQlTR9XVSXGmK8kb40QeO/HRWQu2p3Gv7VtCWzboojMee/HRwgS1R1Zln0E0Djn3jvnFuNslgaDwe4Ngf9xdBBri3V0o3d/AaQafE2/njBpAAAAAElFTkSuQmCC",
 onclick: function(e){
 switch(e.button){
@@ -783,12 +791,20 @@ break;
 },
 {},
 {
-label: "閱讀模式",
-accesskey: "R",
+label:"此頁拼寫檢查",
+accesskey: "A",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVQ4je2Q0Q2AQAhD3y4uwzTsw0A31/nDmUowJvqpTfig0JY7+KFwYEg/gJl1xRtlEMAm/UJIiBUNpChy6E3SbExPiJvlldwamIiWWV32vNLlwiMkCmnJ6ROiiNpPfIz5sj6PHbYtNU5+tMktAAAAAElFTkSuQmCC",
 insertBefore: "context-viewsource",
-url:"about:reader?url=%u",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcElEQVQ4je3SsQnDMBCF4a9KoSaTuNM4GSIjeIE0qTWT2ozi0imkBGNsocqYkAcHx/3wuOLnLIl4IGOq88ITtwaLn4IZYz0EXOs+brCwYt+CvXSxf8HPFCTFsKVtqYOhaHrHgIti21BvU4PlxncH5Q0Y/znXzG7xKgAAAABJRU5ErkJggg=="
+condition: 'normal',
+tooltiptext: "拼寫檢查（當前窗口打開）！",
+oncommand: "content.document.body.contentEditable = content.document.body.contentEditable == \"true\" ? \"false\" : \"true\";"
+//oncommand: function() {document.onkeydown=ck;content.document.body.contentEditable=true;function ck(e){k=window.event?window.event.keyCode:e.keyCode;if(k==27){content.document.body.contentEditable=false}}},
 },
+/*
+//from: http://kb.mozillazine.org/Spell_checking
+Firefox和Chrome通用 拼寫檢查小書籤（Firefox不能实时生效）：
+javascript:document.body.contentEditable='true'; document.designMode='on'; void 0
+*/
 {
 label:"在侧边栏中打開",
 oncommand:"openWebPanel(content.document.title, content.location);",
@@ -803,7 +819,7 @@ image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlB
 
 var menu = PageMenu({
 label:'多功能菜單',
-accesskey: "M",
+accesskey: "E",
 image:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAG0lEQVQ4jWNgGCzgP5l4EIFRLwwGMIScOvgAAMPmMc89jdNcAAAAAElFTkSuQmCC',/* data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQklEQVQ4jWNgoBI4wsDA8B8PPoJF3RFkA/4TsOA/Go2hZxgYQHEgUgzQXYDNRlyuwvQPA3Y/owO8gTgSDaA4FsgGAKDqU/mCtSo8AAAAAElFTkSuQmCC */
 condition: 'normal', 
 position:7,
@@ -811,23 +827,6 @@ onpopupshowing: syncHidden
 });
 menu(items);
 };
-
-page({
-label:"此頁拼寫檢查",
-accesskey: "A",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVQ4je2Q0Q2AQAhD3y4uwzTsw0A31/nDmUowJvqpTfig0JY7+KFwYEg/gJl1xRtlEMAm/UJIiBUNpChy6E3SbExPiJvlldwamIiWWV32vNLlwiMkCmnJ6ROiiNpPfIz5sj6PHbYtNU5+tMktAAAAAElFTkSuQmCC",
-insertBefore: "context-viewsource",
-condition: 'normal',
-tooltiptext: "拼寫檢查（當前窗口打開）！",
-oncommand: "content.document.body.contentEditable = content.document.body.contentEditable == \"true\" ? \"false\" : \"true\";"
-//oncommand: function() {document.onkeydown=ck;content.document.body.contentEditable=true;function ck(e){k=window.event?window.event.keyCode:e.keyCode;if(k==27){content.document.body.contentEditable=false}}},
-})
-
-/*
-//from: http://kb.mozillazine.org/Spell_checking
-Firefox和Chrome通用 拼寫檢查小書籤（Firefox不能实时生效）：
-javascript:document.body.contentEditable='true'; document.designMode='on'; void 0
-*/
 
 /*——————————書籤右鍵——————————*/
 /*爲書籤右鍵添加 移動 功能*/

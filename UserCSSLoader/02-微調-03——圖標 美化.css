@@ -1,4 +1,4 @@
-/*+++2015.07.23 17:00+++*/
+/*+++ 2015.07.31 +++*/
 
 /*==修正图標和文字擠一起問題==*/
 /* Adjust left-margin for menuitems and menus which aren't iconized */
@@ -194,6 +194,18 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 #resetSelected {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA+0lEQVQ4jcWSMUoEURBES9EVDIZh8DP9XyUGIoKGXsBEMBQ9gCZGXsTEyCsogiYmHkEMTAb2AsImHsBYk1kYVt3Z3cSCTrqriu6mpH/AMnAfEWlhh5zzse0mIjYlSba/xgV8RsTuhGbJ9nOX13JffrgD58AQWO/0Lm2/SlqRpIg4Aoa2t39dEbgDbiSprus94COltNWZ36aU4s8bq6oqcs4nktZsN7bPZnrOJGxf235YSAwcAu9FUVSLiDdsjyLiQNJg7hOAJ+BKksqyLG2Pcs777Xh6kHLOF8CbpMG4FxGnthtJqy1nepCAnUlj248zBWkW9AapD71Bmgff1GdAhwyuwRgAAAAASUVORK5CYII=") !important;
+}
+
+/*釘選分頁*/
+#context_pinTab {
+-moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABGUlEQVQ4jZ2QsUoDURBF8xfvzbm/IWhAFEEtFCwsBRE1nWUqySeIKAoiooWineA/pBEt0qUQP8BiXVAknbA2s/CUbDbmVvPum3vvzDQaYwDoSroep3coJOWSCuBsUoNnSU3gC7iaxKBIa+DyP+IPoAt8lhwwkHT0qxFoSToG7oBl594knXt9AbwAi2Y2J6mQdFOmNH20zMwOgb43PP4J6Tn/BGRAL/3ck5Qn720gk9Tx9wHwHkKYGbVvOz1YCGEa+AYegMFYRwM2fJ1ZN91KTWsRY5z3PQszm3KTV2CpVlym+eitMhk4AW5His1s00dfS7h9STnQB04rxeXeMcbVIVO13Xi3Srzj4pWqgBjjQmW6pHszW69sqMEPppVYpMrPTWIAAAAASUVORK5CYII=") !important;
+}
+
+/*還原成普通分頁*/
+#context_unpinTab {
+-moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAwElEQVQ4jb2RMWpCURBFX5kNPJBhzmkstDFbsLJMdmWyBTfxd2InbkOIpohpfpoUif7g04AXhoHLzJkLU0opRV0AG/Xjuy9Kq9QndZuZ81LKQ2bO1S3w3ApYZ+bjTy8zZ+q6FfB5jd8stb8/QO2vrX9dvQ8AWAIHYHkTQD2qPXBoAbzVWkcDCd5PE9RaR2cAoANeTi8NKTNfge6XGRFTdQesgPHQIjAGVuouIqZnAxExATp1/8fv90AXEZOWpBf1BfpqUlVokhDVAAAAAElFTkSuQmCC") !important;
 }
 
 /*===Ubuntu文件夹===

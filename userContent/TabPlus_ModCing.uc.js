@@ -156,6 +156,14 @@ window.content.document.addEventListener("click", function (e) {
 document.getElementById("urlbar").handleRevert();
 }, false);
 }, false);
+
+//当地址栏失去焦点后恢复原来的地址
+if (location == "chrome://browser/content/browser.xul") {
+var ub = document.getElementById("urlbar");
+ub.addEventListener("blur", function () {
+this.handleRevert();
+}, false);
+}
     
 //新标签打开『查看图片』
 location == "chrome://browser/content/browser.xul" && document.querySelector("#context-viewimage").setAttribute("oncommand", 'openUILinkIn(gContextMenu.imageURL,"tab")') & document.querySelector("#context-viewbgimage").setAttribute("oncommand", 'openUILinkIn(gContextMenu.bgImageURL,"tab")')

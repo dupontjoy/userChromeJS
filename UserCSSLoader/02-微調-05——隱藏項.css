@@ -1,4 +1,4 @@
-/*+++2015.07.25 21:00+++*/
+/*+++ 2015.08.04 +++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄&工具欄===*/
@@ -59,6 +59,7 @@ display: none !important;
 #spell-check-enabled, /*拼写检查*/
 #spell-separator, /*拼写检查分割线*/
 #inspect-separator, /*Inspect Element分割线*/
+#greasemonkey-install-sep, /*Greasemonkey安装脚本分割线*/
 #context-sep-viewbgimage,/*分割線*/
 #context-sep-viewsource, /*分割線*/
 #context-inspect,/*Inspect Element*/
@@ -80,7 +81,6 @@ display: none !important;
 #context_undoCloseTab,/*復原已關閉分頁*/
 #context_openNonRemoteWindow,
 #context_reloadAllTabs,/*重新載入所有分頁*/
-#context_pinTab,/*釘選分頁*/
 #tabContextMenu > menuseparator,/*全部分割线*/
 #context_openTabInWindow,/*移动到新窗口*/
 #context_bookmarkAllTabs,/*将全部标签页加为书签*/

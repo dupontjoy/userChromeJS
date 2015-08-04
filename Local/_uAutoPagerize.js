@@ -48,14 +48,15 @@ var MY_SITEINFO = [
     //     stylish: '.autopagerize_page_info { margin-bottom: 10px; }',
     //     ipages: [true, 3]
     // },
-    {name: '风之动漫',
-		 url: /^http:\/\/www\.fzdm\.com\/manhua/i,
-		 exampleUrl: 'http://www.fzdm.com/manhua/117/RE23/',
-		 nextLink: '//a[text()="下一页"]',
-		 autopager: {
-			pageElement: 'id("mh")/li',
-		 }
-	  }, 
+{
+    name: '风之动漫',
+    url: /^http:\/\/www\.fzdm\.com\/manhua/i,
+    exampleUrl: 'http://www.fzdm.com/manhua/117/RE23/',
+    nextLink: '//a[text()="下一页"]',
+    autopager: {
+        pageElement: 'id("mh")/li',
+    }
+},
 
 {
     siteName: '新动漫',
@@ -82,6 +83,7 @@ var MY_SITEINFO = [
         useiframe: true,
     }
 },
+
 
 ];
 

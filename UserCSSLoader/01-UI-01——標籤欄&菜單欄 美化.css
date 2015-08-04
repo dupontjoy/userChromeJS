@@ -1,22 +1,4 @@
-/*+++2015.07.04 19:00+++*/
-
-/*按Alt悬浮菜单栏*/
-#toolbar-menubar[inactive="true"]{
-visibility:hidden;
-}
-#toolbar-menubar{
-position:fixed;
-top:8px;
-z-index:9999 !important;
--moz-appearance:none !important;
-border:1px solid !important;
--moz-border-top-colors:rgb(169,169,169) !important;
--moz-border-bottom-colors:rgb(169,169,169) !important;
--moz-border-left-colors:rgb(169,169,169) !important;
--moz-border-right-colors:rgb(169,169,169) !important;
-background-color:rgb(240,240,240) !important;
-padding:1px !important;
-}
+/*+++ 2015.08.04 +++*/
 
 /*标签样式css*/
 .tabbrowser-tab[busy] {color: blue !important;}/* 正在加载标签 */
@@ -59,7 +41,7 @@ display: -moz-box !important;
 #alltabs-button > :-moz-any(label, image) {display: none !important;}
 #alltabs-button menuitem {max-width: 200px !important;}
 #alltabs-button {
-margin-right: -35px!important;
+margin-right: -45px!important;
 }
 
 /*彈出菜單顯示標籤頁序號*/
@@ -78,27 +60,16 @@ font-weight:bold;
 min-width:26px;
 }
 
+/*修复固定标签*/
+.tab-background-middle[pinned="true"]{ min-height:26px!important;}
+
 /*每個標籤頁 加上序號*/
 .tabbrowser-tab:before {
-margin: -15px 0px 0px -3px !important;
+margin: -18px 0px 0px -3px !important;
 padding: 0px 0px !important;
-border-radius: 7px !important;
-background-color: !important;
 color: black !important;
 font-size: 9px !important;
 font-weight: bold !important;
 content: counter(tabs) !important;
 position: absolute !important;
 }
-tab {
-counter-increment: counter !important;
-}
-.tab-close-button:hover::after {
-display: none !important;/*悬浮于关闭按钮时不显示数字*/
-}
-
-/*浏览器界面上下反转：标签栏和导航栏底部
-#browser-panel{-moz-box-direction:reverse!important;}
-#TabsToolbar {-moz-box-ordinal-group: 0 !important;}
-#nav-bar {-moz-box-ordinal-group: 1 !important;}
-*/

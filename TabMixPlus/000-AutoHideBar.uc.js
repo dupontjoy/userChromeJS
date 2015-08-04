@@ -18,8 +18,8 @@
 		document.insertBefore(document.createProcessingInstruction('xml-stylesheet', 'type="text/css" href="data:text/css;utf-8,' + encodeURIComponent('\
 #TabsToolbar_aidBar{\
 	overflow:hidden; \
-	max-width:16px; \
-	opacity:0; \
+	max-width:150px; /*默认为16px*/\
+	opacity:1; /*默认为0*/\
 	transition: 0.8s; \
 	transition-delay:1s;\
 }\

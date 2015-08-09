@@ -1,7 +1,8 @@
 
-::2015.07.14 23:00  添加備份詞典和user.js到GitHub
-::2015.07.14 14:00  更新Flash下载地址
-::2015.07.13 20:00  4合1整合
+::2015.08.08  可選擇Flash下載地址
+::2015.07.14  添加備份詞典和user.js到GitHub
+::2015.07.14  更新Flash下载地址
+::2015.07.13  4合1整合
 
 @echo off
 Title 備份批處理整合版 by Cing
@@ -12,10 +13,10 @@ ECHO.
 ECHO =============================================================================
 ECHO                           備份批處理整合版                           
 ECHO    #+++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++#
-ECHO    # 01、備份Firefox配置文件夾             #02、CingFox完整包制作#       #
+ECHO    # 01、備份Firefox配置文件夾             #02、CingFox完整包制作        #
 ECHO    # 03、備份Plugins和Software文件夾       #04、提取Flash32位插件        #
 ECHO    # 05、備份詞典和user.js到GitHub                                       #
-ECHO    # x、退出                                                             #
+ECHO    #                                                                     #
 ECHO    #+++++++++++++++++++++++++++++++++#+++++++++++++++++++++++++++++++++++#
 ECHO =============================================================================
 
@@ -25,7 +26,6 @@ if %a%==02 goto CingFox
 if %a%==03 goto Plugins-n-Software
 if %a%==04 goto Flash32
 if %a%==05 goto GitHub
-if %a%==x goto exit
 goto cho
 
 :Profiles
@@ -495,16 +495,41 @@ if "%id%"=="03" goto menu
 
 :install
 echo.
-echo    按任意键开始下载最新非IE版Flash插件……
+echo =============================================================
 echo.
-::pause>nul&start "" http://www.adobe.com/in/products/flashplayer/distribution3.html
-pause>nul&start "" http://fpdownload.macromedia.com/pub/flashplayer/latest/help/install_flash_player.exe
+echo   01、到Flash官方下載最新正式版！
+echo.
+echo   02、到Flash官方下載最新beta版！
+echo.
+echo   03、返回主菜單。
+echo.
+echo.
+set /p id=请选择，按回车键执行（例如：07）:
+cls
+
+if "%id%"=="01" goto download1
+if "%id%"=="02" goto download2
+if "%id%"=="03" goto menu
+
+:download1
+start "" http://www.adobe.com/in/products/flashplayer/distribution3.html
 cls
 echo.
 echo    *请暂时不要关闭该批处理……
 echo.
 echo    *如果您已安装完毕Adobe Flash Player插件，请按任意键继续……
 pause>nul
+goto set
+
+:download2
+start "" http://labs.adobe.com/downloads/flashplayer.html
+cls
+echo.
+echo    *请暂时不要关闭该批处理……
+echo.
+echo    *如果您已安装完毕Adobe Flash Player插件，请按任意键继续……
+pause>nul
+goto set
 
 :set
 cd /d %~dp0
@@ -590,6 +615,7 @@ cd /d %~dp0
 set dir1=..\..\..
 set dir2=D:\My Documents\GitHub\Customization
 xcopy "%dir1%\persdict.dat" "%dir2%\persdict.dat"  /s /y /i
+xcopy "%dir1%\stylish.sqlite" "%dir2%\stylish.sqlite"  /s /y /i
 xcopy "%dir1%\user.js" "%dir2%\user.js"  /s /y /i
 
 ECHO.&ECHO.備份詞典和user.js到GitHub已完成，請按任意鍵退出！&PAUSE >NUL 2>NUL

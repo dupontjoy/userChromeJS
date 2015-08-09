@@ -1,4 +1,4 @@
-/*+++ 2015.08.04 +++*/
+/*+++ 2015.08.05 +++*/
 
 /*标签样式css*/
 .tabbrowser-tab[busy] {color: blue !important;}/* 正在加载标签 */
@@ -41,7 +41,7 @@ display: -moz-box !important;
 #alltabs-button > :-moz-any(label, image) {display: none !important;}
 #alltabs-button menuitem {max-width: 200px !important;}
 #alltabs-button {
-margin-right: -45px!important;
+margin-right: -46px!important;
 }
 
 /*彈出菜單顯示標籤頁序號*/
@@ -60,16 +60,21 @@ font-weight:bold;
 min-width:26px;
 }
 
-/*修复固定标签*/
-.tab-background-middle[pinned="true"]{ min-height:26px!important;}
-
 /*每個標籤頁 加上序號*/
 .tabbrowser-tab:before {
-margin: -18px 0px 0px -3px !important;
+margin: -16px 0px 0px -3px !important;
 padding: 0px 0px !important;
 color: black !important;
 font-size: 9px !important;
 font-weight: bold !important;
 content: counter(tabs) !important;
 position: absolute !important;
+}
+
+/*修复固定标签*/
+.tab-background-middle[pinned="true"]{ min-height:26px!important;}
+/*隐藏锁定标签上的序号*/
+.tabbrowser-tab[pinned="true"]:before
+{
+margin: -40px 0px 0px -3px !important;
 }

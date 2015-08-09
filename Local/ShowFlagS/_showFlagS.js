@@ -12,7 +12,7 @@ var UASites = [
 //2015.01.15 FX35下工行不支持10.0，新增20.0UA
 //2014.12.11 調整圖標
 {url : "https?://(?:mybank.*|b2c.*)\\.icbc\\.com\\.cn/",label : "Firefox20.0"},//工商銀行
-{url : "https?://(.*?)n\\.baidu\\.com/",label : "BaiduYunGuanJia"},//百度云
+{url : "https?://(yun|pan)\\.baidu\\.com/",label : "BaiduYunGuanJia"},//百度云
 {url : "^http://115.com",label : "115Browser"},
 {url : "http:\/\/vod\.kankan\.com/",label : "Safari - Mac"}, //直接可以看kankan视频，无需高清组件
 {url : "http:\/\/wap\.*",label : "UCBrowser"}, //WAP用UC浏览器

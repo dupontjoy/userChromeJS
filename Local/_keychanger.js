@@ -1,5 +1,5 @@
 
-//2015.07.29 14:00
+//2015.08.06
 
 //F功能鍵
 keys['F5'] = "BrowserReloadSkipCache();";//跳过缓存刷新页面
@@ -47,9 +47,7 @@ keys["Alt+R"] = "Services.appinfo.invalidateCachesOnRestart() || Application.res
 
 keys['Alt+W'] = "gWHT.addWord();";//WordHighlight添加詞
 
-keys['Alt+X'] = function() {
-gWHT.destroyToolbar();//WordHighlight取消工具栏
-};
+keys['Alt+X'] = "gWHT.destroyToolbar();";//WordHighlight取消工具栏
 
 keys['Alt+F1'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键
 

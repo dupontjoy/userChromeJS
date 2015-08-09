@@ -1,4 +1,4 @@
-/*+++2015.07.23 18:00+++*/
+/*+++ 2015.08.08 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -27,13 +27,8 @@ border-right:1px #BBC2C8 solid !important;
   -moz-border-end: 1px solid /*threedshadow*/rgba(0,0,0,.2) !important;
 }
 
-/*anoBtn向左对齐*/
-#anobtn{
-margin: 0 0 0 -3px !important;
-padding: 0px !important;
-}
-
 /*隐藏图标*/
+#bookmarks-menu-button,/*書籤五角星*/
 #home-button,
 #stylish-toolbar-button,/*Stylish導航欄圖標*/
 #ghostery-button-badge,/*Ghostery计数*/
@@ -56,12 +51,3 @@ padding: 0px !important;
 /*調整圖標邊框——方法3*/
 #downloads-button .toolbarbutton-icon
 {padding: 0px !important;}
-
-/*五角星書籤圖標邊框及左右距離*/
-#bookmarks-menu-button .toolbarbutton-icon {
-padding: 0px !important;
-margin-left: 5px !important;
-margin-right: 5px !important;
-border-right:1px #BBC2C8 solid !important;
-}
-

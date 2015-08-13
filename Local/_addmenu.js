@@ -307,12 +307,6 @@ url:"http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=%S
 where: 'tab',
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcklEQVQ4jd3SsQ2DMBBG4U9iAIagYQcKaiZhGpqswyDZwE2GMI1BVmQjFKRIyZOuu/9Zvjv+hgkBsVIh9ew0eOSCgOHkgSH1QIs1iQ/ie6JARIcnlk8FAXMpc0XwwljLXBXkc/r+FyJ6lSHeXuPtQ/phNpewMd4q2yEXAAAAAElFTkSuQmCC",
 },
-{
-label: "Pan資源",
-url:"https://www.google.com/search?q=site:pan.baidu.com+%SEL%&hl=en-US&safe=off&sclient=psy-ab",
-where: 'tab',
-image: "http://pan.baidu.com/res/static/images/favicon.ico",
-},
 {},
 {
 label: "Ebay",
@@ -399,7 +393,7 @@ where: 'tab'
 },
 {
 label: "運營—外網批量管理-品名",
-id: "TVC-2",
+id: "TVC-1",
 url: "http://ic.sjlpj.cn/#/Product/BatchManagementProductList?Sku=&KeyWord=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'

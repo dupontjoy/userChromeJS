@@ -1,14 +1,19 @@
-/*2015.07.21 12:00*/
+/*+++ 2015.08.14 +++*/
 
 /*下载弹窗大小调整*/
 #unknownContentType {
 height: 340px !important;
-width: 450px!important;
+width: 450px !important;
 }
 
 /*選項弹窗大小调整*/
 #BrowserPreferences {
 height: 530px !important;
+}
+
+/*字體彈窗大小調整*/
+#FontsDialog {
+width: 420px !important;
 }
 
 /*ucjsPermission2選項菜單右列調整*/

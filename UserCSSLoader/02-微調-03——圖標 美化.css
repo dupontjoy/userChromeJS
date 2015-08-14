@@ -1,4 +1,4 @@
-/*+++ 2015.08.13 +++*/
+/*+++ 2015.08.08 +++*/
 
 /*==修正图標和文字擠一起問題==*/
 /* Adjust left-margin for menuitems and menus which aren't iconized */
@@ -6,22 +6,6 @@ menuitem:not([type="checkbox"]):not([type="radio"]) > hbox.menu-iconic-left, men
 {-moz-appearance:menuimage;}
 
 /*==扩展/脚本图标补充==*/
-
-/*AUP图标替换*/
-#aup-toolbarbutton image  { list-style-image:url("data:image/png;base64,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")!important;
-}
-#aup-toolbarbutton[panproxystate="auto"] image {-oz-image-region:rect(0px,16px,16px,0px);
-}
-#aup-toolbarbutton[panproxystate="disabled"] image {-moz-image-region:rect(16px,16px,32px,0px);
-}
-#aup-toolbarbutton[panproxystate="global"] image {-moz-image-region:rect(32px,16px,48px,0px);
-}
-
-
-/*彩色stylish代替空白stylish*/
-#stylish-toolbar-button {
-	list-style-image:url("chrome://stylish/skin/16.png") !important;
-}
 
 /*Addmenuplus菜單*/
 #addMenu-rebuild {
@@ -79,47 +63,6 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAQCAY
 }
 
 /*==Firefox本身菜單==*/
-
-/*inspect*/
-#context-inspect{
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
-list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZUlEQVQ4jaVTUQpAIQxa7yidqvtfpPfTQKSWW0IUOLXYMosxL7x9AddplzFWMq+REXuqP6ErJixGA8mExTu4iU7cgtpB2KAYz6e6+g0kAhAGPXdhZ5KaAzYpTSLCU9N/AaF2po4fwVYqq5MUvBgAAAAASUVORK5CYII=")!important;
-}
-
-
-/*viewsource*/
-#context-viewsource,#context-viewpartialsource-selection{
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
-list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAS1BMVEUAAADBwcEFBQXV1dWrq6v9/f34+Pje3t6Li4tjY2MaGhoQEBAAAADMzMzAwMC6urqsrKyHh4eBgYF1dXVvb29VVVVJSUktLS0nJydF8apsAAAAAXRSTlMAQObYZgAAAFlJREFUGNOdjEcSwCAMA02v6fX/Lw0RJucMOni1gw39i3jHoQC4LMMlKwU7yhK4NFwT17m6igaPmrLH3bYDPpPGhokD1Q0+HG/+riGsn6PY5ArhiFAnQH15APjLAbhBikauAAAAAElFTkSuQmCC")!important;
-
-}
-
-
-/*viewinfo*/
-#context-viewinfo{
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
-list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAlUlEQVQ4jcWSQQrDIBBFJ6EnKC7iokjdiTcOzAmCB8iiniL3+d2IMSagqQU/KA7634yjRL01EBFaIS0AjGnEzkNqC6kt2PlqcDwolEGIEdZF7+NukkTDaZOdh1AGQpnaKyBO7Dymt42mrA+4GEdAMIPXDbxuICJIbUtV7IDny5yyJI0sVzAvH+SvUNGHHfCj8Jev3FdfBE9YlSEhiGUAAAAASUVORK5CYII=")!important;
-}
-
-/*viewimage*/
-#context-viewimage{
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
-list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAgVBMVEUAAAD4+PgZGRlXV1f9/f3Z2dmfn5/09PTx8fHh4eHKysqzs7N0dHRgYGBHR0dDQ0MvLy8hISEeHh7Q0NC7u7uhoaGZmZmVlZWEhIRnZ2dTU1M/Pz8nJycSEhLp6eni4uLd3d3U1NTFxcWnp6eQkJCNjY2FhYWDg4NsbGxmZmY+Pj4UJ42CAAAAAXRSTlMAQObYZgAAAHxJREFUGNOdy8cNwzAUwFDqy3Kvcm/pff8Bo8BABjBv70D2Zp5ZNtR/RtqmrZ9Kcd7cyKAwJ9RtbX/25QJvkRHq6u5sDcSLUkvs5qonKwJIZpgTULnG03mAKqepVISF9sB7lYaw80PiKnV2devYHKNEyxW2Do+PlbwP2NcXHOgGBwDkvbYAAAAASUVORK5CYII=")!important;
-}
-
-
-/*context-searcher*/
-#context-searcher .menu-iconic-icon{
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
-list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdklEQVQ4jc2SsQ3AIAwEbwGK1NmFDdIwE3OxCCOkZYAU+RSRMEFyIuUkN7Z5vwH4IxtQgKYoyk2RgQokICiScnlmcgWWTm1RbeikaJpFUo9J47RsEdTznYB7BfclwvgZGxCfBC4nvY8UgX1WxOJVkdUj4jp84wDU6yD4kZGU+wAAAABJRU5ErkJggg==")!important;
-}
-
-
-/*QuickFoxNote*/
-#qfn-context3 .menu-iconic-icon{
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
-list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAqElEQVQ4ja2SQQqDMBBFX7tx5SU8R3YuFHtFT9Iz9BiFFrIqHkA3PzJJIwnigwGj83/+DMKFdMBaWV0Q3Y3BA5iBW6Fm9f4ZjMBTz0c3o54xjd8AP6CtGLVVb2MT9MALWCrmX9TbW4PBxC/tIIwx2FgfwGfmtdhvXpodD7jE0J5dInDSRO6WSYJw41vvDjW5yCVWiP+DU1xm8CVeWgknzU66tFLllnqODcQBSVVEfuY+AAAAAElFTkSuQmCC")!important;
-}
 
 /*頁面右鍵 添加到字典*/
 #spell-add-to-dictionary {

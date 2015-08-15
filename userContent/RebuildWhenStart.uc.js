@@ -11,11 +11,11 @@
 setTimeout(function() {MyMoveButton.delayRun();}, 2000);//2秒
 setTimeout(function() {MyMoveButton.delayRun();}, 3000);//3秒
 setTimeout(function() {MyMoveButton.delayRun();}, 4000);//4秒
-setTimeout(function() {addMenu.rebuild(true);MyMoveButton.delayRun();}, 5000);//5秒
+setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();}, 5000);//5秒
 setTimeout(function() {MyMoveButton.delayRun();}, 6000);//6秒
 setTimeout(function() {MyMoveButton.delayRun();}, 7000);//7秒
 setTimeout(function() {MyMoveButton.delayRun();}, 8000);//8秒
 setTimeout(function() {MyMoveButton.delayRun();}, 9000);//9秒
-setTimeout(function() {addMenu.rebuild(true);MyMoveButton.delayRun();}, 10000);//10秒
-setTimeout(function() {addMenu.rebuild(true);MyMoveButton.delayRun();}, 60000);//60秒
+setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();}, 10000);//10秒
+setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();}, 60000);//60秒
 })();

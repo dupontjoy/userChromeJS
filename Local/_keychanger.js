@@ -26,11 +26,11 @@ keys['P'] = "openPreferences();";//选项
 
 keys['R'] = function() {
 KeyChanger.makeKeyset(true);//KeyChanger
-Redirector.reload();//Redirector
-UCL.rebuild();//UserCSSLoader
+Redirector.reload(true);//Redirector
+UCL.rebuild(true);//UserCSSLoader
 anobtn.reload(true);//anobtn
 addMenu.rebuild(true);//AddmenuPlus
-MyMoveButton.delayRun();//Movebutton
+MyMoveButton.delayRun(true);//Movebutton
 showFlagS.rebuild(true);//showFlagS
 };//群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
 

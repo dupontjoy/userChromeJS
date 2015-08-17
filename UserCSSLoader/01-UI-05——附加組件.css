@@ -450,7 +450,7 @@ textbox#header-search {
 .addon {counter-increment: addoncount !important;content: counter(addoncount) !important;}
 .addon:first-child {counter-reset: addoncount !important;}
 .addon[active="false"] {counter-increment: disabled !important;}
-#addon-list:after {content: "[ "counter(addoncount)" 启用, "counter(disabled)" 禁用 ]" !important;position: fixed !important;top: 15px !important;left: 18px !important;color:rgba(0,0,0,0.8);cursor: default;white-space: nowrap !important;}
+#addon-list:after {content: "[ "counter(addoncount)" 启用, "counter(disabled)" 禁用 ]" !important;position: fixed !important;top: 30px !important;left: 200px !important;color:rgba(0,0,0,0.8);cursor: default;white-space: nowrap !important;}
 /*修正附加组件左侧动画方框距离*/
 .category {
 	background:transparent !important;

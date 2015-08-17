@@ -26,12 +26,12 @@ keys['P'] = "openPreferences();";//选项
 
 keys['R'] = function() {
 KeyChanger.makeKeyset(true);//KeyChanger
-Redirector.reload(true);//Redirector
-UCL.rebuild(true);//UserCSSLoader
-anobtn.reload(true);//anobtn
-addMenu.rebuild(true);//AddmenuPlus
-MyMoveButton.delayRun(true);//Movebutton
-showFlagS.rebuild(true);//showFlagS
+Redirector.reload();//Redirector
+UCL.rebuild();//UserCSSLoader
+anobtn.reload();//anobtn
+addMenu.rebuild();//AddmenuPlus
+MyMoveButton.delayRun();//Movebutton
+showFlagS.rebuild();//showFlagS
 };//群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
 
 keys['S'] = "BrowserStop();";//停止载入当前页

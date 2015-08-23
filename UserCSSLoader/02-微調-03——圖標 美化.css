@@ -1,9 +1,19 @@
-/*+++ 2015.08.13 +++*/
+/*+++ 2015.08.21 +++*/
 
 /*==修正图標和文字擠一起問題==*/
 /* Adjust left-margin for menuitems and menus which aren't iconized */
 menuitem:not([type="checkbox"]):not([type="radio"]) > hbox.menu-iconic-left, menu > hbox.menu-iconic-left 
 {-moz-appearance:menuimage;}
+
+/*书签文件夹悬浮图标及网站图标自动补全*/
+menu.bookmark-item:not([query]):not([label="Bookmarks Toolbar"])[open] {
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAANwAAADcBYx2BhQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEbSURBVDiNldNPK0RxFMbxz2WUkjIXyykbNVLkvgHlDdgoxdKCqLkrb0BifVfWvAErC4kXoOaW/SQLWZBr2KJrYWho/n5Xv3rO85xz6vyCPM+FaVzCiL+8ZVHyoAtBsVo5wiaCf9o7VrMoOe0W8IKxNvoTVpG10W8LLTo3M4mrDvpFofE4xEmHwlasYzcoVit1TGVRUu/HHabxMOoDfXYVpvGflfsKCNN4AddhGp9hqK+AMI3nsY8V3CDqOSBM4zkc4AM7KOMOCu1tv+YS9lDHK6YxiuGeAjCL00btjO+T38J9rytcYrnRsYztLEpqP+IAPrHYzp1Fybvvc65ho8m8hDwoVivHWMNzD9M0M47zoFitDGJC5z/RihyPX9aXRuP4tFOHAAAAAElFTkSuQmCC") !important;
+-moz-image-region: rect(0 16px 16px 0) !important;
+}
+menuitem.bookmark-item {
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAPFBMVEUAAADCMDDKICDKICDKISHLISHKICDKISHLISHKICDJISHKHx/HICDOISHKISHJISHKISHKISHKICDKISHNmRTzAAAAE3RSTlMABI7cpzVgWrWtPSggD+HgmpmGI5UjwAAAAF5JREFUGNN1jkkOwCAMA0tK2Onm//+1gEhFDp0L8sgk2f4oRWez70YJBzhdAJZKTYQGpToiHfg4qYmIBdv/xyWbMfGSfJu5Q4TsySLyFF6En4KAwByAR+623B+20lC8OZoG3r0TZhgAAAAASUVORK5CYII=") !important;
+-moz-image-region: rect(0 16px 16px 0) !important;
+}
 
 /*==扩展/脚本图标补充==*/
 
@@ -20,7 +30,7 @@ menuitem:not([type="checkbox"]):not([type="radio"]) > hbox.menu-iconic-left, men
 
 /*彩色stylish代替空白stylish*/
 #stylish-toolbar-button {
-	list-style-image:url("chrome://stylish/skin/16.png") !important;
+	list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABwklEQVQ4jaXSQYgSYRjG8a9m0zaTCHYwOqaHDaMmD4Jl1Mq0eLGgQ0El1ELRioeNcENQcruWhzoZAyIoHoytTlEOIYwsLANr3rzu2WOI6MH5d4gVa5wu+8JzfH8f78MnhBAcMoJPO2u2FCu3yRVXKbyLI4Tgx43LtswF1jevIoQgEAigqiqxWIxgMIjb7ebMcRfbVy44AxuvruP3+zFNk39nPB6Tz+d5eyngDCz5PNPlyWSCaZrouk6v18OyLEql0v8BWZanL+ZyOe4kL/KmfAshBKvLASKRCJXweTtwkFmg2WyiKAqSJCGE4Om5s84ldrUMXS1DPLyMYRh/3T4YDGi1WqRSKRZdLj5G5pR4AOx9eIEsy1SrVUajka1IXdcJnfY6A9tbjxFC0Poq8WTNw727KxQKBfr9/hRRFMUZWHS78Pl83IwdoVKS+LmzwMvnR0mn01NAVVVn4JT3JMPhkFqtRjKZJBqNkkgk6HQ6AFiWRfjaCuXdfcq7+3bA6zlhu3t2NE1jo1h2BrYexQmFQmSzWRqNBoZh0G63qdfr3H/wkGev30+X5wJdLYMQAuvXMfbaC3z7LPH9y59/MLtoAw6T3yxIPX0EHzaSAAAAAElFTkSuQmCC") !important;
 }
 
 /*Addmenuplus菜單*/
@@ -53,8 +63,8 @@ list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYA
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgElEQVQ4jcWSyw2AIBAF5+rNDuyE2AG9WIK1UQpVeMHLEggKLCHRSQgH9u3vAR+wzYovwMwkMZLEjogs4IAgx8ut6uQUgQVWuQNwaCt7EULawa5t3fGcdciFkFWv0UzYS7BITJW3EXKiO82AfIk5K8mdJqWN0UovbyrKj9Qb7UdupJYfIj9YalkAAAAASUVORK5CYII=")!important;
 }
 
-/*FlashGot*/
-#flashgot-media-tbb {
+/*FlashGot, NetVideoHunter*/
+#flashgot-media-tbb, toolbar[mode="icons"] #netvideohunter-toolbarbutton > .toolbarbutton-icon {
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABYElEQVQ4jY2TQU5bQRBEiwXIkebXK+AKQUiYsyXeZgM3AC+MxCEwF4hyCxTnAgh7B0kWIRtnM9+afIzkllpqzXTVdPV0SwMrpZzZvgIWwJ/q321flVLOhvmtHSSZJXkEviRZSxpJGiVZ17NH4FbShzdg4CtwL6mTpEqgQdwBc+CbpIMNGrip4L0toP9iSXvAfZJZr3kMLCW5z7B9kmSd5Ln62vZJQ2JgWUoZy/a17csG/BFYJpl0XXfcdd1xkgmwbElsX9q+FrCor7U+GTYpyWSYBywEvNZu94kvto+GBLWS5+ZoBLzuTGD7KMlLS5Dk11YJtj/vIiHJQ9/Ei6bUU2Bl+xNwCBzWeNV13WlT0UWSqUop58DTO9/4s/q2b3wqpZxL2gzSXLsP0hy4aSX2o3zXV/IOgYG7N6PckySZAatmmfYl7ffLVO+2LtPGSinjJFPgB/A3ye8kD0mmG82N/QP2U3VtlId39gAAAABJRU5ErkJggg==")!important;
 }
 
@@ -79,6 +89,28 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAQCAY
 }
 
 /*==Firefox本身菜單==*/
+
+/*打開所在文件夾位置*/
+#AM-browse-dir/*擴展右键——查看所在目录*/, #downloadsContextMenu menuitem[command="downloadsCmd_show"]/*打開文件夾*/ {
+-moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVQ4jWNgoBLwZGBgeMbAwPAfCT+DihMFnjEwMFijiVlDxYk2QAOL+H8cGMN1uAzABTBcBzMVl43YXPAf3QD0MCDkAgwDSAWjBlDbgD8MDAzpJGhOh+qBgwaoALEJ6Q9UD+UAAEc9PeCabBc4AAAAAElFTkSuQmCC")!important;
+}
+
+#downloadsContextMenu menuitem[command="downloadsCmd_openReferrer"]/*下載窗口——轉至下載頁*/ {
+-moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAANElEQVQ4jWNgGOxAnlLNvxgYGOwoMcRu0Bnij0/RfyIxWS4hygWENDvQXTNV0gFFKXGIAABllRYLfseFRgAAAABJRU5ErkJggg==")!important;
+}
+
+#downloadsContextMenu menuitem[command="downloadsCmd_pauseResume"]/*下載窗口——暫停和繼續*/ {
+-moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA+0lEQVQ4jcWSMUoEURBES9EVDIZh8DP9XyUGIoKGXsBEMBQ9gCZGXsTEyCsogiYmHkEMTAb2AsImHsBYk1kYVt3Z3cSCTrqriu6mpH/AMnAfEWlhh5zzse0mIjYlSba/xgV8RsTuhGbJ9nOX13JffrgD58AQWO/0Lm2/SlqRpIg4Aoa2t39dEbgDbiSprus94COltNWZ36aU4s8bq6oqcs4nktZsN7bPZnrOJGxf235YSAwcAu9FUVSLiDdsjyLiQNJg7hOAJ+BKksqyLG2Pcs777Xh6kHLOF8CbpMG4FxGnthtJqy1nepCAnUlj248zBWkW9AapD71Bmgff1GdAhwyuwRgAAAAASUVORK5CYII=")!important;
+}
+
+/*下載窗口——Hash計算*/
+#checksumMenu {
+-moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyElEQVQ4ja2TMQrCQBBFB9JaCdOly2b+v4WVB7AVbIXcwFaw9QBWVp7BA3gJD+ABBNuF2CSwho0mGz9ssbDz/vwZVuQfIlmnnA9AimkSwDm3EJEsCWBmu/btaACAQ5h9FABA1R1eL8A5p0VRuPZeluUSgG+LAVy/Aki+ANxERPI8nwN4BO77aNcka1Wddfa8JXlqXD3JdRgr2oGZrQDcm6InAA/Am9mmO5feCKo6A3AJMlexwf7cAsmjmZ1jxYMAjbLBgEmfaYrepQOCPHCQ+FAAAAAASUVORK5CYII=")!important;
+}
 
 /*inspect*/
 #context-inspect{
@@ -139,8 +171,8 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZ0lEQVQ4jWNgGCyAjYGBYRIDA8NrBgaG/0Tg11D1bDADJjEwMOxmYGAQJ9JCcaj6VpjAaxI0IxvyGsb5j0chXjkmEm3FABQbwIJDHN3ZyHxGYjQQLTfwYUCMAVj9TDUXwEzHF1C0BQCpARnHXF2p+wAAAABJRU5ErkJggg==")!important;
 }
 
-/*鏈接右鍵 複製鏈接地址*/
-#context-copylink {
+/*複製鏈接地址*/
+#context-copylink/*鏈接右鍵 複製鏈接地址*/, #downloadsContextMenu menuitem[command="cmd_copy"]/*下載窗口——複製下載鏈接*/ {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4jbWTLw6DMBjFfwaDmauq5QhY9C4wyQWQOA6whAtwBS6wO0xOzeKQO8REH6EUwsqWvaRpk37vT7+28AfYX8gZ8NIcIgf6GJESGAATpBqAc2ySFrgDCZACD6CKJU/oNW5Ad5SMnEdc9OQbgQp4SqA8QsyAWu6W+WZaoPhEblQ8sGxah+vFKKHdyFbFl0C4A064G6lDsmV+QIWc0o19G6xXDkbxffcJtdyNaht/0z/jKp6Hq2pWbyPDNSffIU8oJLT1X47jDR7gLDGf5CLwAAAAAElFTkSuQmCC")!important;
 }
@@ -188,7 +220,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 }
 
 /*標簽右鍵 關閉分頁*/
-#context_closeTab {
+#context_closeTab, #downloadsContextMenu menuitem[command="downloadsCmd_cancel"]/*下載窗口——取消*/ {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAS0lEQVQ4jWNgGJZAnkw5uIJfDAwMdljk7KByBA2BKbTDIuZASDM2Q0jWjG4IWZrRDcAWJkRpdmDAHiZEacYWiAQNoUo0UpSQhiAAAHnZFnHHYzvpAAAAAElFTkSuQmCC")!important;
 }
@@ -218,7 +250,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 }
 
 /*刪除*/
-#placesContext_delete, #mnEditDelete, #placesContext_delete_history, #searchFilter menuitem[cmd="cmd_delete"], #configDeck menuitem[cmd="cmd_delete"], #bxURLBarContainer menuitem[cmd="cmd_delete"] {
+#placesContext_delete, #mnEditDelete, #placesContext_delete_history, #searchFilter menuitem[cmd="cmd_delete"], #configDeck menuitem[cmd="cmd_delete"], #bxURLBarContainer menuitem[cmd="cmd_delete"], #removeDownload {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAY0lEQVQ4jWNgGEzgP4kYqwGkWIZT8DMDA0MIFnkbqBxBA0IYGBi+oxkC01xAjAHohqBrJsoAZEPQNRNtAMxmdO8QZQCys7GFCV4DsPkZ3RCC0YjuZ2RDCBpADMBpAEVJeWAAAMJDQxk7lwhpAAAAAElFTkSuQmCC")!important;
 }
@@ -230,7 +262,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 }
 
 /*清除*/
-#searchbar menuitem[cmd="cmd_clearhistory"], #placesContext_deleteHost {
+#searchbar menuitem[cmd="cmd_clearhistory"], #placesContext_deleteHost, #downloadsContextMenu menuitem[command="downloadsCmd_clearDownloads"] {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABAElEQVQ4jaXTIVPDUBAE4E9ERiAQEYgKBCISgaioQFZGIhEIRAWiAoFD8hMqEUgEsgJREYFAIpAIBKICgQjiXWaYTjKTlp15k7wku2/37gJjTP0Dz/hBtavAfog0mO0qkuMpRK7j2RkWmAwVyXAfIo9SrAavGIXTQWhFGnzgGDXeDajTIdZBXgd5KdWmkCLVUrysS6AK8reU/QE3HYcs8IbLTYEibFe4i7WJqVSPEl9dLvYwj9O7UGAltf6i5xvzsPkXZVjOpOmt9dRBvFjhNPZ5XM+l7C846SO3OJJmIJdaW8b9oHa2mOEWB/gM21v9M1m4uArb423ILSbhonOUfwEJWTYy3tyqawAAAABJRU5ErkJggg==") !important;
 }

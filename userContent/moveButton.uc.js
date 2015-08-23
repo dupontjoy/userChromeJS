@@ -82,12 +82,12 @@ location == "chrome://browser/content/browser.xul" && (function(){
         //     }
         // },
 //不常用圖標移動到aidBar
+{ id: "netvideohunter-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 0 },//NetVideoHunter扩展
+{ id: "flashgot-media-tbb", bar: "TabsToolbar_aidBar", pos: 0 },//FlashGot扩展
 { id: "lpt_lastpass-compact-btn", bar: "TabsToolbar_aidBar", pos: 2 },//Lastpass扩展
 { id: "ucjsPermission_Toolmenu", bar: "TabsToolbar_aidBar", pos: 3 },//ucjsPermission腳本
-{ id: "RPBT-icon", bar: "TabsToolbar_aidBar", pos: 4 },//RequestpolicyRuleForABP腳本
 { id: "abp-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 5 },//AdBlockPlus扩展
 { id: "aup-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 6 },//Autoproxy擴展
-{ id: "pocket-button", bar: "TabsToolbar_aidBar", pos: 7 },//Pocket
 { id: "greasemonkey-tbb", bar: "TabsToolbar_aidBar", pos: 8 },//Greasemonkey扩展
 { id: "userChromebtnMenu", bar: "TabsToolbar_aidBar", pos: 9 },//UC管理器
 
@@ -109,7 +109,6 @@ location == "chrome://browser/content/browser.xul" && (function(){
 
 //地址欄圖標
 {id: "bookmarks-menu-button", insertBefore: "urlbar-reload-button"},//五角星書籤按鈕 放入地址欄
-{id: "flashgot-media-tbb", bar: "urlbar-icons" },//Flashgot扩展
 
 //Greasemonkey圖標右鍵菜單
 {id: "greasemonkey-tbb",

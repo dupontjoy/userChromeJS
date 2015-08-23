@@ -87,17 +87,7 @@ xhr.onload=function()
 xhr.send();
 
 }
-//新增2015.08.17
-		run:function(){
-			var ths=this,
-				runs=function(){
-					var now=ths.getNow(),
-						datadate=ths.getDDate();
-					if(now>datadate)
-						ths.init();
-				};
-			runs();
-			setInterval(runs,1000);
-		}
+
 };
 setBingTheme();
+setInterval(setBingTheme,1000);

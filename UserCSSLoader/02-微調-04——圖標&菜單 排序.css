@@ -1,4 +1,4 @@
-/*+++2015.07.23 17:00+++*/
+/*+++ 2015.08.18 +++*/
 
 /*地址栏图标排序*/
 #flashgot-media-tbb {-moz-box-ordinal-group: 2 !important;}
@@ -43,6 +43,10 @@ toolbarbutton#ucjsPermission_Toolmenu,toolbarbutton#ucjsPermission_Toolmenu>imag
 
 /*Lastpass圖標距離調整（两句要同時用）*/
 toolbarbutton#lpt_lastpass-compact-btn,toolbarbutton#lpt_lastpass-compact-btn>image {padding: 0px !important;margin:0px !important;}
+
+/*AnoBtn圖標（两句要同時用）*/
+toolbarbutton#anobtn,toolbarbutton#anobtn>image
+{padding: 0px !important;margin-left:1px !important;}
 
 /*五角星書籤圖標邊框及左右距離*/
 #bookmarks-menu-button>.toolbarbutton-menubutton-button{

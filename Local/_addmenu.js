@@ -1,4 +1,5 @@
 
+//2015.08.18 調整選中文字搜索
 //2015.07.25 21:00 Email地址左中右三鍵，修正中轉英，插入BBCode左中右三鍵，用新分頁開啟鏈結左中右三鍵
 //2015.07.24 22:00 複製圖片地址左右鍵
 //2015.07.20 15:00 純粹加圖標的用CSS方式
@@ -8,7 +9,7 @@
 //2015.07.02 12:00 參考貼吧长丝绾月版加入新功能
 //2015.07.01 21:00 終於折騰出了左中右三鍵
 //2015.06.29 07:00 快捷回覆加入顏文字，換黑白圖標
-//2015.06.10 16:00 調整選中文字搜索，加入OCR文字識別
+//2015.06.10 16:00 加入OCR文字識別
 //2015.05.05 17:00 調整一些菜單順序和添加圖標
 //2015.04.29 21:00 貼上 二级菜單
 //2015.03.31 21:00 升級FX36，調整加圖標方式
@@ -278,10 +279,10 @@ insertBefore: "context-copy",
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdklEQVQ4jc2SsQ3AIAwEbwGK1NmFDdIwE3OxCCOkZYAU+RSRMEFyIuUkN7Z5vwH4IxtQgKYoyk2RgQokICiScnlmcgWWTm1RbeikaJpFUo9J47RsEdTznYB7BfclwvgZGxCfBC4nvY8UgX1WxOJVkdUj4jp84wDU6yD4kZGU+wAAAABJRU5ErkJggg==",
 onpopupshowing: function (event){
 Array.slice(event.target.children).forEach(function(elem){
-if(elem.id == "TVC-1"){
+if(elem.id == "TVC-Universal"){
 elem.hidden = !/ic.sjlpj.cn|tvc-mall.com|secu-star.com/.test(content.location.host)//可排除多個網站
 }
-else if(elem.id == "TVC-2"){
+else if(elem.id == "TVC-Back"){
 elem.hidden = !/ic.sjlpj.cn/.test(content.location.host)//可排除多個網站
 }
 });
@@ -310,21 +311,21 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAck
 {},
 {
 label: "Ebay",
-id: "TVC-1",
+id: "TVC-Universal",
 url: "http://www.ebay.com/sch/i.html?_nkw=%s",
 image: "http://www.ebay.com/favicon.ico",
 where: 'tab'
 },
 {
 label: "Amazon",
-id: "TVC-1",
+id: "TVC-Universal",
 url: "http://www.amazon.com/s/?url=field-keywords=%s",
 image: "http://www.amazon.com/favicon.ico",
 where: 'tab'
 },
 {
 label: "TVC-Mall",
-id: "TVC-1",
+id: "TVC-Universal",
 url: "http://www.tvc-mall.com/search?q=%s",
 image: "http://www.tvc-mall.com/images/favicon.ico",
 where: 'tab'
@@ -332,22 +333,53 @@ where: 'tab'
 {},
 {
 label: "運營—價格變更-SKU",
-id: "TVC-1",
+id: "TVC-Universal",
+accesskey: "1",
 url: "http://ic.sjlpj.cn/PriceChangeRequest/UnChangedProductList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
 label: "運營—價格變更審核-SKU",
-id: "TVC-1",
+id: "TVC-Universal",
 url: "http://ic.sjlpj.cn/PriceChangeRequest/OperationAuditList?Sku=%s",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "運營—外網批量管理-SKU",
+id: "TVC-Universal",
+accesskey: "2",
+url: "http://ic.sjlpj.cn/#/Product/BatchManagementProductList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "運營—外網批量管理-品名",
+id: "TVC-Universal",
+url: "http://ic.sjlpj.cn/#/Product/BatchManagementProductList?Sku=&KeyWord=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "運營—SPU管理-SpuId",
+id: "TVC-Universal",
+accesskey: "3",
+url: "http://ic.sjlpj.cn/ProductCorrect/ProductSpuList?SpuId=%s",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "運營—SPU管理-SKU",
+id: "TVC-Universal",
+url: "http://ic.sjlpj.cn/ProductCorrect/ProductSpuList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {},
 {
 label: "運營—質檢-SKU",
-id: "TVC-1",
+id: "TVC-Universal",
 accesskey: "4",
 url: "http://ic.sjlpj.cn/Product/ProductCheckingList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
@@ -355,14 +387,14 @@ where: 'tab'
 },
 {
 label: "運營—質檢-品名",
-id: "TVC-2",
+id: "TVC-Back",
 url: "http://ic.sjlpj.cn/Product/ProductCheckingList?KeyWord=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
 label: "運營—審核-SKU",
-id: "TVC-1",
+id: "TVC-Universal",
 accesskey: "5",
 url: "http://ic.sjlpj.cn/Product/OperationProductEditAuditList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
@@ -370,31 +402,44 @@ where: 'tab'
 },
 {
 label: "運營—審核-品名",
-id: "TVC-2",
+id: "TVC-Back",
 url: "http://ic.sjlpj.cn/Product/OperationProductEditAuditList?Keyword=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "運營—SPU管理列表",
-id: "TVC-1",
-accesskey: "6",
-url: "http://ic.sjlpj.cn/ProductCorrect/ProductSpuList?Sku=%s",
+label: "產品—認領-SKU",
+id: "TVC-Back",
+url: "http://ic.sjlpj.cn/DevProduct/DevProductEditCollectList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "運營—外網批量管理-SKU",
-id: "TVC-1",
-accesskey: "7",
-url: "http://ic.sjlpj.cn/#/Product/BatchManagementProductList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
+label: "產品—認領-品名",
+id: "TVC-Back",
+url: "http://ic.sjlpj.cn/DevProduct/DevProductEditCollectList?Name=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "運營—外網批量管理-品名",
-id: "TVC-1",
-url: "http://ic.sjlpj.cn/#/Product/BatchManagementProductList?Sku=&KeyWord=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
+label: "產品—已編輯-SKU",
+id: "TVC-Back",
+url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Sku=%s&EditorId=0",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "產品—已編輯-品名",
+id: "TVC-Back",
+url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Name=%s&EditorId=0",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "產品—關聯SPU-所有列表",
+id: "TVC-Back",
+url: "http://ic.sjlpj.cn/DevProduct/DevProductAssociatedSpuList?Sku=%s",
+tooltiptext: "加顏色時在此關聯，一步到位！",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },

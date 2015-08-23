@@ -1,4 +1,4 @@
-/*+++ 2015.08.08 +++*/
+/*+++ 2015.08.18 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -51,3 +51,12 @@ border-right:1px #BBC2C8 solid !important;
 /*調整圖標邊框——方法3*/
 #downloads-button .toolbarbutton-icon
 {padding: 0px !important;}
+
+/*AnoBtn圖標（两句要同時用）*/
+toolbarbutton#anobtn,toolbarbutton#anobtn>image
+{padding: 0px !important;margin-left:1px !important;}
+
+/*FlashGot, NetVideoHunter*/
+#flashgot-media-tbb, toolbar[mode="icons"] #netvideohunter-toolbarbutton > .toolbarbutton-icon {
+list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABYElEQVQ4jY2TQU5bQRBEiwXIkebXK+AKQUiYsyXeZgM3AC+MxCEwF4hyCxTnAgh7B0kWIRtnM9+afIzkllpqzXTVdPV0SwMrpZzZvgIWwJ/q321flVLOhvmtHSSZJXkEviRZSxpJGiVZ17NH4FbShzdg4CtwL6mTpEqgQdwBc+CbpIMNGrip4L0toP9iSXvAfZJZr3kMLCW5z7B9kmSd5Ln62vZJQ2JgWUoZy/a17csG/BFYJpl0XXfcdd1xkgmwbElsX9q+FrCor7U+GTYpyWSYBywEvNZu94kvto+GBLWS5+ZoBLzuTGD7KMlLS5Dk11YJtj/vIiHJQ9/Ei6bUU2Bl+xNwCBzWeNV13WlT0UWSqUop58DTO9/4s/q2b3wqpZxL2gzSXLsP0hy4aSX2o3zXV/IOgYG7N6PckySZAatmmfYl7ffLVO+2LtPGSinjJFPgB/A3ye8kD0mmG82N/QP2U3VtlId39gAAAABJRU5ErkJggg==")!important;
+}

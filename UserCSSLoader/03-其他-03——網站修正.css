@@ -19,6 +19,7 @@
 font-weight: bold !important;
 font-size:13px !important;
 }
+
 /*=常用价格数量加粗加色=*/
 a[_sectiontitle="500P1"],
 a[_sectiontitle="100P1"],
@@ -33,11 +34,18 @@ font-weight: bold !important;
 font-size:13px !important;
 color: red !important;
 }
+
 /*=新建按钮框缩小=*/
 .mod_title_opt.btn_blue,/*新建一级分类，新建产品品牌*/
 .btn_blue/*型号分组管理，新建子组目录*/
 {
 padding: 0px !important;
+}
+
+/*=适用品牌型号高度调小=*/
+.dialog_srcoll/*外网产品批量查询——适用品牌型号*/
+{
+height: 380px !important;
 }
 }
 
@@ -68,5 +76,12 @@ table-layout: inherit !important;
 @-moz-document domain("520tieba.net") {
 .t_fsz {
 position:relative;left:-863.8px;
+}
+}
+
+@-moz-document domain("tieba.baidu.com") {
+#dialogJbody/*Tieba Client框*/
+{
+height: 580px !important;
 }
 }

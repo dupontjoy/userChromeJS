@@ -1,5 +1,5 @@
 
-//2015.08.06
+//2015.08.24
 
 //F功能鍵
 keys['F5'] = "BrowserReloadSkipCache();";//跳过缓存刷新页面
@@ -26,12 +26,13 @@ keys['P'] = "openPreferences();";//选项
 
 keys['R'] = function() {
 KeyChanger.makeKeyset(true);//KeyChanger
-Redirector.reload();//Redirector
-UCL.rebuild();//UserCSSLoader
-anobtn.reload();//anobtn
-addMenu.rebuild();//AddmenuPlus
-MyMoveButton.delayRun();//Movebutton
-showFlagS.rebuild();//showFlagS
+Redirector.reload(true);//Redirector
+UCL.rebuild(true);//UserCSSLoader
+anobtn.reload(true);//anobtn
+addMenu.rebuild(true);//AddmenuPlus
+MyMoveButton.delayRun(true);//Movebutton
+ucjs_UAChanger.reload(true);//UA切換
+refererChanger.RCToggle(true);//RefererChager
 };//群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
 
 keys['S'] = "BrowserStop();";//停止载入当前页

@@ -833,7 +833,8 @@
 			var style = document.createProcessingInstruction("xml-stylesheet", "type=\"text/css\"" + " href=\"data:text/css;base64," + btoa(cssStr) + "\"");
 			document.insertBefore(style, document.firstChild);
 			var dir = [
-		["C:\\Users\\Administrator\\Desktop", "桌面"],
+		["C:\\Users\\Administrator\\Desktop", "桌面(1)"],
+		["C:\\Users\\www.0001.GA\\Desktop", "桌面(2)"],
 		["D:\\Download", "Download"],
 		["E:\\Syuan的軟件", "Syuan的軟件"],
 			];

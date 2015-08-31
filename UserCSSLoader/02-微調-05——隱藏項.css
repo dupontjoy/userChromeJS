@@ -1,4 +1,4 @@
-/*+++ 2015.08.21 +++*/
+/*+++ 2015.08.28 +++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄，地址欄&工具欄===*/
@@ -189,7 +189,7 @@ display: none !important;
 [label="Copy Password"],[label="复制密码"],[label="複製密碼"],
 [label="Copy URL"],[label="复制网址"],[label="複製網址"],
 [label="Go to URL"],[label="转到网址"],[label="轉到網址"],
-[label="Save All Entered Data"],[label="保存所有输入的数据"], [label="儲存已填入資料"],
+[key="lpt_key_lpSaveAll"],/*保存所有已输入的信息*/
 [label="Add Secure Note"],[label="添加安全笔记"],[label="新增安全備註"] {
 display: none !important;
 }

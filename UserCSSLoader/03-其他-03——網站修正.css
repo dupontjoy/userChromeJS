@@ -1,4 +1,4 @@
-/*+++ 2015.08.23 +++*/
+/*+++ 2015.08.31 +++*/
 
 @-moz-document domain("ic.sjlpj.cn") {
 /*=常用目录加粗=*/
@@ -42,11 +42,6 @@ color: red !important;
 padding: 0px !important;
 }
 
-/*=适用品牌型号高度调小=*/
-.dialog_srcoll/*外网产品批量查询——适用品牌型号*/
-{
-height: 380px !important;
-}
 }
 
 @-moz-document domain("mercurymart.com") {

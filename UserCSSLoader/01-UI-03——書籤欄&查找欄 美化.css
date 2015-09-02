@@ -1,4 +1,4 @@
-/*+++ 2015.08.13 +++*/
+/*+++ 2015.08.31 +++*/
 
 /*样式伪进度条
 @-moz-document url-prefix("http://"),url-prefix("https://"){
@@ -43,7 +43,8 @@ border-top: none;
 #wordhighlight-toolbar-box {
 background: #FFFFFF;
 right: 1px; /*距右邊*/
-top: 68px; /*距上邊*/
+/*top: 68px; /*Win10距上邊*/
+top: 64px; /*Win8距上邊*/
 height: 24px;
 /*>>>自行修改数字*/
 border: 1px solid #A6A6A6;

@@ -1,4 +1,5 @@
 
+//2015.09.02 調整雲播放前臺新標籤打開
 //2015.08.18 調整選中文字搜索
 //2015.07.25 21:00 Email地址左中右三鍵，修正中轉英，插入BBCode左中右三鍵，用新分頁開啟鏈結左中右三鍵
 //2015.07.24 22:00 複製圖片地址左右鍵
@@ -765,7 +766,8 @@ addMenu.copy(addMenu.convertText("%RLINK%"));
 closeMenus(this);
 break;
 case 2:
-gBrowser.addTab("http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=" + addMenu.convertText("%RLINK_OR_URL%"));
+gBrowser.selectedTab = gBrowser.addTab("http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=" + addMenu.convertText("%RLINK_OR_URL%"));/*前臺新標籤*/
+/*gBrowser.addTab("http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=" + addMenu.convertText("%RLINK_OR_URL%"));/*後臺新標籤*/
 closeMenus(this);
 break;
 }

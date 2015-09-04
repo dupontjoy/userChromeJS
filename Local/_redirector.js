@@ -1,6 +1,6 @@
 
+//2015.09.04 修正sourceforge規則鏡像
 //2015.07.23 18:00 修正職友集規則
-//2015.07.21 12:00 修正sourceforge規則鏡像
 //2015.07.20 16:00 調整規則，原始大圖換用picViewer
 //2015.07.07 21:00 http和https都走useso
 //2015.06.03 18:00 完成ajax >> github，重新分組12306的js文件
@@ -80,7 +80,8 @@ regex: true
 //測試：http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/36.x/36.0.1/x86/sse2/
 name: "sourceforge下載 >> 鏡像站點",
 from: /^https?:\/\/sourceforge\.net\/projects\/(((\w)\w).*)\/files\/(.*)\/download/i,
-to: "http://nchc.dl.sourceforge.net/project/$1/$4",//2015.07.21修正
+to: "http://jaist.dl.sourceforge.net/project/$1/$4",//2015.09.04修正
+//to: "http://nchc.dl.sourceforge.net/project/$1/$4",//2015.07.21修正
 //to: "http://master.dl.sourceforge.net/project/$1/$4",
 //to: "http://softlayer-sng.dl.sourceforge.net/project/$1/$4",
 regex: true

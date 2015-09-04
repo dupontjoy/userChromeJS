@@ -4,7 +4,6 @@
 //   @BLOCK : 发送空referer
 
 sites = {
-//2015.01.23 09:00 新增ft.com
 //2015.01.18 08:00 新增economist.com
 //2015.01.15 新增wsj.com
 //2014.12.16 增加poco
@@ -12,7 +11,6 @@ sites = {
 //2014.11.09 增加pconline和postimg
 
  //目标网址类
-'stats.ft.com': 'https://www.google.com/',//免登陆或订阅看全文
 'www.economist.com': 'https://www.google.com/',//突破每週3篇限制 
 'www.wsj.com': 'https://www.google.com/',//免登陆或订阅看全文
 'img.liufen.com': 'http://www.liufen.com.cn/',

@@ -1,15 +1,8 @@
 
-//2015.08.24
+//2015.09.05
 
 //F功能鍵
 keys['F5'] = "BrowserReloadSkipCache();";//跳过缓存刷新页面
-
-//数字
-keys['1'] = "gBrowser.selectedTab = gBrowser.addTab('https://www.google.com/ncr');";//Google    
-keys['2'] = "gBrowser.selectedTab = gBrowser.addTab('http://www.baidu.com/');";//百度
-keys['3'] = "gBrowser.selectedTab = gBrowser.addTab('http://www.ebay.com/');";//Ebay
-keys['4'] = "gBrowser.selectedTab = gBrowser.addTab('http://www.amazon.com/');";//Amazon
-keys['5'] = function(){var newtabs=["http://ic.sjlpj.cn/UpShelf/OperationManageList","http://www.tvc-mall.com/"];var i=0;while(i<=newtabs.length-1){gBrowser.selectedTab=gBrowser.addTab(newtabs[i]);i=i+1;}};//一键打开标签组 
 
 //字母
 keys['A'] = "gBrowser.selectedTab = gBrowser.addTab('about:config');";//参数设置
@@ -35,8 +28,6 @@ ucjs_UAChanger.reload(true);//UA切換
 refererChanger.RCToggle(true);//RefererChager
 };//群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
 
-keys['S'] = "BrowserStop();";//停止载入当前页
-
 keys['U'] = function() {
 Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile).reveal();
 };//Chrome文件夹
@@ -52,5 +43,6 @@ keys['Alt+X'] = "gWHT.destroyToolbar();";//WordHighlight取消工具栏
 
 keys['Alt+F1'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键
 
-
+//keys['1'] = "gBrowser.selectedTab = gBrowser.addTab('https://www.google.com/ncr');";//Google
+//keys['5'] = function(){var newtabs=["http://ic.sjlpj.cn/UpShelf/OperationManageList","http://www.tvc-mall.com/"];var i=0;while(i<=newtabs.length-1){gBrowser.selectedTab=gBrowser.addTab(newtabs[i]);i=i+1;}};//一键打开标签组
 //keys['Ctrl+F'] = function() {var path = addMenu.handleRelativePath('\\chrome\\local\\FSCapture\\FSCapture.exe');addMenu.exec(path, []);};//启动FSCapture

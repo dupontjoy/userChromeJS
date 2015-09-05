@@ -1,0 +1,30 @@
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+@-moz-document url(chrome://browser/content/browser.xul) {
+.bookmark-item[container="true"]:-moz-any(
+/*需要多列显示的书签文件夹名，多个用(,)分割，
+格式如下所示。下面的如此类推。跟第一个相同。
+在userchorme.css中，中文注意编码，
+改为UTF8，stylish扩展可无视*/
+[label="配件"],
+[label="参考网站"],
+[label="文件夹"]
+)>menupopup>hbox>.popup-internal-box>.arrowscrollbox-scrollbox>.scrollbox-innerbox{
+width: 380px !important; /*双列显示380px ,三列显示数值改为570px（3x190）*/
+display: table !important;
+}
+.bookmark-item[container="true"]:-moz-any(
+[label="配件"],
+[label="参考网站"],
+[label="文件夹"]
+)>menupopup> :-moz-any(menuitem, menu, menuseparator) {
+min-width: 175px !important;
+max-width: 175px !important;
+margin-right:5px!important;
+}
+.bookmark-item[container="true"] scrollbox{overflow-y: auto !important;}
+.bookmark-item[container="true"] .bookmark-item .menu-iconic-text{margin-right:-30px!important;}
+.bookmark-item[container="true"] :-moz-any(.abhere-menuitem,autorepeatbutton),
+.bookmark-item[container="true"] .menuitem-iconic.bookmark-item.menuitem-with-favicon ~ menuseparator{display:none!important;}
+.bookmark-item[container="true"] .openintabs-menuitem{position:absolute; }
+
+}

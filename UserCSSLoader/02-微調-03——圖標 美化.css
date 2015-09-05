@@ -1,19 +1,4 @@
-/*+++ 2015.08.30 +++*/
-
-/*去图标外壳遮罩、点击动画*/
-#anobtn,
-#userChromebtnMenu,
-#ucjsPermission_Toolmenu,
-#lpt_lastpass-compact-btn{
-padding: 0 !important;
-margin: 0 !important;
--moz-appearance: none !important;
-background: none !important;
-border: none !important;
-border-radius: 0 !important;
-box-shadow: none !important;
-outline: none !important;
-}
+/*+++ 2015.09.05 +++*/
 
 /*==修正图標和文字擠一起問題==*/
 /* Adjust left-margin for menuitems and menus which aren't iconized */

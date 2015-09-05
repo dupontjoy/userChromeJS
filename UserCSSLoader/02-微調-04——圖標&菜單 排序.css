@@ -1,4 +1,4 @@
-/*+++ 2015.08.18 +++*/
+/*+++ 2015.09.05 +++*/
 
 /*地址栏图标排序*/
 #flashgot-media-tbb {-moz-box-ordinal-group: 2 !important;}
@@ -88,5 +88,20 @@ padding: 0px !important;
 -moz-box-ordinal-group: 0 !important;
 }
 
-/*幾個qrCreator菜單順序靠後*/
-#FeiRuoMouse_QRCreator,[label="生成QR码 : 选区文本"],[label="生成QR码 : 当前网址"],[label="生成QR码 : 图象地址"],[label="生成QR码 : 链接地址"] {-moz-box-ordinal-group: 5 !important;}
+/*去图标外壳遮罩、点击动画*/
+#anobtn,
+#userChromebtnMenu,
+#ucjsPermission_Toolmenu,
+#lpt_lastpass-compact-btn{
+padding: 0 !important;
+margin: 0 !important;
+-moz-appearance: none !important;
+background: none !important;
+border: none !important;
+border-radius: 0 !important;
+box-shadow: none !important;
+outline: none !important;
+}
+
+/*右键菜单子目录小三角*/
+.menu-accel-container{margin-right:-20px!important;}

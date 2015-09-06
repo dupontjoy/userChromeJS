@@ -1,4 +1,4 @@
-/*+++ 2015.08.28 +++*/
+/*+++ 2015.09.06 +++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄，地址欄&工具欄===*/
@@ -169,27 +169,19 @@ display: none !important;
 
 /*LastPass菜单*/
 [label="分享"],/*Lastpass密碼庫分享*/
-#lpt_separator3000,#lpt_menudelim2,#menudelim2,#separator3000,/*分隔条*/
+#lpt_separator3000,#lpt_menudelim,#lpt_menudelim2,#menudelim2,#separator3000,/*分隔条*/
 #lpt_menu_search_box,/*搜索密码库*/
-#lpt_comp-bar-accts,/*站点*/
 #lpt_lpfillformsmenu1,/*表单填写*/
 #lpt_lpgenpw,/*生成安全密码*/
 #lpt_comp-bar-securenotes,/*安全笔记*/
 #lpt_comp-bar-recentlyused,/*最近使用*/
 #lpt_lphelp,/*帮助*/
 #lpt_lppremium, /*升至高级版*/
-#lpt_lpseccheck, /*安全检查*/
-#lpt_lpidentitiesmenu1, /*身份（全部）*/
-#lpt_lpabout, /*关于*/
-#lpt_comp-bar-advanced-tools, /*高级工具*/
-#lpt_lpimportfrom, /*导入*/
-#lpt_lpprint, /*打印*/
+#lpt_comp-bar-tools,/*工具*/
 [label="Copy Username"],[label="复制用户名"],[label="複製使用者名稱"],
 [label="Copy Password"],[label="复制密码"],[label="複製密碼"],
 [label="Copy URL"],[label="复制网址"],[label="複製網址"],
-[label="Go to URL"],[label="转到网址"],[label="轉到網址"],
-[key="lpt_key_lpSaveAll"],/*保存所有已输入的信息*/
-[label="Add Secure Note"],[label="添加安全笔记"],[label="新增安全備註"] {
+[label="Go to URL"],[label="转到网址"],[label="轉到網址"] {
 display: none !important;
 }
 

@@ -22,7 +22,7 @@ max-width: 175px !important;
 margin-right:5px!important;
 }
 .bookmark-item[container="true"] scrollbox{overflow-y: auto !important;}
-.bookmark-item[container="true"] .bookmark-item .menu-iconic-text{margin-right:-30px!important;}
+.bookmark-item[container="true"] .bookmark-item .menu-iconic-text{margin-right:-10px!important;}
 .bookmark-item[container="true"] :-moz-any(.abhere-menuitem,autorepeatbutton),
 .bookmark-item[container="true"] .menuitem-iconic.bookmark-item.menuitem-with-favicon ~ menuseparator{display:none!important;}
 .bookmark-item[container="true"] .openintabs-menuitem{position:absolute; }

@@ -1,5 +1,5 @@
 
-//2015.09.02 調整雲播放前臺新標籤打開
+//2015.09.06 調整雲播放前臺新標籤打開
 //2015.08.18 調整選中文字搜索
 //2015.07.25 21:00 Email地址左中右三鍵，修正中轉英，插入BBCode左中右三鍵，用新分頁開啟鏈結左中右三鍵
 //2015.07.24 22:00 複製圖片地址左右鍵
@@ -307,7 +307,7 @@ label: "雲播放",
 accesskey: "C",
 url:"http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=%SEL%",
 where: 'tab',
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcklEQVQ4jd3SsQ2DMBBG4U9iAIagYQcKaiZhGpqswyDZwE2GMI1BVmQjFKRIyZOuu/9Zvjv+hgkBsVIh9ew0eOSCgOHkgSH1QIs1iQ/ie6JARIcnlk8FAXMpc0XwwljLXBXkc/r+FyJ6lSHeXuPtQ/phNpewMd4q2yEXAAAAAElFTkSuQmCC",
+image: "http://vod.xunlei.com/favicon.ico",
 },
 {},
 {
@@ -810,7 +810,7 @@ onclick: "var code = ['UTF-8', 'Big5', 'GBK']; BrowserSetForcedCharacterSet(code
 {//代碼來源：http://yun.baidu.com/tools
 label: '百度雲|百度相冊',
 tooltiptext: "左鍵：收藏到百度雲\n右鍵：收藏到百度相冊",
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB40lEQVQ4jXVSz4tPURT/TL68e9/k3de39333ns/BAgspi68miRJ/AAtRJMpGKUWz0NRQzAwzCWFBsrTwt1CUUiMjMgqzs7F+Fu6bufO+5qzuPed+fpxzD9AJkodIDrv5EMLeEMKxbn41iqLok3wBoAHQkLyYgE+1+SzLFuu69uvAInI+gh5XVbWV5J54f6Kqd+J5CMCSXLDW/hGRSwDGUBTFm7Isv4nIRKeVYasqIkfSmvd+X57nP6213yEiVwE0IYQDsb5JVScBNKo6qaqX4/kGgM0JwW9VvdmqHY9K16y1P4wxy977na1iv9/f1uv1fuV5vkLySmzpTHf6863lEMKgO+SyLMs8z1ci+Glay1T1eXQwoaoPI8kFAGMAoKqnY/0ZyaFz7ouqviSZQ1WnATR1Xe9K3OwH0BRF8cE59y6qHk7q22NuAQC2iMhsVDiXPDqBtZ04m3z5yZi7D8Cu9tE6McZ8VtW70cFr59zb+AuPSL5KwOuD5JSIPCA5Y4xZCiEMSE6RnC/LsjTGfCJ5j+TtOPARguvGmOWqqiQlTR9XVSXGmK8kb40QeO/HRWQu2p3Gv7VtCWzboojMee/HRwgS1R1Zln0E0Djn3jvnFuNslgaDwe4Ngf9xdBBri3V0o3d/AaQafE2/njBpAAAAAElFTkSuQmCC",
+image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4jcXSv0qdQRCG8d9JUmghpBC2sNAIEqshl5D6kE7bkC5WFoJg5zVoAmntRbDJn5sIBEcQAhpIkcDBwkqMGNBmj24+j8Qm5IVlmZnnnZ2B5X+r1wYR8RSf8OQO/hv6mfl1mHjQAdY65kusY6XGs5W5PUFEPMZPjNfUL7zEexw0jc8wlZkn3QleNWZ4kZk7mMJekx+vLHhYX+9hC5MNOFFK+ZyZR6WU49aEmVLKu8FgcD3Bc8z7U8/wIyIW8aFTm6+e6wav3dYmVrGNsRH1JXhUg/4IYGNErlW/bfAbM5n5/S8mEBHT+MLNCvu4qMXL7t2eyp8jqf8gIt7iEG8ycwjd9XoPy5jLzOXhCrv4iI2IuM8Wp1i4D/jvdQWgm0n7Gn2U7gAAAABJRU5ErkJggg==",
 onclick: function(e){
 switch(e.button){
 case 0:
@@ -847,6 +847,14 @@ oncommand: "content.document.body.contentEditable = content.document.body.conten
 Firefox和Chrome通用 拼寫檢查小書籤（Firefox不能实时生效）：
 javascript:document.body.contentEditable='true'; document.designMode='on'; void 0
 */
+{
+label: '解除右键限制',
+accesskey: "R",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAIVBMVEUAAAAAAAC4uLjb29tmZmY6OjqRkZHr6+vIyMiurq6enp6fJmq8AAAAAXRSTlMAQObYZgAAAGVJREFUCNdjQAJMS5MawHSgoKAYiFEYwMBg6ABkhACxYhhQJgCIhQwNGFgTgAIKLAkMjAZAAQY2ByADKMDABGIABUAiLAlAAQZWoKCQEEg/EDsCBZhBHBYhY2MgBwgmCgoGIbkBAF+5CxbmrSXzAAAAAElFTkSuQmCC",
+oncommand: function() {
+gBrowser.loadURI("javascript:alert(document.body.oncontextmenu=document.body.onmouseup=document.body.onmousemove=document.body.onclick=document.body.onselectstart%20=document.body.oncopy=document.onmousedown%20=%20document.onkeydown%20=null)");
+}
+},
 {
 label:"在谷歌缓存打開",
 accesskey: "G",

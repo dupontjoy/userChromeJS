@@ -1,24 +1,4 @@
-/*+++ 2015.09.06 +++*/
-
-/*选中标签颜色*/
-#TabsToolbar .tabbrowser-tab[selected]{  
-/*修改选中标签的颜色, 选中其中一个, 注释其他的颜色*/
-/*魅力蓝*/
-/*background: -moz-linear-gradient(left, #00c0f1, #0080e2) !important;*/
-/*森林绿*/
-/*background: -moz-linear-gradient(left, #68d045, #22ae02) !important;*/
-/*高贵紫*/
-background: -moz-linear-gradient(left, #b55ef1, #7b40e3) !important;
-/*可爱粉*/
-/*background: -moz-linear-gradient(left, #f478da, #e951b6) !important;*/
-/*热情红*/
-/*background: -moz-linear-gradient(left, #f86d4e, #db3e2d) !important;*/
-/*活力橙*/
-/*background: -moz-linear-gradient(left, #ef8811, #e4630c) !important;*/
-border: none !important;
-color:#fff !important;
-text-shadow: none !important;
-}
+/*+++ 2015.09.07 +++*/
 
 /*标签样式css*/
 .tabbrowser-tab[busy] {color: blue !important;}/* 正在加载标签 */
@@ -35,16 +15,12 @@ list-style-image: url("chrome://mozapps/skin/places/defaultFavicon.png");
 display: none !important;
 }
 
-/*标签显示/隐藏关闭按钮*/
+/*当前标签显示关闭按钮*/
 .tabbrowser-tab:not([selected]) .tab-close-button{display:none!important;}/*非当前页关闭按钮自动隐藏*/
 .tabbrowser-tab:not([pinned]):hover .tab-close-button{display:inherit!important;}/*鼠标移动上去显示*/
 
 /*标签关闭按钮*/
-.tabbrowser-tab:not([selected]) .tab-close-button {list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAQCAYAAACm53kpAAACIklEQVRYhe1WsWrjQBAdCBhSubDLgLuULl2YkD/ITxzXpQqpwsLOlMqfpJHEzlQprCYqnMpuXLq+LgF3qZRmdOxtVrakS1z5wcIyYmHf2zdvBHDCCd+KJEmGIvJbRJYi8sbM77q/FZFxm/NE9IuISiLaEdEOEV+ttXdJkgyPwaE30jS9YOYXEaka1jrLssum88aYCSIuiKiKLUTcENH0GFzOW9b+Ql++YOaNiBQR8ktvfXFCkiRDRFwg4iYmAiKuiKhExJUxZnLg/mcta1GcA0AFACOvNtJaowhq+0pEijzPZ4EIyzzPZ8wsIlI55+7D82r7SsnPfRGU/JyInoiostaaPfc/A4AbABh4tYHWWotQEx4F+0YE1i9E5Epra92L3woRAUqP8EIJl2r765p83QoH7l8THgT7TqiJHyQPACAib77lmfklz/OZc27KzM/Bt4+IALvA9qWKMEVEF7ZEi/vXxHuRB+gogKb9P4HnnJtmWXapfd9JgDrwjDET3x3HEqBzCwQkl2r7Z22DKz8TmPmLhRHxNej5a335MpIJ25bke7VA3xC8jQVeLBidcw/heWvtXSzwYsGIiI977v8tIdh5DIrIuB5zAXk/GAsNxaYxuFInPIWW1xHpEHH702OwN7Tf100/Qsy8cc41/sho4G32/Aj9IaL5jxP5H4jI2Dl3XwvBzB8aiA9pml4cOm+MmVhrjS8EIm4R8bHFy59wQkd8AkOWq7/1XUzLAAAAAElFTkSuQmCC")!important;
-}
-
-.close-icon[selected] {
-  list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAQCAYAAACm53kpAAABBUlEQVRYhe2WQQ6DIBBFTVyxceM13HsNE09gYlxwBTe9+euiQzpBBBqN1dZJJoEPQ3gD4hTFbbftakAJNEAHDOKdaGVmfAuMwCw+ipaM/6oBBuiBacV7wETiK5n3WPEJqA4BydG88TIBr5OwOEmJj8HrJERvwtr6OezuFAFqpdWixU6vUZAAVvWtaK7fBOJbBUkAXGttDF7mGKUZ0bKT4IBr3U7EdAFg67XdeBeIHyPAfkLGxF4csNHtLPhAEpLwCkBfdavirTe2AOD12IVOPXQb5oz9GDX/M/gDEjCcOgH88yfA/Qie/jdoUyBr6+ewbzJ+pRDaYuxXCk+8S+GJK5TCt13Qnppacs7AfUn5AAAAAElFTkSuQmCC")!important;
+.tabbrowser-tab:not([selected]) .tab-close-button, .close-icon[selected] {list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAQCAYAAACm53kpAAACIklEQVRYhe1WsWrjQBAdCBhSubDLgLuULl2YkD/ITxzXpQqpwsLOlMqfpJHEzlQprCYqnMpuXLq+LgF3qZRmdOxtVrakS1z5wcIyYmHf2zdvBHDCCd+KJEmGIvJbRJYi8sbM77q/FZFxm/NE9IuISiLaEdEOEV+ttXdJkgyPwaE30jS9YOYXEaka1jrLssum88aYCSIuiKiKLUTcENH0GFzOW9b+Ql++YOaNiBQR8ktvfXFCkiRDRFwg4iYmAiKuiKhExJUxZnLg/mcta1GcA0AFACOvNtJaowhq+0pEijzPZ4EIyzzPZ8wsIlI55+7D82r7SsnPfRGU/JyInoiostaaPfc/A4AbABh4tYHWWotQEx4F+0YE1i9E5Epra92L3woRAUqP8EIJl2r765p83QoH7l8THgT7TqiJHyQPACAib77lmfklz/OZc27KzM/Bt4+IALvA9qWKMEVEF7ZEi/vXxHuRB+gogKb9P4HnnJtmWXapfd9JgDrwjDET3x3HEqBzCwQkl2r7Z22DKz8TmPmLhRHxNej5a335MpIJ25bke7VA3xC8jQVeLBidcw/heWvtXSzwYsGIiI977v8tIdh5DIrIuB5zAXk/GAsNxaYxuFInPIWW1xHpEHH702OwN7Tf100/Qsy8cc41/sho4G32/Aj9IaL5jxP5H4jI2Dl3XwvBzB8aiA9pml4cOm+MmVhrjS8EIm4R8bHFy59wQkd8AkOWq7/1XUzLAAAAAElFTkSuQmCC")!important;
 }
 
 /*顯示標籤頁總數*/

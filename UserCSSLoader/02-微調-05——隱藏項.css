@@ -1,7 +1,10 @@
-/*+++ 2015.09.06 +++*/
+/*+++ 2015.09.07 +++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄，地址欄&工具欄===*/
+#abp-menuitem,/*ABP*/
+#aup-menuitem,/*AutoProxy*/
+#gm_general_menu,/*GreaseMonkey*/
 #identity-icon-labels, 
 #identity-popup,
 #reader-mode-button,/*閱讀模式按钮*/

@@ -1,13 +1,11 @@
 
-//2015.09.05
+//2015.09.07
 
 //F功能鍵
 keys['F5'] = "BrowserReloadSkipCache();";//跳过缓存刷新页面
 
 //字母
 keys['A'] = "gBrowser.selectedTab = gBrowser.addTab('about:config');";//参数设置
-
-keys['G'] = "var s = prompt('站内搜索——请输入待搜索字符串', '');if (s.length > 0) gBrowser.addTab('http://www.google.com/search?q=site:' + encodeURIComponent(content.location.host) + ' ' + encodeURIComponent(s));";//Google站内搜索
 
 keys['J'] = "BrowserDownloadsUI();";//下载
 
@@ -18,14 +16,14 @@ keys['H'] = "PlacesCommandHook.showPlacesOrganizer('History');";//我的足迹�
 keys['P'] = "openPreferences();";//选项
 
 keys['R'] = function() {
-KeyChanger.makeKeyset(true);//KeyChanger
-Redirector.reload(true);//Redirector
-UCL.rebuild(true);//UserCSSLoader
-anobtn.reload(true);//anobtn
-addMenu.rebuild(true);//AddmenuPlus
-MyMoveButton.delayRun(true);//Movebutton
-ucjs_UAChanger.reload(true);//UA切換
-refererChanger.RCToggle(true);//RefererChager
+KeyChanger.makeKeyset();//KeyChanger
+Redirector.reload();//Redirector
+UCL.rebuild();//UserCSSLoader
+anobtn.reload();//anobtn
+addMenu.rebuild();//AddmenuPlus
+MyMoveButton.delayRun();//Movebutton
+ucjs_UAChanger.reload();//UA切換
+refererChanger.RCToggle();//RefererChager
 };//群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
 
 keys['U'] = function() {
@@ -33,10 +31,6 @@ Components.classes["@mozilla.org/file/directory_service;1"].getService(Component
 };//Chrome文件夹
 
 //組合鍵
-keys['Alt+A'] = "XULBrowserWindow.statusTextField.label = 'Adblock Plus 條件偏好設定'; gBrowser.selectedTab = gBrowser.addTab('chrome://adblockplus/content/ui/filters.xul');";
-
-keys["Alt+R"] = "Services.appinfo.invalidateCachesOnRestart() || Application.restart();"; //删除启动缓存并重启
-
 keys['Alt+W'] = "gWHT.addWord();";//WordHighlight添加詞
 
 keys['Alt+X'] = "gWHT.destroyToolbar();";//WordHighlight取消工具栏

@@ -91,14 +91,6 @@ location == "chrome://browser/content/browser.xul" && (function(){
 { id: "greasemonkey-tbb", bar: "TabsToolbar_aidBar", pos: 8 },//Greasemonkey扩展
 { id: "userChromebtnMenu", bar: "TabsToolbar_aidBar", pos: 9 },//UC管理器
 
-//更多工具的菜單移動到UC管理器中
-{ id: "addMenu-rebuild", insertBefore: "anobtn_set" },
-{ id: "anobtn_set", insertBefore: "AutoClick-enable-menuitem" },
-{ id: "AutoClick-enable-menuitem", insertBefore: "toolsbar_KeyChanger_rebuild" },
-{ id: "toolsbar_KeyChanger_rebuild", insertBefore: "redirector-icon" },
-{ id: "redirector-icon", insertBefore: "usercssloader_Tools_Menu" },
-{ id: "usercssloader_Tools_Menu", insertBefore: "jscmdseparator" },
-
 //保留在更多工具中
 { id: "InspectElement-menuitem", insertAfter: "gm_general_menu" },//InspectElementModY默認不在MoreTools中，單獨移動
 { id: "wordhighlight-toolbar-menuitem", insertAfter: "gm_general_menu" },

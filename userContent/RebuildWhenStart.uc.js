@@ -10,5 +10,5 @@
 //Addmenu 和 moveButton
 setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();}, 2*1000);//2秒
 setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();}, 3*1000);//3秒
-setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();}, 60*1000);//60秒
+setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();}, 30*1000);//30秒
 })();

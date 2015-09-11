@@ -9,7 +9,8 @@ location == 'chrome://browser/content/browser.xul' && (function(){
 
     var PATH1 = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Notepad2\\Notepad2.exe";
     var PATH2 = Services.dirsvc.get("TmpD", Ci.nsIFile).path;
-    var PATH3 = Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\local\\SimpleProxy\\";
+    //var PATH3 = Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\local\\SimpleProxy\\";
+    var PATH3 = "D:\\My Documents\\GitHub\\customization\\Rules\\SimpleProxy\\";
     
     var handleRelativePath = function (path) {
         if (path) {

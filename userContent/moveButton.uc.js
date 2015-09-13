@@ -104,13 +104,13 @@ location == "chrome://browser/content/browser.xul" && (function(){
 
 //Greasemonkey圖標右鍵菜單
 {id: "greasemonkey-tbb",
-    attr: {
-        type: "",
-        context: "_child"
-    }
+attr: {
+type: "",
+context: "_child"
+}
 },
 
-    ];
+];
 
     if (window.MyMoveButton) {
         try {

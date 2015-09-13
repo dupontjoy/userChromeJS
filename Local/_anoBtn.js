@@ -1,5 +1,5 @@
 
-//2015.09.05 精簡
+//2015.09.12 精簡
 //2015.07.29 14:00 增加在線編碼工具
 //2015.07.19 16:00 統一黑白系圖標
 //2015.05.31 18:00 加入更新IP批處理
@@ -180,65 +180,32 @@ label:"常用功能",
 image : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAG0lEQVQ4jWNgGCzgP5l4EIFRLwwGMIScOvgAAMPmMc89jdNcAAAAAElFTkSuQmCC",
 child:[
 {
-label:"权限管理",
-oncommand:"getBrowser().selectedTab = getBrowser().addTab ('about:permissions')",
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABFUlEQVQ4jb2RMWrDQBBFB58ipAoBY9dpcgUhreZXkq9j2IDZyoWPEFBjq0wtBCs3qnwGoQ2pLMUkuNsUjkwcK1GQIR9+M/z/ltkhalGRyqHRMjaZrE0ma6NlXKRy2JY9U6nlqNRya7IH+9WllttSy1En4PDyafloLeNuQCbrXwC7fwBcvEIyHf/0iSaZjjsBRIdLPOfzxKxne7Oe7V/yefqnCxDRQAgxAbCKoujRfmq5XMbMHAshJkQ0aG06jnPDzDkAC8AGQbCrqsrWdW3DMHxr5syce553e1Jm5msARRNqrJSySin7fQ6gcF336ggA8NQS6vKqKd/3KFsA1vf9O2LmRV8AMy+ImTcXADbEzK99AQDePwAYFoz1UsLQGwAAAABJRU5ErkJggg=="
-//chrome://mozapps/skin/passwordmgr/key.png
-},{
 label : "证书管理",
 oncommand: function () {
 window.open('chrome://pippki/content/certManager.xul', 'mozilla:certmanager', 'chrome,resizable=yes,all,width=600,height=400');
 },
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAuklEQVQ4jcWSqw7CMBSG93y1yGZvMLHUV6Ga6YkmhHdoFkIHZqllQRAwMyMQxLJNcAnIH1fBEN0m9ifHHPHlOxfPmzyMMYwpjzGGoekADmWDUBqE0uBQNv0BVGgQrkC4AhW6P8CPUgvwo9T2kyTp1F9AXlSgQoMKjbyo+hlc6yeCOEP7+KC+vxFKg1v7cjcI4gyEKyz0EcvNCYQrhNK4G8zmKzv/7yKdDNa7c+cK2/3F3WBILGDUK0+eLwDMbVc5IMVkAAAAAElFTkSuQmCC"
 //chrome://mozapps/skin/extensions/category-dictionaries.png
-},{
-label : "密码管理",
-oncommand: function () {
-window.open('chrome://passwordmgr/content/passwordManager.xul', 'Toolkit:PasswordManager', 'chrome,resizable=yes');
-},
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWP49u3bf0oww7dv3/47OTlhxfjkYPL0MwDZ2XgNIMbfBA3A5yKKDSAYBjQ3gGA6GBxeICYKiUpIxLhokBhACQYASZecRxjAXUYAAAAASUVORK5CYII="
-},{
-label: "Cookies管理",
-oncommand: function () {
-window.open('chrome://browser/content/preferences/cookies.xul', 'Browser:Cookies', 'chrome,resizable=yes');
-},
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABs0lEQVQ4jaWTP2sUURTFXxGSzi+Q+BHUQnSZ95SkHdh2miyMe+9JYZPNksZiTQimFCz8RzJ3ujBPsJ2vIGyRIrFM8ZgupU0iDhn02rgblt11BQ+c8v4e591zjTHGbByYpY601rrH0b1n0nqYSut+R1prGwdmySwSZdEbFnvDudMpi2soc+/+DhB7QmIHlLt9lmivm9kXLNEe5W6fxA5I7EnnbevOXMDMl3OnLE+UD9uK/qYy8zWAKwBDIuolSbJ8CxDXTA1/XFf0Ouq91xCC1nWtdV1rCEG99wrgLE3TVWOMMd3M7rJE/W5mdymzL+no6Ws8Ty/LstR5KstSmfk8juOV2whib1jcN37V/l4UxcQAgClIURTKzNtTf4D+poYQFgJCCApgaEjsgHP3mcQNWdwFg341TbMQ0DSNAqgN5e4HiRtybj+R2GNs8c9ZgJFHqutaAVz9U4RZGkdgcV8mVnnYVu/9QoD3XomoZ0a3QB8e3eWjxw/S9+sRtroXi9YI4Gscxysz25mm6SqAM++9VlU1LlJVVeq9V2Y+HxdpnpIkWQaww8ynzHz9x6cAdiaq/L/6DbRoFO5cdXo+AAAAAElFTkSuQmCC"
 },{},{
 label: "错误控制台",
 oncommand: "toJavaScriptConsole();",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXklEQVQ4jaWT0QnAIBBDs9dboUs5VQewe51fFim21ksgv48kEMkVUIFIugqIrIC4AUc5tzwFdKUBVgJ7A0khKQ/oGiEr4GuFv0mWCbYAsw2edUZ/VkglcADOmS77zQ2WT6Il/QiZvAAAAABJRU5ErkJggg=="
-},{
-label: "关于about",
-oncommand: "gBrowser.selectedTab = gBrowser.addTab('about:about');",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAtElEQVQ4jd1TsQ2EMAzMHjRsBgv8BEzDHkjWN7SZIVToKaxI9rX+CvSEBJDo/qTrzpfYPjuXQERaAATAEpKItKl+AzPXquopRGuG2ap+2rEZZqMQTVU9M9e5Yn69P4fClN24mKryzkRVfTcuB/GKgonfeqYQs6+VDKp+MgrRRKR1ACjX8xWbYTYA5AAURWc/qPrJANifGBSHeGawDfHxGtcg5VJ4K0i/Uc6l8VaUHx/Tk3P+AlfnolljYUMNAAAAAElFTkSuQmCC"//chrome://global/skin/icons/information-16.png
-},
-{},
-{
-label: "遥测数据",
-oncommand: "getBrowser().selectedTab = getBrowser().addTab ('about:telemetry')",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAiElEQVQ4jaWT0Q2AIAxEOwuu4xb90yHQDXSWSjqM7nJ+SQhCrHDJ/ZDcS0mvNK4Kq6mkbgAzI5eIvN6YGUREkzrfBACASZ2fdcALICJVPwrXjlkHFAFfE6Th34A8nLv6BUs4AmoTHOfWB7BATFvIIU09SCHtRQpu+V2kx7HKwS1dt1A8JqtL+Rs/6HojeMztlwAAAABJRU5ErkJggg=="
-//chrome://browser/skin/Geolocation-16.png
 },
 {
 label:"代码速记",
 oncommand: "Scratchpad.openScratchpad();",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABCklEQVQ4ja2SvUrEQBSFL7KFlW1SpvINJpN7zgNoYacidoG7D+ArLCLsFrZ5BxG0mMLS0lTbrW+Ryk6LsUkkaNzEnwMHhoHv486PHC0e4tTKUP4sMLP4OSGEL3tm9j8CAFckXwAcfwhCCKM1s6iqFyQjyQjgFcDJ5Anquo7OuRTAcych+TZJUFVVLMsyisjMe5/0JWJm8bv24aZpIskbVT3tJABWgxfbBcASwNo5l5K8A3Dfrufe+70xeDUEA1gDuNwKq+piC7x97CzLdknOfwWLyA7JJ+99QvIMwO1PYMnzfL99no33PhGRWQsvR+H27Oe9T7JxzqWqejgJbgUHABqSjwCui6LgGPMOxkxvJUAHypcAAAAASUVORK5CYII="
-}
+},
+{},
+{
+label: "关于about",
+oncommand: "gBrowser.selectedTab = gBrowser.addTab('about:about');",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAtElEQVQ4jd1TsQ2EMAzMHjRsBgv8BEzDHkjWN7SZIVToKaxI9rX+CvSEBJDo/qTrzpfYPjuXQERaAATAEpKItKl+AzPXquopRGuG2ap+2rEZZqMQTVU9M9e5Yn69P4fClN24mKryzkRVfTcuB/GKgonfeqYQs6+VDKp+MgrRRKR1ACjX8xWbYTYA5AAURWc/qPrJANifGBSHeGawDfHxGtcg5VJ4K0i/Uc6l8VaUHx/Tk3P+AlfnolljYUMNAAAAAElFTkSuQmCC"//chrome://global/skin/icons/information-16.png
+},
+
 ]
 },{},
 {
-label: "書簽管理",
-oncommand: "PlacesCommandHook.showPlacesOrganizer('AllBookmarks');",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABS0lEQVQ4jY1SzUoCURi9IL5CVJuEKAoShNk5ejnnPEQEQgQiGESrgt4gaC0qhSHVoh96ETe+SJt2peBt802MMlNz4YO55/vOz3cZ53KOpIGkYDXIm8s8ANYlBZILkgtJoV6vrxUWIDky5zeS7/Z9V9T9wNznjUZjF8Aeybmk4L3fzyO1SA5JTrP2Jnmb4CSnJIcAWqtxk/qSNGk2mxuJQBzHm5Imkr7TsyRHLiEB6AKoRVFUzlsviqIygBqArhmF3wQkn5xzpQLPVCL5kk6wJenTgP5/bJJ9S/0Rx/Gmc8457301tdd5HlnSRTLnva8uNQGcmUCvgPtpVvPGBC7/SHAlKQC4zmq+msChJaqQ7JPsAagYdmQzz1kJHqx5THJMcpZ6lxnJewAndh9nJeis/FBB0qPVEg6gnbdjx5J0JG0nuPd+B0Cb5HiV/AOStMNZrdTkSAAAAABJRU5ErkJggg=="
-}, {},{
-label: "打開選項",
-oncommand: "openPreferences();",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABR0lEQVQ4jY2SP0sDQRDFr1UEUTRW+Q7iieGO7N57z8I/WJvSxlJrQS2sbSz9BulESGUEQRtbGwULrdKJaCEE03g2k3DGu1wWlllm5/dm9rFBMGIB2JPUIvkpqQVgd1T9YNVqtQWSbUlpzj4vFSB5JSkl+QKgUa/XZwDskPyRlAJYLBs7lfTqnJs3wU1JPcvf92Mcx5V/ApIurUsjk/u2iW4sPli8yBN4N4G5TG7gAcnnOI4rdn7Le/+HpDSKotkcgZ5zbimKogkT6P6BkySJMp2SIp+SJNmwuusi+LQIDsNwmuSj1R2Wws65FQBTYRhOAtiS9GR1d0EQBAGA5SIYwFHeZyJ5672v9k1r2sVZEUzyi2SXZBvAwbDrHUmp975K8tlcP+7DANaL/BieYN97X5V0MjZsAtsF71wrhbMiJJskOxZXx2V/AYbjyhDulDKPAAAAAElFTkSuQmCC"
-}, {},{
-label: "附加組件",
-oncommand: "BrowserOpenAddonsMgr();",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAfElEQVQ4jc2SSwqFQAwE+14KSWWn1/YqosfwrRzEEeNv8RqyCZki3RnpSwFDRCwRsQBD1q+0Dq2V9SVJZtYB034oK2Ays05PHm8hZT13b69m5e5tsXPkq/J5klcFyEJMAa83uKo/BNw5I9AUwMuPNAvogfkBYAT6u9Yr/QBtWNOEJkNI4gAAAABJRU5ErkJggg=="
-}, {},{
 label: "關於瀏覧器",
 oncommand: "openAboutDialog();",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABKUlEQVQ4jY3TS0qDQRAE4C+J0ZVuRXxeQVyLG0lOoCB4EkWiN4gHUEFFBRcKIm68h89tFHxeQMHF9C/JmAQLZjPTVT1TU00nBlHDMZ7wHesp9mpR0xWj2MYbbrGDNaxjF3d4RzNq/5DPg7yGcZTazkuYwAY+cNYuUg3VVyxlxAXMZ0Ir0agZXHW8ROd2cgUH2EM5E2lEwxrJnJu4Yo6xWDmmcY8jaEkmdUMdi132S3G7FnxJTucYwKVkbqXL+WZwewpUcYWLEOsp0JKMKmUF/QTKOCye0MvEfgIzeBAm1vGM5ayoIgXmVKcHZWxp+8YhyekJDGfd5jCbkVelNP4GqcAUriVzJnWGpxznW/iURbnAiDRM7/G+fSlxDenPH/UZpgLFOJ/45zj/ADriSwEdnrkgAAAAAElFTkSuQmCC"

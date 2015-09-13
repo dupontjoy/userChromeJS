@@ -21,6 +21,7 @@ display: none !important;
 {display: none !important;}*/
 
 /*===隐藏页面右键菜单===*/ 
+#showFlagS-sepalator2,/*ShowFlagS分割线*/
 #flashgot-menuitem-media,/*Flashgot此Media*/
 #loop-button,/*Start Conversion*/
 #greasemonkey-view-userscript,/*GreaseMonkey检视腳本原始碼*/

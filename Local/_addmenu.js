@@ -1,7 +1,7 @@
 
+//2015.09.16 調整選中文字搜索
 //2015.09.12 整合RC多功能菜單等
 //2015.08.23 調整雲播放前臺新標籤打開
-//2015.08.18 調整選中文字搜索
 //2015.07.25 21:00 Email地址左中右三鍵，修正中轉英，插入BBCode左中右三鍵，用新分頁開啟鏈結左中右三鍵
 //2015.07.24 22:00 複製圖片地址左右鍵
 //2015.07.20 15:00 純粹加圖標的用CSS方式
@@ -338,8 +338,15 @@ where: 'tab'
 },
 {
 label: "運營—價格變更審核-SKU",
-id: "TVC-Universal",
+id: "TVC-Back",
 url: "http://ic.sjlpj.cn/PriceChangeRequest/OperationAuditList?Sku=%s",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "運營—已下架查詢-SKU",
+id: "TVC-Back",
+url: "http://ic.sjlpj.cn/#/DownShelf/DownShelfOperationAuditList?DownType=All&Sku=%s&IsForProcessed=True",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },

@@ -32,22 +32,6 @@ decode: false // 可選，true 表示尝試對 from 解碼
 
 //單獨網站
 {
-//個人用
-//http://ic.sjlpj.cn/DevProduct/www.rockphone.cn
-//http://http//www.rockphone.cn
-name: "TVC內網-內網參考鏈接修正",
-from: /^http:\/\/(http\/\/|ic\.sjlpj\.cn\/DevProduct\/)www\.(.*)/i,
-to: "www.$2",
-regex: true
-},
-{
-//個人用
-name: "TVC內網 圖片以圖搜圖",
-from: /(.*(google|so|baidu|bing|sougou|tineye).*)\/ic\.sjlpj\.cn\/Product\/ViewImage\?id=\/uploads(?:\/unlogo|)\/details\/(.*)/i,
-to: "$1/img.tvc-mall.com/uploads/details/$3",
-regex: true
-},
-{
 //方法來源：http://tieba.baidu.com/p/3699558655
 name: "鳳凰網 只顯示首圖修正",
 from: /^https?:\/\/(.*)\.ifeng\.com\/a\/(ydzx|)\/(.*)/i,

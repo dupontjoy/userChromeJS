@@ -3,6 +3,9 @@
 // @description    タブにプログレスバーを表示
 // @namespace      https://forum.mozilla-russia.org/viewtopic.php?id=62808
 // @include        main
+
+// @note  2015.09.16 用getTabForBrowser替換旧的_getTabForBrowser
+
 // ==/UserScript==
 (function () {
 
@@ -58,7 +61,7 @@
             if (!maxProgr) return;
 
             var percentage = parseInt((curProgr * 100) / maxProgr);
-            var tab = gBrowser._getTabForBrowser(browser);
+            var tab = gBrowser.getTabForBrowser(browser);
             var label = document.getAnonymousElementByAttribute(tab, 'class', 'tab-content').querySelector(".tab-text.tab-label");
 
             browser.webProgress.isLoadingDocument && percentage > 0 && percentage < 100 ? label.setAttribute('tab-progress', percentage) : label.removeAttribute('tab-progress');

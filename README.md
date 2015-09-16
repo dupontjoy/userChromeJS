@@ -10,10 +10,9 @@
 | | _addmenu.js：[Addmenuplus][2]配置，圖標外置，統一整合在CSS文件中 |
 | | _keychanger.js：鍵盘快捷操作 |
 | | _redirector.js：[Redirector][4]規則 |
-| **SubScript** | 一般功能性腳本 |
-| **TabMixPlus** | 與Firefox界面相關腳本 |
+| **SubScript** | 需要優先啟動的腳本 |
+| **TabMixPlus** | 一般功能性腳本 |
 | **UCJSFiles** | 配置外置的腳本+庫 |
-| **userContent** | 自己有一些小修攺的腳本 |
 | **UserCSSLoader** | CSS文件集，使用[userCSSLoader.uc.js][5]引導 |
 | **xul** | UC管理器文件 |
 | | 神級腳本[LockMark][6]：記住浏览位置，以坐标方式保存在prefs.js中 |

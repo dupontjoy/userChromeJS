@@ -1,20 +1,18 @@
-/*+++ 2015.09.10 +++*/
+/*+++ 2015.09.15 +++*/
 
 /*地址栏图标排序*/
-#flashgot-media-tbb {-moz-box-ordinal-group: 2 !important;}
+#flashgot-media-tbb {-moz-box-ordinal-group: 1 !important;}
 #lpt_lastpass-compact-btn {-moz-box-ordinal-group: 3 !important;}
 #aup-toolbarbutton {-moz-box-ordinal-group: 4 !important;}
 #ucjsPermission_Toolmenu {-moz-box-ordinal-group: 5 !important;}
-#RPBT-icon {-moz-box-ordinal-group: 6 !important;}
 #abp-toolbarbutton {-moz-box-ordinal-group: 7 !important;}
-#pocket-button {-moz-box-ordinal-group: 8 !important;}
 #greasemonkey-tbb {-moz-box-ordinal-group: 9 !important;}
 #userChromebtnMenu {-moz-box-ordinal-group: 10 !important;}
 
 /*图标对齐*/
 #AutoClick-enable-menuitem {
 padding: 0px !important;
-margin-left: 2px !important;
+margin-left: 6px !important;
 }
 
 /*調整圖標邊框——方法1*/
@@ -35,12 +33,13 @@ margin-left: 2px !important;
 #ublock-button .toolbarbutton-badge-container {padding: 0px !important;}
 
 /*調整圖標邊框——方法3*/
+#aup-toolbarbutton .toolbarbutton-icon,
 #downloads-button .toolbarbutton-icon,
 #foxyproxy-toolbar-icon .toolbarbutton-icon 
 {padding: 0px !important;}
 
 /*ucjsPermission圖標距離調整（两句要同時用）*/
-toolbarbutton#ucjsPermission_Toolmenu,toolbarbutton#ucjsPermission_Toolmenu>image {padding: 0px !important;margin-left:1px !important;margin-right:0px !important;}
+toolbarbutton#ucjsPermission_Toolmenu,toolbarbutton#ucjsPermission_Toolmenu>image {padding: 0px !important;margin:0px !important;}
 
 /*Lastpass圖標距離調整（两句要同時用）*/
 toolbarbutton#lpt_lastpass-compact-btn,toolbarbutton#lpt_lastpass-compact-btn>image {padding: 0px !important;margin:0px !important;}

@@ -82,7 +82,6 @@ location == "chrome://browser/content/browser.xul" && (function(){
         //     }
         // },
 //不常用圖標移動到aidBar
-{ id: "netvideohunter-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 0 },//NetVideoHunter扩展
 { id: "flashgot-media-tbb", bar: "TabsToolbar_aidBar", pos: 0 },//FlashGot扩展
 { id: "lpt_lastpass-compact-btn", bar: "TabsToolbar_aidBar", pos: 2 },//Lastpass扩展
 { id: "ucjsPermission_Toolmenu", bar: "TabsToolbar_aidBar", pos: 3 },//ucjsPermission腳本

@@ -1,38 +1,9 @@
 /******************************************************************************************
- *这里是UA自动切换规则列表。
- *支持正则匹配。
- *******************************************************************************************/
-var UASites = [
-//2015.05.11 13:00 更新工行規則
-//2015.03.31 11:00 新增115Browser
-//2015.01.15 FX35工行不支持10.0，新增20.0UA
-//2014.12.11 調整圖標
-{url : "https?://(?:mybank.*|b2c.*)\\.icbc\\.com\\.cn/",label : "Firefox20.0"},//工商銀行
-{url : "https?://(.*?)n\\.baidu\\.com/",label : "BaiduYunGuanJia"},//百度云
-{url : "^http://115.com",label : "115Browser"},
-{url : "http:\/\/vod\.kankan\.com/",label : "Safari - Mac"}, //直接可以看kankan视频，无需高清组件
-{url : "http:\/\/wap\.*",label : "UCBrowser"}, //WAP用UC浏览器
-{url : "http:\/\/browser\.qq\.com\/*",label : "Chrome - Win7"}, 
-{url : "http://www\\.google\\.co\\.jp\\m/",label : "iPhone"},
-{url : "http://wapp\\.baidu\\.com/",label : "iPhone"},
-{url : "http://wappass\\.baidu\\.com/",label : "iPhone"},
-{url : "http://wapbaike\\.baidu\\.com/",label : "iPhone"},
-{url : "http://weibo\\.cn/",label : "iPhone"},
-{url : "http://m\\.hao123\\.com/",label : "iPhone"},
-{url : "http://m\\.mail\\.163\\.com/",label : "iPhone"},
-{url : "http://w\\.mail\\.qq\\.com//",label : "iPhone"},
-{url : "http:\/\/m\\.qzone\\.com/",label : "iPhone"},
-{url : "http://wap\\.58\\.com/",label : "iPhone"},
-{url : "http://i\\.jandan\\.net/",label : "iPhone"},
-{url : "http://www\\.tianya\\.com\\m/",label : "iPhone"},
-{url : "http://m\\.xianguo\\.com\\wap/",label : "iPhone"},
-{url : "http:\/\/ti\\.3g\\.qq\\.com/",label : "iPhone"},
-{url : "http:\/\/[a-zA-Z0-9]*\\.z\\.qq\\.com/",label : "iPhone"},
-];
-/******************************************************************************************
  *RefererChange，破解反外链。
- *@FORGE：发送根站点referer
- *@BLOCK : 发送空referer
+//@NORMAL: 不改变referer
+//@FORGE: 发送根站点referer
+//@ORIGINAL: 发送打开站点referer
+//@BLOCK: 发送空referer
  *******************************************************************************************/
 var RefererChange = {
 //2015.01.18 08:00 新增economist.com
@@ -105,6 +76,38 @@ var RefererChange = {
 'fmn.rrfmn.com': '@BLOCK',
 'postimage.org': '@FORGE',
 };
+
+/******************************************************************************************
+ *这里是UA自动切换规则列表。
+ *支持正则匹配。
+ *******************************************************************************************/
+var UASites = [
+//2015.05.11 13:00 更新工行規則
+//2015.03.31 11:00 新增115Browser
+//2015.01.15 FX35工行不支持10.0，新增20.0UA
+//2014.12.11 調整圖標
+{url : "https?://(?:mybank.*|b2c.*)\\.icbc\\.com\\.cn/",label : "Firefox20.0"},//工商銀行
+{url : "https?://(.*?)n\\.baidu\\.com/",label : "BaiduYunGuanJia"},//百度云
+{url : "https?://(.*)?115\.com/",label : "115Browser"},
+{url : "http:\/\/vod\.kankan\.com/",label : "Safari - Mac"}, //直接可以看kankan视频，无需高清组件
+{url : "http:\/\/wap\.*",label : "UCBrowser"}, //WAP用UC浏览器
+{url : "http:\/\/browser\.qq\.com\/*",label : "Chrome - Win7"}, 
+{url : "http://www\\.google\\.co\\.jp\\m/",label : "iPhone"},
+{url : "http://wapp\\.baidu\\.com/",label : "iPhone"},
+{url : "http://wappass\\.baidu\\.com/",label : "iPhone"},
+{url : "http://wapbaike\\.baidu\\.com/",label : "iPhone"},
+{url : "http://weibo\\.cn/",label : "iPhone"},
+{url : "http://m\\.hao123\\.com/",label : "iPhone"},
+{url : "http://m\\.mail\\.163\\.com/",label : "iPhone"},
+{url : "http://w\\.mail\\.qq\\.com//",label : "iPhone"},
+{url : "http:\/\/m\\.qzone\\.com/",label : "iPhone"},
+{url : "http://wap\\.58\\.com/",label : "iPhone"},
+{url : "http://i\\.jandan\\.net/",label : "iPhone"},
+{url : "http://www\\.tianya\\.com\\m/",label : "iPhone"},
+{url : "http://m\\.xianguo\\.com\\wap/",label : "iPhone"},
+{url : "http:\/\/ti\\.3g\\.qq\\.com/",label : "iPhone"},
+{url : "http:\/\/[a-zA-Z0-9]*\\.z\\.qq\\.com/",label : "iPhone"},
+];
 
 /******************************************************************************************
  *这里是脚本中用到的各种图标设置。

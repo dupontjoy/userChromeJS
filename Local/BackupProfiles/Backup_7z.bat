@@ -1,4 +1,5 @@
 
+::2015.09.16  精簡
 ::2015.08.08  可選擇Flash下載地址
 ::2015.07.14  添加備份詞典和user.js到GitHub
 ::2015.07.14  更新Flash下载地址
@@ -112,24 +113,18 @@ del %TempFolder%\extensions\support@lastpass.com\platform\Linux_x86-gcc3\  /s /q
 ::以下是文件
 ::bookmarks.html：自動导出的书签備份。
 xcopy "%BackDir%\bookmarks.html" %TempFolder%\ /y
-::cert_override.txt：储存使用者指定的例外证书(certification exceptions)。
-xcopy "%BackDir%\cert_override.txt" %TempFolder%\ /y
 ::cert8.db：安全证书。
 xcopy "%BackDir%\cert8.db" %TempFolder%\ /y
 ::FlashGot.exe：FlashGot的下载工具。
 xcopy "%BackDir%\FlashGot.exe" %TempFolder%\ /y
 ::foxyproxy.xml：FoxyProxy的設置及网址列表備份。
 ::xcopy "%BackDir%\foxyproxy.xml" %TempFolder%\ /y
-::localstore.rdf：工具列与视窗大小／位置的設定，有時刪掉可以解决一些介面上的问题。
-xcopy "%BackDir%\localstore.rdf" %TempFolder%\ /y
 ::mimeTypes.rdf：下载特定类型的档案時要执行的動作。 可刪掉来还原原来下载的設定。
 xcopy "%BackDir%\mimeTypes.rdf" %TempFolder%\ /y
 ::MyFirefox.7z：用於官方FX的便携設置。
 xcopy "%BackDir%\MyFirefox.7z" %TempFolder%\ /y
 ::patternSubscriptions.json：FoxyProxy的訂閱列表設置。
 ::xcopy "%BackDir%\patternSubscriptions.json" %TempFolder%\ /y
-::permissions.sqlite：存放特定网站是否可存取密码、cookies、弹出视窗、图片载入与附加元件……等权限的资料库。
-xcopy "%BackDir%\permissions.sqlite" %TempFolder%\ /y
 ::persdict.dat：个人的拼字字典。
 xcopy "%BackDir%\persdict.dat" %TempFolder%\ /y
 ::pluginreg.dat：用于plugin的MIME types。
@@ -283,24 +278,18 @@ del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Linux_x86_64-
 del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Linux_x86-gcc3\  /s /q
 
 ::以下是文件
-::cert_override.txt：储存使用者指定的例外证书(certification exceptions)。
-xcopy "%BackDir%\Profiles\cert_override.txt" %TempFolder%\Profiles\ /y
 ::cert8.db：安全证书。
 xcopy "%BackDir%\Profiles\cert8.db" %TempFolder%\Profiles\ /y
 ::FlashGot.exe：FlashGot的下载工具。
 xcopy "%BackDir%\Profiles\FlashGot.exe" %TempFolder%\Profiles\ /y
 ::foxyproxy.xml：FoxyProxy的設置及网址列表備份。
 ::xcopy "%BackDir%\foxyproxy.xml" %TempFolder%\ /y
-::localstore.rdf：工具列与视窗大小／位置的設定，有時刪掉可以解决一些介面上的问题。
-xcopy "%BackDir%\Profiles\localstore.rdf" %TempFolder%\Profiles\ /y
 ::mimeTypes.rdf：下载特定类型的档案時要执行的動作。 可刪掉来还原原来下载的設定。
 xcopy "%BackDir%\Profiles\mimeTypes.rdf" %TempFolder%\Profiles\ /y
 ::MyFirefox.7z：用於官方FX的便携設置。
 xcopy "%BackDir%\Profiles\MyFirefox.7z" %TempFolder%\Profiles\ /y
 ::patternSubscriptions.json：FoxyProxy的訂閱列表設置。
 ::xcopy "%BackDir%\patternSubscriptions.json" %TempFolder%\ /y
-::permissions.sqlite：存放特定网站是否可存取密码、cookies、弹出视窗、图片载入与附加元件……等权限的资料库。
-xcopy "%BackDir%\Profiles\permissions.sqlite" %TempFolder%\Profiles\ /y
 ::persdict.dat：个人的拼字字典。
 xcopy "%BackDir%\Profiles\persdict.dat" %TempFolder%\Profiles\ /y
 ::pluginreg.dat：用于plugin的MIME types。
@@ -314,7 +303,7 @@ xcopy "%BackDir%\Profiles\stylish.sqlite" %TempFolder%\Profiles\ /y
 ::user.js：使用者自订的設定，在这里的設定覆盖prefs.js的設定。
 xcopy "%BackDir%\Profiles\user.js" %TempFolder%\Profiles\ /y
 ::xulstore.json：界面的一些状态。
-xcopy "%BackDir%\Profiles\xulstore.json" %TempFolder%\Profiles\ /y
+xcopy "%BackDir%\xulstore.json" %TempFolder%\ /y
 
 ::讀取版本號和日期及時間
 ::从批处理所在位置到Firefox程序文件夹（firefox），共跨了4层

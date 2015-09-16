@@ -1,6 +1,4 @@
 
-//2015.09.07 新增Simple Proxy文件夾
-//2015.06.29 緩存設置到系統Temp文件夾
 //2015.03.29 Software分離，相應Path修改
 //2015.03.06 移动文件夾
 //2014.08.27 添加油猴Greasemonkey外部编辑器
@@ -8,9 +6,8 @@
 location == 'chrome://browser/content/browser.xul' && (function(){
 
     var PATH1 = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Notepad2\\Notepad2.exe";
-    var PATH2 = Services.dirsvc.get("TmpD", Ci.nsIFile).path;
+    //var PATH2 = Services.dirsvc.get("TmpD", Ci.nsIFile).path;
     //var PATH3 = Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\local\\SimpleProxy\\";
-    var PATH3 = "D:\\My Documents\\GitHub\\customization\\Rules\\SimpleProxy\\";
     
     var handleRelativePath = function (path) {
         if (path) {
@@ -32,20 +29,5 @@ location == 'chrome://browser/content/browser.xul' && (function(){
         gPrefService.setCharPref('view_source.editor.path', file.path);
         gPrefService.setCharPref('extensions.greasemonkey.editor', file.path);
     }
-
-//設置緩存到系統Temp文件夾
-    var file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
-    file.initWithPath(handleRelativePath(PATH2));
-    if (file.exists()) {
-        gPrefService.setCharPref('browser.cache.disk.parent_directory', file.path);
-        gPrefService.setCharPref('browser.cache.offline.parent_directory', file.path);
-    } 
-
-//設置Simple Proxy文件夹
-    var file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
-    file.initWithPath(handleRelativePath(PATH3));
-    if (file.exists()) {
-        gPrefService.setCharPref('extensions.simpleproxy.folder', file.path);
-    } 
     
 })()

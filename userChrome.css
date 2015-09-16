@@ -1,4 +1,4 @@
-/*+++ 2015.08.18 +++*/
+/*+++ 2015.09.13 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -20,11 +20,6 @@ min-width:100px !important;
 #urlbar-icons{
 padding:1px 1px !important;
 border-right:1px #BBC2C8 solid !important;
-}
-
-/*地址欄標識加分割线*/
-#identity-box {
-  -moz-border-end: 1px solid /*threedshadow*/rgba(0,0,0,.2) !important;
 }
 
 /*隐藏图标*/

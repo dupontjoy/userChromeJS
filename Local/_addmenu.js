@@ -1,5 +1,6 @@
 
-//2015.09.16 調整選中文字搜索
+//2015.09.18 帶開關的解除右鍵限制
+//2015.09.17 調整選中文字搜索
 //2015.09.12 整合RC多功能菜單等
 //2015.08.23 調整雲播放前臺新標籤打開
 //2015.07.25 21:00 Email地址左中右三鍵，修正中轉英，插入BBCode左中右三鍵，用新分頁開啟鏈結左中右三鍵
@@ -18,11 +19,6 @@
 //2015.01.21 22:00 修正特殊符號，添加小書籤菜單
 //2015.01.08 20:40 一些搜索項只在特定網站顯示
 //2015.01.04 09:35 複製 二级菜單
-//2014.12.20 19:40 圖片另存放到二級菜單
-//2014.12.11 17:50 常用文字搜索橫排菜單
-//2014.12.09 22:45 將菜單換成正體中文
-//2014.12.07 12:40 四個複製圖片放到二级菜單，添加分割线
-//2014.11.02 09:10 調整搜圖順序
 
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
@@ -858,6 +854,11 @@ var items = [
 label: "編輯當前頁面",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAzklEQVQ4y73SIUuDYRAA4FMeNK9Pqz/B4mSbQ2Wg/8E2g+CPEctYXzcZrNaJQYMsj7kiBmHwhZULMsTt+8KuvO8dPPDevRexqUALL/jCHXbL4EvMcY09POC+DP7EIM8mapiXwYeZn2R+hY9S+Fd9mO20quAjzNCtghuJz6vgduKz/3AXP2gs1TuJ26uG9pqL8o6DrJ0mbq7C+5hiGz2Ms50Zjtf57xv0876DEb6X2/krthI9RsRbRNQi4iIixhFxWxTF87rrOsFTvqQem4wFTec0RRu9Et4AAAAASUVORK5CYII=",
 oncommand: function() {document.onkeydown=ck;content.document.body.contentEditable=true;function ck(e){k=window.event?window.event.keyCode:e.keyCode;if(k==27){content.document.body.contentEditable=false}}}
+},
+{
+label: '解除右鍵限制',
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAIVBMVEUAAAAAAAC4uLjb29tmZmY6OjqRkZHr6+vIyMiurq6enp6fJmq8AAAAAXRSTlMAQObYZgAAAGVJREFUCNdjQAJMS5MawHSgoKAYiFEYwMBg6ABkhACxYhhQJgCIhQwNGFgTgAIKLAkMjAZAAQY2ByADKMDABGIABUAiLAlAAQZWoKCQEEg/EDsCBZhBHBYhY2MgBwgmCgoGIbkBAF+5CxbmrSXzAAAAAElFTkSuQmCC",
+url: `javascript:function applyWin(a){if(typeof a.__nnANTImm__==="undefined"){a.__nnANTImm__={};a.__nnANTImm__.evts=["mousedown","mousemove","copy","contextmenu"];a.__nnANTImm__.initANTI=function(){a.__nnantiflag__=true;a.__nnANTImm__.evts.forEach(function(c,b,d){a.addEventListener(c,this.fnANTI,true)},a.__nnANTImm__)};a.__nnANTImm__.clearANTI=function(){delete a.__nnantiflag__;a.__nnANTImm__.evts.forEach(function(c,b,d){a.removeEventListener(c,this.fnANTI,true)},a.__nnANTImm__);delete a.__nnANTImm__};a.__nnANTImm__.fnANTI=function(b){b.stopPropagation();return true};a.addEventListener("unload",function(b){a.removeEventListener("unload",arguments.callee,false);if(a.__nnantiflag__===true){a.__nnANTImm__.clearANTI()}},false)}a.__nnantiflag__===true?a.__nnANTImm__.clearANTI():a.__nnANTImm__.initANTI()}applyWin(top);var fs=top.document.querySelectorAll("frame, iframe");for(var i=0,len=fs.length;i<len;i++){var win=fs[i].contentWindow;try{win.document}catch(ex){continue}applyWin(fs[i].contentWindow)};void 0;`
 },
 {
 label:"夜間模式",

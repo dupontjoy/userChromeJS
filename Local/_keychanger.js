@@ -23,6 +23,7 @@ anobtn.reload();//anobtn
 addMenu.rebuild();//AddmenuPlus
 MyMoveButton.delayRun();//Movebutton
 showFlagS.rebuild();//ShowFlagS整合版
+Preferences.pending();//
 };//群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
 
 keys['U'] = function() {

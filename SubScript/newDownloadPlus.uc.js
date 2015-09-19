@@ -12,6 +12,7 @@
 // @shutdown	window.downloadPlus.onDestroy();
 // @optionsURL	about:config?filter=userChromeJS.downloadPlus.
 // @config	window.downloadPlus.openPref();
+// @version	2015.09.19 修复"另存为..."的一个错误
 // @version	2015.05.09 优化代码，新增"Hash 计算功能"
 // @version	2015.05.07 使用黒仪大螃蟹的最新"从硬盘中删除"代码  增加"下载面板显示下载速度"功能
 // @version	2015.05.03 修复一些Bug，脚本开关无需重启了
@@ -800,8 +801,37 @@
 			saveas.setAttribute("hidden", "false");
 			saveas.setAttribute("label", "\u53E6\u5B58\u4E3A");
 			saveas.addEventListener("command", function() {
+				var url = dialog.mLauncher.source.asciiSpec;
+				var fileName = dialog.mLauncher.suggestedFileName;
+
+				// 一些网站并不能直接用这种方式下载，
+				// 故使用一个排除列表，以正则表达式的方式排除这类下载链接
+				// 感谢反馈者 duh2008
+				// http://bbs.kafan.cn/forum.php?mod=redirect&goto=findpost&ptid=1844079&pid=35867304
+				var excludeList = [
+					/http[s]?:\/\/wallpaperswide\.com\/download\/.*/i
+				];
+				if (excludeList.some(function(item) {
+					return item.test(url);
+				})) {
+					var [file, path] = Download.promptForFile(fileName);
+					if (path && typeof path === "string") {
+						// Download.download(url, path);
+						dialog.mLauncher.saveToDisk(file, 1);
+						dialog.onCancel = function() {};
+						return close();
+					} else {
+						return;
+					}
+				}
+
 				var mainwin = Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator).getMostRecentWindow("navigator:browser");
-				mainwin.eval("(" + mainwin.internalSave.toString().replace("let ", "").replace("var fpParams", "fileInfo.fileExt=null;fileInfo.fileName=aDefaultFileName;var fpParams") + ")")(dialog.mLauncher.source.asciiSpec, null, (document.querySelector("#locationtext") ? document.querySelector("#locationtext").value : dialog.mLauncher.suggestedFileName), null, null, null, null, null, null, mainwin.document, 0, null);
+				mainwin.eval("(" + mainwin.internalSave.toString().replace("let ", "").replace("var fpParams", "fileInfo.fileExt=null;fileInfo.fileName=aDefaultFileName;var fpParams") + ")")
+				(url, null, 
+					(document.querySelector("#locationtext") ? 
+						document.querySelector("#locationtext").value : 
+						fileName), 
+					null, null, null, null, null, null, mainwin.document, 0, null);
 				close();
 			}, false);
 		},
@@ -1052,6 +1082,54 @@
 		if (attr) Object.keys(attr).forEach(function(n) el.setAttribute(n, attr[n]));
 		return el;
 	}
+
+	var Download = (function() {
+		Cu.import('resource://gre/modules/Downloads.jsm');
+		var exports = {};
+		exports.download = function(source, target, callback) {
+			var LIST;
+			Downloads.getList(Downloads.ALL).then(function(list) {
+				LIST= list
+				return Downloads.createDownload({
+					source: source,
+					target: target,
+				});
+			})
+			.catch(Cu.reportError)
+			.then(function(download) {
+				LIST.add(download);
+				return download.start();
+			})
+			.catch(Cu.reportError)
+			.then(function onSuccess() {
+				if (typeof callback === "function") {
+					callback()
+				}
+			}, function onFailure() {
+				if (typeof callback === "function") {
+					callback()
+				}
+			})
+			.catch(Cu.reportError);
+
+		};
+		exports.promptForFile = function(defaultString) {
+			const nsIFilePicker = Ci.nsIFilePicker;
+			var fp = Cc["@mozilla.org/filepicker;1"]
+				.createInstance(nsIFilePicker);
+			fp.init(window, "请输入要保存的文件名...", nsIFilePicker.modeSave);
+			fp.defaultString = defaultString;
+			fp.appendFilters(nsIFilePicker.filterAll | nsIFilePicker.filterImages);
+			var rv = fp.show();
+			if (rv == nsIFilePicker.returnOK || rv == nsIFilePicker.returnReplace) {
+				var file = fp.file;
+				var path = fp.file.path;
+			}
+			return [file, path];
+		}
+
+		return exports;
+	})();
 
 	downloadPlus.init();
 	window.downloadPlus = downloadPlus;

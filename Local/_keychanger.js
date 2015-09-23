@@ -1,5 +1,5 @@
 
-//2015.09.20
+//2015.09.23
 
 //F功能鍵
 keys['F5'] = "BrowserReloadSkipCache();";//跳过缓存刷新页面
@@ -25,7 +25,12 @@ anobtn.reload();//anobtn
 addMenu.rebuild();//AddmenuPlus
 MyMoveButton.delayRun();//Movebutton
 showFlagS.rebuild();//ShowFlagS整合版
+ucjsDownloadsStatusModoki.toggleDownloadsStatusModokiBar();//ucjsDownloadsStatusModoki底部狀態欄
 };//群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
+
+keys['S'] = function() {
+snapLinks.init();
+};
 
 keys['U'] = function() {
 Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile).reveal();

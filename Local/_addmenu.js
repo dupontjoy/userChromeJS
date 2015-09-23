@@ -1,6 +1,6 @@
 
+//2015.09.23 調整選中文字搜索
 //2015.09.18 帶開關的解除右鍵限制
-//2015.09.17 調整選中文字搜索
 //2015.09.12 整合RC多功能菜單等
 //2015.08.23 調整雲播放前臺新標籤打開
 //2015.07.25 21:00 Email地址左中右三鍵，修正中轉英，插入BBCode左中右三鍵，用新分頁開啟鏈結左中右三鍵
@@ -106,7 +106,7 @@ accesskey: "G",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=",
 },
 {
-label: "複製圖片地址|Base64",
+label: "圖片地址|Base64",
 tooltiptext: "左鍵：複製圖片地址\n右鍵：複製圖片Base64碼",
 onclick: function(e) {
 switch(e.button) {
@@ -122,70 +122,7 @@ break;
 },
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4jbWTLw6DMBjFfwaDmauq5QhY9C4wyQWQOA6whAtwBS6wO0xOzeKQO8REH6EUwsqWvaRpk37vT7+28AfYX8gZ8NIcIgf6GJESGAATpBqAc2ySFrgDCZACD6CKJU/oNW5Ad5SMnEdc9OQbgQp4SqA8QsyAWu6W+WZaoPhEblQ8sGxah+vFKKHdyFbFl0C4A064G6lDsmV+QIWc0o19G6xXDkbxffcJtdyNaht/0z/jKp6Hq2pWbyPDNSffIU8oJLT1X47jDR7gLDGf5CLwAAAAAElFTkSuQmCC"
 },
-{
-label: "OCR文字識別",
-accesskey: "A",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXElEQVQ4jWNgGCzgPxZMSA2GJKkWEmXAfwYGBg9yDfBgYGCYCcXEWogCjjIwMChDaZIBssY8KCYJ5DGghjhJrlBmwPTjTKg4ToCsAVvAeaCJ0S8dkGQARUl54AAAWsMsNkwmkt8AAAAASUVORK5CYII=",
-oncommand: function() {
-//打開http://apistore.baidu.com/apiworks/servicedetail/146.html，填入apikey
-var apikey = "5887465f000b887614bc3ad930fe1b15";
-  
-var base64str = img2base64(gContextMenu.mediaURL || gContextMenu.imageURL || gContextMenu.bgImageURL).replace("data:image/jpeg;base64,", "");
-var xmlHttp = new XMLHttpRequest();
-xmlHttp.open("POST", "http://apis.baidu.com/apistore/idlocr/ocr", true);
-xmlHttp.setRequestHeader("apikey", apikey);
-var formData = new FormData();
-for(var d of ("fromdevice=pc&clientip=10.10.10.0&detecttype=LocateRecognize&languagetype=CHN_ENG&imagetype=1&image=" + base64str).split('&'))
-formData.append.apply(formData, d.split('=', 2));
-xmlHttp.send(formData);
-xmlHttp.onload = function() {
-if (xmlHttp.status == 200) {
-var data = JSON.parse(xmlHttp.responseText);
-if (data.errNum != 0)
-alert("错误：" + data.errMsg);
-else {
-var str = "";
-for (var i in data.retData) str += data.retData[i].word;
-alert(str);
-}
-}
-};
-  
-function img2base64(imgsrc) {
-if (typeof imgsrc == 'undefined') return "";
-  
-const NSURI = "http://www.w3.org/1999/xhtml";
-var img = new Image();
-var that = this;
-var canvas,
-isCompleted = false;
-img.onload = function() {
-var width = this.naturalWidth,
-height = this.naturalHeight;
-canvas = document.createElementNS(NSURI, "canvas");
-canvas.width = width;
-canvas.height = height;
-var ctx = canvas.getContext("2d");
-ctx.drawImage(this, 0, 0);
-isCompleted = true;
-};
-img.onerror = function() {
-Components.utils.reportError("Count not load: " + imgsrc);
-isCompleted = true;
-};
-img.src = imgsrc;
-  
-var thread = Cc['@mozilla.org/thread-manager;1'].getService().mainThread;
-while (!isCompleted) {
-thread.processNextEvent(true);
-}
-  
-var data = canvas ? canvas.toDataURL("image/jpeg", 1) : "";
-canvas = null;
-return data;
-}
-}
-},
+
 ];
 var menu = PageMenu({
 condition: 'image',
@@ -207,29 +144,6 @@ var items = [{
 command: 'context-saveimage',
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAv0lEQVR42mNkoBAwUssAByAOB2IOIvX9AeKNQLwFZsBzIJYk0fLXQCwKM+A/1DURQOwMxJ1AfIeAAfeBWBHdgN9AzALEa4A4FEkxDxBrAPEZQgYcB2ILIM4F4ilImrcDsQEQewLxEXwGgIAIEL9B02wD5X9BMgSnASDFyUBcCMSbkTQzIBmiCMSnsRlgA7URZPMHIBbAE/1YXfAZqpmY9IPVgP1EpgFHdAPeA7EgJQkJlIDcSTTgJBDPYBzw3AgApMktEXd8LEwAAAAASUVORK5CYII=",
 },
-// 替換 openImgRar.uc.js
-{
-label: "打開圖像RAR",
-accesskey: "R",
-condition: 'image',
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAWklEQVQ4jWNgGCwghoGB4Q8DA8N/IvEfBgYGT2QDPjIwMFijGfofB5sBqvYZLsXIYsgYmzxBA4iVp50BZHmBjZouoNgAor3wjIHCdOAJFSA2JT5jQEuJQxgAAFeqQ1dXIFWxAAAAAElFTkSuQmCC",
-oncommand: function() {
-var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
-try {
-var path = Components.classes["@mozilla.org/preferences-service;1"].getService(Components.interfaces.nsIPrefService).getCharPref("browser.cache.disk.parent_directory") + "\\Cache\\" + new Date().getTime() + ".rar";
-file.initWithPath(path);
-} catch (e) {
-var path = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfLD", Components.interfaces.nsILocalFile).path + "\\Cache\\" + new Date().getTime() + ".rar";
-}
-file.initWithPath(path);
-Components.classes["@mozilla.org/embedding/browser/nsWebBrowserPersist;1"].createInstance(Components.interfaces.nsIWebBrowserPersist).saveURI(Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService).newURI((gContextMenu.mediaURL || gContextMenu.imageURL), null, null), null, null, null, null, file, null);
-setTimeout(function() {
-file.launch();
-}, 100);
-}
-},
-
-{command: 'context-sep-copyimage'},
 {label:"重新載入圖片",
 accesskey: "T",
 oncommand:"gContextMenu.reloadImage();",
@@ -325,31 +239,9 @@ where: 'tab'
 },
 {},
 {
-label: "運營—價格變更-SKU",
-id: "TVC-Universal",
-accesskey: "1",
-url: "http://ic.sjlpj.cn/PriceChangeRequest/UnChangedProductList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
-label: "運營—價格變更審核-SKU",
-id: "TVC-Back",
-url: "http://ic.sjlpj.cn/PriceChangeRequest/OperationAuditList?Sku=%s",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
-label: "運營—已下架查詢-SKU",
-id: "TVC-Back",
-url: "http://ic.sjlpj.cn/#/DownShelf/DownShelfOperationAuditList?DownType=All&Sku=%s&IsForProcessed=True",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
 label: "運營—外網批量管理-SKU",
 id: "TVC-Universal",
-accesskey: "2",
+accesskey: "1",
 url: "http://ic.sjlpj.cn/#/Product/BatchManagementProductList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
@@ -358,6 +250,14 @@ where: 'tab'
 label: "運營—外網批量管理-品名",
 id: "TVC-Universal",
 url: "http://ic.sjlpj.cn/#/Product/BatchManagementProductList?Sku=&KeyWord=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "運營—外網批量管理-ProductID",
+id: "TVC-Back",
+accesskey: "2",
+url: "http://ic.sjlpj.cn/Product/PreViewProductDetail?productId=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
@@ -379,60 +279,10 @@ image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "運營—質檢-品名",
-id: "TVC-Back",
-url: "http://ic.sjlpj.cn/Product/ProductCheckingList?KeyWord=%s",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
 label: "運營—審核-SKU",
 id: "TVC-Universal",
 accesskey: "5",
 url: "http://ic.sjlpj.cn/Product/OperationProductEditAuditList?Sku=%s",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
-label: "運營—審核-品名",
-id: "TVC-Back",
-url: "http://ic.sjlpj.cn/Product/OperationProductEditAuditList?Keyword=%s",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
-label: "產品—認領-SKU",
-id: "TVC-Back",
-url: "http://ic.sjlpj.cn/DevProduct/DevProductEditCollectList?Sku=%s",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
-label: "產品—認領-品名",
-id: "TVC-Back",
-url: "http://ic.sjlpj.cn/DevProduct/DevProductEditCollectList?Name=%s",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
-label: "產品—已編輯-SKU",
-id: "TVC-Back",
-url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Sku=%s&EditorId=0",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
-label: "產品—已編輯-品名",
-id: "TVC-Back",
-url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?mode=processed&Name=%s&EditorId=0",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
-label: "產品—關聯SPU-所有列表",
-id: "TVC-Back",
-url: "http://ic.sjlpj.cn/DevProduct/DevProductAssociatedSpuList?Sku=%s",
-tooltiptext: "加顏色時在此關聯，一步到位！",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
@@ -792,14 +642,6 @@ tooltiptext: "左鍵：UTF-8\n中鍵：Big5\n右鍵：GBK",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAlUlEQVQ4ja2TwQ2AIAxF3wau4QCuwCxcPTKMI7iBO7iCA3BiArxUJaSCik2a0NL/+1MK/Gg9MAMBiDcepKbXwB4Yga7QpJMan5PMcvHUnGBOC5XOmpKQJuILsIpJg5VraA7Y5OwBWyMYBHScYxb7JwSpAs1NiWDimq6RvE3ipabAiMyoKCnOoPkZmxepeZUPks+f6bPtGg1LLkKBszsAAAAASUVORK5CYII=",
 onclick: "var code = ['UTF-8', 'Big5', 'GBK']; BrowserSetForcedCharacterSet(code[event.button]);closeMenus(this);"
 },
-{
-label: "重置Bing桌面",
-oncommand: function() {
-var Setting = "userchromejs.data.BingDesktopTheme";
-gPrefService.setCharPref(Setting, "");
-},
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA+0lEQVQ4jcWSMUoEURBES9EVDIZh8DP9XyUGIoKGXsBEMBQ9gCZGXsTEyCsogiYmHkEMTAb2AsImHsBYk1kYVt3Z3cSCTrqriu6mpH/AMnAfEWlhh5zzse0mIjYlSba/xgV8RsTuhGbJ9nOX13JffrgD58AQWO/0Lm2/SlqRpIg4Aoa2t39dEbgDbiSprus94COltNWZ36aU4s8bq6oqcs4nktZsN7bPZnrOJGxf235YSAwcAu9FUVSLiDdsjyLiQNJg7hOAJ+BKksqyLG2Pcs777Xh6kHLOF8CbpMG4FxGnthtJqy1nepCAnUlj248zBWkW9AapD71Bmgff1GdAhwyuwRgAAAAASUVORK5CYII=",
-},
 ];
 var menu = PageMenu({
 label: "多功能菜單",
@@ -828,11 +670,6 @@ url: `javascript:function applyWin(a){if(typeof a.__nnANTImm__==="undefined"){a.
 label:"夜間模式",
 url:"javascript:(function(){var%20night=function(w){(function(d){var%20css='html{opacity:0.7!important;background:black!important;}body{background:white!important;}';var%20s=d.getElementsByTagName('style');for(var%20i=0,si;si=s[i];i++){if(si.innerHTML==css){si.parentNode.removeChild(si);return}};var%20heads=d.getElementsByTagName('head');if(heads.length){var%20node=d.createElement('style');node.type='text/css';node.appendChild(d.createTextNode(css));heads[0].appendChild(node)}})(w.document);%20for(var%20i=0,f;f=w.frames[i];i++){try{arguments.callee(f)}catch(e){}}};night(window)})();",
 image:" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAY1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABmaHTeAAAAIXRSTlMAxsDKvHPOw5pK97WmoYJ4bVtUQDAiCrCMimhhOCwbFwwUUO7SAAAAbUlEQVQY022OVw7AMAhDndl07z3vf8oqEapQFf/AAyOMqFJps5RxWUx2ZOwMqobxkAMCTPoGJOMAyX9QHPwEwKUI+orsZg68+zj56dvWls0qnH83KnKbDtsS7PqLRHla1YVaq4c2kxM6kaJGTC+MlANOz9LO6wAAAABJRU5ErkJggg=="
-},
-{
-label:"Readability",
-url:"javascript:(function(){x=document.createElement('SCRIPT');x.type='text/javascript';x.src='http://brettterpstra.com/share/readability.js?x='+(Math.random());document.getElementsByTagName('head')%5B0%5D.appendChild(x);y=document.createElement('LINK');y.rel='stylesheet';y.href='http://brettterpstra.com/share/readability.css?x='+(Math.random());y.type='text/css';y.media='screen';document.getElementsByTagName('head')%5B0%5D.appendChild(y);})();",
-image:" data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAaVBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnbPKNAAAAI3RSTlMA+O/0xi/p4ZeFUUEI49HMcGhGPigUDurVubi0qomBdFosGkgxKCAAAABlSURBVBjTrYvHDcQwEMS4ypJzvOjYf5GGXIP5ITAY8gxnl26XqZuyo3jlLAzqVUkLhfTw93PpAuwyYj75LaZRAM2X+gegbX8PxlBoC8GBirk/IEhd6QGS9m9ZAGxs5+xpW0ce4QLyDgO0EbBIEQAAAABJRU5ErkJggg=="
 },
 {
 label: "字體查詢",

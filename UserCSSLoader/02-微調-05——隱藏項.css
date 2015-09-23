@@ -1,7 +1,8 @@
-/*+++ 2015.09.19 +++*/
+/*+++ 2015.09.23 +++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄，地址欄&工具欄===*/
+#pocket-button,/*Pocket*/
 #abp-menuitem,/*ABP*/
 #aup-menuitem,/*AutoProxy*/
 #gm_general_menu,/*GreaseMonkey*/
@@ -21,10 +22,6 @@ display: none !important;
 {display: none !important;}*/
 
 /*===隐藏页面右键菜单===*/ 
-#showFlagS-sepalator2,/*ShowFlagS分割线*/
-#flashgot-menuitem-media,/*Flashgot此Media*/
-#loop-button,/*Start Conversion*/
-#greasemonkey-view-userscript,/*GreaseMonkey检视腳本原始碼*/
 #context-shareselect,/*分享选中项目*/
 #context-shareimage,/*分享此图片*/
 #context-sharelink,/*分享此鏈接*/
@@ -74,6 +71,7 @@ display: none !important;
 }
 
 /*===标签栏右键菜单===*/
+#alltabs_undoCloseTab,/*復原已關閉分頁*/
 #context_pinTab,/*锁定标签*/
 #context_unpinTab,/*取消锁定标签*/
 #toolbar-context-reloadAllTabs,/*重新載入所有分頁*/
@@ -215,12 +213,33 @@ display: none !important;
 display: none !important;
 }
 
+/*FlashGot菜單項*/
+#flashgot-main-sep-buildGallery,/*分割线*/
+#flashgot-menuitem-media,/*Flashgot此Media*/
+#flashgot-main-menuitem-sel,/*使用 FlashGot 下载所选链接*/
+#flashgot-main-menuitem-all,/*使用 FlashGot 下载全部链接*/
+#flashgot-main-menuitem-tabs,/*使用 FlashGot 下载标签页组*/
+#flashgot-main-menuitem-media,/*FlashGot 此媒体*/
+#flashgot-main-menuitem-buildGallery/*建立图库*/
+{
+display: none !important;
+}
+
+
 /*其它擴展/腳本隱藏項*/
-#alltabs_undoCloseTab,/*復原已關閉分頁*/
+#showFlagS-sepalator2,/*ShowFlagS分割线*/
+#loop-button,/*Start Conversion*/
+#greasemonkey-view-userscript,/*GreaseMonkey检视腳本原始碼*/
 #loop-button-throttled,/*Loop通話*/
 #feed-button,/*分享此頁*/
 #blockElement,/*uBlock右鍵菜單*/
 #snaplinksMenuEntry,
+#SnapLinksCopyLinks,
+#SnapLinksCopyLinksReverse,
+#SnapLinksCopyLinksAndTitlesMD,
+#SnapLinksCopyLinksAndTitlesBBS,
+#SnapLinksCopyLinksRegExp,
+#SnapLinksCopyLinksSetFormat,
 [label="生成二维码 : 链接地址"],
 [label="生成二维码 : 图象地址"],
 [label="生成二维码 : 选区文本"],

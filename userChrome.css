@@ -1,4 +1,4 @@
-/*+++ 2015.09.13 +++*/
+/*+++ 2015.09.23 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -23,6 +23,7 @@ border-right:1px #BBC2C8 solid !important;
 }
 
 /*隐藏图标*/
+#pocket-button,/*Pocket*/
 #bookmarks-menu-button,/*書籤五角星*/
 #home-button,
 #stylish-toolbar-button,/*Stylish導航欄圖標*/
@@ -34,7 +35,16 @@ border-right:1px #BBC2C8 solid !important;
 #masonStatusbar,/*Mason*/
 #noscript-tbb,/*Noscript*/
 #ScrapBookStatusPanel,/*ScrapBook*/
-#scriptish-button /*Scriptish*/
+#scriptish-button,/*Scriptish*/
+#abp-menuitem,/*ABP*/
+#aup-menuitem,/*AutoProxy*/
+#gm_general_menu,/*GreaseMonkey*/
+#identity-icon-labels, 
+#identity-popup,
+#reader-mode-button,/*閱讀模式按钮*/
+#panic-button,/*忘記某些歷史*/
+#downloadsListBox,/*下載框彈窗*/
+#PlacesChevron/*书签工具栏产生的箭头*/
 {display: none !important;}
 
 /*調整圖標邊框——方法1*/

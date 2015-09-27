@@ -1,5 +1,6 @@
 
-::2015.09.21  優化輸出地址
+::2015.09.27  優化輸出地址
+::2015.09.26  開啟7zip極限壓縮
 ::2015.08.08  可選擇Flash下載地址
 ::2015.07.14  添加備份詞典和user.js到GitHub
 ::2015.07.14  更新Flash下载地址
@@ -85,7 +86,7 @@ rem 复制目标文件到臨時文件夾
 
 ::以下是文件夾
 ::adblockplus：ABP規則備份。
-xcopy "%BackDir%\adblockplus" %TempFolder%\adblockplus\  /s /y /i
+::xcopy "%BackDir%\adblockplus" %TempFolder%\adblockplus\  /s /y /i
 ::autoproxy：Autoproxy規則備份。
 xcopy "%BackDir%\autoproxy" %TempFolder%\autoproxy\  /s /y /i
 ::chrome：UC腳本。
@@ -140,7 +141,7 @@ xcopy "%BackDir%\pluginreg.dat" %TempFolder%\ /y
 ::Portable.7z：PCXFirefox的便携設置。
 xcopy "%BackDir%\Portable.7z" %TempFolder%\ /y
 ::prefs.js：About:config中儲存的設定。
-xcopy "%BackDir%\prefs.js" %TempFolder%\ /y
+::xcopy "%BackDir%\prefs.js" %TempFolder%\ /y
 ::readme.txt：个人配置修改说明。
 xcopy "%BackDir%\readme.txt" %TempFolder%\ /y
 ::stylish.sqlite：Stylish样式數据库。
@@ -173,7 +174,8 @@ if %tm1% LSS 10 set tm1=0%tm1%
 set Name=Profiles_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
 
 rem 開始備份
-7z.exe u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
+::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
+7z.exe -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%" /s/q
 
@@ -262,7 +264,7 @@ rem 复制目标文件到臨時文件夾
 
 ::以下是文件夾
 ::adblockplus：ABP規則備份。
-xcopy "%BackDir%\Profiles\adblockplus" %TempFolder%\Profiles\adblockplus\  /s /y /i
+::xcopy "%BackDir%\Profiles\adblockplus" %TempFolder%\Profiles\adblockplus\  /s /y /i
 ::autoproxy：Autoproxy規則備份。
 xcopy "%BackDir%\Profiles\autoproxy" %TempFolder%\Profiles\autoproxy\  /s /y /i
 ::chrome：UC腳本。
@@ -276,7 +278,7 @@ xcopy "%BackDir%\Profiles\gm_scripts" %TempFolder%\Profiles\gm_scripts\ /s /y /i
 ::Plugins：便携版插件。
 xcopy "%BackDir%\Profiles\Plugins" %TempFolder%\Profiles\Plugins\ /s /y /i
 ::SimpleProxy：SimpleProxy代理列表。
-xcopy "%BackDir%\SimpleProxy" %TempFolder%\SimpleProxy\ /s /y /i
+xcopy "%BackDir%\Profiles\SimpleProxy" %TempFolder%\Profiles\SimpleProxy\ /s /y /i
 
 ::需要刪除的项
 del %TempFolder%\Profiles\chrome\UserScriptLoader\require\  /s /q
@@ -293,7 +295,7 @@ del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Linux_x86-gcc
 
 ::以下是文件
 ::cert_override.txt：储存使用者指定的例外证书(certification exceptions)。
-xcopy "%BackDir%\cert_override.txt" %TempFolder%\ /y
+xcopy "%BackDir%\Profiles\cert_override.txt" %TempFolder%\Profiles\ /y
 ::cert8.db：安全证书。
 xcopy "%BackDir%\Profiles\cert8.db" %TempFolder%\Profiles\ /y
 ::FlashGot.exe：FlashGot的下载工具。
@@ -307,7 +309,7 @@ xcopy "%BackDir%\Profiles\MyFirefox.7z" %TempFolder%\Profiles\ /y
 ::patternSubscriptions.json：FoxyProxy的訂閱列表設置。
 ::xcopy "%BackDir%\patternSubscriptions.json" %TempFolder%\ /y
 ::permissions.sqlite：存放特定网站是否可存取密码、cookies、弹出视窗、图片载入与附加元件……等权限的资料库。
-xcopy "%BackDir%\permissions.sqlite" %TempFolder%\ /y
+xcopy "%BackDir%\Profiles\permissions.sqlite" %TempFolder%\Profiles\ /y
 ::persdict.dat：个人的拼字字典。
 xcopy "%BackDir%\Profiles\persdict.dat" %TempFolder%\Profiles\ /y
 ::pluginreg.dat：用于plugin的MIME types。
@@ -315,7 +317,7 @@ xcopy "%BackDir%\Profiles\pluginreg.dat" %TempFolder%\Profiles\ /y
 ::Portable.7z：PCXFirefox的便携設置。
 xcopy "%BackDir%\Profiles\Portable.7z" %TempFolder%\Profiles\ /y
 ::prefs.js：About:config中儲存的設定。
-xcopy "%BackDir%\prefs.js" %TempFolder%\ /y
+::xcopy "%BackDir%\Profiles\prefs.js" %TempFolder%\Profiles\ /y
 ::readme.txt：个人配置修改说明。
 xcopy "%BackDir%\Profiles\readme.txt" %TempFolder%\Profiles\ /y
 ::stylish.sqlite：Stylish样式數据库。
@@ -323,7 +325,7 @@ xcopy "%BackDir%\Profiles\stylish.sqlite" %TempFolder%\Profiles\ /y
 ::user.js：使用者自订的設定，在这里的設定覆盖默认設定。
 xcopy "%BackDir%\Profiles\user.js" %TempFolder%\Profiles\ /y
 ::xulstore.json：界面的一些状态。
-xcopy "%BackDir%\xulstore.json" %TempFolder%\ /y
+xcopy "%BackDir%\Profiles\xulstore.json" %TempFolder%\Profiles\ /y
 
 ::讀取版本號和日期及時間
 ::从批处理所在位置到Firefox程序文件夹（firefox），共跨了4层
@@ -348,7 +350,8 @@ if %tm1% LSS 10 set tm1=0%tm1%
 set Name=CingFox_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
 
 rem 開始備份
-7z.exe u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
+::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
+7z.exe -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%" /s/q
 
@@ -400,6 +403,8 @@ cd /d %~dp0
 ::从批处理所在位置到Plugins和Software文件夾，只跨了4层
 set BackDir=..\..\..\..\
 set TempFolder=..\..\..\..\Plugins-n-Software
+::輸出地址
+set TargetFolder="D:\My Documents\Baiduyun\Firefox\Profiles\Software & Plugins"
 
 rem 复制目标文件到臨時文件夾
 
@@ -428,15 +433,16 @@ set tm4=%time:~0,8%
 set da1=%date:~0,4%
 set da2=%date:~5,2%
 set da3=%date:~8,2%
-set ArchiveName=D:\Plugins-n-Software_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
+set Name=Plugins-n-Software_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 
 ::小時數小于10点時的修正
 set /a tm1=%time:~0,2%*1
 if %tm1% LSS 10 set tm1=0%tm1%
-set ArchiveName=D:\Plugins-n-Software_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
+set Name=Plugins-n-Software_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 
 rem 開始備份
-7z.exe u -up1q3r2x2y2z2w2 %ArchiveName% "%TempFolder%"
+::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
+7z.exe -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%" /s/q
 
@@ -546,6 +552,8 @@ goto set
 cd /d %~dp0
 set BackDir=C:\Windows\SysWOW64\Macromed\Flash
 set TempFolder=D:\Flash32
+::輸出地址
+set TargetFolder="D:\My Documents\Baiduyun\Firefox\【FX共享】\Flash32位原版提取帶vch和exe"
 
 ::複製插件到臨時文件夾
 xcopy "%BackDir%\NPSWF32*.dll" %TempFolder%\  /s /y /i
@@ -565,15 +573,16 @@ set tm4=%time:~0,8%
 set da1=%date:~0,4%
 set da2=%date:~5,2%
 set da3=%date:~8,2%
-set ArchiveName=D:\%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
+set Name=%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 
 ::小時數小于10点時的修正
 set /a tm1=%time:~0,2%*1
 if %tm1% LSS 10 set tm1=0%tm1%
-set ArchiveName=D:\%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
+set Name=%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 
 rem 開始備份
-7z.exe u -up1q3r2x2y2z2w2 %ArchiveName% "%TempFolder%"
+::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
+7z.exe -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%" /s/q
 

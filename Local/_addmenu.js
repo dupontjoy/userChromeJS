@@ -1,5 +1,5 @@
 
-//2015.09.23 調整選中文字搜索
+//2015.09.26 調整選中文字搜索
 //2015.09.18 帶開關的解除右鍵限制
 //2015.09.12 整合RC多功能菜單等
 //2015.08.23 調整雲播放前臺新標籤打開
@@ -151,6 +151,8 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgE
 {command: 'context-viewimageinfo',image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXklEQVQ4jaVTQQ4AMATzFq/y/49sFxIRoWiyU9eWDaIar+FLsBrwVCgqjEcmYku1Fqya0iSKvQFkgvRrJjiBBGUP5jnk3q2ClkCDzr+QmYzmIJqsJtFjvQsep22E8AGEZDOcIlQ9sgAAAABJRU5ErkJggg=="},
 ];
 var menu = PageMenu({
+label:"圖像另存爲",
+accesskey: "V",
 condition: 'image',
 insertBefore: 'context-viewimage',
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAv0lEQVR42mNkoBAwUssAByAOB2IOIvX9AeKNQLwFZsBzIJYk0fLXQCwKM+A/1DURQOwMxJ1AfIeAAfeBWBHdgN9AzALEa4A4FEkxDxBrAPEZQgYcB2ILIM4F4ilImrcDsQEQewLxEXwGgIAIEL9B02wD5X9BMgSnASDFyUBcCMSbkTQzIBmiCMSnsRlgA7URZPMHIBbAE/1YXfAZqpmY9IPVgP1EpgFHdAPeA7EgJQkJlIDcSTTgJBDPYBzw3AgApMktEXd8LEwAAAAASUVORK5CYII=",
@@ -239,7 +241,7 @@ where: 'tab'
 },
 {},
 {
-label: "運營—外網批量管理-SKU",
+label: "外網批量管理-SKU",
 id: "TVC-Universal",
 accesskey: "1",
 url: "http://ic.sjlpj.cn/#/Product/BatchManagementProductList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
@@ -247,14 +249,14 @@ image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "運營—外網批量管理-品名",
+label: "外網批量管理-品名",
 id: "TVC-Universal",
 url: "http://ic.sjlpj.cn/#/Product/BatchManagementProductList?Sku=&KeyWord=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "運營—外網批量管理-ProductID",
+label: "外網批量管理-ID",
 id: "TVC-Back",
 accesskey: "2",
 url: "http://ic.sjlpj.cn/Product/PreViewProductDetail?productId=%s",
@@ -262,7 +264,7 @@ image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "運營—SPU管理-SKU",
+label: "SPU管理-SKU",
 id: "TVC-Universal",
 accesskey: "3",
 url: "http://ic.sjlpj.cn/ProductCorrect/ProductSpuList?Sku=%s",
@@ -271,7 +273,7 @@ where: 'tab'
 },
 {},
 {
-label: "運營—質檢-SKU",
+label: "編輯質檢-SKU",
 id: "TVC-Universal",
 accesskey: "4",
 url: "http://ic.sjlpj.cn/Product/ProductCheckingList?Sku=%s",
@@ -279,7 +281,7 @@ image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "運營—審核-SKU",
+label: "編輯審核-SKU",
 id: "TVC-Universal",
 accesskey: "5",
 url: "http://ic.sjlpj.cn/Product/OperationProductEditAuditList?Sku=%s",

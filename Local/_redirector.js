@@ -12,7 +12,6 @@
 //2015.03.20 13:00 修正百度盤搜索地址替換
 //2015.03.14 15:00 爲規則添加說明
 //2015.02.17 14:00 新增12306重定向JS
-//2015.01.24 14:00 添加京東，天貓大圖規則
 
 //Redirector說明頁面：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -139,19 +138,6 @@ regex: true
 name: "ajax|fonts(https?) >> useso",
 from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "http://$1.useso.com/$2",
-regex: true
-},
-{
-//參考https://github.com/jiacai2050/gooreplacer
-name: "twitter.com/widgets.js >> github",
-from: /^https?:\/\/platform\.twitter\.com\/widgets.js(.*)/i,
-to: "https://raw.githubusercontent.com/dupontjoy/customization/master/twitter/widgets.js",
-regex: true
-},
-{
-name: "apis.google.com/js/api.js和plusone.js >> github",
-from: /^https?:\/\/apis\.google\.com\/js\/(api\.js|plusone\.js)(.*)/i,
-to: "https://raw.githubusercontent.com/dupontjoy/customization/master/google/apis/$1",
 regex: true
 },
 

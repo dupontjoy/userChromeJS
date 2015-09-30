@@ -86,6 +86,7 @@ var UASites = [
 //2015.03.31 11:00 新增115Browser
 //2015.01.15 FX35工行不支持10.0，新增20.0UA
 //2014.12.11 調整圖標
+{url : "http://www\\.apple\\.com/",label : "Chrome - Win7"},
 {url : "https?://(?:mybank.*|b2c.*)\\.icbc\\.com\\.cn/",label : "Firefox20.0"},//工商銀行
 {url : "https?://(.*?)n\\.baidu\\.com/",label : "BaiduYunGuanJia"},//百度云
 {url : "https?://(.*)?115\.com/",label : "115Browser"},

@@ -1,5 +1,5 @@
 
-::2015.09.27  優化輸出地址
+::2015.09.30  優化輸出地址
 ::2015.09.26  開啟7zip極限壓縮
 ::2015.08.08  可選擇Flash下載地址
 ::2015.07.14  添加備份詞典和user.js到GitHub
@@ -254,10 +254,10 @@ del %TempFolder%\Plugins\sumatrapdfcache\  /s /q
 xcopy "%BackDir%\Software" %TempFolder%\Software\  /s /y /i
 
 ::需要刪除的项
-del %TempFolder%\Software\GFW\goagent\local\proxy.user.ini  /s /q
-del %TempFolder%\Software\GFW\Shadowsocks\gui-config.json  /s /q
-del %TempFolder%\Software\GFW\psiphon\psiphon3.exe.orig  /s /q 
-del %TempFolder%\Software\GFW\GoGoTester\gogo_cache  /s /q 
+del %TempFolder%\Software\GFW\goagent\  /s /q
+del %TempFolder%\Software\GFW\IP-Update\  /s /q
+del %TempFolder%\Software\GFW\Shadowsocks\  /s /q
+del %TempFolder%\Software\GFW\psiphon\psiphon3.exe.orig  /s /q
 
 @echo 備份Profiles文件夾================================
 rem 复制目标文件到臨時文件夾

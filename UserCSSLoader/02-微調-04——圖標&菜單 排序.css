@@ -1,4 +1,4 @@
-/*+++ 2015.09.15 +++*/
+/*+++ 2015.10.01 +++*/
 
 /*地址栏图标排序*/
 #flashgot-media-tbb {-moz-box-ordinal-group: 1 !important;}
@@ -8,12 +8,6 @@
 #abp-toolbarbutton {-moz-box-ordinal-group: 7 !important;}
 #greasemonkey-tbb {-moz-box-ordinal-group: 9 !important;}
 #userChromebtnMenu {-moz-box-ordinal-group: 10 !important;}
-
-/*图标对齐*/
-#AutoClick-enable-menuitem {
-padding: 0px !important;
-margin-left: 6px !important;
-}
 
 /*調整圖標邊框——方法1*/
 #showFlagS-icon >image,/*國旗圖標*/
@@ -103,5 +97,5 @@ box-shadow: none !important;
 outline: none !important;
 }
 
-/*右键菜单子目录小三角*/
+/*右键菜单子目录小三角距離*/
 .menu-accel-container{margin-right:-16px!important;}

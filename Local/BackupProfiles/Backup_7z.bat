@@ -1,5 +1,5 @@
 
-::2015.09.30  優化輸出地址
+::2015.10.01  優化輸出地址和精簡擴展語言
 ::2015.09.26  開啟7zip極限壓縮
 ::2015.08.08  可選擇Flash下載地址
 ::2015.07.14  添加備份詞典和user.js到GitHub
@@ -8,6 +8,8 @@
 
 @echo off
 Title 備份批處理整合版 by Cing
+::一次性设置7-zip程序地址
+set zip="D:\Program Files\7-Zip\7z.exe"
 
 :menu
 MODE con: COLS=80 LINES=25
@@ -63,7 +65,7 @@ echo    1. 需要關閉Firefox程序，請保存必要的資料!
 echo.
 echo    2. 備份完成後，按任意鍵重啟Firefox
 echo.
-echo    By Cing(Dupontjoy)
+echo    By Cing
 echo.
 echo    按任意键继续……
 echo =============================================================
@@ -71,12 +73,14 @@ pause>nul
 cls
 
 rem 設置備份路徑以及臨時文件夾
-taskkill /im firefox.exe
 @echo 關閉火狐瀏覽器后自動開始備份……
 cd /d %~dp0
 ::从批处理所在位置到配置文件夹（Profiles），共跨了3层
 set BackDir=..\..\..
 set TempFolder=..\..\..\Temp\Profiles
+set TempFolder1=..\..\..\Temp\1
+set TempFolder2=..\..\..\Temp\2
+
 ::備份輸出地址
 set TargetFolder="D:\My Documents\Baiduyun\Firefox\Profiles"
 
@@ -101,19 +105,27 @@ xcopy "%BackDir%\gm_scripts" %TempFolder%\gm_scripts\ /s /y /i
 xcopy "%BackDir%\Plugins" %TempFolder%\Plugins\ /s /y /i
 ::SimpleProxy：SimpleProxy代理列表。
 xcopy "%BackDir%\SimpleProxy" %TempFolder%\SimpleProxy\ /s /y /i
- 
-::需要刪除的项
+
+::刪除Lastpass的一些项目
+::（一）精简Platform
+del %TempFolder%\extensions\support@lastpass.com\platform\  /s /q
+xcopy "%BackDir%\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc" %TempFolder%\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc\ /s /y /i
+::（二）精简lastpass.jar中的语言
+%zip% x %TempFolder%\extensions\support@lastpass.com\chrome\lastpass.jar -o%TempFolder1%\jar
+del %TempFolder%\extensions\support@lastpass.com\chrome\lastpass.jar  /s /q
+xcopy "%TempFolder1%\jar\locale\en-US" %TempFolder2%\jar\locale\en-US\ /s /y /i
+xcopy "%TempFolder1%\jar\locale\zh-CN" %TempFolder2%\jar\locale\zh-CN\ /s /y /i
+xcopy "%TempFolder1%\jar\locale\zh-TW" %TempFolder2%\jar\locale\zh-TW\ /s /y /i
+%zip% a -tzip -mx9 "%TempFolder1%\lastpass.jar" "%TempFolder1%\jar\content\" "%TempFolder1%\jar\icons\" "%TempFolder1%\jar\META-INF\" "%TempFolder1%\jar\skin\" "%TempFolder2%\jar\locale\"
+xcopy "%TempFolder1%\lastpass.jar" %TempFolder%\extensions\support@lastpass.com\chrome\ /s /y /i
+
+::刪除Inspector的语言
+del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\  /s /q
+xcopy "%BackDir%\extensions\inspector@mozilla.org\chrome\inspector\locale\en-US" %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\en-US\ /s /y /i
+
+::其它刪除项
 del %TempFolder%\chrome\UserScriptLoader\require\  /s /q
 del %TempFolder%\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q
-del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\de\  /s /q
-del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\en-GB\  /s /q
-del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\pl\  /s /q
-del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\ru\  /s /q
-del %TempFolder%\extensions\inspector@mozilla.org\chrome\inspector\locale\sk\  /s /q
-del %TempFolder%\extensions\support@lastpass.com\platform\Darwin\  /s /q
-del %TempFolder%\extensions\support@lastpass.com\platform\Darwin_x86_64-gcc3\  /s /q
-del %TempFolder%\extensions\support@lastpass.com\platform\Linux_x86_64-gcc3\  /s /q
-del %TempFolder%\extensions\support@lastpass.com\platform\Linux_x86-gcc3\  /s /q
 
 ::以下是文件
 ::bookmarks.html：自動导出的书签備份。
@@ -175,9 +187,9 @@ set Name=Profiles_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
 
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
-7z.exe -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
+%zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
 @echo 備份完成！并刪除臨時文件夾！
-rd "%TempFolder%" /s/q
+rd "%TempFolder%" "%TempFolder1%" "%TempFolder2%" /s/q
 
 ECHO.&ECHO.Firefox配置已打包完成，請按任意鍵 重啟Firefox 並退出！&PAUSE >NUL 2>NUL
 
@@ -219,7 +231,7 @@ echo    1. 需要關閉Firefox程序，請保存必要的資料!
 echo.
 echo    2. 備份完成後，按任意鍵重啟Firefox
 echo.
-echo    By Cing(Dupontjoy)
+echo    By Cing
 echo.
 echo    按任意键继续……
 echo =============================================================
@@ -227,12 +239,13 @@ pause>nul
 cls
 
 rem 設置備份路徑以及臨時文件夾
-taskkill /im firefox.exe
 @echo 關閉火狐瀏覽器后自動開始備份……
 cd /d %~dp0
 ::从批处理所在位置到Mozilla Firefox大文件夾，共跨了4层
 set BackDir=..\..\..\..
 set TempFolder=..\..\..\..\CingFox
+set TempFolder1=..\..\..\..\1
+set TempFolder2=..\..\..\..\2
 ::CingFox輸出地址
 set TargetFolder="D:"
 
@@ -280,18 +293,26 @@ xcopy "%BackDir%\Profiles\Plugins" %TempFolder%\Profiles\Plugins\ /s /y /i
 ::SimpleProxy：SimpleProxy代理列表。
 xcopy "%BackDir%\Profiles\SimpleProxy" %TempFolder%\Profiles\SimpleProxy\ /s /y /i
 
-::需要刪除的项
+::刪除Lastpass的一些项目
+::（一）精简Platform
+del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\  /s /q
+xcopy "%BackDir%\Profiles\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc" %TempFolder%\Profiles\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc\ /s /y /i
+::（二）精简lastpass.jar中的语言
+%zip% x %TempFolder%\Profiles\extensions\support@lastpass.com\chrome\lastpass.jar -o%TempFolder1%\jar
+del %TempFolder%\Profiles\extensions\support@lastpass.com\chrome\lastpass.jar  /s /q
+xcopy "%TempFolder1%\jar\locale\en-US" %TempFolder2%\jar\locale\en-US\ /s /y /i
+xcopy "%TempFolder1%\jar\locale\zh-CN" %TempFolder2%\jar\locale\zh-CN\ /s /y /i
+xcopy "%TempFolder1%\jar\locale\zh-TW" %TempFolder2%\jar\locale\zh-TW\ /s /y /i
+%zip% a -tzip "%TempFolder1%\lastpass.jar" "%TempFolder1%\jar\content\" "%TempFolder1%\jar\icons\" "%TempFolder1%\jar\META-INF\" "%TempFolder1%\jar\skin\" "%TempFolder2%\jar\locale\"
+xcopy "%TempFolder1%\lastpass.jar" %TempFolder%\Profiles\extensions\support@lastpass.com\chrome\ /s /y /i
+
+::刪除Inspector的语言
+del %TempFolder%\Profiles\extensions\inspector@mozilla.org\chrome\inspector\locale\  /s /q
+xcopy "%BackDir%\Profiles\extensions\inspector@mozilla.org\chrome\inspector\locale\en-US" %TempFolder%\Profiles\extensions\inspector@mozilla.org\chrome\inspector\locale\en-US\ /s /y /i
+
+::其它刪除项
 del %TempFolder%\Profiles\chrome\UserScriptLoader\require\  /s /q
 del %TempFolder%\Profiles\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q
-del %TempFolder%\Profiles\extensions\inspector@mozilla.org\chrome\inspector\locale\de\  /s /q
-del %TempFolder%\Profiles\extensions\inspector@mozilla.org\chrome\inspector\locale\en-GB\  /s /q
-del %TempFolder%\Profiles\extensions\inspector@mozilla.org\chrome\inspector\locale\pl\  /s /q
-del %TempFolder%\Profiles\extensions\inspector@mozilla.org\chrome\inspector\locale\ru\  /s /q
-del %TempFolder%\Profiles\extensions\inspector@mozilla.org\chrome\inspector\locale\sk\  /s /q
-del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Darwin\  /s /q
-del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Darwin_x86_64-gcc3\  /s /q
-del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Linux_x86_64-gcc3\  /s /q
-del %TempFolder%\Profiles\extensions\support@lastpass.com\platform\Linux_x86-gcc3\  /s /q
 
 ::以下是文件
 ::cert_override.txt：储存使用者指定的例外证书(certification exceptions)。
@@ -351,9 +372,9 @@ set Name=CingFox_%da1%%da2%%da3%-%tm1%%tm2%%tm3%_%ver%.7z
 
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
-7z.exe -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
+%zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
 @echo 備份完成！并刪除臨時文件夾！
-rd "%TempFolder%" /s/q
+rd "%TempFolder%" "%TempFolder%1" "%TempFolder2%" /s/q
 
 ECHO.&ECHO.Firefox完整包已打包完成，請按任意鍵 重啟Firefox 並退出！&PAUSE >NUL 2>NUL
 
@@ -391,7 +412,7 @@ echo.
 echo ============================================================
 echo    **注意：
 echo.
-echo    By Cing(Dupontjoy)
+echo    By Cing
 echo.
 echo    按任意键继续……
 echo =============================================================
@@ -442,7 +463,7 @@ set Name=Plugins-n-Software_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
-7z.exe -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
+%zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%" /s/q
 
@@ -488,7 +509,7 @@ echo    3.如需提取64位Flash，请修改BackDir位置
 echo.
 echo    Edit By yndoc！
 echo.
-echo    Mod By Cing(Dupontjoy)
+echo    Mod By Cing
 echo.
 echo    按任意键继续……
 echo =============================================================
@@ -582,7 +603,7 @@ set Name=%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
-7z.exe -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
+%zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%"
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%" /s/q
 
@@ -629,7 +650,7 @@ echo    2. 詞典：persdict.dat
 echo.
 echo    3. Stylish樣式庫：stylish.sqlite
 echo.
-echo    By Cing(Dupontjoy)
+echo    By Cing
 echo.
 echo    按任意键继续……
 echo =============================================================

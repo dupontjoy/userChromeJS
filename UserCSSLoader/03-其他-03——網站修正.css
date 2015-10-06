@@ -1,4 +1,4 @@
-/*+++ 2015.09.10 +++*/
+/*+++ 2015.10.06 +++*/
 
 @-moz-document domain("ic.sjlpj.cn") {
 /*=常用目录加粗=*/
@@ -84,5 +84,11 @@ position:relative;left:-863.8px;
 #dialogJbody/*Tieba Client框*/
 {
 height: 580px !important;
+}
+}
+
+@-moz-document domain("sooopu.com") {
+.related{
+  clear: both;
 }
 }

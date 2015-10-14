@@ -89,6 +89,7 @@ location == "chrome://browser/content/browser.xul" && (function(){
 { id: "aup-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 6 },//Autoproxy擴展
 { id: "greasemonkey-tbb", bar: "TabsToolbar_aidBar", pos: 8 },//Greasemonkey扩展
 { id: "userChromebtnMenu", bar: "TabsToolbar_aidBar", pos: 9 },//UC管理器
+{ id: "userChromeJsManagerMenuBtn", bar: "TabsToolbar_aidBar", pos: 9 },//UC管理器
 
 //保留在更多工具中
 { id: "InspectElement-menuitem", insertAfter: "gm_general_menu" },//InspectElementModY默認不在MoreTools中，單獨移動

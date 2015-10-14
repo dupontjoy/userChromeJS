@@ -1,7 +1,8 @@
-/*+++ 2015.09.23 +++*/
+/*+++ 2015.10.14 +++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄，地址欄&工具欄===*/
+#PanelUI-fxa-avatar,/*FX41下SimpleWhite三道杠多出来的按钮*/
 #pocket-button,/*Pocket*/
 #abp-menuitem,/*ABP*/
 #aup-menuitem,/*AutoProxy*/
@@ -71,6 +72,7 @@ display: none !important;
 }
 
 /*===标签栏右键菜单===*/
+#context_closeTab,/*關閉標籤頁*/
 #alltabs_undoCloseTab,/*復原已關閉分頁*/
 #context_pinTab,/*锁定标签*/
 #context_unpinTab,/*取消锁定标签*/
@@ -83,7 +85,6 @@ display: none !important;
 #tabContextMenu > menuseparator,/*全部分割线*/
 #context_openTabInWindow,/*移动到新窗口*/
 #context_bookmarkAllTabs,/*将全部标签页加为书签*/
-#context_closeTabsToTheEnd, /*关闭右侧标签页*/
 #menu_restoreAllTabs/*还原所有标签页*/ {
 display: none !important;
 }
@@ -227,6 +228,7 @@ display: none !important;
 
 
 /*其它擴展/腳本隱藏項*/
+#userChromejs_menuseparator,
 #showFlagS-sepalator2,/*ShowFlagS分割线*/
 #loop-button,/*Start Conversion*/
 #greasemonkey-view-userscript,/*GreaseMonkey检视腳本原始碼*/

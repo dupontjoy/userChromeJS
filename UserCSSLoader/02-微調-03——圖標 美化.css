@@ -1,4 +1,4 @@
-/*+++ 2015.09.27 +++*/
+/*+++ 2015.10.14 +++*/
 
 /*==修正图標和文字擠一起問題==*/
 /* Adjust left-margin for menuitems and menus which aren't iconized */
@@ -205,6 +205,12 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 #context_closeTab, #downloadsContextMenu menuitem[command="downloadsCmd_cancel"]/*下載窗口——取消*/ {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAS0lEQVQ4jWNgGJZAnkw5uIJfDAwMdljk7KByBA2BKbTDIuZASDM2Q0jWjG4IWZrRDcAWJkRpdmDAHiZEacYWiAQNoUo0UpSQhiAAAHnZFnHHYzvpAAAAAElFTkSuQmCC")!important;
+}
+
+/*標簽右鍵 關閉右側分頁*/
+#context_closeTabsToTheEnd {
+-moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPUlEQVQ4jWNgGOzgPxQPFwP+MzDY/Wdg+PWfgcGObBcgGeJPtAH/cWOCLqGOC7BodiBGM1YXkAoG3oAhAAAhGjUM3rbC6QAAAABJRU5ErkJggg==") !important;
 }
 
 /*標簽右鍵 關閉其它分頁*/

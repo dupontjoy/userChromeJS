@@ -29,23 +29,30 @@ resp: false, // 可選，true 表示替換 response body
 decode: false // 可選，true 表示尝試對 from 解碼
 },
 
+{
+//example: http://trunk.tvc-mall.com/c/hobbies-toys/
+name: "trunk.tvc",
+from: /^https?:\/\/trunk\.tvc-mall\.com\/(c|t|details)\/(.*)/i,
+to: "http://www.tvc-mall.com/$1/$2",
+regex: true
+},
 //單獨網站
 {
-//方法來源：http://tieba.baidu.com/p/3699558655
+//example: http://news.ifeng.com/a/ydzx/20150413/43541233_0.shtml
 name: "鳳凰網 只顯示首圖修正",
 from: /^https?:\/\/(.*)\.ifeng\.com\/a\/(ydzx|)\/(.*)/i,
 to: "http://$1.ifeng.com/a/$3",
 regex: true
 },
 {
-//方法來源：http://tieba.baidu.com/p/3708648047
+//example: http://news.ifeng.com/coop/20150418/43579013_0.shtml?_zbs_baidu_pic&source=bdxsy#p=1
 name: "鳳凰網 圖片修正",
 from: /^https?:\/\/(.*)\.ifeng\.com\/(.+)?shtml.+?(#p=.)/,
-to: "http://$1.ifeng.com/$2shtml",
+to: "http://$1.ifeng.com/$2shtml$3",
 regex: true
 },
 {
-//測試：http://www.jobui.com/tips/redirect.php?link=http%3A%2F%2Fsearch.51job.com%2Fjob%2F65505572%2Cc.html
+//example：http://www.jobui.com/tips/redirect.php?link=http%3A%2F%2Fsearch.51job.com%2Fjob%2F65505572%2Cc.html
 name: "職友集 去跳轉",
 from:/^https?:\/\/www\.jobui\.com\/tips\/redirect\.php\?link=(.*)/i,
 to: "$1",

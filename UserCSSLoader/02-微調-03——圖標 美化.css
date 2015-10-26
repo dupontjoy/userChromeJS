@@ -1,4 +1,4 @@
-/*+++ 2015.10.14 +++*/
+/*+++ 2015.10.15 +++*/
 
 /*==修正图標和文字擠一起問題==*/
 /* Adjust left-margin for menuitems and menus which aren't iconized */
@@ -36,19 +36,19 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAM
 /*Addmenuplus菜單*/
 #addMenu-rebuild {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
-list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQklEQVQ4jWNgoBI4wsDA8B8PPoJF3RFkA/4TsOA/Go2hZxgYQHEgUgzQXYDNRlyuwvQPA3Y/owO8gTgSDaA4FsgGAKDqU/mCtSo8AAAAAElFTkSuQmCC")!important;
+list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA3UlEQVQ4jZ2TPW4CMRCFp4go6EPBEeJ023nnezeJxHGgCyfITZJiQYkEJRKngI56abxo48BC/CRL/v1mRvNswFrSBnixEklqJbXACZgVA3qgj6qqxiUZzIBTWn+bmYUQRpKWwCELcpC0DCGMLgAzsxjjK7AFvhL8Pc8wG/NfgFxdZHf3/r67e5fJIOChs0cBQJOiNlcBwHPyQ2NmT1cAq3RvdQuw6+bu/vbvEnrtaSXtS0rY1XU9BX7+pHmnhE9gG2OcFHVhSLd8ANQXHwzpnhOBxSCg9xeO2cNj9xfOIIze6DdZ5LQAAAAASUVORK5CYII=")!important;
 }
 
 /*Anobtn圖標*/
 #anobtn_set {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
-list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAJElEQVQ4jWNgGDbgPxrGJoYL4zSAYhdQbABJXhh4MBoLQxoAAO4bR7kvBjV/AAAAAElFTkSuQmCC")!important;
+list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAjUlEQVQ4jeWTQQ7DIAwEfcpn/IR69n3trXkTfCf5QnopEYpSQFyLxA2Pd83agCTpmLlAstniLyCfAJs9LYC7L5JWYLt03iSt7r40AZLeHRvP2xkAycysdI6IqMEREUWJAfl2OB17Q7OrH5XvLupmAHlU3ZDMf7HwKwfA48xBR0EzicCrCah2Yb8U7mUXPmgv3jqIXPj2AAAAAElFTkSuQmCC")!important;
 }
 
 /*KeyChanger腳本*/
 #toolsbar_KeyChanger_rebuild {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
-list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4jWNgGBTA2tr6PwMDA8kYqo+BASpADqC+AeTSw9UFuDBtXUCeAdRIiUMYAADhUkeATSuqLgAAAABJRU5ErkJggg==")!important;
+list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAc0lEQVQ4jWNgGNTA1ta21c7O7jYlBvy0srKSJ6TosJ2d3X9ysK2t7WEGcjXDMNwAUr2H1QCYd2xtbQ/D+MhsZDlcBhyBKjoC4yOzkeVo4wU7O7tDdnZ2h/DFDkEvoDsZiwE08gLZ6QCXU4lMiUdIdTkGAADTtdiFkMZlWgAAAABJRU5ErkJggg==")!important;
 }
 
 /*GrabScroll圖標*/

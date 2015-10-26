@@ -1,4 +1,4 @@
-/*+++ 2015.10.14 +++*/
+/*+++ 2015.10.23 +++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄，地址欄&工具欄===*/
@@ -90,6 +90,7 @@ display: none !important;
 }
 
 /*隐藏项 - 书签右键*/
+#menu_unsortedBookmarks,#bookmarksMenuItemsSeparator,/*未分类书签*/
 #placesContext_editSeparator,.hide-if-empty-places-result,#placesContext_sortSeparator,[class="bookmarks-actions-menuseparator"],#placesContext_openSeparator,#placesContext_deleteSeparator,/*分隔符*/
 [id="placesContext_open:newtab"], /*在标签页中打开*/
 [id="placesContext_open:newwindow"], /*在窗口中打开*/

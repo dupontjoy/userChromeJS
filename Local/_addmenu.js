@@ -1,5 +1,5 @@
 
-//2015.09.26 調整選中文字搜索
+//2015.10.19 調整選中文字搜索
 //2015.09.18 帶開關的解除右鍵限制
 //2015.09.12 整合RC多功能菜單等
 //2015.08.23 調整雲播放前臺新標籤打開
@@ -268,6 +268,13 @@ label: "SPU管理-SKU",
 id: "TVC-Universal",
 accesskey: "3",
 url: "http://ic.sjlpj.cn/ProductCorrect/ProductSpuList?Sku=%s",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "SPU關聯列表",
+id: "TVC-Universal",
+url: "http://ic.sjlpj.cn/Product/ProductAssociatedSpuList?Sku=%s&IsFirstRequest=true&BeginDate=2008-01-01",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },

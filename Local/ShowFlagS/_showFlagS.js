@@ -285,7 +285,7 @@ image :"http://www.115.com/favicon.ico"},
 
 {name: "分隔线",},
 {name : "BaiduYunGuanJia",
-ua : "netdisk;4.4.0.6;PC;PC-Windows;6.2.9200;WindowsBaiduYunGuanJia",
+ua : "netdisk;5.2.7;PC;PC-Windows;6.2.9200;WindowsBaiduYunGuanJia",
 label : "BaiduYunGuanJia",
 image : "http://pan.baidu.com/res/static/images/favicon.ico"},
 

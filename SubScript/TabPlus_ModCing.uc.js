@@ -141,3 +141,9 @@ event.preventDefault();\
 }, false);'
 )
 ); 
+
+/*显示下载速度*/
+(function(){
+   eval("DownloadsViewItem.prototype._updateProgress = " +
+      DownloadsViewItem.prototype._updateProgress.toString().replace('status.text', 'status.tip'));
+})()

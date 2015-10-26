@@ -1,13 +1,11 @@
 
+::2015.10.26  添加刪除DTA語言
+::2015.10.23  添加一个Firefox备份文件
 ::2015.10.10  精簡說明展示方式
 ::2015.10.04  模塊化每個備份項目，然後再組合，方便修攺維護
 ::2015.10.02  精簡擴展語言
 ::2015.10.01  優化輸出地址
 ::2015.09.26  開啟7zip極限壓縮
-::2015.08.08  可選擇Flash下載地址
-::2015.07.14  添加備份詞典和user.js到GitHub
-::2015.07.14  更新Flash下载地址
-::2015.07.13  4合1整合
 
 @echo off
 Title 備份批處理整合版 by Cing
@@ -162,6 +160,20 @@ xcopy "%TempFolder1%\gm\locale\zh-TW" %TempFolder2%\gm\locale\zh-TW\ /s /y /i
 %zip% a -tzip -mx9 "%TempFolder1%\{e4a8a97b-f2ed-450b-b12d-ee082ba24781}.xpi" "%TempFolder1%\gm\components\" "%TempFolder1%\gm\content\" "%TempFolder1%\gm\defaults\" "%TempFolder1%\gm\META-INF\" "%TempFolder1%\gm\modules\" "%TempFolder1%\gm\skin\" "%TempFolder1%\gm\chrome.manifest" "%TempFolder1%\gm\CREDITS" "%TempFolder1%\gm\install.rdf" "%TempFolder1%\gm\LICENSE.bsd" "%TempFolder1%\gm\LICENSE.mit" "%TempFolder1%\gm\LICENSE.mpl" "%TempFolder2%\gm\locale\"
 xcopy "%TempFolder1%\{e4a8a97b-f2ed-450b-b12d-ee082ba24781}.xpi" %TempFolder%\extensions\ /s /y /i
 
+::刪除DownThemAll!語言
+%zip% x %TempFolder%\extensions\{DDC359D1-844A-42a7-9AA1-88A850A938A8}.xpi -o%TempFolder1%\DTA
+del %TempFolder%\extensions\{DDC359D1-844A-42a7-9AA1-88A850A938A8}.xpi  /s /q
+%zip% x %TempFolder1%\DTA\chrome\chrome.jar -o%TempFolder2%\DTA
+del %TempFolder1%\DTA\chrome\chrome.jar  /s /q
+xcopy "%TempFolder2%\DTA\locale\en-US" %TempFolder3%\DTA\locale\en-US\ /s /y /i
+xcopy "%TempFolder2%\DTA\locale\zh-CN" %TempFolder3%\DTA\locale\zh-CN\ /s /y /i
+xcopy "%TempFolder2%\DTA\locale\zh-TW" %TempFolder3%\DTA\locale\zh-TW\ /s /y /i
+%zip% a -tzip -mx9 "%TempFolder2%\chrome.jar" "%TempFolder2%\DTA\content\" "%TempFolder3%\DTA\locale\"  "%TempFolder2%\DTA\public\"  "%TempFolder2%\DTA\skin\"
+xcopy "%TempFolder2%\chrome.jar" %TempFolder1%\DTA\chrome\ /s /y /i
+%zip% a -tzip -mx9 "%TempFolder1%\{DDC359D1-844A-42a7-9AA1-88A850A938A8}.xpi" "%TempFolder1%\DTA\chrome\" "%TempFolder1%\DTA\components\" "%TempFolder1%\DTA\defaults\" "%TempFolder1%\DTA\interfaces\" "%TempFolder1%\DTA\META-INF\" "%TempFolder1%\DTA\modules\" "%TempFolder1%\DTA\chrome.manifest" "%TempFolder1%\DTA\GPL" "%TempFolder1%\DTA\icon.png" "%TempFolder1%\DTA\install.rdf" "%TempFolder1%\DTA\LGPL" "%TempFolder1%\DTA\LICENSE" "%TempFolder1%\DTA\MPL"
+xcopy "%TempFolder1%\{DDC359D1-844A-42a7-9AA1-88A850A938A8}.xpi" %TempFolder%\extensions\ /s /y /i
+
+
 ::其它刪除项
 del %TempFolder%\chrome\UserScriptLoader\require\  /s /q
 del %TempFolder%\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q
@@ -173,6 +185,8 @@ xcopy "%BackDir%\bookmarks.html" %TempFolder%\ /y
 xcopy "%BackDir%\cert_override.txt" %TempFolder%\ /y
 ::cert8.db：安全证书。
 xcopy "%BackDir%\cert8.db" %TempFolder%\ /y
+::extensions.json：扩展启用禁用状态
+xcopy "%BackDir%\extensions.json" %TempFolder%\ /y
 ::FlashGot.exe：FlashGot的下载工具。
 xcopy "%BackDir%\FlashGot.exe" %TempFolder%\ /y
 ::foxyproxy.xml：FoxyProxy的設置及网址列表備份。

@@ -1,5 +1,5 @@
 
-::2015.10.26  添加刪除DTA語言
+::2015.10.30  添加刪除DTA語言
 ::2015.10.23  添加一个Firefox备份文件
 ::2015.10.10  精簡說明展示方式
 ::2015.10.04  模塊化每個備份項目，然後再組合，方便修攺維護
@@ -77,6 +77,8 @@ rem 复制目标文件到臨時文件夾
 ::xcopy "%BackDir%\adblockplus" %TempFolder%\adblockplus\  /s /y /i
 ::autoproxy：Autoproxy規則備份。
 xcopy "%BackDir%\autoproxy" %TempFolder%\autoproxy\  /s /y /i
+::browser-extension-data：Redirector擴展的數據文件
+xcopy "%BackDir%\browser-extension-data" %TempFolder%\browser-extension-data\ /s /y /i
 ::chrome：UC腳本。
 xcopy "%BackDir%\chrome" %TempFolder%\chrome\  /s /y /i
 ::extensions：安裝的擴展。
@@ -186,7 +188,7 @@ xcopy "%BackDir%\cert_override.txt" %TempFolder%\ /y
 ::cert8.db：安全证书。
 xcopy "%BackDir%\cert8.db" %TempFolder%\ /y
 ::extensions.json：扩展启用禁用状态
-xcopy "%BackDir%\extensions.json" %TempFolder%\ /y
+::xcopy "%BackDir%\extensions.json" %TempFolder%\ /y
 ::FlashGot.exe：FlashGot的下载工具。
 xcopy "%BackDir%\FlashGot.exe" %TempFolder%\ /y
 ::foxyproxy.xml：FoxyProxy的設置及网址列表備份。
@@ -455,15 +457,6 @@ cls
 echo.
 echo  *** 提取Flash32位插件 ***
 echo.
-echo  1.需要先安装非IE的Adobe Flash Player插件！
-echo  2.本批处理用以提取32位插件，并打包
-echo  3.如需提取64位Flash，请修改BackDir位置
-echo.
-echo  按任意键继续……
-pause>nul
-
-cls
-echo.
 echo  01、到官方下载非IE版Flash插件安装后提取！
 echo  02、已经安装非IE版Flash插件的直接提取！
 echo  03、返回主菜單。
@@ -512,7 +505,7 @@ goto set
 :set
 cd /d %~dp0
 set BackDir=C:\Windows\SysWOW64\Macromed\Flash
-set TempFolder=D:\Flash32
+set TempFolder=D:\Temp
 
 ::輸出地址
 set TargetFolder="D:\My Documents\Baiduyun\Firefox\【FX共享】\Flash32位原版提取帶vch和exe"

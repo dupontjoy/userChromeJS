@@ -1,4 +1,4 @@
-/*+++ 2015.08.14 +++*/
+/*+++ 2015.10.29 +++*/
 
 /*下载弹窗大小调整*/
 #unknownContentType {
@@ -24,4 +24,9 @@ width: 420px !important;
 #miscGroup > groupbox > hbox:nth-child(7) > button:last-child,
 #miscGroup > groupbox > hbox:last-child > button:last-child {
 margin-right: 18px !important;
+}
+
+/*redirector編輯窗口*/
+#edit-redirect-form {
+top: 260px !important;
 }

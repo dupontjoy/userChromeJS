@@ -207,7 +207,7 @@ where: 'tab'
 }, 
 {
 label: "Baidu",
-url: "http://www.baidu.com/baidu?wd=%s&ie=utf-8",
+url: "http://www.baidu.com/s?wd=%s&ie=utf-8",
 image: "https://www.baidu.com/favicon.ico",
 where: 'tab'
 }, 
@@ -264,10 +264,10 @@ image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "SPU管理-SKU",
+label: "SPU管理-SPU",
 id: "TVC-Universal",
 accesskey: "3",
-url: "http://ic.sjlpj.cn/ProductCorrect/ProductSpuList?Sku=%s",
+url: "http://ic.sjlpj.cn/ProductCorrect/ProductSpuList?SpuId=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },

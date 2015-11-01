@@ -1,7 +1,8 @@
 
-//2015.09.26
+//2015.10.29
 
 //F功能鍵
+keys['F1'] = "gBrowser.selectedTab = gBrowser.addTab('resource://redirector-at-einaregilsson-dot-com/redirector.html');";//Redirector擴展設置頁面
 keys['F5'] = "BrowserReloadSkipCache();";//跳过缓存刷新页面
 
 //字母

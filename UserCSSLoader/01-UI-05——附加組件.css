@@ -2,17 +2,12 @@
   @namespace   
   @description 更改浏览附加组件栏时的样式
   @Mod         Cing
-  @version     1.10-20150906
+  @version     1.10-20151101
   @reference               
 */
 
 @namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 @-moz-document url("chrome://mozapps/content/extensions/extensions.xul"), url("about:addons") {
-/*隐藏项目*/
-#category-discover,#category-locale{
-display:none !important;
-}
-
 /* Description & Buttons, but not Update Available Message - Hide on not selected items */
 .addon:not([selected]) :-moz-any(
 .description-outer-container,
@@ -224,4 +219,18 @@ white-space: nowrap !important;
 /*修正Firefox40右側內容靠下问题*/
 #view-port {
 margin-top: -18px !important;
+}
+
+/* 显示ID*/
+.addon[selected="true"]::after {
+content: " ID : " attr(value) !important;
+position: absolute !important;
+margin-left: 30px !important;
+color: red !important;
+cursor: default;}
+
+/*显示更新日期*/
+#list-view:not([type="userstyle"])#list-view:not([type="userchromejs"])
+#addon-list .date-updated {
+display: -moz-box !important;
 }

@@ -881,9 +881,10 @@
 			var style = document.createProcessingInstruction("xml-stylesheet", "type=\"text/css\"" + " href=\"data:text/css;base64," + btoa(cssStr) + "\"");
 			document.insertBefore(style, document.firstChild);
 			var dir = [
-		["C:\\Users\\Administrator\\Desktop", "桌面"],
+		["C:\\Users\\Administrator\\Desktop", "Desktop"],
 		["D:\\Download", "Download"],
-		["E:\\Syuan的軟件", "Syuan的軟件"],
+		["D:\\Temp", "Temp"],
+		["E:\\Syuan's Soft", "Syuan's Soft"],
 			];
 			var saveTo = document.documentElement._buttons.cancel.parentNode.insertBefore(document.createElement("button"), document.documentElement._buttons.cancel);
 			var saveToMenu = saveTo.appendChild(document.createElement("menupopup"));

@@ -1,4 +1,4 @@
-/*+++ 2015.10.29 +++*/
+/*+++ 2015.11.05 +++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄，地址欄&工具欄===*/
@@ -230,6 +230,7 @@ display: none !important;
 
 
 /*其它擴展/腳本隱藏項*/
+#tooldonate,/*DTA捐助*/
 #userChromejs_menuseparator,
 #showFlagS-sepalator2,/*ShowFlagS分割线*/
 #loop-button,/*Start Conversion*/

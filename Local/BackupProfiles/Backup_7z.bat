@@ -1,5 +1,5 @@
 
-::2015.11.07  重新模塊化
+::2015.11.08  重新模塊化
 ::2015.10.30  添加刪除DTA語言
 ::2015.10.23  添加一个Firefox备份文件
 ::2015.10.10  精簡說明展示方式
@@ -10,6 +10,8 @@
 
 @echo off
 Title 備份批處理整合版 by Cing
+::界面大小，Cols为宽，Lines为高
+MODE con: COLS=80 LINES=25
 cd /d %~dp0
 ::一次性设置7-zip程序地址
 set zip="D:\Program Files\7-Zip\7z.exe"

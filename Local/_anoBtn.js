@@ -1,5 +1,5 @@
 
-//2015.10.01 精簡
+//2015.11.10 精簡
 //2015.07.29 14:00 增加在線編碼工具
 //2015.07.19 16:00 統一黑白系圖標
 //2015.05.31 18:00 加入更新IP批處理
@@ -61,13 +61,8 @@ image: "http://www.firefoxfan.com/favicon.ico"
 },
 {},
 {
-label: "CingFox 發佈頁",
-oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://bbs.kafan.cn/thread-1792671-1-1.html')",
-image: "http://bbs.kafan.cn/favicon.ico"
-},
-{
-label: "淸 GitHub腳本備份",
-oncommand: "getBrowser().selectedTab = getBrowser().addTab ('https://github.com/dupontjoy/userChromeJS')",
+label: "淸 CingFox長期發佈",
+oncommand: "getBrowser().selectedTab = getBrowser().addTab ('https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox')",
 image: "https://assets-cdn.github.com/favicon.ico"
 }, ]
 },{},{

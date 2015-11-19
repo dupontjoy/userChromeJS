@@ -1,3 +1,5 @@
+::2015.11.16
+
 :Flash32
 cls
 ECHO.
@@ -7,52 +9,18 @@ ECHO  1.执行
 ECHO  2.返回
 ECHO.
 Choice /C 12 /N /M 选择（1、2）：
-If ErrorLevel 1 If Not ErrorLevel 2 Goto Flash32-1
+If ErrorLevel 1 If Not ErrorLevel 2 Goto download
 If ErrorLevel 2 If Not ErrorLevel 3 Goto menu
 
-:Flash32-1
+:download
 cls
-echo.
-echo  *** 提取Flash32位插件 ***
-echo.
-echo  1、到官方下载非IE版Flash插件安装后提取！
-echo  2、已经安装非IE版Flash插件的直接提取！
-echo  3、返回主菜單。
-echo.
-Choice /C 12 /N /M 选择（1、2、3）：
-if "%id%"=="1" goto install
-if "%id%"=="2" goto set
-if "%id%"=="3" goto menu
-
-:install
-cls
-echo.
-echo  1、下載最新正式版！
-echo  2、下載最新beta版！
-echo  3、返回主菜單。
-echo.
-Choice /C 12 /N /M 选择（1、2、3）：
-if "%id%"=="1" goto download1
-if "%id%"=="2" goto download2
-if "%id%"=="3" goto menu
-
-:download1
-cls
-start "" http://www.adobe.com/in/products/flashplayer/distribution3.html
+echo  *下載到D:\Temp文件夹
+::Beta版頁面：http://labs.adobe.com/downloads/flashplayer.html
+start "" https://fpdownload.macromedia.com/pub/labs/flashruntimes/flashplayer/install_flash_player.exe
 echo.
 echo  *请暂时不要关闭该批处理……
 echo.
-echo  *如果您已安装完毕Adobe Flash Player插件，请按任意键继续……
-pause>nul
-goto set
-
-:download2
-cls
-start "" http://labs.adobe.com/downloads/flashplayer.html
-echo.
-echo  *请暂时不要关闭该批处理……
-echo.
-echo  *如果您已安装完毕Adobe Flash Player插件，请按任意键继续……
+echo  *如果已安装完毕，请按任意键继续……
 pause>nul
 goto set
 

@@ -1,3 +1,5 @@
+::2015.12.02
+
 :Profiles-1
 cls
 echo.
@@ -26,7 +28,7 @@ rem 复制目标文件到臨時文件夾
 
 ::以下是文件夾
 ::adblockplus：ABP規則備份。
-::xcopy "%BackDir%\adblockplus" %TempFolder%\Profiles\adblockplus\  /s /y /i
+xcopy "%BackDir%\adblockplus" %TempFolder%\Profiles\adblockplus\  /s /y /i
 ::autoproxy：Autoproxy規則備份。
 xcopy "%BackDir%\autoproxy" %TempFolder%\Profiles\autoproxy\  /s /y /i
 ::browser-extension-data：Redirector擴展的數據文件
@@ -127,6 +129,19 @@ xcopy "%TempFolder2%\chrome.jar" %TempFolder1%\DTA\chrome\ /s /y /i
 %zip% a -tzip -mx9 "%TempFolder1%\{DDC359D1-844A-42a7-9AA1-88A850A938A8}.xpi" "%TempFolder1%\DTA\chrome\" "%TempFolder1%\DTA\components\" "%TempFolder1%\DTA\defaults\" "%TempFolder1%\DTA\interfaces\" "%TempFolder1%\DTA\META-INF\" "%TempFolder1%\DTA\modules\" "%TempFolder1%\DTA\chrome.manifest" "%TempFolder1%\DTA\GPL" "%TempFolder1%\DTA\icon.png" "%TempFolder1%\DTA\install.rdf" "%TempFolder1%\DTA\LGPL" "%TempFolder1%\DTA\LICENSE" "%TempFolder1%\DTA\MPL"
 xcopy "%TempFolder1%\{DDC359D1-844A-42a7-9AA1-88A850A938A8}.xpi" %TempFolder%\Profiles\extensions\ /s /y /i
 
+::刪除Noscript語言
+%zip% x %TempFolder%\Profiles\extensions\{73a6fe31-595d-460b-a920-fcc0f8843232}.xpi -o%TempFolder1%\Noscript
+del %TempFolder%\Profiles\extensions\{73a6fe31-595d-460b-a920-fcc0f8843232}.xpi  /s /q
+%zip% x %TempFolder1%\Noscript\chrome\noscript.jar -o%TempFolder2%\Noscript
+del %TempFolder1%\Noscript\chrome\noscript.jar  /s /q
+xcopy "%TempFolder2%\Noscript\locale\en-US" %TempFolder3%\Noscript\locale\en-US\ /s /y /i
+xcopy "%TempFolder2%\Noscript\locale\zh-CN" %TempFolder3%\Noscript\locale\zh-CN\ /s /y /i
+xcopy "%TempFolder2%\Noscript\locale\zh-TW" %TempFolder3%\Noscript\locale\zh-TW\ /s /y /i
+%zip% a -tzip -mx9 "%TempFolder2%\noscript.jar" "%TempFolder2%\Noscript\content\" "%TempFolder3%\Noscript\locale\" "%TempFolder2%\Noscript\skin\"
+xcopy "%TempFolder2%\noscript.jar" %TempFolder1%\Noscript\chrome\ /s /y /i
+%zip% a -tzip -mx9 "%TempFolder1%\{73a6fe31-595d-460b-a920-fcc0f8843232}.xpi" "%TempFolder1%\Noscript\chrome\" "%TempFolder1%\Noscript\components\" "%TempFolder1%\Noscript\defaults\" "%TempFolder1%\Noscript\META-INF\" "%TempFolder1%\Noscript\chrome.manifest" "%TempFolder1%\Noscript\install.rdf" "%TempFolder1%\Noscript\mozilla.cfg"
+xcopy "%TempFolder1%\{73a6fe31-595d-460b-a920-fcc0f8843232}.xpi" %TempFolder%\Profiles\extensions\ /s /y /i
+
 
 ::其它刪除项
 del %TempFolder%\Profiles\chrome\UserScriptLoader\require\  /s /q
@@ -160,7 +175,7 @@ xcopy "%BackDir%\pluginreg.dat" %TempFolder%\Profiles\ /y
 ::Portable.7z：PCXFirefox的便携設置。
 xcopy "%BackDir%\Portable.7z" %TempFolder%\Profiles\ /y
 ::prefs.js：About:config中儲存的設定。
-::xcopy "%BackDir%\prefs.js" %TempFolder%\Profiles\ /y
+xcopy "%BackDir%\prefs.js" %TempFolder%\Profiles\ /y
 ::readme.txt：个人配置修改说明。
 xcopy "%BackDir%\readme.txt" %TempFolder%\Profiles\ /y
 ::stylish.sqlite：Stylish样式數据库。

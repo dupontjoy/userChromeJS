@@ -1,4 +1,4 @@
-/*+++ 2015.10.06 +++*/
+/*+++ 2015.11.24 +++*/
 
 @-moz-document domain("ic.sjlpj.cn") {
 /*=常用目录加粗=*/
@@ -18,6 +18,7 @@
 {
 font-weight: bold !important;
 font-size:13px !important;
+font-family: "微软雅黑" !important;
 }
 
 /*=常用价格数量加粗加色=*/
@@ -90,5 +91,13 @@ height: 580px !important;
 @-moz-document domain("sooopu.com") {
 .related{
   clear: both;
+}
+}
+
+/*修正超级表格-统计*/
+@-moz-document domain("domypp.com") {
+#count_fuceng_Box{
+height: 750px !important;
+top: 0px !important;
 }
 }

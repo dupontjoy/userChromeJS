@@ -1,5 +1,5 @@
 
-//2015.10.29 添加測試鏈接
+//2015.12.02 添加測試鏈接
 //2015.09.04 修正sourceforge規則鏡像
 //2015.07.23 18:00 修正職友集規則
 //2015.07.20 16:00 調整規則，原始大圖換用picViewer
@@ -112,7 +112,7 @@ regex: true
 //example: https://www.google.com.hk/#newwindow=1&safe=strict&q=tvc
 name: "google.com.hk >> google.com慢速版",
 from: /^https?:\/\/www\.google\.com\.hk\/(s\?|search\?|webhp\?|)(.*)/i,
-to: "https://www.google.com/ncr$2",
+to: "https://www.google.com/ncr#$2",
 regex: true
 },
 
@@ -145,9 +145,6 @@ to: 'http://pan.baidu.com/share/home?$3',
 regex: true
 },
 
-//原始大圖系列
-
-
 //Google服務轉國內鏡像
 {
 //詳細說明：http://bbs.kafan.cn/thread-1769934-1-1.html
@@ -157,5 +154,6 @@ from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "http://$1.useso.com/$2",
 regex: true
 },
+
 
 ];

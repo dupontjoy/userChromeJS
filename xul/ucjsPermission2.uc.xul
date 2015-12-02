@@ -8,6 +8,8 @@
 // @description    add UI for hostperm.1 to context menu
 // @include        main
 // @compatibility  Firefox 2.0 3.0
+// @author         Cing
+// @version        2015/11/26 調用ExExceptions擴展的設置界面
 // @author         dannylee
 // @version        2013/04/08 00:00 add toolbutton and other plus
 // @author         Alice0775
@@ -772,7 +774,7 @@ var ucjsPermission = {
 			  win.minimize();
         win.restore();
 		  } else {
-        window.openDialog('chrome://userChromeJS/content/exexcept/exexcept.xul', ExExceptions, 'chrome=yes,centerscreen', href);
+        window.openDialog('chrome://exexcept/content/exexcept.xul', ExExceptions, 'chrome=yes,centerscreen', href);
       } 
 	  }
   }

@@ -881,7 +881,7 @@
 			var style = document.createProcessingInstruction("xml-stylesheet", "type=\"text/css\"" + " href=\"data:text/css;base64," + btoa(cssStr) + "\"");
 			document.insertBefore(style, document.firstChild);
 			var dir = [
-		["C:\\Users\\Administrator\\Desktop", "Desktop"],
+		["C:\\Users\\Cing\\Desktop", "Desktop"],
 		["D:\\Download", "Download"],
 		["D:\\Temp", "Temp"],
 		["E:\\Syuan's Soft", "Syuan's Soft"],

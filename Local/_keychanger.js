@@ -1,9 +1,10 @@
 
-//2015.11.10
+//2015.11.27
 
 //F功能鍵
-keys['F1'] = "gBrowser.selectedTab = gBrowser.addTab('resource://redirector-at-einaregilsson-dot-com/redirector.html');";//Redirector擴展設置頁面
-keys['F2'] = "BrowserReloadSkipCache();";//跳过缓存刷新页面
+keys['F1'] = "BrowserReloadSkipCache();";//跳过缓存刷新页面
+keys['F2'] = "gBrowser.selectedTab = gBrowser.addTab('resource://redirector-at-einaregilsson-dot-com/redirector.html');";//Redirector擴展設置頁面
+
 
 //字母
 keys['A'] = "gBrowser.selectedTab = gBrowser.addTab('about:config');";//参数设置
@@ -27,10 +28,6 @@ addMenu.rebuild();//AddmenuPlus
 MyMoveButton.delayRun();//Movebutton
 showFlagS.rebuild();//ShowFlagS整合版
 };//群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
-
-keys['S'] = function() {
-snapLinks.init();//snapLinks批量操作
-};
 
 keys['U'] = function() {
 Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsILocalFile).reveal();

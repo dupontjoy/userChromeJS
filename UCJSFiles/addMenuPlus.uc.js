@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name           addMenuPlus.uc.js
-// @description    通过配置文件增加修改菜单，修改版
+// @description    通過配置文件增加修改菜單，修改版
 // @namespace      http://d.hatena.ne.jp/Griever/
 // @author         Griever
 // @include        main
@@ -29,7 +29,7 @@
 // @note           0.0.4 %SEL% の改行が消えてしまうのを修正
 // @note           0.0.3 keyword の新しい書式で古い書式が動かない場合があったのを修正
 // @note           %URL_HTMLIFIED%, %EOL_ENCODE% が変換できなかったミスを修正
-// @note           %LINK_OR_URL% 変数を作成（リンク URL がなければページの URL を返す）
+// @note           %LINK_OR_URL% 変數を作成（リンク URL がなければページの URL を返す）
 // @note           タブの右クリックメニューでは %URL% や %SEL% はそのタブのものを返すようにした
 // @note           keyword で "g %URL%" のような記述を可能にした
 // @note           ツールの再読み込みメニューの右クリックで設定ファイルを開くようにした
@@ -38,48 +38,48 @@
 
 /***** 説明 *****
 
-◆ 脚本说明 ◆
-通过配置文件自定义菜单
-在编写的时候，参考了 Copy URL Lite+，得到了作者允许。
+◆ 腳本說明 ◆
+通過配置文件自定義菜單
+在編寫的時候，參考了 Copy URL Lite+，得到了作者允許。
 ・http://www.code-404.net/articles/browsers/copy-url-lite
 
 
 ◆ 如何使用？ ◆
-配置（_addmenu.js） 文件，请放在Chrome目录下。
-后缀名 .uc.js 可选。
+配置（_addmenu.js） 文件，請放在Chrome目錄下。
+後綴名 .uc.js 可選。
 
-启动后，在浏览器中加载配置文件，并添加菜单。
-可以从“工具”菜单重新读取配置文件。
+啟動後，在瀏覽器中加載配置文件，並添加菜單。
+可以從「工具」菜單重新讀取配置文件。
 
 
 ◆ 格式 ◆
-page, tab, too, app 関数にメニューの素となるオブジェクトを渡す。
-オブジェクトのプロパティがそのまま menuitem の属性になります。
+page, tab, too, app 関數にメニューの素となるオブジェクトを渡す。
+オブジェクトのプロパティがそのまま menuitem の屬性になります。
 
 ○exec
-  启动外部应用程序。
+  啟動外部應用程序。
   パラメータは text プロパティを利用します。
-  自动显示该应用程序的图标。
+  自動顯示該應用程序的圖標。
 
 ○keyword
-  指定了关键字的书签和搜索引擎。
+  指定了關鍵字的書簽和搜索引擎。
   text プロパティがあればそれを利用して検索などをします。
-  自动显示搜索引擎的图标。
+  自動顯示搜索引擎的圖標。
 
-○text（変数が利用可能）
-  复制你想要的字符串到剪贴板。（Copy URL Lite+ 互換）
+○text（変數が利用可能）
+  復制你想要的字符串到剪貼板。（Copy URL Lite+ 互換）
   keyword, exec があればそれらの補助に使われます。
 
-○url（可用的变量）
-  打开你想要的网址。
-  内容によっては自動的にアイコンが付きます。
+○url（可用的變量）
+  打開你想要的網址。
+  內容によっては自動的にアイコンが付きます。
 
 ○where
   keyword, url でのページの開き方を指定できます（current, tab, tabshifted, window）
   省略するとブックマークのように左クリックと中クリックを使い分けられます。
 
 ○condition
-  メニューを表示する条件を指定します。（Copy URL Lite+ 互換）
+  メニューを表示する條件を指定します。（Copy URL Lite+ 互換）
   省略すると url や text プロパティから自動的に表示/非表示が決まります。
   select, link, mailto, image, media, input, noselect, nolink, nomailto, noimage, nomedia, noinput から組み合わせて使います。
 
@@ -88,23 +88,23 @@ page, tab, too, app 関数にメニューの素となるオブジェクトを渡
 
 
 ◆ サブメニュー ◆
-PageMenu, TabMenu, ToolMenu, AppMenu 関数を使って自由に追加できます。
+PageMenu, TabMenu, ToolMenu, AppMenu 関數を使って自由に追加できます。
 
 
-◆ 利用可能な変数 ◆
+◆ 利用可能な変數 ◆
 %EOL%            改行(\r\n)
 %TITLE%          ページタイトル
 %URL%            URI
 %SEL%            選択範囲の文字列
 %RLINK%          リンクアンカー先の URL
-%IMAGE_URL%      画像の URL
-%IMAGE_ALT%      画像の alt 属性
-%IMAGE_TITLE%    画像の title 属性
+%IMAGE_URL%      畫像の URL
+%IMAGE_ALT%      畫像の alt 屬性
+%IMAGE_TITLE%    畫像の title 屬性
 %LINK%           リンクアンカー先の URL
 %LINK_TEXT%      リンクのテキスト
 %RLINK_TEXT%     リンクのテキスト
 %MEDIA_URL%      メディアの URL
-%CLIPBOARD%      クリップボードの内容
+%CLIPBOARD%      クリップボードの內容
 %FAVICON%        Favicon の URL
 %EMAIL%          リンク先の E-mail アドレス
 %HOST%           ページのホスト(ドメイン)
@@ -113,29 +113,29 @@ PageMenu, TabMenu, ToolMenu, AppMenu 関数を使って自由に追加できま�
 %LINK_OR_URL%    リンクの URL が取れなければページの URL
 %RLINK_OR_URL%   リンクの URL が取れなければページの URL
 
-%XXX_HTMLIFIED%  HTML エンコードされた上記変数（XXX → TITLE などに読み替える）
-%XXX_HTML%       HTML エンコードされた上記変数
-%XXX_ENCODE%     URI  エンコードされた上記変数
+%XXX_HTMLIFIED%  HTML エンコードされた上記変數（XXX → TITLE などに読み替える）
+%XXX_HTML%       HTML エンコードされた上記変數
+%XXX_ENCODE%     URI  エンコードされた上記変數
 
-◇ 簡易的な変数 ◇
+◇ 簡易的な変數 ◇
 %h               ページのホスト(ドメイン)
-%i               画像の URL
+%i               畫像の URL
 %l               リンクの URL
 %m               メディアの URL
-%p               クリップボードの内容
+%p               クリップボードの內容
 %s               選択文字列
 %t               ページのタイトル
 %u               ページの URL
 
-基本的に Copy URL Lite+ の変数はそのまま使えます。
-大文字・小文字は区別しません。
+基本的に Copy URL Lite+ の変數はそのまま使えます。
+大文字・小文字は區別しません。
 
 */
 
 (function(css){
 
-var useScraptchpad = true;  // 如果不存在编辑器，则使用代码片段速记器，否则设置编辑器路径
-var enableFileRefreshing = true;  // 打开右键菜单时，检查配置文件是否变化，可能会减慢速度
+var useScraptchpad = true;  // 如果不存在編輯器，則使用代碼片段速記器，否則設置編輯器路徑
+var enableFileRefreshing = true;  // 打開右鍵菜單時，檢查配置文件是否變化，可能會減慢速度
 
 let { classes: Cc, interfaces: Ci, utils: Cu, results: Cr } = Components;
 
@@ -155,19 +155,19 @@ window.addMenu = {
             // addMenu.FILE_PATH があればそれを使う
             path = this.prefs.getCharPref("FILE_PATH")
         } catch (e) {
-            path = '_addmenu.js';
+            path = 'Local\\_addmenu.js';
         }
 
         aFile = Services.dirsvc.get("UChrm", Ci.nsILocalFile);
         aFile.appendRelativePath(path);
 
         if (!aFile.exists()) {
-            saveFile(aFile, '// 这是一个 addMenuPlus 配置文件\n' +
-                '// 请到 http://ywzhaiqi.github.io/addMenu_creator/ 生成配置文件' +
+            saveFile(aFile, '// 這是一個 addMenuPlus 配置文件\n' +
+                '// 請到 http://ywzhaiqi.github.io/addMenu_creator/ 生成配置文件' +
                 '\n\n' +
                 'tab({\n    label: "addMenuPlus 配置",\n    oncommand: "addMenu.edit(addMenu.FILE);"\n});');
 
-            alert('目前 addMenuPlus 的配置文件为空，请在打开的链接中生成配置并放入配置文件。\n通过右键标签打开配置文件。');
+            alert('目前 addMenuPlus 的配置文件為空，請在打開的鏈接中生成配置並放入配置文件。\n通過右鍵標簽打開配置文件。');
 
             var url = 'http://ywzhaiqi.github.io/addMenu_creator/';
             openUILinkIn(url, 'tab', false, null);
@@ -202,7 +202,7 @@ window.addMenu = {
         let rExt       = "%EOL"+ he +"%";
 
         let rFAVICON_BASE64 = "%FAVICON_BASE64"+ he +"%";
-        let rRLT_OR_UT = "%RLT_OR_UT"+ he +"%";  // 链接文本或网页标题
+        let rRLT_OR_UT = "%RLT_OR_UT"+ he +"%";  // 鏈接文本或網頁標題
 
         this.rTITLE     = new RegExp(rTITLE, "i");
         this.rTITLES    = new RegExp(rTITLES, "i");
@@ -240,7 +240,7 @@ window.addMenu = {
         ins.parentNode.insertBefore($C("menuitem", {
             id: "addMenu-rebuild",
             label: "AddMenuPlus",
-            tooltiptext: "左键：重载配置\n右键：编辑配置",
+            tooltiptext: "左鍵：重載配置\n右鍵：編輯配置",
             oncommand: "setTimeout(function(){ addMenu.rebuild(true); }, 10);",
             onclick: "if (event.button == 2) { event.preventDefault(); addMenu.edit(addMenu.FILE); }",
         }), ins);
@@ -294,7 +294,7 @@ window.addMenu = {
                         try {
                             eval('(' + obj.fnSource + ').call(curItem, curItem)');
                         } catch(ex) {
-                            console.error('addMenuPlus 自定义显示错误', obj.fnSource);
+                            console.error('addMenuPlus 自定義顯示錯誤', obj.fnSource);
                         }
                     });
                 }
@@ -347,7 +347,7 @@ window.addMenu = {
         try {
             uri = Services.io.newURI(url, null, null);
         } catch (e) {
-            return this.log(U("URL 不正确: ") + url);
+            return this.log(U("URL 不正確: ") + url);
         }
         if (uri.scheme === "javascript")
             loadURI(url);
@@ -360,6 +360,8 @@ window.addMenu = {
     exec: function(path, arg){
         var file    = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsILocalFile);
         var process = Cc['@mozilla.org/process/util;1'].createInstance(Ci.nsIProcess);
+		if (path.indexOf('\\') === 0)
+				path = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + path;
         try {
             var a;
             if (typeof arg == 'string' || arg instanceof String) {
@@ -462,7 +464,7 @@ window.addMenu = {
             Cu.evalInSandbox(includeSrc, sandbox, "1.8");
         } catch (e) {
             let line = e.lineNumber - lineFinder.lineNumber -1;
-            this.alert(e + "\n请重新检查配置文件第 " + line + " 行", null, function(){
+            this.alert(e + "\n請重新檢查配置文件第 " + line + " 行", null, function(){
                 addMenu.edit(addMenu.FILE, line);
             });
             return this.log(e);
@@ -482,7 +484,7 @@ window.addMenu = {
             this.createMenuitem(sandbox["_" + current], insertPoint);
         }, this);
 
-        if (isAlert) this.alert(U("配置已经重新载入"));
+        if (isAlert) this.alert(U("配置已經重新載入"));
     },
 	newGroupMenu: function (menuObj) {
 		var group = document.createElement('menugroup');
@@ -571,7 +573,7 @@ window.addMenu = {
         opt || (opt = {});
 
 		var menuitem;
-		// label == separator か必要なプロパティが足りない場合は区切りとみなす
+		// label == separator か必要なプロパティが足りない場合は區切りとみなす
 		if (obj.label === "separator" ||
 		    (!obj.label && !obj.image && !obj.text && !obj.keyword && !obj.url && !obj.oncommand && !obj.command)) {
 			menuitem = document.createElement("menuseparator");
@@ -623,8 +625,8 @@ window.addMenu = {
             }
         }
 
-        // 右键第一层菜单添加 onpopupshowing 事件
-        if (opt.isTopMenuitem && obj.onshowing) {
+        // 右鍵第一層菜單添加 onpopupshowing 事件
+        if (obj.onshowing) {
             this.customShowings.push({
                 item: menuitem,
                 fnSource: obj.onshowing.toSource()
@@ -632,7 +634,7 @@ window.addMenu = {
             delete obj.onshowing;
         }
 
-		// obj を属性にする
+		// obj を屬性にする
 		for (let [key, val] in Iterator(obj)) {
 			if (key === "command") continue;
 			if (typeof val == "function")
@@ -654,7 +656,7 @@ window.addMenu = {
         if (!obj.onclick)
             menuitem.setAttribute("onclick", "checkForMiddleClick(this, event)");
 
-        // 给 MenuGroup 的菜单加上 tooltiptext
+        // 給 MenuGroup 的菜單加上 tooltiptext
         if (opt.isMenuGroup && !obj.tooltiptext && obj.label) {
             menuitem.setAttribute('tooltiptext', obj.label);
         }
@@ -682,7 +684,7 @@ window.addMenu = {
                 if (isDupMenu) {
                     dupMenuitem = menuitem.cloneNode(true);
 
-                    // 隐藏原菜单
+                    // 隱藏原菜單
                     // menuitem.classList.add("addMenuHide");
                 }else{
                     dupMenuitem = menuitem;
@@ -695,7 +697,7 @@ window.addMenu = {
                     dupMenuitem.setAttribute(key, val);
                 }
 
-                // 如果没有则添加 menuitem-iconic 或 menu-iconic，给菜单添加图标用。
+                // 如果沒有則添加 menuitem-iconic 或 menu-iconic，給菜單添加圖標用。
                 let type = dupMenuitem.nodeName,
                     cls = dupMenuitem.classList;
                 if (type == 'menuitem' || type == 'menu')
@@ -707,7 +709,7 @@ window.addMenu = {
                 if (!isDupMenu && !cls.contains('addMenuNot'))
                     cls.add('addMenuNot');
 
-                // // 没有插入位置的默认放在原来那个菜单的后面
+                // // 沒有插入位置的默認放在原來那個菜單的後面
                 // if(isDupMenu && !obj.insertAfter && !obj.insertBefore && !obj.position){
                 //     obj.insertAfter = obj.id;
                 // }
@@ -751,7 +753,7 @@ window.addMenu = {
 
         $$('menu.addMenu, menugroup.addMenu').forEach(remove);
         $$('.addMenu').forEach(remove);
-        // 恢复原隐藏菜单
+        // 恢復原隱藏菜單
         $$('.addMenuHide').forEach(function(e) { e.classList.remove('addMenuHide');} );
     },
 
@@ -860,7 +862,7 @@ window.addMenu = {
                 case "%RLINK_HOST%"  : return context.link.host || "";
                 case "%RLINK_TEXT%"  : return context.linkText() || "";
                 case "%RLINK_OR_URL%": return context.linkURL || win.location.href;
-                case "%RLT_OR_UT%"   : return context.onLink && context.linkText() || win.document.title;  // 链接文本或网页标题
+                case "%RLT_OR_UT%"   : return context.onLink && context.linkText() || win.document.title;  // 鏈接文本或網頁標題
                 case "%IMAGE_ALT%"   : return context.target.alt || "";
                 case "%IMAGE_TITLE%" : return context.target.title || "";
                 case "%I"            : return context.imageURL || "";
@@ -966,42 +968,38 @@ window.addMenu = {
         return "";
     },
     edit: function(aFile, aLineNumber) {
-        if (!aFile || !aFile.exists() || !aFile.isFile()) return;
-
-        var editor;
-        try {
-            editor = Services.prefs.getComplexValue("view_source.editor.path", Ci.nsILocalFile);
-        } catch(e) {}
-
-        if (!editor || !editor.exists()) {
-            if (useScraptchpad) {
-                this.openScriptInScratchpad(window, aFile);
-                return;
-            } else {
-                alert("请先设置编辑器的路径!!!");
-                var fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker);
-                fp.init(window, "设置全局脚本编辑器", fp.modeOpen);
-                fp.appendFilter("执行文件", "*.exe");
-                if (fp.show() == fp.returnCancel || !fp.file)
-                    return;
-                else {
-                    editor = fp.file;
-                    Services.prefs.setCharPref("view_source.editor.path", editor.path);
-                }
-            }
-        }
-
-        // 调用自带的
-        var aURL = userChrome.getURLSpecFromFile(aFile);
-
-        var aDocument = null;
-        var aCallBack = null;
-        var aPageDescriptor = null;
-
-        if (/aLineNumber/.test(gViewSourceUtils.openInExternalEditor.toSource()))
-            gViewSourceUtils.openInExternalEditor(aURL, aPageDescriptor, aDocument, aLineNumber, aCallBack);
-        else
-            gViewSourceUtils.openInExternalEditor(aURL, aPageDescriptor, aDocument, aCallBack);
+    	if (!aFile || !aFile.exists() || !aFile.isFile()) return;
+    	var editor = Services.prefs.getCharPref("view_source.editor.path");
+    	if (!editor) {
+    		if (useScraptchpad) {
+    			this.openScriptInScratchpad(window, aFile);
+    			return;
+    		} else {
+    			alert("請先設定文字編輯器的路徑!!!");
+    			var fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker);
+    			fp.init(window, "設定全局腳本編輯器", fp.modeOpen);
+    			fp.appendFilter("執行檔案", "*.exe");
+    			if (fp.show() == fp.returnCancel || !fp.file)
+    				return;
+    			else {
+    				editor = fp.file;
+    				Services.prefs.setCharPref("view_source.editor.path", editor.path);
+    			}
+    			return;
+    		}
+    		return;
+    	}
+    	var file = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsILocalFile);
+    	var process = Cc['@mozilla.org/process/util;1'].createInstance(Ci.nsIProcess);
+    	var UI = Cc["@mozilla.org/intl/scriptableunicodeconverter"].createInstance(Ci.nsIScriptableUnicodeConverter);
+    	UI.charset = window.navigator.platform.toLowerCase().indexOf("win") >= 0 ? "BIG5" : "UTF-8";
+    	try {
+    		var path = UI.ConvertFromUnicode(aFile.path);
+    		var args = [path]
+    		file.initWithPath(editor);
+    		process.init(file);
+    		process.run(false, args, args.length);
+    	} catch (e) {}
     },
     openScriptInScratchpad: function(parentWindow, file) {
         let spWin = (parentWindow.Scratchpad || Services.wm.getMostRecentWindow("navigator:browser").Scratchpad)

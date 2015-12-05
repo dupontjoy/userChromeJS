@@ -1,4 +1,4 @@
-/*+++2015.03.02 10:00+++*/
+/*+++2015.12.04+++*/
 
 /*去干扰码*/
 FONT.jammer {
@@ -30,4 +30,10 @@ box-shadow: 0px 0px 4px 4px rgba(130,190,10,0.6) !important;
 img {
 -moz-transition-property: box-shadow;
 -moz-transition-duration: .31s;
+}
+
+/*鼠标悬停时，给所有超链接加上下划线*/
+@-moz-document url-prefix("http"){
+a,a>font,b>font,a *,button[type="submit"] *,label{text-decoration:none!important;}
+a:hover,a>font:hover,b>font:hover,a:hover *,button[type="submit"]:hover *,label:hover{text-decoration:underline!important;}
 }

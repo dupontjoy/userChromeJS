@@ -1,5 +1,5 @@
 
-//2015.12.02 添加測試鏈接
+//2015.12.05 添加測試鏈接
 //2015.09.04 修正sourceforge規則鏡像
 //2015.07.23 18:00 修正職友集規則
 //2015.07.20 16:00 調整規則，原始大圖換用picViewer
@@ -98,15 +98,6 @@ regex: true
 
 
 //Google系
-{
-//設置Google搜索語言爲英文，關閉安全搜索功能，使用新版界面
-//example: https://www.google.com/search?newwindow=1&site=&source=hp&q=163&oq=163&gs_l=hp.3..0i131l2j0l8.2061.2418.0.3096.4.4.0.0.0.0.318.610.2-1j1.2.0....0...1c..64.hp..3.1.317.0.lSgnZGBGnAk
-name: "Google搜索en-US,safe=off,sclient=psy-ab",
-from: /^https?:\/\/www\.google\.com\/(s\?|search\?|webhp\?)(.*)/i,
-to: "https://www.google.com/$1$2&hl=en-US&safe=off&sclient=psy-ab",
-exclude: /^https?:\/\/www\.google\.com\/.*\&hl=en-US&safe=off&sclient=psy-ab(.*)/i,
-regex: true
-},
 {
 //google.com.hk的搜索重定向到國際版google.com
 //example: https://www.google.com.hk/#newwindow=1&safe=strict&q=tvc

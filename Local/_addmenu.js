@@ -1,5 +1,5 @@
 
-//2015.10.26 調整選中文字搜索
+//2015.12.05 調整選中文字搜索
 //2015.09.18 帶開關的解除右鍵限制
 //2015.09.12 整合RC多功能菜單等
 //2015.08.23 調整雲播放前臺新標籤打開
@@ -201,7 +201,7 @@ elem.hidden = !/ic.sjlpj.cn/.test(content.location.host)//可排除多個網站
 var items = [
 //打開方式(默认當前頁面)，通过where 更改，具體tab(前台)、tabshifted(后台)、window(窗口)
 {label: "Google",
-url: "https://www.google.com/search?q=%s",
+url: "https://www.google.com/search?newwindow=1&safe=off&hl=en-US&q=%s",
 image: "https://www.google.com/favicon.ico",
 where: 'tab'
 }, 

@@ -7,12 +7,15 @@
 // @homepage        http://haoutil.tk
 // @version         1.6.5.14
 // @updateURL     https://j.mozest.com/ucscript/script/92.meta.js
+
+//2015.07.07  修改swf文件夾位置
+
 // ==/UserScript==
 (function() {
 	// 脚本地址：https://j.mozest.com/zh-CN/ucscript/script/92/
 	// 播放器相关讨论：http://bbs.kafan.cn/thread-1507278-1-1.html
 	// 播放器updateurl: https://bitbucket.org/kafan15536900/haoutil/raw/master/player/testmod
-	var localSwfRativePath = '\\chrome\\swf\\'; //window使用
+	var localSwfRativePath = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Plugins\\swf\\";//window使用
 	//var localSwfRativePath = '/chrome/swf/'; //linux下使用
 	//本地播放器相对路径，可以自己把播放器放在profile/chrome/swf/下面
 	var NetSwfpath = 'https://bitbucket.org/kafan15536900/haoutil/raw/master/player/testmod/';  //备用网络播放器路径

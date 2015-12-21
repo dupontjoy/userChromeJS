@@ -2,7 +2,7 @@
   @namespace   
   @description 更改浏览附加组件栏时的样式
   @Mod         Cing
-  @version     1.10-20151101
+  @version     1.10-20151221
   @reference               
 */
 
@@ -11,8 +11,6 @@
 /* Description & Buttons, but not Update Available Message - Hide on not selected items */
 .addon:not([selected]) :-moz-any(
 .description-outer-container,
-.control-container,
-.addon-control.update,
 .include-update
 ),
 .addon:not([selected]) .status-container > hbox
@@ -30,18 +28,10 @@ margin-top: -20px !important;
 display: block !important;
 margin-top: -5px !important;
 }
-.description-outer-container
-{
-width: 100% !important;
-}
-.status-container,
-.control-container
-{
--moz-box-pack: start !important;
-}
-.update-available
-{
--moz-box-align: start !important;
+.control-container{
+display: block !important;
+margin-top: -7px !important;
+margin-bottom: -8px !important;
 }
 
 /* Smaller font */

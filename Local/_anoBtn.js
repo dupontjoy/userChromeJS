@@ -1,5 +1,5 @@
 
-//2015.11.10 精簡
+//2015.12.06 精簡
 //2015.07.29 14:00 增加在線編碼工具
 //2015.07.19 16:00 統一黑白系圖標
 //2015.05.31 18:00 加入更新IP批處理
@@ -51,13 +51,13 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABaE
 child: [
 {
 label: "火狐範 首頁",
-oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/')",
-image: "http://www.firefoxfan.com/favicon.ico"
+oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.cc/')",
+image: "http://www.firefoxfan.cc/favicon.ico"
 },
 {
 label: "火狐範 可用IP",
-oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.com/firefox-gaogent/goagent-ip.html')",
-image: "http://www.firefoxfan.com/favicon.ico"
+oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.cc/firefox-gaogent/goagent-ip.html')",
+image: "http://www.firefoxfan.cc/favicon.ico"
 },
 {},
 {

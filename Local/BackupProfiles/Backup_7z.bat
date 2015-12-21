@@ -1,5 +1,5 @@
 
-::2015.11.08  重新模塊化
+::2015.12.19  重新模塊化
 ::2015.10.30  添加刪除DTA語言
 ::2015.10.23  添加一个Firefox备份文件
 ::2015.10.10  精簡說明展示方式
@@ -25,20 +25,22 @@ cls
 ECHO.
 ECHO  備份批處理整合版                           
 ECHO.
-ECHO  01、備份Firefox配置文件夾
-ECHO  02、CingFox完整包制作
-ECHO  03、備份Plugins和Software文件夾
-ECHO  04、提取Flash32位插件
-ECHO  05、備份一些文件到GitHub
+ECHO  1、備份Firefox配置文件夾
+ECHO  2、CingFox完整包制作
+ECHO  3、備份Plugins和Software文件夾
+ECHO  4、提取Flash32位插件
+ECHO  5、備份一些文件到GitHub
+ECHO  6、同步GitHub設置文件到本地
 ECHO.
-set /p a=请输入操作序号并回车（例如01）：
+set /p a=请输入操作序号并回车（1、2）：
 cls
 
-if %a%==01 goto Profiles
-if %a%==02 goto CingFox
-if %a%==03 goto Plugins-n-Software
-if %a%==04 goto Flash32
-if %a%==05 goto GitHub
+if %a%==1 goto Profiles
+if %a%==2 goto CingFox
+if %a%==3 goto Plugins-n-Software
+if %a%==4 goto Flash32
+if %a%==5 goto GitHub
+if %a%==6 goto Sync
 goto cho
 
 :Profiles
@@ -77,6 +79,13 @@ Goto end
 cls
 @echo off
 CALL "%b%\Modules\GitHub.bat"
+@echo.
+Goto end
+
+:Sync
+cls
+@echo off
+CALL "%b%\Modules\Sync.bat"
 @echo.
 Goto end
 

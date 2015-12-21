@@ -62,12 +62,12 @@
             'player': AntiADSwfPaths['ku6_out.swf'],
             're': /http:\/\/player\.ku6cdn\.com\/default\/out\/\d{12}\/player\.swf/i
         },
-        'iqiyi': {
+        /*'iqiyi': {
             'player0': AntiADSwfPaths['iqiyi_out.swf'],
             'player1': AntiADSwfPaths['iqiyi5.swf'],
             'player2': AntiADSwfPaths['iqiyi_out.swf'],
             're': /https?:\/\/www\.iqiyi\.com\/(player\/\d+\/Player|common\/flashplayer\/\d+\/(Main|Coop|Share|Enjoy)?Player_?.*)\.swf/i
-        },//您的电脑可能存在恶意插件
+        },//您的电脑可能存在恶意插件*/
         'tudou': {
             'player': AntiADSwfPaths['tudou.swf'],
             're': /http:\/\/js\.tudouui\.com\/.*portalplayer[^\.]*\.swf/i

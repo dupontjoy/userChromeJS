@@ -1,4 +1,4 @@
-::2015.12.02
+::2015.12.14
 
 :Profiles-1
 cls
@@ -11,6 +11,7 @@ cls
 
 rem 設置備份路徑以及臨時文件夾
 @echo 關閉火狐瀏覽器后自動開始備份……
+taskkill /im firefox.exe
 cd /d %~dp0
 ::从批处理所在位置到配置文件夹（Profiles），共跨了4层
 set BackDir=..\..\..\..
@@ -21,7 +22,7 @@ set TempFolder3=..\..\..\..\Temp\3
 
 ::備份輸出地址
 set TargetFolder="D:\My Documents\Baiduyun\Firefox\Profiles"
-
+::多運行一次防止第一次未能終止
 taskkill /im firefox.exe
 
 rem 复制目标文件到臨時文件夾

@@ -95,7 +95,14 @@ from: /(.*)kyfw\.12306\.cn\/otn\/resources\/merged\/queryLeftTicket_end_js.js(.*
 to: "https://raw.githubusercontent.com/dupontjoy/customization/master/12306/queryLeftTicket_end_js.js",
 regex: true
 },
-
+{
+//example: http://bbs.kafan.cn/forum.php?mod=viewthread&tid=1480897&highlight=noscript
+//example: http://www.zasq.net/forum.php?mod=viewthread&tid=102909&highlight=极品家丁
+name:"去除URL的highlight，防止卡死",
+from: /^(http:\/\/.*\.(com|cn|net)\/.*?)&highlight=(.*)/,
+to: "$1",
+regex: true
+},
 
 //Google系
 {

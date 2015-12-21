@@ -1,5 +1,5 @@
 
-//2015.12.05 調整選中文字搜索
+//2015.12.14 調整選中文字搜索
 //2015.09.18 帶開關的解除右鍵限制
 //2015.09.12 整合RC多功能菜單等
 //2015.08.23 調整雲播放前臺新標籤打開
@@ -72,7 +72,7 @@ image: "https://www.google.com/favicon.ico",
 where: 'tab',
 }, 
 {
-label: '360識圖',
+label: 'Sou識圖',
 url: 'http://st.so.com/stu?imgurl=%IMAGE_URL%',
 image: "http://st.so.com/favicon.ico",
 where: 'tab',
@@ -203,6 +203,12 @@ var items = [
 {label: "Google",
 url: "https://www.google.com/search?newwindow=1&safe=off&hl=en-US&q=%s",
 image: "https://www.google.com/favicon.ico",
+where: 'tab'
+}, 
+{
+label: "Sou",
+url: "http://www.so.com/s?ie=utf-8&q=%s",
+image: "http://www.haosou.com/favicon.ico",
 where: 'tab'
 }, 
 {

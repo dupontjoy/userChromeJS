@@ -1575,40 +1575,41 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 
             return str;
         },
-
+//修正FX42版右键不能编辑配置
         editFile: function(aFile, aLineNumber) {
-            if (!aFile)
-                aFile = this.file;
-
-            if (typeof(aFile) == "string") {
-                var file = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsILocalFile);
-                var process = Cc['@mozilla.org/process/util;1'].createInstance(Ci.nsIProcess);
-                aFile = file.initWithPath(aFile);
-            }
-
-            if (!aFile || !aFile.exists() || !aFile.isFile())
-                return alert("文件不存在:\n" + aFile.path);
-
-            var editor;
-            try {
-                editor = Services.prefs.getComplexValue("view_source.editor.path", Ci.nsILocalFile);
-            } catch (e) {
-                alert("请先设置编辑器的路径!!!\nview_source.editor.path");
-            }
-
-            if (!editor || !editor.exists()) {
-                this.openScriptInScratchpad(window, aFile);
-                return;
-            }
-            var aURL = userChrome.getURLSpecFromFile(aFile);
-            var aDocument = null;
-            var aCallBack = null;
-            var aPageDescriptor = null;
-            if (/aLineNumber/.test(gViewSourceUtils.openInExternalEditor.toSource()))
-                gViewSourceUtils.openInExternalEditor(aURL, aPageDescriptor, aDocument, aLineNumber, aCallBack);
-            else
-                gViewSourceUtils.openInExternalEditor(aURL, aPageDescriptor, aDocument, aCallBack);
-        },
+    	if (!aFile || !aFile.exists() || !aFile.isFile()) return;
+    	var editor = Services.prefs.getCharPref("view_source.editor.path");
+    	if (!editor) {
+    		if (useScraptchpad) {
+    			this.openScriptInScratchpad(window, aFile);
+    			return;
+    		} else {
+    			alert("請先設定文字編輯器的路徑!!!");
+    			var fp = Cc['@mozilla.org/filepicker;1'].createInstance(Ci.nsIFilePicker);
+    			fp.init(window, "設定全局腳本編輯器", fp.modeOpen);
+    			fp.appendFilter("執行檔案", "*.exe");
+    			if (fp.show() == fp.returnCancel || !fp.file)
+    				return;
+    			else {
+    				editor = fp.file;
+    				Services.prefs.setCharPref("view_source.editor.path", editor.path);
+    			}
+    			return;
+    		}
+    		return;
+    	}
+    	var file = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsILocalFile);
+    	var process = Cc['@mozilla.org/process/util;1'].createInstance(Ci.nsIProcess);
+    	var UI = Cc["@mozilla.org/intl/scriptableunicodeconverter"].createInstance(Ci.nsIScriptableUnicodeConverter);
+    	UI.charset = window.navigator.platform.toLowerCase().indexOf("win") >= 0 ? "BIG5" : "UTF-8";
+    	try {
+    		var path = UI.ConvertFromUnicode(aFile.path);
+    		var args = [path]
+    		file.initWithPath(editor);
+    		process.init(file);
+    		process.run(false, args, args.length);
+    	} catch (e) {}
+    },
 
         openScriptInScratchpad: function(parentWindow, file) {
             let spWin = (parentWindow.Scratchpad || Services.wm.getMostRecentWindow("navigator:browser").Scratchpad)

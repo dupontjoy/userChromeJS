@@ -1,4 +1,4 @@
-/*+++ 2015.11.26 +++*/
+/*+++ 2015.12.21 +++*/
 
 /*==============以下为“界面”的隐藏==============*/
 /*===導航欄，地址欄&工具欄===*/
@@ -12,7 +12,6 @@
 #identity-popup,
 #reader-mode-button,/*閱讀模式按钮*/
 #panic-button,/*忘記某些歷史*/
-#downloadsListBox,/*下載框彈窗*/
 #PlacesChevron,/*书签工具栏产生的箭头*/
 #nav-bar-overflow-button {
 display: none !important;

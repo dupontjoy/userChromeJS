@@ -1,4 +1,4 @@
-::2015.12.19
+::2015.12.23
 
 :Sync
 cls
@@ -24,13 +24,21 @@ set dir2=D:\My Documents\GitHub\Customization
 
 ::同步Foxmail Filter
 set dir3=D:\Program Files\Tencent\Foxmail\Storage
+taskkill /f /t /im foxmail.exe
 xcopy "%dir2%\Foxmail-Filter\163.com\1.fter" "%dir3%\dupontjoy@163.com\Filter\1.fter" /s /y /i
 xcopy "%dir2%\Foxmail-Filter\qq.com\1.fter" "%dir3%\dupontjoy@qq.com\Filter\1.fter"  /s /y /i
+start "" "%dir3%\..\foxmail.exe"
 
 ::同步ProcessLaso設置
 set dir4=D:\Program Files\System Tools\ProcessLassoPortable
+taskkill /f /t /im ProcessGovernor.exe
+taskkill /f /t /im ProcessLasso.exe
 xcopy "%dir2%\ProcessLaso\prolasso.ini" "%dir4%\prolasso.ini"  /s /y /i
+start "" "%dir4%\ProcessGovernor.exe" "/logfolder=%dir4%" "/configfolder=%dir4%"
+start "" "%dir4%\ProcessLasso.exe" "/logfolder=%dir4%" "/configfolder=%dir4%"
 
 ::同步PicPick設置
 set dir5=D:\Program Files\Mozilla Firefox\Software\Other\PicPick
+taskkill /f /t /im picpick.exe
 xcopy "%dir2%\PicPick\picpick.ini" "%dir5%\picpick.ini"  /s /y /i
+start "" "%dir5%\picpick.exe"

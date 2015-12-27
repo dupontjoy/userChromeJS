@@ -2,7 +2,7 @@
 
 目前配置中，正在使用的腳本
 
-![](../userChrome.js-Collections-/raw/master/CingFox/img/chrome-folder.jpg)
+![](/../userChrome.js-Collections-/CingFox/img/chrome-folder.jpg)
 
 | | |
 | :--- | :--- |

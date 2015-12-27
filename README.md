@@ -2,7 +2,7 @@
 
 目前配置中，正在使用的腳本
 
-<img width="650" src="https://raw.githubusercontent.com/dupontjoy/userChrome.js-Collections-/master/CingFox/img/chrome-folder.jpg">
+<img width="650" src="../CingFox/img/chrome-folder.jpg">
 
 | | |
 | :--- | :--- |

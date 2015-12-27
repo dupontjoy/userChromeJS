@@ -2,7 +2,7 @@
 
 目前配置中，正在使用的腳本
 
-<img width="650" src="../userChrome.js-Collections-/master/CingFox/img/chrome-folder.jpg">
+![](../userChrome.js-Collections-/master/CingFox/img/chrome-folder.jpg)
 
 | | |
 | :--- | :--- |

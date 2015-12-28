@@ -21,7 +21,7 @@
 | :--- | :--- |
 | **CingFox** | [個人Firefox完整包（CingFox）分享](https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox) |
 
-![](https://github.com/dupontjoy/userChrome.js-Collections-/raw/master/CingFox/img/chrome-folder.jpg)
+<p align="left"><img width="650" src="https://github.com/dupontjoy/userChrome.js-Collections-/raw/master/CingFox/img/chrome-folder.jpg"></p>
 
   [2]: https://github.com/ywzhaiqi/userChromeJS/tree/master/addmenuPlus
   [4]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector

@@ -7,7 +7,7 @@
             
             menu = document.createElement("menu");
             menu.setAttribute("id", "moreTools-menu");
-            menu.setAttribute("label", "MoreTools");//更名
+            menu.setAttribute("label", "更多工具");//更名
             menu.setAttribute("accesskey", "M");
             
             popup = document.createElement("menupopup");

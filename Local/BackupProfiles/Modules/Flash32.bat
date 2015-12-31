@@ -29,9 +29,6 @@ cd /d %~dp0
 set BackDir=C:\Windows\SysWOW64\Macromed\Flash
 set TempFolder=D:\Temp
 
-::輸出地址
-set TargetFolder="D:\My Documents\Baiduyun\Firefox\【FX共享】\Flash32位原版提取帶vch和exe"
-
 ::複製插件到臨時文件夾
 xcopy "%BackDir%\NPSWF32*.dll" %TempFolder%\  /s /y /i
 xcopy "%BackDir%\FlashPlayerPlugin*.exe" %TempFolder%\  /s /y /i
@@ -59,7 +56,7 @@ set Name=%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
-%zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%\NPSWF32*.dll" "%TempFolder%\FlashPlayerPlugin*.exe" "%TempFolder%\plugin.vch"
+%zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder4%\%Name% "%TempFolder%\NPSWF32*.dll" "%TempFolder%\FlashPlayerPlugin*.exe" "%TempFolder%\plugin.vch"
 
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%"  /s/q

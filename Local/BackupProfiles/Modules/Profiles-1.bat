@@ -20,8 +20,6 @@ set TempFolder1=..\..\..\..\Temp\1
 set TempFolder2=..\..\..\..\Temp\2
 set TempFolder3=..\..\..\..\Temp\3
 
-::備份輸出地址
-set TargetFolder="D:\My Documents\Baiduyun\Firefox\Profiles"
 ::多運行一次防止第一次未能終止
 taskkill /im firefox.exe
 

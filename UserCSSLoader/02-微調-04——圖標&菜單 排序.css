@@ -1,4 +1,4 @@
-/*+++ 2015.12.18 +++*/
+/*+++ 2015.12.29 +++*/
 
 /*地址栏图标排序*/
 #flashgot-media-tbb {-moz-box-ordinal-group: 1 !important;}
@@ -27,6 +27,7 @@
 #ublock-button .toolbarbutton-badge-container {padding: 0px !important;}
 
 /*調整圖標邊框——方法3*/
+#pocket-button .toolbarbutton-icon,
 #aup-toolbarbutton .toolbarbutton-icon,
 #downloads-button .toolbarbutton-icon,
 #foxyproxy-toolbar-icon .toolbarbutton-icon 

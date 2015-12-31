@@ -1,10 +1,7 @@
 
-//2015.11.27
+//2015.12.27
 
 //F功能鍵
-keys['F1'] = "BrowserReloadSkipCache();";//跳过缓存刷新页面
-keys['F2'] = "gBrowser.selectedTab = gBrowser.addTab('resource://redirector-at-einaregilsson-dot-com/redirector.html');";//Redirector擴展設置頁面
-
 
 //字母
 keys['A'] = "gBrowser.selectedTab = gBrowser.addTab('about:config');";//参数设置
@@ -39,6 +36,8 @@ keys['Alt+W'] = "gWHT.addWord();";//WordHighlight添加詞
 keys['Alt+X'] = "gWHT.destroyToolbar();";//WordHighlight取消工具栏
 
 keys['Alt+F1'] = "window._ehhWrapper.toggleSelection();";//EHH快捷键
+
+keys['Shift+R'] = "gBrowser.selectedTab = gBrowser.addTab('resource://redirector-at-einaregilsson-dot-com/redirector.html');";//Redirector擴展設置頁面
 
 //keys['1'] = "gBrowser.selectedTab = gBrowser.addTab('https://www.google.com/ncr');";//Google
 //keys['5'] = function(){var newtabs=["http://ic.sjlpj.cn/UpShelf/OperationManageList","http://www.tvc-mall.com/"];var i=0;while(i<=newtabs.length-1){gBrowser.selectedTab=gBrowser.addTab(newtabs[i]);i=i+1;}};//一键打开标签组

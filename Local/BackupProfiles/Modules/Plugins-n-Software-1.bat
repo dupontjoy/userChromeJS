@@ -7,8 +7,6 @@ cd /d %~dp0
 set BackDir=..\..\..\..\..\
 ::从批处理所在位置到Profiles文件夹，跨了4层
 set TempFolder=..\..\..\..\Temp
-::輸出地址
-set TargetFolder="D:\My Documents\Baiduyun\Firefox\Profiles\Software & Plugins"
 
 rem 复制目标文件到臨時文件夾
 

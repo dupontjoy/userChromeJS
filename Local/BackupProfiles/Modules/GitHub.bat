@@ -1,4 +1,4 @@
-::2015.12.19
+::2015.12.28
 
 :GitHub
 cls
@@ -9,6 +9,7 @@ echo  1. Firefox文件：user.js, persdict.dat, stylish.sqlite
 echo  2. Foxmail過濾器：163.com, qq.com
 echo  3. ProcessLaso設置
 echo  4. PicPick設置
+echo  5. FastCopy-M設置
 echo.
 echo  按任意键继续……
 pause>nul
@@ -39,3 +40,7 @@ xcopy "%dir4%\prolasso.ini" "%dir2%\ProcessLaso\prolasso.ini"  /s /y /i
 ::備份PicPick設置
 set dir5=D:\Program Files\Mozilla Firefox\Software\Other\PicPick
 xcopy "%dir5%\picpick.ini" "%dir2%\PicPick\picpick.ini"  /s /y /i
+
+::備份FastCopy-M設置
+set dir6=D:\Program Files\FastCopy-M
+xcopy "%dir6%\FastCopy2.ini" "%dir2%\FastCopy-M\FastCopy2.ini"  /s /y /i

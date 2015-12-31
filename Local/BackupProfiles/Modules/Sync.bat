@@ -1,4 +1,4 @@
-::2015.12.23
+::2015.12.28
 
 :Sync
 cls
@@ -8,6 +8,7 @@ echo.
 echo  1. Foxmail過濾器：163.com, qq.com
 echo  2. ProcessLaso設置
 echo  3. PicPick設置
+echo  4. 同步FastCopy-M設置
 echo.
 echo  按任意键继续……
 pause>nul
@@ -42,3 +43,7 @@ set dir5=D:\Program Files\Mozilla Firefox\Software\Other\PicPick
 taskkill /f /t /im picpick.exe
 xcopy "%dir2%\PicPick\picpick.ini" "%dir5%\picpick.ini"  /s /y /i
 start "" "%dir5%\picpick.exe"
+
+::同步FastCopy-M設置
+set dir6=D:\Program Files\FastCopy-M
+xcopy "%dir2%\FastCopy-M\FastCopy2.ini" "%dir6%\FastCopy2.ini"  /s /y /i

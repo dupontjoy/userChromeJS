@@ -13,12 +13,24 @@ Title 備份批處理整合版 by Cing
 ::界面大小，Cols为宽，Lines为高
 MODE con: COLS=80 LINES=25
 cd /d %~dp0
-::一次性设置7-zip程序地址
-set zip="D:\Program Files\7-Zip\7z.exe"
 ::設置模塊路徑
 ::将当前目录保存到参数b中,等号前后不要有空格
 set b=%cd%
 
+::一次性设置7-zip程序地址
+set zip="D:\Program Files\7-Zip\7z.exe"
+
+::設置Profiles輸出地址
+set TargetFolder1="D:\My Documents\Yunpan\Firefox\Profiles"
+
+::設置CingFox輸出地址
+set TargetFolder2="D:"
+
+::設置Plugins和Software輸出地址
+set TargetFolder3="D:\My Documents\Yunpan\Firefox\Profiles\Software & Plugins"
+
+::設置Flash32輸出地址
+set TargetFolder4="D:\My Documents\Yunpan\Firefox\【FX共享】\Flash32位原版提取帶vch和exe"
 
 :menu
 cls

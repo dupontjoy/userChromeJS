@@ -27,7 +27,6 @@ goto set
 :set
 cd /d %~dp0
 set BackDir=C:\Windows\SysWOW64\Macromed\Flash
-set TempFolder=D:\Temp
 
 ::複製插件到臨時文件夾
 xcopy "%BackDir%\NPSWF32*.dll" %TempFolder%\  /s /y /i

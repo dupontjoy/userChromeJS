@@ -6,8 +6,8 @@ cls
 
 ::从批处理所在位置到Mozilla Firefox文件夹，共跨了5层
 set BackDir=..\..\..\..\..
-::从批处理所在位置到Profiles文件夹，共跨了4层
-set TempFolder=..\..\..\..\Temp
+
+::複製firefox到臨時文件夾
 xcopy "%BackDir%\firefox" %TempFolder%\firefox\  /s /y /i
 
 :CingFox-2

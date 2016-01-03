@@ -18,6 +18,8 @@ location == "chrome://browser/content/browser.xul" && (() => {
         a = [//扩展ID在目录Profiles\extensions
             '{d10d0bf8-f5b5-c8b4-a8b2-2b9879e08c5d}', //ABP
             'elemhidehelper@adblockplus.org',//EHH
+            '{A065A84F-95B6-433A-A0C8-4C040B77CE8A}',//Pan
+            '{DF8D5767-D2C3-48F9-B199-5EF1F7D672FB}',//EHH for Pan
             'redirector@einaregilsson.com',//Redirector
             'simpleproxy@jc3213.github',//Simpe Proxy
             

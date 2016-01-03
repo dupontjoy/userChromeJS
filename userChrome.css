@@ -23,6 +23,7 @@ border-right:1px #BBC2C8 solid !important;
 }
 
 /*隐藏图标*/
+#pan-toolbarbutton,/*Pan擴展*/
 #toggle-button--redirectoreinaregilssoncom-redirector,/*redirector擴展*/
 #bookmarks-menu-button,/*書籤五角星*/
 #home-button,

@@ -1,4 +1,5 @@
 
+::2016.01.02  優化輸出與臨時文件夾地址
 ::2015.12.19  重新模塊化
 ::2015.10.30  添加刪除DTA語言
 ::2015.10.23  添加一个Firefox备份文件
@@ -20,15 +21,15 @@ set b=%cd%
 ::一次性设置7-zip程序地址
 set zip="D:\Program Files\7-Zip\7z.exe"
 
+::設置臨時文件夾
+set TempFolder="D:\Temp"
+
 ::設置Profiles輸出地址
 set TargetFolder1="D:\My Documents\Yunpan\Firefox\Profiles"
-
 ::設置CingFox輸出地址
 set TargetFolder2="D:"
-
 ::設置Plugins和Software輸出地址
-set TargetFolder3="D:\My Documents\Yunpan\Firefox\Profiles\Software & Plugins"
-
+set TargetFolder3="D:\My Documents\Yunpan\Firefox\Plugins&Software"
 ::設置Flash32輸出地址
 set TargetFolder4="D:\My Documents\Yunpan\Firefox\【FX共享】\Flash32位原版提取帶vch和exe"
 
@@ -49,7 +50,7 @@ cls
 
 if %a%==1 goto Profiles
 if %a%==2 goto CingFox
-if %a%==3 goto Plugins-n-Software
+if %a%==3 goto Plugins&Software
 if %a%==4 goto Flash32
 if %a%==5 goto GitHub
 if %a%==6 goto Sync
@@ -67,16 +68,16 @@ Goto end
 cls
 @echo off
 CALL "%b%\Modules\Profiles-1.bat"
-CALL "%b%\Modules\Plugins-n-Software-1.bat"
+CALL "%b%\Modules\Plugins&Software-1.bat"
 CALL "%b%\Modules\CingFox-3.bat"
 @echo.
 Goto end
 
-:Plugins-n-Software
+:Plugins&Software
 cls
 @echo off
-CALL "%b%\Modules\Plugins-n-Software-1.bat"
-CALL "%b%\Modules\Plugins-n-Software-2.bat"
+CALL "%b%\Modules\Plugins&Software-1.bat"
+CALL "%b%\Modules\Plugins&Software-2.bat"
 @echo.
 Goto end
 

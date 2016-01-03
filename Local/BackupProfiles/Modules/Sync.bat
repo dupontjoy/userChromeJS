@@ -1,4 +1,4 @@
-::2015.12.28
+::2015.12.31
 
 :Sync
 cls
@@ -9,6 +9,7 @@ echo  1. Foxmail過濾器：163.com, qq.com
 echo  2. ProcessLaso設置
 echo  3. PicPick設置
 echo  4. 同步FastCopy-M設置
+echo  5. 同步Flashplayer設置mms.cfg
 echo.
 echo  按任意键继续……
 pause>nul
@@ -17,11 +18,8 @@ cls
 rem 設置備份路徑以及臨時文件夾
 cd /d %~dp0
 
-::備份幾個Firefox文件
-::从批处理所在位置到Profiles文件夹，共跨了4层
-::set dir1=..\..\..\..
+::設置文件所在位置
 set dir2=D:\My Documents\GitHub\Customization
-::set dir2=D:\My Documents\Baiduyun\Firefox\Settings
 
 ::同步Foxmail Filter
 set dir3=D:\Program Files\Tencent\Foxmail\Storage
@@ -47,3 +45,7 @@ start "" "%dir5%\picpick.exe"
 ::同步FastCopy-M設置
 set dir6=D:\Program Files\FastCopy-M
 xcopy "%dir2%\FastCopy-M\FastCopy2.ini" "%dir6%\FastCopy2.ini"  /s /y /i
+
+::同步Flashplayer設置
+set dir7=c:\Windows\SysWOW64\Macromed\Flash
+xcopy "%dir2%\Flashplayer\mms.cfg" "%dir7%\mms.cfg"  /s /y /i

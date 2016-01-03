@@ -90,7 +90,6 @@ var UASites = [
 {url : "http://www\\.apple\\.com/",label : "Chrome - Win7"},
 {url : "https?://(?:mybank.*|b2c.*)\\.icbc\\.com\\.cn/",label : "Firefox20.0"},//工商銀行
 {url : "https?://(.*?)n\\.baidu\\.com/",label : "Chrome - Win7"},//百度云
-{url : "https?://(.*)?115\.com/",label : "115Browser"},
 {url : "http:\/\/vod\.kankan\.com/",label : "Safari - Mac"}, //直接可以看kankan视频，无需高清组件
 {url : "http:\/\/wap\.*",label : "UCBrowser"}, //WAP用UC浏览器
 {url : "http:\/\/browser\.qq\.com\/*",label : "Chrome - Win7"}, 
@@ -225,12 +224,6 @@ ua: "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; Trident/4.0)",
 label: "IE8 - Win7",//此处文字显示在状态栏上，如果你设置状态栏不显示图标
 image :"http://www.easyicon.net/api/resizeApi.php?id=581132&size=16"},
 
-{  
-name: "IE6 - XP",
-ua: "Mozilla/4.0 (compatible; MSIE 6.1; Windows XP; .NET CLR 1.1.4322; .NET CLR 2.0.50727)",
-label: "IE6 - XP",
-image :"http://www.easyicon.net/api/resizeApi.php?id=581133&size=16"},
-
 {name: "分隔线",},
 
 {name: "Chrome - Win7",
@@ -266,9 +259,11 @@ ua: "Mozilla/5.0 (iPad; CPU OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, lik
 label: "Apple iPad 2",
 image :"http://www.easyicon.net/api/resizeApi.php?id=584472&size=16"},
 
+{name: "分隔线",},
+
 {name: "iOS/微信浏览器",
 ua: "Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_4 like Mac OS X)AppleWebKit/536.26 (KHTML, like Gecko) Mobile/10B350MicroMessenger/4.5",
-label: "iOS-WeChat",
+label: "iOS - WeChat",
 image :"https://res.wx.qq.com/zh_CN/htmledition/v2/images/favicon27fe59.ico"},
 
 {name: "分隔线",},
@@ -278,19 +273,8 @@ ua: "Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; Desktop) AppleWebKit/534.13
 label: "UCBrowser",
 image :"http://www.uc.cn/favicon.ico"},
 
-{name: "115Browser",
-ua: "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36 115Browser/5.1.5",
-label : "115Browser",
-appVersion: true,
-image :"http://www.115.com/favicon.ico"},
-
 {name: "分隔线",},
-{name : "BaiduYunGuanJia",
-ua : "netdisk;5.2.7;PC;PC-Windows;6.2.9200;WindowsBaiduYunGuanJia",
-label : "BaiduYunGuanJia",
-image : "http://pan.baidu.com/res/static/images/favicon.ico"},
 
-{name: "分隔线",},
 // 伪装Firefox20.0
 {  name: "Firefox20.0",
 ua: "Mozilla/5.0 (Windows NT 6.2; Win64; x64;) Gecko/20100101 Firefox/20.0",

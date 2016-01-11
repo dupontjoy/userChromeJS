@@ -1,4 +1,4 @@
-/*+++ 2015.12.10 +++*/
+/*+++ 2016.01.05 +++*/
 
 /*文本选中样式（黑底+绿字）*/
 *::-moz-selection {
@@ -12,7 +12,7 @@ color: #00FF00 !important;
 @-moz-document
 url-prefix("http"),url-prefix("https"),url-prefix("file") {
 a:visited, a:visited *, a:active, a:active * {
-color: rgb(130,130,130) !important; 
+color: rgb(130,130,130) !important;/*灰色*/
 }
 }
 

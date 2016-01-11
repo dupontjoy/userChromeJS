@@ -1,4 +1,4 @@
-/*+++ 2015.12.21 +++*/
+/*+++ 2016.01.11 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 
@@ -23,6 +23,8 @@ border-right:1px #BBC2C8 solid !important;
 }
 
 /*隐藏图标*/
+#greasemonkey-tbb,/*Greasemonkey擴展圖標*/
+#abp-toolbarbutton,/*ABP擴展圖標*/
 #pan-toolbarbutton,/*Pan擴展*/
 #toggle-button--redirectoreinaregilssoncom-redirector,/*redirector擴展*/
 #bookmarks-menu-button,/*書籤五角星*/
@@ -37,9 +39,7 @@ border-right:1px #BBC2C8 solid !important;
 #noscript-tbb,/*Noscript*/
 #ScrapBookStatusPanel,/*ScrapBook*/
 #scriptish-button,/*Scriptish*/
-#abp-menuitem,/*ABP*/
 #aup-menuitem,/*AutoProxy*/
-#gm_general_menu,/*GreaseMonkey*/
 #identity-icon-labels, 
 #identity-popup,
 #reader-mode-button,/*閱讀模式按钮*/
@@ -48,16 +48,47 @@ border-right:1px #BBC2C8 solid !important;
 {display: none !important;}
 
 /*調整圖標邊框——方法1*/
+#showFlagS-icon >image,/*國旗圖標*/
 #PanelUI-menu-button >image,/*三道杠圖標*/
 #back-button >image, 
-#forward-button >image
+#forward-button >image, 
+#abp-toolbarbutton >image, 
+#ublock-button >image, 
+#flashgot-media-tbb >image, 
+#lpt_lastpass-compact-btn > image, 
+#greasemonkey-tbb > image, 
+#stylish-toolbar-button >image, 
+#userChromebtnMenu >image 
 {padding: 0px !important;}
 
+/*調整圖標邊框——方法2*/
+#ublock-button .toolbarbutton-badge-container {padding: 0px !important;}
+
 /*調整圖標邊框——方法3*/
-#downloads-button .toolbarbutton-icon
+#pocket-button .toolbarbutton-icon,
+#aup-toolbarbutton .toolbarbutton-icon,
+#downloads-button .toolbarbutton-icon,
+#foxyproxy-toolbar-icon .toolbarbutton-icon 
 {padding: 0px !important;}
 
 /*AnoBtn圖標（两句要同時用）*/
 toolbarbutton#anobtn,toolbarbutton#anobtn>image
 {padding: 0px !important;margin-left:1px !important;}
 
+/*Lastpass圖標距離調整（两句要同時用）*/
+toolbarbutton#lpt_lastpass-compact-btn,toolbarbutton#lpt_lastpass-compact-btn>image {
+padding: 0px !important;
+margin-left:0px !important;
+margin-right:0.5px !important;
+}
+
+/*ucjsPermission圖標距離調整（两句要同時用）*/
+toolbarbutton#ucjsPermission_Toolmenu,toolbarbutton#ucjsPermission_Toolmenu>image {padding: 0px !important;
+margin:0px !important;
+}
+
+/*五角星書籤圖標邊框及左右距離*/
+#bookmarks-menu-button>.toolbarbutton-menubutton-button{
+margin-left: -6px !important;
+margin-right: -6px !important;
+}

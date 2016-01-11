@@ -458,7 +458,7 @@ var ucjsPermission = {
   forToolMenu: function(){
     if(document.getElementById("ucjsPermission_tool_menupopup"))return;
     
-    var optt = document.getElementById("urlbar-icons");//urlbar-icons addon-bar
+    var optt = document.getElementById("toolbar-menubar");//urlbar-icons addon-bar toolbar-menubar
 	  this.menubtn = document.createElement("toolbarbutton");
 	  this.menubtn.setAttribute('id', "ucjsPermission_Toolmenu");
     this.menubtn.setAttribute("label","设置站点访问例外");

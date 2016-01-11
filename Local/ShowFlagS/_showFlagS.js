@@ -229,7 +229,7 @@ image :"http://www.easyicon.net/api/resizeApi.php?id=581132&size=16"},
 {name: "Chrome - Win7",
 ua: "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1623.0 Safari/537.36",
 label: "Chrome - Win7",
-image :"http://www.google.com/images/icons/product/chrome-32.png"},
+image :"http://www.easyicon.net/api/resizeApi.php?id=528802&size=16"},
 
 {name: "分隔线",},
 

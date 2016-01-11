@@ -1,4 +1,4 @@
-/*+++ 2015.12.30 +++*/
+/*+++ 2016.01.07 +++*/
 
 /*==修正图標和文字擠一起問題==*/
 /* Adjust left-margin for menuitems and menus which aren't iconized */
@@ -84,6 +84,18 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAQCAY
 }
 
 /*==Firefox本身菜單==*/
+
+/*標籤頁-此頁靜音*/
+#context_toggleMuteTab {
+-moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaklEQVQ4jc2Syw3AIAxDvUuW6TTsw7TpKZUxH1GqCiJxgMQvJgD8GAbAv4qXACFecsBiECADuKT2OXNZRkUMcIIU+5FNzqVeo1lAy0lVZCiDcyGuIG9mELm4jg52+ArqLrUACtnzExVyeNzlnjM6WgLDvwAAAABJRU5ErkJggg==")!important;
+}
+
+/*標籤頁-取消此頁靜音*/
+#context_toggleMuteTab[muted="true"] {
+-moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAWUlEQVQ4jWNgoCFQZmBg+E+pZlwG4DUcJolNEbLByoQ0MyAZgFfjfzSsjCbHgEUcwwBy5EgyAN2VKAGMbAC6M4l2AUVhgAzIigV8hpCcDrApxCdPlEsGOQAAKY8zgtP7s6EAAAAASUVORK5CYII=")!important;
+}
 
 /*打開所在文件夾位置*/
 #AM-browse-dir/*擴展右键——查看所在目录*/, #downloadsContextMenu menuitem[command="downloadsCmd_show"]/*打開文件夾*/ {

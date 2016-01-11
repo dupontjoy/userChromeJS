@@ -1,9 +1,4 @@
-/*+++ 2015.09.07 +++*/
-
-/*标签样式css*/
-.tabbrowser-tab[busy] {color: blue !important;}/* 正在加载标签 */
-.tabbrowser-tab[pending] {color: gray !important;}/* 未加载标签 */
-.tabbrowser-tab[unread] {color: red !important;}/* 未读标签 */
+/*+++ 2016.01.11 +++*/
 
 /*有些网站无LOGO图标，加空白图标*/
 .tab-icon-image:not([src]):not([pinned]) {

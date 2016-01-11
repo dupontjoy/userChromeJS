@@ -1,4 +1,4 @@
-::2016.01.03
+::2016.01.11
 
 :Profiles-1
 cls
@@ -27,56 +27,25 @@ taskkill /im firefox.exe
 rem 复制目标文件到臨時文件夾
 
 ::以下是文件夾
-::adblockplus：ABP規則備份。
-::xcopy "%BackDir%\adblockplus" %TempFolder%\Profiles\adblockplus\  /s /y /i
+xcopy "%BackDir%\adblockplus" %TempFolder%\Profiles\adblockplus\  /s /y /i
+xcopy "%BackDir%\SimpleProxy" %TempFolder%\Profiles\SimpleProxy\  /s /y /i
+xcopy "%BackDir%\chrome" %TempFolder%\Profiles\chrome\  /s /y /i
+xcopy "%BackDir%\extensions" %TempFolder%\Profiles\extensions\ /s /y /i
+xcopy "%BackDir%\gm_scripts" %TempFolder%\Profiles\gm_scripts\ /s /y /i
 ::browser-extension-data：Redirector擴展的數據文件
 xcopy "%BackDir%\browser-extension-data" %TempFolder%\Profiles\browser-extension-data\ /s /y /i
-::chrome：UC腳本。
-xcopy "%BackDir%\chrome" %TempFolder%\Profiles\chrome\  /s /y /i
-::extensions：安裝的擴展。
-xcopy "%BackDir%\extensions" %TempFolder%\Profiles\extensions\ /s /y /i
-::gm_scripts：安裝的油猴腳本。
-xcopy "%BackDir%\gm_scripts" %TempFolder%\Profiles\gm_scripts\ /s /y /i
-::Pan：Pan規則備份。
-xcopy "%BackDir%\pan" %TempFolder%\Profiles\pan\ /s /y /i
-
 
 ::以下是文件
-::bookmarks.html：自動导出的书签備份。
 xcopy "%BackDir%\bookmarks.html" %TempFolder%\Profiles\ /y
-::cert_override.txt：储存使用者指定的例外证书(certification exceptions)。
-xcopy "%BackDir%\cert_override.txt" %TempFolder%\Profiles\ /y
-::cert8.db：安全证书。
 xcopy "%BackDir%\cert8.db" %TempFolder%\Profiles\ /y
-::extensions.json：扩展启用禁用状态
-::xcopy "%BackDir%\extensions.json" %TempFolder%\Profiles\ /y
-::FlashGot.exe：FlashGot的下载工具。
 xcopy "%BackDir%\FlashGot.exe" %TempFolder%\Profiles\ /y
-::foxyproxy.xml：FoxyProxy的設置及网址列表備份。
-::xcopy "%BackDir%\foxyproxy.xml" %TempFolder%\Profiles\ /y
-::mimeTypes.rdf：下载特定类型的档案時要执行的動作。 可刪掉来还原原来下载的設定。
 xcopy "%BackDir%\mimeTypes.rdf" %TempFolder%\Profiles\ /y
-::MyFirefox.7z：用於官方FX的便携設置。
-xcopy "%BackDir%\MyFirefox.7z" %TempFolder%\Profiles\ /y
-::patternSubscriptions.json：FoxyProxy的訂閱列表設置。
-::xcopy "%BackDir%\patternSubscriptions.json" %TempFolder%\Profiles\ /y
-::permissions.sqlite：存放特定网站是否可存取密码、cookies、弹出视窗、图片载入与附加元件……等权限的资料库。
 xcopy "%BackDir%\permissions.sqlite" %TempFolder%\Profiles\ /y
-::persdict.dat：个人的拼字字典。
 xcopy "%BackDir%\persdict.dat" %TempFolder%\Profiles\ /y
-::pluginreg.dat：用于plugin的MIME types。
 xcopy "%BackDir%\pluginreg.dat" %TempFolder%\Profiles\ /y
-::Portable.7z：PCXFirefox的便携設置。
 xcopy "%BackDir%\Portable.7z" %TempFolder%\Profiles\ /y
-::prefs.js：About:config中儲存的設定。
-xcopy "%BackDir%\prefs.js" %TempFolder%\Profiles\ /y
-::readme.txt：个人配置修改说明。
-xcopy "%BackDir%\readme.txt" %TempFolder%\Profiles\ /y
-::stylish.sqlite：Stylish样式數据库。
 xcopy "%BackDir%\stylish.sqlite" %TempFolder%\Profiles\ /y
-::user.js：使用者自订的設定，在这里的設定覆盖默认設定。
 xcopy "%BackDir%\user.js" %TempFolder%\Profiles\ /y
-::xulstore.json：界面的一些状态。
 xcopy "%BackDir%\xulstore.json" %TempFolder%\Profiles\ /y
 
 ::其它刪除项

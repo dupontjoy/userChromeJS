@@ -37,7 +37,7 @@ start "" "%dir4%\ProcessGovernor.exe" "/logfolder=%dir4%" "/configfolder=%dir4%"
 start "" "%dir4%\ProcessLasso.exe" "/logfolder=%dir4%" "/configfolder=%dir4%"
 
 ::Õ¨≤ΩPicPick‘O÷√
-set dir5=D:\Program Files\Mozilla Firefox\Software\Other\PicPick
+set dir5=D:\Program Files\Mozilla Firefox\Software\Image\PicPick
 taskkill /f /t /im picpick.exe
 xcopy "%dir2%\PicPick\picpick.ini" "%dir5%\picpick.ini"  /s /y /i
 start "" "%dir5%\picpick.exe"

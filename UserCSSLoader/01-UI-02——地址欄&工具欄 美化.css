@@ -1,4 +1,4 @@
-/*+++2015.10.01+++*/
+/*+++2016.01.05+++*/
 
 /*LASTPASS菜单宽度*/
 #lpt_lastpass-compact-menu,#lpt_lastpass-compact-menu menupopup {
@@ -6,21 +6,33 @@ max-width: 210px !important;
 border: 1px solid ThreeDShadow !important;
 }
 
-/*Https协议地址栏变色*/
+/*Https协议地址栏变色
 #urlbar[level="low"] {background-color: #FFFFB7 !important;}
 #urlbar[level="high"] {background-color: #DDF9CC !important;}
-#urlbar[level="broken"] {background-color: #F7DFDF !important;}
+#urlbar[level="broken"] {background-color: #F7DFDF !important;}*/
 
-/*網站標識*/
-#identity-box:not(:hover) #identity-icon-label,
-#identity-box:not(:hover) #identity-icon-labels {
-display: none !important;
+/*Https协议地址栏变色-新版完整 For FX43+*/
+#urlbar{
+position: relative!important;
+z-index: 233!important;
 }
-
-#identity-box,#notification-popup-box {
-border-radius:12px 0px 0px 12px !important;
+#identity-box::before {
+content: ''!important;
+position: absolute!important;
+height: 100%!important;
+width: 100%!important;
+top: 0!important;
+right: 0!important
+bottom: 0!important;
+left: 0!important;
+z-index: -1!important
 }
-
-#identity-box {
-background: none !important;
+#identity-box.weakCipher::before {
+background-color: #FFFFB7 !important;
+}
+#identity-box.verifiedDomain::before {
+background-color: #DDF9CC !important;
+}
+#identity-box.mixedDisplayContent::before {
+background-color: #F7DFDF !important;
 }

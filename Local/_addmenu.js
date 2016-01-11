@@ -1,5 +1,5 @@
 
-//2015.12.14 調整選中文字搜索
+//2016.01.11 調整選中文字搜索
 //2015.09.18 帶開關的解除右鍵限制
 //2015.09.12 整合RC多功能菜單等
 //2015.08.23 調整雲播放前臺新標籤打開
@@ -250,9 +250,15 @@ where: 'tab'
 },
 {},
 {
+label: "SPU管理列表-SKU",
+id: "TVC-Universal",
+url: "http://ic.sjlpj.cn/#/ProductCorrect/ProductSpuList?Sku=%s",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
 label: "SPU關聯列表-SKU",
 id: "TVC-Universal",
-accesskey: "3",
 url: "http://ic.sjlpj.cn/Product/ProductAssociatedSpuList?Sku=%s&IsFirstRequest=true&BeginDate=2008-01-01",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
@@ -260,7 +266,6 @@ where: 'tab'
 {
 label: "SPU關聯列表-SpuID",
 id: "TVC-Universal",
-accesskey: "4",
 url: "http://ic.sjlpj.cn/#/Product/ProductAssociatedSpuList?SpuId=%s&IsFirstRequest=true&BeginDate=2008-01-01",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
@@ -269,7 +274,7 @@ where: 'tab'
 {
 label: "編輯管理-spID",
 id: "TVC-Universal",
-accesskey: "5",
+accesskey: "3",
 url: "http://ic.sjlpj.cn/#/Product/ProductEditFromEditMgt?productId=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
@@ -277,6 +282,7 @@ where: 'tab'
 {
 label: "編輯質檢-SKU",
 id: "TVC-Universal",
+accesskey: "4",
 url: "http://ic.sjlpj.cn/Product/ProductCheckingList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
@@ -389,30 +395,6 @@ elem.hidden = !/ic.sjlpj.cn/.test(content.location.host)//可排除多個網站
 QuickReplySub([
 {id: "QuickReply-sep", style: "display:none;"}
 ]);
-var QuickReplySubMenu1 = PageMenu({
-label: "顏文字",
-accesskey: "A",
-condition: "input",
-insertBefore: "QuickReply-sep",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAYFBMVEUAAAD4+PghISERERExMTEUFBSVlZVPT08eHh4YGBi8vLyioqKBgYF4eHhJSUlBQUHg4ODR0dG1tbWamppzc3NgYGBXV1ft7e3i4uKvr6+oqKiPj4+JiYkoKCgkJCQICAgmMdadAAAAAXRSTlMAQObYZgAAAINJREFUGNNti1cSAyEMQwX20mGzJb3d/5YxJX+rGSw/IeNQJztp7eflz4ayAlSiPPij+qLc3vokPBIfZNqMmCpuT0QWnxT8F3WZ5IlrqfYjma4HQwMI4FsrcAPML6QC0dlirY2FJGSzlfcV7t5+GIi2GAW+oGn3j2qrGwwEJq1JBxzpB9l0A8JvhjyGAAAAAElFTkSuQmCC",
-});
-QuickReplySubMenu1([
-{label: "^_^", input_text:"^_^"},
-{label: "-_-|||", input_text:"-_-|||"},
-{label: "Orz", input_text:"Orz"},
-{label: "-_,-", input_text:"-_,-"},
-{label: "╯﹏╰", input_text:"╯﹏╰"},
-{label: "｡◕‿◕｡", input_text:"｡◕‿◕｡"},
-{label: "、(￣.￣)", input_text:"、(￣.￣)"},
-{label: "O(∩_∩)O~", input_text:"O(∩_∩)O~"},
-{label: "o(╥﹏╥)o", input_text:"o(╥﹏╥)o"},
-{label: "(￣３￣)", input_text:"(￣３￣)"},
-{label: " o(>< )o", input_text:" o(>< )o"},
-{label: "_(:з」∠)_", input_text:"_(:з」∠)_"},
-{label: "(・(ｪ)・)", input_text:"(・(ｪ)・)"},
-{label: "￣へ￣", input_text:"￣へ￣"},
-{label: "╮(╯_╰)╭", input_text:"╮(╯_╰)╭"},
-]);
 page({
 label: "163|QQ|Gmail",
 tooltiptext: "左鍵：163郵箱\n中鍵：QQ郵箱\n右鍵：Gmail郵箱",
@@ -440,7 +422,7 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAuE
 });
 
 page({
-label: "用戶名~~~",
+label: "用戶名",
 //input_text: "dupontjoy",
 onclick: function(e) {
 switch(e.button) {
@@ -456,8 +438,22 @@ image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAfUl
 });
 
 page({
-label: "字數補丁~~~",
-input_text: "~~~爲神馬要15字，『漢賊不兩立，王業不偏安』~~~",
+label: "常用回覆~~~",
+tooltiptext: "左鍵: 感謝\n右鍵: 15字補丁",
+onclick: function(e) {
+switch(e.button) {
+case 0:
+addMenu.copy(addMenu.convertText('感謝樓主分享!'));
+goDoCommand('cmd_paste');
+closeMenus(this);
+break;
+case 2:
+addMenu.copy(addMenu.convertText('~~~爲神馬要15字，『漢賊不兩立，王業不偏安』~~~'));
+goDoCommand('cmd_paste');
+closeMenus(this);
+break;
+}
+},
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAm0lEQVQ4jc2Quw2EMBBEX0ZEE9ThCsgp42LqIKYOQro5icDRVXCXDNay+GQLEfAkS/7szKwXbqQDvpWryxm8gLkiaFbtiQUYtP+XjGoWL26AD9BWdNCqtrGXPbAW0m0XqzSJCRgr0ndGaRIbEDNJFvsWpUlEIDhDew5OEKQ5uFt6CfbEN+7PXpNrucTDDPzQSvihnoZWWrmhXuMHem9Lmy9WtnwAAAAASUVORK5CYII=",
 insertBefore: "QuickReply-sep",
 });
@@ -545,7 +541,7 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbk
 onpopupshowing: function (event){
 Array.slice(event.target.children).forEach(function(elem){
 if(elem.id == "BBCode"){
-elem.hidden = !/bbs.kafan.cn/.test(content.location.host)//可排除多個網站
+elem.hidden = !/bbs.kafan.cn|firefox.net.cn/.test(content.location.host)//可排除多個網站
 }
 });
 },
@@ -638,9 +634,23 @@ tooltiptext: "左鍵：UTF-8\n中鍵：Big5\n右鍵：GBK",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAlUlEQVQ4ja2TwQ2AIAxF3wau4QCuwCxcPTKMI7iBO7iCA3BiArxUJaSCik2a0NL/+1MK/Gg9MAMBiDcepKbXwB4Yga7QpJMan5PMcvHUnGBOC5XOmpKQJuILsIpJg5VraA7Y5OwBWyMYBHScYxb7JwSpAs1NiWDimq6RvE3ipabAiMyoKCnOoPkZmxepeZUPks+f6bPtGg1LLkKBszsAAAAASUVORK5CYII=",
 onclick: "var code = ['UTF-8', 'Big5', 'GBK']; BrowserSetForcedCharacterSet(code[event.button]);closeMenus(this);"
 },
+{
+label:"全頁面截圖",
+accesskey: "A",
+image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAV0lEQVQ4jWNgQAX/GSgExBrgiEstMQbANDsiayIVOzLgAPhcALMZrytxSSI7m2QD0P1MkgEYAUaKAdg0E20ALs1EGYBPM1EG4I1nYg0gBZMM6JbhiDMAAH7MPlkWNSyKAAAAAElFTkSuQmCC",
+oncommand: function () {
+var canvas = document.createElementNS("http://www.w3.org/1999/xhtml", "canvas");
+canvas.width = content.document.documentElement.scrollWidth;
+canvas.height = content.document.documentElement.scrollHeight;
+var ctx = canvas.getContext("2d");
+ctx.drawWindow(content, 0, 0, canvas.width, canvas.height, "rgb(255,255,255)");
+saveImageURL(canvas.toDataURL(), content.document.title + ".jpg", null, null, null, null, document);
+}
+},
 ];
 var menu = PageMenu({
 label: "多功能菜單",
+accesskey: "M",
 condition: 'normal',
 insertBefore: 'context-openlinkincurrent',
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABlBMVEUAAAAAAAClZ7nPAAAAAXRSTlMAQObYZgAAABBJREFUCNdjgID6fxCaIBcAcUwEeC1dweYAAAAASUVORK5CYII="
@@ -677,90 +687,11 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAABl
 
 var menu = PageMenu({
 label: "閱讀輔助工具",
+accesskey: "R",
 condition: 'normal',
 insertBefore: 'context-openlinkincurrent',
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAiklEQVQ4je3SIQ7CcAzF4Y8Fj5hBYpEkOBSXWIKY5VQoOAYaw8QMB9gJMBgcCLpkIeEPyQQInmn7fknzmpRvaxB1jhWWmIbXYI8jZi/YNgujwgVr5BijxBm7J5Z3WNUmuSVSJlmWgB/pv+AXFgw7/QYLTGJucHjH2gQ1Tigw8vi2IrxrgtV9L+ivO97LHdW2qVgKAAAAAElFTkSuQmCC"
 });
-menu(items);
-};
-
-
-//翻譯當前頁面
-new function () {
-var items = [
-{
-label: "海詞劃詞翻譯",
-url: "javascript:void((function()%20{var%20element=document.createElement('script');%20element.setAttribute('src',%20'http://dict.cn/hc/init.php');%20document.body.appendChild(element);})())",
-image: "http://dict.cn/favicon.ico"
-},
-{
-label: "愛詞霸劃詞翻譯",
-url: "javascript:var%20ICIBA_HUAYI_ALLOW=1,iciba_huaci_url=%22http://open.iciba.com/huaci/%22;void%20function(){if(!document.getElementById(%22icIBahyI-yi%22)){var%20a=document.createElement(%22div%22);a.id=%22icIBahyI-yi%22,a.style.display=%22none%22,a.style.zIndex=%224294967295%22,document.body.insertBefore(a,document.body.firstChild);var%20i=document.createElement(%22div%22);i.id=%22icIBahyI-main_box%22,i.style.display=%22none%22,document.body.insertBefore(i,document.body.firstChild);var%20e='%3Clink%20type=%22text/css%22%20rel=%22stylesheet%22%20href=%22'+iciba_huaci_url+'mini.css%22%20/%3E%3Cobject%20style=%22height:0px;width:0px;overflow:hidden;%22%20classid=%22clsid:d27cdb6e-ae6d-11cf-96b8-444553540000%22%20codebase=%22http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab%23version=6,0,0,0%22%20width=%220%22%20height=%220%22%20id=%22asound_hanci%22%20align=%22absmiddle%22%3E%3Cparam%20name=%22allowScriptAccess%22%20value=%22always%22%20/%3E%3Cparam%20name=%22movie%22%20value=%22http://www.iciba.com/top/asound.swf%22%20/%3E%3Cparam%20name=%22quality%22%20value=%22high%22%20/%3E%3Cembed%20src=%22http://www.iciba.com/top/asound.swf%22%20quality=%22high%22%20width=%220%22%20height=%220%22%20name=%22asound_hanci%22%20align=%22absmiddle%22%20allowScriptAccess=%22always%22%20type=%22application/x-shockwave-flash%22%20pluginspage=%22http://www.macromedia.com/go/getflashplayer%22%20/%3E%3C/object%3E%3Cdiv%20class=%22icIBahyI-main_title%22%20id=%22icIBahyI-main_title%22%20%3E%3Ca%20href=%22javascript:;%22%20id=%22icIBahyI-gb%22%20class=%22icIBahyI-gb%22%20title=%22%E5%85%B3%E9%97%AD%22%3E%3C/a%3E%3Ca%20href=%22javascript:;%22%20id=%22icIBahyI-dq%22%20class=%22icIBahyI-dq2%22%20title=%22%E7%82%B9%E5%87%BB%E5%9B%BA%E5%AE%9A%E7%BB%93%E6%9E%9C%22%3E%3C/a%3E%E7%88%B1%E8%AF%8D%E9%9C%B8%20%E5%8D%B3%E5%88%92%E5%8D%B3%E8%AF%91%3Cdiv%20class=%22icIBahyI-sz_list%22%20id=%22icIBahyI-sz_list%22%3E%3Ca%20href=%22javascript:;%22%3E%E5%85%B3%E9%97%AD%E5%8D%B3%E5%88%92%E5%8D%B3%E8%AF%91%3C/a%3E%3Ca%20href=%22%23%22%20target=%22_blank%22%3E%E5%8F%8D%E9%A6%88%3C/a%3E%3Ca%20href=%22%23%22%20style=%22border:none;%22%20target=%22_blank%22%3E%E5%B8%AE%E5%8A%A9%3C/a%3E%3Cspan%20class=%22icIBahyI-j%20icIBahyI-tl%22%3E%3C/span%3E%3Cspan%20class=%22icIBahyI-j%20icIBahyI-tr%22%3E%3C/span%3E%3Cspan%20class=%22icIBahyI-j%20icIBahyI-bl%22%3E%3C/span%3E%3Cspan%20class=%22icIBahyI-j%20icIBahyI-br%22%3E%3C/span%3E%3C/div%3E%3C/div%3E%3Cdiv%20class=%22icIBahyI-search%22%3E%3Cinput%20id=%22ICIBA_HUAYI_input%22%20name=%22%22%20type=%22text%22%20onkeydown=%22ICIBA_HUAYI_KEYDOWN(event);%22%3E%3Ca%20href=%22javascript:;%22%20class=%22icIBahyI-sear%22%20onclick=%22ICIBA_HUAYI_searchword()%22%20%3E%E6%9F%A5%20%E8%AF%8D%3C/a%3E%3C/div%3E%3Cspan%20class=%22icIBahyI-contTop%22%3E%3C/span%3E%3Cdiv%20class=%22icIBahyI-loading%22%20id=%22loading%22%3E%3C/div%3E%3Cdiv%20class=%22icIBahyI-main_cont%22%20id=%22icIBahyI-main_cont%22%3E%3C/div%3E%3Cdiv%20class=%22icIBahyI-CB%22%20id=%22icIBahyI-scbiframe%22%20style=%22display:none%22%3E%3C/div%3E%3Cdiv%20id=%22ICIBA_TOO_LONG%22%20style=%22height:150px%22%20class=%22icIBahyI-footer%22%3E%E6%82%A8%E5%88%92%E5%8F%96%E7%9A%84%E5%86%85%E5%AE%B9%E5%A4%AA%E9%95%BF%EF%BC%8C%E5%BB%BA%E8%AE%AE%E6%82%A8%E5%8E%BB%E7%88%B1%E8%AF%8D%E9%9C%B8%3Ca%20href=%22http://fy.iciba.com%22%3E%E7%BF%BB%E8%AF%91%3C/a%3E%E9%A1%B5%E9%9D%A2%E3%80%82%3C/div%3E%3Cspan%20class=%22icIBahyI-contB%22%3E%3C/span%3E';document.getElementById(%22icIBahyI-main_box%22).innerHTML=e;var%20c=document.createElement(%22script%22);c.setAttribute(%22src%22,iciba_huaci_url+%22dict.php%22),document.body.appendChild(c);var%20i=document.createElement(%22div%22);i.id=%22icIBahyI-USER_LOGIN%22,i.className=%22icIBahyI-USER_LOGIN%22,i.style.display=%22none%22,document.body.insertBefore(i,document.body.firstChild);var%20t=document.createElement(%22script%22);t.setAttribute(%22src%22,iciba_huaci_url+%22ICIBA_HUACI_COM.js%22),document.body.appendChild(t)}}();",
-image: "http://res.iciba.com/dict/favicon.ico"
-},
-{
-label: '必應劃詞翻譯',
-subdir: '',
-image: "http://global.bing.com/s/a/bing_p.ico",
-oncommand: function() {
-gBrowser.loadURI("javascript:(function(){script=document.createElement('script');script.src='http://dict.bing.com.cn/cloudwidget/Scripts/Generated/BingTranslate_Hover_Phrase_Selection_ShowIcon.js';script.onload=INIT;document.body.appendChild(script);})();function%20INIT(){BingCW.Init({MachineTranslation:true,WebDefinition:true});}");
-}
-},
-{
-label: "漢典查字劃詞解釋",
-url: "javascript:void((function()%20{var%20element=document.createElement('script');%20element.setAttribute('src',%20'http://www.zdic.net/tools/zih.asp');%20document.body.appendChild(element);})())",
-image: "http://www.zdic.net/favicon.ico"
-},
-
-];
-
-var menu = PageMenu({
-label: "翻譯當前頁面",
-condition: 'normal',
-insertBefore: 'context-openlinkincurrent',
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA7ElEQVR42mNkwATrgXg/EE9iIAIwYhETAOKDQFwOxDuIMeA/A3FgFhCnE+MCZBAMxI1ArEOMFw4AcTIQ30USOwrEcWhiOA2wBeIOILaG8j2AOAKIE0gJRJCmQCC+CsThQOwNxB9IMUAAGoXfiNGMbIA8EG+BBpYnEN8G4jtQORVoGChDxUKAeC22aFTBEViggLSCpg1WIOYEYiN80fgfjzjIkkXIMUOsAaD00ATE2kCcB8RuQOxDigEgb8wA4s1ArADE54FYEBTIuAwgJrm3A3EVIxF5YCaUbgPij1C2MxCvARlOjAG4AvUcKDYAi+YxEXgzorIAAAAASUVORK5CYII=",
-onpopupshowing: syncHidden });
-menu(items);
-};
-
-
-//當前頁面
-new function () {
-var items = [
-{
-label:"在側邊欄中打開",
-oncommand:"openWebPanel(content.document.title, content.location);",
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPElEQVQ4jWNgoBL4jwcTbQAp4kPUADsGBoZfUJpkA/zxaSZkgB0DEbFEUxfAgAM+Q4ZGNBI0gKK8MHAAANGVMRA9chdTAAAAAElFTkSuQmCC"
-},
-{
-label:"在谷歌快取打開",
-url:"https://webcache.googleusercontent.com/search?q=cache:%u",
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAKlBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKE86IAAAADXRSTlMADfPbvlJNPuuEILMzPXScigAAAEhJREFUCNdjQAW8IILNSRvCmBwow3v3LlDAECrFEgBlMAmA5KEMRgWoFKsDA0SxcAJEu6hRAcRAlfR2mBUVBVAGexdMaAHCAQDU2wqQMtL8zwAAAABJRU5ErkJggg=="
-},
-{},
-{
-label:"此頁網站樣式",
-oncommand: "stylishOverlay.findStyle(event)",
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA8klEQVQ4y6XSoUpEQRiG4WdhwSIIFpNeg2AUJmw0LAajRbDtFjFq8gJMmhTvQRBNli+axKyCNpvJYrEc5aBz1kX/doZ5H84wQ8eUUpZLKSO/TK8SXuIRm5jDVZK1qYAmnsFKE39OJ9JrxUMc4gmDyt4q0gZm8II9HHX88Q/k+xGO8IBXnHUg50nWu4BVHCdZLqVsTYPUbuEeG0luSynbOJmE1IADzCcZN9+TkHENWMINFpO8T0DesNrreIW32E9y0VprI28YJrnuV+IdzOKuvZ7ktJQCY+wmua7dwg5GGCR5NsX0/hNDv4lHf4m/ACz8JYYPtRRoOaKFRHoAAAAASUVORK5CYII="
-},
-{
-label:"此頁油猴腳本",
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAflBMVEUAAAAzMzNNTU2bm5s+Pj4uLi4qKirq6urZ2dm0tLR4eHhxcXFdXV1DQ0M7Ozv8/PzAwMCwsLCnp6eCgoJHR0dGRkY3NzceHh4HBwfk5OTg4ODR0dHPz8/FxcWqqqqenp6UlJSOjo58fHxsbGxmZmZYWFg6OjomJiYkJCQYGBhoja3FAAAAAXRSTlMAQObYZgAAAINJREFUGNNNjlcSwyAMRFf0YMB24pbe2/0vmHHADO9HehpptEg8wsBR4AKOonBLgKZ99qvSgK+yt3QARsq+mi6AZ2yNRBieunNo3qc0INjJzpufNg66qt7EWzr/ay2jA/KeGhVDivx4J+cPjGHBqNHAFdHllrPbC8h4DvVFQSP63qT+B7shBQwlpDJKAAAAAElFTkSuQmCC",
-oncommand: function () {
-var domain = content.location.hostname;
-gBrowser.selectedTab = gBrowser.addTab('https://www.google.com/search?q=site:userscripts-mirror.org%20' + domain);
-gBrowser.selectedTab = gBrowser.addTab('https://www.google.com/search?q=site:greasyfork.org%20' + domain);
-}
-},
-
-];
-
-var menu = PageMenu({
-label: "更多打開方式",
-condition: 'normal',
-insertBefore: 'context-openlinkincurrent',
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAcklEQVQ4y7XSuw2FMBBE0RO4CEJKoAOoiN7IaQuhpxeYxAGywBgBI222M7r74QO1iJX1SBGCDxUwY8GKX4Ydc5zSfD3+qU4Djgj25j5RVAfkZncJcjNMtQFNWtx4dcYSQVcy1O6g1DM8DfDKJ4abFO9rA1D9MeUVPKkRAAAAAElFTkSuQmCC",
-onpopupshowing: syncHidden });
 menu(items);
 };
 

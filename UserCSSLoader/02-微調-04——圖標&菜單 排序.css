@@ -1,64 +1,4 @@
-/*+++ 2015.12.29 +++*/
-
-/*地址栏图标排序*/
-#flashgot-media-tbb {-moz-box-ordinal-group: 1 !important;}
-#lpt_lastpass-compact-btn {-moz-box-ordinal-group: 3 !important;}
-#aup-toolbarbutton {-moz-box-ordinal-group: 4 !important;}
-#ucjsPermission_Toolmenu {-moz-box-ordinal-group: 5 !important;}
-#abp-toolbarbutton {-moz-box-ordinal-group: 7 !important;}
-#greasemonkey-tbb {-moz-box-ordinal-group: 9 !important;}
-#userChromebtnMenu,#userChromeJsManagerMenuBtn {-moz-box-ordinal-group: 10 !important;}
-
-/*調整圖標邊框——方法1*/
-#showFlagS-icon >image,/*國旗圖標*/
-#PanelUI-menu-button >image,/*三道杠圖標*/
-#back-button >image, 
-#forward-button >image, 
-#abp-toolbarbutton >image, 
-#ublock-button >image, 
-#flashgot-media-tbb >image, 
-#lpt_lastpass-compact-btn > image, 
-#greasemonkey-tbb > image, 
-#stylish-toolbar-button >image, 
-#userChromebtnMenu >image 
-{padding: 0px !important;}
-
-/*調整圖標邊框——方法2*/
-#ublock-button .toolbarbutton-badge-container {padding: 0px !important;}
-
-/*調整圖標邊框——方法3*/
-#pocket-button .toolbarbutton-icon,
-#aup-toolbarbutton .toolbarbutton-icon,
-#downloads-button .toolbarbutton-icon,
-#foxyproxy-toolbar-icon .toolbarbutton-icon 
-{padding: 0px !important;}
-
-/*ucjsPermission圖標距離調整（两句要同時用）*/
-toolbarbutton#ucjsPermission_Toolmenu,toolbarbutton#ucjsPermission_Toolmenu>image {padding: 0px !important;
-margin:0px !important;
-}
-
-/*Lastpass圖標距離調整（两句要同時用）*/
-toolbarbutton#lpt_lastpass-compact-btn,toolbarbutton#lpt_lastpass-compact-btn>image {
-padding: 0px !important;
-margin-left:0px !important;
-margin-right:0.5px !important;
-}
-
-/*AnoBtn圖標（两句要同時用）*/
-toolbarbutton#anobtn,toolbarbutton#anobtn>image
-{padding: 0px !important;margin-left:1px !important;}
-
-/*五角星書籤圖標邊框及左右距離*/
-#bookmarks-menu-button>.toolbarbutton-menubutton-button{
-margin-left: -6px !important;
-margin-right: -6px !important;
-}
-
-/*橫排菜單修正*/
-#contentAreaContextMenu > menugroup:nth-child(2) {
-padding: 0px !important;
-}
+/*+++ 2016.01.11 +++*/
 
 /*附加组件调序*/
 #category-extension {-moz-box-ordinal-group: 0 !important;}/*扩展*/
@@ -67,11 +7,6 @@ padding: 0px !important;
 #category-userstyle {-moz-box-ordinal-group: 3 !important;}/*Stylish样式*/
 #category-plugin {-moz-box-ordinal-group: 4 !important;}/*Plugins*/
 #category-theme {-moz-box-ordinal-group: 5 !important;}/*外观主题*/
-
-/*標簽右鍵菜單調序*/
-#context_undoCloseTab {-moz-box-ordinal-group: 0 !important;}
-#context_reloadAllTabs {-moz-box-ordinal-group: 2 !important;}
-#context_closeOtherTabs {-moz-box-ordinal-group: 3 !important;}
 
 /*粘貼/粘貼並轉到置顶*/
 .urlbar-textbox-container menuitem[anonid="paste-and-go"]/*:not([disabled="true"])*/ {
@@ -87,21 +22,6 @@ padding: 0px !important;
 }
 .searchbar-textbox menuitem[cmd="cmd_paste"] {
 -moz-box-ordinal-group: 1 !important;
-}
-
-/*去图标外壳遮罩、点击动画*/
-#anobtn,
-#userChromebtnMenu,
-#ucjsPermission_Toolmenu,
-#lpt_lastpass-compact-btn{
-padding: 0 !important;
-margin: 0 !important;
--moz-appearance: none !important;
-background: none !important;
-border: none !important;
-border-radius: 0 !important;
-box-shadow: none !important;
-outline: none !important;
 }
 
 /*右键菜单子目录小三角距離*/

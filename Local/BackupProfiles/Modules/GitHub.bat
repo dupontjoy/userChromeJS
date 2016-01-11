@@ -1,4 +1,4 @@
-::2015.12.28
+::2016.01.05
 
 :GitHub
 cls
@@ -24,9 +24,9 @@ set dir1=..\..\..\..
 set dir2=D:\My Documents\GitHub\Customization
 ::set dir2=D:\My Documents\Baiduyun\Firefox\Settings
 
-xcopy "%dir1%\persdict.dat" "%dir2%\persdict.dat"  /s /y /i
-xcopy "%dir1%\stylish.sqlite" "%dir2%\stylish.sqlite"  /s /y /i
-xcopy "%dir1%\user.js" "%dir2%\user.js"  /s /y /i
+xcopy "%dir1%\persdict.dat" "%dir2%\Firefox\persdict.dat"  /s /y /i
+xcopy "%dir1%\stylish.sqlite" "%dir2%\Firefox\stylish.sqlite"  /s /y /i
+xcopy "%dir1%\user.js" "%dir2%\Firefox\user.js"  /s /y /i
 
 ::Ç‰∑›Foxmail Filter
 set dir3=D:\Program Files\Tencent\Foxmail\Storage
@@ -38,7 +38,7 @@ set dir4=D:\Program Files\System Tools\ProcessLassoPortable
 xcopy "%dir4%\prolasso.ini" "%dir2%\ProcessLaso\prolasso.ini"  /s /y /i
 
 ::Ç‰∑›PicPick‘O÷√
-set dir5=D:\Program Files\Mozilla Firefox\Software\Other\PicPick
+set dir5=D:\Program Files\Mozilla Firefox\Software\Image\PicPick
 xcopy "%dir5%\picpick.ini" "%dir2%\PicPick\picpick.ini"  /s /y /i
 
 ::Ç‰∑›FastCopy-M‘O÷√

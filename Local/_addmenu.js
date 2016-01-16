@@ -250,21 +250,21 @@ where: 'tab'
 },
 {},
 {
-label: "SPU管理列表-SKU",
+label: "管理SPU列表-SKU",
 id: "TVC-Universal",
 url: "http://ic.sjlpj.cn/#/ProductCorrect/ProductSpuList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "SPU關聯列表-SKU",
+label: "關聯SPU列表-SKU",
 id: "TVC-Universal",
 url: "http://ic.sjlpj.cn/Product/ProductAssociatedSpuList?Sku=%s&IsFirstRequest=true&BeginDate=2008-01-01",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "SPU關聯列表-SpuID",
+label: "關聯SPU列表-SpuID",
 id: "TVC-Universal",
 url: "http://ic.sjlpj.cn/#/Product/ProductAssociatedSpuList?SpuId=%s&IsFirstRequest=true&BeginDate=2008-01-01",
 image: "http://ic.sjlpj.cn/favicon.ico",

@@ -1,21 +1,4 @@
-/*+++ 2016.01.09 +++*/
-
-/*==============以下为“界面”的隐藏==============*/
-/*===導航欄，地址欄&工具欄===*/
-#greasemonkey-tbb,/*Greasemonkey擴展圖標*/
-#abp-toolbarbutton,/*ABP擴展圖標*/
-#pan-toolbarbutton,/*Pan擴展*/
-#toggle-button--redirectoreinaregilssoncom-redirector,/*redirector擴展*/
-#PanelUI-fxa-avatar,/*FX41下SimpleWhite三道杠多出来的按钮*/
-#aup-menuitem,/*AutoProxy*/
-#identity-icon-labels, 
-#identity-popup,
-#reader-mode-button,/*閱讀模式按钮*/
-#panic-button,/*忘記某些歷史*/
-#PlacesChevron,/*书签工具栏产生的箭头*/
-#nav-bar-overflow-button {
-display: none !important;
-}
+/*+++ 2016.01.12 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
@@ -72,6 +55,7 @@ display: none !important;
 }
 
 /*===标签栏右键菜单===*/
+#context_tabViewMenu,/*移至组*/
 #context_closeTab,/*關閉標籤頁*/
 #alltabs_undoCloseTab,/*復原已關閉分頁*/
 #context_pinTab,/*锁定标签*/

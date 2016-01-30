@@ -1,4 +1,4 @@
-::2015.11.16
+::2016.01.27
 
 :Flash32
 cls
@@ -16,7 +16,14 @@ If ErrorLevel 2 If Not ErrorLevel 3 Goto menu
 cls
 echo  *下載到D:\Temp文件夹
 ::Beta版頁面：http://labs.adobe.com/downloads/flashplayer.html
-start "" https://fpdownload.macromedia.com/pub/labs/flashruntimes/flashplayer/install_flash_player.exe
+::start "" https://fpdownload.macromedia.com/pub/labs/flashruntimes/flashplayer/install_flash_player.exe
+
+wget --ca-certificate=ca-bundle.crt -c -N -P %TempFolder% https://fpdownload.macromedia.com/pub/labs/flashruntimes/flashplayer/install_flash_player.exe
+goto install
+
+:install
+start "" %TempFolder%\install_flash_player.exe
+
 echo.
 echo  *请暂时不要关闭该批处理……
 echo.

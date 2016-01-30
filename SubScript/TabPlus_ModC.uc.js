@@ -3,6 +3,7 @@
 // @description	 新标签打开（利用空白页）
 // @include      chrome://browser/content/browser.xul
 
+// 2016.01.30  去掉新标签打开书签
 // 2015.09.21  換用新版新標籤打開
 // 2015.09.20  加入中键书签，GM不关闭菜单
 // 2015.04.21  加入滾輪切換
@@ -12,14 +13,6 @@
 // ==/UserScript==
 
 (function() {
-    //新标签打开:书签、历史、搜索栏
-    try {
-        str = openLinkIn.toString();
-        str = str.replace('w.gBrowser.selectedTab.pinned', '(!w.isTabEmpty(w.gBrowser.selectedTab) || $&)');
-        str = str.replace(/ &&\s+w\.gBrowser\.currentURI\.host != uriObj\.host/, '');
-        str = str.replace(/loadInBackground = false;/g, 'loadInBackground = aInBackground;');
-        eval('openLinkIn = ' + str);
-    } catch(e) {}
     //地址栏新标签打开
     try {
         if (location.href == 'chrome://browser/content/browser.xul') {

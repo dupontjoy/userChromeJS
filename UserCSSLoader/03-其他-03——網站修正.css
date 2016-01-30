@@ -1,4 +1,4 @@
-/*+++ 2015.11.24 +++*/
+/*+++ 2016.01.23 +++*/
 
 @-moz-document domain("ic.sjlpj.cn") {
 /*=常用目录加粗=*/
@@ -34,6 +34,22 @@ a[_sectiontitle="1560C1"]
 font-weight: bold !important;
 font-size:13px !important;
 color: red !important;
+}
+
+a[_sectiontitle="100P1-DZ"],
+a[_sectiontitle="35C1-DZ"]
+{
+font-weight: bold !important;
+font-size:13px !important;
+color: blue !important;
+}
+
+a[_sectiontitle="1000P1-DZ"],
+a[_sectiontitle="35C2-DZ"]
+{
+font-weight: bold !important;
+font-size:13px !important;
+color: purple !important;
 }
 
 /*=新建按钮框缩小=*/

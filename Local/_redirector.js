@@ -39,6 +39,15 @@ regex: true
 },
 //單獨網站
 {
+//example: http://bbs.pcbeta.com/viewthread-700327-1-1.html
+name: "異次元 圖片外鏈修正",
+from: /^https?:\/\/img\.iplaysoft\.com\/wp-content\/(.*)/i,
+to: "http://ips.chotee.com/wp-content/$1",
+regex: true,
+resp: true,
+decode: true
+},
+{
 //example: http://news.ifeng.com/a/ydzx/20150413/43541233_0.shtml
 name: "鳳凰網 只顯示首圖修正",
 from: /^https?:\/\/(.*)\.ifeng\.com\/a\/(ydzx|)\/(.*)/i,

@@ -1,16 +1,14 @@
 
-//2015.03.29 Software分離，相應Path修改
-//2015.03.06 移动文件夾
-//2014.08.27 添加油猴Greasemonkey外部编辑器
+//2016.01.28
+
 //ProfD：配置文件夹
 //UChrm：Chrome文件夹
 //TmpD：系统temp文件夹
 
 location == 'chrome://browser/content/browser.xul' && (function(){
 
-    var PATH1 = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Notepad2\\Notepad2.exe";
-    //var PATH* = Services.dirsvc.get("TmpD", Ci.nsIFile).path;
-    
+//設置程序路徑
+    var PATH1 = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Notepad2\\Notepad2.exe"; 
     var handleRelativePath = function (path) {
         if (path) {
         path = path.replace(/\//g, '\\').toLocaleLowerCase();
@@ -24,12 +22,13 @@ location == 'chrome://browser/content/browser.xul' && (function(){
         }
     };
     
-//Firefox自带全局编辑器和Greasemonkey編輯器
+//設置pref參數
     var file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
     file.initWithPath(handleRelativePath(PATH1));
     if (file.exists()) {
-        gPrefService.setCharPref('view_source.editor.path', file.path);
-        gPrefService.setCharPref('extensions.greasemonkey.editor', file.path);
+        gPrefService.setCharPref('view_source.editor.path', file.path);//自带全局编辑器
+        gPrefService.setCharPref('extensions.greasemonkey.editor', file.path);//Greasemonkey編輯器
+        
     }
         
 })()

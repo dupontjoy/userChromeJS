@@ -12,8 +12,8 @@ var RefererChange = {
 //2014.11.25 增加chiphell,niunews
 //2014.11.09 增加pconline和postimg
 
- //目标网址类
-'www.economist.com': 'https://www.google.com/',//突破每週3篇限制 
+ //*目标网址类
+'www.economist.com': 'https://www.google.com/',//突破每週3篇限制
 'www.wsj.com': 'https://www.google.com/',//免登陆或订阅看全文
 'img.liufen.com': 'http://www.liufen.com.cn/',
 'mangafiles.com' : 'http://www.imanhua.com/',
@@ -71,9 +71,9 @@ var RefererChange = {
 'fc2.com': '@BLOCK',
 'blogs.yahoo.co.jp': '@BLOCK',
 'hentaiverse.net': '@BLOCK',
-'qlogo.cn': '@BLOCK',
-'qpic.cn': '@BLOCK',
 'fmn.rrfmn.com': '@BLOCK',
+'qpic.cn': '@BLOCK',//微信平台图片
+'qlogo.cn': '@BLOCK',//微信平台图片
 'postimage.org': '@FORGE',
 };
 
@@ -86,7 +86,6 @@ var UASites = [
 //2015.03.31 11:00 新增115Browser
 //2015.01.15 FX35工行不支持10.0，新增20.0UA
 //2014.12.11 調整圖標
-{url : "http://(.*)\\.(chaojibiaoge|domypp)\\.com/",label : "Firefox20.0"},
 {url : "http://www\\.apple\\.com/",label : "Chrome - Win7"},
 {url : "https?://(?:mybank.*|b2c.*)\\.icbc\\.com\\.cn/",label : "Firefox20.0"},//工商銀行
 {url : "https?://(.*?)n\\.baidu\\.com/",label : "Chrome - Win7"},//百度云

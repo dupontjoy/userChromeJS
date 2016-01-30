@@ -1,4 +1,4 @@
-/*+++ 2016.01.15 +++*/
+/*+++ 2016.01.23 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 /*自动隐藏AidBar*/
@@ -33,6 +33,7 @@ border-right:1px #BBC2C8 solid !important;
 }
 
 /*隐藏图标*/
+#imacros-toggle-button,/*iMacros扩展*/
 #nav-bar-overflow-button,/*工具栏-更多工具按钮*/
 #PanelUI-fxa-avatar,/*FX41下SimpleWhite三道杠多出来的按钮*/
 #greasemonkey-tbb,/*Greasemonkey擴展圖標*/

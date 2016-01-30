@@ -1,4 +1,4 @@
-::2016.01.12
+::2016.01.23
 
 :Profiles-1
 cls
@@ -34,6 +34,7 @@ xcopy "%BackDir%\extensions" %TempFolder%\Profiles\extensions\ /s /y /i
 xcopy "%BackDir%\gm_scripts" %TempFolder%\Profiles\gm_scripts\ /s /y /i
 ::browser-extension-data：Redirector擴展的數據文件
 xcopy "%BackDir%\browser-extension-data" %TempFolder%\Profiles\browser-extension-data\ /s /y /i
+xcopy "%BackDir%\iMacros" %TempFolder%\Profiles\iMacros\ /s /y /i
 
 ::以下是文件
 xcopy "%BackDir%\bookmarks.html" %TempFolder%\Profiles\ /y

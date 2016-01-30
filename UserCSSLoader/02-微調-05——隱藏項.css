@@ -1,4 +1,4 @@
-/*+++ 2016.01.12 +++*/
+/*+++ 2016.01.20 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
@@ -6,6 +6,7 @@
 {display: none !important;}*/
 
 /*===隐藏页面右键菜单===*/ 
+#fill-login-separator,/*输入框右键分割线*/
 #context-shareselect,/*分享选中项目*/
 #context-shareimage,/*分享此图片*/
 #context-sharelink,/*分享此鏈接*/

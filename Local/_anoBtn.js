@@ -1,5 +1,5 @@
 
-//2015.12.06 精簡
+//2016.01.27 小調整
 //2015.07.29 14:00 增加在線編碼工具
 //2015.07.19 16:00 統一黑白系圖標
 //2015.05.31 18:00 加入更新IP批處理
@@ -82,11 +82,6 @@ tooltiptext: "1. 備份Profiles\n2. CingFox製作\n3. 備份Plugins和Software�
 exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\local\\BackupProfiles\\Backup_7z.bat",
 },{},
 {
-label: "更新proxy.ini",
-tooltiptext: "一鍵下載KT分享的IP",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\IP-Update\\更新IP.bat",
-},{},
-{
 label: "Notepad2.reg",
 tooltiptext: "通過映象劫持以Notepad2替換自帶记事本",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Notepad2\\Notepad2.reg",
@@ -108,40 +103,32 @@ exec: "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
 },{},{
 label: '軟件列表',
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAKElEQVQ4jWNgoBL4TwSmrQGDD7QRiWlnwMCBrQQw7Q0YOECxswfO3wBrBTGdpowsywAAAABJRU5ErkJggg==",
-child: [{
-label: 'GFW工具',
-image: "http://www.easyicon.net/api/resizeApi.php?id=24053&size=16",
 child: [
-{
-label: "GoA文件夾",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Goagent\\local\\",
-},{},
-{
-label: "Goagent",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Goagent\\local\\goagent.exe",
-},{},
 {
 label: "Shadowsocks",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Shadowsocks\\Shadowsocks.exe",
-},{},
+},
+{
+label: "Lantern",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Lantern\\lantern.exe",
+},
 {
 label: "Psiphon",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\psiphon\\psiphon3.exe",
-},
-]
-},
-{
-label: '截圖軟件',
-image: "http://www.easyicon.net/api/resizeApi.php?id=1180186&size=16",
-child: [
+},{},
 {
 label: "PicPick",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Image\\PicPick\\PicPick.exe",
-},{},{
+},
+{
 label: "ScreenToGif",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Image\\ScreenToGif.exe",
-},]
-},]
+},{},
+{
+label: "Adbyby",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Adbyby\\Adbyby.exe",
+},
+],
 }, {},
 {
 label:"編碼工具",

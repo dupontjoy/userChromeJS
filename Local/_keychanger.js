@@ -1,10 +1,11 @@
-
-//2016.01.02
+//2016.01.23
 
 //Fn功能鍵
 
 //字母
 keys['G'] = "var s = prompt('站内搜索——请输入待搜索字符串', '');if (s.length > 0) gBrowser.addTab('http://www.google.com/search?q=site:' + encodeURIComponent(content.location.host) + ' ' + encodeURIComponent(s));";//Google站内搜索
+
+keys['I'] = "toggleSidebar('imacros_ControlPanel');";//iMacros側欄
 
 keys['R'] = function() {
 KeyChanger.makeKeyset();//KeyChanger

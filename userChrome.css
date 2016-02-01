@@ -40,7 +40,6 @@ border-right:1px #BBC2C8 solid !important;
 #abp-toolbarbutton,/*ABP擴展圖標*/
 #pan-toolbarbutton,/*Pan擴展*/
 #toggle-button--redirectoreinaregilssoncom-redirector,/*redirector擴展*/
-#bookmarks-menu-button,/*書籤五角星*/
 #home-button,
 #stylish-toolbar-button,/*Stylish導航欄圖標*/
 #ghostery-button-badge,/*Ghostery计数*/
@@ -103,4 +102,5 @@ margin:0px !important;
 #bookmarks-menu-button>.toolbarbutton-menubutton-button{
 margin-left: -6px !important;
 margin-right: -6px !important;
+-moz-appearance: none !important;
 }

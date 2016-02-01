@@ -1,4 +1,4 @@
-/*+++ 2016.01.11 +++*/
+/*+++ 2016.01.30 +++*/
 
 /*附加组件调序*/
 #category-extension {-moz-box-ordinal-group: 0 !important;}/*扩展*/
@@ -26,3 +26,25 @@
 
 /*右键菜单子目录小三角距離*/
 .menu-accel-container{margin-right:-16px!important;}
+
+/*去图标外壳遮罩、点击动画*/
+#anobtn,
+#userChromebtnMenu,
+#ucjsPermission_Toolmenu,
+#lpt_lastpass-compact-btn{
+padding: 0 !important;
+margin: 0 !important;
+-moz-appearance: none !important;
+background: none !important;
+border: none !important;
+border-radius: 0 !important;
+box-shadow: none !important;
+outline: none !important;
+background-color: transparent;
+}
+
+/*去除五角星图标点击动画*/
+#nav-bar .toolbarbutton-1 > .toolbarbutton-menubutton-button:hover > .toolbarbutton-icon{
+background-color: transparent !important;
+box-shadow: none !important;
+}

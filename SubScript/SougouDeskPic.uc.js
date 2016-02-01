@@ -5,16 +5,26 @@
 // @note 11.22搜狗壁纸
 // @note 11.22彼岸桌面壁纸
 //==/UserScript==
-var setTime = 2*60*24; //表示间隔多少分钟范围【0-60*24*10】-0到10天                     ->越界时间不准,就不好玩了       O_O
+var setTime = 60*24*2; //表示间隔多少分钟范围【0-60*24*10】-0到10天                     ->越界时间不准,就不好玩了       O_O
 
-var userIndex = 1;
+var userIndex = 0;
 var ALL = [
 ["http://www.netbian.com", 
+"http://www.netbian.com/weimei/",//唯美
+/*
 "http://www.netbian.com/jianzhu/",//建筑
+"http://www.netbian.com/sheji/",//设计
+
+*/
 "<a href=\"([^\"]{0,15})\" target=\"_blank\">", "<img src=\"([^\"]+)\"", "-1366x768.htm", "18"], //-1920x1080.htm
 
 ["http://bizhi.sogou.com", 
+"http://bizhi.sogou.com/label/index/172",//美女周最热
+
+/*
 "http://bizhi.sogou.com/label/index/731",//环游世界
+"http://bizhi.sogou.com/label/index/689",//摄影师专区
+*/
 "<a href=\"(/detail/info/[\\d]+)\" target=\"_blank\">", "<img height=\"600\" width=\"950\" src=\"([^\"]+)\"", null, "28"],
 
 ];

@@ -171,7 +171,7 @@ image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdkl
 onpopupshowing: function (event){
 Array.slice(event.target.children).forEach(function(elem){
 if(elem.id == "TVC-Universal"){
-elem.hidden = !/ic.sjlpj.cn|bi.sjlpj.cn|tvc-mall.com|seculife.com|phonepartstore.com/.test(content.location.host)//可排除多個網站
+elem.hidden = !/ic.sjlpj.cn|bi.sjlpj.cn|tvc-mall.com|seculife.com|phonepartstore.com|cellzmate.com/.test(content.location.host)//可排除多個網站
 }
 else if(elem.id == "TVC-Back"){
 elem.hidden = !/ic.sjlpj.cn/.test(content.location.host)//可排除多個網站

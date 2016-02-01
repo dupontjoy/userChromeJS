@@ -63,6 +63,7 @@ set Name=%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
 %zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder4%\%Name% "%TempFolder%\NPSWF32*.dll" "%TempFolder%\FlashPlayerPlugin*.exe" "%TempFolder%\plugin.vch"
+move %TargetFolder%\%Name% %TargetFolder4%
 
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%"  /s/q

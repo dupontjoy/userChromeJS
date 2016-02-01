@@ -24,14 +24,17 @@ set zip="D:\Program Files\7-Zip\7z.exe"
 ::設置臨時文件夾
 set TempFolder="D:\Temp"
 
-::設置Profiles輸出地址
-set TargetFolder1="D:\My Documents\Yunpan\Firefox\Profiles"
-::設置CingFox輸出地址
-set TargetFolder2="D:"
-::設置Plugins和Software輸出地址
-set TargetFolder3="D:\My Documents\Yunpan\Firefox\Plugins&Software"
-::設置Flash32輸出地址
-set TargetFolder4="D:\My Documents\Yunpan\Firefox\【FX共享】\Flash32位原版提取帶vch和exe"
+::設置輸出文件夾
+set TargetFolder="D:"
+
+::設置Profiles上傳地址
+set TargetFolder1="D:\My Documents\Baiduyun\Firefox\Profiles"
+::設置CingFox上傳地址
+set TargetFolder2="D:\My Documents\Baiduyun\Firefox\【FX共享】\CingFox-完整包"
+::設置Plugins和Software上傳地址
+set TargetFolder3="D:\My Documents\Baiduyun\Firefox\Plugins&Software"
+::設置Flash32上傳地址
+set TargetFolder4="D:\My Documents\Baiduyun\Firefox\【FX共享】\Flash32位原版提取帶vch和exe"
 
 :menu
 cls

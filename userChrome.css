@@ -1,4 +1,4 @@
-/*+++ 2016.01.23 +++*/
+/*+++ 2016.02.01 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 /*自动隐藏AidBar*/
@@ -27,7 +27,7 @@ min-width:100px !important;
 }
 
 /*地址栏图标加分隔线*/
-#urlbar-icons{
+#urlbar-icons, #bookmarks-menu-button {
 padding:1px 1px !important;
 border-right:1px #BBC2C8 solid !important;
 }
@@ -76,6 +76,7 @@ border-right:1px #BBC2C8 solid !important;
 #ublock-button .toolbarbutton-badge-container {padding: 0px !important;}
 
 /*調整圖標邊框——方法3*/
+#bookmarks-menu-button .toolbarbutton-icon,
 #pocket-button .toolbarbutton-icon,
 #aup-toolbarbutton .toolbarbutton-icon,
 #downloads-button .toolbarbutton-icon,
@@ -100,7 +101,6 @@ margin:0px !important;
 
 /*五角星書籤圖標邊框及左右距離*/
 #bookmarks-menu-button>.toolbarbutton-menubutton-button{
-margin-left: -6px !important;
-margin-right: -6px !important;
+margin-left: -11px !important;
 -moz-appearance: none !important;
 }

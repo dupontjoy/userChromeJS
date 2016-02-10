@@ -1,4 +1,4 @@
-::2015.12.22 調整名稱格式
+::2016.02.09
 
 :pcxFirefox
 ::複製PcxFirefox主程序
@@ -44,6 +44,8 @@ set Name=CingFox_%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
 %zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%\CingFox\"
+::清空TargetFolder2文件夹下的所有文件, 但保留TargetFolder2文件夹
+del /s /f /q %TargetFolder2%
 move %TargetFolder%\%Name% %TargetFolder2%\
 
 @echo 備份完成！并刪除臨時文件夾！

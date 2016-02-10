@@ -23,6 +23,8 @@ set Name=%TempName%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录
 %zip% -mx9 -mhc -r u -up1q3r2x2y2z2w2 %TargetFolder%\%Name% "%TempFolder%\Plugins" "%TempFolder%\Software"
+::清空文件
+del /s /f /q %TargetFolder3%
 move %TargetFolder%\%Name% %TargetFolder3%
 
 @echo 備份完成！并刪除臨時文件夾！

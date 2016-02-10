@@ -1,4 +1,4 @@
-::2016.01.23
+::2016.02.09
 
 :Profiles-1
 cls
@@ -23,6 +23,10 @@ set TempFolder3="%TempFolder%\3"
 
 ::多運行一次防止第一次未能終止
 taskkill /im firefox.exe
+::清理Cache文件夹
+rd /s /q %BackDir%\..\Cache\
+::清理Firefox文件下的tmp文件
+del /s /q %BackDir%\..\firefox\*.tmp
 
 rem 复制目标文件到臨時文件夾
 

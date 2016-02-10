@@ -1,4 +1,4 @@
-/*+++ 2016.02.01 +++*/
+/*+++ 2016.02.09 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 /*自动隐藏AidBar*/
@@ -26,11 +26,11 @@ max-width:100px !important;
 min-width:100px !important;
 }
 
-/*地址栏图标加分隔线*/
-#urlbar-icons, #bookmarks-menu-button {
+/*地址栏图标加分隔线
+#urlbar-reload-button {
 padding:1px 1px !important;
-border-right:1px #BBC2C8 solid !important;
-}
+border-left:1px #BBC2C8 solid !important;
+}*/
 
 /*隐藏图标*/
 #imacros-toggle-button,/*iMacros扩展*/
@@ -101,6 +101,6 @@ margin:0px !important;
 
 /*五角星書籤圖標邊框及左右距離*/
 #bookmarks-menu-button>.toolbarbutton-menubutton-button{
-margin-left: -11px !important;
+margin-right: -12px !important;
 -moz-appearance: none !important;
 }

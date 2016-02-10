@@ -1,5 +1,4 @@
-
-//2016.01.20 調整選中文字搜索
+//2016.02.08
 
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
@@ -78,13 +77,31 @@ where: 'tab'
 new function() {
 var items = [
 {
-command: 'context-copyimage-contents',/*複製圖片*/
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=",
-},
-{
-command: 'context-copygif',/*複製GIF*/
-accesskey: "G",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=",
+label:"复制GIF",
+command: 'context-copyimage-contents',
+tooltiptext: "左键：复制静态&动态图",
+condition: 'image',
+image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=',
+onclick: function (event) {
+    if (event.button === 0) {
+      var copyimage = document.querySelector('#context-copyimage-contents');
+      copyimage.addEventListener('command', function () {
+        var selection = content.getSelection();
+        var ranges = [
+        ];
+        for (var i = 0; i < selection.rangeCount; i++)
+        ranges.push(selection.getRangeAt(i));
+        var range = document.createRange();
+        range.selectNode(document.popupNode);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        goDoCommand('cmd_copy');
+        selection.removeAllRanges();
+        for (i in ranges)
+        selection.addRange(ranges[i]);
+      }, false);
+    } 
+  }
 },
 {
 label: "圖片地址|Base64",
@@ -109,6 +126,7 @@ var menu = PageMenu({
 condition: 'image',
 insertBefore: 'context-viewimage',
 icon: 'image',
+accesskey: 'C',
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=",
 onpopupshowing: syncHidden
 });
@@ -121,7 +139,9 @@ css('#contentAreaContextMenu[addMenu~="image"] #' + it.command + '{ display: non
 
 //圖片右鍵 保存等 二级菜單
 new function() {
-var items = [{
+var items = [
+{
+label: '保存圖片',
 command: 'context-saveimage',
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAv0lEQVR42mNkoBAwUssAByAOB2IOIvX9AeKNQLwFZsBzIJYk0fLXQCwKM+A/1DURQOwMxJ1AfIeAAfeBWBHdgN9AzALEa4A4FEkxDxBrAPEZQgYcB2ILIM4F4ilImrcDsQEQewLxEXwGgIAIEL9B02wD5X9BMgSnASDFyUBcCMSbkTQzIBmiCMSnsRlgA7URZPMHIBbAE/1YXfAZqpmY9IPVgP1EpgFHdAPeA7EgJQkJlIDcSTTgJBDPYBzw3AgApMktEXd8LEwAAAAASUVORK5CYII=",
 },

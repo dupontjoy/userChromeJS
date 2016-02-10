@@ -1,5 +1,5 @@
 
-//2016.01.27 小調整
+//2016.02.08 小調整
 //2015.07.29 14:00 增加在線編碼工具
 //2015.07.19 16:00 統一黑白系圖標
 //2015.05.31 18:00 加入更新IP批處理
@@ -82,9 +82,14 @@ tooltiptext: "1. 備份Profiles\n2. CingFox製作\n3. 備份Plugins和Software�
 exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\local\\BackupProfiles\\Backup_7z.bat",
 },{},
 {
-label: "Notepad2.reg",
+label: "Notepad2.bat",
 tooltiptext: "通過映象劫持以Notepad2替換自帶记事本",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Notepad2\\Notepad2.reg",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Notepad2\\Notepad2.bat",
+},{},
+{
+label: "explorer.bat",
+tooltiptext: "重啓explorer.exe",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\explorer.bat",
 },]
 },{},{
 label: '外部打開',
@@ -125,8 +130,12 @@ label: "ScreenToGif",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Image\\ScreenToGif.exe",
 },{},
 {
+label: "ADM",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\ADM\\===绿色版点我===.bat",
+},
+{
 label: "Adbyby",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Adbyby\\Adbyby.exe",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\Adbyby\\Adbyby.exe",
 },
 ],
 }, {},

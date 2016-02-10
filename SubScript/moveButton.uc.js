@@ -83,12 +83,11 @@ location == "chrome://browser/content/browser.xul" && (function(){
         // },
         
 //不常用圖標移動到aidBar
-{ id: "flashgot-media-tbb", bar: "TabsToolbar_aidBar", pos: 1 },//FlashGot扩展
-{ id: "lpt_lastpass-compact-btn", bar: "TabsToolbar_aidBar", pos: 2 },//Lastpass扩展
-{ id: "ucjsPermission_Toolmenu", bar: "TabsToolbar_aidBar", pos: 3 },//ucjsPermission腳本
-{ id: "abp-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 5 },//AdBlockPlus扩展
+{ id: "SimpleMusicPlayer", bar: "TabsToolbar_aidBar", pos: 1 },//SimpleMusicPlayer腳本
+{ id: "flashgot-media-tbb", bar: "TabsToolbar_aidBar", pos: 2 },//FlashGot扩展
+{ id: "lpt_lastpass-compact-btn", bar: "TabsToolbar_aidBar", pos: 3 },//Lastpass扩展
+{ id: "ucjsPermission_Toolmenu", bar: "TabsToolbar_aidBar", pos: 4 },//ucjsPermission腳本
 { id: "aup-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 6 },//Autoproxy擴展
-{ id: "greasemonkey-tbb", bar: "TabsToolbar_aidBar", pos: 8 },//Greasemonkey扩展
 { id: "userChromebtnMenu", bar: "TabsToolbar_aidBar", pos: 9 },//UC管理器
 { id: "userChromeJsManagerMenuBtn", bar: "TabsToolbar_aidBar", pos: 9 },//UC管理器
 
@@ -99,9 +98,6 @@ location == "chrome://browser/content/browser.xul" && (function(){
 
 //頁面右鍵菜單
 {id: "frame", insertAfter: "charsetMenu"}, //页面右键本框架不能直接隱藏，只好移動到一個安全的位置
-
-//地址欄圖標
-{id: "bookmarks-menu-button", insertBefore: "urlbar-reload-button"},//五角星書籤按鈕 放入地址欄
 
 //Greasemonkey圖標右鍵菜單
 {id: "greasemonkey-tbb",

@@ -1,15 +1,15 @@
 // ==UserScript==
 // @name           ButtonEventListener.uc.js
-// @namespace   runningcheese@qq.com
+// @namespace      runningcheese@qq.com
 // @description    为工具栏图标增加点击功能
-// @author          runningcheese
-// @version         0.0.1
-// @license          MIT License
+// @author         runningcheese
+// @version        0.0.1-20160209
+// @license        MIT License
 // @compatibility  Firefox 29+
-// @charset         UTF-8
-// @reviewURL     http://www.runningcheese.com/firefox-v6
-// ==/UserScript==
+// @charset        UTF-8
+// @reviewURL      http://www.runningcheese.com/firefox-v6
 
+// ==/UserScript==
 
 if (location == "chrome://browser/content/browser.xul") {
 
@@ -56,8 +56,29 @@ BrowserReloadSkipCache();
 
 }
 
-
 //中键点击地址栏自动复制网址
 document.getElementById('urlbar').addEventListener('click', function(e){
 	if(e.button == 1) goDoCommand('cmd_copy');
 }, false);
+
+//右击新建标签按钮访问剪切板内容
+location=="chrome://browser/content/browser.xul" &&
+window.addEventListener("click", function(e) {
+    if (e.button === 2 && e.originalTarget.className === "tabs-newtab-button") {
+        let url = readFromClipboard();
+        //原正则 /^(https?:\/\/)?\w+(\.\w+)+\/\S*/
+        if (!/^(https?:\/\/)?([\w\-]+\.)+\w+(\:\d+)?[\w\-\/\|\?\.#%&=]*$/.test(url))
+            url = 'https://www.baidu.com/s?wd='+ encodeURIComponent(url);
+        gBrowser.loadOneTab(url, {inBackground:false});
+        e.preventDefault();
+        e.stopPropagation();
+    }
+});
+
+//移动添加书签图标到地址栏
+location == 'chrome://browser/content/browser.xul' && (function () {
+	var uIcon = document.getElementById('urlbar-icons'),
+		bmbtn = document.getElementById('bookmarks-menu-button');
+	if (!bmbtn) return;
+uIcon.appendChild(bmbtn);
+})();

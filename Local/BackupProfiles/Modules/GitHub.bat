@@ -1,4 +1,4 @@
-::2016.02.09
+::2016.02.12
 
 :GitHub
 cls
@@ -32,7 +32,6 @@ xcopy "%dir1%\user.js" "%dir2%\Firefox\user.js"  /s /y /i
 
 ::Ç‰∑›Foxmail Filter
 xcopy "%dir1%\..\..\Tencent\Foxmail\Storage\dupontjoy@163.com\Filter\1.fter" "%dir2%\Foxmail-Filter\163.com\1.fter"  /s /y /i
-xcopy "%dir1%\..\..\Tencent\Foxmail\Storage\dupontjoy@qq.com\Filter\1.fter" "%dir2%\Foxmail-Filter\qq.com\1.fter"  /s /y /i
 
 ::Ç‰∑›ProcessLaso‘O÷√
 xcopy "%dir1%\..\..\System Tools\ProcessLassoPortable\prolasso.ini" "%dir2%\ProcessLaso\prolasso.ini"  /s /y /i

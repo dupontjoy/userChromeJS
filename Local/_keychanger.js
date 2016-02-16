@@ -1,4 +1,4 @@
-//2016.02.09
+//2016.02.15
 
 //Fn功能鍵
 
@@ -14,8 +14,8 @@ UCL.rebuild();//UserCSSLoader
 anobtn.reload();//anobtn
 addMenu.rebuild();//AddmenuPlus
 MyMoveButton.delayRun();//Movebutton
-FeiRuoNet.Rebuild(true);//FeiRuoNet
 showFlagS.rebuild();//ShowFlagS整合版
+FeiRuoNet.Rebuild(true);//FeiRuoNet
 };//群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
 
 //組合鍵

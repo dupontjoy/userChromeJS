@@ -11,6 +11,4 @@
 setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();}, 1*1000);//1秒
 setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();}, 2*1000);
 setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();}, 3*1000);
-setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();}, 30*1000);
-setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();}, 60*1000);
 })();

@@ -19,7 +19,7 @@ cd /d %~dp0
 set b=%cd%
 
 ::一次性设置7-zip程序地址
-set zip="D:\Program Files\7-Zip\7z.exe"
+set zip="%b%\7za.exe"
 
 ::設置臨時文件夾
 set TempFolder="D:\Temp"

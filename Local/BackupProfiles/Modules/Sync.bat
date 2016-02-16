@@ -1,4 +1,4 @@
-::2016.02.09
+::2016.02.12
 
 :Sync
 cls
@@ -28,7 +28,8 @@ set dir2=D:\My Documents\GitHub\Customization
 ::同步Foxmail Filter
 taskkill /f /t /im foxmail.exe
 xcopy "%dir2%\Foxmail-Filter\163.com\1.fter" "%dir1%\..\..\Tencent\Foxmail\Storage\dupontjoy@163.com\Filter\1.fter" /s /y /i
-xcopy "%dir2%\Foxmail-Filter\qq.com\1.fter" "%dir1%\..\..\Tencent\Foxmail\Storage\dupontjoy@qq.com\Filter\1.fter"  /s /y /i
+xcopy "%dir2%\Foxmail-Filter\163.com\1.fter" "%dir1%\..\..\Tencent\Foxmail\Storage\dupontjoy@qq.com\Filter\1.fter"  /s /y /i
+xcopy "%dir2%\Foxmail-Filter\163.com\1.fter" "%dir1%\..\..\Tencent\Foxmail\Storage\dupont2305@gmail.com\Filter\1.fter"  /s /y /i
 start "" "%dir1%\..\..\Tencent\Foxmail\Storage\..\foxmail.exe" /min
 
 ::同步ProcessLaso設置

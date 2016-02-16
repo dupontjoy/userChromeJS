@@ -1,4 +1,4 @@
-/*+++ 2016.01.20 +++*/
+/*+++ 2016.02.15 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
@@ -215,6 +215,9 @@ display: none !important;
 
 
 /*其它擴展/腳本隱藏項*/
+[class="autorepeatbutton-up"],
+[class="autorepeatbutton-down"],
+#menu_openLoop,/*Loop发起聊天*/
 #exex-menu,/*EXExceptions右鍵菜單*/
 #tooldonate,/*DTA捐助*/
 #userChromejs_menuseparator,

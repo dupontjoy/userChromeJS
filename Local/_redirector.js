@@ -1,18 +1,5 @@
 
-//2015.12.05 添加測試鏈接
-//2015.09.04 修正sourceforge規則鏡像
-//2015.07.23 18:00 修正職友集規則
-//2015.07.20 16:00 調整規則，原始大圖換用picViewer
-//2015.07.07 21:00 http和https都走useso
-//2015.06.03 18:00 完成ajax >> github，重新分組12306的js文件
-//2015.05.27 22:00 找回Google服務轉國內鏡像
-//2015.04.25 08:00 新增Google搜天氣時 圖標
-//2015.04.19 10:00 新增鳳凰網 圖片修正
-//2015.04.14 13:00 新增鳳凰網 只顯示首圖修正
-//2015.04.06 21:00 修正百度盤搜索地址替換
-//2015.03.20 13:00 修正百度盤搜索地址替換
-//2015.03.14 15:00 爲規則添加說明
-//2015.02.17 14:00 新增12306重定向JS
+//2016.02.15
 
 //Redirector說明頁面：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js

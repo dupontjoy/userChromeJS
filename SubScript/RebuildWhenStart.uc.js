@@ -6,7 +6,8 @@
 //防止因加载延迟而没有显示(_addMenu.js的)菜单
 //重复加载几次，防止第1次未加载成功
 
-(function() {
+(function()
+{
 //Addmenu 和 moveButton
 setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();}, 1*1000);//1秒
 setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();}, 2*1000);

@@ -40,7 +40,7 @@ border: none !important;
 border-radius: 0 !important;
 box-shadow: none !important;
 outline: none !important;
-background-color: transparent;
+background-color: transparent !important;
 }
 
 /*去除五角星图标点击动画*/

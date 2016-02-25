@@ -1,4 +1,4 @@
-/*+++ 2016.02.09 +++*/
+/*+++ 2016.02.19 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 /*自动隐藏AidBar*/
@@ -22,8 +22,8 @@ margin-bottom: 0px !important;
 
 /*调节标签的宽度*/
 .tabbrowser-tab[fadein]:not([pinned]) {
-max-width:100px !important;
-min-width:100px !important;
+max-width:110px !important;
+min-width:110px !important;
 }
 
 /*地址栏图标加分隔线

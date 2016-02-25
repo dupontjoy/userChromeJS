@@ -97,23 +97,8 @@ position:relative;left:-863.8px;
 }
 }
 
-@-moz-document domain("tieba.baidu.com") {
-#dialogJbody/*Tieba Client框*/
-{
-height: 580px !important;
-}
-}
-
 @-moz-document domain("sooopu.com") {
 .related{
   clear: both;
-}
-}
-
-/*修正超级表格-统计*/
-@-moz-document domain("domypp.com") {
-#count_fuceng_Box{
-height: 750px !important;
-top: 0px !important;
 }
 }

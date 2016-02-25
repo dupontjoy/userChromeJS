@@ -1,5 +1,5 @@
 
-//2016.01.28
+//2016.02.16
 
 //ProfD：配置文件夹
 //UChrm：Chrome文件夹
@@ -9,6 +9,8 @@ location == 'chrome://browser/content/browser.xul' && (function(){
 
 //設置程序路徑
     var PATH1 = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Notepad2\\Notepad2.exe"; 
+    
+//一些看不懂的設置
     var handleRelativePath = function (path) {
         if (path) {
         path = path.replace(/\//g, '\\').toLocaleLowerCase();

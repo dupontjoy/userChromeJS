@@ -13,14 +13,15 @@ var RefererChange = {
 //2014.11.09 增加pconline和postimg
 
  //*目标网址类
-'www.economist.com': 'https://www.google.com/',//突破每週3篇限制
-'www.wsj.com': 'https://www.google.com/',//免登陆或订阅看全文
+'economist.com': 'https://www.google.com/',//突破每週3篇限制
+'wsj.com': 'https://www.google.com/',//免登陆或订阅看全文
+'wsj.net': 'https://www.google.com/',//免登陆或订阅看全文
 'img.liufen.com': 'http://www.liufen.com.cn/',
 'mangafiles.com' : 'http://www.imanhua.com/',
 'douban.com': 'http://www.douban.com',
 'yyets.com': 'http://www.yyets.com/',
 'space.wenxuecity.com': 'http://bbs.wenxuecity.com/',
-'www.autoimg.cn': 'http://club.autohome.com.cn/',
+'autoimg.cn': 'http://club.autohome.com.cn/',
 'kkkmh.com': 'http://www.kkkmh.com/',
 'nonie.1ting.com': 'http://www.1ting.com/',
 'img.knb.im': 'http://www.kenengba.com/',

@@ -1,4 +1,4 @@
-//2016.02.16
+//2016.02.25
 
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
@@ -45,43 +45,37 @@ where: "tab",
 insertBefore: "context-viewimage",
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZElEQVQ4jWNgGMzAl4GB4T8a9iVWcwtUQxADAwMvFAdBxVqItVkQi5wgMS6B2YwLwFyCE3xhgDgZF+CluQEUe4HiQLRjQMQ7ydEI02wHtWUfkmH7iLXZDp8iXECaEs3IhtAfAAAJGiQnfMavIgAAAABJRU5ErkJggg==",
 });
-imagesub([{
+imagesub([
+{
+label: 'Baidu',
+url: 'http://image.baidu.com/n/pc_search?queryImageUrl=%IMAGE_URL%',
+image: "http://tu.baidu.com/favicon.ico",
+where: 'tab',
+}, 
+{
 label: 'Google',
 url: 'http://www.google.com/searchbyimage?image_url=%IMAGE_URL%',
 image: "https://www.google.com/favicon.ico",
 where: 'tab',
 }, 
 {
-label: 'Sou識圖',
+label: 'Sou',
 url: 'http://st.so.com/stu?imgurl=%IMAGE_URL%',
 image: "http://st.so.com/favicon.ico",
 where: 'tab',
 }, 
-{}, 
-{
-label: 'Baidu',
-url: 'http://image.baidu.com/n/pc_search?queryImageUrl=%IMAGE_URL%',
-image: "http://www.baidu.com/favicon.ico",
-where: 'tab'
-}, 
-{
-label: 'Bing',
-url: 'http://www.bing.com/images/searchbyimage?FORM=IRSBIQ&cbir=sbi&imgurl=%IMAGE_URL%&mkt=en-US',
-image: "http://cn.bing.com/s/a/bing_p.ico",
-where: 'tab'
-},
 
 ]);
 
-//圖片右鍵 複製 二级菜單
-new function() {
-var items = [
+//圖片右鍵 複製
+page(
 {
-label:"复制GIF",
-command: 'context-copyimage-contents',
-tooltiptext: "左键：复制静态&动态图",
+label: "複製圖片",
+tooltiptext: "左鍵：複製圖片\n中鍵：複製圖片地址\n右鍵：複製圖片Base64",
 condition: 'image',
-image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=',
+command: 'context-copyimage-contents',
+insertBefore: "context-copyimage-contents",
+image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4jbWTLw6DMBjFfwaDmauq5QhY9C4wyQWQOA6whAtwBS6wO0xOzeKQO8REH6EUwsqWvaRpk37vT7+28AfYX8gZ8NIcIgf6GJESGAATpBqAc2ySFrgDCZACD6CKJU/oNW5Ad5SMnEdc9OQbgQp4SqA8QsyAWu6W+WZaoPhEblQ8sGxah+vFKKHdyFbFl0C4A064G6lDsmV+QIWc0o19G6xXDkbxffcJtdyNaht/0z/jKp6Hq2pWbyPDNSffIU8oJLT1X47jDR7gLDGf5CLwAAAAAElFTkSuQmCC',
 onclick: function (event) {
     if (event.button === 0) {
       var copyimage = document.querySelector('#context-copyimage-contents');
@@ -101,41 +95,17 @@ onclick: function (event) {
         selection.addRange(ranges[i]);
       }, false);
     } 
-  }
-},
-{
-label: "圖片地址|Base64",
-tooltiptext: "左鍵：複製圖片地址\n右鍵：複製圖片Base64碼",
-onclick: function(e) {
-switch(e.button) {
-case 0:
+    else if (event.button === 1) {
 addMenu.copy(addMenu.convertText("%IMAGE_URL%"));/*複製圖片地址*/
 closeMenus(this);
-break;
-case 2:
+    }
+    else if (event.button === 2) {
 addMenu.copy(addMenu.convertText("%IMAGE_BASE64%"));
 closeMenus(this);
-break;
+    }
+  }
 }
-},
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4jbWTLw6DMBjFfwaDmauq5QhY9C4wyQWQOA6whAtwBS6wO0xOzeKQO8REH6EUwsqWvaRpk37vT7+28AfYX8gZ8NIcIgf6GJESGAATpBqAc2ySFrgDCZACD6CKJU/oNW5Ad5SMnEdc9OQbgQp4SqA8QsyAWu6W+WZaoPhEblQ8sGxah+vFKKHdyFbFl0C4A064G6lDsmV+QIWc0o19G6xXDkbxffcJtdyNaht/0z/jKp6Hq2pWbyPDNSffIU8oJLT1X47jDR7gLDGf5CLwAAAAAElFTkSuQmCC"
-},
-
-];
-var menu = PageMenu({
-condition: 'image',
-insertBefore: 'context-viewimage',
-icon: 'image',
-accesskey: 'C',
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=",
-onpopupshowing: syncHidden
-});
-menu(items);
-items.forEach(function(it) {
-if (it.command)
-css('#contentAreaContextMenu[addMenu~="image"] #' + it.command + '{ display: none !important; }')
-});
-};
+)
 
 //圖片右鍵 保存等 二级菜單
 new function() {
@@ -201,6 +171,12 @@ elem.hidden = !/ic.sjlpj.cn/.test(content.location.host)//可排除多個網站
 });
 var items = [
 //打開方式(默认當前頁面)，通过where 更改，具體tab(前台)、tabshifted(后台)、window(窗口)
+{
+label: "Baidu",
+url: "http://www.baidu.com/s?wd=%s&ie=utf-8",
+image: "https://www.baidu.com/favicon.ico",
+where: 'tab'
+}, 
 {label: "Google",
 url: "https://www.google.com/search?newwindow=1&safe=off&hl=en-US&q=%s",
 image: "https://www.google.com/favicon.ico",
@@ -210,12 +186,6 @@ where: 'tab'
 label: "Sou",
 url: "http://www.so.com/s?ie=utf-8&q=%s",
 image: "http://www.haosou.com/favicon.ico",
-where: 'tab'
-}, 
-{
-label: "Baidu",
-url: "http://www.baidu.com/s?wd=%s&ie=utf-8",
-image: "https://www.baidu.com/favicon.ico",
 where: 'tab'
 }, 
 {
@@ -563,9 +533,10 @@ css('#contentAreaContextMenu[addMenu~="input"] #' + it.command + '{ display: non
 /*——————————鏈接右鍵——————————*/
 page(
 {
-label: "開啟|複製|雲播鏈結",
+label: "用新分頁開啟鏈結",
 condition: "link",
 position: 1,
+command: "context-openlinkintab",
 tooltiptext: "左鍵：用新分頁開啟鏈結\n中鍵：複製鏈接網址\n右鍵：迅雷雲播放",
 onclick: function(e) {
 switch(e.button) {

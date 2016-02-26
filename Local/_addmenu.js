@@ -1,4 +1,4 @@
-//2016.02.25
+//2016.02.26
 
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
@@ -67,15 +67,15 @@ where: 'tab',
 
 ]);
 
-//圖片右鍵 複製
-page(
+//圖片右鍵 複製 二级菜單
+new function() {
+var items = [
 {
-label: "複製圖片",
-tooltiptext: "左鍵：複製圖片\n中鍵：複製圖片地址\n右鍵：複製圖片Base64",
-condition: 'image',
+label:"复制GIF",
 command: 'context-copyimage-contents',
-insertBefore: "context-copyimage-contents",
-image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4jbWTLw6DMBjFfwaDmauq5QhY9C4wyQWQOA6whAtwBS6wO0xOzeKQO8REH6EUwsqWvaRpk37vT7+28AfYX8gZ8NIcIgf6GJESGAATpBqAc2ySFrgDCZACD6CKJU/oNW5Ad5SMnEdc9OQbgQp4SqA8QsyAWu6W+WZaoPhEblQ8sGxah+vFKKHdyFbFl0C4A064G6lDsmV+QIWc0o19G6xXDkbxffcJtdyNaht/0z/jKp6Hq2pWbyPDNSffIU8oJLT1X47jDR7gLDGf5CLwAAAAAElFTkSuQmCC',
+tooltiptext: "左键：复制静态&动态图",
+condition: 'image',
+image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=',
 onclick: function (event) {
     if (event.button === 0) {
       var copyimage = document.querySelector('#context-copyimage-contents');
@@ -95,17 +95,41 @@ onclick: function (event) {
         selection.addRange(ranges[i]);
       }, false);
     } 
-    else if (event.button === 1) {
+  }
+},
+{
+label: "圖片地址|Base64",
+tooltiptext: "左鍵：複製圖片地址\n右鍵：複製圖片Base64碼",
+onclick: function(e) {
+switch(e.button) {
+case 0:
 addMenu.copy(addMenu.convertText("%IMAGE_URL%"));/*複製圖片地址*/
 closeMenus(this);
-    }
-    else if (event.button === 2) {
+break;
+case 2:
 addMenu.copy(addMenu.convertText("%IMAGE_BASE64%"));
 closeMenus(this);
-    }
-  }
+break;
 }
-)
+},
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4jbWTLw6DMBjFfwaDmauq5QhY9C4wyQWQOA6whAtwBS6wO0xOzeKQO8REH6EUwsqWvaRpk37vT7+28AfYX8gZ8NIcIgf6GJESGAATpBqAc2ySFrgDCZACD6CKJU/oNW5Ad5SMnEdc9OQbgQp4SqA8QsyAWu6W+WZaoPhEblQ8sGxah+vFKKHdyFbFl0C4A064G6lDsmV+QIWc0o19G6xXDkbxffcJtdyNaht/0z/jKp6Hq2pWbyPDNSffIU8oJLT1X47jDR7gLDGf5CLwAAAAAElFTkSuQmCC"
+},
+
+];
+var menu = PageMenu({
+condition: 'image',
+insertBefore: 'context-viewimage',
+icon: 'image',
+accesskey: 'C',
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=",
+onpopupshowing: syncHidden
+});
+menu(items);
+items.forEach(function(it) {
+if (it.command)
+css('#contentAreaContextMenu[addMenu~="image"] #' + it.command + '{ display: none !important; }')
+});
+};
 
 //圖片右鍵 保存等 二级菜單
 new function() {
@@ -119,7 +143,10 @@ image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAv0l
 accesskey: "T",
 oncommand:"gContextMenu.reloadImage();",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgElEQVQ4jcWSyw2AIBAF5+rNDuyE2AG9WIK1UQpVeMHLEggKLCHRSQgH9u3vAR+wzYovwMwkMZLEjogs4IAgx8ut6uQUgQVWuQNwaCt7EULawa5t3fGcdciFkFWv0UzYS7BITJW3EXKiO82AfIk5K8mdJqWN0UovbyrKj9Qb7UdupJYfIj9YalkAAAAASUVORK5CYII="},
-{command: 'context-viewimageinfo',image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXklEQVQ4jaVTQQ4AMATzFq/y/49sFxIRoWiyU9eWDaIar+FLsBrwVCgqjEcmYku1Fqya0iSKvQFkgvRrJjiBBGUP5jnk3q2ClkCDzr+QmYzmIJqsJtFjvQsep22E8AGEZDOcIlQ9sgAAAABJRU5ErkJggg=="},
+{command: 'context-viewimage',/*查看图像*/
+image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAgVBMVEUAAAD4+PgZGRlXV1f9/f3Z2dmfn5/09PTx8fHh4eHKysqzs7N0dHRgYGBHR0dDQ0MvLy8hISEeHh7Q0NC7u7uhoaGZmZmVlZWEhIRnZ2dTU1M/Pz8nJycSEhLp6eni4uLd3d3U1NTFxcWnp6eQkJCNjY2FhYWDg4NsbGxmZmY+Pj4UJ42CAAAAAXRSTlMAQObYZgAAAHxJREFUGNOdy8cNwzAUwFDqy3Kvcm/pff8Bo8BABjBv70D2Zp5ZNtR/RtqmrZ9Kcd7cyKAwJ9RtbX/25QJvkRHq6u5sDcSLUkvs5qonKwJIZpgTULnG03mAKqepVISF9sB7lYaw80PiKnV2devYHKNEyxW2Do+PlbwP2NcXHOgGBwDkvbYAAAAASUVORK5CYII="},
+{command: 'context-viewimageinfo',/*查看图像信息*/
+image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXklEQVQ4jaVTQQ4AMATzFq/y/49sFxIRoWiyU9eWDaIar+FLsBrwVCgqjEcmYku1Fqya0iSKvQFkgvRrJjiBBGUP5jnk3q2ClkCDzr+QmYzmIJqsJtFjvQsep22E8AGEZDOcIlQ9sgAAAABJRU5ErkJggg=="},
 ];
 var menu = PageMenu({
 label:"圖像另存爲",
@@ -192,7 +219,7 @@ where: 'tab'
 label: "Thunder",
 url:"http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=%SEL%",
 where: 'tab',
-image: "http://vod.xunlei.com/favicon.ico",
+image: "http://www.easyicon.net/api/resizeApi.php?id=562508&size=16",
 },
 {},
 {
@@ -536,8 +563,7 @@ page(
 label: "用新分頁開啟鏈結",
 condition: "link",
 position: 1,
-command: "context-openlinkintab",
-tooltiptext: "左鍵：用新分頁開啟鏈結\n中鍵：複製鏈接網址\n右鍵：迅雷雲播放",
+tooltiptext: "左鍵：用新分頁開啟鏈結\n右鍵：迅雷雲播放\n中鍵：複製鏈接網址",
 onclick: function(e) {
 switch(e.button) {
 case 0:
@@ -545,12 +571,12 @@ gBrowser.addTab(addMenu.convertText("%RLINK%"));
 closeMenus(this);
 break;
 case 1:
-addMenu.copy(addMenu.convertText("%RLINK%"));
+gBrowser.selectedTab = gBrowser.addTab("http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=" + addMenu.convertText("%RLINK_OR_URL%"));/*前臺新標籤*/
+/*gBrowser.addTab("http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=" + addMenu.convertText("%RLINK_OR_URL%"));/*後臺新標籤*/
 closeMenus(this);
 break;
 case 2:
-gBrowser.selectedTab = gBrowser.addTab("http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=" + addMenu.convertText("%RLINK_OR_URL%"));/*前臺新標籤*/
-/*gBrowser.addTab("http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=" + addMenu.convertText("%RLINK_OR_URL%"));/*後臺新標籤*/
+addMenu.copy(addMenu.convertText("%RLINK%"));
 closeMenus(this);
 break;
 }

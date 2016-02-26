@@ -97,7 +97,7 @@ location == "chrome://browser/content/browser.xul" && (function(){
 { id: "noscript-context-menu", insertAfter: "gm_general_menu" },//Noscript右鍵菜單
 
 //頁面右鍵菜單
-{id: "frame", insertAfter: "charsetMenu"}, //页面右键本框架不能直接隱藏，只好移動到一個安全的位置
+{id: "frame", insertAfter: "menu_historySidebar"}, //页面右键本框架不能直接隱藏，只好移動到一個安全的位置
 
 //Greasemonkey圖標右鍵菜單
 {id: "greasemonkey-tbb",

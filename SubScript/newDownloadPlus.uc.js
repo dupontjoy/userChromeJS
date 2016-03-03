@@ -882,7 +882,7 @@
 			document.insertBefore(style, document.firstChild);
 			var dir = [
 		["C:\\Users\\Cing\\Desktop", "Desktop"],
-		["D:\\Download", "Download"],
+		["E:\\Download", "Download"],
 		["D:\\Temp", "Temp"],
 		["E:\\Syuan's Soft", "Syuan's Soft"],
 			];

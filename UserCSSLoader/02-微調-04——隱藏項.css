@@ -1,4 +1,4 @@
-/*+++ 2016.02.26 +++*/
+/*+++ 2016.03.03 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
@@ -6,6 +6,13 @@
 {display: none !important;}*/
 
 /*===隐藏页面右键菜单===*/
+#PanelUI-footer-fxa,/*三道杠-登陆以同步*/
+#wrapper-home-button,/*定制-主页*/
+#wrapper-imacros-toggle-button,/*定制-iMacros*/
+#wrapper-stylish-toolbar-button,/*定制-Stylish*/
+#wrapper-panic-button,/*定制-忘记*/
+#wrapper-feed-button,/*定制-订阅*/
+#wrapper-social-share-button,/*定制-分享*/
 #context-copyimage-contents,/*复制图像*/
 #fill-login-separator,/*输入框右键分割线*/
 #context-shareselect,/*分享选中项目*/

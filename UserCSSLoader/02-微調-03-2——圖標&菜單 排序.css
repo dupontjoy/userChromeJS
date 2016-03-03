@@ -1,4 +1,4 @@
-/*+++ 2016.01.30 +++*/
+/*+++ 2016.03.03 +++*/
 
 /*附加组件调序*/
 #category-extension {-moz-box-ordinal-group: 0 !important;}/*扩展*/
@@ -48,3 +48,6 @@ background-color: transparent !important;
 background-color: transparent !important;
 box-shadow: none !important;
 }
+
+/*去除点击时边框*/
+:focus {outline: none !important}

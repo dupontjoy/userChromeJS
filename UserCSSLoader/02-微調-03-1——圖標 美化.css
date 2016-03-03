@@ -1,4 +1,4 @@
-/*+++ 2016.02.17 +++*/
+/*+++ 2016.03.03 +++*/
 
 /*==修正图標和文字擠一起問題==*/
 /* Adjust left-margin for menuitems and menus which aren't iconized */
@@ -13,6 +13,31 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 menuitem.bookmark-item {
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAPFBMVEUAAADCMDDKICDKICDKISHLISHKICDKISHLISHKICDJISHKHx/HICDOISHKISHJISHKISHKISHKICDKISHNmRTzAAAAE3RSTlMABI7cpzVgWrWtPSggD+HgmpmGI5UjwAAAAF5JREFUGNN1jkkOwCAMA0tK2Onm//+1gEhFDp0L8sgk2f4oRWez70YJBzhdAJZKTYQGpToiHfg4qYmIBdv/xyWbMfGSfJu5Q4TsySLyFF6En4KAwByAR+623B+20lC8OZoG3r0TZhgAAAAASUVORK5CYII=") !important;
 -moz-image-region: rect(0 16px 16px 0) !important;
+}
+
+/* 勾选框 Checkbox */
+menuitem[type="checkbox"]>.menu-iconic-left {
+  -moz-appearance: none!important;
+  min-width: 27px!important;
+  max-width: 27px!important;
+  min-height: 22px!important;
+  max-height: 22px!important;
+}
+menuitem[type="checkbox"][checked="true"]>.menu-iconic-left {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAP0lEQVQ4jWNgGLGAjxLNGxgYGHZSovkDAwOD+eDUHMTAwLCKEpvNoQqRDSHZ2ciGkO1nmCFkBxjMELI1DzEAAADNE9xVWNfDAAAAAElFTkSuQmCC") no-repeat center!important;
+
+}
+menuitem[type="checkbox"][checked="true"] .menu-iconic-text,menuitem[type="checkbox"]:not([checked="true"]):active .menu-iconic-text {
+  -moz-margin-start: 6px !important;
+}
+
+menuitem[type="checkbox"] .menu-iconic-text {
+  -moz-margin-start: 6px !important;
+}
+
+menuitem[type="checkbox"]:active>.menu-iconic-left {
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAfUlEQVQ4jWNgGHmgsrJSdOrUqRKUaF43efLkFQkJCRwka548efKKqVOnPuvr6/OnjWZsziJa8/z586MWL168ADmASHL2/PnzfRctWvRs8eLFG6dOnSoBCzCS/Dx//nzfhQsXPoEaQppmdJeQpRkGZsyY4TFjxgwPsjQPPQAAlthixf3G3Z8AAAAASUVORK5CYII=") no-repeat center!important;
+
 }
 
 /*==扩展/脚本图标补充==*/
@@ -358,3 +383,12 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 #category-recentUpdates > .category-icon{/*最近更新*/
     list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAARVBMVEUAAAD/mTD/////nzv/1qz/3br/4sP/q1T/8eL/0KD/oT//smL/p0z/w4X/pET/27b/vHb/7dv/rlv/+fL/mzX/uXH/zpuRjFE6AAAAAXRSTlMAQObYZgAAANxJREFUSMfd1t0OgjAMBeAiOljXjTF+3v9RBU2oZiNwjN54LpuPJaxJO3qmt9FJYK6zMAdx0fak6afqMNP2QVedSrdpwLfV6bQLd+e5gw5fj7cItxQRHikV6+yL5URSrDemWBYKCA/ECGeM11T/Dxd55aM/4KkV5aOxZa5xrTy46jJX36xcdcYzv3DVGc99Y1Tvcv3faMx8/t7TcJmRNiUPdFXzNR6uu/EF7i+7GT7m/EPOFBAeSBAuOvRCd9uL35oNjlRwYIPrAFs24CrDFiW+hvElr0+IupC3J8QdwlYRb3Yyr7sAAAAASUVORK5CYII=") !important;
 }	
+
+/* UserStyles category specific */
+#list-view[type="userstyle"] .addon[styleTypes=""] .icon-container:before {content: "Und";font-size: 13px;border-style: solid;border-width: 1px;border-color: #3e6284;background: purple;color:#373737;font-weight: 600 !important;padding-right:14px!important;padding-left:15px!important;}
+#list-view[type="userstyle"] .addon[styleTypes="undefined"] .icon-container:before {content: "Und";font-size: 13px;border-style: solid;border-width: 1px;border-color: #3e6284;background: purple;color:#373737;font-weight: 600 !important;padding-right:14px!important;padding-left:15px!important;}
+#list-view[type="userstyle"] .addon[styleTypes*="app"] .icon-container:before {content: "App";font-size: 13px;border-style: solid;border-width: 1px;border-color: #3e6284;background: #F9CACA;color:#373737;font-weight: 600 !important;padding-right:14px!important;padding-left:15px!important;}
+#list-view[type="userstyle"] .addon[styleTypes*="site"] .icon-container:before {content: "Website";font-size: 13px;border-style: solid;border-width: 1px;border-color: #3e6284;background: #D6F0C3;color:#373737;font-weight: 600 !important;padding-right:2px!important;padding-left:2px!important;}
+#list-view[type="userstyle"] .addon[styleTypes*="global"] .icon-container:before {content: "Global";font-size: 13px;border-style: solid;border-width: 1px;border-color: #3e6284;background: #bae1ff;color:#373737;font-weight: 600 !important;padding-right:7px!important;padding-left:8px!important;}
+#list-view[type="userstyle"] .addon[active="false"] .icon-container:before {opacity: 0.5;}
+#list-view[type="userstyle"] .addon .icon {display: none !important;}

@@ -1,17 +1,5 @@
 
-//2016.02.08 小調整
-//2015.07.29 14:00 增加在線編碼工具
-//2015.07.19 16:00 統一黑白系圖標
-//2015.05.31 18:00 加入更新IP批處理
-//2015.05.08 09:00 加入SumatraPDF
-//2015.05.03 14:00 調整菜單順序，加入Win8.1優化批處理
-//2015.04.27 09:00 加入GoGo Tester
-//2015.03.29 20:00 Software和 Plugins分離出配置文件夾
-//2015.03.26 12:00 加入ReRe，Winmaster
-//2015.03.25 20:00 加入DnsJumper, FastStone Capture
-//2015.03.06 15:00 修改快捷方式，把文字改爲繁體
-//2015.02.09 20:00 添加清理垃圾緑色版
-//2015.01.26 21:00 更新備份模塊
+//2016.02.29
 
 /**********************************************************************************
  *此處爲按鈕設置
@@ -105,7 +93,44 @@ label: "在Chrome中打開",
 text: "%u",
 exec: "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
 },]
-},{},{
+},{},
+{
+label:"常用功能",
+image : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAG0lEQVQ4jWNgGCzgP5l4EIFRLwwGMIScOvgAAMPmMc89jdNcAAAAAElFTkSuQmCC",
+child:[
+{
+label: "ProfD",
+tooltiptext: "iMacros文件夾",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path,
+},
+{
+label: "iMacros",
+tooltiptext: "iMacros文件夾",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\iMacros\\Macros",
+},
+{},
+{
+label : "证书管理",
+oncommand: function () {
+window.open('chrome://pippki/content/certManager.xul', 'mozilla:certmanager', 'chrome,resizable=yes,all,width=600,height=400');
+},
+image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAuklEQVQ4jcWSqw7CMBSG93y1yGZvMLHUV6Ga6YkmhHdoFkIHZqllQRAwMyMQxLJNcAnIH1fBEN0m9ifHHPHlOxfPmzyMMYwpjzGGoekADmWDUBqE0uBQNv0BVGgQrkC4AhW6P8CPUgvwo9T2kyTp1F9AXlSgQoMKjbyo+hlc6yeCOEP7+KC+vxFKg1v7cjcI4gyEKyz0EcvNCYQrhNK4G8zmKzv/7yKdDNa7c+cK2/3F3WBILGDUK0+eLwDMbVc5IMVkAAAAAElFTkSuQmCC"
+//chrome://mozapps/skin/extensions/category-dictionaries.png
+},
+{
+label: "瀏覽器控制台",
+oncommand: "HUDService.openBrowserConsoleOrFocus();",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABQ0lEQVQ4jX2TS05CQRBFi4FNrHPBffCRuA0W4tgpUbYADDBxD7ID4giXQMQFGAhjHQADcWC/l6b51LDfrVN976s2yyqE0AAGkhbABthI+gAGIYRGrj/odfcxsAZ6QNvMqmZWBTru3gfWkl7M7PqoGZhKmpjZTXEoaSZplujqkibAm5kFS4TPsbmSUiPgPRtWkTRx93EhagKrSM8nHlTyvQ4sJTUNGLp7/8LEkzeKOQ0tpt3Jxe7+eA4UAW1JCwO29p92Pm0PPFxgBGBbAnL/EfDr7vdncpCk79JC7l/SPkJ27t7NcwBugflBiLmFBLI8kUEPGJmkVhTUM8EyAayy/uI3toppR4vk7l1gBXylFiwukqTnPNGppFczqx0HXlbt5CoXkPQxxetdmRnufufuT5ceU1lxtUeSPoEd8APM41kr1/8BlhlfHqOqklEAAAAASUVORK5CYII="
+},
+{
+label: "错误控制台",
+oncommand: "toJavaScriptConsole();",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXklEQVQ4jaWT0QnAIBBDs9dboUs5VQewe51fFim21ksgv48kEMkVUIFIugqIrIC4AUc5tzwFdKUBVgJ7A0khKQ/oGiEr4GuFv0mWCbYAsw2edUZ/VkglcADOmS77zQ2WT6Il/QiZvAAAAABJRU5ErkJggg=="
+},
+
+]
+},{},
+{
 label: '軟件列表',
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAKElEQVQ4jWNgoBL4TwSmrQGDD7QRiWlnwMCBrQQw7Q0YOECxswfO3wBrBTGdpowsywAAAABJRU5ErkJggg==",
 child: [
@@ -129,10 +154,6 @@ exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Imag
 label: "ScreenToGif",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Image\\ScreenToGif.exe",
 },{},
-{
-label: "ADM",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\ADM\\===绿色版点我===.bat",
-},
 {
 label: "Adbyby",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\Adbyby\\Adbyby.exe",
@@ -175,42 +196,6 @@ oncommand: 'gBrowser.selectedTab = gBrowser.addTab("http://ezgif.com/optimize/")
 },
 ]
 }, {},
-{
-label:"常用功能",
-image : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAG0lEQVQ4jWNgGCzgP5l4EIFRLwwGMIScOvgAAMPmMc89jdNcAAAAAElFTkSuQmCC",
-child:[
-{
-label : "证书管理",
-oncommand: function () {
-window.open('chrome://pippki/content/certManager.xul', 'mozilla:certmanager', 'chrome,resizable=yes,all,width=600,height=400');
-},
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAuklEQVQ4jcWSqw7CMBSG93y1yGZvMLHUV6Ga6YkmhHdoFkIHZqllQRAwMyMQxLJNcAnIH1fBEN0m9ifHHPHlOxfPmzyMMYwpjzGGoekADmWDUBqE0uBQNv0BVGgQrkC4AhW6P8CPUgvwo9T2kyTp1F9AXlSgQoMKjbyo+hlc6yeCOEP7+KC+vxFKg1v7cjcI4gyEKyz0EcvNCYQrhNK4G8zmKzv/7yKdDNa7c+cK2/3F3WBILGDUK0+eLwDMbVc5IMVkAAAAAElFTkSuQmCC"
-//chrome://mozapps/skin/extensions/category-dictionaries.png
-},{},
-{
-label: "瀏覽器控制台",
-oncommand: "HUDService.openBrowserConsoleOrFocus();",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABQ0lEQVQ4jX2TS05CQRBFi4FNrHPBffCRuA0W4tgpUbYADDBxD7ID4giXQMQFGAhjHQADcWC/l6b51LDfrVN976s2yyqE0AAGkhbABthI+gAGIYRGrj/odfcxsAZ6QNvMqmZWBTru3gfWkl7M7PqoGZhKmpjZTXEoaSZplujqkibAm5kFS4TPsbmSUiPgPRtWkTRx93EhagKrSM8nHlTyvQ4sJTUNGLp7/8LEkzeKOQ0tpt3Jxe7+eA4UAW1JCwO29p92Pm0PPFxgBGBbAnL/EfDr7vdncpCk79JC7l/SPkJ27t7NcwBugflBiLmFBLI8kUEPGJmkVhTUM8EyAayy/uI3toppR4vk7l1gBXylFiwukqTnPNGppFczqx0HXlbt5CoXkPQxxetdmRnufufuT5ceU1lxtUeSPoEd8APM41kr1/8BlhlfHqOqklEAAAAASUVORK5CYII="
-},
-{
-label: "错误控制台",
-oncommand: "toJavaScriptConsole();",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXklEQVQ4jaWT0QnAIBBDs9dboUs5VQewe51fFim21ksgv48kEMkVUIFIugqIrIC4AUc5tzwFdKUBVgJ7A0khKQ/oGiEr4GuFv0mWCbYAsw2edUZ/VkglcADOmS77zQ2WT6Il/QiZvAAAAABJRU5ErkJggg=="
-},
-{
-label:"代码速记",
-oncommand: "Scratchpad.openScratchpad();",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABCklEQVQ4ja2SvUrEQBSFL7KFlW1SpvINJpN7zgNoYacidoG7D+ArLCLsFrZ5BxG0mMLS0lTbrW+Ryk6LsUkkaNzEnwMHhoHv486PHC0e4tTKUP4sMLP4OSGEL3tm9j8CAFckXwAcfwhCCKM1s6iqFyQjyQjgFcDJ5Anquo7OuRTAcych+TZJUFVVLMsyisjMe5/0JWJm8bv24aZpIskbVT3tJABWgxfbBcASwNo5l5K8A3Dfrufe+70xeDUEA1gDuNwKq+piC7x97CzLdknOfwWLyA7JJ+99QvIMwO1PYMnzfL99no33PhGRWQsvR+H27Oe9T7JxzqWqejgJbgUHABqSjwCui6LgGPMOxkxvJUAHypcAAAAASUVORK5CYII="
-},
-{},
-{
-label: "关于about",
-oncommand: "gBrowser.selectedTab = gBrowser.addTab('about:about');",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAtElEQVQ4jd1TsQ2EMAzMHjRsBgv8BEzDHkjWN7SZIVToKaxI9rX+CvSEBJDo/qTrzpfYPjuXQERaAATAEpKItKl+AzPXquopRGuG2ap+2rEZZqMQTVU9M9e5Yn69P4fClN24mKryzkRVfTcuB/GKgonfeqYQs6+VDKp+MgrRRKR1ACjX8xWbYTYA5AAURWc/qPrJANifGBSHeGawDfHxGtcg5VJ4K0i/Uc6l8VaUHx/Tk3P+AlfnolljYUMNAAAAAElFTkSuQmCC"//chrome://global/skin/icons/information-16.png
-},
-
-]
-},{},
 {
 label: "關於瀏覧器",
 oncommand: "openAboutDialog();",

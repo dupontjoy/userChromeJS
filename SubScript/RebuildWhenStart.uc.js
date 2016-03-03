@@ -9,8 +9,8 @@
 (function()
 {
 //Addmenu 和 moveButton
-setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();toggleDelay(false);}, 1*1000);//1秒
-setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();toggleDelay(false);}, 2*1000);
-setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();toggleDelay(false);}, 3*1000);
-setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();toggleDelay(false);}, 4*1000);
+setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();}, 1*1000);//1秒
+setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();}, 2*1000);
+setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();}, 3*1000);
+setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();}, 4*1000);
 })();

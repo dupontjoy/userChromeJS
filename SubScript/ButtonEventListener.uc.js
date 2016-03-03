@@ -3,7 +3,7 @@
 // @namespace      runningcheese@qq.com
 // @description    为工具栏图标增加点击功能
 // @author         runningcheese
-// @version        0.0.1-20160209
+// @version        0.0.1-20160303
 // @license        MIT License
 // @compatibility  Firefox 29+
 // @charset        UTF-8
@@ -56,6 +56,21 @@ BrowserReloadSkipCache();
 
 }
 
+//點擊頁面恢復原來的地址
+gBrowser.addEventListener("DOMWindowCreated", function () {
+window.content.document.addEventListener("click", function (e) {
+document.getElementById("urlbar").handleRevert();
+}, false);
+}, false);
+
+//当地址栏失去焦点后恢复原来的地址
+if (location == "chrome://browser/content/browser.xul") {
+var ub = document.getElementById("urlbar");
+ub.addEventListener("blur", function () {
+this.handleRevert();
+}, false);
+};
+
 //中键点击地址栏自动复制网址
 document.getElementById('urlbar').addEventListener('click', function(e){
 	if(e.button == 1) goDoCommand('cmd_copy');
@@ -82,3 +97,51 @@ location == 'chrome://browser/content/browser.xul' && (function () {
 	if (!bmbtn) return;
 uIcon.appendChild(bmbtn);
 })();
+
+// 失出焦点自动关闭查找栏
+(function(){
+function closeFindbar(e){
+        if(!gFindBar.hidden)
+        {
+                if(e.target.id != "FindToolbar"){
+                        gFindBar.close();
+                }
+        }
+}
+addEventListener('blur', closeFindbar, false);
+})();
+
+/*书签下拉菜单中键不关闭*/
+eval('BookmarksEventHandler.onClick = ' + BookmarksEventHandler.onClick.toString()
+.replace(/if \(node\.localName \=\= \"menupopup"\)\n\s+node\.hidePopup\(\)\;\n\s+else/,''));
+eval('checkForMiddleClick = ' + checkForMiddleClick.toString()
+.replace('closeMenus(event.target);',''));
+
+/*GM中键切换开关不关闭下拉菜单*/
+eval('GM_popupClicked = ' + GM_popupClicked.toString()
+.replace(/\'command\' \=\= aEvent\.type/,"$& \|\| aEvent\.button \=\= 1")
+.replace(/\=\! script\.enabled\;\n/,"$&aEvent.target.setAttribute('checked',script.enabled);\n")
+.replace(/closeMenus/,"if(aEvent\.button \!\= 1) $&"));
+
+/*stylish中键切换开关不关闭下拉菜单和右键直接打开编辑*/
+eval("stylishOverlay.popupShowing = "+ stylishOverlay.popupShowing.toString()
+.replace(/menuitem\.addEventListener.*/,'\
+menuitem.addEventListener("click", function(event) {\
+if(event.button != 2) {\
+stylishOverlay.toggleStyle(this.stylishStyle);\
+event.target.setAttribute("checked",this.stylishStyle.enabled);\
+event.stopPropagation();\
+}else{\
+stylishCommon.openEditForStyle(this.stylishStyle);\
+closeMenus(this);\
+event.preventDefault();\
+}\
+}, false);'
+)
+); 
+
+/*显示下载速度*/
+(function(){
+   eval("DownloadsViewItem.prototype._updateProgress = " +
+      DownloadsViewItem.prototype._updateProgress.toString().replace('status.text', 'status.tip'));
+})()

@@ -563,7 +563,7 @@ page(
 label: "用新分頁開啟鏈結",
 condition: "link",
 position: 1,
-tooltiptext: "左鍵：用新分頁開啟鏈結\n右鍵：迅雷雲播放\n中鍵：複製鏈接網址",
+tooltiptext: "左鍵：用新分頁開啟鏈結\n中鍵：迅雷雲播放\n右鍵：複製鏈接網址",
 onclick: function(e) {
 switch(e.button) {
 case 0:

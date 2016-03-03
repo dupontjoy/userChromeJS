@@ -1,5 +1,5 @@
 
-//2016.02.15
+//2016.03.01
 
 //Redirector說明頁面：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -19,9 +19,9 @@ decode: false // 可選，true 表示尝試對 from 解碼
 
 {
 //example: http://trunk.tvc-mall.com/c/hobbies-toys/
-name: "trunk.tvc",
-from: /^https?:\/\/trunk\.tvc-mall\.com\/(c|t|details)\/(.*)/i,
-to: "http://www.tvc-mall.com/$1/$2",
+name: "trunk.tvc|seculife",
+from: /^https?:\/\/trunk\.(tvc-mall|seculife)\.com\/(c|t|details)\/(.*)/i,
+to: "http://www.$1.com/$2/$3",
 regex: true
 },
 //單獨網站
@@ -49,10 +49,12 @@ to: "http://$1.ifeng.com/$2shtml$3",
 regex: true
 },
 {
-//example：http://www.jobui.com/tips/redirect.php?link=http%3A%2F%2Fsearch.51job.com%2Fjob%2F65505572%2Cc.html
-name: "職友集 去跳轉",
-from:/^https?:\/\/www\.jobui\.com\/tips\/redirect\.php\?link=(.*)/i,
-to: "$1",
+//example：http://www.jobui.com/tips/redirect.php?link=http%3A%2F%2Fjobs.51job.com%2Fshenzhen-nsq%2F58889341.html
+//example: https://link.zhihu.com/?target=https%3A//addons.mozilla.org/zh-cn/firefox/addon/linkchecker/%3Fsrc%3Dsearch
+//example: https://www.douban.com/link2/?url=https%3A%2F%2Fcode.google.com%2Fp%2Fchromium%2Fissues%2Fdetail%3Fid%3D51084
+name: "去跳轉",
+from:/^https?:\/\/.*\.(jobui|zhihu|douban)\..*\/.*?(link|target|url)=(.*)/i,
+to: "$3",
 regex: true
 },
 {
@@ -91,14 +93,7 @@ from: /(.*)kyfw\.12306\.cn\/otn\/resources\/merged\/queryLeftTicket_end_js.js(.*
 to: "https://raw.githubusercontent.com/dupontjoy/customization/master/12306/queryLeftTicket_end_js.js",
 regex: true
 },
-{
-//example: http://bbs.kafan.cn/forum.php?mod=viewthread&tid=1480897&highlight=noscript
-//example: http://www.zasq.net/forum.php?mod=viewthread&tid=102909&highlight=极品家丁
-name:"去除URL的highlight，防止卡死",
-from: /^(http:\/\/.*\.(com|cn|net)\/.*?)&highlight=(.*)/,
-to: "$1",
-regex: true
-},
+
 
 //Google系
 {

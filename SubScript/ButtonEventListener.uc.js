@@ -3,7 +3,7 @@
 // @namespace      runningcheese@qq.com
 // @description    为工具栏图标增加点击功能
 // @author         runningcheese
-// @version        0.0.1-20160303
+// @version        0.0.1-20160305
 // @license        MIT License
 // @compatibility  Firefox 29+
 // @charset        UTF-8
@@ -83,7 +83,8 @@ window.addEventListener("click", function(e) {
         let url = readFromClipboard();
         //原正则 /^(https?:\/\/)?\w+(\.\w+)+\/\S*/
         if (!/^(https?:\/\/)?([\w\-]+\.)+\w+(\:\d+)?[\w\-\/\|\?\.#%&=]*$/.test(url))
-            url = 'https://www.baidu.com/s?wd='+ encodeURIComponent(url);
+        //url = 'https://www.baidu.com/s?wd='+ encodeURIComponent(url);
+        url = 'about:config';
         gBrowser.loadOneTab(url, {inBackground:false});
         e.preventDefault();
         e.stopPropagation();

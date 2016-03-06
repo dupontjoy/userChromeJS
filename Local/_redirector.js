@@ -1,5 +1,5 @@
 
-//2016.03.01
+//2016.03.05
 
 //Redirector說明頁面：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -20,7 +20,7 @@ decode: false // 可選，true 表示尝試對 from 解碼
 {
 //example: http://trunk.tvc-mall.com/c/hobbies-toys/
 name: "trunk.tvc|seculife",
-from: /^https?:\/\/trunk\.(tvc-mall|seculife)\.com\/(c|t|details)\/(.*)/i,
+from: /^https?:\/\/trunk\.(tvc-mall|seculife)\.com\/(c\/|t\/|details\/|search)(.*)/i,
 to: "http://www.$1.com/$2/$3",
 regex: true
 },
@@ -142,6 +142,13 @@ name: "ajax|fonts(https?) >> useso",
 from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "http://$1.useso.com/$2",
 regex: true
+},
+{
+//新浪到百度JS库
+name: "sina > baidu JS Libs",
+from: "http://lib.sinaapp.com/js/jquery/*/*",
+to: "http://libs.baidu.com/jquery/$1/$2",
+wildcard: true
 },
 
 

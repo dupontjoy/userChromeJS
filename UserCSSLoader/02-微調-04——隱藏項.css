@@ -1,4 +1,4 @@
-/*+++ 2016.03.03 +++*/
+/*+++ 2016.03.05 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
@@ -210,6 +210,7 @@ display: none !important;
 }
 
 /*FlashGot菜單項*/
+#__lpform_RequestId_icon,
 #flashgot-main-sep-buildGallery,/*分割线*/
 #flashgot-menuitem-media,/*Flashgot此Media*/
 #flashgot-main-menuitem-sel,/*使用 FlashGot 下载所选链接*/

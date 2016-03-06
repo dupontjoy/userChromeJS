@@ -1,4 +1,4 @@
-/*+++ 2016.01.23 +++*/
+/*+++ 2016.03.04 +++*/
 
 @-moz-document domain("ic.sjlpj.cn") {
 /*=常用目录加粗=*/
@@ -57,12 +57,6 @@ color: purple !important;
 .btn_blue/*型号分组管理，新建子组目录*/
 {
 padding: 0px !important;
-}
-
-/*=隱藏項=*/
-#m_040109/*外网产品运营查询*/
-{
-display: none !important;
 }
 
 }

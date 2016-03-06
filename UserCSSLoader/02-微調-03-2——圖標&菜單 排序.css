@@ -1,4 +1,7 @@
-/*+++ 2016.03.03 +++*/
+/*+++ 2016.03.05 +++*/
+
+/*Lastpass添加站点调序*/
+menuitem[label="添加站点"] {-moz-box-ordinal-group: 0 !important;}
 
 /*附加组件调序*/
 #category-extension {-moz-box-ordinal-group: 0 !important;}/*扩展*/

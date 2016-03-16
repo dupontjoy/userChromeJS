@@ -54,3 +54,14 @@ box-shadow: none !important;
 
 /*去除点击时边框*/
 :focus {outline: none !important}
+
+/*去除按钮点击的默认样式*/
+:root {
+	--toolbarbutton-hover-background: rgba(0,0,0,0) !important;
+	--toolbarbutton-hover-bordercolor: rgba(0,0,0,0) !important;
+	--toolbarbutton-hover-boxshadow: none !important;
+	--toolbarbutton-active-background: rgba(0,0,0,0) !important;
+	--toolbarbutton-active-bordercolor: rgba(0,0,0,0) !important;
+	--toolbarbutton-active-boxshadow: 0 0 0 0px rgba(0,0,0,0) inset !important;
+	--toolbarbutton-checkedhover-backgroundcolor: rgba(0,0,0,0) !important;
+}

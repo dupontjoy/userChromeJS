@@ -62,6 +62,16 @@
 (function(){
   "use strict";
   // -- config --
+  /*
+    EXPERIMENT：取消延迟加载（实验性的）？true 为不延迟，false 为延迟。为 true 则一些脚本可能会运行不正常。
+      true 和 false 区别2点：
+        1、本来有个 500ms 的延迟加载，true 后就没了。
+        2、本来是一个个加载 xul 文件，而 true 则把所有的 xul 加起来一次性加载。 前不久卡饭还有个 userChromejs 扩展的优化版，就是优化 xul 文件的加载。 
+    EXCLUDE_CHROMEHIDDEN：  排除隐藏的 window(popup等)
+    USE_0_63_FOLDER：如果为 true，好像只支持这几种文件夹名字 uc、xul、ucjs
+    FORCESORTSCRIPT：对脚本进行排序，这可能对脚本的运行顺序有影响
+    AUTOREMOVEBOM：对文件编码进行检测，但并不支持 gbk 编码
+  */
   const EXPERIMENT = false; //実験:するtrue, しない[false]
   const EXCLUDE_CHROMEHIDDEN = false; //chromehiddenなwindow(popup等)ではロード: しないtrue, する[false]
   const USE_0_63_FOLDER = false; //0.63のフォルダ規則を使う[true], 使わないfalse
@@ -70,25 +80,9 @@
   const REPLACECACHE = false; //スクリプトの更新日付によりキャッシュを更新する: true , しない:[false]
   //=====================USE_0_63_FOLDER = falseの時===================
   var UCJS      = new Array("UCJSFiles","userContent","userMenu"); //UCJS Loader 仕様を適用 (NoScriptでfile:///を許可しておく)
-    var arrSubdir = new Array("", "xul","withTabMixPlus"  ,  "userCrome.js.0.8","userContent",
-"SubScript", 
-"UCJSFiles",
-"TabMixPlus",
-"userMenu",
-"userButton",
-"PageBrowse",
-"ToolbarScript",
-"downloadPlus",
-"AAA",
- "\u6DFB\u52A0\u9078\u55AE\u529F\u80FD",//添加選單功能
-"\u9801\u9762\u700F\u89BD\u529F\u80FD",//頁面瀏覽功能
-"\u5DE5\u5177\u5217\u6309\u9215",//工具列按鈕
-"\u4E0B\u8F09\u5C0D\u8A71\u6846\u589E\u5F37",//下載對話框增強
-"\u5DE5\u5177\u5217\u529F\u80FD\u589E\u5F37",//工具列功能增強
-"\u4ECB\u9762\u66F4\u6539"); //介面更改
-//スクリプトはこの順番で実行される
+  var arrSubdir = new Array("", "xul","TabMixPlus","withTabMixPlus", "SubScript", "UCJSFiles", "userCrome.js.0.8","userContent","userMenu");    //スクリプトはこの順番で実行される
   //===================================================================
-  const ALWAYSEXECUTE   = 'rebuild_userChrome.uc.xul'; //常に実行するスクリプト
+  const ALWAYSEXECUTE   = 'rebuild_userChrome.uc.xul'; // 强制运行的脚本，无视禁用列表
   var INFO = true;
   var BROWSERCHROME = "chrome://browser/content/browser.xul"; //Firfox
   //var BROWSERCHROME = "chrome://navigator/content/navigator.xul"; //SeaMonkey:
@@ -211,7 +205,7 @@ var Start = new Date().getTime();
           var istream = Cc["@mozilla.org/network/file-input-stream;1"].createInstance(Ci.nsIFileInputStream);
           while(files.hasMoreElements()){
             var file = files.getNext().QueryInterface(Ci.nsIFile);
-            if(/\.uc\.js$|\.uc\.xul$/i.test(file.leafName)
+            if(/\.uc\.xul$|\.uc\.js$/i.test(file.leafName)
                || /\.xul$/i.test(file.leafName) && /\xul$/i.test(this.arrSubdir[i])) {
               var script = getScriptData(
                               this.AUTOREMOVEBOM ? deleteBOMreadFile(file) : readFile(file, true)
@@ -274,7 +268,7 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
 
       //メタデータ収集
       function getScriptData(aContent,aFile){
-        var charset, description;
+        var charset, description, author, version, homepageURL, reviewURL, downloadURL, updateURL, fullDescription;
         var header = (aContent.match(/^\/\/ ==UserScript==[ \t]*\n(?:.*\n)*?\/\/ ==\/UserScript==[ \t]*\n/m) || [""])[0];
         var match, rex = { include: [], exclude: []};
         while ((match = findNextRe.exec(header)))
@@ -298,6 +292,60 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
         //}catch(e){}
         if (description =="" || !description)
           description = aFile.leafName;
+		
+		// version
+        match = header.match(/\/\/ @version\b(.+)\s*/i);
+        version = "";
+        if(match && match.length)
+          version = match[1].replace(/^\s+/,"").split(" ")[0];
+
+        // author
+        match = header.match(/\/\/ @author\b(.+)\s*/i);
+        author = "";
+        if(match)
+          author = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
+
+        // homepageURL
+        match = header.match(/\/\/ @homepageURL\b(.+)\s*/i);
+        homepageURL = "";
+        if(match)
+          homepageURL = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
+
+        // reviewURL
+        match = header.match(/\/\/ @reviewURL\b(.+)\s*/i);
+        reviewURL = "";
+        if(match)
+          reviewURL = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
+
+        // downloadURL
+        match = header.match(/\/\/ @downloadURL\b(.+)\s*/i);
+        downloadURL = "";
+        if(match)
+          downloadURL = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
+
+        // updateURL
+        match = header.match(/\/\/ @updateURL\b(.+)\s*/i);
+        updateURL = "";
+        if(match)
+          updateURL = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
+
+        // optionsURL
+        match = header.match(/\/\/ @optionsURL\b(.+)\s*/i);
+        var optionsURL = "";
+        if(match)
+          optionsURL = match.length > 0 ? match[1].replace(/^\s+/,"") : "";
+
+        // fullDescription
+        match = header.match(/\/\/ @note\b(.+)\s*/ig);
+        fullDescription = "";
+        var notes = [];
+        if(match && match.length){
+          for (var i = 0; i < match.length; i++) {
+            notes[i] = match[i].replace(/^\/\/ @note\s+/i, "");
+          }
+          fullDescription = "\n" + notes.join("\n");
+        }
+		 
         var url = fph.getURLSpecFromFile(aFile);
 
         return {
@@ -307,6 +355,13 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
           //namespace: "",
           charset: charset,
           description: description,
+          version: version,
+          author: author,
+          homepageURL: homepageURL,
+          reviewURL: reviewURL,
+          downloadURL: downloadURL,
+          optionsURL: optionsURL,
+          fullDescription: fullDescription,
           //code: aContent.replace(header, ""),
           regex: new RegExp("^" + exclude + "(" + (rex.include.join("|") || ".*") + ")$", "i")
         }
@@ -631,8 +686,8 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
             else
               Cc["@mozilla.org/moz/jssubscript-loader;1"].getService(Ci.mozIJSSubScriptLoader)
                        .loadSubScript(script.url + "?" + this.getLastModifiedTime(script.file),
-                                      doc.defaultView, 'UTF-8');
-                                      //doc.defaultView);
+                                      doc.defaultView, "UTF-8");
+									//doc.defaultView);
           }catch(ex) {
             this.error(script.filename, ex);
           }
@@ -759,7 +814,7 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
       setTimeout(function(doc){
         that.runScripts(doc);
         //面倒だからFirefox 3 の場合はeditBookmarkOverlay.xulを先読みしておく
-        var delay = 0;
+        var delay = 500;
         if (location.href === that.BROWSERCHROME &&
             typeof StarUI != 'undefined' &&
             !(StarUI._overlayLoading || StarUI._overlayLoaded)) {
@@ -787,7 +842,7 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
           delay = 0;
         }
         setTimeout(function(doc){that.runOverlays(doc);}, delay, doc);
-      },0, doc);
+      },500, doc);
     } else {
       that.runScripts(doc);
       //面倒だからFirefox 3 の場合はeditBookmarkOverlay.xulを先読みしておく
@@ -874,4 +929,3 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
     }
   }
 })();
-//userChrome.import("stylish0.5_edit.uc.js", "UChrm");

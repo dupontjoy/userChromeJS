@@ -3,7 +3,7 @@
 // @namespace      runningcheese@qq.com
 // @description    为工具栏图标增加点击功能
 // @author         runningcheese
-// @version        0.0.1-20160305
+// @version        0.0.1-20160315
 // @license        MIT License
 // @compatibility  Firefox 29+
 // @charset        UTF-8
@@ -27,7 +27,7 @@ if (location == "chrome://browser/content/browser.xul") {
     })(document);
 
 
-//右键  Pocket图标 弹出 网页版Pocket
+//右键  自带Pocket图标 弹出 网页版Pocket
 (function (doc) {
         var Openpocketonlielist = doc.getElementById('pocket-button');
         if (!Openpocketonlielist) return;
@@ -40,19 +40,43 @@ if (location == "chrome://browser/content/browser.xul") {
         }, false);
     })(document);
 
-
+//右键  扩展版Pocket(Readitlater)图标 弹出 网页版Pocket
+(function (doc) {
+        var OpenRILonlielist = doc.getElementById('RIL_toolbar_button');
+        if (!OpenRILonlielist) return;
+        var menupopup = OpenRILonlielist.firstChild;
+        OpenRILonlielist.addEventListener("click", function (e) {
+            if (e.button == 2) {
+               e.preventDefault();
+               gBrowser.addTab('http://getpocket.com/goto?page=a');
+            }
+        }, false);
+    })(document);
 
 //右键  地址栏刷新图标 强制刷新页面（跳过缓存）
 (function () {
-var UndoClosedTabs = document.getElementById('urlbar-reload-button');
-if (!UndoClosedTabs) return;
-UndoClosedTabs.addEventListener("click", function (event) {
+var ReloadButton = document.getElementById('urlbar-reload-button');
+if (!ReloadButton) return;
+ReloadButton.addEventListener("click", function (event) {
 if (event.button == 2) {
 event.preventDefault();
 BrowserReloadSkipCache();
 }
 }, false);
 })();
+
+//右键 三道杠 打开 UChrm
+(function (doc) {
+        var UChrmlist = doc.getElementById('PanelUI-menu-button');
+        if (!UChrmlist) return;
+        var menupopup = UChrmlist.firstChild;
+        UChrmlist.addEventListener("click", function (e) {
+            if (e.button == 2) {
+               e.preventDefault();
+               new Components.Constructor("@mozilla.org/file/local;1","nsILocalFile", "initWithPath")(Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsIFile).path).reveal();
+            }
+        }, false);
+    })(document);
 
 }
 
@@ -75,21 +99,6 @@ this.handleRevert();
 document.getElementById('urlbar').addEventListener('click', function(e){
 	if(e.button == 1) goDoCommand('cmd_copy');
 }, false);
-
-//右击新建标签按钮访问剪切板内容
-location=="chrome://browser/content/browser.xul" &&
-window.addEventListener("click", function(e) {
-    if (e.button === 2 && e.originalTarget.className === "tabs-newtab-button") {
-        let url = readFromClipboard();
-        //原正则 /^(https?:\/\/)?\w+(\.\w+)+\/\S*/
-        if (!/^(https?:\/\/)?([\w\-]+\.)+\w+(\:\d+)?[\w\-\/\|\?\.#%&=]*$/.test(url))
-        //url = 'https://www.baidu.com/s?wd='+ encodeURIComponent(url);
-        url = 'about:config';
-        gBrowser.loadOneTab(url, {inBackground:false});
-        e.preventDefault();
-        e.stopPropagation();
-    }
-});
 
 //移动添加书签图标到地址栏
 location == 'chrome://browser/content/browser.xul' && (function () {

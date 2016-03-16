@@ -1,4 +1,4 @@
-/*+++ 2016.03.05 +++*/
+/*+++ 2016.03.14 +++*/
 
 /*==修正图標和文字擠一起問題==*/
 /* Adjust left-margin for menuitems and menus which aren't iconized */
@@ -83,7 +83,7 @@ list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYA
 }
 
 /*腳本的設置/編輯*/
-[label="管理選單"],[oncommand="Redirector.edit();"] {
+[oncommand="Redirector.edit();"] {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABYklEQVQ4jZ1Tu04DMRCcKEV0uTvvrNcVr2/Ib4QCBQFlvgAkpPA3pAFCAwkdSJHSARKPnzJFnOMShYCYyt4de9eeWWAD8tJ95qX73MRZhxbpB0KbAIgAotDGpB8AaP10qFEUMs4LmVHDI2nXjtZvt8NWlvldR+uTdi0anvJCZqLhEkBjtd13AJG0w5+qpFxM3CUUojZ1TvdrsSZpPdJ6AJqLoHPaFbUpgKJiOrVT0kbfldihhlfSbkm7na/ZqXUycmpn1QWi4U7EH6dtRoZnR39eFaA/p4YXAG0AEPHHouFu3nvp3gDELPM7KXmUFFiC0CYi/ggAssy2AcSidG9IOsdMde/PF8y5sfKIaLgX8Sf/esIvnzgibbTmE2+c2mm9w4WM3VqsSdph0n6zjACQl+4DQCwZDlbfv0DKxcRdQkMYhjUrX62x8lVlZYYhVq1cw2KYHvA9TBMyXGDDMK3FX8b5C/yjWT9h/Ai2AAAAAElFTkSuQmCC")!important;
 }
@@ -241,6 +241,8 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 }
 
 /*書簽右鍵 更新当前书签*/
+#updatebookmarkUpdateCurrentURLMenuItem,/*更新为当前地址*/
+#updatebookmarkUpdateCurrentTitleMenuItem,/*更新为当前标题*/
 #updatebookmarkMenuItem {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAt0lEQVQ4jc3SrQpCQRQE4A+LyWKxG3wBjWaDWI0+glmwWEw2qzbfw+hbGIUbfAVBwx5BuHfxD8SBZeEwO3OYHf4VbWxxwgVHrNF65fEABRYhVEMHq5j3YjaPu+RcoJ8RH8VWYxyqCLtQrsIM+zhHTHMOzYxA/cH54sU8csiZfIeGFOAG3U8EJiFwD2mZ4a2DW8JeSvYsfWOjgjOWvrGUQU1avY5hiCylAlUV6SnaUicKXL1Z5d/iBp0JJPp/6PADAAAAAElFTkSuQmCC")!important;
@@ -272,13 +274,13 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 /*標簽右鍵 關閉右側分頁*/
 #context_closeTabsToTheEnd {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
-list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPUlEQVQ4jWNgGOzgPxQPFwP+MzDY/Wdg+PWfgcGObBcgGeJPtAH/cWOCLqGOC7BodiBGM1YXkAoG3oAhAAAhGjUM3rbC6QAAAABJRU5ErkJggg==") !important;
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAOUlEQVQ4jWNgGGzgPxQPNwPyGBhyGRgY/kNp8lwAMySTgaGNGAPwYnwuoZoLsGqmKAyIBQNvwBAEAIkvKboNt20DAAAAAElFTkSuQmCC") !important;
 }
 
 /*標簽右鍵 關閉其它分頁*/
 #context_closeOtherTabs {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
-list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAT0lEQVQ4jWNgGOzgPxQPBQP+MzDY/Wdg+PWfgcEOlwE41DAw/Gdg8McqgcUFSIb4Iwv8x4ZhBuCSh1tIkQuQJBxICAMHLMGIFQyldDB0AQCo5VQteVskeAAAAABJRU5ErkJggg==") !important;
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATElEQVQ4jdXSQQrAMAhE0edxs0iOkWvbVQsFs2m7aD64cWQcRH5NkEFuYjDoQQ76yqCaAY1ZCVWC06Qxb40ndS18leCTG6zY7A/25QBZhDm3YCnePQAAAABJRU5ErkJggg==") !important;
 }
 
 /*粘貼並轉到*/

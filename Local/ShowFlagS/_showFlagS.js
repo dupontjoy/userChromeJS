@@ -89,25 +89,9 @@ var UASites = [
 //2014.12.11 調整圖標
 {url : "http://www\\.apple\\.com/",label : "Chrome - Win7"},
 {url : "https?://(?:mybank.*|b2c.*)\\.icbc\\.com\\.cn/",label : "Firefox20.0"},//工商銀行
-{url : "https?://(.*?)n\\.baidu\\.com/",label : "Chrome - Win7"},//百度云
 {url : "http:\/\/vod\.kankan\.com/",label : "Safari - Mac"}, //直接可以看kankan视频，无需高清组件
 {url : "http:\/\/wap\.*",label : "UCBrowser"}, //WAP用UC浏览器
 {url : "http:\/\/browser\.qq\.com\/*",label : "Chrome - Win7"}, 
-{url : "http://www\\.google\\.co\\.jp\\m/",label : "iPhone"},
-{url : "http://wapp\\.baidu\\.com/",label : "iPhone"},
-{url : "http://wappass\\.baidu\\.com/",label : "iPhone"},
-{url : "http://wapbaike\\.baidu\\.com/",label : "iPhone"},
-{url : "http://weibo\\.cn/",label : "iPhone"},
-{url : "http://m\\.hao123\\.com/",label : "iPhone"},
-{url : "http://m\\.mail\\.163\\.com/",label : "iPhone"},
-{url : "http://w\\.mail\\.qq\\.com//",label : "iPhone"},
-{url : "http:\/\/m\\.qzone\\.com/",label : "iPhone"},
-{url : "http://wap\\.58\\.com/",label : "iPhone"},
-{url : "http://i\\.jandan\\.net/",label : "iPhone"},
-{url : "http://www\\.tianya\\.com\\m/",label : "iPhone"},
-{url : "http://m\\.xianguo\\.com\\wap/",label : "iPhone"},
-{url : "http:\/\/ti\\.3g\\.qq\\.com/",label : "iPhone"},
-{url : "http:\/\/[a-zA-Z0-9]*\\.z\\.qq\\.com/",label : "iPhone"},
 ];
 
 /******************************************************************************************

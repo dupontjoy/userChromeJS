@@ -2,7 +2,7 @@
   @namespace   
   @description 更改浏览附加组件栏时的样式
   @Mod         Cing
-  @version     1.10-20151221
+  @version     1.10-20160309
   @reference               
 */
 
@@ -181,6 +181,11 @@ cursor: default;}
 #list-view:not([type="userstyle"])#list-view:not([type="userchromejs"])
 #addon-list .date-updated {
 display: -moz-box !important;
+}
+
+/*扩展签名未验证警告*/
+.warning {
+display: none !important;
 }
 
 /* ====== 附加組件顯示版本號(FX40+) ====== */

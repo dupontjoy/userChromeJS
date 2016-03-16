@@ -1,5 +1,4 @@
-
-//2016.03.05
+//2016.03.14
 
 //Redirector說明頁面：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -24,6 +23,7 @@ from: /^https?:\/\/trunk\.(tvc-mall|seculife)\.com\/(c\/|t\/|details\/|search)(.
 to: "http://www.$1.com/$2/$3",
 regex: true
 },
+
 //單獨網站
 {
 //example: http://bbs.pcbeta.com/viewthread-700327-1-1.html
@@ -100,41 +100,17 @@ regex: true
 //google.com.hk的搜索重定向到國際版google.com
 //example: https://www.google.com.hk/#newwindow=1&safe=strict&q=tvc
 name: "google.com.hk >> google.com慢速版",
-from: /^https?:\/\/www\.google\.com\.hk\/(s\?|search\?|webhp\?|)(.*)/i,
-to: "https://www.google.com/ncr#$2",
-regex: true
-},
-
-//百度系
-{
-//百度云盘分享页，手机版 重定向至 电脑版
-//詳細說明：http://bbs.kafan.cn/thread-1814510-1-1.html
-//example: http://pan.baidu.com/wap/link?uk=1429459134&shareid=2632372014&third=4
-name: "百度盤wap/link >> share/link",
-from: /^https?:\/\/(pan|yun)\.baidu\.com\/(wap\/link)(.*)/i,
-to: 'http://pan.baidu.com/share/link$3',
+from: /^https?:\/\/www\.google\.com\.hk\/(s\?|search\?|webhp\?|.*\&safe=strict)(.*)/i,
+to: "https://www.google.com/search?$2&hl=en-US&safe=off",
 regex: true
 },
 {
-//百度云盘分享页，手机版 重定向至 电脑版
-//詳細說明：http://bbs.kafan.cn/thread-1814510-1-1.html
-//example: http://pan.baidu.com/wap/album/file?uk=2469870276&album_id=8356718462803856700&fsid=1135635585
-name: "百度盤wap/album/file >> pcloud/album/file",
-from: /^https?:\/\/(pan|yun)\.baidu\.com\/wap\/album\/file(.*)/i,
-to: 'http://pan.baidu.com/pcloud/album/file$2',
+//防死循环教程: http://blog.sina.com.cn/s/blog_6df370b70100oqw5.html
+name: "Google搜索 >> 关闭安全搜索",
+from: /^https?:\/\/www\.google\.com\/(s\?|search\?|webhp\?)(.*)\f((?!hl=en-US|safe=off)\w)+\f/i,
+to: "https://www.google.com/search?$2&hl=en-US&safe=off",
 regex: true
 },
-{
-//百度云盘分享页，手机版 重定向至 电脑版
-//詳細說明：http://bbs.kafan.cn/thread-1814510-1-1.html
-//example: http://pan.baidu.com/wap/share/home?uk=3008368389&third=4
-name: "百度盤wap/share/home >> share/home",
-from: /^https?:\/\/(pan|yun)\.baidu\.com\/wap\/share\/(home\?|)(.*)/i,
-to: 'http://pan.baidu.com/share/home?$3',
-regex: true
-},
-
-//Google服務轉國內鏡像
 {
 //詳細說明：http://bbs.kafan.cn/thread-1769934-1-1.html
 //example: https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js
@@ -143,6 +119,7 @@ from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "http://$1.useso.com/$2",
 regex: true
 },
+
 {
 //新浪到百度JS库
 name: "sina > baidu JS Libs",
@@ -150,6 +127,12 @@ from: "http://lib.sinaapp.com/js/jquery/*/*",
 to: "http://libs.baidu.com/jquery/$1/$2",
 wildcard: true
 },
-
+{
+//example: http://www.utouuxy.com/controlRedirect
+name:"%5C转义到/",
+from:/%5C/g,
+to:"/",
+regex: true
+},
 
 ];

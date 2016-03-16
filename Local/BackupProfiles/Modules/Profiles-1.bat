@@ -1,4 +1,4 @@
-::2016.02.09
+::2016.03.16
 
 :Profiles-1
 cls
@@ -23,10 +23,6 @@ set TempFolder3="%TempFolder%\3"
 
 ::多運行一次防止第一次未能終止
 taskkill /im firefox.exe
-::清理Cache文件夹
-rd /s /q %BackDir%\..\Cache\
-::清理Firefox文件下的tmp文件
-del /s /q %BackDir%\..\firefox\*.tmp
 
 rem 复制目标文件到臨時文件夾
 
@@ -39,6 +35,7 @@ xcopy "%BackDir%\gm_scripts" %TempFolder%\Profiles\gm_scripts\ /s /y /i
 ::browser-extension-data：Redirector擴展的數據文件
 xcopy "%BackDir%\browser-extension-data" %TempFolder%\Profiles\browser-extension-data\ /s /y /i
 xcopy "%BackDir%\iMacros" %TempFolder%\Profiles\iMacros\ /s /y /i
+xcopy "%BackDir%\run" %TempFolder%\Profiles\run\ /s /y /i
 
 ::以下是文件
 xcopy "%BackDir%\bookmarks.html" %TempFolder%\Profiles\ /y
@@ -51,6 +48,7 @@ xcopy "%BackDir%\pluginreg.dat" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\Portable.7z" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\stylish.sqlite" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\user.js" %TempFolder%\Profiles\ /y
+xcopy "%BackDir%\prefs.js" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\xulstore.json" %TempFolder%\Profiles\ /y
 
 ::其它刪除项

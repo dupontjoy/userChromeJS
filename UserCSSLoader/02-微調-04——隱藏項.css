@@ -1,4 +1,4 @@
-/*+++ 2016.03.05 +++*/
+/*+++ 2016.03.15 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
@@ -6,13 +6,10 @@
 {display: none !important;}*/
 
 /*===隐藏页面右键菜单===*/
-#PanelUI-footer-fxa,/*三道杠-登陆以同步*/
-#wrapper-home-button,/*定制-主页*/
-#wrapper-imacros-toggle-button,/*定制-iMacros*/
-#wrapper-stylish-toolbar-button,/*定制-Stylish*/
-#wrapper-panic-button,/*定制-忘记*/
-#wrapper-feed-button,/*定制-订阅*/
-#wrapper-social-share-button,/*定制-分享*/
+#RIL_context_saveTabs,
+#RIL_context_clickMode,
+#RIL_context_savePage,
+#RIL_context_saveLink,
 #context-copyimage-contents,/*复制图像*/
 #fill-login-separator,/*输入框右键分割线*/
 #context-shareselect,/*分享选中项目*/
@@ -64,6 +61,7 @@ display: none !important;
 }
 
 /*===标签栏右键菜单===*/
+#alltabs-popup-separator,
 #context_tabViewMenu,/*移至组*/
 #context_closeTab,/*關閉標籤頁*/
 #alltabs_undoCloseTab,/*復原已關閉分頁*/
@@ -126,7 +124,8 @@ display: none !important;
 #editBookmarkPanelContent menuitem[label="Undo"],
 #editBookmarkPanelContent menuitem[label="Cut"],
 #editBookmarkPanelContent menuitem[label="Copy"],
-#editBookmarkPanelContent menuitem[label="Delete"] {
+#editBookmarkPanelContent menuitem[label="Delete"]
+{
 display: none !important;
 }
 
@@ -137,7 +136,8 @@ display: none !important;
 #context-cut,/*剪切*/
 [label="復原"],
 [label="剪下"],
-#context-keywordfield/*为此搜索添加关键字*/ {
+#context-keywordfield/*为此搜索添加关键字*/
+{
 display: none !important;
 }
 
@@ -166,6 +166,8 @@ display: none !important;
 }
 
 /*LastPass菜单*/
+.z-ico-show-password,/*明文显示密码*/
+[id^="__lpform_"],
 #fill-login,/*填充登陆信息*/
 [label="分享"],/*Lastpass密碼庫分享*/
 #lpt_separator3000,#lpt_menudelim,#lpt_menudelim2,#menudelim2,#separator3000,/*分隔条*/
@@ -180,7 +182,8 @@ display: none !important;
 [label="Copy Username"],[label="复制用户名"],[label="複製使用者名稱"],
 [label="Copy Password"],[label="复制密码"],[label="複製密碼"],
 [label="Copy URL"],[label="复制网址"],[label="複製網址"],
-[label="Go to URL"],[label="转到网址"],[label="轉到網址"] {
+[label="Go to URL"],[label="转到网址"],[label="轉到網址"]
+{
 display: none !important;
 }
 
@@ -189,7 +192,8 @@ display: none !important;
 #UserScriptLoader-delete-info,
 [label="网站..."],
 #UserScriptLoader-check-script,
-#UserScriptLoader-find-script {
+#UserScriptLoader-find-script
+{
 display: none !important;
 }
 
@@ -224,6 +228,8 @@ display: none !important;
 
 
 /*其它擴展/腳本隱藏項*/
+#abp-menuitem-contributebutton,/*ABP捐赠按钮*/
+#gm_general_menu > menupopup > menuseparator:nth-child(4),/*分割线*/
 #abp-notification,
 [class="autorepeatbutton-up"],
 [class="autorepeatbutton-down"],
@@ -253,4 +259,30 @@ display: none !important;
 display: none !important;
 }
 
+/*隐藏定制面板里的非线性图标*/
+#PanelUI-footer-fxa,/*三道杠-登陆以同步*/
+#wrapper-home-button,/*定制-主页*/
+#wrapper-imacros-toggle-button,/*定制-iMacros*/
+#wrapper-stylish-toolbar-button,/*定制-Stylish*/
+#wrapper-panic-button,/*定制-忘记*/
+#wrapper-feed-button,/*定制-订阅*/
+#wrapper-social-share-button,/*定制-分享*/
+#wrapper-ctraddon_go-button,
+#wrapper-ctraddon_history-button,
+#wrapper-ctraddon_bookmarks-button,
+#wrapper-ctraddon_history-menu-toolbar-button,
+#wrapper-ctraddon_bookmarks-button,
+#wrapper-gTranslator,
+#wrapper-ctraddon_window-controls,
+#wrapper-ctraddon_ctr-button,
+#wrapper-lmnpop-toolbtn,
+#wrapper-readable_by_evernote__button,
+#wrapper-ctraddon_statusbar,
+#wrapper-instantFox-options,
+#wrapper-firebug-badged-button,
+#wrapper-firebug-inspectorButton,
+#wrapper-superstart-toolbar-icon,
+#wrapper-ctraddon_back-forward-dropmarker,
+#wrapper-ctraddon_bookmarks-menu-toolbar-button
+{display:none !important;}
 

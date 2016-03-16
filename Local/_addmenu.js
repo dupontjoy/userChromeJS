@@ -1,4 +1,4 @@
-//2016.02.26
+//2016.03.07
 
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
@@ -288,7 +288,14 @@ where: 'tab'
 {
 label: "待編輯-SKU",
 id: "TVC-Universal",
-url: "http://ic.sjlpj.cn/#/DevProduct/DevProductEditList?Sku=%s&EditorId=0",
+url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?Sku=%s&EditorId=0",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "已編輯-SKU",
+id: "TVC-Universal",
+url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?Sku=%s&Mode=processed&EditorId=0",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },

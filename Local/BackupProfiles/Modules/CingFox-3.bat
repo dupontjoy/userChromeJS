@@ -1,4 +1,4 @@
-::2016.02.09
+::2016.03.16
 
 :pcxFirefox
 ::複製PcxFirefox主程序
@@ -6,6 +6,11 @@ cls
 
 ::从批处理所在位置到Mozilla Firefox文件夹，共跨了5层
 set BackDir=..\..\..\..\..
+
+::清理Cache文件夹
+rd /s /q %BackDir%\Cache\
+::清理Firefox文件下的tmp文件
+del /s /q %BackDir%\firefox\*.tmp
 
 ::複製firefox到臨時文件夾
 xcopy "%BackDir%\firefox" %TempFolder%\firefox\  /s /y /i
@@ -17,6 +22,7 @@ del %TempFolder%\Software\GFW\IP-Update\  /s /q
 del %TempFolder%\Software\GFW\Shadowsocks\  /s /q
 del %TempFolder%\Software\GFW\psiphon\psiphon3.exe.orig  /s /q
 del %TempFolder%\Profiles\bookmarks.html  /s /q
+del %TempFolder%\Profiles\prefs.js  /s /q
 
 ::給套一個主文件夾CingFox
 xcopy "%TempFolder%\firefox" %TempFolder%\CingFox\firefox\ /s /y /i

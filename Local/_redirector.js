@@ -84,15 +84,6 @@ from: /^https?:\/\/book\.bfnn\.org\/article([\d]?\/.*)/i,
 to: "http://book.bfnn.org/books$1",
 regex: true
 },
-{
-//重定向12306的js到修改版，用來定時刷票，但驗證碼得手動輸入。
-//方法來源：http://bbs.kafan.cn/thread-1809903-1-1.html
-//example: https://kyfw.12306.cn/otn/resources/merged/queryLeftTicket_end_js.js
-name: "12306重定向JS",
-from: /(.*)kyfw\.12306\.cn\/otn\/resources\/merged\/queryLeftTicket_end_js.js(.*)/i,
-to: "https://raw.githubusercontent.com/dupontjoy/customization/master/12306/queryLeftTicket_end_js.js",
-regex: true
-},
 
 
 //Google系

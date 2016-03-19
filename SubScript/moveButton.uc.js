@@ -5,7 +5,8 @@
 // @namespace      ywzhaiqi@gmail.com
 // @include        main
 // @charset        UTF-8
-// @version        2014.9.6
+// @version        2016.03.18
+// version        2014.9.6
 // @homepageURL    https://github.com/ywzhaiqi/userChromeJS/tree/master/moveButton
 // @downloadURL    https://github.com/ywzhaiqi/userChromeJS/blob/master/moveButton/moveButton.uc.js
 // @reviewURL      http://bbs.kafan.cn/thread-1572303-1-1.html
@@ -98,6 +99,9 @@ location == "chrome://browser/content/browser.xul" && (function(){
 
 //頁面右鍵菜單
 {id: "frame", insertAfter: "menu_historySidebar"}, //页面右键本框架不能直接隱藏，只好移動到一個安全的位置
+
+//SpeedMonitor放到地址栏图标框第1位
+{ id: "urlbar-speedmonitor", bar: "urlbar-icons", pos: 1 },
 
 //Greasemonkey圖標右鍵菜單
 {id: "greasemonkey-tbb",

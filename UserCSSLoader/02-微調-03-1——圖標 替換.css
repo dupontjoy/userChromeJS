@@ -1,4 +1,4 @@
-/*+++ 2016.03.14 +++*/
+/*+++ 2016.03.19 +++*/
 
 /*==修正图標和文字擠一起問題==*/
 /* Adjust left-margin for menuitems and menus which aren't iconized */
@@ -37,7 +37,6 @@ menuitem[type="checkbox"] .menu-iconic-text {
 
 menuitem[type="checkbox"]:active>.menu-iconic-left {
   background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAfUlEQVQ4jWNgGHmgsrJSdOrUqRKUaF43efLkFQkJCRwka548efKKqVOnPuvr6/OnjWZsziJa8/z586MWL168ADmASHL2/PnzfRctWvRs8eLFG6dOnSoBCzCS/Dx//nzfhQsXPoEaQppmdJeQpRkGZsyY4TFjxgwPsjQPPQAAlthixf3G3Z8AAAAASUVORK5CYII=") no-repeat center!important;
-
 }
 
 /*==扩展/脚本图标补充==*/
@@ -256,6 +255,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 
 /*標簽右鍵 重新載入分頁*/
 #context_reloadTab,
+#FeiRuoNet_Rebuild,
 #showFlagS-rebuild,
 #redirector-reload,
 [oncommand="UCL.rebuild();"],
@@ -291,6 +291,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 }
 
 /*複製*/
+#FeiRuoNet_Copy,
 #context-copy,
 #urlbar menuitem[cmd="cmd_copy"],
 #searchbar menuitem[cmd="cmd_copy"],
@@ -310,6 +311,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 }
 
 /*粘貼*/
+#context-paste,
 #urlbar menuitem[cmd="cmd_paste"],
 #searchbar menuitem[cmd="cmd_paste"],
 #searchFilter menuitem[cmd="cmd_paste"],
@@ -321,6 +323,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 }
 
 /*刪除*/
+#context-remove,
 #placesContext_delete,
 #mnEditDelete,
 #placesContext_delete_history,

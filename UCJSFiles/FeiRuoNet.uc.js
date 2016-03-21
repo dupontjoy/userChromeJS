@@ -23,7 +23,7 @@
 // @note            左键点击图标查看详细信息，中键打开GET/POST界面，右键弹出菜单。
 // @note            更多功能需要【_FeiRuoNet.js】、【_FeiRuoNetMenu.js】、【FeiRuoNetLib.js】、【QQWry.dat】、【ip4.cdb】、【ip6.cdb】配置文件。
 // @note            仅供个人测试、研究，不得用于商业或非法用途，作者不承担因使用此脚本对自己和他人造成任何形式的损失或伤害之任何责任。
-// @version         0.0.3     2016.03.15 15:00    完善头部、代理逻辑，Sup FF48+。
+// @version         0.0.3     2016.03.15 15:00    完善头部、代理逻辑，取消使用CPOW。
 // @version         0.0.2     2016.02.28 17:00    修复反盗链,修正查询，修正编辑。
 // @version         0.0.1     2015.10.20 17:00    Building。
 // ==/UserScript==
@@ -70,13 +70,6 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 		utils: Cu,
 		results: Cr
 	} = Components;
-	// if (!window.Services) Cu.import("resource://gre/modules/Services.jsm");
-	// if (!window.AddonManager) Cu.import("resource://gre/modules/AddonManager.jsm");
-	// if (!window.UserAgentOverrides) Cu.import("resource://gre/modules/UserAgentOverrides.jsm");
-	// if (!window.FileUtils) Cu.import("resource://gre/modules/FileUtils.jsm");
-	// if (!window.XPCOMUtils) Cu.import("resource://gre/modules/XPCOMUtils.jsm");
-	// if (!window.Promise) Cu.import("resource://gre/modules/Promise.jsm");
-	// if (!window.NetUtil) Cu.import("resource://gre/modules/NetUtil.jsm");
 
 	if (window.FeiRuoNet) {
 		window.FeiRuoNet.onDestroy();
@@ -88,6 +81,7 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 		DEFAULT_FlagS: "chrome://branding/content/icon16.png",
 		DBAK_FLAG_PATH: "http://www.razerzone.com/asset/images/icons/flags/",
 		DefaultFaviconVisibility: $("page-proxy-favicon") ? $("page-proxy-favicon").style.visibility : "visible",
+		FireFoxVer: (parseInt(Cc["@mozilla.org/xre/app-info;1"].getService(Ci.nsIXULAppInfo).version.substr(0, 3) * 10, 10) / 10),
 
 		get MenuFile() {
 			let aFile = FileUtils.getFile("UChrm", ["lib", '_FeiRuoNetMenu.js']);
@@ -117,19 +111,24 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 				return topWindowOfType.document.getElementById("content").currentURI;
 			return null;
 		},
-		get currentURL() {
-			return content ? content.location.href : (gBrowser.currentURI.spec || gBrowser.selectedBrowser.currentURI.spec);
-		},
-		get currentTitle() {
-			if (content)
-				return content.document.title;
-			var browser = gBrowser.selectedBrowser;
-			var contentWindow = browser.contentWindow || browser.contentWindowAsCPOW;
-			if (contentWindow)
-				return contentWindow.document.title;
-			return gBrowser.selectedTab.label || gBrowser.selectedBrowser.contentTitle;
-		},
 		get Content() {
+			var title = gBrowser.selectedTab.label || gBrowser.selectedBrowser.contentTitle;
+			var url = gBrowser.currentURI.spec || gBrowser.selectedBrowser.currentURI.spec;
+			var cont;
+			if (gMultiProcessBrowser) {
+				function listener(message) {
+					cont = message.objects.cont;
+				}
+				// var script = "data:application/javascript," + encodeURIComponent('sendAsyncMessage("FeiRuoNet:FeiRuoNet-e10s-content-message", {}, {cont: content,})');
+				var script = "data:application/javascript," + encodeURIComponent('sendAsyncMessage("FeiRuoNet:FeiRuoNet-e10s-content-message", {}, {cont: content,})');
+				gBrowser.selectedBrowser.messageManager.loadFrameScript(script, true);
+				gBrowser.selectedBrowser.messageManager.addMessageListener("FeiRuoNet:FeiRuoNet-e10s-content-message", listener);
+				// gBrowser.selectedBrowser.messageManager.broadcastAsyncMessage("FeiRuoNet:FeiRuoNet-e10s-content-message", listener);
+				// gBrowser.selectedBrowser.messageManager.removeMessageListener("FeiRuoNet:FeiRuoNet-e10s-content-message", listener);
+				// gBrowser.selectedBrowser.messageManager.removeDelayedFrameScript(script);				
+			} else {
+				cont = window.content || gBrowser.selectedBrowser._contentWindow || gBrowser.selectedBrowser.contentWindowAsCPOW;
+			}
 			delete this.Content;
 			return this.Content = window.content || gBrowser.selectedBrowser._contentWindow || gBrowser.selectedBrowser.contentWindowAsCPOW;
 		},
@@ -178,7 +177,6 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 			if (event.target != event.currentTarget) return;
 			event.stopPropagation();
 			event.preventDefault();
-
 			if (event.button == 0)
 				FeiRuoNet.OpenPref(0);
 			else if (event.button == 1)
@@ -246,6 +244,28 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 			}
 		},
 
+		SetUserAgent: function(val) {
+			if (val == 0) {
+				if (gPrefService.getPrefType("general.useragent.override") == 0 && gPrefService.getPrefType("general.platform.override") == 0)
+					return;
+				gPrefService.clearUserPref("general.useragent.override");
+				gPrefService.clearUserPref("general.platform.override");
+				FeiRuoNet_Services.UAPerfAppVersion = false;
+			} else {
+				gPrefService.setCharPref("general.useragent.override", FeiRuoNet.UAList[val].ua);
+				FeiRuoNet_Services.UAPerfAppVersion = FeiRuoNet_Services.UaAppVersion(val);
+
+				var platform = FeiRuoNet_Services.getPlatformString(FeiRuoNet.UAList[val].ua);
+				if (platform && platform != "")
+					gPrefService.setCharPref("general.platform.override", platform);
+				else
+					gPrefService.clearUserPref("general.platform.override");
+			}
+			FeiRuoNet.ShowStatus("浏览器标识(UserAgent)已切换至 [" + FeiRuoNet.UAList[val].label + "]");
+			FeiRuoNet_Services.Default_UAIdx = val;
+			return;
+		},
+
 		/*****************************************************************************************/
 		Rebuild: function(isAlert) {
 			var MenuData = this.LoadFile(this.MenuFile, isAlert);
@@ -271,8 +291,6 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 			this.CustomInfos = ConfData.CustomInfos || [];
 			this.Interfaces = ConfData.Interfaces || [];
 			this.FeiRuoFunc = ConfData.FeiRuoFunc || function() {};
-
-			this.NeedProxy = {};
 
 			FeiRuoNet_Flag.init(true);
 			this.Rebuild_UAChanger(true);
@@ -303,38 +321,34 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 			var UANameIdxHash = [],
 				UAList = this.UAList,
 				menu = $("FeiRuoNet_UserAgent_Popup"),
-				InList = false,
 				menuitem;
 			if (UAList.length >= 2) {
 				for (let i = 0; i < UAList.length; i++) {
 					UANameIdxHash[UAList[i].label] = i;
 					if (UAList[i].label === "separator" || (!UAList[i].label && !UAList[i].id && !UAList[i].ua)) {
-						menuitem = menu.appendChild($C("menuseparator", {
+						menuitem = $C("menuseparator", {
 							id: "FeiRuoNet_UserAgent_" + i,
 							class: "FeiRuoNet_UserAgent_menuseparator",
-						}));
+						});
 					} else {
-						menuitem = menu.appendChild($C("menuitem", {
+						menuitem = $C("menuitem", {
 							label: UAList[i].label || ("UA_" + i),
 							id: "FeiRuoNet_UserAgent_" + i,
 							image: UAList[i].image || this.Unknown_UAImage,
 							tooltiptext: UAList[i].ua || "",
-							oncommand: "FeiRuoNet_Services.SetUserAgent('" + i + "');"
-						}));
-						menuitem.setAttribute("style", 'font-weight: normal;');
-						menuitem.style.color = 'black';
+							oncommand: "FeiRuoNet.SetUserAgent('" + i + "');"
+						});
 						var cls = menuitem.classList;
 						cls.add("FeiRuoNet_UserAgent_item");
 						cls.add("menuitem-iconic");
 
-						if (UAList[i].ua == this.IsUsingUA || UAList[i].ua == "") {
+						if (UAList[i].ua == this.IsUsingUA || (UAList[i].ua == "" && !UAList[i].ua == !this.IsUsingUA)) {
 							FeiRuoNet_Services.UAPerfAppVersion = FeiRuoNet_Services.UaAppVersion(i);
 							FeiRuoNet_Services.Default_UAIdx = i;
-							InList = true;
-							cls.add("FeiRuoNet_UsingUA");
 						}
 					}
 					menu.appendChild(menuitem);
+					menuitem = null;
 				}
 				FeiRuoNet_Services.UARules = {};
 				for (var j in this.UASites) {
@@ -345,18 +359,19 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 				this.UAChangerState = false;
 				$("FeiRuoNet_UserAgent_Config").hidden = true;
 			}
-			if (!InList) this.UAMenuitemStates();
 		},
 
 		/*****************************************************************************************/
 		CreatePopup: function(enable) {
 			var Popup = $("FeiRuoNet_Popup");
 			if (Popup) Popup.parentNode.removeChild(Popup);
+			this.Popup = null;
 			delete Popup;
 			if (!enable) return;
 			this.Popup = $C("menupopup", {
 				id: "FeiRuoNet_Popup",
-				position: "bottomcenter topright"
+				position: "bottomcenter topright",
+				onpopupshowing: "FeiRuoNet.PopupShowing(event);"
 			});
 			this.Popup.appendChild($C("menuitem", {
 				id: "FeiRuoNet_Copy",
@@ -366,18 +381,18 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 			this.Popup.appendChild($C("menuitem", {
 				id: "FeiRuoNet_Rebuild",
 				label: "刷新信息",
-				oncommand: "FeiRuoNet.onLocationChange(true);"
+				oncommand: "FeiRuoNet_Services.onLocationChange(true);"
 			}));
-			var menu = $C("menu", {
+			var UserAgentMenu = $C("menu", {
 				id: "FeiRuoNet_UserAgent_Config",
 				label: "UserAgent",
 				class: "FeiRuoNet menu-iconic",
 				hidden: "true"
 			});
-			menu.appendChild($C("menupopup", {
+			UserAgentMenu.appendChild($C("menupopup", {
 				id: "FeiRuoNet_UserAgent_Popup"
 			}));
-			this.Popup.appendChild(menu);
+			this.Popup.appendChild(UserAgentMenu);
 			this.Popup.appendChild($C("menuitem", {
 				id: "FeiRuoNet_SetPref",
 				label: "脚本设置",
@@ -393,6 +408,32 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 
 			$('mainPopupSet').appendChild(this.Popup);
 			this.style = addStyle(CSS);
+		},
+
+		PopupShowing: function(event) {
+			if (event.target != FeiRuoNet.Popup || event.target != event.currentTarget) return;
+
+			var UAItem = $("FeiRuoNet_UserAgent_Config");
+			UAItem.hidden = !FeiRuoNet.UAChangerState;
+			if (FeiRuoNet_Services.UARules) {
+				$$(".FeiRuoNet_UsingUA").forEach(function(e) {
+					e.classList.remove('FeiRuoNet_UsingUA')
+				});
+				var UAList = FeiRuoNet.UAList;
+				for (var i = 0; i < UAList.length; i++) {
+					if (UAList[i].ua == this.IsUsingUA || (UAList[i].ua == "" && !UAList[i].ua == !this.IsUsingUA)) {
+						$("FeiRuoNet_UserAgent_" + i).classList.add("FeiRuoNet_UsingUA");
+						UAItem.setAttribute("label", UAList[i].label);
+						UAItem.setAttribute("image", UAList[i].image);
+						UAItem.style.padding = "0px 2px";
+						break;
+					} else {
+						UAItem.setAttribute("label", "未知UserAgent");
+						UAItem.setAttribute("tooltiptext", FeiRuoNet.IsUsingUA);
+						UAItem.setAttribute("image", FeiRuoNet.Unknown_UAImage);
+					}
+				}
+			}
 		},
 
 		LoadSetting: function(type) {
@@ -434,44 +475,54 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 
 			if (!type || type === "UAChangerState")
 				this.UAChangerState = this.GetPrefs(0, "UAChangerState", true);
+		},
 
-			if (!type || type === "ProxyTimes")
-				this.ProxyTimes = this.GetPrefs(1, "ProxyTimes", 5);
+		GetDomain: function(url) {
+			if (!url) return;
+			var eTLDService = Cc["@mozilla.org/network/effective-tld-service;1"].getService(Ci.nsIEffectiveTLDService),
+				ioService = Components.classes['@mozilla.org/network/io-service;1'].getService(Ci.nsIIOService),
+				idnService = Cc["@mozilla.org/network/idn-service;1"].getService(Ci.nsIIDNService);
 
-			if (!type || type === "ProxyTimer")
-				this.ProxyTimer = this.GetPrefs(1, "ProxyTimer", 3500);
-
-			// if (!type || type === "ProxyPath") {
-			// 	var ProxyPath = this.GetPrefs(2, "ProxyPath", "[UChrm]Tools/ShadowsocksR.exe");
-			// 	if (!ProxyPath) return;
-			// 	if (/^\[/.test(ProxyPath))
-			// 		this.ProxyPath = this.GetPrefs(4, "ProxyPath");
-			// 	else
-			// 		this.ProxyPath = this.GetPrefs(3, "ProxyPath");
-			// }
-
-			if (!type || type === "ProxyMode")
-				this.ProxyMode = this.GetPrefs(1, "ProxyMode", 1);
-
-			if (!type || type === "ProxyServers") {
-				var ProxyServers = unescape(this.GetPrefs(2, "ProxyServers", "ShadowSocks|127.0.0.1|1080|socks|1;GoAgent|127.0.0.1|8087|http|1")).split(";");
-				if (!ProxyServers[0]) return;
-				this.ProxyServers = [];
-				for (var i in ProxyServers) {
-					var arr = ProxyServers[i].split("|"),
-						obj = {};
-					obj.name = arr[0];
-					obj.host = arr[1];
-					obj.port = arr[2];
-					obj.type = arr[3];
-					obj.remoteDNS = arr[4] ? arr[4] : 0;
-					obj.ProxyServer = FeiRuoNet_Services.ProxySrv.newProxyInfo(obj.type, obj.host, obj.port, obj.remoteDNS, this.ProxyTimer, null);
-					this.ProxyServers.push(obj);
+			// var basedomain = eTLDService.getBaseDomain(makeURI(url));
+			// return basedomain;
+			function getHostname(url) {
+				try {
+					return unwrapURL(url).host;
+				} catch (e) {
+					return null;
 				}
 			}
 
-			if (!type || type === "DefaultProxy")
-				this.DefaultProxy = this.GetPrefs(1, "DefaultProxy", 0);
+			function unwrapURL(url) {
+				if (!(url instanceof Ci.nsIURI))
+					url = makeURI(url);
+
+				if (url instanceof Ci.nsINestedURI)
+					return url.innermostURI;
+				else
+					return url;
+			}
+
+			function makeURI(url) {
+				try {
+					return ioService.newURI(url, null, null);
+				} catch (e) {
+					return null;
+				}
+			}
+			var host = getHostname(url);
+			try {
+				var baseDomain = eTLDService.getBaseDomainFromHost(host, 0);
+				return idnService.convertToDisplayIDN(baseDomain, {});
+			} catch (e) {
+				if (e.name == "NS_ERROR_HOST_IS_IP_ADDRESS") {
+					return host;
+				} else if (e.name == "NS_ERROR_INSUFFICIENT_DOMAIN_LEVELS") {
+					return host;
+				} else {
+					throw e;
+				}
+			}
 		},
 
 		GetPrefs: function(type, name, val) {
@@ -555,6 +606,17 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 			return sandbox || null;
 		},
 
+		StrToFile: function(file, data) {
+			var suConverter = Cc["@mozilla.org/intl/scriptableunicodeconverter"].createInstance(Ci.nsIScriptableUnicodeConverter);
+			suConverter.charset = 'UTF-8';
+			data = suConverter.ConvertFromUnicode(data);
+
+			var foStream = Cc['@mozilla.org/network/file-output-stream;1'].createInstance(Ci.nsIFileOutputStream);
+			foStream.init(file, 0x02 | 0x08 | 0x20, 0664, 0);
+			foStream.write(data, data.length);
+			foStream.close();
+		},
+
 		XRequest: function(obj) {
 			return new Promise(function(resolve, reject) {
 				var request = new XMLHttpRequest();
@@ -614,6 +676,8 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 				aFile = this.ConfFile;
 			else if (aFile == 1 || !aFile)
 				aFile = this.MenuFile;
+			else if (aFile == 2 || !aFile)
+				aFile = this.ProxyFile;
 			else if (typeof(aFile) == "string") {
 				if (/^file:\/\//.test(aFile))
 					aFile = aFile.QueryInterface(Components.interfaces.nsIFileURL).file;
@@ -665,9 +729,10 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 		},
 
 		Copy: function(str) {
-			if (!str) str = FeiRuoNet_Flag.QueryHash[FeiRuoNet.CurrentURI.host].IP; //this.icon.tooltipText;
+			str = str || this.icon.tooltipText || FeiRuoNet_Flag.QueryHash[FeiRuoNet.CurrentURI.host].IP;
+			if (!str) return;
 			Cc['@mozilla.org/widget/clipboardhelper;1'].createInstance(Ci.nsIClipboardHelper).copyString(str);
-			StatusLable = "已复制: " + str;
+			FeiRuoNet.ShowStatus = "已复制: " + str;
 		},
 
 		OpenScriptInScratchpad: function(parentWindow, file) {
@@ -685,6 +750,13 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 					}
 				});
 			}, false);
+		},
+
+		ShowStatus: function(str, time) {
+			XULBrowserWindow.statusTextField.label = '[FeiRuoNet]' + str;
+			setTimeout(function() {
+				XULBrowserWindow.statusTextField.label = '';
+			}, time || 1500)
 		},
 
 		OpenPref: function(i) {
@@ -718,10 +790,6 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 							<preference id="Inquiry_Delay" type="int" name="userChromeJS.FeiRuoNet.Inquiry_Delay"/>\
 							<preference id="UrlbarSafetyLevel" type="bool" name="userChromeJS.FeiRuoNet.UrlbarSafetyLevel"/>\
 							<preference id="ModifyHeader" type="bool" name="userChromeJS.FeiRuoNet.ModifyHeader"/>\
-							<preference id="ProxyMode" type="int" name="userChromeJS.FeiRuoNet.ProxyMode"/>\
-							<preference id="ProxyPath" type="string" name="userChromeJS.FeiRuoNet.ProxyPath"/>\
-							<preference id="ProxyTimer" type="int" name="userChromeJS.FeiRuoNet.ProxyTimer"/>\
-							<preference id="ProxyTimes" type="int" name="userChromeJS.FeiRuoNet.ProxyTimes"/>\
 							<preference id="RefChanger" type="bool" name="userChromeJS.FeiRuoNet.RefChanger"/>\
 							<preference id="UAChangerState" type="bool" name="userChromeJS.FeiRuoNet.UAChangerState"/>\
 						</preferences>\
@@ -738,6 +806,9 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 											<rows>\
 												<row align="center">\
 													<label id="QQwrtVer"/>\
+												</row>\
+												<row align="center">\
+													<button id="QQwrt_Download" label="下载QQwrt" oncommand="opener.FeiRuoNet.OptionScript.openNewTab(\'https://www.baidu.com/s?word=qqwry\');"/>\
 												</row>\
 											</rows>\
 										</grid>\
@@ -760,16 +831,6 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 													</row>\
 													<row align="center">\
 														<checkbox id="UrlbarSafetyLevel" label="HTTPS等级高亮" preference="UrlbarSafetyLevel" />\
-													</row>\
-													<row align="center">\
-														<label value="代理模式选择：" />\
-														<menulist preference="ProxyMode" id="ProxyMode" style="width:100px">\
-															<menupopup id="ProxyMode_Popup">\
-																<menuitem label="禁用代理" value="0"/>\
-																<menuitem label="智能代理" value="1"/>\
-																<menuitem label="全局代理" value="2"/>\
-															</menupopup>\
-														</menulist>\
 													</row>\
 												</rows>\
 											</grid>\
@@ -818,58 +879,6 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 											<textbox id="BAK_FLAG_PATH" placeholder="图标优先级：png→lib→网络图标" preference="BAK_FLAG_PATH" style="width:395px" tooltiptext="http://www.1108.hk/images/ext/ \n http://www.myip.cn/images/country_icons/ 等等。"/>\
 										</row>\
 									</rows>\
-									<!--<rows>\
-										<row align="center">\
-											<label value="代理软件路径："/>\
-											<textbox id="ProxyPath" placeholder="在触发代理条件下，如果代理软件尚未启动，则启动之" tooltiptext="支持相对路径, 正反双斜杠开头，相对于chrome文件夹" style="width:310px" preference="ProxyPath"/>\
-											<button label="浏览" tooltiptext="支持相对路径" oncommand="opener.FeiRuoNet.OptionScript.ChouseFile();"/>\
-										</row>\
-									</rows>-->\
-							</groupbox>\
-							<groupbox style="width:500px">\
-								<caption label="代理服务器设置(请勿包含“|”或“;”)"/>\
-									<grid>\
-										<rows id="ProxyRows">\
-											<row id="discription">\
-												<label value="名称"/>\
-												<label value="地址"/>\
-												<label value="端口"/>\
-												<hbox>\
-													<label value="Http"/>\
-													<label value="Https" style="margin-left:-1px;"/>\
-													<label value="Socks4" style="margin-left:-2px;"/>\
-													<label value="Socks5" style="margin-left:-3px;"/>\
-												</hbox>\
-												<label value="远程DNS" style="margin-left:-2px;"/>\
-												<label value="删除"/>\
-											</row>\
-										</rows>\
-									</grid>\
-									<description id="warning" hidden="true">警告: 删除所有代理后请添加一个代理，否则代理将无法工作。</description>\
-									<description id="note" hidden="true">注意: 删除默认代理后请选择一个新的默认代理(通过图标右键菜单项 "默认代理" 选择), 否则代理可能无法工作。</description>\
-									<description id="tip" hidden="true">提示: 点击"取消" 按钮能撤销之前的操作。</description>\
-									<menuseparator/>\
-									<hbox style="width:495px">\
-										<row align="center">\
-											<label value="默认："/>\
-											<menulist preference="DefaultProxy" id="DefaultProxy1" style="width:100px;"/>\
-										</row>\
-										<spacer flex="1" />\
-										<button id="ProxyRowsBtn1" label="添加代理" oncommand="opener.FeiRuoNet.OptionScript.AddNewRow();"/>\
-										<button id="ProxyRowsBtn2" label="删除代理" oncommand="opener.FeiRuoNet.OptionScript.DelSelectedRow();"/>\
-									</hbox>\
-									<menuseparator/>\
-									<hbox style="width:495px">\
-										<row align="center">\
-											<label value="尝试次数："/>\
-											<textbox id="ProxyTimes" type="number" preference="ProxyTimes" style="width:75px;" placeholder="小于等于设定次数" tooltiptext="次数内，仍然无法打开则停止自动代理"/>\
-										</row>\
-										<spacer flex="1" />\
-										<row align="center">\
-											<label value="切换延时："/>\
-											<textbox id="ProxyTimer" type="number" preference="ProxyTimer" style="width:75px;" placeholder="3500毫秒" tooltiptext="时间内代理服务器无响应，就切换到另下个代理服务器。"/>\
-										</row>\
-									</hbox>\
 							</groupbox>\
 						</vbox>\
 						<hbox flex="1">\
@@ -888,8 +897,7 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 	};
 
 	window.FeiRuoNet_Services = {
-		ProxySrv: Cc['@mozilla.org/network/protocol-proxy-service;1'].getService(Ci.nsIProtocolProxyService),
-		//ProxySrv: Cc['@mozilla.org/network/protocol-proxy-service;1'].getService(),
+		UAPerfAppVersion: false,
 		progressListener: {
 			QueryInterface: XPCOMUtils.generateQI(["nsIWebProgressListener", "nsISupportsWeakReference"]),
 			onLocationChange: function(aProgress, aRequest, aURI, aFlags) {
@@ -902,6 +910,7 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 		},
 		ObsEvents: ["http-on-modify-request", "document-shown", "document-element-inserted", "ipc:content-created", "content-document-loaded", "content-document-global-created", "content-document-interactive", "http-on-examine-response", "http-on-examine-cached-response", "http-on-examine-merged-response"],
 		MultiProcessScript: ("data:application/javascript," + encodeURIComponent('addMessageListener("FeiRuoNet:FeiRuoNet-FlagA", function() {sendAsyncMessage("FeiRuoNet:FeiRuoNet-FlagB", {URL: content.document.URL});}, false);')),
+		TracingListener: function() {},
 
 		Initialization: function() {
 			var MutationObserver = window.MutationObserver || window.WebKitMutationObserver || window.MozMutationObserver;
@@ -928,7 +937,6 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 				this.ObsEvents.forEach(obs => {
 					Cc["@mozilla.org/observer-service;1"].getService(Ci.nsIObserverService).removeObserver(this, obs, false);
 				});
-				this.ProxySrv.uninit();
 			} catch (e) {
 				log(e)
 			}
@@ -947,7 +955,6 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 				// window.messageManager.addMessageListener("FeiRuoNet:FeiRuoNet-Flag", this);
 			}
 			FeiRuoNet.Prefs.addObserver('', this, false);
-			this.ProxySrv.registerFilter(this.ProxyFilter, 0);
 			gBrowser.addProgressListener(FeiRuoNet_Services.progressListener);
 		},
 
@@ -1038,15 +1045,8 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 		},
 
 		onLocationChange: function(aProgress, aRequest, aURI, aFlags) {
-			$("FeiRuoNet_UserAgent_Config").hidden = !FeiRuoNet.UAChangerState;
 			if (typeof aProgress == 'boolean' && !!aProgress)
 				FeiRuoNet.forceRefresh = true;
-
-			if (this.UARules) {
-				var isUAChange;
-				isUAChange = this.UAIndex(FeiRuoNet.CurrentURI.spec);
-				this.UAMenuitemStates(isUAChange ? isUAChange : this.Default_UAIdx);
-			}
 			FeiRuoNet_Flag.LocationChange(FeiRuoNet.CurrentURI);
 		},
 
@@ -1100,29 +1100,6 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 			for (var i in this.UARules) {
 				if ((new RegExp(i, "i")).test(url)) return this.UARules[i];
 			}
-			return;
-		},
-
-		SetUserAgent: function(val) {
-			if (val == 0) {
-				if (gPrefService.getPrefType("general.useragent.override") == 0 && gPrefService.getPrefType("general.platform.override") == 0)
-					return;
-				gPrefService.clearUserPref("general.useragent.override");
-				gPrefService.clearUserPref("general.platform.override");
-				this.UAPerfAppVersion = false;
-			} else {
-				gPrefService.setCharPref("general.useragent.override", FeiRuoNet.UAList[val].ua);
-				this.UAPerfAppVersion = this.UaAppVersion(val);
-
-				var platform = this.getPlatformString(FeiRuoNet.UAList[val].ua);
-				if (platform && platform != "")
-					gPrefService.setCharPref("general.platform.override", platform);
-				else
-					gPrefService.clearUserPref("general.platform.override");
-			}
-			StatusLable("浏览器标识(UserAgent)已切换至 [" + FeiRuoNet.UAList[val].label + "]");
-			this.UAMenuitemStates(val);
-			this.Default_UAIdx = val;
 			return;
 		},
 
@@ -1188,26 +1165,6 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 			return appVersion;
 		},
 
-		UAMenuitemStates: function(idx) {
-			let UAitmss = document.querySelectorAll("menuitem[id^='FeiRuoNet_UserAgent_']");
-			for (let i = 0; i < UAitmss.length; i++) {
-				UAitmss[i].classList.remove("FeiRuoNet_UsingUA");
-			}
-			if (typeof idx != 'undefined') {
-				$("FeiRuoNet_UserAgent_" + idx).classList.add("FeiRuoNet_UsingUA");
-				$("FeiRuoNet_UserAgent_Config").setAttribute("label", FeiRuoNet.UAList[idx].label);
-				$("FeiRuoNet_UserAgent_Config").setAttribute("image", FeiRuoNet.UAList[idx].image);
-				$("FeiRuoNet_UserAgent_Config").style.padding = "0px 2px";
-				return;
-			} else {
-				if (FeiRuoNet.UAList[i].ua == FeiRuoNet.IsUsingUA || FeiRuoNet.UAList[i].ua == "")
-					return this.UAMenuitemStates(0);
-				$("FeiRuoNet_UserAgent_Config").setAttribute("label", "未知UserAgent");
-				$("FeiRuoNet_UserAgent_Config").setAttribute("tooltiptext", FeiRuoNet.IsUsingUA);
-				$("FeiRuoNet_UserAgent_Config").setAttribute("image", FeiRuoNet.Unknown_UAImage);
-			}
-		},
-
 		getPlatformString: function(userAgent) {
 			if (!userAgent) return;
 			var platform = "";
@@ -1219,31 +1176,6 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 			else if (lowerUserAgent.indexOf("ipad") > -1) platform = "iPad";
 			else if (lowerUserAgent.indexOf("mac os x") > -1) platform = "MacIntel";
 			return platform;
-		},
-
-		ProxyFilter: {
-			applyFilter: function(ProxySrv, aChannel, aProxy) {
-				if (!/^(http|https|ftp|wss)$/i.test(aChannel.scheme))
-					return null;
-				var DirectProxy = FeiRuoNet_Services.ProxySrv.newProxyInfo('direct', '', -1, 0, 0, null) || null;
-				if (!FeiRuoNet.ProxyMode)
-					return DirectProxy;
-				if (FeiRuoNet.ProxyMode == 2)
-					return FeiRuoNet.ProxyServers[FeiRuoNet.DefaultProxy].ProxyServer;
-
-				if (FeiRuoNet.NeedProxy && ((aChannel.asciiHostPort || aChannel.hostPort) in FeiRuoNet.NeedProxy) && (!!FeiRuoNet.NeedProxy[(aChannel.asciiHostPort || aChannel.hostPort)]))
-					return FeiRuoNet.ProxyServers[FeiRuoNet.DefaultProxy].ProxyServer;
-				else
-					return DirectProxy;
-			},
-			getFailoverForProxy: function(aProxyInfo, aURI, aReason) {
-				var ProxyServer;
-				if (FeiRuoNet.DefaultProxy != FeiRuoNet.ProxySrv.length)
-					ProxyServer = FeiRuoNet.ProxyServers[FeiRuoNet.DefaultProxy + 1].ProxyServer;
-				else
-					ProxyServer = FeiRuoNet.ProxyServers[0].ProxyServer || FeiRuoNet.ProxySrv.newProxyInfo('direct', '', -1, 0, 0, null) || null;
-				return ProxyServer;
-			},
 		}
 	};
 
@@ -1364,87 +1296,25 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 			this.SameHostHandle(host);
 			this.IPInfos[this.QueryHash[host].IP] || (this.IPInfos[this.QueryHash[host].IP] = {});
 			this.HostInfos[this.QueryHash[host].Host] || (this.HostInfos[this.QueryHash[host].Host] = {});
-			if (gMultiProcessBrowser) {
-				gBrowser.selectedBrowser.messageManager.sendAsyncMessage("FeiRuoNet:FeiRuoNet-FlagA", {});
-				gBrowser.selectedBrowser.messageManager.addMessageListener("FeiRuoNet:FeiRuoNet-FlagB", function listener(message) {
-					FeiRuoNet_Flag.InternalHandle(host, ip, message.data.URL);
-				});
-			} else {
-				var URL = content.document.URL;
-				FeiRuoNet_Flag.InternalHandle(host, ip, URL);
-			}
-		},
-
-		InternalHandle: function(host, ip, URL) {
 			if (!ip || ip == "::1" || ip == "0" || /^(192\.168\.|169\.254\.)/i.test(ip) || /^(127\.0\.0\.1)/i.test(ip)) {
 				var src = FeiRuoNet.LocahHost_Flag;
 				if (!ip)
 					this.QueryHash[host].IPAddrInfo = '回送地址:本机服务器';
 				else if (ip == "0")
-					return this.IsNetError(host, URL, true);
+					return this.QueryHash[host].ErrorStr = '找不到服务器';
 				else if (ip == "127.0.0.1" || ip == "::1")
 					this.QueryHash[host].IPAddrInfo = '回送地址：本机[服务器]';
 				else if (/^(192\.168\.|169\.254\.)/i.test(ip)) {
 					src = FeiRuoNet.LAN_Flag;
 					this.QueryHash[host].IPAddrInfo = '本地局域网服务器';
 				}
-				(!this.IsNetError(host, URL)) && this.UpdateTooltipText(host);
+				this.UpdateTooltipText(host);
 				return this.ChangeIcon(host, src, false);
 			}
-			if (this.IsNetError(host, URL))
-				return;
 			this.LookUp_Flag(!FeiRuoNet.forceRefresh, host);
 			this.LookUp_Tooltip(!FeiRuoNet.forceRefresh, host);
 			this.LookUp_Custom(!FeiRuoNet.forceRefresh, host);
 			FeiRuoNet.forceRefresh = false;
-		},
-
-		IsNetError: function(host, url, check) {
-			if (!url) return true;
-			if (!/^about:(neterror|certerror|blank)/i.test(url) && !check)
-				return false;
-			var ErrorStr = "";
-			if (url && url !== "about:blank") {
-				var type = url.substring(url.indexOf("=") + 1, url.indexOf("&"));
-				switch (type) {
-					case "nssBadCert": //此连接不受信任
-					case "deniedPortAccess": //端口受限
-					case "fileNotFound": //无法加载此文件
-					case "netOffline": //离线模式
-					case "protocolNotFound": //这个协议没有被确认
-						break;
-					case "redirectLoop": //不正确的页面重定向
-					case "nssFailure2": //安全连接失败   载入页面时到服务器的连接被重置。
-					case "proxyConnectFailure": //代理拒绝链接
-					case "unknownSocketType": //服务器意外响应
-					case "proxyResolveFailure": //无法找到代理服务器
-					case "connectionFailure": //无法连接到地址
-					case "dnsNotFound": //找不到服务器
-					case "generic": //无法完成请求
-					case "malformedURI": //该地址无效
-					case "netInterrupt": //中断连接
-					case "netReset": //重置连接
-					case "netTimeout": //连接超时
-						if (this.QueryHash[host].ProxyTimes <= FeiRuoNet.ProxyTimes) {
-							setTimeout(function() {
-								FeiRuoNet_Flag.AutoProxy(host, type);
-							}, FeiRuoNet.ProxyTimer)
-						}
-						this.QueryHash[host].NetError = true;
-						break;
-				}
-				ErrorStr = '错误类型：' + type + '\n' + '详细描述：' + decodeURI(url.substring(url.lastIndexOf("=") + 1));
-			} else
-				ErrorStr = '页面载入错误';
-			this.QueryHash[host].ErrorStr = ErrorStr;
-			if (this.QueryHash[host].IP) {
-				var ip = this.QueryHash[host].IP;
-				if (ip && ip != "::1" && ip != "0" && !/^(192\.168\.|169\.254\.)/i.test(ip) && !/^(127\.0\.0\.1)/i.test(ip))
-					this.LookUp_Tooltip(!FeiRuoNet.forceRefresh, host);
-			}
-			this.LookUp_Flag(!FeiRuoNet.forceRefresh, host);
-			this.UpdateTooltipText(host);
-			if (!check) return true;
 		},
 
 		SameHostHandle: function(host) {
@@ -1467,12 +1337,6 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 				this.QueryHash[host].IPAddrInfoHash = this.IPInfos[IP].IPAddrInfoHash;
 				return true;
 			}
-		},
-
-		AutoProxy: function(host, type) {
-			this.QueryHash[host].ProxyTimes = this.QueryHash[host].ProxyTimes + 1;
-			FeiRuoNet.NeedProxy[FeiRuoNet.CurrentURI.asciiHostPort || FeiRuoNet.CurrentURI.hostPort] = FeiRuoNet.ProxyServers[FeiRuoNet.DefaultProxy];
-			return $("Browser:ReloadSkipCache").doCommand();
 		},
 
 		/*****************************************************************************************/
@@ -1685,7 +1549,6 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 				tooltipArr.push(obj.ErrorStr);
 			} else {
 				this.QueryHash[host].ProxyTimes = 0;
-				FeiRuoNet.NeedProxy[host] = undefined;
 			}
 			this.QueryHash[host].ErrorStr = "";
 
@@ -1823,13 +1686,6 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 				return false;
 		},
 
-		GetDomain: function(url) {
-			if (!url || !/^http:/.test(url)) return;
-			var eTLDService = Cc["@mozilla.org/network/effective-tld-service;1"].getService(Ci.nsIEffectiveTLDService);
-			var basedomain = eTLDService.getBaseDomain(makeURI(url));
-			return basedomain;
-		},
-
 		Thx: function(Api) {
 			if (!Api) return;
 			var Service = Cc["@mozilla.org/network/effective-tld-service;1"].getService(Ci.nsIEffectiveTLDService);
@@ -1841,7 +1697,7 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 
 	window.FeiRuoNet_Menu = {
 		get FocusedWindow() {
-			return gContextMenu && gContextMenu.target ? gContextMenu.target.ownerDocument.defaultView : FeiRuoNet.Content;
+			return (gContextMenu && gContextMenu.target) ? (gContextMenu.target.ownerDocument.defaultView) : (FeiRuoNet.Content);
 		},
 
 		Initialization: function() {
@@ -2976,19 +2832,17 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 
 	FeiRuoNet.OptionScript = {
 		init: function() {
-			this.ProxyRows = _$("ProxyRows");
-			this.BuildProxyTree();
 			this.BuildInfoApiPopup();
+			_$("QQwrt_Download").hidden = true;
 
-			_$("DefaultProxy1").selectedIndex = FeiRuoNet.DefaultProxy;
 			_$("ApiIdx1").selectedIndex = FeiRuoNet.ApiIdx;
-			this.AddCSS();
-			var QQwrtVer = FeiRuoNet_IPDate.SearchIP('255.255.255.255');
-			if (QQwrtVer) {
+			if (FeiRuoNet_IPDate.QQwryDate) {
+				var QQwrtVer = FeiRuoNet_IPDate.SearchIP('255.255.255.255');
 				_$("QQwrtVer").value = "纯真数据库版本：" + QQwrtVer.replace(/纯真网络|\n|IP|数据/ig, "");
 				FeiRuoNet.GetWindow(0) && FeiRuoNet.GetWindow(0).sizeToContent();
 			} else {
 				_$("QQwrtVer").value = "无【QQWry.dat】本地纯真数据库！";
+				_$("QQwrt_Download").hidden = false;
 				FeiRuoNet.GetWindow(0) && FeiRuoNet.GetWindow(0).sizeToContent();
 			}
 
@@ -2998,42 +2852,19 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 			}, 500);
 		},
 
-		BuildProxyTree: function() {
-			let row = this.ProxyRows.firstChild.nextSibling;
-			while (row) {
-				let temp = row;
-				row = row.nextSibling;
-				this.ProxyRows.removeChild(temp);
-				FeiRuoNet.GetWindow(0) && FeiRuoNet.GetWindow(0).sizeToContent();
-			}
-			FeiRuoNet.LoadSetting("ProxyServers");
-			for (var i = 0; i < FeiRuoNet.ProxyServers.length; i++)
-				this.CreateBlankRow(FeiRuoNet.ProxyServers[i], i);
-
-			for (i in FeiRuoNet.ProxyServers)
-				_$("DefaultProxy1").appendItem(FeiRuoNet.ProxyServers[i].name, i);
-		},
-
 		BuildInfoApiPopup: function() {
 			for (var i in FeiRuoNet.Interfaces)
 				if (!FeiRuoNet.Interfaces[i].isJustFlag) _$("ApiIdx1").appendItem(FeiRuoNet.Interfaces[i].label, i);
 		},
 
 		Resets: function() {
-			this.BuildProxyTree();
 			this.BuildInfoApiPopup();
-			_$("warning").hidden = _$("note").hidden = _$("tip").hidden = true;
 
 			_$("BAK_FLAG_PATH").value = FeiRuoNet.DBAK_FLAG_PATH;
 			_$("CustomQueue").value = 0;
-			_$("DefaultProxy1").selectedIndex = 0;
 			_$("Icon_Pos").value = 0;
 			_$("ApiIdx1").selectedIndex = 0;
 			_$("Inquiry_Delay").value = 1000;
-			_$("ProxyMode").value = 0;
-			// _$("ProxyPath").value = "";
-			_$("ProxyTimes").value = 5;
-			_$("ProxyTimer").value = 3500;
 			_$("RefChanger").value = false;
 			_$("ModifyHeader").value = false;
 			_$("UrlbarSafetyLevel").value = false;
@@ -3043,196 +2874,18 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 
 		Save: function() {
 			FeiRuoNet.Prefs.setCharPref("BAK_FLAG_PATH", _$("BAK_FLAG_PATH").value);
-			// FeiRuoNet.Prefs.setCharPref("ProxyPath", _$("ProxyPath").value);
 			FeiRuoNet.Prefs.setIntPref("CustomQueue", _$("CustomQueue").value);
-			FeiRuoNet.Prefs.setIntPref("DefaultProxy", _$("DefaultProxy1").value);
 			FeiRuoNet.Prefs.setIntPref("Icon_Pos", _$("Icon_Pos").value);
 			FeiRuoNet.Prefs.setIntPref("ApiIdx", _$("ApiIdx1").value);
 			FeiRuoNet.Prefs.setIntPref("Inquiry_Delay", _$("Inquiry_Delay").value);
-			FeiRuoNet.Prefs.setIntPref("ProxyMode", _$("ProxyMode").value);
-			FeiRuoNet.Prefs.setIntPref("ProxyTimer", _$("ProxyTimer").value);
-			FeiRuoNet.Prefs.setIntPref("ProxyTimes", _$("ProxyTimes").value);
 			FeiRuoNet.Prefs.setBoolPref("ModifyHeader", _$("ModifyHeader").value);
 			FeiRuoNet.Prefs.setBoolPref("UrlbarSafetyLevel", _$("UrlbarSafetyLevel").value);
 			FeiRuoNet.Prefs.setBoolPref("RefChanger", _$("RefChanger").value);
 			FeiRuoNet.Prefs.setBoolPref("UAChangerState", _$("UAChangerState").value);
-			this.TreeSave();
 		},
 
-		TreeSave: function() {
-			var ProxySrvers = new Array();
-			for (let row = this.ProxyRows.firstChild.nextSibling; row; row = row.nextSibling) {
-				var temp = {
-					name: "",
-					host: "127.0.0.1",
-					port: "",
-					type: "http",
-					remoteDNS: 0
-				};
-				var pDs = row.firstChild;
-				for (var i = 0; i <= 2; i++) {
-					if (i == 0) {
-						if (pDs.value == "") {
-							pDs.value = "Unnamed";
-						}
-						temp.name = pDs.value;
-					}
-					if (i == 1) {
-						if (pDs.value == "") {
-							pDs.value = "127.0.0.1";
-						}
-						temp.host = pDs.value;
-					}
-					if (i == 2) {
-						temp.port = pDs.value;
-					}
-					pDs = pDs.nextSibling;
-				}
-
-				pDst = pDs.firstChild;
-				if (pDst.selected) {
-					temp.type = "http";
-				} else if (pDst.nextSibling.selected) {
-					temp.type = "https";
-				} else if (pDst.nextSibling.nextSibling.selected) {
-					temp.type = "socks4";
-				} else {
-					temp.type = "socks";
-				}
-
-				pDs = pDs.nextSibling;
-				if (pDs.checked) {
-					temp.remoteDNS = 1;
-				}
-				var ProxySrver = [];
-				ProxySrver.push(temp.name);
-				ProxySrver.push(temp.host);
-				ProxySrver.push(temp.port);
-				ProxySrver.push(temp.type);
-				ProxySrver.push(temp.remoteDNS);
-				ProxySrvers.push(ProxySrver.join('|'));
-			}
-			FeiRuoNet.Prefs.setCharPref('ProxyServers', escape(ProxySrvers.join(';')));
-		},
-
-		AddNewRow: function() {
-			this.CreateBlankRow();
-			_$("warning").hidden = _$("note").hidden = _$("tip").hidden = true;
-			FeiRuoNet.GetWindow(0) && FeiRuoNet.GetWindow(0).sizeToContent();
-		},
-
-		DelSelectedRow: function() {
-			this.Show("warning");
-			let row = this.ProxyRows.firstChild.nextSibling;
-			while (row) {
-				var temp = row;
-				row = row.nextSibling;
-				if (temp.lastChild.checked) {
-					this.ProxyRows.removeChild(temp);
-					FeiRuoNet.GetWindow(0) && FeiRuoNet.GetWindow(0).sizeToContent();
-				} else this.Hide("warning");
-			}
-
-			if (!_$("warning").hidden)
-				this.Hide("note");
-			if (_$("warning").hidden && _$("note").hidden)
-				this.Hide("tip");
-			else this.Show("tip");
-		},
-
-		CreateBlankRow: function(proxy, i) {
-			var proxyRow = _$C("row");
-			var proxyName = _$C("textbox");
-			var proxyHost = _$C("textbox");
-			var proxyPort = _$C("textbox");
-			var proxyType = _$C("radiogroup");
-			var proxyRemote = _$C("checkbox");
-			var proxyDele = _$C("checkbox");
-			proxyName.setAttribute("class", "proxyName");
-			proxyHost.setAttribute("class", "proxyHost");
-			proxyPort.setAttribute("class", "proxyPort");
-			proxyRemote.setAttribute("class", "remoteBox");
-			proxyDele.setAttribute("class", "deleBox");
-			proxyType.setAttribute("orient", "horizontal");
-
-			var http = _$C("radio"),
-				https = _$C("radio"),
-				socks = _$C("radio"),
-				socks4 = _$C("radio");
-			http.setAttribute("class", "proxyHttp");
-			https.setAttribute("class", "proxyHttps");
-			socks.setAttribute("class", "proxySocks5");
-			socks4.setAttribute("class", "proxySocks4");
-
-			http.setAttribute("selected", proxy && proxy.type == "http");
-			https.setAttribute("selected", proxy && proxy.type == "https");
-			socks.setAttribute("selected", proxy && proxy.type == "socks");
-			socks4.setAttribute("selected", proxy && proxy.type == "socks4");
-
-			if (proxy) {
-				proxyName.setAttribute("value", proxy.name);
-				proxyHost.setAttribute("value", proxy.host);
-				proxyPort.setAttribute("value", proxy.port);
-				proxyRemote.setAttribute("checked", proxy && proxy.remoteDNS == 1);
-			}
-
-			proxyType.appendChild(http);
-			proxyType.appendChild(https);
-			proxyType.appendChild(socks4);
-			proxyType.appendChild(socks);
-			proxyRow.appendChild(proxyName);
-			proxyRow.appendChild(proxyHost);
-			proxyRow.appendChild(proxyPort);
-			proxyRow.appendChild(proxyType);
-			proxyRow.appendChild(proxyRemote);
-			proxyRow.appendChild(proxyDele);
-			proxyRow.id = "ProxyRow_" + i;
-			this.ProxyRows.appendChild(proxyRow);
-		},
-
-		Show: function(id) {
-			if (_$(id).hidden) {
-				_$(id).hidden = false;
-				FeiRuoNet.GetWindow(0) && FeiRuoNet.GetWindow(0).sizeToContent();
-			}
-		},
-
-		Hide: function(id) {
-			if (!_$(id).hidden) {
-				_$(id).hidden = true;
-				FeiRuoNet.GetWindow(0) && FeiRuoNet.GetWindow(0).sizeToContent();
-			}
-		},
-
-		ChouseFile: function() {
-			var nsIFilePicker = Components.interfaces.nsIFilePicker;
-			var fp = Components.classes["@mozilla.org/filepicker;1"].createInstance(nsIFilePicker);
-			fp.init(window, "选择代理软件", nsIFilePicker.modeOpen);
-			fp.appendFilters(nsIFilePicker.filterApps);
-
-			var rv = fp.show();
-			if (rv == nsIFilePicker.returnOK || rv == nsIFilePicker.returnReplace) {
-				var path = fp.file.path;
-				_$('ProxyPath').value = decodeURIComponent(path);
-			}
-			FeiRuoNet.GetWindow(0) && FeiRuoNet.GetWindow(0).focus();
-		},
-
-		AddCSS: function() {
-			var css = ('\
-			menuseparator{margin-top:0px;}\
-			textbox.proxyName{width:100px;}\
-			.proxyHost{width:80px;}\
-			.proxyPort{width:50px;}\
-			#note,#warning{color:red;}\
-			#tip{color:green;}\
-			#tip,#note,#warning{font-weight:bold;margin-top:20px;}\
-			'.replace(/\n|\t/g, ''));
-			var pi = FeiRuoNet.GetWindow(0).document.createProcessingInstruction(
-				'xml-stylesheet',
-				'type="text/css" href="data:text/css;utf-8,' + encodeURIComponent(css) + '"'
-			);
-			FeiRuoNet.GetWindow(0).document.insertBefore(pi, FeiRuoNet.GetWindow(0).document.documentElement);
+		openNewTab: function(url) {
+			openNewTabWith(url);
 		},
 
 		ChangeStatus: function(event) {
@@ -3268,7 +2921,6 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 			return this.getUint16(offset) * 0x100000000 + this.getUint32(offset + 2); // JS cannot bitshift past 32 bits; read in two chunks and combine
 		}
 	};
-
 	/*****************************************************************************************/
 	// 来自 User Agent Overrider 扩展
 	const ToolbarManager = (function() {
@@ -3354,18 +3006,13 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
 		return exports;
 	})();
 
+	function $A(arr) Array.slice(arr);
+
 	function log(str) {
-		if (FeiRuoNet.Debug) console.log("[FeiRuoNet Debug] ", arguments);
+		if (FeiRuoNet.Debug) console.log("[FeiRuoNet Debug] " + $A(arguments));
 	}
 
 	function U(text) 1 < 'あ'.length ? decodeURIComponent(escape(text)) : text;
-
-	function StatusLable(str) {
-		XULBrowserWindow.statusTextField.label = '[FeiRuoNet]' + str;
-		setTimeout(function() {
-			XULBrowserWindow.statusTextField.label = '';
-		}, 2000)
-	}
 
 	function alert(aString, aTitle) {
 		Cc['@mozilla.org/alerts-service;1'].getService(Ci.nsIAlertsService)

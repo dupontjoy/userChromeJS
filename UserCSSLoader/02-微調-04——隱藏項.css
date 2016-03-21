@@ -228,6 +228,7 @@ display: none !important;
 
 
 /*其它擴展/腳本隱藏項*/
+#identity-icons,
 #abp-menuitem-contributebutton,/*ABP捐赠按钮*/
 #gm_general_menu > menupopup > menuseparator:nth-child(4),/*分割线*/
 #abp-notification,

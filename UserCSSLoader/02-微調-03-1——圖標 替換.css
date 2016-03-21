@@ -1,4 +1,4 @@
-/*+++ 2016.03.19 +++*/
+/*+++ 2016.03.21 +++*/
 
 /*==修正图標和文字擠一起問題==*/
 /* Adjust left-margin for menuitems and menus which aren't iconized */
@@ -274,13 +274,13 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 /*標簽右鍵 關閉右側分頁*/
 #context_closeTabsToTheEnd {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
-list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAOUlEQVQ4jWNgGGzgPxQPNwPyGBhyGRgY/kNp8lwAMySTgaGNGAPwYnwuoZoLsGqmKAyIBQNvwBAEAIkvKboNt20DAAAAAElFTkSuQmCC") !important;
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4jWNgGOzgPxQPIwPyGBgYPCh1wUwoJskAXJhsF+SR6gIYoEoYkAQG3oAhAABQ4R+KtPg9TgAAAABJRU5ErkJggg==") !important;
 }
 
 /*標簽右鍵 關閉其它分頁*/
 #context_closeOtherTabs {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
-list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAATElEQVQ4jdXSQQrAMAhE0edxs0iOkWvbVQsFs2m7aD64cWQcRH5NkEFuYjDoQQ76yqCaAY1ZCVWC06Qxb40ndS18leCTG6zY7A/25QBZhDm3YCnePQAAAABJRU5ErkJggg==") !important;
+list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYklEQVQ4jdXSsQqDQBBF0TONGjRVvm1LQdIG/79cq4VEFhatshemG967DMNfE+QgdxKQGM7LlYAIcuJRbXvzbBmUoo0J7Ixl8ep8py5BXplbBh9ePwaFYrIz3rpBjc7+oF8OndYvV/JUhtQAAAAASUVORK5CYII=") !important;
 }
 
 /*粘貼並轉到*/

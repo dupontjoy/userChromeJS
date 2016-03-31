@@ -1,4 +1,4 @@
-/*+++ 2016.03.04 +++*/
+/*+++ 2016.03.31 +++*/
 
 @-moz-document domain("ic.sjlpj.cn") {
 /*=常用目录加粗=*/
@@ -94,5 +94,11 @@ position:relative;left:-863.8px;
 @-moz-document domain("sooopu.com") {
 .related{
   clear: both;
+}
+}
+
+@-moz-document domain("amd.com") {
+.panel-wrapper{
+left: -24px;
 }
 }

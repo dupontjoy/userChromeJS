@@ -1,4 +1,4 @@
-//2016.03.14
+//2016.03.28
 
 //Redirector說明頁面：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -20,7 +20,7 @@ decode: false // 可選，true 表示尝試對 from 解碼
 //example: http://trunk.tvc-mall.com/c/hobbies-toys/
 name: "trunk.tvc|seculife",
 from: /^https?:\/\/trunk\.(tvc-mall|seculife)\.com\/(c\/|t\/|details\/|search)(.*)/i,
-to: "http://www.$1.com/$2/$3",
+to: "http://www.$1.com/$2$3",
 regex: true
 },
 
@@ -112,18 +112,16 @@ regex: true
 },
 
 {
-//新浪到百度JS库
-name: "sina > baidu JS Libs",
-from: "http://lib.sinaapp.com/js/jquery/*/*",
-to: "http://libs.baidu.com/jquery/$1/$2",
-wildcard: true
-},
-{
 //example: http://www.utouuxy.com/controlRedirect
 name:"%5C转义到/",
 from:/%5C/g,
 to:"/",
 regex: true
 },
-
+{
+name: "百度云HTTPS下载大文件",
+from: /^http:\/\/((pan|yun)+\.baidu\.com\/.+)/i,
+to: "https://$1",
+regex: true
+},
 ];

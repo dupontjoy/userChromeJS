@@ -1,4 +1,4 @@
-::2016.03.12
+::2016.03.22
 
 :Flash32
 cls
@@ -14,7 +14,7 @@ If ErrorLevel 2 If Not ErrorLevel 3 Goto menu
 
 :download
 cls
-echo  *下載到D:\Temp文件夹
+echo  *下載到E:\Temp文件夹
 echo  *将文件夹改为install_flash_player.exe
 pause>nul
 ::正式版頁面: http://www.adobe.com/in/products/flashplayer/distribution3.html

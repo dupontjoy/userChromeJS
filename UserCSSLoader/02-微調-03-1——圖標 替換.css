@@ -1,4 +1,4 @@
-/*+++ 2016.03.21 +++*/
+/*+++ 2016.03.29 +++*/
 
 /*==修正图標和文字擠一起問題==*/
 /* Adjust left-margin for menuitems and menus which aren't iconized */
@@ -79,12 +79,6 @@ list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYA
 #GrabScroll_optionsMenu {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA3klEQVQ4jcWT3WoCQQxG5y0238mb1PWHKvVJ6qUtBd+00lfYdRF61eLV9saROJVVodDAQJhJTpKZb1L6CwPeJU3uiH8AtqcNM5sBnZnN8p67v4WEdfBHQCNpeUaVNAF2VVU9HgF9gH0ek2ugAZ4utiZpDLTAogTkAu4+vzZfDTQF4FCOeKn6s7v3Ye0DtIlnkl4Gu/gfk7QqRvjKZ+7+XYzwOgQaA21xiT3QAYtrXZy0UALcfT4Iycn5qUpASimZ2RTY/RJSkPI0JEUpb4JfA+2ZlIHtnZ9pBHzcGj9oP3TiU7Bc9Gx1AAAAAElFTkSuQmCC")!important;
-}
-
-/*腳本的設置/編輯*/
-[oncommand="Redirector.edit();"] {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
-list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABYklEQVQ4jZ1Tu04DMRCcKEV0uTvvrNcVr2/Ib4QCBQFlvgAkpPA3pAFCAwkdSJHSARKPnzJFnOMShYCYyt4de9eeWWAD8tJ95qX73MRZhxbpB0KbAIgAotDGpB8AaP10qFEUMs4LmVHDI2nXjtZvt8NWlvldR+uTdi0anvJCZqLhEkBjtd13AJG0w5+qpFxM3CUUojZ1TvdrsSZpPdJ6AJqLoHPaFbUpgKJiOrVT0kbfldihhlfSbkm7na/ZqXUycmpn1QWi4U7EH6dtRoZnR39eFaA/p4YXAG0AEPHHouFu3nvp3gDELPM7KXmUFFiC0CYi/ggAssy2AcSidG9IOsdMde/PF8y5sfKIaLgX8Sf/esIvnzgibbTmE2+c2mm9w4WM3VqsSdph0n6zjACQl+4DQCwZDlbfv0DKxcRdQkMYhjUrX62x8lVlZYYhVq1cw2KYHvA9TBMyXGDDMK3FX8b5C/yjWT9h/Ai2AAAAAElFTkSuQmCC")!important;
 }
 
 /*FlashGot, NetVideoHunter*/
@@ -367,6 +361,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 }
 
 /*編輯*/
+[oncommand="Redirector.edit();"],
 #mnEditEdit,
 #modifySelected {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;

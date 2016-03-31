@@ -22,7 +22,7 @@ if(location.href.indexOf('about:stylish-edit') == 0) {
 */
 	var stylishCustom2 = {
 
-		_revertOldFindbar: false, //还原旧查找栏(默认关闭，若开启请将 false , 改为 true);
+		_revertOldFindbar: true, //还原旧查找栏(默认关闭，若开启请将 false , 改为 true);
 
 		insertRules: {
 			//可以在text中按格式加入一些常用的属性或文本

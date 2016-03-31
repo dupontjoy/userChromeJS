@@ -1,4 +1,4 @@
-::2016.02.12
+::2016.03.22
 
 :GitHub
 cls
@@ -23,7 +23,7 @@ cd /d %~dp0
 ::設置文件所在位置
 ::从批处理所在位置到Profiles文件夹，共跨了4层
 set dir1=..\..\..\..
-set dir2=D:\My Documents\GitHub\Customization
+set dir2=E:\My Documents\GitHub\Customization
 
 ::備份幾個Firefox文件
 xcopy "%dir1%\persdict.dat" "%dir2%\Firefox\persdict.dat"  /s /y /i

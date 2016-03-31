@@ -1,4 +1,4 @@
-
+::2016.03.22  输出換到E盘
 ::2016.01.02  優化輸出與臨時文件夾地址
 ::2015.12.19  重新模塊化
 ::2015.10.30  添加刪除DTA語言
@@ -22,19 +22,19 @@ set b=%cd%
 set zip="%b%\7za.exe"
 
 ::設置臨時文件夾
-set TempFolder="D:\Temp"
+set TempFolder="E:\Temp"
 
 ::設置輸出文件夾
-set TargetFolder="D:"
+set TargetFolder="E:"
 
 ::設置Profiles上傳地址
-set TargetFolder1="D:\My Documents\Baiduyun\Firefox\Profiles"
+set TargetFolder1="E:\My Documents\Baiduyun\Firefox\Profiles"
 ::設置CingFox上傳地址
-set TargetFolder2="D:\My Documents\Baiduyun\Firefox\【FX共享】\CingFox-完整包"
+set TargetFolder2="E:\My Documents\Baiduyun\Firefox\【FX共享】\CingFox-完整包"
 ::設置Plugins和Software上傳地址
-set TargetFolder3="D:\My Documents\Baiduyun\Firefox\Plugins&Software"
+set TargetFolder3="E:\My Documents\Baiduyun\Firefox\Plugins&Software"
 ::設置Flash32上傳地址
-set TargetFolder4="D:\My Documents\Baiduyun\Firefox\【FX共享】\Flash32位原版提取帶vch和exe"
+set TargetFolder4="E:\My Documents\Baiduyun\Firefox\【FX共享】\Flash32位原版提取帶vch和exe"
 
 :menu
 cls

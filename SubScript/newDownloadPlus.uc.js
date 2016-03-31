@@ -883,7 +883,7 @@
 			var dir = [
 		["C:\\Users\\Cing\\Desktop", "Desktop"],
 		["E:\\Download", "Download"],
-		["D:\\Temp", "Temp"],
+		["E:\\Temp", "Temp"],
 		["E:\\Syuan's Soft", "Syuan's Soft"],
 			];
 			var saveTo = document.documentElement._buttons.cancel.parentNode.insertBefore(document.createElement("button"), document.documentElement._buttons.cancel);

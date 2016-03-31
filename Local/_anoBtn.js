@@ -1,4 +1,4 @@
-//2016.03.18
+//2016.03.30
 
 /**********************************************************************************
  *此處爲按鈕設置
@@ -37,25 +37,25 @@ label: "長期維護",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABaElEQVQ4jX3Sz0vUURQF8M/MYDWRCS2arIgiIZEEXQQSSBFBm6BFC4kKIkjEQCmFaGUUGSoo9GNqkVNBm6AW0a6/I/p7WnzPyJcnduDC495zzn3vvkuFAXTQwDk8xTZ6+JR4gjP2wDV8wU28xlt0Y3YAJ3EbP8Jt1MUtvMQ3/MVHvMd3HCsaLeMPbqHZTx7CBkZxKTGSm1zH/prBqTynm5uAE9jCUNHtCn7iaC3XxDPciKYDd/CwEJ/FemZSYiHmc7gLm7hQIxzBm5AapRqLuIzJaG2rptxHBx9wP10WMJ7aAF6pfud4tHoYLrqM52n38Eu1FzCFtRgN9w26GCsMJvAVv7GE05gOdzKcMbyDx5gpDPZlBs/TcQMrMe5jJlrnM4zDdqOh2sSDaosT7ma0YD5RJ+2FZo2/g0G8wCza/xG38SDcwbI4hEeqN19VfWc70UluLZxya3fQwkWs4rNq73s5r6bWqgv+AYBxON0vXviZAAAAAElFTkSuQmCC",
 child: [
 {
-label: "CingFox發佈頁",
+label: "CingFox",
 oncommand: "getBrowser().selectedTab = getBrowser().addTab ('https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox')",
 image: "https://assets-cdn.github.com/favicon.ico"
 },
 {},
 {
-label: "火狐範",
+label: "FirefoxFan",
 oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.cc/')",
 image: "http://www.firefoxfan.cc/favicon.ico"
 },
 {},
 {
-label: "奔跑的奶酪",
+label: "RunningCheese",
 oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.runningcheese.com/')",
 image: "http://www.runningcheese.com/favicon.ico"
 },
 {},
 {
-label: "陽光盒子",
+label: "SunBox",
 oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://sunbox.cc/')",
 image: "http://sunbox.cc/wp-content/themes/begin/img/favicon.ico"
 },
@@ -69,12 +69,17 @@ tooltiptext: "1. 備份Profiles\n2. CingFox製作\n3. 備份Plugins和Software�
 exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\local\\BackupProfiles\\Backup_7z.bat",
 },{},
 {
-label: "Notepad2.bat",
+label: "设置Notepad2为默认",
 tooltiptext: "通過映象劫持以Notepad2替換自帶记事本",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Notepad2\\Notepad2.bat",
 },{},
 {
-label: "explorer.bat",
+label: "设置Flash mms.cfg",
+tooltiptext: "设置Flash mms.cfg",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\Set_Flash.bat",
+},{},
+{
+label: "重启explorer.exe",
 tooltiptext: "重啓explorer.exe",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\explorer.bat",
 },]

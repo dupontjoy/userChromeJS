@@ -1,4 +1,4 @@
-/*+++ 2016.03.29 +++*/
+/*+++ 2016.05.03 +++*/
 
 /*==修正图標和文字擠一起問題==*/
 /* Adjust left-margin for menuitems and menus which aren't iconized */
@@ -180,6 +180,7 @@ list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYA
 }
 
 /*頁面右鍵 還原「新增到字典」*/
+[cmd="cmd_undo"],
 #spell-undo-add-to-dictionary {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeklEQVQ4jeWRwQ2AIAxF39WbG7AJcQN2cQRmYxSm4FIPfhKjJXLWnzQN/fzfFuDTSEABTFFUm0IGqgSrIqmWZzpXie5YL8ZDvI3aV3sgKJs6Be+SOPPEDYgik86eiWuAxI1zRwO2wQTDFTppwD7gpx4xOrVFeeob/4YD1pEcog/2J/oAAAAASUVORK5CYII=")!important;
@@ -287,6 +288,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 /*複製*/
 #FeiRuoNet_Copy,
 #context-copy,
+[cmd="cmd_copy"],
 #urlbar menuitem[cmd="cmd_copy"],
 #searchbar menuitem[cmd="cmd_copy"],
 #searchFilter menuitem[cmd="cmd_copy"],
@@ -306,6 +308,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 
 /*粘貼*/
 #context-paste,
+[cmd="cmd_paste"],
 #urlbar menuitem[cmd="cmd_paste"],
 #searchbar menuitem[cmd="cmd_paste"],
 #searchFilter menuitem[cmd="cmd_paste"],
@@ -321,6 +324,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 #placesContext_delete,
 #mnEditDelete,
 #placesContext_delete_history,
+[cmd="cmd_delete"],
 #searchFilter menuitem[cmd="cmd_delete"],
 #configDeck menuitem[cmd="cmd_delete"],
 #bxURLBarContainer menuitem[cmd="cmd_delete"],
@@ -330,6 +334,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 }
 
 /*全選*/
+[cmd="cmd_selectAll"],
 #urlbar menuitem[cmd="cmd_selectAll"],
 #searchbar menuitem[cmd="cmd_selectAll"],
 #searchFilter menuitem[cmd="cmd_selectAll"],

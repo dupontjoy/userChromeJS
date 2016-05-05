@@ -5,7 +5,7 @@
 // @namespace      ywzhaiqi@gmail.com
 // @include        main
 // @charset        UTF-8
-// @version        2016.03.23
+// @version        2016.05.01
 // version        2014.9.6
 // @homepageURL    https://github.com/ywzhaiqi/userChromeJS/tree/master/moveButton
 // @downloadURL    https://github.com/ywzhaiqi/userChromeJS/blob/master/moveButton/moveButton.uc.js
@@ -84,11 +84,11 @@ location == "chrome://browser/content/browser.xul" && (function(){
         // },
         
 //不常用圖標移動到aidBar
-{ id: "SimpleMusicPlayer", bar: "TabsToolbar_aidBar", pos: 1 },//SimpleMusicPlayer腳本
-{ id: "flashgot-media-tbb", bar: "TabsToolbar_aidBar", pos: 2 },//FlashGot扩展
-{ id: "lpt_lastpass-compact-btn", bar: "TabsToolbar_aidBar", pos: 3 },//Lastpass扩展
-{ id: "ucjsPermission_Toolmenu", bar: "TabsToolbar_aidBar", pos: 4 },//ucjsPermission腳本
-{ id: "aup-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 6 },//Autoproxy擴展
+{ id: "flashgot-media-tbb", bar: "TabsToolbar_aidBar", pos: 1 },//FlashGot扩展
+{ id: "foxyproxy-toolbar-icon", bar: "TabsToolbar_aidBar", pos: 2 },//Foxyproxy擴展
+{ id: "ucjsPermission_Toolmenu", bar: "TabsToolbar_aidBar", pos: 3 },//ucjsPermission腳本
+{ id: "aup-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 4 },//Autoproxy擴展
+{ id: "lpt_lastpass-compact-btn", bar: "TabsToolbar_aidBar", pos: 7 },//Lastpass扩展
 { id: "userChromebtnMenu", bar: "TabsToolbar_aidBar", pos: 9 },//UC管理器
 { id: "userChromeJsManagerMenuBtn", bar: "TabsToolbar_aidBar", pos: 9 },//UC管理器
 
@@ -96,6 +96,7 @@ location == "chrome://browser/content/browser.xul" && (function(){
 { id: "InspectElement-menuitem", insertAfter: "gm_general_menu" },//InspectElementModY默認不在MoreTools中，單獨移動
 { id: "wordhighlight-toolbar-menuitem", insertAfter: "gm_general_menu" },
 { id: "noscript-context-menu", insertAfter: "gm_general_menu" },//Noscript右鍵菜單
+{ id: "GrabScroll_optionsMenu", insertAfter: "gm_general_menu" },
 
 //頁面右鍵菜單
 {id: "frame", insertAfter: "menu_historySidebar"}, //页面右键本框架不能直接隱藏，只好移動到一個安全的位置

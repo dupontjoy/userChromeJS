@@ -1,4 +1,4 @@
-::2016.03.22
+::2016.04.27
 
 :Sync
 cls
@@ -9,9 +9,8 @@ echo  1. Foxmail過濾器：163.com, qq.com
 echo  2. ProcessLaso設置
 echo  3. PicPick設置
 echo  4. 同步FastCopy-M設置
-echo  5. 同步Shadowsocks-Pac設置
-echo  6. 同步xmp設置
-echo  7. 同步CCleaner設置
+echo  5. 同步xmp設置
+echo  6. 同步CCleaner設置
 echo.
 echo  按任意键继续……
 pause>nul
@@ -46,10 +45,6 @@ start "" "%dir1%\..\Software\Image\PicPick\picpick.exe"
 
 ::同步FastCopy-M設置
 xcopy "%dir2%\FastCopy-M\FastCopy2.ini" "%dir1%\..\..\FastCopy-M\FastCopy2.ini"  /s /y /i
-
-::同步Shadowsocks-Pac設置
-xcopy "%dir2%\Rules\Shadowsocks\pac.txt" "%dir1%\..\..\CingFox\Software\GFW\Shadowsocks\pac.txt"  /s /y /i
-xcopy "%dir2%\Rules\Shadowsocks\user-rule.txt" "%dir1%\..\..\CingFox\Software\GFW\Shadowsocks\user-rule.txt"  /s /y /i
 
 ::同步XMP設置
 xcopy "%dir2%\Thunder\xmp.ini" "%dir1%\..\..\Thunder Network\Thunder\Program\xmp.ini"  /s /y /i

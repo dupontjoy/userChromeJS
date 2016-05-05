@@ -1,57 +1,6 @@
-/*+++ 2016.03.31 +++*/
+/*+++ 2016.04.25 +++*/
 
 @-moz-document domain("ic.sjlpj.cn") {
-/*=常用目录加粗=*/
-#m_030201,/*产品——內网分类管理*/
-#m_030205,/*产品——产品类型管理*/
-#m_030207,/*产品——选项管理*/
-#m_030208,/*产品——属性管理*/
-#m_030209,/*产品——模板管理*/
-#m_030213,/*产品——常用资料管理*/
-#m_040102,/*运营——产品上架价格管理*/
-#m_040103,/*运营——产品上架总体审核*/
-#m_040106,/*运营——产品价格变更管理*/
-#m_040107,/*运营——价格变更运营审核*/
-#m_040108,/*运营——下架产品运营管理*/
-#m_040110,/*运营——外网产品批量管理*/
-#m_100102/*网站——TvcMall品类管理*/
-{
-font-weight: bold !important;
-font-size:13px !important;
-font-family: "微软雅黑" !important;
-}
-
-/*=常用价格数量加粗加色=*/
-a[_sectiontitle="500P1"],
-a[_sectiontitle="100P1"],
-a[_sectiontitle="20P1"],
-a[_sectiontitle="25C1"],
-a[_sectiontitle="22C1"],
-a[_sectiontitle="20C1"],
-a[_sectiontitle="1220C1"],
-a[_sectiontitle="1560C1"]
-{
-font-weight: bold !important;
-font-size:13px !important;
-color: red !important;
-}
-
-a[_sectiontitle="100P1-DZ"],
-a[_sectiontitle="35C1-DZ"]
-{
-font-weight: bold !important;
-font-size:13px !important;
-color: blue !important;
-}
-
-a[_sectiontitle="1000P1-DZ"],
-a[_sectiontitle="35C2-DZ"]
-{
-font-weight: bold !important;
-font-size:13px !important;
-color: purple !important;
-}
-
 /*=新建按钮框缩小=*/
 .mod_title_opt.btn_blue,/*新建一级分类，新建产品品牌*/
 .btn_blue/*型号分组管理，新建子组目录*/

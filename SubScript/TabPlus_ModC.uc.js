@@ -2,7 +2,7 @@
 // @description  Tab Plus 标签页增强
 // @description	 新标签打开（利用空白页）
 // @include      chrome://browser/content/browser.xul
-// @version      2016.03.03
+// @version      2016.04.20
 
 // ==/UserScript==
 
@@ -85,3 +85,23 @@ aWebProgress.DOMWindow.setTimeout(function() {\
 }, 100);\
 }\
 '));
+
+//点击链接不跳转About:Blank,据说有效
+//From: http://bbs.kafan.cn/forum.php?mod=redirect&goto=findpost&ptid=1699919&pid=37477965
+gBrowser.addEventListener("click", function(event) {
+    if (!event.ctrlKey && 1 === event.which) {
+        let target = event.target;
+        while (target) {
+            if (target.tagName && "BODY" === target.tagName.toUpperCase()) break;
+            if (target.tagName && "A" === target.tagName.toUpperCase() &&
+                target.target && "_BLANK" === target.target.toUpperCase() &&
+                target.href && !target.href.match(/^javascript|^https?/)) {
+                event.preventDefault();
+                event.stopPropagation();
+                openUILink(target.href);
+                break;
+            }
+            target = target.parentNode;
+        }
+    }
+}, true);

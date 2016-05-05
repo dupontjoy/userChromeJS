@@ -1,4 +1,4 @@
-//2016.03.07
+//2016.05.04
 
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
@@ -226,14 +226,14 @@ image: "http://www.easyicon.net/api/resizeApi.php?id=562508&size=16",
 label: "外網批量管理-SKU",
 id: "TVC-Universal",
 accesskey: "1",
-url: "http://ic.sjlpj.cn/#/Product/BatchManagementProductList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
+url: "http://ic.sjlpj.cn/Product/BatchManagementProductList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
 label: "外網批量管理-品名",
 id: "TVC-Universal",
-url: "http://ic.sjlpj.cn/#/Product/BatchManagementProductList?Sku=&KeyWord=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
+url: "http://ic.sjlpj.cn/Product/BatchManagementProductList?Sku=&KeyWord=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
@@ -246,11 +246,19 @@ url: "http://ic.sjlpj.cn/DownShelf/DownShelfOperationAuditList?DownType=All&Sku=
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
+{
+label: "查詢價格-SKU",
+id: "TVC-Universal",
+accesskey: "3",
+url: "http://ic.sjlpj.cn/PriceChangeRequest/UnChangedProductList?Sku=%s&IsFirstRequest=false",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
 {},
 {
 label: "管理SPU列表-SKU",
 id: "TVC-Universal",
-url: "http://ic.sjlpj.cn/#/ProductCorrect/ProductSpuList?Sku=%s",
+url: "http://ic.sjlpj.cn/ProductCorrect/ProductSpuList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
@@ -264,7 +272,7 @@ where: 'tab'
 {
 label: "關聯SPU列表-SpuID",
 id: "TVC-Universal",
-url: "http://ic.sjlpj.cn/#/Product/ProductAssociatedSpuList?SpuId=%s&IsFirstRequest=true&BeginDate=2008-01-01",
+url: "http://ic.sjlpj.cn/Product/ProductAssociatedSpuList?SpuId=%s&IsFirstRequest=true&BeginDate=2008-01-01",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
@@ -272,15 +280,13 @@ where: 'tab'
 {
 label: "編輯管理-spID",
 id: "TVC-Universal",
-accesskey: "3",
-url: "http://ic.sjlpj.cn/#/Product/ProductEditFromEditMgt?productId=%s",
+url: "http://ic.sjlpj.cn/Product/ProductEditFromEditMgt?productId=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
 label: "編輯質檢-SKU",
 id: "TVC-Universal",
-accesskey: "4",
 url: "http://ic.sjlpj.cn/Product/ProductCheckingList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'

@@ -1,4 +1,4 @@
-/*+++ 2016.03.19 +++*/
+/*+++ 2016.05.03 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
@@ -136,6 +136,7 @@ display: none !important;
 #context-cut,/*剪切*/
 [label="復原"],
 [label="剪下"],
+[cmd="cmd_cut"],
 #context-keywordfield/*为此搜索添加关键字*/
 {
 display: none !important;
@@ -228,6 +229,7 @@ display: none !important;
 
 
 /*其它擴展/腳本隱藏項*/
+#aup-menuitem,/*AUP更多工具菜单*/
 #identity-icons,
 #abp-menuitem-contributebutton,/*ABP捐赠按钮*/
 #gm_general_menu > menupopup > menuseparator:nth-child(4),/*分割线*/

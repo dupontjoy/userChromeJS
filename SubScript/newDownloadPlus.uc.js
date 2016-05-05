@@ -3,10 +3,12 @@
 // @description	从硬盘中删除+下载重命名并可转码+双击复制链接+另存为+保存并打开+完成下载提示音+自动关闭下载产生的空白标签。
 // @author	Kelo 再次修改整合  (w13998686967、ywzhaiqi、黒仪大螃蟹、Alice0775、紫云飞)
 // @charset	UTF-8
-// @include	chrome://browser/content/browser.xul
-// @include	chrome://browser/content/places/places.xul
-// @include	chrome://mozapps/content/downloads/unknownContentType.xul
-// @include	chrome://mozapps/content/downloads/downloads.xul
+// @include  	chrome://browser/content/browser.xul
+// @include  	chrome://browser/content/places/places.xul
+// @include  	chrome://mozapps/content/downloads/unknownContentType.xul
+// @include  	chrome://mozapps/content/downloads/downloads.xul
+// @downloadURL https://raw.githubusercontent.com/ghKelo/userChromeJS/master/.test/newDownloadPlus.uc.js
+// @homepageURL https://github.com/ghKelo/userChromeJS/blob/master/.test/newDownloadPlus.uc.js
 // @inspect	window.downloadPlus
 // @startup	window.downloadPlus.init();
 // @shutdown	window.downloadPlus.onDestroy();
@@ -46,7 +48,9 @@
 				var ins = $("devToolsSeparator", this.mainwin.document);
 				ins.parentNode.insertBefore($C("menuitem", {
 					id: "downloadPlus_set",
-					label: "downloadPlus 配置",
+					label: "文件下载方式",
+		      			tooltiptext:"NewDownLoadPlus",
+					image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACoSURBVDhP7ZLNDYAgDIU9uYFLMAM/K+pMcoOja+gK2kcoaYg2njxJQlKg/VpeOwzKcs6t2JqP+ua9P7F/wJca1LYla+0E5WUXcEfvSW0rBeQatCGAAdXe6jk/trVz5ADMAtsFrM5FBymDJKt6NVQ3kJYZGjC06PE070K0JiqySwCBIpTeQQwh2Ffl9U5EnMU/5Z+bza3rsp/l3hgzkrEQ5FBA8aZ8JIgX73OcYWhGzxwAAAAASUVORK5CYII=",
 					oncommand: "downloadPlus.openPref();",
 					class: "menuitem-iconic",
 				}), ins);
@@ -254,7 +258,7 @@
 					<prefwindow xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"\
 					id="downloadPlus_Settings"\
 					ignorekeys="true"\
-					title="downloadPlus 配置"\
+					title="下载方式选项"\
 					onload="changeStatus();"\
 					buttons="accept,cancel,extra1"\
 					ondialogextra1="feedBack();"\
@@ -444,8 +448,11 @@
 					if (aDownload.error && this.DL_FAILED && this._enable)
 						this.playSoundFile(this.DL_FAILED)
 						//**** 完成下载
-					if (aDownload.succeeded && this.DL_DONE && this._enable)
-						this.playSoundFile(this.DL_DONE)
+					if (typeof aDownload.downloadPlaySound == "undefined" &&
+                        aDownload.succeeded && aDownload.stopped && this.DL_DONE && this._enable) {
+                      aDownload.downloadPlaySound = true;
+                      this.playSoundFile(this.DL_DONE);
+                    }
 				},
 
 				playSoundFile: function(aFilePath) {
@@ -543,9 +550,12 @@
 					menuitem.onclick = function(e) {
 						if (e.target.disabled) return;
 						var path = "";
-						if (typeof DownloadsViewItemController != "undefined") {
+						if (typeof DownloadsViewItemController != "undefined" || DownloadsView.itemForElement) {
 							let selectedItem = DownloadsView.richListBox.selectedItem;
-							if (DownloadsView.controllerForElement) {
+							if (DownloadsView.itemForElement) {
+								path = DownloadsView.itemForElement(selectedItem).download.target.path;
+							}
+							else if (DownloadsView.controllerForElement) {
 								//FF38
 								path = DownloadsView.controllerForElement(selectedItem).download.target.path;
 							} else {
@@ -553,8 +563,8 @@
 								path = (new DownloadsViewItemController(selectedItem)).dataItem.file;
 							}
 						} else {
-							DownloadsView = document.getElementById("downloadsRichListBox")._placesView;
-							let selectedItemsShell = DownloadsView._richlistbox.selectedItems[0]._shell;
+							dv = document.getElementById("downloadsRichListBox")._placesView;
+							let selectedItemsShell = dv._richlistbox.selectedItems[0]._shell;
 							if (!(selectedItemsShell._metaData && selectedItemsShell._metaData.filePath)) {
 								//FF38
 								path = (selectedItemsShell._sessionDownload || selectedItemsShell._historyDownload).target.path;
@@ -584,9 +594,12 @@
 							file.remove(0);
 						}
 
-						if (typeof DownloadsViewItemController != "undefined") {
+						if (typeof DownloadsViewItemController != "undefined" || DownloadsView.itemForElement) {
 							let selectedItem = DownloadsView.richListBox.selectedItem;
-							if (DownloadsView.controllerForElement) {
+							if (DownloadsView.itemForElement) {
+								DownloadsView.itemForElement(selectedItem).doCommand("cmd_delete");
+							}
+							else if (DownloadsView.controllerForElement) {
 								//FF38
 								DownloadsView.controllerForElement(selectedItem).doCommand("cmd_delete");
 							} else {
@@ -594,7 +607,7 @@
 								(new DownloadsViewItemController(selectedItem)).doCommand("cmd_delete");
 							}
 						} else {
-							DownloadsView.doCommand("cmd_delete");
+							dv.doCommand("cmd_delete");
 						}
 					};
 
@@ -647,7 +660,7 @@
 		save_And_Open: function(enable) {
 			if (!enable) return;
 			var saveAndOpen = document.getAnonymousElementByAttribute(document.querySelector("*"), "dlgtype", "extra2");
-			saveAndOpen.parentNode.insertBefore(saveAndOpen, document.documentElement.getButton("accept").nextSibling);
+	        	saveAndOpen.parentNode.insertBefore(saveAndOpen,document.documentElement.getButton("extra1").nextSibling);
 			saveAndOpen.setAttribute("hidden", "false");
 			saveAndOpen.setAttribute("label", "\u4FDD\u5B58\u5E76\u6253\u5F00");
 			saveAndOpen.setAttribute("oncommand", 'Components.classes["@mozilla.org/appshell/window-mediator;1"].getService(Components.interfaces.nsIWindowMediator).getMostRecentWindow("navigator:browser").saveAndOpen.urls.push(dialog.mLauncher.source.asciiSpec);document.querySelector("#save").click();document.documentElement.getButton("accept").disabled=0;document.documentElement.getButton("accept").click()')
@@ -860,33 +873,31 @@
 			//第一次使用要修改路径，否则无法下载
 			//如果使用Firefox3.6 + userChromeJS v1.2,则路径中的汉字要转义为\u6C49\u5B57编码类型,否则会出现乱码
 			if (!enable) return;
-			var cssStr = (function() {
-				/*
-				        button[label="\4FDD\5B58\5230"] .dropmarker-icon{
-				                display:none;
-				        }
-				        button[label="\4FDD\5B58\5230"]::after{
-				                content:"";
-				                display:-moz-box;
-				                width:8px;
-				                height:19px;
-				                margin-left:-20px;
-				                -moz-appearance: menulist-button;
-				        }
-				        button[label="\4FDD\5B58\5230"][disabled]::after{
-				                opacity:.3;
-				        }
-				        */
-			}).toString().replace(/^.+\s|.+$/g, "");
-			var style = document.createProcessingInstruction("xml-stylesheet", "type=\"text/css\"" + " href=\"data:text/css;base64," + btoa(cssStr) + "\"");
-			document.insertBefore(style, document.firstChild);
+			var cssStr = (function(){/*
+		            button[label="\4FDD\5B58\5230"] .dropmarker-icon{
+		                    display:none;
+		            }
+		            button[label="\4FDD\5B58\5230"]::after{
+		                    content:"";
+		                    display:-moz-box;
+		                    width:8px;
+		                    height:19px;
+		                    margin-left:-20px;
+		                    -moz-appearance: menulist-button;
+		            }
+		            button[label="\4FDD\5B58\5230"][disabled]::after{
+		                    opacity:.3;
+		            }
+		            */}).toString().replace(/^.+\s|.+$/g,"");
+            var style = document.createProcessingInstruction("xml-stylesheet", "type=\"text/css\"" + " href=\"data:text/css;base64," + btoa(cssStr) + "\"");
+            document.insertBefore(style,document.firstChild);
 			var dir = [
 		["C:\\Users\\Cing\\Desktop", "Desktop"],
 		["E:\\Download", "Download"],
 		["E:\\Temp", "Temp"],
 		["E:\\Syuan's Soft", "Syuan's Soft"],
 			];
-			var saveTo = document.documentElement._buttons.cancel.parentNode.insertBefore(document.createElement("button"), document.documentElement._buttons.cancel);
+			var saveTo = document.documentElement._buttons.extra2.parentNode.insertBefore(document.createElement("button"), document.documentElement._buttons.extra2);
 			var saveToMenu = saveTo.appendChild(document.createElement("menupopup"));
 			saveTo.classList.toggle("dialog-button");
 			saveTo.label = "\u4FDD\u5B58\u5230";
@@ -996,9 +1007,12 @@
 							return;
 						}
 						var path = "";
-						if (typeof DownloadsViewItemController != "undefined") {
+						if (typeof DownloadsViewItemController != "undefined" || DownloadsView.itemForElement) {
 							let selectedItem = DownloadsView.richListBox.selectedItem;
-							if (DownloadsView.controllerForElement) {
+							if (DownloadsView.itemForElement) {
+								path = DownloadsView.itemForElement(selectedItem).download.target.path;
+							}
+							else if (DownloadsView.controllerForElement) {
 								//FF38
 								path = DownloadsView.controllerForElement(selectedItem).download.target.path;
 							} else {
@@ -1006,8 +1020,8 @@
 								path = (new DownloadsViewItemController(selectedItem)).dataItem.file;
 							}
 						} else {
-							DownloadsView = document.getElementById("downloadsRichListBox")._placesView;
-							let selectedItemsShell = DownloadsView._richlistbox.selectedItems[0]._shell;
+							dv = document.getElementById("downloadsRichListBox")._placesView;
+							let selectedItemsShell = dv._richlistbox.selectedItems[0]._shell;
 							if (!(selectedItemsShell._metaData && selectedItemsShell._metaData.filePath)) {
 								//FF38
 								path = (selectedItemsShell._sessionDownload || selectedItemsShell._historyDownload).target.path;
@@ -1058,7 +1072,7 @@
 							function toHexString(charCode) {
 								return ('0' + charCode.toString(16)).slice(-2);
 							}
-							var s = [toHexString(hash.charCodeAt(i)) for (i in hash)].join('');
+							var s = [for (i of hash) toHexString(i.charCodeAt(0))].join('');
 							return s;
 						}
 

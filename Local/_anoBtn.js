@@ -1,4 +1,4 @@
-//2016.03.30
+//2016.04.14
 
 /**********************************************************************************
  *此處爲按鈕設置
@@ -60,7 +60,8 @@ oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://sunbox.cc/')
 image: "http://sunbox.cc/wp-content/themes/begin/img/favicon.ico"
 },
  ]
-},{},{
+},{},
+{
 label: '批處理',
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAm0lEQVQ4jc2Quw2EMBBEX0ZEE9ThCsgp42LqIKYOQro5icDRVXCXDNay+GQLEfAkS/7szKwXbqQDvpWryxm8gLkiaFbtiQUYtP+XjGoWL26AD9BWdNCqtrGXPbAW0m0XqzSJCRgr0ndGaRIbEDNJFvsWpUlEIDhDew5OEKQ5uFt6CfbEN+7PXpNrucTDDPzQSvihnoZWWrmhXuMHem9Lmy9WtnwAAAAASUVORK5CYII=",
 child: [{
@@ -74,60 +75,10 @@ tooltiptext: "通過映象劫持以Notepad2替換自帶记事本",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Notepad2\\Notepad2.bat",
 },{},
 {
-label: "设置Flash mms.cfg",
-tooltiptext: "设置Flash mms.cfg",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\Set_Flash.bat",
-},{},
-{
-label: "重启explorer.exe",
-tooltiptext: "重啓explorer.exe",
+label: "重啟explorer.exe",
+tooltiptext: "重啟explorer.exe",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\explorer.bat",
 },]
-},{},{
-label: '外部打開',
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAcUlEQVQ4jbXTvQmFQBBF4S+wCMNXgh1oRfZmblsiYqCBBr7FnxHZCxMt9+yZhSVDfliC8yn5AQV6DBgxJaU/wNN+NeZ9LgFnBsdyvVuEAWnZW4O0DF0UUNoerr0wCxlUd4UI4PZGNF8B8cMoIPvnOc0KNDA9zZlUdtUAAAAASUVORK5CYII=",
-child: [
-{
-label: "在IE中打開",
-text: "%u",
-exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
-},
-{
-label: "在Chrome中打開",
-text: "%u",
-exec: "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
-},]
-},{},
-{
-label:"常用功能",
-image : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAG0lEQVQ4jWNgGCzgP5l4EIFRLwwGMIScOvgAAMPmMc89jdNcAAAAAElFTkSuQmCC",
-child:[
-{
-label: "iMacros",
-tooltiptext: "iMacros文件夾",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\iMacros\\Macros",
-},
-{},
-{
-label : "证书管理",
-oncommand: function () {
-window.open('chrome://pippki/content/certManager.xul', 'mozilla:certmanager', 'chrome,resizable=yes,all,width=600,height=400');
-},
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAuklEQVQ4jcWSqw7CMBSG93y1yGZvMLHUV6Ga6YkmhHdoFkIHZqllQRAwMyMQxLJNcAnIH1fBEN0m9ifHHPHlOxfPmzyMMYwpjzGGoekADmWDUBqE0uBQNv0BVGgQrkC4AhW6P8CPUgvwo9T2kyTp1F9AXlSgQoMKjbyo+hlc6yeCOEP7+KC+vxFKg1v7cjcI4gyEKyz0EcvNCYQrhNK4G8zmKzv/7yKdDNa7c+cK2/3F3WBILGDUK0+eLwDMbVc5IMVkAAAAAElFTkSuQmCC"
-//chrome://mozapps/skin/extensions/category-dictionaries.png
-},
-{
-label: "瀏覽器控制台",
-oncommand: "HUDService.openBrowserConsoleOrFocus();",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABQ0lEQVQ4jX2TS05CQRBFi4FNrHPBffCRuA0W4tgpUbYADDBxD7ID4giXQMQFGAhjHQADcWC/l6b51LDfrVN976s2yyqE0AAGkhbABthI+gAGIYRGrj/odfcxsAZ6QNvMqmZWBTru3gfWkl7M7PqoGZhKmpjZTXEoaSZplujqkibAm5kFS4TPsbmSUiPgPRtWkTRx93EhagKrSM8nHlTyvQ4sJTUNGLp7/8LEkzeKOQ0tpt3Jxe7+eA4UAW1JCwO29p92Pm0PPFxgBGBbAnL/EfDr7vdncpCk79JC7l/SPkJ27t7NcwBugflBiLmFBLI8kUEPGJmkVhTUM8EyAayy/uI3toppR4vk7l1gBXylFiwukqTnPNGppFczqx0HXlbt5CoXkPQxxetdmRnufufuT5ceU1lxtUeSPoEd8APM41kr1/8BlhlfHqOqklEAAAAASUVORK5CYII="
-},
-{
-label: "错误控制台",
-oncommand: "toJavaScriptConsole();",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXklEQVQ4jaWT0QnAIBBDs9dboUs5VQewe51fFim21ksgv48kEMkVUIFIugqIrIC4AUc5tzwFdKUBVgJ7A0khKQ/oGiEr4GuFv0mWCbYAsw2edUZ/VkglcADOmS77zQ2WT6Il/QiZvAAAAABJRU5ErkJggg=="
-},
-
-]
 },{},
 {
 label: '軟件列表',
@@ -136,6 +87,10 @@ child: [
 {
 label: "Shadowsocks",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Shadowsocks\\Shadowsocks.exe",
+},
+{
+label: "ShadowsocksR",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Shadowsocks\\ShadowsocksR.exe",
 },
 {
 label: "Lantern",
@@ -157,8 +112,48 @@ exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Imag
 label: "Adbyby",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\Adbyby\\Adbyby.exe",
 },
+{
+label: "SpeedyFox",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\run\\speedyfox.exe",
+},
 ],
 }, {},
+{
+label:"常用功能",
+image : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAG0lEQVQ4jWNgGCzgP5l4EIFRLwwGMIScOvgAAMPmMc89jdNcAAAAAElFTkSuQmCC",
+child:[
+{
+label: "iMacros",
+tooltiptext: "iMacros文件夾",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\iMacros\\Macros",
+},
+{},
+{
+label: "在IE中打開",
+text: "%u",
+exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
+},
+{
+label : "证书管理",
+oncommand: function () {
+window.open('chrome://pippki/content/certManager.xul', 'mozilla:certmanager', 'chrome,resizable=yes,all,width=600,height=400');
+},
+image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAuklEQVQ4jcWSqw7CMBSG93y1yGZvMLHUV6Ga6YkmhHdoFkIHZqllQRAwMyMQxLJNcAnIH1fBEN0m9ifHHPHlOxfPmzyMMYwpjzGGoekADmWDUBqE0uBQNv0BVGgQrkC4AhW6P8CPUgvwo9T2kyTp1F9AXlSgQoMKjbyo+hlc6yeCOEP7+KC+vxFKg1v7cjcI4gyEKyz0EcvNCYQrhNK4G8zmKzv/7yKdDNa7c+cK2/3F3WBILGDUK0+eLwDMbVc5IMVkAAAAAElFTkSuQmCC"
+//chrome://mozapps/skin/extensions/category-dictionaries.png
+},
+{
+label: "瀏覽器控制台",
+oncommand: "HUDService.openBrowserConsoleOrFocus();",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABQ0lEQVQ4jX2TS05CQRBFi4FNrHPBffCRuA0W4tgpUbYADDBxD7ID4giXQMQFGAhjHQADcWC/l6b51LDfrVN976s2yyqE0AAGkhbABthI+gAGIYRGrj/odfcxsAZ6QNvMqmZWBTru3gfWkl7M7PqoGZhKmpjZTXEoaSZplujqkibAm5kFS4TPsbmSUiPgPRtWkTRx93EhagKrSM8nHlTyvQ4sJTUNGLp7/8LEkzeKOQ0tpt3Jxe7+eA4UAW1JCwO29p92Pm0PPFxgBGBbAnL/EfDr7vdncpCk79JC7l/SPkJ27t7NcwBugflBiLmFBLI8kUEPGJmkVhTUM8EyAayy/uI3toppR4vk7l1gBXylFiwukqTnPNGppFczqx0HXlbt5CoXkPQxxetdmRnufufuT5ceU1lxtUeSPoEd8APM41kr1/8BlhlfHqOqklEAAAAASUVORK5CYII="
+},
+{
+label: "错误控制台",
+oncommand: "toJavaScriptConsole();",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXklEQVQ4jaWT0QnAIBBDs9dboUs5VQewe51fFim21ksgv48kEMkVUIFIugqIrIC4AUc5tzwFdKUBVgJ7A0khKQ/oGiEr4GuFv0mWCbYAsw2edUZ/VkglcADOmS77zQ2WT6Il/QiZvAAAAABJRU5ErkJggg=="
+},
+
+]
+},{},
 {
 label:"編碼工具",
 image : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAlUlEQVQ4ja2TwQ2AIAxF3wau4QCuwCxcPTKMI7iBO7iCA3BiArxUJaSCik2a0NL/+1MK/Gg9MAMBiDcepKbXwB4Yga7QpJMan5PMcvHUnGBOC5XOmpKQJuILsIpJg5VraA7Y5OwBWyMYBHScYxb7JwSpAs1NiWDimq6RvE3ipabAiMyoKCnOoPkZmxepeZUPks+f6bPtGg1LLkKBszsAAAAASUVORK5CYII=",

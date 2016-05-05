@@ -9,6 +9,7 @@
 // @charset			UTF-8
 // @version			0.0.4
 // @homepageURL		https://github.com/Griever/userChromeJS/blob/master/UserCSSLoader
+// @note      2016/5/3  Firefox46修正 by卡飯
 // @note			2014/7/10 Mod by Oos 添加在各 CSS 项目上 Ctrl + 中键：复选启用/停用，在按钮上中键：重新加载和右键：启用 / 禁用 UserCSSLoader
 // @note			2014/7/10 Mod by feiruo 添加启用/停用 UserCSSLoader
 // @note			2014/7/8 Mod by feiruo 添加重载 userChrome.css 和重载 userContent.css
@@ -210,7 +211,10 @@ window.UCL = {
 	},
 
 	uninit: function() {
-		var dis = [x for(x in this.readCSS) if (!this.readCSS[x].enabled)];
+	  //http://bbs.kafan.cn/forum.php?mod=redirect&goto=findpost&ptid=2039332&pid=37595964
+	  var dis = [];
+    for (x in this.readCSS) if (!this.readCSS[x].enabled) dis.push(x);
+		//var dis = [x for(x in this.readCSS) if (!this.readCSS[x].enabled)];
 		var str = Cc["@mozilla.org/supports-string;1"].createInstance(Ci.nsISupportsString);
 		str.data = dis.join("|");
 		this.prefs.setComplexValue("disabled_list", Ci.nsISupportsString, str);

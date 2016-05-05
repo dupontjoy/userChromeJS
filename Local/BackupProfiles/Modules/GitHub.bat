@@ -1,4 +1,4 @@
-::2016.03.22
+::2016.04.27
 
 :GitHub
 cls
@@ -10,8 +10,7 @@ echo  2. Foxmailﬂ^ûV∆˜£∫163.com, qq.com
 echo  3. ProcessLaso‘O÷√
 echo  4. PicPick‘O÷√
 echo  5. FastCopy-M‘O÷√
-echo  6. Shadowsocks-Pac‘O÷√
-echo  7. CCleaner‘O÷√
+echo  6. CCleaner‘O÷√
 echo.
 echo  ∞¥»Œ“‚º¸ºÃ–¯°≠°≠
 pause>nul
@@ -41,10 +40,6 @@ xcopy "%dir1%\..\Software\Image\PicPick\picpick.ini" "%dir2%\PicPick\picpick.ini
 
 ::Ç‰∑›FastCopy-M‘O÷√
 xcopy "%dir1%\..\..\FastCopy-M\FastCopy2.ini" "%dir2%\FastCopy-M\FastCopy2.ini"  /s /y /i
-
-::Ç‰∑›Shadowsocks-Pac‘O÷√
-xcopy "%dir1%\..\Software\GFW\Shadowsocks\pac.txt" "%dir2%\Rules\Shadowsocks\pac.txt"  /s /y /i
-xcopy "%dir1%\..\Software\GFW\Shadowsocks\user-rule.txt" "%dir2%\Rules\Shadowsocks\user-rule.txt"  /s /y /i
 
 ::Ç‰∑›CCleaner‘O÷√
 xcopy "%dir1%\..\..\System Tools\CCleaner\ccleaner.ini" "%dir2%\CCleaner\ccleaner.ini"  /s /y /i

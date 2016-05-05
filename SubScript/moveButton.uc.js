@@ -5,7 +5,7 @@
 // @namespace      ywzhaiqi@gmail.com
 // @include        main
 // @charset        UTF-8
-// @version        2016.05.01
+// @version        2016.05.05
 // version        2014.9.6
 // @homepageURL    https://github.com/ywzhaiqi/userChromeJS/tree/master/moveButton
 // @downloadURL    https://github.com/ywzhaiqi/userChromeJS/blob/master/moveButton/moveButton.uc.js
@@ -87,7 +87,8 @@ location == "chrome://browser/content/browser.xul" && (function(){
 { id: "flashgot-media-tbb", bar: "TabsToolbar_aidBar", pos: 1 },//FlashGot扩展
 { id: "foxyproxy-toolbar-icon", bar: "TabsToolbar_aidBar", pos: 2 },//Foxyproxy擴展
 { id: "ucjsPermission_Toolmenu", bar: "TabsToolbar_aidBar", pos: 3 },//ucjsPermission腳本
-{ id: "aup-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 4 },//Autoproxy擴展
+{ id: "UserScriptLoader-icon", bar: "TabsToolbar_aidBar", pos: 4 },//GM脚本版
+{ id: "aup-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 6 },//Autoproxy擴展
 { id: "lpt_lastpass-compact-btn", bar: "TabsToolbar_aidBar", pos: 7 },//Lastpass扩展
 { id: "userChromebtnMenu", bar: "TabsToolbar_aidBar", pos: 9 },//UC管理器
 { id: "userChromeJsManagerMenuBtn", bar: "TabsToolbar_aidBar", pos: 9 },//UC管理器

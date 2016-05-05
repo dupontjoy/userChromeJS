@@ -1,4 +1,4 @@
-/*+++ 2016.05.03 +++*/
+/*+++ 2016.05.05 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
@@ -61,6 +61,7 @@ display: none !important;
 }
 
 /*===标签栏右键菜单===*/
+#context_toggleMuteTab,/*标签页静音*/
 #alltabs-popup-separator,
 #context_tabViewMenu,/*移至组*/
 #context_closeTab,/*關閉標籤頁*/
@@ -184,16 +185,6 @@ display: none !important;
 [label="Copy Password"],[label="复制密码"],[label="複製密碼"],
 [label="Copy URL"],[label="复制网址"],[label="複製網址"],
 [label="Go to URL"],[label="转到网址"],[label="轉到網址"]
-{
-display: none !important;
-}
-
-/*UserScriptLoader*/
-#UserScriptLoader-delete-pref,
-#UserScriptLoader-delete-info,
-[label="网站..."],
-#UserScriptLoader-check-script,
-#UserScriptLoader-find-script
 {
 display: none !important;
 }

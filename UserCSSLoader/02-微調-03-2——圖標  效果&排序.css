@@ -1,4 +1,13 @@
-/*+++ 2016.03.05 +++*/
+/*+++ 2016.05.05 +++*/
+
+/*Aidbar排序*/
+#flashgot-media-tbb {-moz-box-ordinal-group: 1 !important;}/*FlashGot扩展*/
+#ucjsPermission_Toolmenu {-moz-box-ordinal-group: 2 !important;}/*ucjsPermission腳本*/
+#UserScriptLoader-icon {-moz-box-ordinal-group: 3 !important;}/*GM脚本版*/
+#aup-toolbarbutton {-moz-box-ordinal-group: 4 !important;}/*Autoproxy擴展*/
+#lpt_lastpass-compact-btn {-moz-box-ordinal-group: 5 !important;}/*Lastpass扩展*/
+#userChromebtnMenu {-moz-box-ordinal-group: 9 !important;}/*UC管理器*/
+#userChromeJsManagerMenuBtn {-moz-box-ordinal-group: 9 !important;}/*UC管理器*/
 
 /*Lastpass添加站点调序*/
 menuitem[label="添加站点"] {-moz-box-ordinal-group: 0 !important;}
@@ -64,4 +73,8 @@ box-shadow: none !important;
 	--toolbarbutton-active-bordercolor: rgba(0,0,0,0) !important;
 	--toolbarbutton-active-boxshadow: 0 0 0 0px rgba(0,0,0,0) inset !important;
 	--toolbarbutton-checkedhover-backgroundcolor: rgba(0,0,0,0) !important;
+}
+
+#UserScriptLoader-icon {
+padding:0px !important;
 }

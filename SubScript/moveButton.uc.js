@@ -94,10 +94,12 @@ location == "chrome://browser/content/browser.xul" && (function(){
 { id: "userChromeJsManagerMenuBtn", bar: "TabsToolbar_aidBar", pos: 9 },//UC管理器
 
 //保留在更多工具中
-{ id: "InspectElement-menuitem", insertAfter: "gm_general_menu" },//InspectElementModY默認不在MoreTools中，單獨移動
-{ id: "wordhighlight-toolbar-menuitem", insertAfter: "gm_general_menu" },
-{ id: "noscript-context-menu", insertAfter: "gm_general_menu" },//Noscript右鍵菜單
-{ id: "GrabScroll_optionsMenu", insertAfter: "gm_general_menu" },
+{ id: "InspectElement-menuitem", insertAfter: "flashgot-menu" },//InspectElementModY默認不在MoreTools中，單獨移動
+{ id: "wordhighlight-toolbar-menuitem", insertAfter: "flashgot-menu" },
+{ id: "noscript-context-menu", insertAfter: "flashgot-menu" },//Noscript右鍵菜單
+{ id: "GrabScroll_optionsMenu", insertAfter: "flashgot-menu" },
+{ id: "gm_general_menu", insertAfter: "flashgot-menu" },//Greasemonkey菜单
+{ id: "UserScriptLoader_Tools_Menu", insertAfter: "flashgot-menu" },//UserScriptloader菜单
 
 //頁面右鍵菜單
 {id: "frame", insertAfter: "menu_historySidebar"}, //页面右键本框架不能直接隱藏，只好移動到一個安全的位置

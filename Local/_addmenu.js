@@ -1,4 +1,4 @@
-//2016.05.04
+//2016.05.06
 
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
@@ -47,15 +47,15 @@ image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZEl
 });
 imagesub([
 {
-label: 'Baidu',
-url: 'http://image.baidu.com/n/pc_search?queryImageUrl=%IMAGE_URL%',
-image: "http://tu.baidu.com/favicon.ico",
-where: 'tab',
-}, 
-{
 label: 'Google',
 url: 'http://www.google.com/searchbyimage?image_url=%IMAGE_URL%',
 image: "https://www.google.com/favicon.ico",
+where: 'tab',
+}, 
+{
+label: 'Baidu',
+url: 'http://image.baidu.com/n/pc_search?queryImageUrl=%IMAGE_URL%',
+image: "http://tu.baidu.com/favicon.ico",
 where: 'tab',
 }, 
 {
@@ -198,15 +198,15 @@ elem.hidden = !/ic.sjlpj.cn/.test(content.location.host)//可排除多個網站
 });
 var items = [
 //打開方式(默认當前頁面)，通过where 更改，具體tab(前台)、tabshifted(后台)、window(窗口)
+{label: "Google",
+url: "https://www.google.com/search?newwindow=1&safe=off&hl=en-US&q=%s",
+image: "https://www.google.com/favicon.ico",
+where: 'tab'
+}, 
 {
 label: "Baidu",
 url: "http://www.baidu.com/s?wd=%s&ie=utf-8",
 image: "https://www.baidu.com/favicon.ico",
-where: 'tab'
-}, 
-{label: "Google",
-url: "https://www.google.com/search?newwindow=1&safe=off&hl=en-US&q=%s",
-image: "https://www.google.com/favicon.ico",
 where: 'tab'
 }, 
 {

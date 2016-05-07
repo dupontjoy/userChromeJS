@@ -1,4 +1,4 @@
-::2016.04.14
+::2016.05.07
 
 :Profiles-1
 cls
@@ -31,6 +31,7 @@ xcopy "%BackDir%\adblockplus" %TempFolder%\Profiles\adblockplus\  /s /y /i
 xcopy "%BackDir%\autoproxy" %TempFolder%\Profiles\autoproxy\  /s /y /i
 xcopy "%BackDir%\chrome" %TempFolder%\Profiles\chrome\  /s /y /i
 xcopy "%BackDir%\extensions" %TempFolder%\Profiles\extensions\ /s /y /i
+xcopy "%BackDir%\fireie" %TempFolder%\Profiles\fireie\ /s /y /i
 xcopy "%BackDir%\gm_scripts" %TempFolder%\Profiles\gm_scripts\ /s /y /i
 xcopy "%BackDir%\browser-extension-data" %TempFolder%\Profiles\browser-extension-data\ /s /y /i
 xcopy "%BackDir%\iMacros" %TempFolder%\Profiles\iMacros\ /s /y /i

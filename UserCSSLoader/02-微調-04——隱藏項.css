@@ -6,6 +6,9 @@
 {display: none !important;}*/
 
 /*===隐藏页面右键菜单===*/
+#fireie-context-openlinkintabwithieengine,/*在新标签页中以 IE 引擎打开链接*/
+#fireie-context-openlinkiniebrowser,/*在 IE 浏览器中打开链接*/
+#fireie-context-sep-open,/*FireIE分隔符*/
 #RIL_context_saveTabs,
 #RIL_context_clickMode,
 #RIL_context_savePage,

@@ -1,4 +1,5 @@
-/*+++ 2016.03.15 +++*/
+/*+++ 2016.05.07 +++*/
+
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 /*自动隐藏AidBar*/
 #TabsToolbar_aidBar:not(:hover) {
@@ -58,6 +59,7 @@ border-left:1px #BBC2C8 solid !important;
 {display: none !important;}
 
 /*調整圖標邊框——方法1*/
+#fireie-toolbar-palette-button >image,
 #showFlagS-icon >image,/*國旗圖標*/
 #PanelUI-menu-button >image,/*三道杠圖標*/
 #back-button >image, 

@@ -1,4 +1,4 @@
-//2016.05.05
+//2016.05.09
 
 //Redirector說明頁面：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -81,7 +81,15 @@ from: /^https?:\/\/book\.bfnn\.org\/article([\d]?\/.*)/i,
 to: "http://book.bfnn.org/books$1",
 regex: true
 },
-
+{
+//example: http://ding.youku.com/a/id_XMTY2NDYw.html
+//方法來源: http://bbs.csdn.net/topics/391051571
+//Note: 需配置ReferChage使用,将qpic.cn和qlogo.cn设置为"@Block"
+name: "微信圖片 反盜鏈",
+from: /^https?:\/\/mmbiz\.(qpic|qlogo)\.cn\/mmbiz\/(.*)\/(.*)\?wx_fmt=(.*)/i,
+to: "http://mmbiz.qpic.cn/mmbiz/$2/640",
+regex: true
+},
 
 //Google系
 {
@@ -113,6 +121,7 @@ from: /^https:\/\/((pan|yun)+\.baidu\.com\/.+)/i,
 to: "http://$1",
 regex: true
 },
+
 {
 name: "bbs详细页面",
 from: /^https?:\/\/bbs\.(.*)\.(cn|com)\/simple\/\?t(.*)\.html/i,

@@ -1,4 +1,4 @@
-::2016.04.27
+::2016.05.11
 
 :Sync
 cls
@@ -51,3 +51,6 @@ xcopy "%dir2%\Thunder\xmp.ini" "%dir1%\..\..\Thunder Network\Thunder\Program\xmp
 
 ::同步CCleaner設置
 xcopy "%dir2%\CCleaner\ccleaner.ini" "%dir1%\..\..\System Tools\CCleaner\ccleaner.ini" /s /y /i
+
+::同步FeiruoNet自定义代理规则
+xcopy "%dir2%\Rules\Autoproxy\_FeiRuoNetProxy.json" "%dir1%\Chrome\lib\_FeiRuoNetProxy.json"  /s /y /i

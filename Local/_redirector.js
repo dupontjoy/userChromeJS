@@ -1,4 +1,4 @@
-//2016.05.09
+//2016.05.12
 
 //Redirector說明頁面：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -32,6 +32,12 @@ regex: true
 },
 
 //單獨網站
+{
+name: "工行不跳转提示页",
+from: "http://www.icbc.com.cn/ICBC/网银系统/alert.htm",
+to: "https://mybank.icbc.com.cn/icbc/perbank/index.jsp",
+regex: false
+},
 {
 //example: http://news.ifeng.com/a/ydzx/20150413/43541233_0.shtml
 name: "鳳凰網 只顯示首圖修正",

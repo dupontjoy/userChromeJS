@@ -1,11 +1,11 @@
-::2016.04.27
+::2016.05.11
 
 :GitHub
 cls
 echo.
 echo  *** 備份一些文件到GitHub ***
 echo.
-echo  1. Firefox文件：user.js, persdict.dat, stylish.sqlite
+echo  1. Firefox文件：user.js, persdict.dat, stylish.sqlite, _FeiRuoNetProxy.json
 echo  2. Foxmail過濾器：163.com, qq.com
 echo  3. ProcessLaso設置
 echo  4. PicPick設置
@@ -28,6 +28,7 @@ set dir2=E:\My Documents\GitHub\Customization
 xcopy "%dir1%\persdict.dat" "%dir2%\Firefox\persdict.dat"  /s /y /i
 xcopy "%dir1%\stylish.sqlite" "%dir2%\Firefox\stylish.sqlite"  /s /y /i
 xcopy "%dir1%\user.js" "%dir2%\Firefox\user.js"  /s /y /i
+xcopy "%dir1%\Chrome\lib\_FeiRuoNetProxy.json" "%dir2%\Rules\Autoproxy\_FeiRuoNetProxy.json"  /s /y /i
 
 ::備份Foxmail Filter
 xcopy "%dir1%\..\..\Tencent\Foxmail\Storage\dupontjoy@163.com\Filter\1.fter" "%dir2%\Foxmail-Filter\163.com\1.fter"  /s /y /i

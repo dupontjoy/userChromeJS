@@ -1,4 +1,4 @@
-//2016.03.19
+//2016.05.11
 
 //Fn功能鍵
 
@@ -13,8 +13,14 @@ anobtn.reload();//anobtn
 addMenu.rebuild();//AddmenuPlus
 MyMoveButton.delayRun();//Movebutton
 /*showFlagS.rebuild();//ShowFlagS整合版*/
-FeiRuoNet.Rebuild(true);//FeiRuoNet
+FeiRuoNet.Rebuild();//FeiRuoNet
 };//群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
+
+keys['W'] = function() {
+var Setting = "userchromejs.data.BingDesktopTheme";
+gPrefService.setIntPref(Setting, 0);
+setBingTheme();
+};
 
 //組合鍵
 keys['Alt+W'] = "gWHT.addWord();";//WordHighlight添加詞

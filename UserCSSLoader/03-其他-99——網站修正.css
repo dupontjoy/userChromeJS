@@ -1,0 +1,53 @@
+/*+++ 2016.04.25 +++*/
+
+@-moz-document domain("ic.sjlpj.cn") {
+/*=新建按钮框缩小=*/
+.mod_title_opt.btn_blue,/*新建一级分类，新建产品品牌*/
+.btn_blue/*型号分组管理，新建子组目录*/
+{
+padding: 0px !important;
+}
+
+}
+
+@-moz-document domain("mercurymart.com") {
+/*Mercury居中显示*/
+#container .wrapInner {
+overflow: inherit !important;
+}
+
+#featured {
+overflow: inherit !important;
+}
+
+}
+
+@-moz-document url("http://court.gov.cn/zgcpwsw/") {
+form#feedbacksmallform>table {
+position:absolute;top:2%;
+}
+}
+
+@-moz-document domain("bbs.10moons.com") {
+#threadlisttableid {
+table-layout: inherit !important;
+}
+}
+
+@-moz-document domain("520tieba.net") {
+.t_fsz {
+position:relative;left:-863.8px;
+}
+}
+
+@-moz-document domain("sooopu.com") {
+.related{
+  clear: both;
+}
+}
+
+@-moz-document domain("amd.com") {
+.panel-wrapper{
+left: -24px;
+}
+}

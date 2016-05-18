@@ -1,4 +1,4 @@
-//2016.05.11
+//2016.05.13
 
 //Fn功能鍵
 
@@ -9,6 +9,7 @@ keys['R'] = function() {
 KeyChanger.makeKeyset();//KeyChanger
 Redirector.reload();//Redirector
 UCL.rebuild();//UserCSSLoader
+USL.rebuild();//UserScriptLoader
 anobtn.reload();//anobtn
 addMenu.rebuild();//AddmenuPlus
 MyMoveButton.delayRun();//Movebutton

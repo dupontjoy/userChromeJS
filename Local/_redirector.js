@@ -33,12 +33,6 @@ regex: true
 
 //單獨網站
 {
-name: "工行不跳转提示页",
-from: "http://www.icbc.com.cn/ICBC/网银系统/alert.htm",
-to: "https://mybank.icbc.com.cn/icbc/perbank/index.jsp",
-regex: false
-},
-{
 //example: http://news.ifeng.com/a/ydzx/20150413/43541233_0.shtml
 name: "鳳凰網 只顯示首圖修正",
 from: /^https?:\/\/(.*)\.ifeng\.com\/a\/(ydzx|)\/(.*)/i,

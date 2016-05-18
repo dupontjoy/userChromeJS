@@ -1,4 +1,4 @@
-//2016.04.14
+//2016.05.12
 
 /**********************************************************************************
  *此處爲按鈕設置
@@ -70,15 +70,16 @@ tooltiptext: "1. 備份Profiles\n2. CingFox製作\n3. 備份Plugins和Software�
 exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\local\\BackupProfiles\\Backup_7z.bat",
 },{},
 {
-label: "设置Notepad2为默认",
-tooltiptext: "通過映象劫持以Notepad2替換自帶记事本",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Notepad2\\Notepad2.bat",
-},{},
-{
 label: "重啟explorer.exe",
 tooltiptext: "重啟explorer.exe",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\explorer.bat",
-},]
+},{},
+{
+label: "设置Notepad2为默认",
+tooltiptext: "通過映象劫持以Notepad2替換自帶记事本",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Notepad2\\Notepad2.bat",
+},
+]
 },{},
 {
 label: '軟件列表',
@@ -90,7 +91,7 @@ exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\
 },
 {
 label: "ShadowsocksR",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Shadowsocks\\ShadowsocksR.exe",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Shadowsocks\\ShadowsocksR-dotnet4.0.exe",
 },
 {
 label: "Lantern",

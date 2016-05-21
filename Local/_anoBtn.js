@@ -1,4 +1,4 @@
-//2016.05.12
+//2016.05.20
 
 /**********************************************************************************
  *此處爲按鈕設置
@@ -92,6 +92,10 @@ exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\
 {
 label: "ShadowsocksR",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Shadowsocks\\ShadowsocksR-dotnet4.0.exe",
+},
+{
+label: "SSCap64",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Shadowsocks\\SScap64\\SSCap.exe",
 },
 {
 label: "Lantern",

@@ -1,4 +1,4 @@
-/*+++ 2016.05.07 +++*/
+/*+++ 2016.05.21 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 /*自动隐藏AidBar*/
@@ -13,7 +13,23 @@ margin-bottom: 0px !important;
 }
 
 /*工具栏图标倒三角下拉选项隐藏*/
-.toolbarbutton-menubutton-dropmarker, .toolbarbutton-menu-dropmarker { display:none !important; }
+.toolbarbutton-menubutton-dropmarker, 
+.toolbarbutton-menu-dropmarker
+{ display:none !important; }
+
+/*五角星書籤圖標邊框及左右距離(去小三角的后遗症)*/
+#bookmarks-menu-button>.toolbarbutton-menubutton-button{
+margin-right: -6px !important;
+-moz-appearance: none !important;
+padding: 0px 3px 0px 1px !important;
+border-right: 1px #BBC2C8 solid !important;
+}
+
+/*地址栏图标加分隔线
+#urlbar-reload-button {
+padding:1px 1px !important;
+border-left:1px #BBC2C8 solid !important;
+}*/
 
 /*地址栏下拉栏隐藏*/
 .urlbar-history-dropmarker {
@@ -25,12 +41,6 @@ margin-bottom: 0px !important;
 max-width:110px !important;
 min-width:110px !important;
 }
-
-/*地址栏图标加分隔线
-#urlbar-reload-button {
-padding:1px 1px !important;
-border-left:1px #BBC2C8 solid !important;
-}*/
 
 /*隐藏图标*/
 #imacros-toggle-button,/*iMacros扩展*/
@@ -104,8 +114,3 @@ toolbarbutton#ucjsPermission_Toolmenu,toolbarbutton#ucjsPermission_Toolmenu>imag
 margin:0px !important;
 }
 
-/*五角星書籤圖標邊框及左右距離*/
-#bookmarks-menu-button>.toolbarbutton-menubutton-button{
-margin-right: -12px !important;
--moz-appearance: none !important;
-}

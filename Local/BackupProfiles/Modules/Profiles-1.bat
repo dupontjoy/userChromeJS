@@ -1,4 +1,4 @@
-::2016.05.07
+::2016.05.19
 
 :Profiles-1
 cls
@@ -40,9 +40,9 @@ xcopy "%BackDir%\iMacros" %TempFolder%\Profiles\iMacros\ /s /y /i
 xcopy "%BackDir%\bookmarks.html" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\cert8.db" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\FlashGot.exe" %TempFolder%\Profiles\ /y
-xcopy "%BackDir%\foxyproxy.xml" %TempFolder%\Profiles\ /y
+::xcopy "%BackDir%\foxyproxy.xml" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\mimeTypes.rdf" %TempFolder%\Profiles\ /y
-xcopy "%BackDir%\patternSubscriptions.json" %TempFolder%\Profiles\ /y
+::xcopy "%BackDir%\patternSubscriptions.json" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\permissions.sqlite" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\persdict.dat" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\pluginreg.dat" %TempFolder%\Profiles\ /y

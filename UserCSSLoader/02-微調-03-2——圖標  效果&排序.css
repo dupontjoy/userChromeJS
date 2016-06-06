@@ -1,8 +1,9 @@
-/*+++ 2016.05.05 +++*/
+/*+++ 2016.06.05 +++*/
 
 /*Aidbar排序*/
 #flashgot-media-tbb {-moz-box-ordinal-group: 1 !important;}/*FlashGot扩展*/
 #ucjsPermission_Toolmenu {-moz-box-ordinal-group: 2 !important;}/*ucjsPermission腳本*/
+#ublock0-button {-moz-box-ordinal-group: 2 !important;}/*UBO扩展*/
 #UserScriptLoader-icon {-moz-box-ordinal-group: 3 !important;}/*GM脚本版*/
 #aup-toolbarbutton {-moz-box-ordinal-group: 4 !important;}/*Autoproxy擴展*/
 #lpt_lastpass-compact-btn {-moz-box-ordinal-group: 5 !important;}/*Lastpass扩展*/
@@ -77,4 +78,10 @@ box-shadow: none !important;
 
 #UserScriptLoader-icon {
 padding:0px !important;
+}
+
+/*調整圖標邊框——方法1*/
+toolbarbutton#umatrix-button,toolbarbutton#umatrix-button>image
+{padding: 0px !important;
+margin-right:-4px !important;
 }

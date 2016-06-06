@@ -3,7 +3,7 @@
 // @namespace      runningcheese@qq.com
 // @description    为工具栏图标增加点击功能
 // @author         runningcheese
-// @version        0.0.1-2016.05.21
+// @version        0.0.1-2016.06.01
 // @license        MIT License
 // @compatibility  Firefox 29+
 // @charset        UTF-8
@@ -95,6 +95,14 @@ this.handleRevert();
 }, false);
 };
 
+//当搜索栏失去焦点后清空
+if (location == "chrome://browser/content/browser.xul") {
+var ub = document.getElementById("searchbar");
+ub.addEventListener("blur", function () {
+this.value = "";
+}, false);
+};
+
 //中键点击地址栏自动复制网址
 document.getElementById('urlbar').addEventListener('click', function(e){
 	if(e.button == 1) goDoCommand('cmd_copy');
@@ -175,3 +183,5 @@ window.addEventListener("click", function(e) {
 		e.stopPropagation();
 	}
 }, false);
+
+

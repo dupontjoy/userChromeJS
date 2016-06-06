@@ -53,12 +53,6 @@ image: "https://www.google.com/favicon.ico",
 where: 'tab',
 }, 
 {
-label: 'Baidu',
-url: 'http://image.baidu.com/n/pc_search?queryImageUrl=%IMAGE_URL%',
-image: "http://tu.baidu.com/favicon.ico",
-where: 'tab',
-}, 
-{
 label: 'Sou',
 url: 'http://st.so.com/stu?imgurl=%IMAGE_URL%',
 image: "http://st.so.com/favicon.ico",
@@ -203,24 +197,17 @@ url: "https://www.google.com/search?newwindow=1&safe=off&hl=en-US&q=%s",
 image: "https://www.google.com/favicon.ico",
 where: 'tab'
 }, 
-{
-label: "Baidu",
-url: "http://www.baidu.com/s?wd=%s&ie=utf-8",
-image: "https://www.baidu.com/favicon.ico",
+{label: "Bing",
+url: "https://www.bing.com/search?q=%s",
+image: "https://www.bing.com/sa/simg/bing_p_rr_teal_min.ico",
 where: 'tab'
-}, 
+},
 {
 label: "Sou",
 url: "http://www.so.com/s?ie=utf-8&q=%s",
 image: "http://www.haosou.com/favicon.ico",
 where: 'tab'
 }, 
-{
-label: "Thunder",
-url:"http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=%SEL%",
-where: 'tab',
-image: "http://www.easyicon.net/api/resizeApi.php?id=562508&size=16",
-},
 {},
 {
 label: "外網批量管理-SKU",

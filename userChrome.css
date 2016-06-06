@@ -1,4 +1,4 @@
-/*+++ 2016.05.21 +++*/
+/*+++ 2016.06.05 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 /*自动隐藏AidBar*/
@@ -102,6 +102,10 @@ padding: 0px !important;
 toolbarbutton#anobtn,toolbarbutton#anobtn>image
 {padding: 0px !important;margin-left:1px !important;}
 
+/*UBO圖標（两句要同時用）*/
+toolbarbutton#ublock0-button,toolbarbutton#ublock0-button>image
+{padding: 0px !important;margin-left:0px !important;margin-right: -3px !important;}
+
 /*Lastpass圖標距離調整（两句要同時用）*/
 toolbarbutton#lpt_lastpass-compact-btn,toolbarbutton#lpt_lastpass-compact-btn>image {
 padding: 0px !important;
@@ -114,3 +118,9 @@ toolbarbutton#ucjsPermission_Toolmenu,toolbarbutton#ucjsPermission_Toolmenu>imag
 margin:0px !important;
 }
 
+/*搜索栏宽度*/
+#search-container {
+margin-top: -1px !important;
+right: 1px !important;
+max-width: 300px !important;
+}

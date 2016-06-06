@@ -1,4 +1,4 @@
-/*+++ 2016.05.05 +++*/
+/*+++ 2016.06.02 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
@@ -259,6 +259,8 @@ display: none !important;
 
 /*隐藏定制面板里的非线性图标*/
 #PanelUI-footer-fxa,/*三道杠-登陆以同步*/
+#wrapper-sync-button,
+#sync-button,
 #wrapper-home-button,/*定制-主页*/
 #wrapper-imacros-toggle-button,/*定制-iMacros*/
 #wrapper-stylish-toolbar-button,/*定制-Stylish*/

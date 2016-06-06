@@ -1,4 +1,4 @@
-//2016.05.20
+//2016.06.01
 
 /**********************************************************************************
  *此處爲按鈕設置
@@ -43,12 +43,6 @@ image: "https://assets-cdn.github.com/favicon.ico"
 },
 {},
 {
-label: "FirefoxFan",
-oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.cc/')",
-image: "http://www.firefoxfan.cc/favicon.ico"
-},
-{},
-{
 label: "RunningCheese",
 oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.runningcheese.com/')",
 image: "http://www.runningcheese.com/favicon.ico"
@@ -58,6 +52,12 @@ image: "http://www.runningcheese.com/favicon.ico"
 label: "SunBox",
 oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://sunbox.cc/')",
 image: "http://sunbox.cc/wp-content/themes/begin/img/favicon.ico"
+},
+{},
+{
+label: "FirefoxFan",
+oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.cc/')",
+image: "http://www.firefoxfan.cc/favicon.ico"
 },
  ]
 },{},
@@ -72,7 +72,12 @@ exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\local\\BackupProfi
 {
 label: "重啟explorer.exe",
 tooltiptext: "重啟explorer.exe",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\explorer.bat",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\QT-Check\\explorer.bat",
+},{},
+{
+label: "设置Cingfox为默认",
+tooltiptext: "批处理注入注册表",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\run\\default.bat",
 },{},
 {
 label: "设置Notepad2为默认",
@@ -94,24 +99,21 @@ label: "ShadowsocksR",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Shadowsocks\\ShadowsocksR-dotnet4.0.exe",
 },
 {
-label: "SSCap64",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Shadowsocks\\SScap64\\SSCap.exe",
+label: "SScap64",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Shadowsocks\\SSCap64\\SSCap.exe",
 },
 {
 label: "Lantern",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Lantern\\lantern.exe",
 },
-{
-label: "Psiphon",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\psiphon\\psiphon3.exe",
-},{},
+{},
 {
 label: "PicPick",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Image\\PicPick\\PicPick.exe",
 },
 {
-label: "ScreenToGif",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Image\\ScreenToGif.exe",
+label: "ScreenToGif2",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Image\\ScreenToGif 2.exe",
 },{},
 {
 label: "Adbyby",
@@ -133,11 +135,6 @@ tooltiptext: "iMacros文件夾",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\iMacros\\Macros",
 },
 {},
-{
-label: "在IE中打開",
-text: "%u",
-exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
-},
 {
 label : "证书管理",
 oncommand: function () {

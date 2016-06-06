@@ -1,4 +1,4 @@
-::2016.05.19
+::2016.06.05
 
 :Profiles-1
 cls
@@ -31,6 +31,7 @@ xcopy "%BackDir%\adblockplus" %TempFolder%\Profiles\adblockplus\  /s /y /i
 xcopy "%BackDir%\autoproxy" %TempFolder%\Profiles\autoproxy\  /s /y /i
 xcopy "%BackDir%\chrome" %TempFolder%\Profiles\chrome\  /s /y /i
 xcopy "%BackDir%\extensions" %TempFolder%\Profiles\extensions\ /s /y /i
+xcopy "%BackDir%\extension-data" %TempFolder%\Profiles\extension-data\ /s /y /i
 xcopy "%BackDir%\fireie" %TempFolder%\Profiles\fireie\ /s /y /i
 xcopy "%BackDir%\gm_scripts" %TempFolder%\Profiles\gm_scripts\ /s /y /i
 xcopy "%BackDir%\browser-extension-data" %TempFolder%\Profiles\browser-extension-data\ /s /y /i
@@ -47,6 +48,7 @@ xcopy "%BackDir%\permissions.sqlite" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\persdict.dat" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\pluginreg.dat" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\Portable.7z" %TempFolder%\Profiles\ /y
+xcopy "%BackDir%\search.json.mozlz4" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\stylish.sqlite" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\user.js" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\prefs.js" %TempFolder%\Profiles\ /y

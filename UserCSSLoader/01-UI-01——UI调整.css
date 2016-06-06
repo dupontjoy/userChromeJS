@@ -2,7 +2,7 @@
   @namespace   https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox
   @description 含:标签栏, 地址栏, 书签栏, 三道杠等界面上的调整
   @author      Cing
-  @version     1.00-20160512
+  @version     1.00-2016.05.24
   @reference             
 */
 
@@ -170,7 +170,7 @@ border-top: none;
 background: #FFFFFF;
 right: 1px; /*距右邊*/
 /*top: 64px; /*Win8距上邊*/
-top: 68px; /*Win10距上邊*/
+top: 95px; /*Win10距上邊*/
 height: 24px;
 /*>>>自行修改数字*/
 border: 1px solid #A6A6A6;
@@ -275,4 +275,9 @@ top: 260px !important;
 height: 570px !important;
 }*/
 
+/*搜索栏宽度*/
+#search-container {
+margin-top: -1px !important;
+right: 1px !important;
+max-width: 300px !important;
 }

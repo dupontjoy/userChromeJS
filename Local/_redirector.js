@@ -1,4 +1,4 @@
-//2016.05.12
+//2016.06.04
 
 //Redirector說明頁面：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -123,9 +123,16 @@ regex: true
 },
 
 {
-name: "bbs详细页面",
-from: /^https?:\/\/bbs\.(.*)\.(cn|com)\/simple\/\?t(.*)\.html/i,
-to: "http://bbs.$1.$2/read.php?tid=$3",
+name: "bbs详细页面-1",
+from: /^https?:\/\/(.*)\/simple\/\?t(.*)\.html/i,
+to: "http://$1/read.php?tid=$2",
+regex: true
+},
+{
+//example: http://www.bathome.net/archiver/tid-6301.html
+name: "bbs详细页面-2",
+from: /^https?:\/\/(.*)\/archiver\/tid-(.*)\.html/i,
+to: "http://$1/viewthread.php?tid=$2",
 regex: true
 },
 {

@@ -108,12 +108,6 @@ Goto end
 
 :end
 cls
-ECHO  已完成！下一步？
-ECHO.
-ECHO  1.返回主菜單
-ECHO  2.退出
-ECHO.
-Choice /C 12 /N /M 选择（1、2）：
-If ErrorLevel 1 If Not ErrorLevel 2 Goto menu
-If ErrorLevel 2 If Not ErrorLevel 3 Goto exit
+ECHO.&ECHO.已完成! 按任意鍵返回菜单！&PAUSE >NUL 2>NUL
+goto menu
 

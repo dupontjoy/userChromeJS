@@ -1,9 +1,22 @@
-//2016.05.13
+//2016.06.07
 
 //Fn功能鍵
 
 //字母
 keys['G'] = "var s = prompt('站内搜索——请输入待搜索字符串', '');if (s.length > 0) gBrowser.addTab('http://www.google.com/search?q=site:' + encodeURIComponent(content.location.host) + ' ' + encodeURIComponent(s));";//Google站内搜索
+
+keys['I'] = function() {
+try {
+var file = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProgF", Components.interfaces.nsILocalFile);
+file.append("Internet Explorer");
+file.append("iexplore.exe");
+var process = Cc["@mozilla.org/process/util;1"].createInstance(Ci.nsIProcess);
+process.init(file);
+process.run(false, [content.location.href], 1);
+} catch (ex) {
+alert("\u6253\u5f00IE\u5931\u8d25!")
+}
+};//用IE打开当前页
 
 keys['R'] = function() {
 KeyChanger.makeKeyset();//KeyChanger

@@ -234,7 +234,7 @@ image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "查詢價格-SKU",
+label: "查詢/變更價格-SKU",
 id: "TVC-Universal",
 accesskey: "3",
 url: "http://ic.sjlpj.cn/PriceChangeRequest/UnChangedProductList?Sku=%s&IsFirstRequest=false",

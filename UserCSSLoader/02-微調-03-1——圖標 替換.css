@@ -1,4 +1,4 @@
-/*+++ 2016.06.01 +++*/
+/*+++ 2016.06.08 +++*/
 
 /*==修正图標和文字擠一起問題==*/
 /* Adjust left-margin for menuitems and menus which aren't iconized */
@@ -199,6 +199,8 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 }
 
 /*用新分頁打開啟*/
+[label="在新标签页中打开"],
+#request-menu-context-newtab,
 menuitem[label="添加站点"],/*Lastpass添加站点*/
 [class="openintabs-menuitem"]/*書籤右鍵全部用新標籤打開*/,
 #context-openlinkintab/*鏈接右鍵用新分頁開啟鏈結*/,

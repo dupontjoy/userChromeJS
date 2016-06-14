@@ -1,4 +1,4 @@
-/*+++ 2016.06.05 +++*/
+/*+++ 2016.06.14 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 /*自动隐藏AidBar*/
@@ -43,6 +43,7 @@ min-width:110px !important;
 }
 
 /*隐藏图标*/
+#VimFxButton,/*vimfx按钮,可输入"?"直接调用*/
 #imacros-toggle-button,/*iMacros扩展*/
 #nav-bar-overflow-button,/*工具栏-更多工具按钮*/
 #PanelUI-fxa-avatar,/*FX41下SimpleWhite三道杠多出来的按钮*/

@@ -1,4 +1,4 @@
-//2016.06.04
+//2016.06.12
 
 //Redirector說明頁面：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -26,8 +26,8 @@ regex: true
 {
 //example: http://ic.sjlpj.cn/#/ProductNewCategory/ProductNewCategoryManager
 name: "ProductNewCategory首页 每页100项",
-from: /^https?:\/\/ic\.sjlpj\.cn\/.*ProductNewCategory\/ProductNewCategoryManager$/,
-to: "http://ic.sjlpj.cn/ProductNewCategory/ProductNewCategoryManager?pageSize=100",
+from: /^(https?:\/\/ic\.sjlpj\.cn\/.*ProductNewCategory\/ProductNewCategoryManager)$/,
+to: "$1?pageSize=100",
 regex: true
 },
 
@@ -53,6 +53,14 @@ regex: true
 name: "去跳轉",
 from:/^https?:\/\/.*\.(jobui|zhihu|douban)\..*\/.*?(link|target|url)=(.*)/i,
 to: "$3",
+regex: true
+},
+{
+//測試：https://passport.weibo.com/visitor/visitor?entry=miniblog&a=enter&url=http%3A%2F%2Fweibo.com%2F207771043&domain=.weibo.com&sudaref=https%3A%2F%2Fwww.google.com&ua=php-sso_sdk_client-0.6.16&_rand=1465712243.2461
+name: "weibo跳转",
+from: /^https?:\/\/passport\.weibo\.com\/visitor\/(.*)\&url=(.*)\&domain(.*)/i,
+to: "$2",
+decode: true,
 regex: true
 },
 {
@@ -91,6 +99,7 @@ to: "http://mmbiz.qpic.cn/mmbiz/$2/640",
 regex: true
 },
 
+
 //Google系
 {
 //google.com.hk的搜索重定向到國際版google.com
@@ -113,6 +122,18 @@ regex: true
 name: "ajax|fonts(https?) >> useso",
 from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "http://$1.useso.com/$2",
+regex: true
+},
+{
+name: "themes >> 科大博客",
+from: /^https?:\/\/themes\.googleusercontent\.com\/(.*)$/,
+to: "https://google-themes.lug.ustc.edu.cn/$1",
+regex: true
+},
+{
+name: "fonts-gstatic >> 科大博客",
+from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
+to: "https://fonts-gstatic.lug.ustc.edu.cn/$1",
 regex: true
 },
 {

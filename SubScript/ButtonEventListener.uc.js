@@ -3,7 +3,7 @@
 // @namespace      runningcheese@qq.com
 // @description    为工具栏图标增加点击功能
 // @author         runningcheese
-// @version        0.0.1-2016.06.01
+// @version        0.0.1-2016.06.14
 // @license        MIT License
 // @compatibility  Firefox 29+
 // @charset        UTF-8
@@ -165,7 +165,7 @@ event.preventDefault();\
 })()
 
 
-//右键点击新建按钮打开剪贴板中的网址
+//右键点击新建按钮打开about:config
 location=="chrome://browser/content/browser.xul" &&
 window.addEventListener("click", function(e) {
 	if (e.button === 2 && e.originalTarget.matches(".tabs-newtab-button")) {
@@ -176,7 +176,8 @@ window.addEventListener("click", function(e) {
 		try {
 			switchToTabHavingURI(url, true);
 		} catch (ex) {
-			url = 'https://www.baidu.com/s?wd='+ encodeURIComponent(url);
+			//url = 'https://www.baidu.com/s?wd='+ encodeURIComponent(url);
+			url="about:config"
 			switchToTabHavingURI(url, true);
 		}
 		e.preventDefault();

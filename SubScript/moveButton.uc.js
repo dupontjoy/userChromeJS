@@ -5,7 +5,7 @@
 // @namespace      ywzhaiqi@gmail.com
 // @include        main
 // @charset        UTF-8
-// @version        2016.06.05
+// @version        2016.06.08
 // version        2014.9.6
 // @homepageURL    https://github.com/ywzhaiqi/userChromeJS/tree/master/moveButton
 // @downloadURL    https://github.com/ywzhaiqi/userChromeJS/blob/master/moveButton/moveButton.uc.js
@@ -118,6 +118,7 @@ context: "_child"
 },
 
 //-------------------文本提示框-----------------------------
+{id: "anobtn",attr: {tooltiptext:"CingFox, 一个Firefox私人定制版本",}},
 {id: "RIL_toolbar_button",attr: {tooltiptext:"左键: 稍后阅读\r\n右键: 查看列表",}},
 {id: "RIL_urlbar_add",attr: {tooltiptext:"未添加",}},
 {id: "RIL_urlbar_mark",attr: {tooltiptext:"已添加",}},

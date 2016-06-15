@@ -1,4 +1,4 @@
-/*+++ 2016.06.14 +++*/
+/*+++ 2016.06.15 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 /*自动隐藏AidBar*/
@@ -13,6 +13,7 @@ margin-bottom: 0px !important;
 }
 
 /*工具栏图标倒三角下拉选项隐藏*/
+.urlbar-history-dropmarker,
 .toolbarbutton-menubutton-dropmarker, 
 .toolbarbutton-menu-dropmarker
 { display:none !important; }
@@ -30,11 +31,6 @@ border-right: 1px #BBC2C8 solid !important;
 padding:1px 1px !important;
 border-left:1px #BBC2C8 solid !important;
 }*/
-
-/*地址栏下拉栏隐藏*/
-.urlbar-history-dropmarker {
-	display:none!important;
-}
 
 /*调节标签的宽度*/
 .tabbrowser-tab[fadein]:not([pinned]) {
@@ -101,11 +97,14 @@ padding: 0px !important;
 
 /*AnoBtn圖標（两句要同時用）*/
 toolbarbutton#anobtn,toolbarbutton#anobtn>image
-{padding: 0px !important;margin-left:1px !important;}
+{padding: 0px !important;
+margin-left:1px !important;}
 
 /*UBO圖標（两句要同時用）*/
 toolbarbutton#ublock0-button,toolbarbutton#ublock0-button>image
-{padding: 0px !important;margin-left:0px !important;margin-right: -3px !important;}
+{padding: 0px !important;
+margin-left:0px !important;
+margin-right: -3px !important;}
 
 /*Lastpass圖標距離調整（两句要同時用）*/
 toolbarbutton#lpt_lastpass-compact-btn,toolbarbutton#lpt_lastpass-compact-btn>image {
@@ -115,13 +114,14 @@ margin-right:0.5px !important;
 }
 
 /*ucjsPermission圖標距離調整（两句要同時用）*/
-toolbarbutton#ucjsPermission_Toolmenu,toolbarbutton#ucjsPermission_Toolmenu>image {padding: 0px !important;
+toolbarbutton#ucjsPermission_Toolmenu,toolbarbutton#ucjsPermission_Toolmenu>image {
+padding: 0px !important;
 margin:0px !important;
 }
 
 /*搜索栏宽度*/
 #search-container {
-margin-top: -1px !important;
-right: 1px !important;
-max-width: 300px !important;
+margin-top: -1px;
+right: 1px;
+max-width: 300px;
 }

@@ -165,7 +165,7 @@ event.preventDefault();\
 })()
 
 
-//右键点击新建按钮打开about:config
+//右键点击新建按钮打开剪切板內容
 location=="chrome://browser/content/browser.xul" &&
 window.addEventListener("click", function(e) {
 	if (e.button === 2 && e.originalTarget.matches(".tabs-newtab-button")) {
@@ -176,8 +176,7 @@ window.addEventListener("click", function(e) {
 		try {
 			switchToTabHavingURI(url, true);
 		} catch (ex) {
-			//url = 'https://www.baidu.com/s?wd='+ encodeURIComponent(url);
-			url="about:config"
+      url = 'https://www.baidu.com/s?wd='+ encodeURIComponent(url);
 			switchToTabHavingURI(url, true);
 		}
 		e.preventDefault();

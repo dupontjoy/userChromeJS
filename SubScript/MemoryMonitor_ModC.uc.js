@@ -3,7 +3,7 @@
 // @description    简单的FF内存监视器
 // @include        main
 // @charset        UTF-8
-
+// @version        2016.06.14
 // @note           2015.05.28 19:00 小調內存颜色值
 // @note           2015.05.25 21:00 Mod by zhulinxizi，美化边框
 // @note           2014.11.04 23:30 设置其位置在地址栏前/後（可选）
@@ -31,7 +31,7 @@ var ucjsMM = {
 		var memoryPanel = document.createElement('statusbarpanel');
 		memoryPanel.id = 'MemoryDisplay';
 		memoryPanel.setAttribute('label', ucjsMM._MemoryValue + ucjsMM._prefix);
-		memoryPanel.setAttribute('tooltiptext', '内存监视器，点击打开about:memory');
+		memoryPanel.setAttribute('tooltiptext', '内存监视器，点击打开about:config');
 		toolbar.insertBefore(memoryPanel, toolbar.childNodes[2]);
 		document.insertBefore(document.createProcessingInstruction('xml-stylesheet', 'type="text/css" href="data:text/css;utf-8,' + encodeURIComponent('\
 			#MemoryDisplay{\
@@ -60,7 +60,7 @@ var ucjsMM = {
 			ucjsMM._MemoryValue = Math.round(workingSet / (1024 * 1024));
 			var memoryPanel = document.getElementById('MemoryDisplay');
 			memoryPanel.setAttribute('label', ucjsMM._MemoryValue + ucjsMM._prefix);
-			memoryPanel.setAttribute('onclick', "openUILinkIn('about:addons-memory','tab')");
+			memoryPanel.setAttribute('onclick', "openUILinkIn('about:config','tab')");
 			if (ucjsMM._MemoryValue > ucjsMM._Warningvalue) {
 				memoryPanel.style.color = ucjsMM._Warningcolor;
 				memoryPanel.style.borderColor = ucjsMM._Warningcolor;

@@ -51,3 +51,9 @@ position:relative;left:-863.8px;
 left: -24px;
 }
 }
+
+/*屏蔽贴吧所有等级为1级和2级的用户*/
+@-moz-document domain("tieba.baidu.com") {
+.l_post[data-field*="\"level_id\":1,"]{display: none !important;}
+.l_post[data-field*="\"level_id\":2,"]{display: none !important;}
+}

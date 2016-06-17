@@ -1,4 +1,4 @@
-//2016.05.06
+//2016.06.15
 
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
@@ -226,10 +226,10 @@ where: 'tab'
 },
 {},
 {
-label: "下架原因查詢-SKU",
+label: "下架原因/重新上架-SKU",
 id: "TVC-Universal",
 accesskey: "2",
-url: "http://ic.sjlpj.cn/DownShelf/DownShelfOperationAuditList?DownType=All&Sku=%s&Status=0&ApplyUserId=0&IsForProcessed=True",
+url: "http://ic.sjlpj.cn/DownShelf/DownShelfOperationMgtList?Sku=%s",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },

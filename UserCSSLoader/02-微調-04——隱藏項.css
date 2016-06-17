@@ -1,4 +1,4 @@
-/*+++ 2016.06.13 +++*/
+/*+++ 2016.06.17 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
@@ -171,6 +171,7 @@ display: none !important;
 }
 
 /*LastPass菜单*/
+#lpt_comp-bar-securenotes,/*安全笔记*/
 .z-ico-show-password,/*明文显示密码*/
 [id^="__lpform_"],
 #fill-login,/*填充登陆信息*/
@@ -179,7 +180,6 @@ display: none !important;
 #lpt_menu_search_box,/*搜索密码库*/
 #lpt_lpfillformsmenu1,/*表单填写*/
 #lpt_lpgenpw,/*生成安全密码*/
-#lpt_comp-bar-securenotes,/*安全笔记*/
 #lpt_comp-bar-recentlyused,/*最近使用*/
 #lpt_lphelp,/*帮助*/
 #lpt_lppremium, /*升至高级版*/

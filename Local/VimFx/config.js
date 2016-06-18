@@ -1,4 +1,4 @@
-//2016.06.17
+//2016.06.18
 
 // example: https://github.com/azuwis/.vimfx/blob/master/config.js
 
@@ -92,20 +92,8 @@ set('next_patterns', v => `[下后]\\s*一?\\s*[页张个篇章頁] ${v}`)
 map('', 'window_new')
 map('w', 'tab_select_previous')
 map('e', 'tab_select_next')
-map('S', 'stop')
 
 // commands
-vimfx.addCommand({
-    name: 'search_selected_text',
-    description: 'Search for the selected text'
-}, ({vim}) => {
-    vimfx.send(vim, 'getSelection', null, selection => {
-        let inTab = true // Change to `false` if you’d like to search in current tab.
-        vim.window.BrowserSearch.loadSearch(selection, inTab)
-    })
-})
-map('s', 'search_selected_text', true)
-
 vimfx.addCommand({
     name: 'goto_addons',
     description: 'Addons',

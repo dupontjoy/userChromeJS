@@ -1,0 +1,23 @@
+/*from: http://bbs.kafan.cn/thread-2042763-1-1.html*/
+
+@namespace url(http://www.w3.org/1999/xhtml);
+object[type="application/x-shockwave-flash"][id*="layer"]:not([gpu="true"]),
+object[type="application/x-shockwave-flash"][class*="layer"]:not([gpu="true"]),
+object[type="application/x-shockwave-flash"][name*="layer"]:not([gpu="true"]),
+object[type="application/x-shockwave-flash"][id*="ideo"]:not([gpu="true"]),
+object[type="application/x-shockwave-flash"][class*="ideo"]:not([gpu="true"]),
+object[type="application/x-shockwave-flash"][name*="ideo"]:not([gpu="true"])
+{-moz-binding: url("data:application/xml,<?xml version='1.0' encoding='UTF-8'?><bindings xmlns='http://www.mozilla.org/xbl'><binding id='object' bindToUntrustedContent='true'><implementation><constructor><![CDATA[var flashObj = this;var param = flashObj.querySelector('[name=\"wmode\"],[name=\"wMode\"]') || document.createElement('param');param.name='wmode';param.value='gpu';if(param && !param.parentElement){flashObj.appendChild(param);};flashObj.setAttribute('gpu','true');flashObj.parentNode.replaceChild(flashObj.cloneNode(true), flashObj);]]></constructor></implementation></binding></bindings>")!important;}
+embed[type="application/x-shockwave-flash"][wmode*="paque"][id*="layer"],
+embed[type="application/x-shockwave-flash"][wmode*="paque"][class*="layer"],
+embed[type="application/x-shockwave-flash"][wmode*="paque"][name*="layer"],
+embed[type="application/x-shockwave-flash"][wmode*="paque"][id*="ideo"],
+embed[type="application/x-shockwave-flash"][wmode*="paque"][class*="ideo"],
+embed[type="application/x-shockwave-flash"][wmode*="paque"][name*="ideo"],
+embed[type="application/x-shockwave-flash"][wmode*="ransparent"][id*="layer"],
+embed[type="application/x-shockwave-flash"][wmode*="ransparent"][class*="layer"],
+embed[type="application/x-shockwave-flash"][wmode*="ransparent"][name*="layer"],
+embed[type="application/x-shockwave-flash"][wmode*="ransparent"][id*="ideo"],
+embed[type="application/x-shockwave-flash"][wmode*="ransparent"][class*="ideo"],
+embed[type="application/x-shockwave-flash"][wmode*="ransparent"][name*="ideo"]{
+-moz-binding: url("data:application/xml,<?xml version='1.0' encoding='UTF-8'?><bindings xmlns='http://www.mozilla.org/xbl'><binding id='embed' bindToUntrustedContent='true'><implementation><constructor><![CDATA[var flashObj = this;flashObj.setAttribute('wmode', 'gpu');flashObj.parentNode.replaceChild(flashObj.cloneNode(true), flashObj);]]></constructor></implementation></binding></bindings>")!important;}

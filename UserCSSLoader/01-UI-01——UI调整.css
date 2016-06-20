@@ -1,0 +1,283 @@
+/*@name        UI调整
+  @namespace   https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox
+  @description 含:标签栏, 地址栏, 书签栏, 三道杠等界面上的调整
+  @author      Cing
+  @version     1.00-2016.05.24
+  @reference             
+*/
+
+/* ====== 1. 标签栏 ====== */
+
+/*标签样式css*/
+.tabbrowser-tab[busy] {color: blue !important;}/* 正在加载标签 */
+.tabbrowser-tab[pending] {color: gray !important;}/* 未加载标签 */
+.tabbrowser-tab[unread] {color: red !important;}/* 未读标签 */
+
+/*有些网站无LOGO图标，加空白图标*/
+.tab-icon-image:not([src]):not([pinned]) {
+display: block !important;
+list-style-image: url("chrome://mozapps/skin/places/defaultFavicon.png");
+}
+.tab-throbber:not([busy]),
+.tab-throbber[busy] + .tab-icon-image:not([src]):not([pinned]) {
+display: none !important;
+}
+
+/*当前标签显示关闭按钮*/
+.tabbrowser-tab:not([selected]) .tab-close-button{display:none!important;}/*非当前页关闭按钮自动隐藏*/
+.tabbrowser-tab:not([pinned]):hover .tab-close-button{display:inherit!important;}/*鼠标移动上去显示*/
+
+/*标签关闭按钮*/
+.tabbrowser-tab:not([selected]) .tab-close-button, .close-icon[selected] {list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAQCAYAAACm53kpAAACIklEQVRYhe1WsWrjQBAdCBhSubDLgLuULl2YkD/ITxzXpQqpwsLOlMqfpJHEzlQprCYqnMpuXLq+LgF3qZRmdOxtVrakS1z5wcIyYmHf2zdvBHDCCd+KJEmGIvJbRJYi8sbM77q/FZFxm/NE9IuISiLaEdEOEV+ttXdJkgyPwaE30jS9YOYXEaka1jrLssum88aYCSIuiKiKLUTcENH0GFzOW9b+Ql++YOaNiBQR8ktvfXFCkiRDRFwg4iYmAiKuiKhExJUxZnLg/mcta1GcA0AFACOvNtJaowhq+0pEijzPZ4EIyzzPZ8wsIlI55+7D82r7SsnPfRGU/JyInoiostaaPfc/A4AbABh4tYHWWotQEx4F+0YE1i9E5Epra92L3woRAUqP8EIJl2r765p83QoH7l8THgT7TqiJHyQPACAib77lmfklz/OZc27KzM/Bt4+IALvA9qWKMEVEF7ZEi/vXxHuRB+gogKb9P4HnnJtmWXapfd9JgDrwjDET3x3HEqBzCwQkl2r7Z22DKz8TmPmLhRHxNej5a335MpIJ25bke7VA3xC8jQVeLBidcw/heWvtXSzwYsGIiI977v8tIdh5DIrIuB5zAXk/GAsNxaYxuFInPIWW1xHpEHH702OwN7Tf100/Qsy8cc41/sho4G32/Aj9IaL5jxP5H4jI2Dl3XwvBzB8aiA9pml4cOm+MmVhrjS8EIm4R8bHFy59wQkd8AkOWq7/1XUzLAAAAAElFTkSuQmCC")!important;
+}
+
+/*顯示標籤頁總數*/
+#main-window {counter-reset: tabs !important;}
+.tabbrowser-tab:not(:-moz-any([pinned],[concealed])) {counter-increment: tabs !important;}
+#alltabs-button {visibility: visible!important;}
+#alltabs-button:after {
+content: counter(tabs) !important;
+font-size: 13px !important;
+display: -moz-box !important;
+}
+#alltabs-button > :-moz-any(label, image) {display: none !important;}
+#alltabs-button menuitem {max-width: 200px !important;}
+#alltabs-button {
+margin-right: -46px!important;
+}
+
+/*彈出菜單顯示標籤頁序號*/
+#alltabs-popup {counter-reset:latabs;}
+#alltabs-popup .menuitem-iconic.alltabs-item.menuitem-with-favicon {counter-increment:latabs;}
+#alltabs-popup .menuitem-iconic.alltabs-item.menuitem-with-favicon:before {content:counter(latabs);}
+/*彈出菜單顯示關閉標籤頁序號*/
+#undoCloseTabPopup .menuitem-iconic {counter-increment:menuitem;}
+#undoCloseTabPopup menuitem:before {content:counter(menuitem);}
+
+#alltabs-popup .menuitem-iconic.alltabs-item.menuitem-with-favicon:before,
+#undoCloseTabPopup menuitem:before {
+display:-moz-box;
+-moz-box-pack:center;
+font-weight:bold;
+min-width:26px;
+}
+
+/*每個標籤頁 加上序號*/
+.tabbrowser-tab:before {
+margin: -16px 0px 0px -3px !important;
+padding: 0px 0px !important;
+color: black !important;
+font-size: 9px !important;
+font-weight: bold !important;
+content: counter(tabs) !important;
+position: absolute !important;
+}
+
+/*修复固定标签*/
+.tab-background-middle[pinned="true"]{ min-height:26px!important;}
+/*隐藏锁定标签上的序号*/
+.tabbrowser-tab[pinned="true"]:before
+{
+margin: -40px 0px 0px -3px !important;
+}
+
+/* ====== 2. 地址栏 ====== */
+
+/*LASTPASS菜单宽度*/
+#lpt_lastpass-compact-menu,
+#lpt_lastpass-compact-menu menupopup 
+{
+max-width: 210px !important;
+border: 1px solid ThreeDShadow !important;
+}
+
+/*Https协议地址栏变色
+#urlbar[level="low"] {background-color: #FFFFB7 !important;}
+#urlbar[level="high"] {background-color: #DDF9CC !important;}
+#urlbar[level="broken"] {background-color: #F7DFDF !important;}*/
+
+/*Https协议地址栏变色-新版完整 For FX43+*/
+#urlbar{
+position: relative!important;
+z-index: 233!important;
+}
+#identity-box::before {
+content: ''!important;
+position: absolute!important;
+height: 100%!important;
+width: 100%!important;
+top: 0!important;
+right: 0!important
+bottom: 0!important;
+left: 0!important;
+z-index: -1!important
+}
+#identity-box.weakCipher::before {
+background-color: #FFFFB7 !important;
+}
+#identity-box.verifiedDomain::before {
+background-color: #DDF9CC !important;
+}
+#identity-box.mixedDisplayContent::before {
+background-color: #F7DFDF !important;
+}
+
+/* ====== 3. 书签栏 ====== *
+
+/*样式伪进度条
+@-moz-document url-prefix("http://"),url-prefix("https://"){
+html:before{
+content:"";
+position:fixed;height:1px;
+z-index:10000000;top:0;left:0;
+background: -moz-linear-gradient(top, rgb(232,25,87) 0%, rgb(170,0,51) 100%);
+box-shadow:0 1px 5px rgba(190,50,0,0.5);
+-moz-animation:jindu 3s ease 0.5s 1 forwards;
+}
+@-moz-keyframes jindu{
+0% {width:0;}
+99% {width:100%;}
+100%{width:0;}
+}
+}
+*/
+
+/*书签栏左右变窄*/
+.bookmark-item > .toolbarbutton-icon {
+margin: 0px 0px 0px -2px !important;
+padding: 0px !important;
+}
+
+/*书签文件夹下拉过长显示滚动条 Show ScrollBar On Bookmark Folder*/
+@-moz-document url(chrome://browser/content/browser.xul) {
+	.bookmark-item[container="true"]  scrollbox {
+	overflow-y:auto !important;
+}
+}
+
+/*Oos定制 —— WordHighlightToolbar & 查找栏样式*/
+/*WordHighlightToolbar & 查找栏置于顶部*/
+#wordhighlight-toolbar-box,
+.browserContainer findbar {
+-moz-box-ordinal-group: 0!important;
+position: fixed!important;
+border: 1px solid #A6A6A6;
+border-top: none;
+}
+
+/*WordHighlightToolbar距離*/
+#wordhighlight-toolbar-box {
+background: #FFFFFF;
+right: 1px; /*距右邊*/
+/*top: 64px; /*Win8距上邊*/
+top: 95px; /*Win10距上邊*/
+height: 24px;
+/*>>>自行修改数字*/
+border: 1px solid #A6A6A6;
+border-radius: 0px 0px 0px 2.5px;
+padding: 1px 1px 0px 0px;
+}
+
+/*WordHighlightToolbar & 查找栏按钮边框*/
+#wordhighlight-toolbar-box *,
+.browserContainer findbar * {
+margin: 0px!important;
+padding: 0px!important;
+}
+
+/*隐藏查找栏关闭按钮*/
+:-moz-any(.browserContainer, #viewSource) .findbar-container :-moz-any(spacer, toolbarspacer, .findbar-find-fast[anonid="match-case-status"]),
+findbar .findbar-closebutton {
+visibility: collapse;
+}
+
+/*查找栏几个按钮排序*/
+.findbar-container .findbar-highlight {-moz-box-ordinal-group: 2;}
+.findbar-container .findbar-case-sensitive {-moz-box-ordinal-group: 3;}
+.findbar-container label[value="(区分大小写)"] {-moz-box-ordinal-group: 4;}
+.findbar-container .findbar-find-status {-moz-box-ordinal-group: 5;}
+
+/* ====== 4. 三道杠 ====== */
+
+/*三道杠图标调整*/
+#PanelUI-mainView .toolbarbutton-1{
+border:none !important;
+border-radius: 0px !important;
+}
+
+
+#PanelUI-mainView #ucjs_UserAgentChanger.toolbarbutton-1 {
+    padding: 0 !important;
+    background: none !important;
+}
+
+#PanelUI-mainView #ucjs_UserAgentChanger.toolbarbutton-1:hover  {
+    background-color: #e5e5e5 !important;
+}
+
+#PanelUI-mainView #userChromebtnMenu.toolbarbutton-1 {
+    padding: 0 !important;
+    background: none !important;
+
+}
+
+#PanelUI-mainView #userChromebtnMenu.toolbarbutton-1:hover {
+		background-color: #e5e5e5 !important;
+}
+
+
+/** Fixes the panel height **/  
+#PanelUI-popup .panelUI-grid.customization-target { max-height: 600px !important;}
+
+
+/** Shrinks the button box and font size **/
+#customization-panel-container .panel-arrowcontent :-moz-any(.toolbarbutton-1.chromeclass-toolbar-additional,.toolbarbutton-1),
+#PanelUI-popup :-moz-any(.toolbarbutton-1.chromeclass-toolbar-additional,.toolbarbutton-1),
+#PanelUI-popup toolbaritem[cui-areatype="menu-panel"][sdkstylewidget="true"]:not(.panel-wide-item) { 
+    font-size: 68% !important;
+    margin: 0.25em !important;
+    padding: 0em !important; 
+
+}
+/** Corrects font size from previous setting **/
+#customization-panel-container toolbarpaletteitem toolbarbutton:not(.panel-combined-button) :-moz-any(.toolbarbutton-text,.toolbarbutton-multiline-text),
+#PanelUI-contents toolbarbutton:not(.panel-combined-button) :-moz-any(.toolbarbutton-text,.toolbarbutton-multiline-text) {
+    margin:  0em -.2em -.5em -.2em !important;
+    font-size: 11px !important; 
+}
+
+#PanelUI-contents > toolbarbutton,
+#PanelUI-contents > toolbaritem:not(:-moz-any(#zoom-controls,#edit-controls))> toolbarbutton{
+    height:75px!important;
+	width: 62.9px!important;
+}
+
+/* ====== 99. 弹出窗口 ====== */
+
+/*下载弹窗大小调整*/
+#unknownContentType {
+height: 340px !important;
+width: 450px !important;
+}
+
+/*字體彈窗大小調整*/
+#FontsDialog {
+width: 420px !important;
+}
+
+/*redirector編輯窗口*/
+#edit-redirect-form {
+top: 260px !important;
+}
+
+/*FeiruoNet窗口大小
+#FeiRuoNet_Settings {
+height: 570px !important;
+}*/
+
+/*搜索栏宽度*/
+#search-container {
+margin-top: -1px !important;
+right: 1px !important;
+max-width: 300px !important;
+}

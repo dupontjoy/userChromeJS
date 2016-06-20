@@ -1,4 +1,4 @@
-//2016.06.15
+//2016.06.19
 
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
@@ -747,6 +747,127 @@ command: "placesCmd_moveBookmarks",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVQ4jWNgGCrAjoGB4ReUptgQf3yK/hOJyXIJUS4gpNmBHM1k20aWP/0p0WzHQHws0MYFMOBADUOGEAAAtLMgYRGzlKoAAAAASUVORK5CYII=",
 })
 
+/*——————————原AnotherButton菜单——————————*/
+//备份批处理
+new function() {
+var items = [
+{
+label: "備份批處理",
+tooltiptext: "1. 備份Profiles\n2. CingFox製作\n3. 備份Plugins和Software文件夾\n4. 提取32位Flash插件\n5. 備份一些文件到GitHub",
+exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\local\\BackupProfiles\\Backup_7z.bat",
+},{},
+{
+label: "重啟explorer.exe",
+tooltiptext: "重啟explorer.exe",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\QT-Check\\explorer.bat",
+},{},
+{
+label: "设置Notepad2为默认",
+tooltiptext: "通過映象劫持以Notepad2替換自帶记事本",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Notepad2\\Notepad2.bat",
+},
+
+];
+var menu = PageMenu({
+label: '批处理',
+condition: '',
+insertBefore: 'redirector-icon',
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAm0lEQVQ4jc2Quw2EMBBEX0ZEE9ThCsgp42LqIKYOQro5icDRVXCXDNay+GQLEfAkS/7szKwXbqQDvpWryxm8gLkiaFbtiQUYtP+XjGoWL26AD9BWdNCqtrGXPbAW0m0XqzSJCRgr0ndGaRIbEDNJFvsWpUlEIDhDew5OEKQ5uFt6CfbEN+7PXpNrucTDDPzQSvihnoZWWrmhXuMHem9Lmy9WtnwAAAAASUVORK5CYII=",
+});
+menu(items);
+items.forEach(function(it) {
+if (it.command)
+css('#contentAreaContextMenu[addMenu~="input"] #' + it.command + '{ display: none !important; }')
+});
+};
+
+//常用软件
+new function() {
+var items = [
+{
+label: "ShadowsocksR",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Shadowsocks\\ShadowsocksR-dotnet4.0.exe",
+},
+{
+label: "SScap64",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Shadowsocks\\SSCap64\\SSCap.exe",
+},
+{
+label: "Lantern",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Lantern\\lantern.exe",
+},
+{},
+{
+label: "PicPick",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Image\\PicPick\\PicPick.exe",
+},
+{
+label: "ScreenToGif2",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Image\\ScreenToGif 2.exe",
+},{},
+{
+label: "Adbyby",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\Adbyby\\Adbyby.exe",
+},
+{
+label: "SpeedyFox",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\run\\speedyfox.exe",
+},
+
+];
+var menu = PageMenu({
+label: '常用软件',
+condition: '',
+insertBefore: 'redirector-icon',
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAKElEQVQ4jWNgoBL4TwSmrQGDD7QRiWlnwMCBrQQw7Q0YOECxswfO3wBrBTGdpowsywAAAABJRU5ErkJggg==",
+});
+menu(items);
+items.forEach(function(it) {
+if (it.command)
+css('#contentAreaContextMenu[addMenu~="input"] #' + it.command + '{ display: none !important; }')
+});
+};
+
+//关于定制Firefox
+new function() {
+var items = [
+{
+label: "CingFox",
+oncommand: "getBrowser().selectedTab = getBrowser().addTab ('https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox')",
+image: "https://assets-cdn.github.com/favicon.ico"
+},
+{},
+{
+label: "RunningCheese",
+oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.runningcheese.com/')",
+image: "http://www.runningcheese.com/favicon.ico"
+},
+{},
+{
+label: "SunBox",
+oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://sunbox.cc/')",
+image: "http://sunbox.cc/wp-content/themes/begin/img/favicon.ico"
+},
+{},
+{
+label: "FirefoxFan",
+oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.cc/')",
+image: "http://www.firefoxfan.cc/favicon.ico"
+},
+
+];
+var menu = PageMenu({
+label: '关于',
+condition: '',
+insertAfter: 'usercssloader_Tools_Menu',
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABaElEQVQ4jX3Sz0vUURQF8M/MYDWRCS2arIgiIZEEXQQSSBFBm6BFC4kKIkjEQCmFaGUUGSoo9GNqkVNBm6AW0a6/I/p7WnzPyJcnduDC495zzn3vvkuFAXTQwDk8xTZ6+JR4gjP2wDV8wU28xlt0Y3YAJ3EbP8Jt1MUtvMQ3/MVHvMd3HCsaLeMPbqHZTx7CBkZxKTGSm1zH/prBqTynm5uAE9jCUNHtCn7iaC3XxDPciKYDd/CwEJ/FemZSYiHmc7gLm7hQIxzBm5AapRqLuIzJaG2rptxHBx9wP10WMJ7aAF6pfud4tHoYLrqM52n38Eu1FzCFtRgN9w26GCsMJvAVv7GE05gOdzKcMbyDx5gpDPZlBs/TcQMrMe5jJlrnM4zDdqOh2sSDaosT7ma0YD5RJ+2FZo2/g0G8wCza/xG38SDcwbI4hEeqN19VfWc70UluLZxya3fQwkWs4rNq73s5r6bWqgv+AYBxON0vXviZAAAAAElFTkSuQmCC",
+});
+menu(items);
+items.forEach(function(it) {
+if (it.command)
+css('#contentAreaContextMenu[addMenu~="input"] #' + it.command + '{ display: none !important; }')
+});
+};
 
 /*——————————移動圖標和菜單——————————*/
 //移動圖標，代替Movebutton.uc.js，需配合RebuildWhenStart.uc.js，可惜對有的圖標還是無力

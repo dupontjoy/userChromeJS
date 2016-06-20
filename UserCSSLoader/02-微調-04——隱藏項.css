@@ -171,7 +171,6 @@ display: none !important;
 }
 
 /*LastPass菜单*/
-#lpt_comp-bar-securenotes,/*安全笔记*/
 .z-ico-show-password,/*明文显示密码*/
 [id^="__lpform_"],
 #fill-login,/*填充登陆信息*/

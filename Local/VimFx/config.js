@@ -1,4 +1,4 @@
-//2016.06.18
+//2016.06.20
 
 // example: https://github.com/azuwis/.vimfx/blob/master/config.js
 
@@ -96,7 +96,7 @@ map('e', 'tab_select_next')
 // commands
 vimfx.addCommand({
     name: 'goto_addons',
-    description: 'Addons',
+    description: 'about:addons',
 }, ({vim}) => {
     vim.window.BrowserOpenAddonsMgr()
 })
@@ -104,7 +104,7 @@ map(',a', 'goto_addons', true)
 
 vimfx.addCommand({
     name: 'goto_config',
-    description: 'Config',
+    description: 'about:config',
 }, ({vim}) => {
     vim.window.switchToTabHavingURI('about:config', true)
 })
@@ -136,6 +136,15 @@ vimfx.addCommand({
 })
 map(',w', 'goto_wordhilight', true)
 
+//关闭WordHighlight查找栏
+vimfx.addCommand({
+    name: 'goto_wordhilight-close',
+    description: 'Close WordHilight Bar',
+}, ({vim}) => {
+    vim.window.gWHT.destroyToolbar()
+})
+map(',x', 'goto_wordhilight-close', true)
+
 //几个脚本设置Rebuild
 //群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
 vimfx.addCommand({
@@ -145,7 +154,7 @@ vimfx.addCommand({
     vim.window.Redirector.reload();//Redirector
     vim.window.UCL.rebuild();//UserCSSLoader
     vim.window.USL.rebuild();//UserScriptLoader
-    vim.window.anobtn.reload();//anobtn
+    //vim.window.anobtn.reload();//anobtn
     vim.window.addMenu.rebuild();//AddmenuPlus
     vim.window.MyMoveButton.delayRun();//Movebutton
     vim.window.FeiRuoNet.Rebuild()//FeiRuoNet

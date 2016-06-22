@@ -1,4 +1,4 @@
-//2016.06.20
+//2016.06.22
 
 // example: https://github.com/azuwis/.vimfx/blob/master/config.js
 
@@ -138,12 +138,12 @@ map(',w', 'goto_wordhilight', true)
 
 //关闭WordHighlight查找栏
 vimfx.addCommand({
-    name: 'goto_wordhilight-close',
+    name: 'goto_wordhilight_close',
     description: 'Close WordHilight Bar',
 }, ({vim}) => {
     vim.window.gWHT.destroyToolbar()
 })
-map(',x', 'goto_wordhilight-close', true)
+map(',x', 'goto_wordhilight_close', true)
 
 //几个脚本设置Rebuild
 //群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
@@ -248,6 +248,7 @@ vimfx.addCommand({
 })
 map(',b', 'org_capture', true)
 
+//配合gh-Kelo的QR.uc.js (https://github.com/ghKelo/userChromeJS/tree/master/QR)
 let qrcode = (text) => {
     exec('sh', ['-c', `qrencode -o- '${text}' | pqiv -i -`])
 }
@@ -255,8 +256,7 @@ vimfx.addCommand({
     name: 'qrcode',
     description: 'QRcode'
 }, ({vim}) => {
-    let url = vim.window.gBrowser.selectedBrowser.currentURI.spec
-    qrcode(url)
+    vim.window.QRCreator.run()
 })
 map(',q', 'qrcode', true)
 
@@ -323,17 +323,6 @@ vimfx.addCommand({
 map('zu', 'ublock_bootstrap', true)
 
 let bootstrap = () => {
-    // set font for different OSes
-    switch (nsIXULRuntime.OS) {
-    case 'Darwin':
-        Preferences.set('font.name.monospace.x-western', 'Menlo')
-        break
-    case 'WINNT':
-        Preferences.set('font.name.monospace.zh-CN', 'Consolas')
-        Preferences.set('font.name.sans-serif.zh-CN', '微软雅黑')
-        Preferences.set('font.name.serif.zh-CN', '微软雅黑')
-        break
-    }
     // install addons
     let addons = [
         {id: 'VimFx@akhodakivskiy.github.com', url: 'vimfx'}

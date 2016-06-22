@@ -1,4 +1,4 @@
-/*+++ 2016.06.17 +++*/
+/*+++ 2016.06.22 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
@@ -105,6 +105,7 @@ display: none !important;
 }
 
 /*隐藏项 - 搜索栏右键*/
+#searchbar menuitem[anonid="toggle-suggest-item"],
 #searchbar menuitem[cmd="cmd_undo"],
 #searchbar menuitem[cmd="cmd_delete"]
 {
@@ -182,7 +183,15 @@ display: none !important;
 #lpt_comp-bar-recentlyused,/*最近使用*/
 #lpt_lphelp,/*帮助*/
 #lpt_lppremium, /*升至高级版*/
-#lpt_comp-bar-tools,/*工具*/
+#lpt_comp-bar-securenotes,/*安全笔记*/
+#lpt_comp-bar-accts,/*站点*/
+/*#lpt_comp-bar-tools,工具*/
+#lpt_lpseccheck,/*工具-安全挑战*/
+#lpt_lpidentitiesmenu1,/*工具-身份*/
+#lpt_lpabout,/*工具-关于*/
+#lpt_lpprint,/*工具-打印*/
+#lpt_comp-bar-tools-menu > menuitem:nth-child(12),/*工具-保存所有已输入信息*/
+#lpt_comp-bar-tools-menu > menuitem:last-child,/*工具-添加安全笔记*/
 [label="Copy Username"],[label="复制用户名"],[label="複製使用者名稱"],
 [label="Copy Password"],[label="复制密码"],[label="複製密碼"],
 [label="Copy URL"],[label="复制网址"],[label="複製網址"],

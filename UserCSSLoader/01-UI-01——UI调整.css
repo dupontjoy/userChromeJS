@@ -2,7 +2,7 @@
   @namespace   https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox
   @description 含:标签栏, 地址栏, 书签栏, 三道杠等界面上的调整
   @author      Cing
-  @version     1.00-2016.05.24
+  @version     1.00-2016.06.20
   @reference             
 */
 
@@ -142,12 +142,6 @@ box-shadow:0 1px 5px rgba(190,50,0,0.5);
 }
 */
 
-/*书签栏左右变窄*/
-.bookmark-item > .toolbarbutton-icon {
-margin: 0px 0px 0px -2px !important;
-padding: 0px !important;
-}
-
 /*书签文件夹下拉过长显示滚动条 Show ScrollBar On Bookmark Folder*/
 @-moz-document url(chrome://browser/content/browser.xul) {
 	.bookmark-item[container="true"]  scrollbox {
@@ -274,10 +268,3 @@ top: 260px !important;
 #FeiRuoNet_Settings {
 height: 570px !important;
 }*/
-
-/*搜索栏宽度*/
-#search-container {
-margin-top: -1px !important;
-right: 1px !important;
-max-width: 300px !important;
-}

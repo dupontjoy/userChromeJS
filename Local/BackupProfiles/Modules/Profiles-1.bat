@@ -1,4 +1,4 @@
-::2016.06.05
+::2016.06.20
 
 :Profiles-1
 cls
@@ -57,6 +57,9 @@ xcopy "%BackDir%\xulstore.json" %TempFolder%\Profiles\ /y
 ::其它刪除项
 del %TempFolder%\Profiles\chrome\UserScriptLoader\require\  /s /q
 del %TempFolder%\Profiles\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q
+del %TempFolder%\Profiles\autoproxy\patterns.ini-temp  /s /q
+::HostTools产生的备份文件
+del %SystemRoot%\system32\drivers\etc\hosts.*.bak  /s /q
 
 ::刪除Lastpass的一些项目
 ::精简Platform

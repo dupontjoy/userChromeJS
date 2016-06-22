@@ -1,8 +1,4 @@
-/*+++ 2016.06.20 +++*/
-
-/*禁用菜单文字变黑 by 颜太吓*/
-:-moz-any(menuitem,menu)[type="checkbox"] .menu-iconic-text{color:#999!important;}
-:-moz-any(menuitem,menu)[type="checkbox"][checked="true"] .menu-iconic-text{color:#000!important;}
+/*+++ 2016.06.22 +++*/
 
 /*文本选中样式（黑底+绿字）*/
 *::-moz-selection {

@@ -1,15 +1,12 @@
-::2016.03.22  输出換到E盘
-::2016.01.02  優化輸出與臨時文件夾地址
-::2015.12.19  重新模塊化
-::2015.10.30  添加刪除DTA語言
-::2015.10.23  添加一个Firefox备份文件
-::2015.10.10  精簡說明展示方式
-::2015.10.04  模塊化每個備份項目，然後再組合，方便修攺維護
-::2015.10.02  精簡擴展語言
-::2015.10.01  優化輸出地址
-::2015.09.26  開啟7zip極限壓縮
+::2016.06.21
 
 @echo off
+
+::自动以管理员身份运行bat文件
+cd /d %~dp0
+%1 start "" mshta vbscript:createobject("shell.application").shellexecute("""%~0""","::",,"runas",1)(window.close)&exit
+
+::备份部分开始
 Title 備份批處理整合版 by Cing
 ::界面大小，Cols为宽，Lines为高
 MODE con: COLS=80 LINES=25

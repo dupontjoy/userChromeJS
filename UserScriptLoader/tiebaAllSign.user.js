@@ -9,13 +9,14 @@
 // @include        http://tieba.baidu.com/f?ie=gbk&kw=*
 // @include        http://tieba.baidu.com/f?ie=utf-8&kw=*
 // @include        http://tieba.baidu.com/f?tp=0&kw=*
+// @include        http://tieba.baidu.com/p/*
 // @icon           http://tb.himg.baidu.com/sys/portraitn/item/4e2ed7f8bbb3d4f2c2d2bb21
 // @author         congxz6688
 // @grant          GM_getValue
 // @grant          GM_setValue
 // @grant          GM_deleteValue
 // @grant          GM_xmlhttpRequest
-// @version        2015.7.21.2
+// @version        2015.7.21.2-2016.06.21
 // @namespace      https://greasyfork.org/scripts/152
 // ==/UserScript==
 

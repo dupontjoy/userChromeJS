@@ -1,4 +1,4 @@
-//2016.06.19
+//2016.06.21
 
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
@@ -37,7 +37,7 @@ popup.appendChild(m);
 
 /*——————————圖片右鍵————————*/
 //右鍵搜索圖片 以圖搜圖
-var imagesub = PageMenu({
+/*var imagesub = PageMenu({
 label: "以圖搜圖",
 accesskey: "S",
 condition: "image",
@@ -46,6 +46,7 @@ insertBefore: "context-viewimage",
 image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZElEQVQ4jWNgGMzAl4GB4T8a9iVWcwtUQxADAwMvFAdBxVqItVkQi5wgMS6B2YwLwFyCE3xhgDgZF+CluQEUe4HiQLRjQMQ7ydEI02wHtWUfkmH7iLXZDp8iXECaEs3IhtAfAAAJGiQnfMavIgAAAABJRU5ErkJggg==",
 });
 imagesub([
+{id: "imagesearch-sep", style: "display:none;"},
 {
 label: 'Google',
 url: 'http://www.google.com/searchbyimage?image_url=%IMAGE_URL%',
@@ -59,7 +60,7 @@ image: "http://st.so.com/favicon.ico",
 where: 'tab',
 }, 
 
-]);
+]);*/
 
 //圖片右鍵 複製 二级菜單
 new function() {
@@ -798,6 +799,17 @@ exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\
 },
 {},
 {
+label: "Hosts-choose",
+tooltiptext: "选择自动更新等操作",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Hosts\\choose.exe",
+},
+{
+label: "Hosts-tool",
+tooltiptext: "更新Hosts",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Hosts\\tool.exe",
+},
+{},
+{
 label: "PicPick",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Image\\PicPick\\PicPick.exe",
 },
@@ -871,17 +883,20 @@ css('#contentAreaContextMenu[addMenu~="input"] #' + it.command + '{ display: non
 
 /*——————————移動圖標和菜單——————————*/
 //移動圖標，代替Movebutton.uc.js，需配合RebuildWhenStart.uc.js，可惜對有的圖標還是無力
-/*new function() {
+new function() {
 //幾個擴展圖標
 tab({
-id: "flashgot-media-tbb",
-insertBefore: "userChromebtnMenu",
+id: "imageSearch",//黑螃蟹的UC脚本, 右键可上传再搜索
+label: "相似圖片",
+condition: "image",
+accesskey: "S",
+insertAfter: "context-sep-copylink",
 clone: false,// 不克隆，直接改在原来的菜單上面
 }
 );
 
 };
-*/
+
 
 /*————————————————————*/
 //隱藏相同項。必須，不能刪除

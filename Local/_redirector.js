@@ -1,4 +1,4 @@
-//2016.06.16
+//2016.06.20
 
 //Redirector說明頁面：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -30,6 +30,13 @@ from: /^(https?:\/\/ic\.sjlpj\.cn\/.*ProductNewCategory\/ProductNewCategoryManag
 to: "$1?pageSize=100",
 regex: true
 },
+{
+//example: http://ic.sjlpj.cn/ProductNewCategory/ProductNewCategoryManager?quickParentId=97698
+name: "ProductNewCategory型号页 每页100项",
+from: /^(https?:\/\/ic\.sjlpj\.cn\/.*ProductNewCategory\/ProductNewCategoryManager\?quickParentId=[\d]+)$/,
+to: "$1&pageSize=100",
+regex: true
+},
 
 //單獨網站
 {
@@ -53,14 +60,6 @@ regex: true
 name: "去跳轉",
 from:/^https?:\/\/.*\.(jobui|zhihu|douban)\..*\/.*?(link|target|url)=(.*)/i,
 to: "$3",
-regex: true
-},
-{
-//測試：https://passport.weibo.com/visitor/visitor?entry=miniblog&a=enter&url=http%3A%2F%2Fweibo.com%2F207771043&domain=.weibo.com&sudaref=https%3A%2F%2Fwww.google.com&ua=php-sso_sdk_client-0.6.16&_rand=1465712243.2461
-name: "weibo跳转",
-from: /^https?:\/\/passport\.weibo\.com\/visitor\/(.*)\&url=(.*)\&domain(.*)/i,
-to: "$2",
-decode: true,
 regex: true
 },
 {

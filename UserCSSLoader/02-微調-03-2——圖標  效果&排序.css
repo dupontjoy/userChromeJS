@@ -37,8 +37,8 @@ menuitem[label="添加站点"] {-moz-box-ordinal-group: 0 !important;}
 -moz-box-ordinal-group: 1 !important;
 }
 
-/*右键菜单子目录小三角距離*/
-.menu-accel-container{margin-right:-16px!important;}
+/*右键菜单子目录小三角距離
+.menu-accel-container{margin-right:-16px!important;}*/
 
 /*去图标外壳遮罩、点击动画*/
 #anobtn,

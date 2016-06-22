@@ -1,4 +1,4 @@
-::2016.06.08
+::2016.06.20
 
 :pcxFirefox
 ::複製PcxFirefox主程序
@@ -14,7 +14,7 @@ del /s /q %BackDir%\firefox\*.tmp
 xcopy "%BackDir%\firefox" %TempFolder%\firefox\  /s /y /i
 
 ::解压便携模块tmemutil.ini到firefox主程序文件夹
-%zip% x %TempFolder%\Software\run\portable.7z -o%TempFolder%\firefox
+%zip% x %TempFolder%\Software\run\portable.7z -o%TempFolder%\firefox /s /y /i
 
 :CingFox-2
 ::需要刪除的项

@@ -1,6 +1,7 @@
-//2016.06.22
+//2016.06.24
 
 // example: https://github.com/azuwis/.vimfx/blob/master/config.js
+// example: https://github.com/lydell/dotfiles/blob/master/.vimfx/config.js
 
 const {classes: Cc, interfaces: Ci, utils: Cu} = Components
 const nsIEnvironment = Cc["@mozilla.org/process/environment;1"].getService(Ci.nsIEnvironment)
@@ -8,6 +9,9 @@ const nsIStyleSheetService = Cc['@mozilla.org/content/style-sheet-service;1'].ge
 const nsIWindowWatcher = Cc["@mozilla.org/embedcomp/window-watcher;1"].getService(Ci.nsIWindowWatcher)
 const nsIXULRuntime = Cc['@mozilla.org/xre/app-info;1'].getService(Ci.nsIXULRuntime)
 const {OS} = Cu.import('resource://gre/modules/osfile.jsm')
+
+const globalMessageManager = Cc['@mozilla.org/globalmessagemanager;1']
+  .getService(Ci.nsIMessageListenerManager)
 
 Cu.import('resource://gre/modules/XPCOMUtils.jsm')
 XPCOMUtils.defineLazyModuleGetter(this, 'AddonManager', 'resource://gre/modules/AddonManager.jsm')
@@ -17,6 +21,13 @@ XPCOMUtils.defineLazyModuleGetter(this, 'PopupNotifications', 'resource://gre/mo
 XPCOMUtils.defineLazyModuleGetter(this, 'Preferences', 'resource://gre/modules/Preferences.jsm')
 
 // helper functions
+let getWindowAttribute = (window, name) => {
+  return window.document.documentElement.getAttribute(`vimfx-config-${name}`)
+}
+
+let setWindowAttribute = (window, name, value) => {
+  window.document.documentElement.setAttribute(`vimfx-config-${name}`, value)
+}
 let {commands} = vimfx.modes.normal
 
 let popup = (message, options) => {
@@ -82,6 +93,30 @@ let exec = (cmd, args, observer) => {
     process.runAsync(args, args.length, observer)
 }
 
+//加载CSS
+let loadCss = (uriString) => {
+  let uri = Services.io.newURI(uriString, null, null)
+  let method = nsIStyleSheetService.AUTHOR_SHEET
+  if (!nsIStyleSheetService.sheetRegistered(uri, method)) {
+    nsIStyleSheetService.loadAndRegisterSheet(uri, method)
+  }
+  vimfx.on('shutdown', () => {
+    nsIStyleSheetService.unregisterSheet(uri, method)
+  })
+}
+
+loadCss(`${__dirname}/UserCSSLoader/userChrome.css`)
+loadCss(`${__dirname}/UserCSSLoader/01-UI-01——UI调整.css`)
+loadCss(`${__dirname}/UserCSSLoader/01-UI-02——附加組件.css`)
+loadCss(`${__dirname}/UserCSSLoader/02-微調-01——頁面.css`)
+loadCss(`${__dirname}/UserCSSLoader/02-微調-02——字體.css`)
+loadCss(`${__dirname}/UserCSSLoader/02-微調-03-1——圖標替換.css`)
+loadCss(`${__dirname}/UserCSSLoader/02-微調-03-2——圖標效果&排序.css`)
+loadCss(`${__dirname}/UserCSSLoader/02-微調-04——隱藏項.css`)
+loadCss(`${__dirname}/UserCSSLoader/03-其他-01——Cursors for hyperlinks.css`)
+loadCss(`${__dirname}/UserCSSLoader/03-其他-02——GPU Mode.css`)
+loadCss(`${__dirname}/UserCSSLoader/03-其他-99——網站修正.css`)
+
 // options
 set('prevent_autofocus', true)
 set('hints_sleep', -1)
@@ -89,7 +124,7 @@ set('prev_patterns', v => `[上前]\\s*一?\\s*[页张个篇章頁] ${v}`)
 set('next_patterns', v => `[下后]\\s*一?\\s*[页张个篇章頁] ${v}`)
 
 // shortcuts
-map('', 'window_new')
+map('W', 'window_new')
 map('w', 'tab_select_previous')
 map('e', 'tab_select_next')
 
@@ -151,13 +186,13 @@ vimfx.addCommand({
     name: 'goto_rebuild',
     description: 'Rebuild',
 }, ({vim}) => {
-    vim.window.Redirector.reload();//Redirector
-    vim.window.UCL.rebuild();//UserCSSLoader
-    vim.window.USL.rebuild();//UserScriptLoader
-    //vim.window.anobtn.reload();//anobtn
     vim.window.addMenu.rebuild();//AddmenuPlus
+    vim.window.Redirector.reload();//Redirector
     vim.window.MyMoveButton.delayRun();//Movebutton
     vim.window.FeiRuoNet.Rebuild()//FeiRuoNet
+    vim.window.USL.rebuild();//UserScriptLoader
+    //vim.window.UCL.rebuild();//UserCSSLoader
+    //vim.window.anobtn.reload();//anobtn
 })
 map('.r', 'goto_rebuild', true)
 
@@ -177,7 +212,7 @@ vimfx.addCommand({
 })
 map(',r', 'goto_redirector', true)
 
-vimfx.addCommand({
+/*vimfx.addCommand({
     name: 'mpv_current_href',
     description: 'Mpv play focused href',
 }, ({vim}) => {
@@ -208,7 +243,7 @@ vimfx.addCommand({
     exec('mpv', args)
     vim.notify(`Mpv: ${url}`)
 })
-map(',m', 'mpv_current_tab', true)
+map(',m', 'mpv_current_tab', true)*/
 
 vimfx.addCommand({
     name: 'search_tabs',
@@ -236,17 +271,6 @@ vimfx.addCommand({
 })
 map('gs', 'toggle_https', true)
 
-vimfx.addCommand({
-    name: 'org_capture',
-    description: 'Capture the selected text using org-protocol'
-}, ({vim}) => {
-    vimfx.send(vim, 'orgCapture', null, ({title, selection}) => {
-        let url = vim.window.gBrowser.selectedBrowser.currentURI.spec
-        let org_url = `org-protocol://capture://b/${encodeURIComponent(url)}/${encodeURIComponent(title)}/${encodeURIComponent(selection)}`
-        exec('emacsclient', [org_url])
-    })
-})
-map(',b', 'org_capture', true)
 
 //配合gh-Kelo的QR.uc.js (https://github.com/ghKelo/userChromeJS/tree/master/QR)
 let qrcode = (text) => {
@@ -268,44 +292,6 @@ vimfx.addCommand({
 })
 map(',R', 'restart', true)
 
-let ublockBootstrap = (document) => {
-    let filters = {
-        'assets/ublock/experimental.txt': 'enable',
-        'https://easylist-downloads.adblockplus.org/easylist_noelemhide.txt': 'enable',
-        // 'https://easylist-downloads.adblockplus.org/fanboy-annoyance.txt': 'enable',
-        'https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt': 'enable',
-        'https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjxlist.txt': 'enable',
-        'https://easylist-downloads.adblockplus.org/easylistchina.txt': 'enable',
-        'assets/thirdparties/easylist-downloads.adblockplus.org/easylist.txt': 'disable',
-        'assets/thirdparties/mirror1.malwaredomains.com/files/justdomains': 'disable'
-    }
-    let customFilters = [
-        'https://github.com/azuwis/org/raw/master/adblock-filters.txt'
-    ]
-    let lists = document.querySelectorAll('#lists li.listEntry')
-    for (let item of lists) {
-        let key = item.querySelector('a[data-listkey]').getAttribute('data-listkey')
-        let value = filters[key]
-        if (value) {
-            let checkbox = item.querySelector('input[type="checkbox"]')
-            if ((value === 'enable' && !checkbox.checked) || (value === 'disable' && checkbox.checked))
-                checkbox.click()
-        }
-    }
-    let externalLists = document.querySelector('textarea#externalLists')
-    let customFiltersString = customFilters.join("\n")
-    if (externalLists.value !== customFiltersString) {
-        externalLists.value = customFiltersString
-        let button = document.querySelector('button#externalListsApply')
-        button.disabled = false
-        button.click()
-    }
-    button = document.querySelector('button#buttonApply:not(.disabled)')
-    if (button)
-        button.click()
-    button = document.querySelector('button#buttonUpdate')
-    button.click()
-}
 vimfx.addCommand({
     name: 'ublock_bootstrap',
     description: 'uBlock Bootstrap',
@@ -349,8 +335,7 @@ let bootstrap = () => {
     // })
     // disable addons
     let disabled_addons = [
-        'gmp-gmpopenh264',
-        'loop@mozilla.org',
+
     ]
     disabled_addons.forEach((element) => {
         AddonManager.getAddonByID(element, (addon) => {
@@ -408,3 +393,4 @@ let bootstrapIfNeeded = () => {
     }
 }
 bootstrapIfNeeded()
+

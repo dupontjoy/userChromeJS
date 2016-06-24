@@ -1,4 +1,4 @@
-/*+++ 2016.06.22 +++*/
+/*+++ 2016.06.23 +++*/
 
 /*Firefox自带菜单加图标最后在ID后加上 > .menu-iconic-left > .menu-iconic-icon, 否则右边小三角可能消失*/
 
@@ -155,6 +155,7 @@ list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYA
 }
 
 /*打開所在文件夾位置*/
+[command="cmd_userscript_show"],
 #AM-browse-dir/*擴展右键——查看所在目录*/,
 #downloadsContextMenu menuitem[command="downloadsCmd_show"]/*打開文件夾*/ {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
@@ -411,6 +412,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 }
 
 /*編輯*/
+[command="cmd_userscript_edit"],
 [oncommand="Redirector.edit();"],
 #mnEditEdit,
 #modifySelected {

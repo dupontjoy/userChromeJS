@@ -1,4 +1,4 @@
-/*+++ 2016.06.22 +++*/
+/*+++ 2016.06.24 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 /*自动隐藏AidBar*/
@@ -23,14 +23,14 @@ margin-bottom: 0px !important;
 margin-right: -6px !important;
 -moz-appearance: none !important;
 padding: 0px 3px 0px 1px !important;
-border-right: 1px #BBC2C8 solid !important;
+border-right: 1px solid hsl(0,0%,85%)!important;
 }
 
-/*地址栏图标加分隔线
-#urlbar-reload-button {
-padding:1px 1px !important;
-border-left:1px #BBC2C8 solid !important;
-}*/
+/*地址栏图标加分隔线*/
+#urlbar-reload-button,
+#urlbar-stop-button {
+margin-left: -10px !important;/*用VimFx加载CSS时需要设置这个值*/
+}
 
 /*调节标签的宽度*/
 .tabbrowser-tab[fadein]:not([pinned]) {

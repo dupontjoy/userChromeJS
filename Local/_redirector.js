@@ -1,4 +1,4 @@
-//2016.06.20
+//2016.06.27
 
 //Redirector說明頁面：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -57,9 +57,11 @@ regex: true
 //example：http://www.jobui.com/tips/redirect.php?link=http%3A%2F%2Fjobs.51job.com%2Fshenzhen-nsq%2F58889341.html
 //example: https://link.zhihu.com/?target=https%3A//addons.mozilla.org/zh-cn/firefox/addon/linkchecker/%3Fsrc%3Dsearch
 //example: https://www.douban.com/link2/?url=https%3A%2F%2Fcode.google.com%2Fp%2Fchromium%2Fissues%2Fdetail%3Fid%3D51084
+//example: https://outgoing.mozilla.org/v1/5c2a5620285210f7267fdf87cfd39943f03f42538d2d98eec0b0cf5565dbca23/http%3A//vimium.github.io/
 name: "去跳轉",
-from:/^https?:\/\/.*\.(jobui|zhihu|douban)\..*\/.*?(link|target|url)=(.*)/i,
-to: "$3",
+from:/^https?:\/\/(www|link|outgoing|)\.(jobui|zhihu|douban|mozilla|)\..*\/(.*(link|target|url)=)?http(.*)/i,
+to: "http$5",
+decode: true,
 regex: true
 },
 {
@@ -121,6 +123,18 @@ regex: true
 name: "ajax|fonts(https?) >> useso",
 from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "http://$1.useso.com/$2",
+regex: true
+},
+{
+name: "Google Theme >> useso",
+from: /^https?:\/\/themes\.googleusercontent\.com\/(.*)$/,
+to: "http://google-themes.useso.com/$1",
+regex: true
+},
+{
+name: "Google Fonts >> useso",
+from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
+to: "http://fonts-gstatic.useso.com/$1",
 regex: true
 },
 {

@@ -28,6 +28,7 @@ border-right: 1px solid hsl(0,0%,85%)!important;
 
 /*地址栏图标加分隔线*/
 #urlbar-reload-button,
+#urlbar-go-button,
 #urlbar-stop-button {
 margin-left: -10px !important;/*用VimFx加载CSS时需要设置这个值*/
 }
@@ -107,10 +108,11 @@ toolbarbutton#anobtn,toolbarbutton#anobtn>image
 margin-left:1px !important;}
 
 /*UBO圖標（两句要同時用）*/
-toolbarbutton#ublock0-button,toolbarbutton#ublock0-button>image
-{padding: 0px !important;
+toolbarbutton#ublock0-button,toolbarbutton#ublock0-button>image {
+padding: 0px !important;
 margin-left:0px !important;
-margin-right: -3px !important;}
+margin-right: -3px !important;
+}
 
 /*Lastpass圖標距離調整（两句要同時用）*/
 toolbarbutton#lpt_lastpass-compact-btn,toolbarbutton#lpt_lastpass-compact-btn>image {

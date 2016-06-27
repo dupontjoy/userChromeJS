@@ -1,7 +1,21 @@
-//2016.06.24
+//2016.06.27
 
-// example: https://github.com/azuwis/.vimfx/blob/master/config.js
-// example: https://github.com/lydell/dotfiles/blob/master/.vimfx/config.js
+/******************************************************************************************
+快捷键分类:
+地址栏: location
+滚动: scrolling
+标签页: tabs
+浏览: browsing
+查找: find
+杂项: misc
+光标模式: caret
+Hint模式: hints
+忽略模式: ignore
+
+参照配置:
+https://github.com/azuwis/.vimfx/blob/master/config.js
+https://github.com/lydell/dotfiles/blob/master/.vimfx/config.js
+ *******************************************************************************************/
 
 const {classes: Cc, interfaces: Ci, utils: Cu} = Components
 const nsIEnvironment = Cc["@mozilla.org/process/environment;1"].getService(Ci.nsIEnvironment)
@@ -106,6 +120,8 @@ let loadCss = (uriString) => {
 }
 
 loadCss(`${__dirname}/UserCSSLoader/userChrome.css`)
+loadCss(`${__dirname}/UserCSSLoader/Theme-Yosetime.css`)
+loadCss(`${__dirname}/UserCSSLoader/UI-New Tab-FX42.css`)
 loadCss(`${__dirname}/UserCSSLoader/01-UI-01——UI调整.css`)
 loadCss(`${__dirname}/UserCSSLoader/01-UI-02——附加組件.css`)
 loadCss(`${__dirname}/UserCSSLoader/02-微調-01——頁面.css`)
@@ -131,7 +147,8 @@ map('e', 'tab_select_next')
 // commands
 vimfx.addCommand({
     name: 'goto_addons',
-    description: 'about:addons',
+    description: '新标签打开about:addons',
+    category: 'browsing',
 }, ({vim}) => {
     vim.window.BrowserOpenAddonsMgr()
 })
@@ -139,15 +156,34 @@ map(',a', 'goto_addons', true)
 
 vimfx.addCommand({
     name: 'goto_config',
-    description: 'about:config',
+    description: '新标签打开about:config',
+    category: 'browsing',
 }, ({vim}) => {
     vim.window.switchToTabHavingURI('about:config', true)
 })
 map(',c', 'goto_config', true)
 
 vimfx.addCommand({
+    name: 'goto_preferences',
+    description: '新标签打开选项',
+    category: 'browsing',
+}, ({vim}) => {
+    vim.window.openPreferences()
+})
+map(',s', 'goto_preferences', true)
+
+vimfx.addCommand({
+    name: 'goto_redirector',
+    description: '打开Redirector扩展设置',
+    category: 'browsing',
+}, ({vim}) => {
+    vim.window.switchToTabHavingURI('resource://redirector-at-einaregilsson-dot-com/redirector.html', true)
+})
+map(',r', 'goto_redirector', true)
+
+vimfx.addCommand({
     name: 'goto_downloads',
-    description: 'Downloads',
+    description: '弹窗打开下载',
 }, ({vim}) => {
     vim.window.DownloadsPanel.showDownloadsHistory()
     //vim.window.switchToTabHavingURI('about:downloads', true)
@@ -156,35 +192,34 @@ map(',d', 'goto_downloads', true)
 
 vimfx.addCommand({
     name: 'goto_history',
-    description: 'History',
+    description: '弹窗打开历史',
 }, ({vim}) => {
     vim.window.PlacesCommandHook.showPlacesOrganizer('History')
 })
 map(',h', 'goto_history', true)
 
-//WordHighlight添加詞
 vimfx.addCommand({
     name: 'goto_wordhilight',
-    description: 'WordHilight',
+    description: 'WordHighlight添加詞',
+    category: 'find',
 }, ({vim}) => {
     vim.window.gWHT.addWord()
 })
 map(',w', 'goto_wordhilight', true)
 
-//关闭WordHighlight查找栏
 vimfx.addCommand({
     name: 'goto_wordhilight_close',
-    description: 'Close WordHilight Bar',
+    description: '关闭WordHighlight查找栏',
+    category: 'find',
 }, ({vim}) => {
     vim.window.gWHT.destroyToolbar()
 })
 map(',x', 'goto_wordhilight_close', true)
 
-//几个脚本设置Rebuild
 //群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
 vimfx.addCommand({
     name: 'goto_rebuild',
-    description: 'Rebuild',
+    description: '几个脚本设置重新载入',
 }, ({vim}) => {
     vim.window.addMenu.rebuild();//AddmenuPlus
     vim.window.Redirector.reload();//Redirector
@@ -197,20 +232,24 @@ vimfx.addCommand({
 map('.r', 'goto_rebuild', true)
 
 vimfx.addCommand({
-    name: 'goto_preferences',
-    description: 'Preferences',
+    name: 'restart',
+    description: '重启Firefox',
 }, ({vim}) => {
-    vim.window.openPreferences()
+    Services.startup.quit(Services.startup.eRestart | Services.startup.eAttemptQuit)
 })
-map(',s', 'goto_preferences', true)
+map(',R', 'restart', true)
 
+//配合gh-Kelo的QR.uc.js (https://github.com/ghKelo/userChromeJS/tree/master/QR)
+let qrcode = (text) => {
+    exec('sh', ['-c', `qrencode -o- '${text}' | pqiv -i -`])
+}
 vimfx.addCommand({
-    name: 'goto_redirector',
-    description: 'Redirector',
+    name: 'qrcode',
+    description: '生成二维码'
 }, ({vim}) => {
-    vim.window.switchToTabHavingURI('resource://redirector-at-einaregilsson-dot-com/redirector.html', true)
+    vim.window.QRCreator.run()
 })
-map(',r', 'goto_redirector', true)
+map(',q', 'qrcode', true)
 
 /*vimfx.addCommand({
     name: 'mpv_current_href',
@@ -247,7 +286,7 @@ map(',m', 'mpv_current_tab', true)*/
 
 vimfx.addCommand({
     name: 'search_tabs',
-    description: 'Search tabs',
+    description: '搜索标签',
     category: 'location',
     order: commands.focus_location_bar.order + 1,
 }, (args) => {
@@ -258,7 +297,7 @@ map(',t', 'search_tabs', true)
 
 vimfx.addCommand({
     name: 'toggle_https',
-    description: 'Toggle HTTPS',
+    description: 'HTTP/HTTPS切换',
     category: 'location',
 }, ({vim}) => {
     let url = vim.window.gBrowser.selectedBrowser.currentURI.spec
@@ -272,29 +311,9 @@ vimfx.addCommand({
 map('gs', 'toggle_https', true)
 
 
-//配合gh-Kelo的QR.uc.js (https://github.com/ghKelo/userChromeJS/tree/master/QR)
-let qrcode = (text) => {
-    exec('sh', ['-c', `qrencode -o- '${text}' | pqiv -i -`])
-}
-vimfx.addCommand({
-    name: 'qrcode',
-    description: 'QRcode'
-}, ({vim}) => {
-    vim.window.QRCreator.run()
-})
-map(',q', 'qrcode', true)
-
-vimfx.addCommand({
-    name: 'restart',
-    description: 'Restart',
-}, ({vim}) => {
-    Services.startup.quit(Services.startup.eRestart | Services.startup.eAttemptQuit)
-})
-map(',R', 'restart', true)
-
 vimfx.addCommand({
     name: 'ublock_bootstrap',
-    description: 'uBlock Bootstrap',
+    description: 'uBlock第三方规则列表',
 }, ({vim}) => {
     let gBrowser = vim.window.gBrowser
     let url = gBrowser.selectedBrowser.currentURI.spec
@@ -335,7 +354,8 @@ let bootstrap = () => {
     // })
     // disable addons
     let disabled_addons = [
-
+        'firefox@getpocket.com',
+        'loop@mozilla.org',
     ]
     disabled_addons.forEach((element) => {
         AddonManager.getAddonByID(element, (addon) => {
@@ -365,7 +385,7 @@ let bootstrap = () => {
 }
 vimfx.addCommand({
     name: 'bootstrap',
-    description: 'Bootstrap',
+    description: '引导程序',
 }, ({vim}) => {
     try {
         bootstrap()
@@ -378,6 +398,7 @@ vimfx.addCommand({
 })
 map('zb', 'bootstrap', true)
 
+//不要刪除
 let bootstrapIfNeeded = () => {
     let bootstrapFile = OS.Path.fromFileURI(`${__dirname}/config.js`)
     let bootstrapPref = "extensions.VimFx.bootstrapTime"

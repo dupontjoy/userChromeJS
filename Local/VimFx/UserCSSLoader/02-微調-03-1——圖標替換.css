@@ -1,4 +1,4 @@
-/*+++ 2016.06.23 +++*/
+/*+++ 2016.07.01 +++*/
 
 /*Firefox自带菜单加图标最后在ID后加上 > .menu-iconic-left > .menu-iconic-icon, 否则右边小三角可能消失*/
 
@@ -45,6 +45,16 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 menuitem.bookmark-item {
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAPFBMVEUAAADCMDDKICDKICDKISHLISHKICDKISHLISHKICDJISHKHx/HICDOISHKISHJISHKISHKISHKICDKISHNmRTzAAAAE3RSTlMABI7cpzVgWrWtPSggD+HgmpmGI5UjwAAAAF5JREFUGNN1jkkOwCAMA0tK2Onm//+1gEhFDp0L8sgk2f4oRWez70YJBzhdAJZKTYQGpToiHfg4qYmIBdv/xyWbMfGSfJu5Q4TsySLyFF6En4KAwByAR+623B+20lC8OZoG3r0TZhgAAAAASUVORK5CYII=") !important;
 -moz-image-region: rect(0 16px 16px 0) !important;
+}
+
+/*有些网站无LOGO图标，加空白图标*/
+.tab-icon-image:not([src]):not([pinned]) {
+display: block !important;
+list-style-image: url("chrome://mozapps/skin/places/defaultFavicon.png");
+}
+.tab-throbber:not([busy]),
+.tab-throbber[busy] + .tab-icon-image:not([src]):not([pinned]) {
+display: none !important;
 }
 
 /*==扩展/脚本图标补充==*/

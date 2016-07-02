@@ -2,7 +2,7 @@
   @namespace   http://www.runningcheese.com/firefox-v6
   @description 更改浏览about:newtab时的样式
   @author      runningcheese
-  @version     1.00-2016.06.08
+  @version     1.00-2016.06.28
   @reference   http://www.runningcheese.com/newtabstylish-superstart by @ennea              
 */
 
@@ -67,7 +67,7 @@
  
 #newtab-search-text {-moz-margin-start: 24px;font-size:12px !important; }
 
-#newtab-search-form {max-width: 750px; padding-left:10px;height: 27px!important;margin-right:5px!important;}
+#newtab-search-form {max-width: 720px; padding-left:15px;height: 27px!important;margin-right:40px!important;}
 
 #newtab-search-text {
     opacity: 0.5!important;
@@ -87,6 +87,7 @@
     border-color: #d9d9d9;  
     background-position: 14px -3px; 
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADoAAABgCAMAAAB7cJGLAAAAS1BMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADmYDp0AAAAGXRSTlMAPvRS275NDaYxEezUOCyEG9ZBOi0VcJoeQF7x9wAAALNJREFUWMPt1csKgzAQheHJzXiJl9pq+/5P2pRAUiKzSApS4fybcfMRUXEIIa7GSGmaGjlrZa3Sc8WZuv+MXpefa1SYyhRTacO08kyabvi8x5RejhTVn4QYBNX2m12q7UIIIfQ3Yb9iv2K/IoQQ+m4r+9fuXbyc2tw+00YY3SunXdtF+aCs9SaivBNxNsijTZKxQTI2SMZGeUh4GyRjVTsRcXZ3I7GtzksuNXjJt2F7oqv1BuP4BruD1GIjAAAAAElFTkSuQmCC") !important;
+    display: none;/*隐藏*/
 }
 #newtab-search-text + #newtab-search-submit:hover, #newtab-search-text + #newtab-search-submit:hover:active {
     background-position: 14px -3px;

@@ -1,4 +1,4 @@
-/*+++ 2016.06.05 +++*/
+/*+++ 2016.07.01 +++*/
 
 /*Aidbar排序*/
 #flashgot-media-tbb {-moz-box-ordinal-group: 1 !important;}/*FlashGot扩展*/
@@ -84,4 +84,60 @@ padding:0px !important;
 toolbarbutton#umatrix-button,toolbarbutton#umatrix-button>image
 {padding: 0px !important;
 margin-right:-4px !important;
+}
+
+/*----------------------菜单图标动画--------------------*/
+:-moz-any(menuitem,menu):hover >.menu-iconic-left>.menu-iconic-icon
+{
+  animation: caidantubiao .5s!important;
+}
+@keyframes caidantubiao{
+  0%{
+        transform:rotate(0deg);
+}
+ 100%{
+       transform:rotate(360deg);
+  }
+}
+/*--------------------------标签关闭按钮动画-------------------------*/
+.tabbrowser-tab:hover .tab-close-button
+{
+  animation: close .6s!important;
+}
+@keyframes close{
+  0%{
+        transform:rotate(0deg);
+}
+ 100%{
+       transform:rotate(180deg);
+  }
+}
+/*------------------------新建标签按钮-------------------------*/
+#main-window .tabs-newtab-button:hover .toolbarbutton-icon
+{
+  animation: newtab .5s!important;
+}
+@keyframes newtab{
+  0%{
+        transform:rotate(0deg);
+}
+ 100%{
+       transform:rotate(180deg);
+  }
+}
+/*--------------------------三大键按钮动画----------------------*/
+#main-window:not([inFullscreen]) #titlebar-min:hover,
+#main-window:not([inFullscreen]) #titlebar-max:hover,
+#main-window:not([inFullscreen]) #titlebar-close:hover,
+#main-window:not([inFullscreen]) #titlebar-max:hover
+{
+  animation: window .5s!important;
+}
+@keyframes window{
+  0%{
+        transform:rotate(0deg);
+}
+ 100%{
+       transform:rotate(180deg);
+  }
 }

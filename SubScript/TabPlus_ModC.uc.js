@@ -2,11 +2,11 @@
 // @description  Tab Plus 标签页增强
 // @description	 新标签打开（利用空白页）
 // @include      chrome://browser/content/browser.xul
-// @version      2016.04.20
+// @version      2016.06.30
 
 // ==/UserScript==
 
-(function() {
+location == 'chrome://browser/content/browser.xul' && (function() {
     //地址栏新标签打开
     try {
         if (location.href == 'chrome://browser/content/browser.xul') {
@@ -15,7 +15,14 @@
             str = str.replace('|| altEnter', '|| !altEnter');
             eval('gURLBar.handleCommand = ' + str);
         }
-    } catch(e) {}
+    } catch(e) {};
+    
+   // 新标签打开:书签、历史、搜索栏
+  /*try {
+    eval('openLinkIn=' + openLinkIn.toString().replace('w.gBrowser.selectedTab.pinned', '(!w.isTabEmpty(w.gBrowser.selectedTab) || $&)').replace(/&&\s+w\.gBrowser\.currentURI\.host != uriObj\.host/, ''));
+  } catch (e) {
+  };*/
+  
 	//总在当前标签页打开Bookmarklet
     eval("openLinkIn = " + openLinkIn.toString().replace(/(?=if \(where == "save"\))/, 'if (url.substr(0, 11) == "javascript:") where = "current";').replace(/(?=var loadInBackground)/, 'if (w.gBrowser.currentURI.spec == "about:blank" && !w.gBrowser.mCurrentTab.hasAttribute("busy")) where = "current";'));
 })();

@@ -2,7 +2,7 @@
   @namespace   https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox
   @description 含:标签栏, 地址栏, 书签栏, 三道杠等界面上的调整
   @author      Cing
-  @version     1.00-2016.06.20
+  @version     1.00-2016.07.01
   @reference             
 */
 
@@ -13,23 +13,9 @@
 .tabbrowser-tab[pending] {color: gray !important;}/* 未加载标签 */
 .tabbrowser-tab[unread] {color: red !important;}/* 未读标签 */
 
-/*有些网站无LOGO图标，加空白图标*/
-.tab-icon-image:not([src]):not([pinned]) {
-display: block !important;
-list-style-image: url("chrome://mozapps/skin/places/defaultFavicon.png");
-}
-.tab-throbber:not([busy]),
-.tab-throbber[busy] + .tab-icon-image:not([src]):not([pinned]) {
-display: none !important;
-}
-
 /*当前标签显示关闭按钮*/
 .tabbrowser-tab:not([selected]) .tab-close-button{display:none!important;}/*非当前页关闭按钮自动隐藏*/
 .tabbrowser-tab:not([pinned]):hover .tab-close-button{display:inherit!important;}/*鼠标移动上去显示*/
-
-/*标签关闭按钮*/
-.tabbrowser-tab:not([selected]) .tab-close-button, .close-icon[selected] {list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAAQCAYAAACm53kpAAACIklEQVRYhe1WsWrjQBAdCBhSubDLgLuULl2YkD/ITxzXpQqpwsLOlMqfpJHEzlQprCYqnMpuXLq+LgF3qZRmdOxtVrakS1z5wcIyYmHf2zdvBHDCCd+KJEmGIvJbRJYi8sbM77q/FZFxm/NE9IuISiLaEdEOEV+ttXdJkgyPwaE30jS9YOYXEaka1jrLssum88aYCSIuiKiKLUTcENH0GFzOW9b+Ql++YOaNiBQR8ktvfXFCkiRDRFwg4iYmAiKuiKhExJUxZnLg/mcta1GcA0AFACOvNtJaowhq+0pEijzPZ4EIyzzPZ8wsIlI55+7D82r7SsnPfRGU/JyInoiostaaPfc/A4AbABh4tYHWWotQEx4F+0YE1i9E5Epra92L3woRAUqP8EIJl2r765p83QoH7l8THgT7TqiJHyQPACAib77lmfklz/OZc27KzM/Bt4+IALvA9qWKMEVEF7ZEi/vXxHuRB+gogKb9P4HnnJtmWXapfd9JgDrwjDET3x3HEqBzCwQkl2r7Z22DKz8TmPmLhRHxNej5a335MpIJ25bke7VA3xC8jQVeLBidcw/heWvtXSzwYsGIiI977v8tIdh5DIrIuB5zAXk/GAsNxaYxuFInPIWW1xHpEHH702OwN7Tf100/Qsy8cc41/sho4G32/Aj9IaL5jxP5H4jI2Dl3XwvBzB8aiA9pml4cOm+MmVhrjS8EIm4R8bHFy59wQkd8AkOWq7/1XUzLAAAAAElFTkSuQmCC")!important;
-}
 
 /*顯示標籤頁總數*/
 #main-window {counter-reset: tabs !important;}
@@ -141,13 +127,6 @@ box-shadow:0 1px 5px rgba(190,50,0,0.5);
 }
 }
 */
-
-/*书签文件夹下拉过长显示滚动条 Show ScrollBar On Bookmark Folder*/
-@-moz-document url(chrome://browser/content/browser.xul) {
-	.bookmark-item[container="true"]  scrollbox {
-	overflow-y:auto !important;
-}
-}
 
 /*Oos定制 —— WordHighlightToolbar & 查找栏样式*/
 /*WordHighlightToolbar & 查找栏置于顶部*/

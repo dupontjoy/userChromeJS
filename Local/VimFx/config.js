@@ -1,4 +1,4 @@
-//2016.06.27
+//2016.07.02
 
 /******************************************************************************************
 快捷键分类:
@@ -17,6 +17,9 @@ https://github.com/azuwis/.vimfx/blob/master/config.js
 https://github.com/lydell/dotfiles/blob/master/.vimfx/config.js
  *******************************************************************************************/
 
+/******************************************************************************************
+ *这里是一些必要的设置, 载入库, 接入API等等, 请不要隨意更改它们.
+ *******************************************************************************************/
 const {classes: Cc, interfaces: Ci, utils: Cu} = Components
 const nsIEnvironment = Cc["@mozilla.org/process/environment;1"].getService(Ci.nsIEnvironment)
 const nsIStyleSheetService = Cc['@mozilla.org/content/style-sheet-service;1'].getService(Ci.nsIStyleSheetService)
@@ -107,7 +110,6 @@ let exec = (cmd, args, observer) => {
     process.runAsync(args, args.length, observer)
 }
 
-//加载CSS
 let loadCss = (uriString) => {
   let uri = Services.io.newURI(uriString, null, null)
   let method = nsIStyleSheetService.AUTHOR_SHEET
@@ -119,6 +121,20 @@ let loadCss = (uriString) => {
   })
 }
 
+/******************************************************************************************
+ *这里是自定义设置, 你可以根据自己的需要来调整它们. 参照已有设置的格式, 动手将自己的想法变成现实吧.
+ *******************************************************************************************/
+
+//设置参数
+Preferences.set({
+  'devtools.chrome.enabled': true,
+  'devtools.command-button-eyedropper.enabled': true,
+  'devtools.command-button-rulers.enabled': true,
+  'devtools.selfxss.count': 0,
+  'privacy.donottrackheader.enabled': true,
+})
+
+//加载CSS
 loadCss(`${__dirname}/UserCSSLoader/userChrome.css`)
 loadCss(`${__dirname}/UserCSSLoader/Theme-Yosetime.css`)
 loadCss(`${__dirname}/UserCSSLoader/UI-New Tab-FX42.css`)
@@ -133,18 +149,20 @@ loadCss(`${__dirname}/UserCSSLoader/03-其他-01——Cursors for hyperlinks.css
 loadCss(`${__dirname}/UserCSSLoader/03-其他-02——GPU Mode.css`)
 loadCss(`${__dirname}/UserCSSLoader/03-其他-99——網站修正.css`)
 
-// options
+// options选项
+set('hint_chars', 'fjdkslaghrueiwoncmvqtxzypb')//Hint提示符(默认有19个字母, 新增最后7个字母)
+//set('hint_chars', 'hjklasdfgyuiopqwertnmzxcvb')//Hint提示符(26个字母都用上, 另一种排序, 来自AMO评论区)
 set('prevent_autofocus', true)
 set('hints_sleep', -1)
 set('prev_patterns', v => `[上前]\\s*一?\\s*[页张个篇章頁] ${v}`)
 set('next_patterns', v => `[下后]\\s*一?\\s*[页张个篇章頁] ${v}`)
 
-// shortcuts
+// shortcuts快捷键
 map('W', 'window_new')
 map('w', 'tab_select_previous')
 map('e', 'tab_select_next')
 
-// commands
+// commands命令
 vimfx.addCommand({
     name: 'goto_addons',
     description: '新标签打开about:addons',
@@ -313,11 +331,11 @@ map('gs', 'toggle_https', true)
 
 vimfx.addCommand({
     name: 'ublock_bootstrap',
-    description: 'uBlock第三方规则列表',
+    description: 'uBlock自定义规则',
 }, ({vim}) => {
     let gBrowser = vim.window.gBrowser
     let url = gBrowser.selectedBrowser.currentURI.spec
-    let ublockUrl = 'chrome://ublock0/content/dashboard.html#3p-filters.html'
+    let ublockUrl = 'chrome://ublock0/content/dashboard.html#dyna-rules.html'
     if (url === ublockUrl) {
         ublockBootstrap(gBrowser.contentDocument)
     } else {
@@ -354,8 +372,8 @@ let bootstrap = () => {
     // })
     // disable addons
     let disabled_addons = [
-        'firefox@getpocket.com',
-        'loop@mozilla.org',
+    //'firefox@getpocket.com',
+    //'loop@mozilla.org',
     ]
     disabled_addons.forEach((element) => {
         AddonManager.getAddonByID(element, (addon) => {
@@ -398,7 +416,8 @@ vimfx.addCommand({
 })
 map('zb', 'bootstrap', true)
 
-//不要刪除
+/*————————————————————*/
+//必須，不能刪除
 let bootstrapIfNeeded = () => {
     let bootstrapFile = OS.Path.fromFileURI(`${__dirname}/config.js`)
     let bootstrapPref = "extensions.VimFx.bootstrapTime"

@@ -1,4 +1,4 @@
-/*+++ 2016.06.24 +++*/
+/*+++ 2016.06.27 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 /*自动隐藏AidBar*/
@@ -107,18 +107,26 @@ toolbarbutton#anobtn,toolbarbutton#anobtn>image
 {padding: 0px !important;
 margin-left:1px !important;}
 
-/*UBO圖標（两句要同時用）*/
+/*UBO图标*/
+#ublock0-button .toolbarbutton-icon
+{
+padding: 0px !important;
+-moz-appearance: none !important;
+margin-right: 1px !important;
+}
+
+/*UBO圖標（两句要同時用）
 toolbarbutton#ublock0-button,toolbarbutton#ublock0-button>image {
 padding: 0px !important;
 margin-left:0px !important;
 margin-right: -3px !important;
-}
+}*/
 
 /*Lastpass圖標距離調整（两句要同時用）*/
 toolbarbutton#lpt_lastpass-compact-btn,toolbarbutton#lpt_lastpass-compact-btn>image {
 padding: 0px !important;
-margin-left:0px !important;
-margin-right:0.5px !important;
+margin-left: 1px !important;
+margin-right: 1px !important;
 }
 
 /*ucjsPermission圖標距離調整（两句要同時用）*/
@@ -133,3 +141,12 @@ margin-top: -1px;
 right: 1px;
 max-width: 300px;
 }
+
+/*导航栏图标内图片(所有图标全局定义) by 颜太吓*/
+.findbar-button > .toolbarbutton-text,
+#nav-bar .toolbarbutton-1 > .toolbarbutton-icon,
+#nav-bar .toolbarbutton-1 > .toolbarbutton-text,
+#nav-bar .toolbarbutton-1 > .toolbarbutton-badge-stack,
+#nav-bar .toolbarbutton-1 > .toolbarbutton-menubutton-button > .toolbarbutton-icon,
+#nav-bar .toolbarbutton-1 > .toolbarbutton-menubutton-dropmarker > .dropmarker-icon,
+window:not([chromehidden~="toolbar"]) #urlbar-wrapper > .toolbarbutton-1:-moz-any([disabled],:not([open]):not([disabled]):not(:active)) > .toolbarbutton-icon {padding: 0px!important;box-shadow: none!important;border: none!important;}

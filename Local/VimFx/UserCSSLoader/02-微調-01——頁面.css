@@ -1,4 +1,9 @@
-/*+++2015.12.10+++*/
+/*+++2016.07.03+++*/
+
+/* Textareas - Resize always */
+html textarea {
+resize: both !important;
+}
 
 /*去干扰码*/
 FONT.jammer {

@@ -35,7 +35,7 @@ location == 'chrome://browser/content/browser.xul' && (function () {
 			'Google': 		{
 				disable: false,	//默认非禁用，可省略
 				icon: true,		//true时默认会使用 配置目录\chrome\skin\imageSearch\Google.png 同名png文件作为菜单图标，可使用base64图片，注意要用引号引住【如 icon: 'data:image/jpeg;base64,xxxxxxxxxx==',】
-				icon: 'https://www.google.com/favicon.ico',
+				icon: 'http://www.google.com/favicon.ico',
 				left:{ //左键，下面如果出现both则为左右键行为一致
 					url:'https://www.google.com/searchbyimage', //搜图地址
 					method: 'GET', //GET方法
@@ -43,7 +43,7 @@ location == 'chrome://browser/content/browser.xul' && (function () {
 						qs: ['image_url={$URL}'] //查询字符串，
 					}
 				},right:{//右键，下面如果出现both则为左右键行为一致
-					url:'https://www.google.com/searchbyimage/upload', 
+					url:'http://www.google.com/searchbyimage/upload', 
 					method: 'POST',//POST方法
 					parameters:{
 						qs: ['encoded_image={$IMGDATA}']

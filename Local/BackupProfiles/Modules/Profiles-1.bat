@@ -1,4 +1,4 @@
-::2016.06.20
+::2016.07.05
 
 :Profiles-1
 cls
@@ -36,6 +36,7 @@ xcopy "%BackDir%\fireie" %TempFolder%\Profiles\fireie\ /s /y /i
 xcopy "%BackDir%\gm_scripts" %TempFolder%\Profiles\gm_scripts\ /s /y /i
 xcopy "%BackDir%\browser-extension-data" %TempFolder%\Profiles\browser-extension-data\ /s /y /i
 xcopy "%BackDir%\iMacros" %TempFolder%\Profiles\iMacros\ /s /y /i
+xcopy "%BackDir%\searchplugins" %TempFolder%\Profiles\searchplugins\ /s /y /i
 
 ::以下是文件
 xcopy "%BackDir%\bookmarks.html" %TempFolder%\Profiles\ /y

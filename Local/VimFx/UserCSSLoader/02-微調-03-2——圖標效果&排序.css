@@ -1,4 +1,4 @@
-/*+++ 2016.07.01 +++*/
+/*+++ 2016.07.06 +++*/
 
 /*Aidbar排序*/
 #flashgot-media-tbb {-moz-box-ordinal-group: 1 !important;}/*FlashGot扩展*/
@@ -118,22 +118,6 @@ margin-right:-4px !important;
   animation: newtab .5s!important;
 }
 @keyframes newtab{
-  0%{
-        transform:rotate(0deg);
-}
- 100%{
-       transform:rotate(180deg);
-  }
-}
-/*--------------------------三大键按钮动画----------------------*/
-#main-window:not([inFullscreen]) #titlebar-min:hover,
-#main-window:not([inFullscreen]) #titlebar-max:hover,
-#main-window:not([inFullscreen]) #titlebar-close:hover,
-#main-window:not([inFullscreen]) #titlebar-max:hover
-{
-  animation: window .5s!important;
-}
-@keyframes window{
   0%{
         transform:rotate(0deg);
 }

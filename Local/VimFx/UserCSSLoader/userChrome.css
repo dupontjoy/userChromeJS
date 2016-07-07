@@ -115,6 +115,16 @@ padding: 0px !important;
 margin-right: 1px !important;
 }
 
+/*Foxyproxy图标*/
+#foxyproxy-toolbar-icon .toolbarbutton-icon
+{
+padding: 0px !important;
+-moz-appearance: none !important;
+margin-right: -4px !important;
+}
+
+
+
 /*UBO圖標（两句要同時用）
 toolbarbutton#ublock0-button,toolbarbutton#ublock0-button>image {
 padding: 0px !important;

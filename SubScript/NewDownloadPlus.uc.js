@@ -50,7 +50,7 @@
 					id: "downloadPlus_set",
 					label: "文件下载方式",
 		      			tooltiptext:"NewDownLoadPlus",
-					image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACoSURBVDhP7ZLNDYAgDIU9uYFLMAM/K+pMcoOja+gK2kcoaYg2njxJQlKg/VpeOwzKcs6t2JqP+ua9P7F/wJca1LYla+0E5WUXcEfvSW0rBeQatCGAAdXe6jk/trVz5ADMAtsFrM5FBymDJKt6NVQ3kJYZGjC06PE070K0JiqySwCBIpTeQQwh2Ffl9U5EnMU/5Z+bza3rsp/l3hgzkrEQ5FBA8aZ8JIgX73OcYWhGzxwAAAAASUVORK5CYII=",
+					image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAjElEQVQ4je3RsQ0DIQwF0GtYgs4dM+HuF26YgAXYkB08Ae1PdVEuOiEOpcyX6MyzZR/HJO5Od+esZhpVparuAzln5pz/wCrQe6eIXIrvgJQSxxj3aCnlgnwDIsJSynwiM3sjn8DS5zMAKCI8gZQSzezZMgEwhMAQAgHsXQLA887bqbUyxrj0Wmu/m+oFFIJtEikoFO8AAAAASUVORK5CYII=",
 					oncommand: "downloadPlus.openPref();",
 					class: "menuitem-iconic",
 				}), ins);

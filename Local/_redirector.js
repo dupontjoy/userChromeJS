@@ -137,6 +137,8 @@ from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
 to: "http://fonts-gstatic.useso.com/$1",
 regex: true
 },
+
+//百度
 {
 name: "百度云HTTP下载大文件",
 from: /^https:\/\/((pan|yun)+\.baidu\.com\/.+)/i,
@@ -144,6 +146,8 @@ to: "http://$1",
 regex: true
 },
 
+
+//其它
 {
 name: "bbs详细页面-1",
 from: /^https?:\/\/(.*)\/simple\/\?t(.*)\.html/i,

@@ -2,7 +2,7 @@
   @namespace   http://www.runningcheese.com/firefox-v6
   @description 更改浏览about:newtab时的样式
   @author      runningcheese
-  @version     1.00-2016.06.28
+  @version     1.00-2016.07.03
   @reference   http://www.runningcheese.com/newtabstylish-superstart by @ennea              
 */
 
@@ -114,11 +114,11 @@
         background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/woshipm.jpg") center center no-repeat !important;
         background-size: 100% 100%!important;
     }
-    [href*="www.douban.com"] .newtab-thumbnail {
+    [href*="douban.com"] .newtab-thumbnail {
         background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/douban.png") center center no-repeat !important;
         background-size: 100% 100%!important;
     }
-    [href*="www.zhihu.com"] .newtab-thumbnail {
+    [href*="zhihu.com"] .newtab-thumbnail {
         background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/zhihu.png") center center no-repeat !important;
         background-size: 100% 100%!important;
     }
@@ -126,11 +126,11 @@
         background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/cnbeta.jpg") center center no-repeat !important;
         background-size: 100% 100%!important;
     }
-    [href*="wikipedia.org"] .newtab-thumbnail {
-        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/wikipedia.png") center center no-repeat !important;
+    [href*="open.163.com"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/open163.jpg") center center no-repeat !important;
         background-size: 100% 100%!important;
     }
-    [href*="www.economist.com"] .newtab-thumbnail {
+    [href*="economist.com"] .newtab-thumbnail {
         background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/economist.png") center center no-repeat !important;
         background-size: 100% 100%!important;
     }   
@@ -138,7 +138,7 @@
         background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/twitter.png") center center no-repeat !important;
         background-size: 100% 100%!important;
     }  
-    [href*="www.guokr.com"] .newtab-thumbnail {
+    [href*="guokr.com"] .newtab-thumbnail {
         background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/guokr.png") center center no-repeat !important;
         background-size: 100% 100%!important;
     } 
@@ -146,11 +146,11 @@
         background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/facebook.jpg") center center no-repeat !important;
         background-size: 100% 100%!important;
     } 
-    [href*="www.shanbay.com"] .newtab-thumbnail {
+    [href*="shanbay.com"] .newtab-thumbnail {
         background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/shanbay.png") center center no-repeat !important;
         background-size: 100% 100%!important;
     }
-    [href*="www.youtube.com"] .newtab-thumbnail {
+    [href*="youtube.com"] .newtab-thumbnail {
         background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/youtube.png") center center no-repeat !important;
         background-size: 100% 100%!important;
     }
@@ -162,11 +162,11 @@
         background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/mail.png") center center no-repeat !important;
         background-size: 100% 100%!important;
     } 
-    [href*="www.cnn.com"] .newtab-thumbnail {
+    [href*="cnn.com"] .newtab-thumbnail {
         background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/cnn.png") center center no-repeat !important;
         background-size: 100% 100%!important;
     }
-    [href*="www.linkedin.com"] .newtab-thumbnail {
+    [href*="linkedin.com"] .newtab-thumbnail {
         background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/pulse.jpg") center center no-repeat !important;
         background-size: 100% 100%!important;
     }

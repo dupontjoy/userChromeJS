@@ -1,4 +1,4 @@
-//2016.06.29
+//2016.07.03
 
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
@@ -821,17 +821,6 @@ exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\
 {
 label: "Lantern",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Lantern\\lantern.exe",
-},
-{},
-{
-label: "Hosts-choose",
-tooltiptext: "选择自动更新等操作",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Hosts\\choose.exe",
-},
-{
-label: "Hosts-tool",
-tooltiptext: "更新Hosts",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\Hosts\\tool.exe",
 },
 {},
 {

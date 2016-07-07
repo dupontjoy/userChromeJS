@@ -151,7 +151,7 @@ loadCss(`${__dirname}/UserCSSLoader/03-其他-99——網站修正.css`)
 
 // options选项
 set('hint_chars', 'fjdkslaghrueiwoncmvqtxzypb')//Hint提示符(默认有19个字母, 新增最后7个字母)
-//set('hint_chars', 'hjklasdfgyuiopqwertnmzxcvb')//Hint提示符(26个字母都用上, 另一种排序, 来自AMO评论区)
+//set('hint_chars', 'hjklasdfgyuiopqwertnmzxcvb')//Hint提示符(26个字母, 另一种排序, 来自AMO评论区)
 set('prevent_autofocus', true)
 set('hints_sleep', -1)
 set('prev_patterns', v => `[上前]\\s*一?\\s*[页张个篇章頁] ${v}`)

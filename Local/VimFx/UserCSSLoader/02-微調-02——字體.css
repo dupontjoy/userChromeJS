@@ -1,4 +1,4 @@
-/*+++ 2016.06.30 +++*/
+/*+++ 2016.07.03 +++*/
 
 /*文本选中样式（黑底+绿字）*/
 *::-moz-selection {
@@ -36,4 +36,5 @@ text-shadow: 0 1px rgba(242,33,49,60),0 1px 1px rgba(242,33,49,60),0 -1px 1px rg
   font-size: 12px !important; /* Specific font size. */
   text-transform: lowercase !important; /* Lowercase text. */
   opacity: 1 !important; /* Semi-transparent. Warning: Might be slow! */
+  padding: 1px !important;
 }

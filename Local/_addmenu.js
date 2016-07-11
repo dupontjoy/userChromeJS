@@ -1,4 +1,4 @@
-//2016.07.03
+//2016.07.10
 
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
@@ -68,7 +68,7 @@ var items = [
 {
 label:"复制GIF",
 command: 'context-copyimage-contents',
-tooltiptext: "左键：复制静态&动态图",
+tooltiptext: "左键: 复制静态&动态图\n右键: 复制动态图",
 condition: 'image',
 image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=',
 onclick: function (event) {
@@ -90,11 +90,34 @@ onclick: function (event) {
         selection.addRange(ranges[i]);
       }, false);
     } 
+      if (e.button == 2) {
+			var Cc = Components.classes;
+			var Ci = Components.interfaces;
+			var trans = Cc["@mozilla.org/widget/transferable;1"].createInstance(Ci.nsITransferable);
+			var str = Cc["@mozilla.org/supports-string;1"].createInstance(Ci.nsISupportsString);
+			var file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
+			var partialPath = "\\" + (+new Date) + ".gif";
+			try {
+				var completePath = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService).getCharPref("browser.cache.disk.parent_directory") + partialPath;
+			} catch (e) {
+				var completePath = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties).get("ProfLD", Ci.nsILocalFile).path + partialPath;
+			}
+			//alert(completePath);
+			var x = gContextMenu.mediaURL || gContextMenu.linkURL;
+            //alert(x);
+			file.initWithPath(completePath);
+			Cc["@mozilla.org/embedding/browser/nsWebBrowserPersist;1"].createInstance(Ci.nsIWebBrowserPersist).saveURI(Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService).newURI(x, null, null), null, null, null, null, null, file, null);
+			setTimeout(function () {
+				str.data = '<img src="file:///' + completePath + '">';
+                trans.setTransferData("text/html", str, str.data.length * 2);
+                Cc["@mozilla.org/widget/clipboard;1"].createInstance(Ci.nsIClipboard).setData(trans, null, 1);
+			}, 200);
+      }
   }
 },
 {
 label: "圖片地址|Base64",
-tooltiptext: "左鍵：複製圖片地址\n右鍵：複製圖片Base64碼",
+tooltiptext: "左鍵: 複製圖片地址\n右鍵: 複製圖片Base64碼",
 onclick: function(e) {
 switch(e.button) {
 case 0:
@@ -239,6 +262,14 @@ label: "查詢/變更價格-SKU",
 id: "TVC-Universal",
 accesskey: "3",
 url: "http://ic.sjlpj.cn/PriceChangeRequest/UnChangedProductList?Sku=%s&IsFirstRequest=false",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "产品得分-SKU",
+id: "TVC-Universal",
+accesskey: "4",
+url: "http://ic.sjlpj.cn/ProductScore/CategoryList?type=1&SiteId=1&Sku=%s&CreateBeginDate=&CreateEndDate=&UpdateBeginDate=&UpdateEndDate=&IsFirstRequest=False",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
@@ -402,7 +433,7 @@ QuickReplySub([
 ]);
 page({
 label: "163|QQ|Gmail",
-tooltiptext: "左鍵：163郵箱\n中鍵：QQ郵箱\n右鍵：Gmail郵箱",
+tooltiptext: "左鍵: 163郵箱\n中鍵: QQ郵箱\n右鍵: Gmail郵箱",
 insertBefore: "QuickReply-sep",
 onclick: function(e) {
 switch(e.button) {
@@ -496,7 +527,7 @@ addMenu.copy(txt.replace(/(\s，\s|\s，|，\s|，)+/g, ", ")
 .replace(/(\s？\s|\s？|？\s|？)+/g, "? ")
 .replace(/(\s！\s|\s！|！\s|！)+/g, "! ")
 .replace(/(\s；\s|\s；|；\s|；)+/g, "; ")
-.replace(/(\s：\s|\s：|：\s|：)+/g, ": ")
+.replace(/(\s: \s|\s: |: \s|: )+/g, ": ")
 .replace(/(\s（\s|\s（|（\s|（)+/g, " (")
 .replace(/(\s）\s|\s）|）\s|）)+/g, ") ")
 .replace(/(\s—\s|\s—|—\s|—)+/g, " - ")
@@ -514,7 +545,7 @@ goDoCommand("cmd_paste");
 label: "插入BBCode",
 id: "BBCode",
 accesskey: "B",
-tooltiptext: "左鍵：代碼[code]\n中鍵：鏈接[url]\n右鍵：圖片[img]",
+tooltiptext: "左鍵: 代碼[code]\n中鍵: 鏈接[url]\n右鍵: 圖片[img]",
 onclick: function(e) {
 switch(e.button) {
 case 0:
@@ -564,7 +595,7 @@ page(
 label: "用新分頁開啟鏈結",
 condition: "link",
 position: 1,
-tooltiptext: "左鍵：用新分頁開啟鏈結\n中鍵：迅雷雲播放\n右鍵：複製鏈接網址",
+tooltiptext: "左鍵: 用新分頁開啟鏈結\n中鍵: 迅雷雲播放\n右鍵: 複製鏈接網址",
 onclick: function(e) {
 switch(e.button) {
 case 0:
@@ -592,7 +623,7 @@ new function () {
 var items = [
 {
 label: "標題+地址|短網址",
-tooltiptext: "左鍵：標題+地址\n右鍵：短網址",
+tooltiptext: "左鍵: 標題+地址\n右鍵: 短網址",
 onclick: function(e) {
 switch(e.button) {
 case 0:
@@ -618,7 +649,7 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0
 },
 {
 label: "Favicon|Base64",
-tooltiptext: "左鍵：Favicon地址\n右鍵：Favicon的Base64碼",
+tooltiptext: "左鍵: Favicon地址\n右鍵: Favicon的Base64碼",
 onclick: function(e) {
 switch(e.button) {
 case 0:
@@ -635,7 +666,7 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA2U
 },
 {
 label: "UTF-8|Big5|GBK",
-tooltiptext: "左鍵：UTF-8\n中鍵：Big5\n右鍵：GBK",
+tooltiptext: "左鍵: UTF-8\n中鍵: Big5\n右鍵: GBK",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAlUlEQVQ4ja2TwQ2AIAxF3wau4QCuwCxcPTKMI7iBO7iCA3BiArxUJaSCik2a0NL/+1MK/Gg9MAMBiDcepKbXwB4Yga7QpJMan5PMcvHUnGBOC5XOmpKQJuILsIpJg5VraA7Y5OwBWyMYBHScYxb7JwSpAs1NiWDimq6RvE3ipabAiMyoKCnOoPkZmxepeZUPks+f6bPtGg1LLkKBszsAAAAASUVORK5CYII=",
 onclick: "var code = ['UTF-8', 'Big5', 'GBK']; BrowserSetForcedCharacterSet(code[event.button]);closeMenus(this);"
 },

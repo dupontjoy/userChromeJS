@@ -1,4 +1,4 @@
-//2016.07.02
+//2016.07.11
 
 /******************************************************************************************
 快捷键分类:
@@ -240,10 +240,11 @@ vimfx.addCommand({
     description: '几个脚本设置重新载入',
 }, ({vim}) => {
     vim.window.addMenu.rebuild();//AddmenuPlus
-    vim.window.Redirector.reload();//Redirector
-    vim.window.MyMoveButton.delayRun();//Movebutton
     vim.window.FeiRuoNet.Rebuild()//FeiRuoNet
-    vim.window.USL.rebuild();//UserScriptLoader
+    vim.window.MyMoveButton.delayRun();//Movebutton
+    vim.window.Redirector.reload();//Redirector
+
+    //vim.window.USL.rebuild();//UserScriptLoader
     //vim.window.UCL.rebuild();//UserCSSLoader
     //vim.window.anobtn.reload();//anobtn
 })

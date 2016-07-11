@@ -3,7 +3,7 @@
 // @namespace      runningcheese@qq.com
 // @description    为工具栏图标增加点击功能
 // @author         runningcheese
-// @version        0.0.1-2016.06.15
+// @version        0.0.1-2016.07.09
 // @license        MIT License
 // @compatibility  Firefox 29+
 // @charset        UTF-8
@@ -129,11 +129,11 @@ function closeFindbar(e){
 addEventListener('blur', closeFindbar, false);
 })();
 
-/*书签下拉菜单中键不关闭*/
+/*书签下拉菜单中键不关闭
 eval('BookmarksEventHandler.onClick = ' + BookmarksEventHandler.onClick.toString()
 .replace(/if \(node\.localName \=\= \"menupopup"\)\n\s+node\.hidePopup\(\)\;\n\s+else/,''));
 eval('checkForMiddleClick = ' + checkForMiddleClick.toString()
-.replace('closeMenus(event.target);',''));
+.replace('closeMenus(event.target);',''));*/
 
 /*GM中键切换开关不关闭下拉菜单*/
 eval('GM_popupClicked = ' + GM_popupClicked.toString()

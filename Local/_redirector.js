@@ -1,4 +1,4 @@
-//2016.06.27
+//2016.07.11
 
 //Redirector說明頁面：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -58,8 +58,10 @@ regex: true
 //example: https://link.zhihu.com/?target=https%3A//addons.mozilla.org/zh-cn/firefox/addon/linkchecker/%3Fsrc%3Dsearch
 //example: https://www.douban.com/link2/?url=https%3A%2F%2Fcode.google.com%2Fp%2Fchromium%2Fissues%2Fdetail%3Fid%3D51084
 //example: https://outgoing.mozilla.org/v1/5c2a5620285210f7267fdf87cfd39943f03f42538d2d98eec0b0cf5565dbca23/http%3A//vimium.github.io/
+//example: http://jump.bdimg.com/safecheck/index?url=rN3wPs8te/r8jfr8YhogjfUWFoMgIRa8rnxRhNIP1MZkv85mrD3mrfBH9cklV0PSubgIOda11N9BTi8jFZ4zfOnTXMIUQocAy3ZfLjT7I7T8Z8hnpML7tfZ/FYbo73c9jcNsmBeL+X8//mWXn/4pWlPSyOAgib7OMDxm7iZ2BjQ=
+//example: https://www.google.com/imgres?imgurl=https%3A%2F%2Flh4.ggpht.com%2FwKrDLLmmxjfRG2-E-k5L5BUuHWpCOe4lWRF7oVs1Gzdn5e5yvr8fj-ORTlBF43U47yI%3Dw300&imgrefurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dde.lotumapps.vibes&docid=Udigcj5zvVFziM&tbnid=D_y2y56rjrSoKM%3A&w=300&h=300&ved=0ahUKEwiywYaM0-rNAhWHfywKHdI0BSMQMwglKAAwAA&iact=mrc&uact=8&biw=1366&bih=659
 name: "去跳轉",
-from:/^https?:\/\/(www|link|outgoing|)\.(jobui|zhihu|douban|mozilla|)\..*\/(.*(link|target|url)=)?http(.*)/i,
+from:/^https?:\/\/(www|link|outgoing|jump|)\.(jobui|zhihu|douban|mozilla|bdimg|google|winos|)\..*\/(.*(\?link|\?target|\?url|\?imgurl)=)?http([^&]+)(\&.*)?/i,
 to: "http$5",
 decode: true,
 regex: true

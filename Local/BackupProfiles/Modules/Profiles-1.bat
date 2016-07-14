@@ -1,4 +1,4 @@
-::2016.07.05
+::2016.07.12
 
 :Profiles-1
 cls
@@ -41,14 +41,13 @@ xcopy "%BackDir%\searchplugins" %TempFolder%\Profiles\searchplugins\ /s /y /i
 ::以下是文件
 xcopy "%BackDir%\bookmarks.html" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\cert8.db" %TempFolder%\Profiles\ /y
+xcopy "%BackDir%\cert_override.txt" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\FlashGot.exe" %TempFolder%\Profiles\ /y
 ::xcopy "%BackDir%\foxyproxy.xml" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\mimeTypes.rdf" %TempFolder%\Profiles\ /y
 ::xcopy "%BackDir%\patternSubscriptions.json" %TempFolder%\Profiles\ /y
-xcopy "%BackDir%\permissions.sqlite" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\persdict.dat" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\pluginreg.dat" %TempFolder%\Profiles\ /y
-xcopy "%BackDir%\Portable.7z" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\search.json.mozlz4" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\stylish.sqlite" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\user.js" %TempFolder%\Profiles\ /y

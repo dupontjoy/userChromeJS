@@ -2,7 +2,7 @@
 // @description  Tab Plus 标签页增强
 // @description	 新标签打开（利用空白页）
 // @include      chrome://browser/content/browser.xul
-// @version      2016.06.30
+// @version      2016.07.11
 
 // ==/UserScript==
 
@@ -112,3 +112,21 @@ gBrowser.addEventListener("click", function(event) {
         }
     }
 }, true);
+
+//不聚焦地址栏 by skofkyo
+//http://bbs.kafan.cn/forum.php?mod=redirect&goto=findpost&ptid=1865786&pid=38002012
+(function() {
+    window.CustomNewTab = {
+        init: function() {
+            gBrowser.tabContainer.addEventListener('TabOpen', CustomNewTab.newTabfocus, false);
+        },
+        newTabfocus: function() {
+            if (/^(about|http|file|chrome)/.test(gBrowser.selectedBrowser.currentURI.spec)) {
+                setTimeout(function() {
+                    gBrowser.selectedBrowser.focus();
+                }, 0);
+            }
+        }
+    }
+    CustomNewTab.init();
+})();

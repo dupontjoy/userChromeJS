@@ -1,4 +1,4 @@
-/*+++ 2016.06.22 +++*/
+/*+++ 2016.07.13 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
@@ -6,6 +6,7 @@
 {display: none !important;}*/
 
 /*===隐藏页面右键菜单===*/
+#frame[label="此框架"],
 #fireie-context-openlinkintabwithieengine,/*在新标签页中以 IE 引擎打开链接*/
 #fireie-context-openlinkiniebrowser,/*在 IE 浏览器中打开链接*/
 #fireie-context-sep-open,/*FireIE分隔符*/

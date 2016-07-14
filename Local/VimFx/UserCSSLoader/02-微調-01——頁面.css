@@ -1,18 +1,17 @@
-/*+++2016.07.03+++*/
+/*+++2016.07.13+++*/
 
 /* Textareas - Resize always */
 html textarea {
 resize: both !important;
 }
 
-/*去干扰码*/
-FONT.jammer {
-display: none !important;
-}
+/*清除网页干扰码*/
+body{-o-user-select:element !important;}
+SPAN.fw,/*国学网*/
+font.jammer,
+font[style*="font-size: 0px;"]
+{display: none !important}
 
-SPAN.fw {
-display: none !important;
-}/*国学网*/
 
 /* 阻止<blink>标签带来的闪烁 */
 blink, .blink, *[style*="blink"] {

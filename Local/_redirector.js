@@ -1,4 +1,4 @@
-//2016.07.14
+//2016.07.12
 
 //Redirector說明頁面：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -67,7 +67,7 @@ regex: true
 //example: https://outgoing.mozilla.org/v1/5c2a5620285210f7267fdf87cfd39943f03f42538d2d98eec0b0cf5565dbca23/http%3A//vimium.github.io/
 //example: https://www.google.com/imgres?imgurl=https%3A%2F%2Flh4.ggpht.com%2FwKrDLLmmxjfRG2-E-k5L5BUuHWpCOe4lWRF7oVs1Gzdn5e5yvr8fj-ORTlBF43U47yI%3Dw300&imgrefurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dde.lotumapps.vibes&docid=Udigcj5zvVFziM&tbnid=D_y2y56rjrSoKM%3A&w=300&h=300&ved=0ahUKEwiywYaM0-rNAhWHfywKHdI0BSMQMwglKAAwAA&iact=mrc&uact=8&biw=1366&bih=659
 name: "去跳轉",
-from:/^https?:\/\/.*(com|net|org|)\/(.*(\?link|\?target|\?url|\?imgurl|)=)?(http[^&]+).*/i,
+from:/^https?:\/\/.*(com|net|org|)\/(.*(\?link|\?target|\?url|\?imgurl)=)?(http[^&]+).*/i,
 to: "$4",
 decode: true,
 regex: true
@@ -119,7 +119,7 @@ regex: true
 {
 //example: https://www.google.com.hk/#newwindow=1&safe=strict&q=tvc
 name: "google国家域名 >> google.com",
-from: from: /^https?:\/\/www\.google\.(?:co|com)\.(?:hk|jp|sg|kr)\/(?:s\?|search\?|webhp\?|.*\&safe=strict)(.*)/i,
+from: /^https?:\/\/www\.google\.(?:co|com)\.(?:hk|jp|sg|kr)\/(?:s\?|search\?|webhp\?|.*\&safe=strict)(.*)/i,
 to: "https://www.google.com/search?$1&hl=en-US&safe=off",
 regex: true
 },

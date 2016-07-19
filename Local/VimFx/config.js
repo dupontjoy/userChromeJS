@@ -1,4 +1,4 @@
-//2016.07.11
+//2016.07.18
 
 /******************************************************************************************
 快捷键分类:
@@ -182,24 +182,6 @@ vimfx.addCommand({
 map(',c', 'goto_config', true)
 
 vimfx.addCommand({
-    name: 'goto_preferences',
-    description: '新标签打开选项',
-    category: 'browsing',
-}, ({vim}) => {
-    vim.window.openPreferences()
-})
-map(',s', 'goto_preferences', true)
-
-vimfx.addCommand({
-    name: 'goto_redirector',
-    description: '打开Redirector扩展设置',
-    category: 'browsing',
-}, ({vim}) => {
-    vim.window.switchToTabHavingURI('resource://redirector-at-einaregilsson-dot-com/redirector.html', true)
-})
-map(',r', 'goto_redirector', true)
-
-vimfx.addCommand({
     name: 'goto_downloads',
     description: '弹窗打开下载',
 }, ({vim}) => {
@@ -216,23 +198,26 @@ vimfx.addCommand({
 })
 map(',h', 'goto_history', true)
 
+//配合gh-Kelo的QR.uc.js (https://github.com/ghKelo/userChromeJS/tree/master/QR)
+let qrcode = (text) => {
+    exec('sh', ['-c', `qrencode -o- '${text}' | pqiv -i -`])
+}
 vimfx.addCommand({
-    name: 'goto_wordhilight',
-    description: 'WordHighlight添加詞',
-    category: 'find',
+    name: 'qrcode',
+    description: '生成二维码'
 }, ({vim}) => {
-    vim.window.gWHT.addWord()
+    vim.window.QRCreator.run()
 })
-map(',w', 'goto_wordhilight', true)
+map(',q', 'qrcode', true)
 
 vimfx.addCommand({
-    name: 'goto_wordhilight_close',
-    description: '关闭WordHighlight查找栏',
-    category: 'find',
+    name: 'goto_redirector',
+    description: '打开Redirector扩展设置',
+    category: 'browsing',
 }, ({vim}) => {
-    vim.window.gWHT.destroyToolbar()
+    vim.window.switchToTabHavingURI('resource://redirector-at-einaregilsson-dot-com/redirector.html', true)
 })
-map(',x', 'goto_wordhilight_close', true)
+map(',r', 'goto_redirector', true)
 
 //群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
 vimfx.addCommand({
@@ -258,17 +243,51 @@ vimfx.addCommand({
 })
 map(',R', 'restart', true)
 
-//配合gh-Kelo的QR.uc.js (https://github.com/ghKelo/userChromeJS/tree/master/QR)
-let qrcode = (text) => {
-    exec('sh', ['-c', `qrencode -o- '${text}' | pqiv -i -`])
-}
 vimfx.addCommand({
-    name: 'qrcode',
-    description: '生成二维码'
+    name: 'goto_preferences',
+    description: '新标签打开选项',
+    category: 'browsing',
 }, ({vim}) => {
-    vim.window.QRCreator.run()
+    vim.window.openPreferences()
 })
-map(',q', 'qrcode', true)
+map(',s', 'goto_preferences', true)
+
+vimfx.addCommand({
+    name: 'search_tabs',
+    description: '搜索标签',
+    category: 'location',
+    order: commands.focus_location_bar.order + 1,
+}, (args) => {
+    commands.focus_location_bar.run(args)
+    args.vim.window.gURLBar.value = '% '
+})
+map(',t', 'search_tabs', true)
+
+vimfx.addCommand({
+    name: 'tmt_toggle',
+    description: 'TMT切换',
+}, ({vim}) => {
+    vim.window.Visibo.TMT.AutoHide.onToggle()
+})
+map(',T', 'tmt_toggle', true)
+
+vimfx.addCommand({
+    name: 'goto_wordhilight',
+    description: 'WordHighlight添加詞',
+    category: 'find',
+}, ({vim}) => {
+    vim.window.gWHT.addWord()
+})
+map(',w', 'goto_wordhilight', true)
+
+vimfx.addCommand({
+    name: 'goto_wordhilight_close',
+    description: '关闭WordHighlight查找栏',
+    category: 'find',
+}, ({vim}) => {
+    vim.window.gWHT.destroyToolbar()
+})
+map(',x', 'goto_wordhilight_close', true)
 
 /*vimfx.addCommand({
     name: 'mpv_current_href',
@@ -302,17 +321,6 @@ vimfx.addCommand({
     vim.notify(`Mpv: ${url}`)
 })
 map(',m', 'mpv_current_tab', true)*/
-
-vimfx.addCommand({
-    name: 'search_tabs',
-    description: '搜索标签',
-    category: 'location',
-    order: commands.focus_location_bar.order + 1,
-}, (args) => {
-    commands.focus_location_bar.run(args)
-    args.vim.window.gURLBar.value = '% '
-})
-map(',t', 'search_tabs', true)
 
 vimfx.addCommand({
     name: 'toggle_https',

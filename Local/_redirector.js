@@ -1,4 +1,4 @@
-//2016.07.12
+//2016.07.17
 
 //Redirector說明頁面：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -16,13 +16,6 @@ resp: false, // 可選，true 表示替換 response body
 decode: false // 可選，true 表示尝試對 from 解碼
 },
 //TVC
-{
-//example: http://https//www.tvc-mall.com/c/iphone-4s-battery-cases-c115923/
-name: "http://https//",
-from: /^https?:\/\/https\/\/(.*)/i,
-to: "http://$1",
-regex: true
-},
 {
 //example: http://trunk.tvc-mall.com/c/hobbies-toys/
 name: "trunk.tvc|seculife",
@@ -67,8 +60,8 @@ regex: true
 //example: https://outgoing.mozilla.org/v1/5c2a5620285210f7267fdf87cfd39943f03f42538d2d98eec0b0cf5565dbca23/http%3A//vimium.github.io/
 //example: https://www.google.com/imgres?imgurl=https%3A%2F%2Flh4.ggpht.com%2FwKrDLLmmxjfRG2-E-k5L5BUuHWpCOe4lWRF7oVs1Gzdn5e5yvr8fj-ORTlBF43U47yI%3Dw300&imgrefurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dde.lotumapps.vibes&docid=Udigcj5zvVFziM&tbnid=D_y2y56rjrSoKM%3A&w=300&h=300&ved=0ahUKEwiywYaM0-rNAhWHfywKHdI0BSMQMwglKAAwAA&iact=mrc&uact=8&biw=1366&bih=659
 name: "去跳轉",
-from:/^https?:\/\/.*(com|net|org|)\/(.*(\?link|\?target|\?url|\?imgurl)=)?(http[^&]+).*/i,
-to: "$4",
+from:/^https?:\/\/.*\.(?:jobui|zhihu|douban|mozilla|google|)\.(?:com|org|)\/(.*(\?link|\?target|\?url|\?imgurl)=)?(http[^&]+).*/i,
+to: "$3",
 decode: true,
 regex: true
 },
@@ -136,20 +129,10 @@ regex: true
 name: "ajax|fonts(https?) >> useso",
 from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "http://$1.useso.com/$2",
+state: false,
 regex: true
 },
-{
-name: "Google Theme >> useso",
-from: /^https?:\/\/themes\.googleusercontent\.com\/(.*)$/,
-to: "http://google-themes.useso.com/$1",
-regex: true
-},
-{
-name: "Google Fonts >> useso",
-from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
-to: "http://fonts-gstatic.useso.com/$1",
-regex: true
-},
+
 
 //百度
 {
@@ -174,11 +157,5 @@ from: /^https?:\/\/(.*)\/archiver\/tid-(.*)\.html/i,
 to: "http://$1/viewthread.php?tid=$2",
 regex: true
 },
-{
-name: "about:newtab",
-from: "about:newtab",
-to: "chrome://userchromejs/content/myNewTab/index.html",
-state: false,
-regex: false
-},
+
 ];

@@ -1,4 +1,4 @@
-/*+++ 2016.07.13 +++*/
+/*+++ 2016.07.18 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
@@ -230,8 +230,11 @@ display: none !important;
 display: none !important;
 }
 
-
 /*其它擴展/腳本隱藏項*/
+#visibo-tmt-tabmenu-sendtabtoTMT,/*TMT标签右键菜单*/
+#visibo-tmt-tabmenu-sendAlltabstoTMT,/*TMT标签右键菜单*/
+#visiboTmtContentAreaCM-sendTab,/*TMT页面右键菜单*/
+#visiboTmtContentAreaCM-sendLink,/*TMT页面右键菜单*/
 #FeiRuoNet_Sepalator2,/*FeiruoNet分隔线*/
 #aup-menuitem,/*AUP更多工具菜单*/
 #identity-icons,

@@ -11,6 +11,6 @@
 //Addmenu 和 moveButton
 setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();vimfx.addCommand(bootstrap());}, 2*1000);//1秒
 setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();vimfx.addCommand(bootstrap());}, 3*1000);
-setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();vimfx.addCommand(bootstrap());}, 29*1000);
 setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();vimfx.addCommand(bootstrap());}, 30*1000);
+setTimeout(function() {addMenu.rebuild();MyMoveButton.delayRun();vimfx.addCommand(bootstrap());}, 300*1000);
 })();

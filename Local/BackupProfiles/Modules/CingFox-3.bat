@@ -1,4 +1,4 @@
-::2016.06.20
+::2016.07.15
 
 :pcxFirefox
 ::Ñ}ÑuPcxFirefoxÖ÷³ÌÐò
@@ -22,6 +22,7 @@ del %TempFolder%\Software\GFW\goagent\  /s /q
 del %TempFolder%\Software\GFW\IP-Update\  /s /q
 del %TempFolder%\Software\GFW\Shadowsocks\  /s /q
 del %TempFolder%\Software\GFW\psiphon\psiphon3.exe.orig  /s /q
+del %TempFolder%\Profiles\iMacros\  /s /q
 del %TempFolder%\Profiles\bookmarks.html  /s /q
 del %TempFolder%\Profiles\prefs.js  /s /q
 del %TempFolder%\Profiles\chrome\SubScript\SougouDeskPic.uc.js  /s /q

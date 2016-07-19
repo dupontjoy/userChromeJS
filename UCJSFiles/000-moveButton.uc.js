@@ -5,7 +5,7 @@
 // @namespace      ywzhaiqi@gmail.com
 // @include        main
 // @charset        UTF-8
-// @version        2016.06.08
+// @version        2016.07.18
 // version        2014.9.6
 // @homepageURL    https://github.com/ywzhaiqi/userChromeJS/tree/master/moveButton
 // @downloadURL    https://github.com/ywzhaiqi/userChromeJS/blob/master/moveButton/moveButton.uc.js
@@ -108,6 +108,10 @@ location == "chrome://browser/content/browser.xul" && (function(){
 
 //SpeedMonitor放到地址栏图标框第1位
 { id: "urlbar-speedmonitor", bar: "urlbar-icons", pos: 1 },
+
+//TMT标签右键菜单
+{id: "visibo-tmt-tabmenu-sendtabtoTMT", insertBefore: "context_reloadTab",attr: {label:"当前页>>TMT",}},
+{id: "visibo-tmt-tabmenu-sendAlltabstoTMT", insertBefore: "context_reloadTab",attr: {label:"全部页>>TMT",}},
 
 //Greasemonkey圖標右鍵菜單
 {id: "greasemonkey-tbb",

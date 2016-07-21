@@ -1,4 +1,4 @@
-/*+++ 2016.07.18 +++*/
+/*+++ 2016.07.21 +++*/
 
 /*Firefox自带菜单加图标最后在ID后加上 > .menu-iconic-left > .menu-iconic-icon, 否则右边小三角可能消失*/
 
@@ -458,10 +458,6 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 */
 
 /*附加组件图标自定义*/
-#category-search > .category-icon{/*搜索附加组件*/
-    list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAP1BMVEUAAADZhR3////bjCn+/Pn//fz9+PL569nuyJniolHdkDH78eXpun/biSXy1LDmrmneljzwzaL35c7txpXlq2SoDl2IAAAAAXRSTlMAQObYZgAAAPlJREFUSMet1t1ugzAMBWAnOL9uINC+/7OOahteI2Q40s5l9CE5EOzQd1JeSq91OkmtvSw5kSa93GVexwOzu5X50IAXdzuy83KfF6LkgCR6IvxJC8IXKggv1BHeqQ4rLUvwniW3E15p+lzIgSPvPHLIl7xtIfqfxLC1kU+ffGP2R5g3m+fw1upDtnj7rUTraQZf2Q/h1eASRx7F4Fq5Vm9wf5L/42wUA2wVeJHgZ8IOAXTEkrN5S38PsPjHyM3f47F7m7u2SvA+yPrepXrlVnYPcPXKAV+puktflN9oS6pdB5se2FLBhg2OA2zYgKMMHZSAn/EhD14hvgCh8xBd44wZmwAAAABJRU5ErkJggg==") !important;
-}
-
 #category-discover > .category-icon{/*获取附加组件*/
     list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAV1BMVEUAAAAfZP7///8rbf6Psv8vb/5smf42dP6xyf8+ef7e6P/X5P/w9f9ik/5bjf5SiP7k7P+sxv9OhP7A1P8jZ/71+P/p8P/Q3/+auf+Wtv98pP77/P+HrP7Gvj72AAAAAXRSTlMAQObYZgAAATpJREFUSMetltuuhCAMRdtqQfCOlxl1/v87z0lMVLCjksx6Is0CsRo2sJK/VW00c3KCWZtavXPYyUu8pdwmtPiIbLUzxAi/wcc0/3r1XK8ALEZgYYrRJ1DoobJmsK1CGQXOa66llbwWdQcGd2baER9gQB/WpiMG66rWvq6Bt3E/eHrRENHSehP4oM8kMTjcSSDZxh2JLCzrI8m0sl6QzNILOnf0DVuddB7pgjLUX3QJB3rQPRNsLb3UC2zJ43WjZ8HbRujxq6dCZ0Rd7owuAv2676i91mF38VVX3CeV+JT+LyZBBwdvdSb1G50xoN/0/omeFf2qd+PJZ9AYUNOISBW2NGOIBnOukU2sS6XtG3BCkYa8kWx0IFX1t0NPyQe2yWeUmCLjIC5sIqMsLijjYjg+5P0rRCLgXSH+ALAhE9LkJXBmAAAAAElFTkSuQmCC") !important;
 }

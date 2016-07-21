@@ -1,4 +1,4 @@
-::2016.05.21
+::2016.07.20
 
 :Sync
 cls
@@ -44,7 +44,7 @@ xcopy "%dir2%\PicPick\picpick.ini" "%dir1%\..\Software\Image\PicPick\picpick.ini
 start "" "%dir1%\..\Software\Image\PicPick\picpick.exe"
 
 ::同步FastCopy-M設置
-xcopy "%dir2%\FastCopy-M\FastCopy2.ini" "%dir1%\..\..\FastCopy-M\FastCopy2.ini"  /s /y /i
+::xcopy "%dir2%\FastCopy-M\FastCopy2.ini" "%dir1%\..\..\FastCopy-M\FastCopy2.ini"  /s /y /i
 
 ::同步XMP設置
 xcopy "%dir2%\Thunder\xmp.ini" "%dir1%\..\..\Thunder Network\Thunder\Program\xmp.ini"  /s /y /i

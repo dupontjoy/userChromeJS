@@ -1,4 +1,4 @@
-//2016.07.18
+//2016.07.20
 
 /******************************************************************************************
 快捷键分类:
@@ -228,10 +228,11 @@ vimfx.addCommand({
     vim.window.FeiRuoNet.Rebuild()//FeiRuoNet
     vim.window.MyMoveButton.delayRun();//Movebutton
     vim.window.Redirector.reload();//Redirector
-
+    vim.window.anobtn.reload();//anobtn
+    
     //vim.window.USL.rebuild();//UserScriptLoader
     //vim.window.UCL.rebuild();//UserCSSLoader
-    //vim.window.anobtn.reload();//anobtn
+
 })
 map('.r', 'goto_rebuild', true)
 

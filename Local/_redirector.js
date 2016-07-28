@@ -1,7 +1,7 @@
-//2016.07.17
+//2016.07.21
 
-//Redirector說明頁面：https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
-//規則Github備份：https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
+//Redirector說明頁面: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
+//規則Github備份: https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
 
 rules = [
 {
@@ -54,13 +54,14 @@ to: "http://$1.ifeng.com/$2shtml$3",
 regex: true
 },
 {
-//example：http://www.jobui.com/tips/redirect.php?link=http%3A%2F%2Fjobs.51job.com%2Fshenzhen-nsq%2F58889341.html
+//example: http://www.jobui.com/tips/redirect.php?link=http%3A%2F%2Fjobs.51job.com%2Fshenzhen-nsq%2F58889341.html
 //example: https://link.zhihu.com/?target=https%3A//addons.mozilla.org/zh-cn/firefox/addon/linkchecker/%3Fsrc%3Dsearch
 //example: https://www.douban.com/link2/?url=https%3A%2F%2Fcode.google.com%2Fp%2Fchromium%2Fissues%2Fdetail%3Fid%3D51084
 //example: https://outgoing.mozilla.org/v1/5c2a5620285210f7267fdf87cfd39943f03f42538d2d98eec0b0cf5565dbca23/http%3A//vimium.github.io/
 //example: https://www.google.com/imgres?imgurl=https%3A%2F%2Flh4.ggpht.com%2FwKrDLLmmxjfRG2-E-k5L5BUuHWpCOe4lWRF7oVs1Gzdn5e5yvr8fj-ORTlBF43U47yI%3Dw300&imgrefurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dde.lotumapps.vibes&docid=Udigcj5zvVFziM&tbnid=D_y2y56rjrSoKM%3A&w=300&h=300&ved=0ahUKEwiywYaM0-rNAhWHfywKHdI0BSMQMwglKAAwAA&iact=mrc&uact=8&biw=1366&bih=659
+//example: http://www.so.com/link?url=http%3A%2F%2Fbaike.so.com%2Fdoc%2F4368934-4574777.html&q=Firefox&ts=1469089830&t=8d126c3df745e90727a2acb3821708d&src=haosou
 name: "去跳轉",
-from:/^https?:\/\/.*\.(?:jobui|zhihu|douban|mozilla|google|)\.(?:com|org|)\/(.*(\?link|\?target|\?url|\?imgurl)=)?(http[^&]+).*/i,
+from:/^https?:\/\/.*\.(?:jobui|zhihu|douban|mozilla|google|so|)\.(?:com|org|)\/(.*(\?link|\?target|\?url|\?imgurl)=)?(http[^&]+).*/i,
 to: "$3",
 decode: true,
 regex: true
@@ -91,7 +92,7 @@ to: "http://master.dl.sourceforge.net/project/$1/$4",
 regex: true
 },
 {
-//測試：http://book.bfnn.org/article2/1630.htm
+//測試: http://book.bfnn.org/article2/1630.htm
 name: "般若文海article >> books",
 from: /^https?:\/\/book\.bfnn\.org\/article([\d]?\/.*)/i,
 to: "http://book.bfnn.org/books$1",
@@ -124,12 +125,11 @@ to: "https://www.google.com/search?$2&hl=en-US&safe=off",
 regex: true
 },
 {
-//詳細說明：http://bbs.kafan.cn/thread-1769934-1-1.html
+//詳細說明: http://bbs.kafan.cn/thread-1769934-1-1.html
 //example: https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js
 name: "ajax|fonts(https?) >> useso",
 from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "http://$1.useso.com/$2",
-state: false,
 regex: true
 },
 

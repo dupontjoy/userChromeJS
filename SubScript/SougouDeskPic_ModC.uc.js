@@ -2,11 +2,13 @@
 // @name           SougouDeskPic.uc.js
 // @description    每次启动自动随机获取一张搜狗壁纸
 // @homepageURL    http://bbs.kafan.cn/forum-215-1.html
+// 2016.07.27 修正时间设置问题
 // 2016.06.03 更改图片存放地址
 // @note 11.22搜狗壁纸
 // @note 11.22彼岸桌面壁纸
 //==/UserScript==
-var setTime = 1; //表示间隔多少分钟范围【0-60*24*10】-0到10天                     ->越界时间不准,就不好玩了       O_O
+(function() {
+var setTime = 60; //表示间隔多少分钟范围【0-60*24*10】-0到10天                     ->越界时间不准,就不好玩了       O_O
 
 var userIndex = 1;
 var ALL = [
@@ -18,9 +20,9 @@ var ALL = [
 ["http://bizhi.sogou.com", 
 //"http://bizhi.sogou.com/label/index/731",//环游世界
 //"http://bizhi.sogou.com/label/index/44",//周最热
-//"http://bizhi.sogou.com/label/index/173",//动漫周最热
+"http://bizhi.sogou.com/label/index/173",//动漫周最热
 //"http://bizhi.sogou.com/label/index/172",//美女周最热
-"http://bizhi.sogou.com/label/index/423",//日更新
+//"http://bizhi.sogou.com/label/index/423",//日更新
 "<a href=\"(/detail/info/[\\d]+)\" target=\"_blank\">", "<img height=\"600\" width=\"950\" src=\"([^\"]+)\"", null, "28"],
 
 ];
@@ -113,11 +115,11 @@ function setImg (){
         //alert("image.onload");
         var pref=Components.classes["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefBranch);
         var currentTime = new Date().getTime() % 1000000000;
-        pref.setIntPref('userchromejs.data.MyRiGouTime', currentTime);
+        pref.setIntPref('userchromejs.data.MysougouTime', currentTime);//修正2016.07.27
         var shell=Cc["@mozilla.org/browser/shell-service;1"].getService(Ci.nsIShellService);
         shell.setDesktopBackground(image,Ci.nsIShellService["BACKGROUND_STRETCH"]); 
         try{var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
-        var path = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfLD", Components.interfaces.nsILocalFile).path + "\\SougouDeskPic\\"+new Date().getTime()+ ".jpg";
+        var path = Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfLD", Components.interfaces.nsILocalFile).path + "\\SougouDeskPic\\" + new Date().getTime() + ".jpg";
         file.initWithPath(path);
         file.create(Components.interfaces.nsIFile.NOMAL_FILE_TYPE, 0777)		
         Components.classes["@mozilla.org/embedding/browser/nsWebBrowserPersist;1"].createInstance(Components.interfaces.nsIWebBrowserPersist).saveURI(Components.classes["@mozilla.org/network/io-service;1"].getService(Components.interfaces.nsIIOService).newURI(imgURL, null, null), null,null,null,null,null, file,null);
@@ -127,3 +129,4 @@ function setImg (){
     image.send();
 }
 window.sougouPIC.setRileGou();
+}());

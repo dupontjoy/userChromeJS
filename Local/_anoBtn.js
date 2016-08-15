@@ -151,13 +151,7 @@ label: "SunBox",
 oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://sunbox.cc/')",
 image: "http://sunbox.cc/wp-content/themes/begin/img/favicon.ico"
 },
-{},
-{
-label: "FirefoxFan",
-oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.firefoxfan.net/')",
-image: "http://www.firefoxfan.net/favicon.ico"
-},
- ]
+]
 },
 /*{},
 {

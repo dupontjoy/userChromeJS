@@ -93,7 +93,7 @@ list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYA
 /*Addmenuplus菜單*/
 #addMenu-rebuild {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
-list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA3UlEQVQ4jZ2TPW4CMRCFp4go6EPBEeJ023nnezeJxHGgCyfITZJiQYkEJRKngI56abxo48BC/CRL/v1mRvNswFrSBnixEklqJbXACZgVA3qgj6qqxiUZzIBTWn+bmYUQRpKWwCELcpC0DCGMLgAzsxjjK7AFvhL8Pc8wG/NfgFxdZHf3/r67e5fJIOChs0cBQJOiNlcBwHPyQ2NmT1cAq3RvdQuw6+bu/vbvEnrtaSXtS0rY1XU9BX7+pHmnhE9gG2OcFHVhSLd8ANQXHwzpnhOBxSCg9xeO2cNj9xfOIIze6DdZ5LQAAAAASUVORK5CYII=")!important;
+list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAHklEQVQ4jWNgGFbgPxQjs/FhvAYMUTAaBqNhQDYAAG8lJtrslB7sAAAAAElFTkSuQmCC")!important;
 }
 
 /*ImageSearch菜單*/
@@ -110,7 +110,7 @@ filter:grayscale(1);/*黑白滤镜*/
 /*Anobtn圖標*/
 #anobtn_set {
 -moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
-list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAjUlEQVQ4jeWTQQ7DIAwEfcpn/IR69n3trXkTfCf5QnopEYpSQFyLxA2Pd83agCTpmLlAstniLyCfAJs9LYC7L5JWYLt03iSt7r40AZLeHRvP2xkAycysdI6IqMEREUWJAfl2OB17Q7OrH5XvLupmAHlU3ZDMf7HwKwfA48xBR0EzicCrCah2Yb8U7mUXPmgv3jqIXPj2AAAAAElFTkSuQmCC")!important;
+list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAY0lEQVQ4jWNgGLbAn4GB4QgDA8N/KD4CFSMKNDEwMDyBahCAYn+oWBMxNj9hYGCQxyIngGQwTkDIqTCv4QT/cdgOA5xQNXgNEKDEAIq9AAtEbK4gKhAZGCiMRnSnkpWQhhgAANGPHQFykfMmAAAAAElFTkSuQmCC")!important;
 }
 
 /*KeyChanger腳本*/

@@ -1,4 +1,4 @@
-//2016.08.14
+//2016.08.15
 
 /**********************************************************************************
  *此處爲按鈕設置
@@ -40,6 +40,7 @@ label: "編輯user.js",
 tooltiptext: "左键: 编辑user.js",
 text: "\\user.js",
 exec: "\\..\\Software\\Notepad2\\Notepad2.exe",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaElEQVQ4jWNgoCL4TwA3EGMAPrnrhAwhZIA4IUMIGcBAyBBCBqBjkgwgSi264Ewo7YFk60wcavEacBRNTJlUA/KgckfxqMVrAAzADCLoAnSnIyvOY0CECV4DkAOM7EDEB3AaQAqmDgAAtlxHLWMw/vEAAAAASUVORK5CYII=",
 }, 
 {id: "addMenu-rebuild"},
 {id: "anobtn_set"},
@@ -67,7 +68,7 @@ exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Note
 },
 {
 label: '軟件列表',
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAKElEQVQ4jWNgoBL4TwSmrQGDD7QRiWlnwMCBrQQw7Q0YOECxswfO3wBrBTGdpowsywAAAABJRU5ErkJggg==",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsklEQVQ4jb3RIQ7CQBCF4S/B1SBR3KIeheAOeCySC1TWoJE9Aba2mitwABQKCWKnoYLSFAjPzCaz/9uZt/xJOdZYIRsDzlDjHPWO7RiDBkUYneLcajoELwOCHapOr8BhyGCLsmOwl/YvcOmY92rTeWUj5XALcC2t16tJjFz19I/ehNnCdYycYSGFlkev0fOdr+Amxr9GLcbCg2l/DfNM9SOYlGiF+ScwKeFaCqocuPtbPQAHPSy26m8ewQAAAABJRU5ErkJggg==",
 child: [
 {
 label: "ShadowsocksR",

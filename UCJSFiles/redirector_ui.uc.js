@@ -8,7 +8,7 @@
 // @downloadURL     https://raw.githubusercontent.com/Harv/userChromeJS/master/redirector_ui.uc.js
 // @startup         Redirector.init();
 // @shutdown        Redirector.destroy(true);
-// @version         1.5.5.5
+// @version         1.5.5.5-2016.08.15 換图标
 // ==/UserScript==
 (function() {
     Cu.import("resource://gre/modules/XPCOMUtils.jsm");
@@ -20,8 +20,8 @@
         this.addIcon = true;                            // 是否添加按钮/菜单
         this.iconStyle = 1;                             // 0 按钮，1 菜单
         this.state = true;                              // 是否启用脚本
-        this.enableIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeUlEQVQ4je2SQQqAMAwEPfUzeYLOvs/e9KH1Ca2XCrZEKHgSDOQ2GZIlk5kFSTuQgCRpN7MwdfXISdokla7XXvDIVVtZajlQ03cOSI0AmEcEFwckdzUgjpwAxHs4GcgDIfrcZe0HnU187sOC1yH+n9h84gEcAyE23AmfDQAU98LFlwAAAABJRU5ErkJggg==";
-        this.disableIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4jdWSwQ2FIBBEPdkMJegsNwsw7Nb0vWlxlvDxBA2Y4L+gUcTI9W8yCYfHwE6mUkrVRDQBcAAcEU1KqbpK5pEjopGItkSf1OCRi25bGycDXXTmALiLAYCmxGDnALjs1wAMJSsAGM7hBADhLcRO67XTer1xu2t6MZ1FZFtE7twfG5SGODPX1phpYQ4Lc7DGTDNzeRMt87i/fsiYfBM7rdcbHGWZW8vcxnO+iW8G375vDoPSJmZXELk00QPwbyFaEW9F/B7iD60oLMm8clpxAAAAAElFTkSuQmCC";
+        this.enableIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAOElEQVQ4jWNgGErgPxomywBsbNoagMvZJBlAsQtINoAYZxM0gGIXkGwAqc7GagDFLqDYAFIxdQAAx4M+wgxDj78AAAAASUVORK5CYII=";
+        this.disableIcon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAiElEQVQ4jbWQzQmAMAyFv026hcfiNA7gBs7h3Rncxj28xEsraWn6gxgIhNe8j5dCX0nWwyXG/C/Aij0E+JxgGNATuwlIZgEHbKWd8GYDBJzAvcOi9DMseoG7GTsuCvigr0qba/fpqC8kN3cBgEkZE3PphLwv4MgAnpHSsQt/0m32Nc0yO2sxQh5X1nXCNPg+6gAAAABJRU5ErkJggg==";
     }
     RedirectorUI.prototype = {
         hash: new Date().getTime(),

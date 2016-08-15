@@ -1,8 +1,8 @@
-//2016.07.20
+//2016.08.13
 
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
-/*var undoMenu = TabMenu({
+var undoMenu = TabMenu({
 label: '撤銷關閉',
 accesskey: "F",
 insertBefore: "context_reloadTab",
@@ -33,11 +33,11 @@ popup.appendChild(m);
 });
 }
 },
-});*/
+});
 
 /*——————————圖片右鍵————————*/
 //右鍵搜索圖片 以圖搜圖
-/*var imagesub = PageMenu({
+var imagesub = PageMenu({
 label: "以圖搜圖",
 accesskey: "S",
 condition: "image",
@@ -60,7 +60,7 @@ image: "http://st.so.com/favicon.ico",
 where: 'tab',
 }, 
 
-]);*/
+]);
 
 //圖片右鍵 複製 二级菜單
 new function() {
@@ -680,7 +680,7 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPk
 //移動圖標，代替Movebutton.uc.js，需配合RebuildWhenStart.uc.js，可惜對有的圖標還是無力
 new function() {
 //幾個擴展圖標
-tab({
+/*tab({
 id: "imageSearch",//黑螃蟹的UC脚本, 右键可上传再搜索
 label: "相似圖片",
 condition: "image",
@@ -688,7 +688,7 @@ accesskey: "S",
 insertAfter: "context-sep-copylink",
 clone: false,// 不克隆，直接改在原来的菜單上面
 }
-);
+);*/
 
 };
 

@@ -1,4 +1,4 @@
-::2016.05.11
+::2016.08.01
 
 :GitHub
 cls
@@ -26,9 +26,9 @@ set dir2=E:\My Documents\GitHub\Customization
 
 ::備份幾個Firefox文件
 xcopy "%dir1%\persdict.dat" "%dir2%\Firefox\persdict.dat"  /s /y /i
-xcopy "%dir1%\stylish.sqlite" "%dir2%\Firefox\stylish.sqlite"  /s /y /i
+::xcopy "%dir1%\stylish.sqlite" "%dir2%\Firefox\stylish.sqlite"  /s /y /i
 xcopy "%dir1%\user.js" "%dir2%\Firefox\user.js"  /s /y /i
-xcopy "%dir1%\Chrome\lib\_FeiRuoNetProxy.json" "%dir2%\Rules\Autoproxy\_FeiRuoNetProxy.json"  /s /y /i
+::xcopy "%dir1%\Chrome\lib\_FeiRuoNetProxy.json" "%dir2%\Rules\Autoproxy\_FeiRuoNetProxy.json"  /s /y /i
 
 ::備份Foxmail Filter
 xcopy "%dir1%\..\..\Tencent\Foxmail\Storage\dupontjoy@163.com\Filter\1.fter" "%dir2%\Foxmail-Filter\163.com\1.fter"  /s /y /i

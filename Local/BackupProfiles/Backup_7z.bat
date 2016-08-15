@@ -55,7 +55,6 @@ if %a%==3 goto Plugins&Software
 if %a%==4 goto Flash32
 if %a%==5 goto GitHub
 if %a%==6 goto Sync
-goto cho
 
 :Profiles
 cls

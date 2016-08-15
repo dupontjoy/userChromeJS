@@ -2,7 +2,7 @@
   @namespace   https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox
   @description 含:标签栏, 地址栏, 书签栏, 三道杠等界面上的调整
   @author      Cing
-  @version     1.00-2016.07.01
+  @version     1.00-2016.08.06
   @reference             
 */
 
@@ -243,7 +243,7 @@ width: 420px !important;
 top: 260px !important;
 }
 
-/*FeiruoNet窗口大小
+/*FeiruoNet窗口大小}*/
 #FeiRuoNet_Settings {
-height: 570px !important;
-}*/
+height: 600px !important;
+}

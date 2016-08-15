@@ -1,4 +1,4 @@
-::2016.07.15
+::2016.08.01
 
 :pcxFirefox
 ::複製PcxFirefox主程序
@@ -26,6 +26,7 @@ del %TempFolder%\Profiles\iMacros\  /s /q
 del %TempFolder%\Profiles\bookmarks.html  /s /q
 del %TempFolder%\Profiles\prefs.js  /s /q
 del %TempFolder%\Profiles\chrome\SubScript\SougouDeskPic.uc.js  /s /q
+del %TempFolder%\Profiles\chrome\Local\InformEnter.Ijson  /s /q
 
 ::給套一個主文件夾CingFox
 xcopy "%TempFolder%\firefox" %TempFolder%\CingFox\firefox\ /s /y /i
@@ -48,8 +49,8 @@ set Name=CingFox_%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 set /a tm1=%time:~0,2%*1
 if %tm1% LSS 10 set tm1=0%tm1%
 ::輸出文件名
-set Name=CingFox_%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
-set Name1=Profiles_%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
+set Name=CingFox_Full_%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
+set Name1=CingFox_Profiles_%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
 
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录

@@ -1,12 +1,32 @@
-/*+++ 2016.07.20 +++*/
+/*+++ 2016.08.12 +++*/
+
+/*---------------------------------
+指定域名时的几种方法:
+@document url(http://www.w3.org/),
+          url-prefix(http//www.w3,org/style/),
+          domain(mozilla.org),
+          regexp("https:.*")
+---------------------------------*/
 
 @-moz-document domain("ic.sjlpj.cn") {
 /*=新建按钮框缩小=*/
 .mod_title_opt.btn_blue,/*新建一级分类，新建产品品牌*/
 .btn_blue/*型号分组管理，新建子组目录*/
-{
-padding: 0px !important;
+{padding: 0px !important;}
+
 }
+
+@-moz-document regexp("https?:\/\/ic\.sjlpj\.cn\/.*ProductNewCategory\/.*") {
+/*=TvcMall品类管理=*/
+#J_mainContent > DIV > TABLE > TBODY > TR:first-child > TH:nth-child(2)/*父级分类*/{width: 280px}
+#J_mainContent > DIV > TABLE > TBODY > TR:first-child > TH:nth-child(3)/*父级分类ID*/{width: 30px}
+#J_mainContent > DIV > TABLE > TBODY > TR:first-child > TH:nth-child(4)/*排序*/{width: 30px}
+#J_mainContent > DIV > TABLE > TBODY > TR:first-child > TH:nth-child(5)/*备注*/{width: 40px}
+A[title="子分类排序"] {display: none !important;}
+A[title="删除"] {color: red !important;}
+A[class="btn_add"]/*添加子分类*/ {color: green !important;}
+A[rel="link"]/*子分类排序导出*/ {color: black !important;}
+A[title="子分类排序导入"]/*子分类排序导入*/ {color: black !important;}
 
 }
 

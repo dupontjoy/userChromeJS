@@ -1,4 +1,4 @@
-/*+++ 2016.06.27 +++*/
+/*+++ 2016.08.14 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 /*自动隐藏AidBar*/
@@ -14,16 +14,13 @@ margin-bottom: 0px !important;
 
 /*工具栏图标倒三角下拉选项隐藏*/
 .urlbar-history-dropmarker,
-.toolbarbutton-menubutton-dropmarker, 
+.toolbarbutton-menubutton-dropmarker,
 .toolbarbutton-menu-dropmarker
 { display:none !important; }
 
 /*五角星書籤圖標邊框及左右距離(去小三角的后遗症)*/
 #bookmarks-menu-button>.toolbarbutton-menubutton-button{
-margin-right: -6px !important;
 -moz-appearance: none !important;
-padding: 0px 3px 0px 1px !important;
-border-right: 1px solid hsl(0,0%,85%)!important;
 }
 
 /*地址栏图标加分隔线*/
@@ -65,7 +62,7 @@ padding: 0px !important;
 #noscript-tbb,/*Noscript*/
 #ScrapBookStatusPanel,/*ScrapBook*/
 #scriptish-button,/*Scriptish*/
-#identity-icon-labels, 
+#identity-icon-labels,
 #identity-popup,
 #reader-mode-button,/*閱讀模式按钮*/
 #panic-button,/*忘記某些歷史*/
@@ -76,15 +73,15 @@ padding: 0px !important;
 #fireie-toolbar-palette-button >image,
 #showFlagS-icon >image,/*國旗圖標*/
 #PanelUI-menu-button >image,/*三道杠圖標*/
-#back-button >image, 
-#forward-button >image, 
-#abp-toolbarbutton >image, 
-#ublock-button >image, 
-#flashgot-media-tbb >image, 
-#lpt_lastpass-compact-btn > image, 
-#greasemonkey-tbb > image, 
-#stylish-toolbar-button >image, 
-#userChromebtnMenu >image 
+#back-button >image,
+#forward-button >image,
+#abp-toolbarbutton >image,
+#ublock-button >image,
+#flashgot-media-tbb >image,
+#lpt_lastpass-compact-btn > image,
+#greasemonkey-tbb > image,
+#stylish-toolbar-button >image,
+#userChromebtnMenu >image
 {padding: 0px !important;}
 
 /*調整圖標邊框——方法2*/
@@ -96,16 +93,22 @@ padding: 0px !important;
 #pocket-button .toolbarbutton-icon,
 #aup-toolbarbutton .toolbarbutton-icon,
 #downloads-button .toolbarbutton-icon,
-#foxyproxy-toolbar-icon .toolbarbutton-icon 
+#foxyproxy-toolbar-icon .toolbarbutton-icon
 {
 padding: 0px !important;
 -moz-appearance: none !important;
 }
 
+/*Fx48修正*/
+#downloads-button .toolbarbutton-icon
+{
+margin-right:-1px !important;}
+
 /*AnoBtn圖標（两句要同時用）*/
 toolbarbutton#anobtn,toolbarbutton#anobtn>image
 {padding: 0px !important;
-margin-left:1px !important;}
+margin-left:1px !important;
+margin-right:-2px !important;}
 
 /*UBO图标*/
 #ublock0-button .toolbarbutton-icon

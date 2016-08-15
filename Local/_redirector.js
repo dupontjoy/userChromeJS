@@ -1,4 +1,4 @@
-//2016.07.21
+//2016.07.30
 
 //Redirector說明頁面: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份: https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -130,15 +130,6 @@ regex: true
 name: "ajax|fonts(https?) >> useso",
 from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
 to: "http://$1.useso.com/$2",
-regex: true
-},
-
-
-//百度
-{
-name: "百度云HTTP下载大文件",
-from: /^https:\/\/((pan|yun)+\.baidu\.com\/.+)/i,
-to: "http://$1",
 regex: true
 },
 

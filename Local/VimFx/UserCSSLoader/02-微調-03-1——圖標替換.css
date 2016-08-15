@@ -1,4 +1,4 @@
-/*+++ 2016.07.21 +++*/
+/*+++ 2016.08.14 +++*/
 
 /*Firefox自带菜单加图标最后在ID后加上 > .menu-iconic-left > .menu-iconic-icon, 否则右边小三角可能消失*/
 
@@ -47,6 +47,19 @@ display: none !important;
 }
 
 /*==扩展/脚本图标补充==*/
+
+/*UC管理器几个文件夹*/
+.anobtnuc.menu-iconic > .menu-iconic-left > .menu-iconic-icon {
+-moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVQ4jWNgoBLwZGBgeMbAwPAfCT+DihMFnjEwMFijiVlDxYk2QAOL+H8cGMN1uAzABTBcBzMVl43YXPAf3QD0MCDkAgwDSAWjBlDbgD8MDAzpJGhOh+qBgwaoALEJ6Q9UD+UAAEc9PeCabBc4AAAAAElFTkSuQmCC")!important;
+}
+
+/*InformPlus*/
+#ife-context-menu > .menu-iconic-left > .menu-iconic-icon,
+#ife-context-set {
+-moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAHklEQVQ4jWNgGFbgPxQjs/FhvAYMUTAaBqNhQDYAAG8lJtrslB7sAAAAAElFTkSuQmCC")!important;
+}
 
 /*TMT切换*/
 [key="visibo-tmt-toggle-key"] {

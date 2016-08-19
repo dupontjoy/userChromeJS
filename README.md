@@ -4,7 +4,7 @@
 
 - VimFx也可以加载CSS文件
 
-| **Local**          | 一些腳本的配置文件，[設置Notepad2爲默認編輯器](SubScript/setRelativeEditPath.uc.js)和[備份批處理][8] |
+| **Local**          | 一些腳本的配置文件，[設置Notepad2爲默認編輯器](UCJSFiles/setRelativeEditPath.uc.js)和[備份批處理][8] |
 | :----------------- | :---------------------------------------- |
 |                    | _addmenu.js：[Addmenuplus][2]配置，圖標外置，統一整合在CSS文件中 |
 |                    | _keychanger.js：鍵盘快捷操作                    |
@@ -20,7 +20,7 @@
 
 |             |                                          |
 | :---------- | :--------------------------------------- |
-| **CingFox** | [個人Firefox配置完整包分享](https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox) |
+| **CingFox** | [個人Firefox配置完整包分享](../userChrome.js-Collections-/tree/master/CingFox) |
 
 <p align="left"><img width="650" src="https://github.com/dupontjoy/userChrome.js-Collections-/raw/master/CingFox/img/chrome-folder.jpg"></p>
 
@@ -28,6 +28,6 @@
 [4]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 [6]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/localMark.uc.xul
 [7]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/ucjsPermission2.uc.xul
-[8]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/BackupProfiles_7z
+[8]: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Backupprofiles%207z
 [9]: https://github.com/dupontjoy/customization/blob/master/Rules/ucjsPermission-Whitelist.txt
 

@@ -5,7 +5,7 @@
 // @namespace      ywzhaiqi@gmail.com
 // @include        main
 // @charset        UTF-8
-// @version        2016.08.13
+// @version        2016.08.19
 // version        2014.9.6
 // @homepageURL    https://github.com/ywzhaiqi/userChromeJS/tree/master/moveButton
 // @downloadURL    https://github.com/ywzhaiqi/userChromeJS/blob/master/moveButton/moveButton.uc.js
@@ -127,7 +127,7 @@ context: "_child"
 {id: "RIL_urlbar_mark",attr: {tooltiptext:"已添加",}},
 {id: "bookmarks-menu-button",attr: {tooltiptext:"书签",}},
 {id: "downloads-button",attr: {tooltiptext:"左键: 显示下载列表\r\n右键: 新建下载任务",}},
-{id: "PanelUI-menu-button",attr: {tooltiptext:"左键: 打开菜单\r\n右键: 打开Chrome文件夹",}},
+{id: "PanelUI-menu-button",attr: {tooltiptext:"左键: 打开菜单\r\n右键: 打开Profiles文件夹",}},
 {id: "urlbar-reload-button",attr: {tooltiptext:"左键: 刷新当前页面\r\n右键: 强制刷新当前页面",}},
 {id: "titlebar-min",attr: {tooltiptext:"最小化",}},
 {id: "titlebar-max",attr: {tooltiptext:"最大化/还原",}},

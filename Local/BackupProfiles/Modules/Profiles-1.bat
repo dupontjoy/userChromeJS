@@ -1,4 +1,4 @@
-::2016.08.01
+::2016.08.18
 
 :Profiles-1
 cls
@@ -48,6 +48,7 @@ xcopy "%BackDir%\mimeTypes.rdf" %TempFolder%\Profiles\ /y
 ::xcopy "%BackDir%\patternSubscriptions.json" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\persdict.dat" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\pluginreg.dat" %TempFolder%\Profiles\ /y
+xcopy "%BackDir%\readme.txt" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\search.json.mozlz4" %TempFolder%\Profiles\ /y
 ::xcopy "%BackDir%\stylish.sqlite" %TempFolder%\Profiles\ /y
 xcopy "%BackDir%\user.js" %TempFolder%\Profiles\ /y

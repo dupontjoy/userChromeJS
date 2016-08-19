@@ -680,15 +680,15 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPk
 //移動圖標，代替Movebutton.uc.js，需配合RebuildWhenStart.uc.js，可惜對有的圖標還是無力
 new function() {
 //幾個擴展圖標
-/*tab({
+tab({
 id: "imageSearch",//黑螃蟹的UC脚本, 右键可上传再搜索
 label: "相似圖片",
 condition: "image",
-accesskey: "S",
+accesskey: "Z",
 insertAfter: "context-sep-copylink",
 clone: false,// 不克隆，直接改在原来的菜單上面
 }
-);*/
+);
 
 };
 

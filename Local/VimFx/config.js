@@ -1,4 +1,4 @@
-//2016.07.20
+//2016.08.16
 
 /******************************************************************************************
 快捷键分类:
@@ -150,7 +150,8 @@ loadCss(`${__dirname}/UserCSSLoader/03-其他-02——GPU Mode.css`)
 loadCss(`${__dirname}/UserCSSLoader/03-其他-99——網站修正.css`)
 
 // options选项
-set('hint_chars', 'fjdkslaghrueiwoncmvqtxzypb')//Hint提示符(默认有19个字母, 新增最后7个字母)
+set('hint_chars', 'fdsagrueiwcvqtxzjklhonmypb')//Hint提示符(改了排序)
+//set('hint_chars', 'fjdkslaghrueiwoncmvqtxzypb')//Hint提示符(默认有19个字母, 新增最后7个字母)
 //set('hint_chars', 'hjklasdfgyuiopqwertnmzxcvb')//Hint提示符(26个字母, 另一种排序, 来自AMO评论区)
 set('prevent_autofocus', true)
 set('hints_sleep', -1)

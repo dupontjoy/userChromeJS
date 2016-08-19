@@ -1,20 +1,4 @@
-//2016.08.15
-
-/**********************************************************************************
- *此處爲按鈕設置
- *************************************************************************************/
-var anobtnset = {
-//※必須設置按鈕放在哪個id之前，alltabs-button，back-button等
-intags: "tabbrowser-tabs",
-
-//※必須設置按鈕圖標，像素59x27（默認大小）
-image: "data:image/png;base64,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",
-//背景（相濟茶）: #373C38
-//文字（白鼠）: #E6E6E6
-
-//菜單彈出方向，不設置就默認,參考 https://developer.mozilla.org/en-US/docs/XUL/PopupGuide/Positioning
-position: "",
-};
+//2016.08.19
 
 /**********************************************************************************
  *child:[  ]内爲當前菜單的下一級菜單配置,支持多級
@@ -45,6 +29,25 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaE
 {id: "addMenu-rebuild"},
 {id: "anobtn_set"},
 {id: "redirector-icon"}, 
+{},
+{
+label: "在IE中打開",
+text: "%u",
+exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABEElEQVQ4jZXSnVuDYRQG8B8EQTAIgkEQBMEgDIIwGA4Hg0EYBMH+gyAIh0EwHIRBEARBEAzDwWAweIP3bD17rmd9nOu64X3ec9/3+eJ/cYpL9DHAwabEHZyjG7jAbQik0SsRHzBHlWGBYebaSclNvEfyFK8FkQoznCSGqxhGwmP0t9ggsBTZS8n7QbjHVSQ9oRUu3UJbN6lAB2O0E+d+CC/xnAnMU4F2uM1+KLuEtRmMs5+fmPyCZlpBrn5mPY7Ud5BiFXl/FUZoJOS8vdGS3PC9+1xkirfC+yJmhnoDFQ7Vq/vL8Ppp+YMYCPVUr+O7RPyQna9Qm2RvLfWh9MKgi2Ns5WTYxot6bXfhsFtKLMUX/+qC1cGn0mkAAAAASUVORK5CYII=",
+},
+{
+label: "UserCSSLoader",
+tooltiptext: "UserCSSLoader文件夾",
+exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\Local\\VimFx\\UserCSSLoader",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVQ4jWNgoBLwZGBgeMbAwPAfCT+DihMFnjEwMFijiVlDxYk2QAOL+H8cGMN1uAzABTBcBzMVl43YXPAf3QD0MCDkAgwDSAWjBlDbgD8MDAzpJGhOh+qBgwaoALEJ6Q9UD+UAAEc9PeCabBc4AAAAAElFTkSuQmCC",
+},
+{
+label: "iMacros",
+tooltiptext: "iMacros文件夾",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\iMacros",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVQ4jWNgoBLwZGBgeMbAwPAfCT+DihMFnjEwMFijiVlDxYk2QAOL+H8cGMN1uAzABTBcBzMVl43YXPAf3QD0MCDkAgwDSAWjBlDbgD8MDAzpJGhOh+qBgwaoALEJ6Q9UD+UAAEc9PeCabBc4AAAAAElFTkSuQmCC",
+},
 {},
 {
 label: '批處理',
@@ -98,18 +101,6 @@ label:"常用功能",
 image : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAG0lEQVQ4jWNgGCzgP5l4EIFRLwwGMIScOvgAAMPmMc89jdNcAAAAAElFTkSuQmCC",
 child:[
 {
-label: "在IE中打開",
-text: "%u",
-exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
-},
-{},
-{
-label: "iMacros",
-tooltiptext: "iMacros文件夾",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\iMacros",
-},
-{},
-{
 label : "证书管理",
 oncommand: function () {
 window.open('chrome://pippki/content/certManager.xul', 'mozilla:certmanager', 'chrome,resizable=yes,all,width=600,height=400');
@@ -128,29 +119,6 @@ oncommand: "toJavaScriptConsole();",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXklEQVQ4jaWT0QnAIBBDs9dboUs5VQewe51fFim21ksgv48kEMkVUIFIugqIrIC4AUc5tzwFdKUBVgJ7A0khKQ/oGiEr4GuFv0mWCbYAsw2edUZ/VkglcADOmS77zQ2WT6Il/QiZvAAAAABJRU5ErkJggg=="
 },
 
-]
-},
-{
-label: "定製火狐",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABaElEQVQ4jX3Sz0vUURQF8M/MYDWRCS2arIgiIZEEXQQSSBFBm6BFC4kKIkjEQCmFaGUUGSoo9GNqkVNBm6AW0a6/I/p7WnzPyJcnduDC495zzn3vvkuFAXTQwDk8xTZ6+JR4gjP2wDV8wU28xlt0Y3YAJ3EbP8Jt1MUtvMQ3/MVHvMd3HCsaLeMPbqHZTx7CBkZxKTGSm1zH/prBqTynm5uAE9jCUNHtCn7iaC3XxDPciKYDd/CwEJ/FemZSYiHmc7gLm7hQIxzBm5AapRqLuIzJaG2rptxHBx9wP10WMJ7aAF6pfud4tHoYLrqM52n38Eu1FzCFtRgN9w26GCsMJvAVv7GE05gOdzKcMbyDx5gpDPZlBs/TcQMrMe5jJlrnM4zDdqOh2sSDaosT7ma0YD5RJ+2FZo2/g0G8wCza/xG38SDcwbI4hEeqN19VfWc70UluLZxya3fQwkWs4rNq73s5r6bWqgv+AYBxON0vXviZAAAAAElFTkSuQmCC",
-child: [
-{
-label: "CingFox",
-oncommand: "getBrowser().selectedTab = getBrowser().addTab ('https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox')",
-image: "https://assets-cdn.github.com/favicon.ico"
-},
-{},
-{
-label: "RunningCheese",
-oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://www.runningcheese.com/')",
-image: "http://www.runningcheese.com/favicon.ico"
-},
-{},
-{
-label: "SunBox",
-oncommand: "getBrowser().selectedTab = getBrowser().addTab ('http://sunbox.cc/')",
-image: "http://sunbox.cc/wp-content/themes/begin/img/favicon.ico"
-},
 ]
 },
 /*{},

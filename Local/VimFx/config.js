@@ -1,4 +1,4 @@
-//2016.08.16
+//2016.08.24
 
 /******************************************************************************************
 快捷键分类:
@@ -159,9 +159,14 @@ set('prev_patterns', v => `[上前]\\s*一?\\s*[页张个篇章頁] ${v}`)
 set('next_patterns', v => `[下后]\\s*一?\\s*[页张个篇章頁] ${v}`)
 
 // shortcuts快捷键
-map('W', 'window_new')
-map('w', 'tab_select_previous')
-map('e', 'tab_select_next')
+map('W', 'window_new')//新建窗口
+map('w', 'tab_select_previous')//上一个标签
+map('e', 'tab_select_next')//下一个标签
+map('M', 'mark_scroll_position')//标记滾动位置
+map('gt', 'follow_in_focused_tab')//新的前台标签打开此链接
+map('gW', 'follow_in_window')//新的窗口打开此链接
+map('gf', 'follow_focus')//聚焦/选中元素
+map('gb', 'click_browser_element')//点击浏览元素
 
 // commands命令
 vimfx.addCommand({
@@ -199,6 +204,15 @@ vimfx.addCommand({
 })
 map(',h', 'goto_history', true)
 
+vimfx.addCommand({
+    name: 'goto_sougoupic',
+    description: '下一张壁纸',
+    category: 'misc',
+}, ({vim}) => {
+    vim.window.sougouPIC.setRileGou()
+})
+map(',p', 'goto_sougoupic', true)
+
 //配合gh-Kelo的QR.uc.js (https://github.com/ghKelo/userChromeJS/tree/master/QR)
 let qrcode = (text) => {
     exec('sh', ['-c', `qrencode -o- '${text}' | pqiv -i -`])
@@ -216,7 +230,7 @@ vimfx.addCommand({
     description: '打开Redirector扩展设置',
     category: 'browsing',
 }, ({vim}) => {
-    vim.window.switchToTabHavingURI('resource://redirector-at-einaregilsson-dot-com/redirector.html', true)
+    vim.window.switchToTabHavingURI('moz-extension://b8ae88e1-0cd2-4e77-8851-f8f60336ef60/redirector.html', true)
 })
 map(',r', 'goto_redirector', true)
 
@@ -266,14 +280,6 @@ vimfx.addCommand({
 map(',t', 'search_tabs', true)
 
 vimfx.addCommand({
-    name: 'tmt_toggle',
-    description: 'TMT切换',
-}, ({vim}) => {
-    vim.window.Visibo.TMT.AutoHide.onToggle()
-})
-map(',T', 'tmt_toggle', true)
-
-vimfx.addCommand({
     name: 'goto_wordhilight',
     description: 'WordHighlight添加詞',
     category: 'find',
@@ -291,7 +297,16 @@ vimfx.addCommand({
 })
 map(',x', 'goto_wordhilight_close', true)
 
-/*vimfx.addCommand({
+/*
+vimfx.addCommand({
+    name: 'pocket',
+    description: 'Save to Pocket',
+}, ({vim}) => {
+    vim.window.document.getElementById('pocket-button').click();
+});
+vimfx.set('custom.mode.normal.pocket', 's');
+
+vimfx.addCommand({
     name: 'mpv_current_href',
     description: 'Mpv play focused href',
 }, ({vim}) => {

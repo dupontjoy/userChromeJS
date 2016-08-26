@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="data:text/css,@namespace%20url('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul');@namespace%20html%20url('http://www.w3.org/1999/xhtml');
+%23GrabScroll-status {
+  padding-left:0px !important;
+  padding-right:0px !important;
+}
 %23GrabScroll-image {
   list-style-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAlklEQVQ4jaWTuw0EIQxEd8UFBFeEczoYCYkm6IeiSU+zySIZjs9+JrKQ52GDvW1jGQA84905953k/gsASVJBlvoAKAajAeq8yu/eqE0l1uciYqcl6+QeYNpSm9wCvPe/nDNDCKxMABhjNG0VI1VVFFNKia8Ad/QK0HvE/Q5k+AuP+n8CWY72DHJpL0aAy0slIlYv0Gp8D2h34zRWWYjjAAAAAElFTkSuQmCC');
 }
@@ -26,6 +30,11 @@
 // @Note           altキーを押しながらドラッグで文字列を選択
 // @Note           clickとmouseupのタイミングはWInXPの時 -mouseup-clickの順, 他のOSは知らん
 // @Note           shiftキーを押しながらドラッグでスクロール
+// @version        2016/07/19 0800 zoom
+// @version        2016/04/19 0800 judge >fx46
+// @version        2016/04/19 0700 fix regression of 2016/03/27 0100 prevent Bug 1209100
+// @version        2016/03/27 0100 prevent Bug 1209100
+// @version        2014/10/27 17:30 adhoc adhoc adhoc fix for Bug 962249 RTL
 // @version        2014/05/13 10:30 fix second window
 // @version        2014/05/12 08:30 Working on Firefox29+
 // ==/UserScript==
@@ -109,8 +118,13 @@ var GrabScroll = {
   _MOVERATEpZoom:1,
   IGNOREURL:[],
   _window: null,
+  Bug1209100: 1,  //Bug 1209100
 
   initGrabScroll: function() {
+    var curentBrowserVersion = Services.appinfo.platformVersion; //example: '31.*'
+    var compareToThisVersion = '46.*';
+    var compareResult = Services.vc.compare(curentBrowserVersion, compareToThisVersion);
+    this.Bug1209100 = (compareResult < 0) ? 10 : 1;
     Components.utils.import("resource:///modules/CustomizableUI.jsm");
     try {
       CustomizableUI.createWidget({ //must run createWidget before windowListener.register because the register function needs the button added first
@@ -398,16 +412,17 @@ var GrabScroll = {
           return;
         }
         //横スクロールできないときに横に動かした, GrabScrollをキャンセル
-        if (Math.abs(x-this.mLastX) < this.TOLERANCE_WHEN_NO_H_SCROLL)
+        if (Math.abs(x-this.mLastX) < this.TOLERANCE_WHEN_NO_H_SCROLL) {
           var movingh = Math.abs(x-this.mLastX) > Math.abs(y-this.mLastY) * 50;
           if (!this._isImage && this.MOUSEBUTTON == 0  && this.isText(event)  && movingh && !this.EW) {
             this.grabFinish();
             this.mStatus = 0;
             return;
           }
+        }
 
         //マウス移動量が小さいときは何もしない
-        if(Math.abs(x - this.mLastX) + Math.abs(y - this.mLastY) < this.TOLERANCE)
+        if(Math.abs(x - this.mLastX) + Math.abs(y - this.mLastY) < this.TOLERANCE / (ZoomManager.useFullZoom ? ZoomManager.zoom : 1))
           return;
 
         if (this.MOUSEBUTTON == 0) {
@@ -426,8 +441,8 @@ var GrabScroll = {
           }
         }
 
-      //  this.mLastX += (x - this.mLastX) ? -this.MOVERATE: this.MOVERATE;
-      //  this.mLastY += (y - this.mLastY) ? -this.MOVERATE: this.MOVERATE;
+        // this.mLastX += (x - this.mLastX) ? -this.MOVERATE: this.MOVERATE;
+        // this.mLastY += (y - this.mLastY) ? -this.MOVERATE: this.MOVERATE;
         this.mLastX = x - (x - this.mLastX) / 10;
         this.mLastY = y - (y - this.mLastY) / 10;
         this.mStatus = 2;
@@ -443,9 +458,10 @@ var GrabScroll = {
       this.cSpeedX = this._MOVERATEpZoom * (x - this.mLastX);
       this.cSpeedY = this._MOVERATEpZoom * (y - this.mLastY);
 
-      this.scroll(event);
-      this.mLastX = x;
-      this.mLastY = y;
+      if (this.scroll(event)) {
+        this.mLastX = x;
+        this.mLastY = y;
+      }
     }
   },
 
@@ -539,7 +555,7 @@ var GrabScroll = {
     //this.winX -= ax;
     //if (this.winY < 30)this.cSpeedY = 0;
     //if (this.winX < 30)this.cSpeedX = 0;
-    if (ay < 1 && ax  < 1){
+    if (ay < 10 && ax  < 10){
        clearTimeout(this.cScroll);
        return;
     }
@@ -547,21 +563,21 @@ var GrabScroll = {
     if      (ax >= 100) this.cSpeedX = this.cSpeedX * 0.95;
     else if (ax < 100) this.cSpeedX = this.cSpeedX * 0.95;
     else if (ax < 20) this.cSpeedX = this.cSpeedX * 0.95;
-    else if (ax < 10) this.cSpeedX = this.cSpeedX * 0.95;
-    else if (ax < 5) this.cSpeedX = this.cSpeedX * 0.95;
-    else if (ax < 1) this.cSpeedX = 0;
+    else if (ax < 10)  this.cSpeedX = 0;
 
     if      (ay >= 100) this.cSpeedY = this.cSpeedY * 0.95;
     else if (ay < 100) this.cSpeedY = this.cSpeedY * 0.95;
     else if (ay < 20) this.cSpeedY = this.cSpeedY * 0.95;
-    else if (ay < 10) this.cSpeedY = this.cSpeedY * 0.95;
-    else if (ay < 5) this.cSpeedY = this.cSpeedY * 0.95;
-    else if (ay < 1) this.cSpeedY = 0;
+    else if (ay < 10) this.cSpeedY = 0;
   },
 
   scroll: function(event){
+    var minScroll = this.Bug1209100 / (ZoomManager.useFullZoom ? ZoomManager.zoom : 1); // prevent Bug 1209100, 10px <fx46. 1px >=fx46
     this._mtimer = true;
-    if(this.NS && this.NS == this.EW){
+    var flg = false;
+    if (this.NS && this.NS == this.EW &&
+        (Math.abs(this.cSpeedX) > minScroll || Math.abs(this.cSpeedY) > minScroll)) {
+      flg = true;
       if ("scrollBy" in this.NS) {
         this.NS.scrollBy(this.cSpeedX, this.cSpeedY);
       } else {
@@ -569,14 +585,16 @@ var GrabScroll = {
         this.NS.scrollTop  += this.cSpeedY;
       }
     } else {
-      if(this.NS){
+      if (this.NS && Math.abs(this.cSpeedY) > minScroll) {
+        flg = true;
         if ("scrollBy" in this.NS) {
           this.NS.scrollBy(0, this.cSpeedY);
         } else {
           this.NS.scrollTop += this.cSpeedY;
         }
       }
-      if(this.EW){
+      if (this.EW && Math.abs(this.cSpeedX) > minScroll){
+        flg = true;
         if ("scrollBy" in this.EW) {
           this.EW.scrollBy(this.cSpeedX, 0);
         } else {
@@ -587,6 +605,7 @@ var GrabScroll = {
     setTimeout(function(self){
       self._mtimer = false;
     }, 20, this);
+    return flg;
   },
 
   isText: function(event) {
@@ -770,7 +789,7 @@ var GrabScroll = {
 
   toggle: function(flag){
     if(typeof flag =='undefined')
-      var flag = this.getPref("grabScroll.enable","bool",true);
+      flag = this.getPref("grabScroll.enable","bool",true);
     this.setPref("grabScroll.enable","bool",!flag);
     this.setIcon(!flag);
   },
@@ -864,26 +883,60 @@ var GrabScroll = {
 
     if (event.originalTarget.ownerDocument.contentType == "application/xml") {
       _scrollingView = event.originalTarget.ownerDocument.defaultView;
-      if (_scrollingView.scrollMaxX > 0) {
-        if (_scrollingView.scrollMaxY > 0) {
+
+      if (_scrollingView.scrollMaxX != _scrollingView.scrollMinX) {
+        if (_scrollingView.scrollMaxY != _scrollingView.scrollMinY) {
           NSEW = _scrollingView;
           NS = _scrollingView;
+          EW = _scrollingView;
+        } else {
+          EW = _scrollingView;
         }
-        EW = _scrollingView;
+      } else if (_scrollingView.scrollMaxY != _scrollingView.scrollMinY) {
+        NS = _scrollingView;
+      } else if (_scrollingView.frameElement) {
+        //this.findNearestScrollableElement(_scrollingView.frameElement);
+      } else {
+        // abort scrolling
+      }
+
+      if (_scrollingView.scrollMaxX > 0) {
+        if (_scrollingView.scrollMaxY > 0) {
+          NSEW = !NSEW ? _scrollingView : NSEW;
+          NS = !NS ? _scrollingView : NS;
+        }
+        EW = !EW ? _scrollingView : EW;
       }
       else if (_scrollingView.scrollMaxY > 0) {
-        NS = _scrollingView;
+        NS = !NS ? _scrollingView : NS;
       }
       else {
         return [NS, EW, NSEW];
       }
-   } else {
 
+   } else {
       for (_scrollingView = event.originalTarget; _scrollingView; _scrollingView = _scrollingView.parentNode) {
         if (_scrollingView instanceof HTMLElement) {
           if (_scrollingView.localName.toUpperCase() == "HTML" ||
               _scrollingView.localName.toUpperCase() == "BODY") {
             _scrollingView = _scrollingView.ownerDocument.defaultView;
+
+            if (_scrollingView.scrollMaxX != _scrollingView.scrollMinX) {
+              if (_scrollingView.scrollMaxY != _scrollingView.scrollMinY) {
+                NSEW = !NSEW ? _scrollingView : NSEW;
+                EW = !EW ? _scrollingView : EW;
+                NS = !NS ? _scrollingView : NS;
+              } else {
+                 EW = !EW ? _scrollingView : EW;
+              }
+            } else if (_scrollingView.scrollMaxY != _scrollingView.scrollMinY) {
+              NS = !NS ? _scrollingView : NS;
+            } else if (_scrollingView.frameElement) {
+              //return this.getScrollView({originalTarget : _scrollingView.frameElement});
+            } else {
+              // abort scrolling
+            }
+
             if (_scrollingView.scrollMaxX > 0 &&
                 _scrollingView.scrollMaxY > 0) {
               NSEW = !NSEW ? _scrollingView : NSEW;
@@ -897,8 +950,9 @@ var GrabScroll = {
               NS = !NS ? _scrollingView : NS;
             }
             if (_scrollingView.frameElement && !NS && !EW && !NSEW) {
-               return this.getScrollView({originalTarget : _scrollingView.frameElement});
+              return this.getScrollView({originalTarget : _scrollingView.frameElement});
             }
+            
             break;
           }
           if (_scrollingView.localName.toLowerCase() == "select") {
@@ -1035,40 +1089,40 @@ window.addEventListener("unload", function(){ GrabScroll.uninitGrabScroll(); }, 
   ]]></script>
   <menupopup id="menu_ToolsPopup">
     <menu id="GrabScroll_optionsMenu"
-          label="GrabScroll的设定" insertbefore="menu_preferences" accesskey="g">
+          label="GrabScrollの設定" insertbefore="menu_preferences" accesskey="g">
       <menupopup id="GrabScroll_options"
                  onpopupshowing="event.stopPropagation();GrabScroll.onpopup()"
                  menugenerated="true">
         <menuitem id="GrabScroll_enable"
-                  label="启用GrabScroll"
+                  label="GrabScroll有効"
                   accesskey="g"
                   oncommand="GrabScroll.toggle();"
                   type="checkbox" />
-        <menuitem label="设定GrabScroll的抓取键位"
+        <menuitem label="GrabScrollを開始するボタン"
                   accesskey="b"
                   oncommand="GrabScroll.button();"/>
         <menuseparator/>
-        <menuitem label="设定GrabScroll开始的阀值"
+        <menuitem label="GrabScrollを開始する閾値"
                   accesskey="x"
                   oncommand="GrabScroll.threshold();"/>
-        <menuitem label="设定GrabScroll滚动的倍率"
+        <menuitem label="GrabScrollの倍率"
                   accesskey="r"
                   oncommand="GrabScroll.moverate();"/>
         <menuseparator/>
         <menuitem id="GrabScroll_enableInertia"
-                  label="启用惯性滚动"
+                  label="慣性スクロール有効"
                   accesskey="i"
                   oncommand="GrabScroll.inertiaToggle();"
                   type="checkbox" />
-        <menuitem label="设定惯性滚动的阀值"
+        <menuitem label="慣性スクロールの閾値"
                   accesskey="k"
                   oncommand="GrabScroll.inertiaThreshold();"/>
-        <menuitem label="设定惯性滚动的速度"
+        <menuitem label="慣性スクロールの速度"
                   accesskey="s"
                   oncommand="GrabScroll.inertiarate();"/>
         <menuseparator/>
         <menuitem id="GrabScroll_clickable"
-                  label="能够在链接上使用GrabScroll"
+                  label="クリック可能リンクでも開始する"
                   accesskey="c"
                   oncommand="GrabScroll.clickable();"
                   type="checkbox" />

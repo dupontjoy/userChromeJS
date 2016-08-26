@@ -2,7 +2,7 @@
 // @description  Tab Plus 标签页增强
 // @description	 新标签打开（利用空白页）
 // @include      chrome://browser/content/browser.xul
-// @version      2016.07.19
+// @version      2016.08.24 修复滚轮切换标签
 
 // ==/UserScript==
 
@@ -78,10 +78,10 @@ eval("gBrowser._blurTab = " + gBrowser._blurTab.toString().replace('this.selecte
 //新标签打开『查看图片』
 location == "chrome://browser/content/browser.xul" && document.querySelector("#context-viewimage").setAttribute("oncommand", 'openUILinkIn(gContextMenu.imageURL,"tab")') & document.querySelector("#context-viewbgimage").setAttribute("oncommand", 'openUILinkIn(gContextMenu.bgImageURL,"tab")')
 
-//滚轮切换标签
-    gBrowser.mTabContainer.addEventListener("DOMMouseScroll", function(event){
-        this.advanceSelectedTab(event.detail > 0 ? +1 : -1, true);
-    }, true);
+// 滚轮切换标签
+gBrowser.mTabContainer.addEventListener("wheel", function(event) {
+    gBrowser.tabContainer.advanceSelectedTab(event.deltaY > 0 ? +1 : -1, true);
+}, true);
 
 //自动关闭下载产生的空白标签
 eval("gBrowser.mTabProgressListener = " + gBrowser.mTabProgressListener.toString().replace(/(?=var location)/, '\

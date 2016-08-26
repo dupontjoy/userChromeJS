@@ -1,4 +1,4 @@
-::2016.08.01
+::2016.08.22
 
 :pcxFirefox
 ::複製PcxFirefox主程序
@@ -24,8 +24,8 @@ del %TempFolder%\Software\GFW\Shadowsocks\  /s /q
 del %TempFolder%\Software\GFW\psiphon\psiphon3.exe.orig  /s /q
 del %TempFolder%\Profiles\iMacros\  /s /q
 del %TempFolder%\Profiles\bookmarks.html  /s /q
-del %TempFolder%\Profiles\prefs.js  /s /q
 del %TempFolder%\Profiles\chrome\SubScript\SougouDeskPic.uc.js  /s /q
+del %TempFolder%\Profiles\chrome\SubScript\SougouDeskPic_ModC.uc.js  /s /q
 del %TempFolder%\Profiles\chrome\Local\InformEnter.Ijson  /s /q
 
 ::給套一個主文件夾CingFox

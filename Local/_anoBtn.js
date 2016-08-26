@@ -1,4 +1,4 @@
-//2016.08.19
+//2016.08.22
 
 /**********************************************************************************
  *child:[  ]内爲當前菜單的下一級菜單配置,支持多級
@@ -19,6 +19,10 @@ gBrowser.loadURI("javascript:内容")
  
 //下面添加菜單
 var anomenu = [
+{id: "addMenu-rebuild"},
+{id: "anobtn_set"},
+{id: "redirector-icon"},
+{},
 {
 label: "編輯user.js",
 tooltiptext: "左键: 编辑user.js",
@@ -26,9 +30,20 @@ text: "\\user.js",
 exec: "\\..\\Software\\Notepad2\\Notepad2.exe",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaElEQVQ4jWNgoCL4TwA3EGMAPrnrhAwhZIA4IUMIGcBAyBBCBqBjkgwgSi264Ewo7YFk60wcavEacBRNTJlUA/KgckfxqMVrAAzADCLoAnSnIyvOY0CECV4DkAOM7EDEB3AaQAqmDgAAtlxHLWMw/vEAAAAASUVORK5CYII=",
 }, 
-{id: "addMenu-rebuild"},
-{id: "anobtn_set"},
-{id: "redirector-icon"}, 
+{
+label: "編輯config.js",
+tooltiptext: "左键: 编辑VimFx设置文件",
+text: "\\chrome\\Local\\VimFx\\config.js",
+exec: "\\..\\Software\\Notepad2\\Notepad2.exe",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaElEQVQ4jWNgoCL4TwA3EGMAPrnrhAwhZIA4IUMIGcBAyBBCBqBjkgwgSi264Ewo7YFk60wcavEacBRNTJlUA/KgckfxqMVrAAzADCLoAnSnIyvOY0CECV4DkAOM7EDEB3AaQAqmDgAAtlxHLWMw/vEAAAAASUVORK5CYII=",
+}, 
+{
+label: "編輯readme.js",
+tooltiptext: "左键: 编辑CingFox更新日志",
+text: "\\readme.js",
+exec: "\\..\\Software\\Notepad2\\Notepad2.exe",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaElEQVQ4jWNgoCL4TwA3EGMAPrnrhAwhZIA4IUMIGcBAyBBCBqBjkgwgSi264Ewo7YFk60wcavEacBRNTJlUA/KgckfxqMVrAAzADCLoAnSnIyvOY0CECV4DkAOM7EDEB3AaQAqmDgAAtlxHLWMw/vEAAAAASUVORK5CYII=",
+}, 
 {},
 {
 label: "在IE中打開",

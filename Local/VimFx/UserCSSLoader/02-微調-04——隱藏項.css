@@ -1,4 +1,4 @@
-/*+++ 2016.07.18 +++*/
+/*+++ 2016.08.22 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
@@ -231,6 +231,8 @@ display: none !important;
 }
 
 /*其它擴展/腳本隱藏項*/
+#ACRiLeSouGou,/*sougoupic下一张壁纸右键菜单*/
+#redirector_einaregilsson_com-browser-action,/*Redirector_Fx48*/
 #visibo-tmt-tabmenu-sendtabtoTMT,/*TMT标签右键菜单*/
 #visibo-tmt-tabmenu-sendAlltabstoTMT,/*TMT标签右键菜单*/
 #visiboTmtContentAreaCM-sendTab,/*TMT页面右键菜单*/

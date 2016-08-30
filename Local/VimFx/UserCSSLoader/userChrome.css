@@ -1,9 +1,9 @@
-/*+++ 2016.08.14 +++*/
+/*+++ 2016.08.27 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 /*自动隐藏AidBar*/
 #TabsToolbar_aidBar:not(:hover) {
-opacity: 0 !important;
+opacity: 0.1 !important;
 margin-bottom:0px !important;
 }
 #navigator-toolbox ~ #TabsToolbar_aidBar {

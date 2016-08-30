@@ -1,4 +1,4 @@
-//2016.08.24
+//2016.08.27
 
 /******************************************************************************************
 快捷键分类:
@@ -195,6 +195,14 @@ vimfx.addCommand({
     //vim.window.switchToTabHavingURI('about:downloads', true)
 })
 map(',d', 'goto_downloads', true)
+
+vimfx.addCommand({
+    name: 'goto_ehh',
+    description: 'EHH元素隐藏',
+}, ({vim}) => {
+    vim.window._ehhWrapper.toggleSelection();
+})
+map(',e', 'goto_ehh', true)
 
 vimfx.addCommand({
     name: 'goto_history',

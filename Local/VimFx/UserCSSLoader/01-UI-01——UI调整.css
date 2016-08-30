@@ -2,7 +2,7 @@
   @namespace   https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox
   @description 含:标签栏, 地址栏, 书签栏, 三道杠等界面上的调整
   @author      Cing
-  @version     1.00-2016.08.26
+  @version     1.00-2016.08.27
   @reference             
 */
 
@@ -238,7 +238,7 @@ border-radius: 0px !important;
 #sidebar-box {
 	-moz-appearance: none !important;
 	position: fixed !important;
-	top: 11% !important;/*调节触发区高度*/
+	top: 13% !important;/*调节触发区高度*/
 	left: 0% !important;/*触发区域距离窗口左边框的距离*/
 	height: 10px !important;/*触发区去域高度*/
 	width: 0px !important;

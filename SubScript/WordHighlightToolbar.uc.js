@@ -595,7 +595,7 @@ window.gWHT = {
             button = document.createElement('toolbarbutton');
             button.style.setProperty('-moz-appearance', 'none', 'important');
             button.setAttribute('oncommand', 'gWHT.find(this.getAttribute("word"), event.shiftKey);');
-            button.setAttribute('onDOMMouseScroll', 'event.stopPropagation(); gWHT.find(this.getAttribute("word"), event.detail < 0);');
+            button.setAttribute('onwheel', 'event.stopPropagation(); gWHT.find(this.getAttribute("word"), event.deltaY < 0);');
             button.setAttribute('onclick', 'if (event.button != 1) return; this.hidden = true; gWHT.removeWord(this.getAttribute("word"));');
             button.setAttribute('class', CLASS_ITEM);
             button.setAttribute('tooltiptext', [

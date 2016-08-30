@@ -2,7 +2,7 @@
 // @description  Tab Plus 标签页增强
 // @description	 新标签打开（利用空白页）
 // @include      chrome://browser/content/browser.xul
-// @version      2016.08.24 修复滚轮切换标签
+// @version      2016.08.27 更新不聚焦地址栏
 
 // ==/UserScript==
 
@@ -95,19 +95,26 @@ aWebProgress.DOMWindow.setTimeout(function() {\
 
 
 //不聚焦地址栏 by skofkyo
-//http://bbs.kafan.cn/forum.php?mod=redirect&goto=findpost&ptid=1865786&pid=38002012
+//https://github.com/skofkyo/userChromeJS/blob/master/PageBrowse/TabOpenBrowserAutoFocus.uc.js
 (function() {
+    if (window.CustomNewTab) {
+        window.CustomNewTab.onUnload();
+        delete window.CustomNewTab;
+    }
     window.CustomNewTab = {
-        init: function() {
-            gBrowser.tabContainer.addEventListener('TabOpen', CustomNewTab.newTabfocus, false);
-        },
         newTabfocus: function() {
             if (/^(about|http|file|chrome)/.test(gBrowser.selectedBrowser.currentURI.spec)) {
                 setTimeout(function() {
                     gBrowser.selectedBrowser.focus();
                 }, 0);
             }
-        }
+        },
+        onLoad: function() {
+            gBrowser.tabContainer.addEventListener('TabOpen', this.newTabfocus, false);
+        },
+        onUnload: function() {
+            gBrowser.tabContainer.removeEventListener('TabOpen', this.newTabfocus, false);
+        },
     }
-    CustomNewTab.init();
+    CustomNewTab.onLoad();
 })();

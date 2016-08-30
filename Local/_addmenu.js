@@ -1,4 +1,4 @@
-//2016.08.13
+//2016.08.30
 
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
@@ -72,25 +72,25 @@ tooltiptext: "左键: 复制静态&动态图\n右键: 复制动态图",
 condition: 'image',
 image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=',
 onclick: function (event) {
-    if (event.button === 0) {
-      var copyimage = document.querySelector('#context-copyimage-contents');
-      copyimage.addEventListener('command', function () {
-        var selection = content.getSelection();
-        var ranges = [
-        ];
-        for (var i = 0; i < selection.rangeCount; i++)
-        ranges.push(selection.getRangeAt(i));
-        var range = document.createRange();
-        range.selectNode(document.popupNode);
-        selection.removeAllRanges();
-        selection.addRange(range);
-        goDoCommand('cmd_copy');
-        selection.removeAllRanges();
-        for (i in ranges)
-        selection.addRange(ranges[i]);
-      }, false);
-    } 
-      if (e.button == 2) {
+if (event.button === 0) {
+  var copyimage = document.querySelector('#context-copyimage-contents');
+  copyimage.addEventListener('command', function () {
+var selection = content.getSelection();
+var ranges = [
+];
+for (var i = 0; i < selection.rangeCount; i++)
+ranges.push(selection.getRangeAt(i));
+var range = document.createRange();
+range.selectNode(document.popupNode);
+selection.removeAllRanges();
+selection.addRange(range);
+goDoCommand('cmd_copy');
+selection.removeAllRanges();
+for (i in ranges)
+selection.addRange(ranges[i]);
+  }, false);
+} 
+  if (e.button == 2) {
 			var Cc = Components.classes;
 			var Ci = Components.interfaces;
 			var trans = Cc["@mozilla.org/widget/transferable;1"].createInstance(Ci.nsITransferable);
@@ -104,15 +104,15 @@ onclick: function (event) {
 			}
 			//alert(completePath);
 			var x = gContextMenu.mediaURL || gContextMenu.linkURL;
-            //alert(x);
+//alert(x);
 			file.initWithPath(completePath);
 			Cc["@mozilla.org/embedding/browser/nsWebBrowserPersist;1"].createInstance(Ci.nsIWebBrowserPersist).saveURI(Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService).newURI(x, null, null), null, null, null, null, null, file, null);
 			setTimeout(function () {
 				str.data = '<img src="file:///' + completePath + '">';
-                trans.setTransferData("text/html", str, str.data.length * 2);
-                Cc["@mozilla.org/widget/clipboard;1"].createInstance(Ci.nsIClipboard).setData(trans, null, 1);
+trans.setTransferData("text/html", str, str.data.length * 2);
+Cc["@mozilla.org/widget/clipboard;1"].createInstance(Ci.nsIClipboard).setData(trans, null, 1);
 			}, 200);
-      }
+  }
   }
 },
 {
@@ -131,6 +131,21 @@ break;
 }
 },
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4jbWTLw6DMBjFfwaDmauq5QhY9C4wyQWQOA6whAtwBS6wO0xOzeKQO8REH6EUwsqWvaRpk37vT7+28AfYX8gZ8NIcIgf6GJESGAATpBqAc2ySFrgDCZACD6CKJU/oNW5Ad5SMnEdc9OQbgQp4SqA8QsyAWu6W+WZaoPhEblQ8sGxah+vFKKHdyFbFl0C4A064G6lDsmV+QIWc0o19G6xXDkbxffcJtdyNaht/0z/jKp6Hq2pWbyPDNSffIU8oJLT1X47jDR7gLDGf5CLwAAAAAElFTkSuQmCC"
+},
+{
+label: "批量複製圖片URL",//by skofkyo
+accesskey: "P",
+condition: "select noinput",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAl0lEQVQ4jWNgGDbgPwMDw3kGBob9ROLjUD0oBpBjKQangYGBYTsDA0MOFg0ixBjgA3WiBZKcAAMDw3yoGgdCBqADGQYGhuVQ+f8MDAzfGRgYeEgxoB1JMwyfJ8UADqghuxkYGD4zMDCsZ2Bg8MBlwHMGBob7UDyfARIOMOdqINmM1VJ0ZyLj6wwMDLeh7MMMeNIBOXg4AADwHkmSVhVYJQAAAABJRU5ErkJggg==",
+oncommand: function(event) {
+var urls = {};
+addMenu.$$('img', null, true).forEach(function(a) {
+urls[a.src] = true;
+});
+urls = Object.keys(urls);
+if (urls.length === 0) return;
+addMenu.copy(urls.join('\n'));
+},
 },
 
 ];
@@ -331,9 +346,23 @@ menu(items);
 //複製文本
 new function () {
 var items = [
-{ command: 'context-copy',
-  image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=" },
-
+{ 
+command: 'context-copy',
+image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII="
+},
+{
+label: "批量複製链接URL",//by skofkyo
+accesskey: "H",
+condition: "select noinput",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAxklEQVQ4jbWTLw6DMBjFf2ZmZg5VyxGw6F0AyQWQOA6whAv0Clxgd5icmsUhd4iJPkLXEla27CVNm/R7f/q1hT/A/ELOgafmEAUwpIjUwAhkQaoROKcm6YEbcACOwB1oUskzBo0rYPeSkfOEi/4VGuAhgXoPMQdauRuWm+mB8hO5U/HIe9MsrheThDYjGxVXgbAFTrgbaUOyYXlApZzW9k2wjhwyxa+I0co9U23nb/pnjOJ5uKgmehs5rjnFBnlGKaG1/7IfLwdcLCL/I9hSAAAAAElFTkSuQmCC",
+oncommand: function(event) {
+var urls = {};
+addMenu.$$('a:not(:empty)', null, true).forEach(function(a) { urls[a.href] = true; });
+urls = Object.keys(urls);
+if (urls.length === 0) return;
+addMenu.copy(urls.join('\n'));
+}
+},
 {
 label: "保存選中文本",
 accesskey: "S",

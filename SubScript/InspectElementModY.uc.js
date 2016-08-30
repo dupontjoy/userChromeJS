@@ -1,47 +1,38 @@
 // ==UserScript==
 // @name            Element Inspector ModY
 // @namespace       inspectElement@zbinlin
-// @description     shift + 右键 在 DOM Inspector 中查找并定位到相应的元素节点
+// @description     shift + 右鍵 在 DOM Inspector 中查找並定位到相應的元素節點
 // @include         main
 // @author          ywzhaiqi && zbinlin（原作者）
 // @homepage        http://mozcp.com
 // @version         0.6
 // @charset         UTF-8
 // @compatibility   Firefox 20
-// @note            改自扩展 0.0.6，增加设置，可选择网页、主窗口的查看器。
+// @note            改自擴展 0.0.6，增加設置，可選擇網頁、主窗口的查看器。
 // ==/UserScript==
-
 (function(){
-
 "use strict";
-
 /*
- *  当 DOM Inspector 未安装时，如果查找的是 WEB 中的元素，将尝试：
- *      当安装装了 Firebug，将使用 Firebug 来定位元素的 DOM 位置；
- *      否则尝试通过 Firefox 自带的（仅支持 Firefox 17+）Inspector 来定位元素。
+ *  當 DOM Inspector 未安裝時，如果查找的是 WEB 中的元素，將嘗試：
+ *      當安裝裝了 Firebug，將使用 Firebug 來定位元素的 DOM 位置；
+ *      否則嘗試通過 Firefox 自帶的（僅支持 Firefox 17+）Inspector 來定位元素。
  */
-
-
 if (window.InspectElement) {
     window.InspectElement.shutdown();
     delete window.InspectElement;
 }
-
 if (!window.Services) Cu.import("resource://gre/modules/Services.jsm");
 if (!window.AddonManager) Cu.import("resource://gre/modules/AddonManager.jsm");
-
 const TYPE_FIREBUG = 0;
 const TYPE_DEV_TOOLS = 1;
 const TYPE_DOM_INSPECTOR = 2;
-
 window.InspectElement = {
     hasDOMInspector: false,
     ww: Services.ww,       // nsIWindowWatcher
     wm: Services.wm,       // nsIWindowMediator
     contentType: TYPE_FIREBUG,
     mainWinType: TYPE_DOM_INSPECTOR,
-    checkExists: true,  // 如果 Firebug 或自带查看器已经在使用，则不会打开新的查看器。
-
+    checkExists: true,  // 如果 Firebug 或自帶查看器已經在使用，則不會打開新的查看器。
     get isWinNT() {
         var os = Services.appinfo.OS;
         return os == "WINNT" ? true : false;
@@ -50,21 +41,18 @@ window.InspectElement = {
         delete this.prefs;
         return this.prefs = Services.prefs.getBranch("userChromeJS.InspectElement.");
     },
-
     handleEvent: function(e) {
-        // Shift + 右键 响应
+        // Shift + 右鍵 響應
         if (!e.shiftKey || e.button != 2) return;
         e.stopPropagation();
         e.preventDefault();
         if (e.type != "click") return;
-
         let elem = e.originalTarget,
             win = e.currentTarget,
             elemWin = elem.ownerDocument.defaultView,
             iType;
-
         switch(true) {
-            case elemWin == content: // 网页
+            case elemWin == content: // 網頁
                 iType = this.contentType;
                 break;
             case elemWin == window: // 主窗口
@@ -74,20 +62,17 @@ window.InspectElement = {
                 iType = TYPE_DOM_INSPECTOR;
                 break;
         }
-
         if (iType == TYPE_DOM_INSPECTOR && this.hasDOMInspector) {
             win.openDialog("chrome://inspector/content/", "_blank",
                            "chrome, all, dialog=no", elem);
             return;
         }
-
         let forceUseFirebug = (iType == TYPE_FIREBUG);
         try {
             mInspector.start(e.target, forceUseFirebug, this.checkExists);
         } catch (ex) {
             this.error();
         }
-
         this.closePopup(elem, win);
     },
     closePopup: function (elem, win) {
@@ -103,7 +88,6 @@ window.InspectElement = {
         if (!len) return;
         list[len - 1].hidePopup();
     },
-
     aListener: {
         onOpenWindow: function (aWindow) {
             var win = aWindow.docShell.QueryInterface(
@@ -121,8 +105,8 @@ window.InspectElement = {
         onCloseWindow: function (aWindow) {},
         onWindowTitleChange: function (aWindow, aTitle) {},
     },
-
     startup: function () {
+        this.addMenuitem();
         this.wm.addListener(this.aListener);
         var cw = this.ww.getWindowEnumerator();
         while (cw.hasMoreElements()) {
@@ -146,11 +130,7 @@ window.InspectElement = {
                 }
             });
         }, 500, Ci.nsITimer.TYPE_ONE_SHOT);
-
-        this.addMenuitem();
-
         this.loadSetting();
-
         this.prefs.addObserver('', this, false);
     },
     shutdown: function () {
@@ -164,22 +144,19 @@ window.InspectElement = {
             win.removeEventListener("mouseup", InspectElement, false);
             win.removeEventListener("contextmenu", InspectElement, true);
         }
-
         let menuitem = document.getElementById("InspectElement-menuitem");
         if (menuitem)
             menuitem.parentNode.removeChild(menuitem);
-
         this.prefs.removeObserver('', this, false);
     },
     addMenuitem: function() {
         let menuitem = document.createElement('menuitem');
         menuitem.setAttribute('id', 'InspectElement-menuitem');
-		menuitem.setAttribute('class', 'menuitem-iconic');
-        menuitem.setAttribute('label', 'Inspect Element 设置');
-        menuitem.setAttribute('oncommand', 'InspectElement.openPref();');
-		menuitem.setAttribute('image', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdklEQVQ4jc2SsQ3AIAwEbwGK1NmFDdIwE3OxCCOkZYAU+RSRMEFyIuUkN7Z5vwH4IxtQgKYoyk2RgQokICiScnlmcgWWTm1RbeikaJpFUo9J47RsEdTznYB7BfclwvgZGxCfBC4nvY8UgX1WxOJVkdUj4jp84wDU6yD4kZGU+wAAAABJRU5ErkJggg==')
-
-        let ins = document.getElementById('devToolsEndSeparator');
+        menuitem.setAttribute('label', 'Inspect Element 設置');
+        menuitem.setAttribute("class", "menuitem-iconic");
+        menuitem.setAttribute('image', 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAADaUlEQVQ4jbWTT0xaBxzHX83SQ8c6N5fNJjapszELmjT29U0JU0sLIiKIPuAhfx6gDIW9UqaMbbYur9nMDkvGpVnqpYs9rLt090VTDmt6aIOkS/BJXkilpQ/Z46WkxF6/O3SSNehhh/2S3+mX3zff/D7fH0H83yWU5G5Bksn9Fp9Uuv7DcqlNKMndPM+3CJJMHnvz7UfH3jsJlao1I0gyyfN8i1CSu3NPn757uIgkk3PcZYbSaJez+QIlSDJ5St2H82YHTqn7IEgymc0XKEqjXeYWvnIIkkwe6GSOu8yoPjj58sTpXrS1d25k8wWqXzcKmp1Dv24U2XyBamvv3Dhxuheq9ztexpNXp7KPH7e+JiQ+qXSNWO1Xez4ehME2DUpnwrlh45ZxygPXLAfjlAfnho1blM4Eg20aauoTjFrtX2/v7HY2uSpWavopN7tuot2Y9IYw5mBhoqcbPeZgMekNwUS7QXvY34vV2sVD6TyrvphgguEt2hfGuN1TWbt9Z0Wu7YXXbt9ZGbd7KrTvU0zPzP35rPpioonmKzqtj9q71DijvQDLdAAWhsWNm7eu7VQUDUEQR3YqiubGzVvXLAwLMxPAGe0FtHepoVK1ZRpHFySZ/LD3LMyuAJyzHPxcAmaHB3fvZ4y5XO4oQRBELpc7evd+xmh2eODnEnDOcjC7AujsPYt/hI4QgiSTQwbTpt5Cw+YOgo18Dpt3BkwgFBckmdzelt8SJJlkAqG4zTvzau4OQm+hMaQf3Ww4EktKR1mpO+XaXninXI3OcgtigFuEbtyuGGzO5ErqJ7PB5kzqxu2K/7NFhLjFvCTX5uXaXris1J1iSeloHDydTr9xL7M10KcZTjtnIogmlxG4lMCkL4QRuweTvhAClxKIJpfhDM6jTzO0kc0XKJ7nW14jl5eqH/UP6b/VjlgQjH0BfzSO+BKfmU9cQfK7HzCfuIL4Ep/xR+MIxBLQXDThvGniy6b/E0Xl+OraL/5Bw9hzK+NDKBJbL9fqDjYSw9L3P4KNxFCu1R2hSGzdyvgwaBh7/vOvv7lyub9UTYEUd5WB9L2H8dT11dR+TiwuHxa+WYHF5cN+zlLXV1N/PNiMibvKwIFPSxAEUSzW3ikq9Z79WFhoZtPKeGGhmQadolLvERXl+KEiTQ7/RbOJzgH1Nwy9+ifYA0eGAAAAAElFTkSuQmCC');
+        menuitem.setAttribute('oncommand', 'InspectElement.openPref();')
+        let ins = document.getElementById('devToolsSeparator');
         ins.parentNode.insertBefore(menuitem, ins);
     },
     loadSetting: function() {
@@ -199,7 +176,7 @@ window.InspectElement = {
             <prefwindow\
                 xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"\
                 id="InspectElement"\
-                title="InspectElement 设置"\
+                title="InspectElement 設置"\
                 windowtype="InspectElement:Preferences">\
             <prefpane id="main" flex="1">\
                 <preferences>\
@@ -208,9 +185,9 @@ window.InspectElement = {
                     <preference id="checkExists" type="bool" name="userChromeJS.InspectElement.checkExists"/>\
                 </preferences>\
                 <groupbox>\
-                   <caption label="查看器设置" />\
+                   <caption label="查看器設置" />\
                    <vbox>\
-                      <checkbox label="使用已经存在的查看器" preference="checkExists" />\
+                      <checkbox label="使用已經存在的查看器" preference="checkExists" />\
                    </vbox>\
                     <grid>\
                         <columns>\
@@ -219,11 +196,11 @@ window.InspectElement = {
                         </columns>\
                         <rows>\
                             <row align="center">\
-                                <label value="查看网页的工具：" />\
+                                <label value="查看網頁的工具：" />\
                                 <menulist preference="contentType">\
                                   <menupopup>\
                                     <menuitem label="Firebug" value="0"/>\
-                                    <menuitem label="自带查看器" value="1"/>\
+                                    <menuitem label="自帶查看器" value="1"/>\
                                     <menuitem label="DOM Inspector" value="2"/>\
                                   </menupopup>\
                                 </menulist>\
@@ -233,7 +210,7 @@ window.InspectElement = {
                                 <menulist preference="mainWinType">\
                                   <menupopup>\
                                     <menuitem label="Firebug" value="0"/>\
-                                    <menuitem label="自带查看器" value="1"/>\
+                                    <menuitem label="自帶查看器" value="1"/>\
                                     <menuitem label="DOM Inspector" value="2"/>\
                                   </menupopup>\
                                 </menulist>\
@@ -244,7 +221,6 @@ window.InspectElement = {
             </prefpane>\
             </prefwindow>\
             ';
-
         window.openDialog(
             "data:application/vnd.mozilla.xul+xml;charset=UTF-8," + encodeURIComponent(xul), '',
             'chrome,titlebar,toolbar,centerscreen,dialog=no');
@@ -280,21 +256,16 @@ window.InspectElement = {
         return;
     }
 }
-
-
-
 /**
- * 调用自带的开发工具或 Firebug
+ * 調用自帶的開發工具或 Firebug
  */
 var mInspector = (function(){
     let mainWin = window;
-
     let gDevTools = mainWin.gDevTools;
     let gBrowser = mainWin.gBrowser;
-
     let devtools = (function(){
         /*
-         * 有这么变的吗，四个版本，变了三次地址！！！
+         * 有這麼變的嗎，四個版本，變了三次地址！！！
          */
         let devtools = {};
         let version = Services.appinfo.version.split(".")[0];
@@ -311,7 +282,6 @@ var mInspector = (function(){
         }
         return devtools;
     })();
-
     let inspectWithDevtools = function (elem){
         let tt = devtools.TargetFactory.forTab(gBrowser.selectedTab);
         return gDevTools.showToolbox(tt, "inspector").then((function (elem) {
@@ -321,23 +291,20 @@ var mInspector = (function(){
             }
         })(elem));
     };
-
     let inspectWithFirebug = function (elem){
         let Firebug = mainWin.Firebug;
         Firebug.browserOverlay.startFirebug(function(Firebug){
             Firebug.Inspector.inspectFromContextMenu(elem);
         });
     };
-
     let start = function(elem, useFirebug, checkExists){
         let Firebug = mainWin.Firebug;
-
         if (checkExists) {
-            // 已经打开则直接启动
+            // 已經打開則直接啟動
             if (Firebug && Firebug.isInitialized && Firebug.currentContext) {
                 inspectWithFirebug(elem);
                 return;
-            } else { // 检测自带开发工具是否已经启动
+            } else { // 檢測自帶開發工具是否已經啟動
                 let target = devtools.TargetFactory.forTab(gBrowser.selectedTab);
                 let toolbox = gDevTools.getToolbox(target);
                 if (toolbox) {
@@ -346,23 +313,18 @@ var mInspector = (function(){
                 }
             }
         }
-
-        // 没有打开则启动
+        // 沒有打開則啟動
         if (useFirebug && Firebug) {
             inspectWithFirebug(elem);
         } else {
             inspectWithDevtools(elem);
         }
     };
-
     return {
         start: start,
         inspectWithDevtools: inspectWithDevtools,
         inspectWithFirebug: inspectWithFirebug
     };
 })();
-
-
 InspectElement.startup();
-
 })()

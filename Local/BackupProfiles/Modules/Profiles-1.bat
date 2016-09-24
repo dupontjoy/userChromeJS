@@ -1,4 +1,4 @@
-::2016.08.22
+::2016.09.18
 
 :Profiles-1
 cls
@@ -32,28 +32,29 @@ xcopy "%BackDir%\autoproxy" %TempFolder%\Profiles\autoproxy\  /s /y /i
 xcopy "%BackDir%\chrome" %TempFolder%\Profiles\chrome\  /s /y /i
 xcopy "%BackDir%\extensions" %TempFolder%\Profiles\extensions\ /s /y /i
 xcopy "%BackDir%\extension-data" %TempFolder%\Profiles\extension-data\ /s /y /i
-xcopy "%BackDir%\fireie" %TempFolder%\Profiles\fireie\ /s /y /i
+::xcopy "%BackDir%\fireie" %TempFolder%\Profiles\fireie\ /s /y /i
 xcopy "%BackDir%\gm_scripts" %TempFolder%\Profiles\gm_scripts\ /s /y /i
 xcopy "%BackDir%\browser-extension-data" %TempFolder%\Profiles\browser-extension-data\ /s /y /i
 xcopy "%BackDir%\iMacros" %TempFolder%\Profiles\iMacros\ /s /y /i
+xcopy "%BackDir%\policeman" %TempFolder%\Profiles\policeman\ /s /y /i
 xcopy "%BackDir%\searchplugins" %TempFolder%\Profiles\searchplugins\ /s /y /i
 
 ::以下是文件
-xcopy "%BackDir%\bookmarks.html" %TempFolder%\Profiles\ /y
-xcopy "%BackDir%\cert8.db" %TempFolder%\Profiles\ /y
-xcopy "%BackDir%\cert_override.txt" %TempFolder%\Profiles\ /y
-xcopy "%BackDir%\FlashGot.exe" %TempFolder%\Profiles\ /y
-::xcopy "%BackDir%\foxyproxy.xml" %TempFolder%\Profiles\ /y
-xcopy "%BackDir%\mimeTypes.rdf" %TempFolder%\Profiles\ /y
-::xcopy "%BackDir%\patternSubscriptions.json" %TempFolder%\Profiles\ /y
-xcopy "%BackDir%\persdict.dat" %TempFolder%\Profiles\ /y
-xcopy "%BackDir%\pluginreg.dat" %TempFolder%\Profiles\ /y
-xcopy "%BackDir%\readme.js" %TempFolder%\Profiles\ /y
-xcopy "%BackDir%\search.json.mozlz4" %TempFolder%\Profiles\ /y
-::xcopy "%BackDir%\stylish.sqlite" %TempFolder%\Profiles\ /y
-xcopy "%BackDir%\user.js" %TempFolder%\Profiles\ /y
-xcopy "%BackDir%\prefs.js" %TempFolder%\Profiles\ /y
-xcopy "%BackDir%\xulstore.json" %TempFolder%\Profiles\ /y
+xcopy "%BackDir%\bookmarks.html" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\cert8.db" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\cert_override.txt" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\FlashGot.exe" %TempFolder%\Profiles\  /s /y /i
+::xcopy "%BackDir%\foxyproxy.xml" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\mimeTypes.rdf" %TempFolder%\Profiles\  /s /y /i
+::xcopy "%BackDir%\patternSubscriptions.json" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\persdict.dat" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\pluginreg.dat" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\readme.js" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\search.json.mozlz4" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\stylish.sqlite" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\user.js" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\prefs.js" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\xulstore.json" %TempFolder%\Profiles\  /s /y /i
 
 ::其它刪除项
 del %TempFolder%\Profiles\chrome\UserScriptLoader\require\  /s /q

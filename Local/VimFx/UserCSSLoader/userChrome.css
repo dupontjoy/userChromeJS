@@ -1,4 +1,4 @@
-/*+++ 2016.08.27 +++*/
+/*+++ 2016.09.20 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 /*自动隐藏AidBar*/
@@ -23,11 +23,11 @@ margin-bottom: 0px !important;
 -moz-appearance: none !important;
 }
 
-/*地址栏图标加分隔线*/
+/*地址栏重载/停止/前进三合一图标*/
 #urlbar-reload-button,
 #urlbar-go-button,
 #urlbar-stop-button {
-margin-left: -10px !important;/*用VimFx加载CSS时需要设置这个值*/
+margin-left: -10px !important;/*Fx48需要设置-10px, Fx49不用了*/
 }
 
 /*调节标签的宽度*/
@@ -126,8 +126,6 @@ padding: 0px !important;
 margin-right: -4px !important;
 }
 
-
-
 /*UBO圖標（两句要同時用）
 toolbarbutton#ublock0-button,toolbarbutton#ublock0-button>image {
 padding: 0px !important;
@@ -154,12 +152,3 @@ margin-top: -1px;
 right: 1px;
 max-width: 300px;
 }
-
-/*导航栏图标内图片(所有图标全局定义) by 颜太吓*/
-.findbar-button > .toolbarbutton-text,
-#nav-bar .toolbarbutton-1 > .toolbarbutton-icon,
-#nav-bar .toolbarbutton-1 > .toolbarbutton-text,
-#nav-bar .toolbarbutton-1 > .toolbarbutton-badge-stack,
-#nav-bar .toolbarbutton-1 > .toolbarbutton-menubutton-button > .toolbarbutton-icon,
-#nav-bar .toolbarbutton-1 > .toolbarbutton-menubutton-dropmarker > .dropmarker-icon,
-window:not([chromehidden~="toolbar"]) #urlbar-wrapper > .toolbarbutton-1:-moz-any([disabled],:not([open]):not([disabled]):not(:active)) > .toolbarbutton-icon {padding: 0px!important;box-shadow: none!important;border: none!important;}

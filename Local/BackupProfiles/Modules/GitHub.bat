@@ -1,4 +1,4 @@
-::2016.08.01
+::2016.09.01
 
 :GitHub
 cls
@@ -26,7 +26,7 @@ set dir2=E:\My Documents\GitHub\Customization
 
 ::‚ä·ÝŽ×‚€FirefoxÎÄ¼þ
 xcopy "%dir1%\persdict.dat" "%dir2%\Firefox\persdict.dat"  /s /y /i
-::xcopy "%dir1%\stylish.sqlite" "%dir2%\Firefox\stylish.sqlite"  /s /y /i
+xcopy "%dir1%\stylish.sqlite" "%dir2%\Firefox\stylish.sqlite"  /s /y /i
 xcopy "%dir1%\user.js" "%dir2%\Firefox\user.js"  /s /y /i
 ::xcopy "%dir1%\Chrome\lib\_FeiRuoNetProxy.json" "%dir2%\Rules\Autoproxy\_FeiRuoNetProxy.json"  /s /y /i
 

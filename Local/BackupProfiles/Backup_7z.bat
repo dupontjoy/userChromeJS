@@ -1,4 +1,4 @@
-::2016.06.21
+::2016.09.13
 
 @echo off
 
@@ -70,6 +70,7 @@ cls
 CALL "%b%\Modules\Profiles-1.bat"
 CALL "%b%\Modules\Plugins&Software-1.bat"
 CALL "%b%\Modules\CingFox-3.bat"
+CALL "%b%\Modules\CingFox-4.bat"
 @echo.
 Goto end
 

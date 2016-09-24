@@ -5,7 +5,7 @@
 // @namespace      ywzhaiqi@gmail.com
 // @include        main
 // @charset        UTF-8
-// @version        2016.08.19
+// @version        2016.09.18
 // version        2014.9.6
 // @homepageURL    https://github.com/ywzhaiqi/userChromeJS/tree/master/moveButton
 // @downloadURL    https://github.com/ywzhaiqi/userChromeJS/blob/master/moveButton/moveButton.uc.js
@@ -89,6 +89,8 @@ location == "chrome://browser/content/browser.xul" && (function(){
 { id: "foxyproxy-toolbar-icon", bar: "TabsToolbar_aidBar", pos: 2 },//Foxyproxy擴展
 { id: "ucjsPermission_Toolmenu", bar: "TabsToolbar_aidBar", pos: 3 },//ucjsPermission腳本
 { id: "UserScriptLoader-icon", bar: "TabsToolbar_aidBar", pos: 4 },//GM脚本版
+{ id: "umatrix-button", bar: "TabsToolbar_aidBar", pos: 5 },//uMatrix扩展
+{ id: "policeman-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 5 },//Policeman扩展
 { id: "aup-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 6 },//Autoproxy擴展
 { id: "lpt_lastpass-compact-btn", bar: "TabsToolbar_aidBar", pos: 7 },//Lastpass扩展
 { id: "ublock0-button", bar: "TabsToolbar_aidBar", pos: 7 },//UBO扩展
@@ -108,10 +110,6 @@ location == "chrome://browser/content/browser.xul" && (function(){
 
 //SpeedMonitor放到地址栏图标框第1位
 { id: "urlbar-speedmonitor", bar: "urlbar-icons", pos: 1 },
-
-//TMT标签右键菜单
-{id: "visibo-tmt-tabmenu-sendtabtoTMT", insertBefore: "context_reloadTab",attr: {label:"当前页>>TMT",}},
-{id: "visibo-tmt-tabmenu-sendAlltabstoTMT", insertBefore: "context_reloadTab",attr: {label:"全部页>>TMT",}},
 
 //Greasemonkey圖標右鍵菜單
 {id: "greasemonkey-tbb",

@@ -1,4 +1,4 @@
-/*+++ 2016.08.12 +++*/
+/*+++ 2016.09.09 +++*/
 
 /*---------------------------------
 指定域名时的几种方法:
@@ -76,4 +76,9 @@ left: -24px;
 @-moz-document domain("tieba.baidu.com") {
 .l_post[data-field*="\"level_id\":1,"]{display: none !important;}
 .l_post[data-field*="\"level_id\":2,"]{display: none !important;}
+}
+
+/*360云盘Android UA显示完整标题*/
+@-moz-document regexp("https?:\/\/(.*)\.l(.*)\.yunpan\.cn\/.*") {
+#fileList .name{-moz-binding: url("data:application/xml,<?xml version='1.0' encoding='UTF-8'?><bindings xmlns='http://www.mozilla.org/xbl'><binding id='embed' bindToUntrustedContent='true'><implementation><constructor><![CDATA[this.textContent =this.parentNode.parentNode.parentNode.getAttribute('data-path')]]></constructor></implementation></binding></bindings>")}
 }

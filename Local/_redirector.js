@@ -1,4 +1,4 @@
-//2016.08.30
+//2016.09.05
 
 //Redirector說明頁面: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份: https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -61,6 +61,13 @@ regex: true
 },
 
 //單獨網站
+{
+//example: https://zh.wikipedia.org/wiki/%E7%99%BB%E7%9B%9B
+name: "Wiki中文 台湾正体",
+from: /^https?:\/\/zh\.wikipedia\.org\/(zh|zh-cn|zh-sg|wiki)\/(.*)/i,
+to: "https://zh.wikipedia.org/zh-tw/$2",
+regex: true
+},
 {
 //example: http://news.ifeng.com/a/ydzx/20150413/43541233_0.shtml
 name: "鳳凰網 只顯示首圖修正",
@@ -149,12 +156,25 @@ regex: true
 {
 //詳細說明: http://bbs.kafan.cn/thread-1769934-1-1.html
 //example: https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js
-name: "ajax|fonts(https?) >> useso",
-from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
-to: "http://$1.useso.com/$2",
+name: "Google ajax >> 科大",
+//from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
+//to: "http://$1.useso.com/$2",
+from: /^https?:\/\/(ajax|)\.googleapis\.com\/(.*)$/,
+to: "https://$1.lug.ustc.edu.cn/$2",
 regex: true
 },
-
+{
+name: "Google themes >> 科大",
+from: /^https?:\/\/themes\.googleusercontent\.com\/(.*)$/,
+to: "https://google-themes.lug.ustc.edu.cn/$1",
+regex: true
+},
+{
+name: "Google fonts-gstatic >> 科大",
+from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
+to: "https://fonts-gstatic.lug.ustc.edu.cn/$1",
+regex: true
+},
 
 //其它
 {
@@ -166,8 +186,8 @@ regex: true
 {
 //example: http://www.bathome.net/archiver/tid-6301.html
 name: "bbs详细页面-2",
-from: /^https?:\/\/(.*)\/archiver\/tid-(.*)\.html/i,
-to: "http://$1/viewthread.php?tid=$2",
+from: /(.*)\/archiver\/\??tid\-(\d+)(\-page\-(\d+))?\.html$/,
+to: "$1/viewthread.php?tid=$2",
 regex: true
 },
 

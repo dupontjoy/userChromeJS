@@ -22,7 +22,6 @@ var anomenu = [
 {id: "addMenu-rebuild"},
 {id: "anobtn_set"},
 {id: "redirector-icon"},
-{},
 {
 label: "編輯user.js",
 tooltiptext: "左键: 编辑user.js",

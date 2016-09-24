@@ -3,7 +3,7 @@
 // @namespace      runningcheese@qq.com
 // @description    为工具栏图标增加点击功能
 // @author         runningcheese
-// @version        0.0.1-2016.08.19
+// @version        0.0.1-2016.08.31
 // @license        MIT License
 // @compatibility  Firefox 29+
 // @charset        UTF-8
@@ -163,3 +163,8 @@ event.preventDefault();\
    eval("DownloadsViewItem.prototype._updateProgress = " +
       DownloadsViewItem.prototype._updateProgress.toString().replace('status.text', 'status.tip'));
 })()
+
+/*點擊右鍵複製選項後取消選取文字*/
+document.querySelector("#context-copy").addEventListener('click', function(event) {
+    setTimeout('content.document.getSelection().removeAllRanges();', 100);
+}, false);

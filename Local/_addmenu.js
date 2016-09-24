@@ -1,12 +1,12 @@
-//2016.08.30
+//2016.09.18
 
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
-var undoMenu = TabMenu({
+/*var undoMenu = TabMenu({
 label: '撤銷關閉',
 accesskey: "F",
 insertBefore: "context_reloadTab",
-tooltiptext: "右鍵显示所有历史记录",
+tooltiptext: "右鍵顯示所有歷史記錄",
 onclick: "if (event.button == 2) {PlacesCommandHook.showPlacesOrganizer('History');}",
 image:
 "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA5ElEQVQ4jaXTr0oFQRTH8c8yIBgWBMFg2ifwBa5oEsRguWCxGQwGq+9hMvgItxgEww0Gg+m+w02bBYtJw8zCsO64q35hYObMnN+cPzN8Z2fANpljtNj6j/PsL87beMdnYbzhCecIJZF5imAvs52gThfM8YqlH1LsRLoDL9jP9gNuk0gxkiab3+Fq4MwSlyWBnOsk0ucoRTfKIVbY7NlrsbCj1FhgjbOe/WOKQMcMN9l6cgolnkMIF0MbDe7FEIcIYlGLbez6vBbb12ADu+IrXFVV9WjCXzkQi9eKT7nFA07HHH/NFwrNKkyQLvLzAAAAAElFTkSuQmCC",
@@ -33,7 +33,7 @@ popup.appendChild(m);
 });
 }
 },
-});
+});*/
 
 /*——————————圖片右鍵————————*/
 //右鍵搜索圖片 以圖搜圖
@@ -281,64 +281,22 @@ image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "产品得分-SKU",
+label: "查詢價格變更記录-SKU",
 id: "TVC-Universal",
 accesskey: "4",
+url: "http://ic.sjlpj.cn/PriceChangeRequest/OperationAuditList?mode=processed&Sku=%s",
+image: "http://ic.sjlpj.cn/favicon.ico",
+where: 'tab'
+},
+{
+label: "产品得分-SKU",
+id: "TVC-Universal",
+accesskey: "5",
 url: "http://ic.sjlpj.cn/ProductScore/CategoryList?type=1&SiteId=1&Sku=%s&CreateBeginDate=&CreateEndDate=&UpdateBeginDate=&UpdateEndDate=&IsFirstRequest=False",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
-{},
-{
-label: "管理SPU列表-SKU",
-id: "TVC-Universal",
-url: "http://ic.sjlpj.cn/ProductCorrect/ProductSpuList?Sku=%s",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
-label: "關聯SPU列表-SKU",
-id: "TVC-Universal",
-url: "http://ic.sjlpj.cn/Product/ProductAssociatedSpuList?Sku=%s&IsFirstRequest=true&BeginDate=2008-01-01",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
-label: "關聯SPU列表-SpuID",
-id: "TVC-Universal",
-url: "http://ic.sjlpj.cn/Product/ProductAssociatedSpuList?SpuId=%s&IsFirstRequest=true&BeginDate=2008-01-01",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{},
-{
-label: "編輯管理-spID",
-id: "TVC-Universal",
-url: "http://ic.sjlpj.cn/Product/ProductEditFromEditMgt?productId=%s",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
-label: "編輯質檢-SKU",
-id: "TVC-Universal",
-url: "http://ic.sjlpj.cn/Product/ProductCheckingList?Sku=%s",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
-label: "待編輯-SKU",
-id: "TVC-Universal",
-url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?Sku=%s&EditorId=0",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
-{
-label: "已編輯-SKU",
-id: "TVC-Universal",
-url: "http://ic.sjlpj.cn/DevProduct/DevProductEditList?Sku=%s&Mode=processed&EditorId=0",
-image: "http://ic.sjlpj.cn/favicon.ico",
-where: 'tab'
-},
+
 ];
 menu(items);
 };

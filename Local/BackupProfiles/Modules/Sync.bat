@@ -1,4 +1,4 @@
-::2016.07.20
+::2016.08.31
 
 :Sync
 cls
@@ -47,7 +47,7 @@ start "" "%dir1%\..\Software\Image\PicPick\picpick.exe"
 ::xcopy "%dir2%\FastCopy-M\FastCopy2.ini" "%dir1%\..\..\FastCopy-M\FastCopy2.ini"  /s /y /i
 
 ::同步XMP設置
-xcopy "%dir2%\Thunder\xmp.ini" "%dir1%\..\..\Thunder Network\Thunder\Program\xmp.ini"  /s /y /i
+::xcopy "%dir2%\Thunder\xmp.ini" "%dir1%\..\..\Thunder Network\Thunder\Program\xmp.ini"  /s /y /i
 
 ::同步CCleaner設置
 xcopy "%dir2%\CCleaner\ccleaner.ini" "%dir1%\..\..\System Tools\CCleaner\ccleaner.ini" /s /y /i

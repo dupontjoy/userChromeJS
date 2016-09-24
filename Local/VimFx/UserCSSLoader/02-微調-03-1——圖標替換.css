@@ -1,4 +1,4 @@
-/*+++ 2016.08.14 +++*/
+/*+++ 2016.09.18 +++*/
 
 /*Firefox自带菜单加图标最后在ID后加上 > .menu-iconic-left > .menu-iconic-icon, 否则右边小三角可能消失*/
 
@@ -106,6 +106,15 @@ list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYA
 #usercssloader_Tools_Menu > .menu-iconic-left > .menu-iconic-icon {   
 filter:grayscale(1);/*黑白滤镜*/
 }
+
+/*Policeman图标*/
+#policeman-toolbarbutton {
+-moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACpElEQVQ4jXWT3UuTcRTH/ReekRB0Yf3WdGVJaq0lUpKOuTnXRlq51BVU9HJXdL+bXiiCuk1WBIKEphfOOVNzGcLA5ctemqGpj0o+6uxtBIsxPl0Ie4j0wPfme8758L04J48daubXLFUjDqpGHMz8mt1pjLztzM0/37CNurAn3NgTbmyjLtbTyZ0BtqCLuxMe5lMy0e+faPhwmdrJJlxLt2iSb2KZasL+vpno90/Mp2TuTniwBV0qwOg30zB7BUPAhCFgwjp9kcYv16gYraNitI6GuatYplwc66/B0G+iPtaK0W9WARW+Ws4vXMcxc5kziUuYJy9QPliTi1k+WIPp4znqos1YIxexx91U+GpVQHWfg/p4K8agJacS/6kcoMR/6p9e9XgD1X0OFXB2oBXLpIvywRqKeysp7q1kf9cxNjY2WFpaYpdXh6ZNi6ZNS/6LQkp8Jzk70KoCbozcxhRqpLi3knQ6jSzLxONxEokEc3NzLC4usrKygqIoSC8F+h4jN4N3VMCj8adUvrVS1GskFosRjUa3XU4mk+zq0KHvNPA4/EwFBBaGONpZxd7hUqQOsaV2kVuW2kXOz/cXcqjDSGBhSAX8SP/kxKvTFH4woHmnRRoWSD6hxvaJLW9YsHtQj/HVaX6kf/57iZ7gPQ52HWf3+AGkkEAaErnY0pBACgk0IS2616V4gvf+P+Xk703Mz23ouo+QP61DE9Ei+cWWpgXSlGDfm0OYn9tI/t7c/hfkdZmWNjeHn5Sxp78I6bNA+izY01/E4SdltLS5kdfl/38hm82SSqVYW1tj+esy3h4vlvtWCrr1FHTrsdy34u3xsvx1GUVRSKVSZLNZFZDJZFAUhVgsRjgcJhwOMxYaw/nAifOhk7HQWM6PRCKsrq6SyWQA+AuWtvrIs/0B8QAAAABJRU5ErkJggg==")!important;
+}
+#policeman-toolbarbutton > .menu-iconic-text,
+#policeman-toolbarbutton > .menu-accel-container
+{display: none !important;}
 
 /*Anobtn圖標*/
 #anobtn_set {

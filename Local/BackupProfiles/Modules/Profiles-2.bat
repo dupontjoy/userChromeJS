@@ -1,23 +1,25 @@
-::2015.12.22 調整名稱格式
+::2016.09.13
+
+::打包
 
 :Profiles-2
 cls
 ::完整日期和時間
-set tm1=%time:~0,2%
-set tm2=%time:~3,2%
-set tm3=%time:~6,2%
-set tm4=%time:~0,8%
-set da1=%date:~0,4%
-set da2=%date:~5,2%
-set da3=%date:~8,2%
+set YY=%date:~0,4%
+set MON=%date:~5,2%
+set DD=%date:~8,2%
+set hh=%time:~0,2%
+set mm=%time:~3,2%
+set ss=%time:~6,2%
+
 ::輸出文件名
-set Name=Profiles_%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
+set Name=Profiles_%ver%_%YY%%MON%%DD%-%hh%%mm%%ss%.7z
 
 ::小時數小于10点時的修正
-set /a tm1=%time:~0,2%*1
-if %tm1% LSS 10 set tm1=0%tm1%
+set /a hh=%time:~0,2%*1
+if %hh% LSS 10 set hh=0%hh%
 ::輸出文件名
-set Name=Profiles_%ver%_%da1%%da2%%da3%-%tm1%%tm2%%tm3%.7z
+set Name=Profiles_%ver%_%YY%%MON%%DD%-%hh%%mm%%ss%.7z
 
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录

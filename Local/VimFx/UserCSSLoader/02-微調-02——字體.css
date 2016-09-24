@@ -1,4 +1,4 @@
-/*+++ 2016.07.03 +++*/
+/*+++ 2016.09.07 +++*/
 
 /*文本选中样式（黑底+绿字）*/
 *::-moz-selection {
@@ -17,6 +17,7 @@ color: rgb(130,130,130) !important;/*灰色*/
 }
 
 /*超链接字体颜色渐变*/
+@-moz-document url-prefix("http"),url-prefix("https"),url-prefix("file") {
 a:hover,a:hover em,a>font:hover,b>font:hover,a:hover *,button[type="submit"]:hover *,label:hover {
 transition-property: color,text-shadow!important;
 transition-duration: 0.423s!important;
@@ -24,6 +25,7 @@ transition-timing-function: ease!important;
 color: rgba(255,200,0,60)!important;
 text-shadow: 0 1px rgba(242,33,49,60),0 1px 1px rgba(242,33,49,60),0 -1px 1px rgba(242,33,49,60),
 1px 0 1px rgba(242,33,49,60),-1px 0 1px rgba(242,33,49,60),0 0 3px rgba(242,33,49,60)!important;
+}
 }
 
 /*VimFx忽略模式时地址栏红色*/

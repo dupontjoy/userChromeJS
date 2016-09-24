@@ -2,7 +2,7 @@
   @namespace   
   @description 更改浏览附加组件栏时的样式
   @Mod         Cing
-  @version     1.10-20160309
+  @version     1.10-2016.09.01
   @reference               
 */
 
@@ -162,11 +162,6 @@ top: 30px !important;
 left: 80px !important;
 cursor: default;
 white-space: nowrap !important;
-}
-
-/*修正Firefox40右側內容靠下问题*/
-#view-port {
-margin-top: -18px !important;
 }
 
 /* 显示ID*/

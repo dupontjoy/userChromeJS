@@ -1,4 +1,4 @@
-//2016.08.27
+//2016.09.24
 
 /******************************************************************************************
 快捷键分类:
@@ -196,13 +196,13 @@ vimfx.addCommand({
 })
 map(',d', 'goto_downloads', true)
 
-vimfx.addCommand({
+/*vimfx.addCommand({
     name: 'goto_ehh',
     description: 'EHH元素隐藏',
 }, ({vim}) => {
     vim.window._ehhWrapper.toggleSelection();
 })
-map(',e', 'goto_ehh', true)
+map(',e', 'goto_ehh', true)*/
 
 vimfx.addCommand({
     name: 'goto_history',
@@ -377,7 +377,16 @@ vimfx.addCommand({
         gBrowser.selectedTab = ublockTab
     }
 })
-map('zu', 'ublock_bootstrap', true)
+map('zb', 'ublock_bootstrap', true)
+
+vimfx.addCommand({
+    name: 'umatrix_bootstrap',
+    description: 'uMatrix自定义规则',
+    category: 'misc',
+}, ({vim}) => {
+    vim.window.switchToTabHavingURI('chrome://umatrix/content/dashboard.html#user-rules', true)
+})
+map('zu', 'umatrix_bootstrap', true)
 
 let bootstrap = () => {
     // install addons
@@ -448,7 +457,7 @@ vimfx.addCommand({
     }
     vim.notify('Bootstrap succeeded')
 })
-map('zb', 'bootstrap', true)
+map('zB', 'bootstrap', true)
 
 /*————————————————————*/
 //必須，不能刪除

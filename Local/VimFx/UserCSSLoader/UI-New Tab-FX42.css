@@ -2,7 +2,7 @@
   @namespace   http://www.runningcheese.com/firefox-v6
   @description 更改浏览about:newtab时的样式
   @author      runningcheese
-  @version     1.00-2016.08.01
+  @version     1.00-2016.09.12
   @reference   http://www.runningcheese.com/newtabstylish-superstart by @ennea              
 */
 
@@ -154,8 +154,8 @@
         background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/youtube.png") center center no-repeat !important;
         background-size: 100% 100%!important;
     }
-    [href*="leanote.com"] .newtab-thumbnail {
-        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/leanote.jpg") center center no-repeat !important;
+    [href*="yinxiang.com"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/evernote.png") center center no-repeat !important;
         background-size: 100% 100%!important;
     }
     [href*="email.163.com"] .newtab-thumbnail {

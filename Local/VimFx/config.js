@@ -36,6 +36,7 @@ XPCOMUtils.defineLazyModuleGetter(this, 'NetUtil', 'resource://gre/modules/NetUt
 XPCOMUtils.defineLazyModuleGetter(this, 'PlacesUtils', 'resource://gre/modules/PlacesUtils.jsm')
 XPCOMUtils.defineLazyModuleGetter(this, 'PopupNotifications', 'resource://gre/modules/PopupNotifications.jsm')
 XPCOMUtils.defineLazyModuleGetter(this, 'Preferences', 'resource://gre/modules/Preferences.jsm')
+//let {Preferences} = Cu.import('resource://gre/modules/Preferences.jsm', {})
 
 // helper functions
 let getWindowAttribute = (window, name) => {
@@ -124,7 +125,6 @@ let loadCss = (uriString) => {
 /******************************************************************************************
  *这里是自定义设置, 你可以根据自己的需要来调整它们. 参照已有设置的格式, 动手将自己的想法变成现实吧.
  *******************************************************************************************/
-
 //设置参数
 Preferences.set({
   'devtools.chrome.enabled': true,

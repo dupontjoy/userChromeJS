@@ -1,4 +1,4 @@
-//2016.09.24
+//2016.09.27
 
 /******************************************************************************************
 快捷键分类:
@@ -150,11 +150,9 @@ loadCss(`${__dirname}/UserCSSLoader/03-其他-02——GPU Mode.css`)
 loadCss(`${__dirname}/UserCSSLoader/03-其他-99——網站修正.css`)
 
 // options选项
-set('hint_chars', 'fdsagrueiwcvqtxzjklhonmypb')//Hint提示符(改了排序)
-//set('hint_chars', 'fjdkslaghrueiwoncmvqtxzypb')//Hint提示符(默认有19个字母, 新增最后7个字母)
-//set('hint_chars', 'hjklasdfgyuiopqwertnmzxcvb')//Hint提示符(26个字母, 另一种排序, 来自AMO评论区)
-set('prevent_autofocus', true)
-set('hints_sleep', -1)
+set('hints.chars', 'fdsagrueiwcvqtxzjklhonmypb')//Hint提示符(改了排序)
+set('hints.sleep', -1)
+set('prevent_autofocus', true)//阻止自动聚焦输入框
 set('prev_patterns', v => `[上前]\\s*一?\\s*[页张个篇章頁] ${v}`)
 set('next_patterns', v => `[下后]\\s*一?\\s*[页张个篇章頁] ${v}`)
 
@@ -167,6 +165,7 @@ map('gt', 'follow_in_focused_tab')//新的前台标签打开此链接
 map('gW', 'follow_in_window')//新的窗口打开此链接
 map('gf', 'follow_focus')//聚焦/选中元素
 map('gb', 'click_browser_element')//点击浏览元素
+
 
 // commands命令
 vimfx.addCommand({
@@ -233,15 +232,6 @@ vimfx.addCommand({
 })
 map(',q', 'qrcode', true)
 
-vimfx.addCommand({
-    name: 'goto_redirector',
-    description: '打开Redirector扩展设置',
-    category: 'browsing',
-}, ({vim}) => {
-    vim.window.switchToTabHavingURI('moz-extension://b8ae88e1-0cd2-4e77-8851-f8f60336ef60/redirector.html', true)
-})
-map(',r', 'goto_redirector', true)
-
 //群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
 vimfx.addCommand({
     name: 'goto_rebuild',
@@ -257,7 +247,7 @@ vimfx.addCommand({
     //vim.window.UCL.rebuild();//UserCSSLoader
 
 })
-map('.r', 'goto_rebuild', true)
+map(',r', 'goto_rebuild', true)
 
 vimfx.addCommand({
     name: 'restart',
@@ -283,7 +273,7 @@ vimfx.addCommand({
     order: commands.focus_location_bar.order + 1,
 }, (args) => {
     commands.focus_location_bar.run(args)
-    args.vim.window.gURLBar.value = '% '
+    args.vim.window.gURLBar.value = '%'
 })
 map(',t', 'search_tabs', true)
 
@@ -378,6 +368,15 @@ vimfx.addCommand({
     }
 })
 map('zb', 'ublock_bootstrap', true)
+
+vimfx.addCommand({
+    name: 'goto_redirector',
+    description: '打开Redirector扩展设置',
+    category: 'misc',
+}, ({vim}) => {
+    vim.window.switchToTabHavingURI('moz-extension://b8ae88e1-0cd2-4e77-8851-f8f60336ef60/redirector.html', true)
+})
+map('zr', 'goto_redirector', true)
 
 vimfx.addCommand({
     name: 'umatrix_bootstrap',

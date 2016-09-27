@@ -190,5 +190,11 @@ from: /(.*)\/archiver\/\??tid\-(\d+)(\-page\-(\d+))?\.html$/,
 to: "$1/viewthread.php?tid=$2",
 regex: true
 },
-
+{
+//example: http://www.ftchinese.com/story/001069496
+name: "FT中文网全文",
+from: /^https?:\/\/www\.ftchinese\.com\/story\/([0-9]*)$/i,
+to: "http://www.ftchinese.com/story/$1?full=y",
+regex: true
+},
 ];

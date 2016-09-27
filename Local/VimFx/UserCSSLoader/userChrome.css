@@ -70,6 +70,7 @@ padding: 0px !important;
 {display: none !important;}
 
 /*調整圖標邊框——方法1*/
+#bamboo-toolbar-button-feed >image,
 #fireie-toolbar-palette-button >image,
 #showFlagS-icon >image,/*國旗圖標*/
 #PanelUI-menu-button >image,/*三道杠圖標*/

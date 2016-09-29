@@ -29,7 +29,6 @@ rem 复制目标文件到臨時文件夾
 ::以下是文件夾
 xcopy "%BackDir%\adblockplus" %TempFolder%\Profiles\adblockplus\  /s /y /i
 xcopy "%BackDir%\autoproxy" %TempFolder%\Profiles\autoproxy\  /s /y /i
-xcopy "%BackDir%\bamboodata" %TempFolder%\Profiles\bamboodata\  /s /y /i
 xcopy "%BackDir%\chrome" %TempFolder%\Profiles\chrome\  /s /y /i
 xcopy "%BackDir%\extensions" %TempFolder%\Profiles\extensions\ /s /y /i
 xcopy "%BackDir%\extension-data" %TempFolder%\Profiles\extension-data\ /s /y /i

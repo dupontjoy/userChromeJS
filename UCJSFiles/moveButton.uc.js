@@ -85,7 +85,7 @@ location == "chrome://browser/content/browser.xul" && (function(){
         
 //不常用圖標移動到aidBar
 { id: "flashgot-media-tbb", bar: "TabsToolbar_aidBar", pos: 1 },//FlashGot扩展
-{ id: "fireie-toolbar-palette-button", bar: "TabsToolbar_aidBar", pos: 1 },//FireIE扩展
+{ id: "alertbox_tb_action", bar: "TabsToolbar_aidBar", pos: 1 },//
 { id: "foxyproxy-toolbar-icon", bar: "TabsToolbar_aidBar", pos: 2 },//Foxyproxy擴展
 { id: "ucjsPermission_Toolmenu", bar: "TabsToolbar_aidBar", pos: 3 },//ucjsPermission腳本
 { id: "UserScriptLoader-icon", bar: "TabsToolbar_aidBar", pos: 4 },//GM脚本版

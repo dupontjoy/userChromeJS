@@ -28,16 +28,16 @@ del %TempFolder%\Profiles\bookmarks.html  /s /q
 del %TempFolder%\Profiles\chrome\Local\InformEnter.Ijson  /s /q
 
 ::一些脚本文件单独打包
-xcopy "%TempFolder%\Profiles\chrome\xul\localMark_0.6.1.uc.xul" %TempFolder%\Advanced\Profiles\chrome\xul\  /s /y /i
-xcopy "%TempFolder%\Profiles\chrome\SubScript\SougouDeskPic.uc.js" %TempFolder%\Advanced\Profiles\chrome\SubScript\  /s /y /i
-xcopy "%TempFolder%\Profiles\chrome\SubScript\QR.uc.js" %TempFolder%\Advanced\Profiles\chrome\SubScript\  /s /y /i
-xcopy "%TempFolder%\Profiles\chrome\SubScript\videos_skipAd.uc.js" %TempFolder%\Advanced\Profiles\chrome\SubScript\  /s /y /i
-xcopy "%TempFolder%\Profiles\chrome\Local\_redirector.js" %TempFolder%\Advanced\Profiles\chrome\Local\  /s /y /i
-xcopy "%TempFolder%\Profiles\extensions\policeman@futpib.addons.mozilla.org.xpi" %TempFolder%\Advanced\Profiles\extensions\  /s /y /i
-xcopy "%TempFolder%\Profiles\extensions\uMatrix@raymondhill.net.xpi" %TempFolder%\Advanced\Profiles\extensions\  /s /y /i
-xcopy "%TempFolder%\Software\GFW" %TempFolder%\Advanced\Software\GFW\  /s /y /i
-xcopy "%TempFolder%\Software\Image" %TempFolder%\Advanced\Software\Image\  /s /y /i
-xcopy "%TempFolder%\Software\Other" %TempFolder%\Advanced\Software\Other\  /s /y /i
+xcopy "%TempFolder%\Profiles\chrome\xul\localMark_0.6.1.uc.xul" %TempFolder%\Optional\Profiles\chrome\xul\  /s /y /i
+xcopy "%TempFolder%\Profiles\chrome\SubScript\SougouDeskPic.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
+xcopy "%TempFolder%\Profiles\chrome\SubScript\QR.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
+xcopy "%TempFolder%\Profiles\chrome\SubScript\videos_skipAd.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
+xcopy "%TempFolder%\Profiles\chrome\Local\_redirector.js" %TempFolder%\Optional\Profiles\chrome\Local\  /s /y /i
+xcopy "%TempFolder%\Profiles\extensions\policeman@futpib.addons.mozilla.org.xpi" %TempFolder%\Optional\Profiles\extensions\  /s /y /i
+xcopy "%TempFolder%\Profiles\extensions\uMatrix@raymondhill.net.xpi" %TempFolder%\Optional\Profiles\extensions\  /s /y /i
+xcopy "%TempFolder%\Software\GFW" %TempFolder%\Optional\Software\GFW\  /s /y /i
+xcopy "%TempFolder%\Software\Image" %TempFolder%\Optional\Software\Image\  /s /y /i
+xcopy "%TempFolder%\Software\Other" %TempFolder%\Optional\Software\Other\  /s /y /i
 del %TempFolder%\Profiles\chrome\xul\localMark_0.6.1.uc.xul /s /q
 del %TempFolder%\Profiles\chrome\SubScript\SougouDeskPic.uc.js  /s /q
 del %TempFolder%\Profiles\chrome\SubScript\QR.uc.js  /s /q

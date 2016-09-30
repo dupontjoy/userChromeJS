@@ -1,4 +1,4 @@
-::2016.09.28
+::2016.09.29
 
 :pcxFirefox
 ::Ñ}ÑuPcxFirefoxÖ÷³ÌÐò
@@ -33,7 +33,7 @@ xcopy "%TempFolder%\Profiles\chrome\SubScript\SougouDeskPic.uc.js" %TempFolder%\
 xcopy "%TempFolder%\Profiles\chrome\SubScript\QR.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
 xcopy "%TempFolder%\Profiles\chrome\SubScript\videos_skipAd.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
 xcopy "%TempFolder%\Profiles\chrome\Local\_redirector.js" %TempFolder%\Optional\Profiles\chrome\Local\  /s /y /i
-xcopy "%TempFolder%\Profiles\chrome\Local\_user.js" %TempFolder%\Optional\Profiles\chrome\Local\  /s /y /i
+xcopy "%TempFolder%\Profiles\chrome\Local\VimFx\_user.js" %TempFolder%\Optional\Profiles\chrome\Local\VimFx\  /s /y /i
 xcopy "%TempFolder%\Profiles\extensions\policeman@futpib.addons.mozilla.org.xpi" %TempFolder%\Optional\Profiles\extensions\  /s /y /i
 xcopy "%TempFolder%\Profiles\extensions\uMatrix@raymondhill.net.xpi" %TempFolder%\Optional\Profiles\extensions\  /s /y /i
 xcopy "%TempFolder%\Software\GFW" %TempFolder%\Optional\Software\GFW\  /s /y /i
@@ -44,7 +44,7 @@ del %TempFolder%\Profiles\chrome\SubScript\SougouDeskPic.uc.js  /s /q
 del %TempFolder%\Profiles\chrome\SubScript\QR.uc.js  /s /q
 del %TempFolder%\Profiles\chrome\SubScript\videos_skipAd.uc.js  /s /q
 del %TempFolder%\Profiles\chrome\Local\_redirector.js  /s /q
-del %TempFolder%\Profiles\chrome\Local\_user.js  /s /q
+del %TempFolder%\Profiles\chrome\Local\VimFx\_user.js  /s /q
 del %TempFolder%\Profiles\extensions\policeman@futpib.addons.mozilla.org.xpi  /s /q
 del %TempFolder%\Profiles\extensions\uMatrix@raymondhill.net.xpi  /s /q
 del %TempFolder%\Software\GFW\  /s /q

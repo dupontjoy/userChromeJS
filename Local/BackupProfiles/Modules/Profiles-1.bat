@@ -1,4 +1,4 @@
-::2016.09.26
+::2016.09.30
 
 :Profiles-1
 cls
@@ -60,6 +60,7 @@ xcopy "%BackDir%\xulstore.json" %TempFolder%\Profiles\  /s /y /i
 del %TempFolder%\Profiles\chrome\UserScriptLoader\require\  /s /q
 del %TempFolder%\Profiles\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q
 del %TempFolder%\Profiles\autoproxy\patterns.ini-temp  /s /q
+del %TempFolder%\Profiles\autoproxy\patterns-backup*.ini  /s /q
 ::HostTools产生的备份文件
 del %SystemRoot%\system32\drivers\etc\hosts.*.bak  /s /q
 

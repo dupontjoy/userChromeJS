@@ -1,4 +1,4 @@
-//2016.08.22
+//2016.09.30
 
 /**********************************************************************************
  *child:[  ]内爲當前菜單的下一級菜單配置,支持多級
@@ -22,10 +22,29 @@ var anomenu = [
 {id: "addMenu-rebuild"},
 {id: "anobtn_set"},
 {id: "redirector-icon"},
+
+{},
 {
-label: "編輯user.js",
+label: "在IE中打開",
+text: "%u",
+exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABEElEQVQ4jZXSnVuDYRQG8B8EQTAIgkEQBMEgDIIwGA4Hg0EYBMH+gyAIh0EwHIRBEARBEAzDwWAweIP3bD17rmd9nOu64X3ec9/3+eJ/cYpL9DHAwabEHZyjG7jAbQik0SsRHzBHlWGBYebaSclNvEfyFK8FkQoznCSGqxhGwmP0t9ggsBTZS8n7QbjHVSQ9oRUu3UJbN6lAB2O0E+d+CC/xnAnMU4F2uM1+KLuEtRmMs5+fmPyCZlpBrn5mPY7Ud5BiFXl/FUZoJOS8vdGS3PC9+1xkirfC+yJmhnoDFQ7Vq/vL8Ppp+YMYCPVUr+O7RPyQna9Qm2RvLfWh9MKgi2Ns5WTYxot6bXfhsFtKLMUX/+qC1cGn0mkAAAAASUVORK5CYII=",
+},
+{
+label: '編輯文件',
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaElEQVQ4jWNgoCL4TwA3EGMAPrnrhAwhZIA4IUMIGcBAyBBCBqBjkgwgSi264Ewo7YFk60wcavEacBRNTJlUA/KgckfxqMVrAAzADCLoAnSnIyvOY0CECV4DkAOM7EDEB3AaQAqmDgAAtlxHLWMw/vEAAAAASUVORK5CYII=",
+child: [
+{
+label: "編輯通用user.js",
 tooltiptext: "左键: 编辑user.js",
 text: "\\user.js",
+exec: "\\..\\Software\\Notepad2\\Notepad2.exe",
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaElEQVQ4jWNgoCL4TwA3EGMAPrnrhAwhZIA4IUMIGcBAyBBCBqBjkgwgSi264Ewo7YFk60wcavEacBRNTJlUA/KgckfxqMVrAAzADCLoAnSnIyvOY0CECV4DkAOM7EDEB3AaQAqmDgAAtlxHLWMw/vEAAAAASUVORK5CYII=",
+}, 
+{
+label: "編輯個人_user.js",
+tooltiptext: "左键: 编辑_user.js",
+text: "\\chrome\\Local\\VimFx\\_user.js",
 exec: "\\..\\Software\\Notepad2\\Notepad2.exe",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaElEQVQ4jWNgoCL4TwA3EGMAPrnrhAwhZIA4IUMIGcBAyBBCBqBjkgwgSi264Ewo7YFk60wcavEacBRNTJlUA/KgckfxqMVrAAzADCLoAnSnIyvOY0CECV4DkAOM7EDEB3AaQAqmDgAAtlxHLWMw/vEAAAAASUVORK5CYII=",
 }, 
@@ -42,14 +61,13 @@ tooltiptext: "左键: 编辑CingFox更新日志",
 text: "\\readme.js",
 exec: "\\..\\Software\\Notepad2\\Notepad2.exe",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaElEQVQ4jWNgoCL4TwA3EGMAPrnrhAwhZIA4IUMIGcBAyBBCBqBjkgwgSi264Ewo7YFk60wcavEacBRNTJlUA/KgckfxqMVrAAzADCLoAnSnIyvOY0CECV4DkAOM7EDEB3AaQAqmDgAAtlxHLWMw/vEAAAAASUVORK5CYII=",
-}, 
-{},
-{
-label: "在IE中打開",
-text: "%u",
-exec: "C:\\Program Files\\Internet Explorer\\iexplore.exe",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABEElEQVQ4jZXSnVuDYRQG8B8EQTAIgkEQBMEgDIIwGA4Hg0EYBMH+gyAIh0EwHIRBEARBEAzDwWAweIP3bD17rmd9nOu64X3ec9/3+eJ/cYpL9DHAwabEHZyjG7jAbQik0SsRHzBHlWGBYebaSclNvEfyFK8FkQoznCSGqxhGwmP0t9ggsBTZS8n7QbjHVSQ9oRUu3UJbN6lAB2O0E+d+CC/xnAnMU4F2uM1+KLuEtRmMs5+fmPyCZlpBrn5mPY7Ud5BiFXl/FUZoJOS8vdGS3PC9+1xkirfC+yJmhnoDFQ7Vq/vL8Ppp+YMYCPVUr+O7RPyQna9Qm2RvLfWh9MKgi2Ns5WTYxot6bXfhsFtKLMUX/+qC1cGn0mkAAAAASUVORK5CYII=",
 },
+]
+},
+{
+label: '打開文件夾',
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVQ4jWNgoBLwZGBgeMbAwPAfCT+DihMFnjEwMFijiVlDxYk2QAOL+H8cGMN1uAzABTBcBzMVl43YXPAf3QD0MCDkAgwDSAWjBlDbgD8MDAzpJGhOh+qBgwaoALEJ6Q9UD+UAAEc9PeCabBc4AAAAAElFTkSuQmCC",
+child: [
 {
 label: "UserCSSLoader",
 tooltiptext: "UserCSSLoader文件夾",
@@ -61,6 +79,8 @@ label: "iMacros",
 tooltiptext: "iMacros文件夾",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\iMacros",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVQ4jWNgoBLwZGBgeMbAwPAfCT+DihMFnjEwMFijiVlDxYk2QAOL+H8cGMN1uAzABTBcBzMVl43YXPAf3QD0MCDkAgwDSAWjBlDbgD8MDAzpJGhOh+qBgwaoALEJ6Q9UD+UAAEc9PeCabBc4AAAAAElFTkSuQmCC",
+},
+]
 },
 {},
 {

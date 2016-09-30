@@ -1,8 +1,41 @@
 //2016.09.29
-{
+const EXPORTED_SYMBOLS = ['PREFS']
+
+var PREFS = {
 /******************************************************************************************
  *这里是个人设置。
  *******************************************************************************************/
+//*==========Firefox设置==========*//
+'signon.rememberSignons': false,//不保存密码
+'accessibility.blockautorefresh': false,//当网站试图重定向或重新载入时警告(否)
+//字體語言編碼
+'intl.charset.detector': "universal_charset_detector",//自動選擇
+'font.name.serif.zh-CN': "Arial",//衬線字體
+'font.name.sans-serif.zh-CN': "Arial",//無衬線字體
+'font.name.monospace.zh-CN': "Arial",//等寬字體
+//書籤相關
+'browser.bookmarks.autoExportHTML': true,//關閉Firefox时自動生成HTML書籤備份
+'browser.bookmarks.max_backups': 0,//最大备份数目
+'browser.places.smartBookmarksVersion': -1,//禁用智能书签
+//*=網路相關=*//
+//HTTPS不允许混合内容，以下两条参数用以禁用此特性
+'security.mixed_content.block_active_content': false,
+'security.mixed_content.block_display_content': false,
+//网络设定
+'nglayout.initialpaint.delay': 0,
+'network.http.pipelining': true,
+'network.http.proxy.pipelining': true,
+//平滑滾動
+'general.smoothScroll.durationToIntervalRatio': 500,
+'mousewheel.min_line_scroll_amount': 35,
+//*=FX其它类=*/
+'view_source.editor.external': true,//页面源代码——使用外部編輯器查看
+'browser.backspace_action': 2,//禁止Backspace键返回上一页
+//会话相关
+'browser.sessionstore.resume_from_crash': false,//关闭Firefox会话恢复功能
+'browser.sessionstore.max_tabs_undo': 10,//最近撤销标签历史最大数
+'browser.sessionstore.interval': 600000,//防止向SSD写入大量数量: 重写recovery.js文件的默认数值为“15000ms”(间隔时间15s), 改为10分钟
+
 //*==========扩展设置==========*//
 //adblockplus
 'extensions.adblockplus.patternsbackups': 0,

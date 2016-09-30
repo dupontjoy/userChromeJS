@@ -383,15 +383,15 @@ loadCss(`${__dirname}/UserCSSLoader/03-其他-99——網站修正.css`)
 
 //设置参数
 Preferences.set({
-'devtools.chrome.enabled': true,//VimFx必要
-'devtools.command-button-eyedropper.enabled': true,
-'devtools.command-button-rulers.enabled': true,
-'devtools.selfxss.count': 0,
-'privacy.donottrackheader.enabled': true,
 //VimFx
+'devtools.chrome.enabled': true,//VimFx必要
 'extensions.VimFx.prevent_autofocus': true,//阻止自动聚焦输入框
 'extensions.VimFx.ignore_keyboard_layout': true,//忽略键盘布局
 })
+
+//加载外置user.js文件
+let {PREFS} = Cu.import(`${__dirname}/_user.js?${Math.random()}`, {})
+Preferences.set(PREFS)
 
 /*————————————————————*/
 //必須，不要刪除

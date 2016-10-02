@@ -1,4 +1,4 @@
-//2016.09.29
+//2016.10.02
 
 /******************************************************************************************
 快捷键分类:
@@ -13,6 +13,7 @@ Hint模式: hints
 忽略模式: ignore
 
 参照配置:
+https://github.com/akhodakivskiy/VimFx/wiki/Share-your-config-file
 https://github.com/azuwis/.vimfx/blob/master/config.js
 https://github.com/lydell/dotfiles/blob/master/.vimfx/config.js
  *******************************************************************************************/
@@ -331,11 +332,11 @@ map('gs', 'toggle_https', true)
 
 vimfx.addCommand({
     name: 'ublock_bootstrap',
-    description: 'uBlock自定义规则',
+    description: 'uBlock第三方规则列表',
 }, ({vim}) => {
     let gBrowser = vim.window.gBrowser
     let url = gBrowser.selectedBrowser.currentURI.spec
-    let ublockUrl = 'chrome://ublock0/content/dashboard.html#dyna-rules.html'
+    let ublockUrl = 'chrome://ublock0/content/dashboard.html#3p-filters.html'
     if (url === ublockUrl) {
         ublockBootstrap(gBrowser.contentDocument)
     } else {
@@ -367,19 +368,19 @@ map('zu', 'umatrix_bootstrap', true)
  *其它加载(如CSS和部分User.js).
  *******************************************************************************************/
 //加载CSS
-loadCss(`${__dirname}/UserCSSLoader/userChrome.css`)
-loadCss(`${__dirname}/UserCSSLoader/Theme-Yosetime.css`)
-loadCss(`${__dirname}/UserCSSLoader/UI-New Tab-FX42.css`)
-loadCss(`${__dirname}/UserCSSLoader/01-UI-01——UI调整.css`)
-loadCss(`${__dirname}/UserCSSLoader/01-UI-02——附加組件.css`)
-loadCss(`${__dirname}/UserCSSLoader/02-微調-01——頁面.css`)
-loadCss(`${__dirname}/UserCSSLoader/02-微調-02——字體.css`)
-loadCss(`${__dirname}/UserCSSLoader/02-微調-03-1——圖標替換.css`)
-loadCss(`${__dirname}/UserCSSLoader/02-微調-03-2——圖標效果&排序.css`)
-loadCss(`${__dirname}/UserCSSLoader/02-微調-04——隱藏項.css`)
-loadCss(`${__dirname}/UserCSSLoader/03-其他-01——Cursors for hyperlinks.css`)
-loadCss(`${__dirname}/UserCSSLoader/03-其他-02——GPU Mode.css`)
-loadCss(`${__dirname}/UserCSSLoader/03-其他-99——網站修正.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/userChrome.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/Theme-Yosetime.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/UI-New Tab-FX42.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/01-UI-01——UI调整.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/01-UI-02——附加組件.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/02-微調-01——頁面.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/02-微調-02——字體.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/02-微調-03-1——圖標替換.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/02-微調-03-2——圖標效果&排序.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/02-微調-04——隱藏項.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/03-其他-01——Cursors for hyperlinks.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/03-其他-02——GPU Mode.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/03-其他-99——網站修正.css`)
 
 //设置参数
 Preferences.set({
@@ -390,24 +391,5 @@ Preferences.set({
 })
 
 //加载外置user.js文件
-let {PREFS} = Cu.import(`${__dirname}/_user.js?${Math.random()}`, {})
+let {PREFS} = Cu.import(`${__dirname}/../_user.js?${Math.random()}`, {})
 Preferences.set(PREFS)
-
-/*————————————————————*/
-//必須，不要刪除
-let bootstrapIfNeeded = () => {
-    let bootstrapFile = OS.Path.fromFileURI(`${__dirname}/config.js`)
-    let bootstrapPref = "extensions.VimFx.bootstrapTime"
-    let file = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile)
-    file.initWithPath(bootstrapFile)
-    if (file.exists() && file.isFile() && file.isReadable()) {
-        let mtime = Math.floor(file.lastModifiedTime / 1000)
-        let btime = Preferences.get(bootstrapPref)
-        if (!btime || mtime > btime) {
-            bootstrap()
-            Preferences.set(bootstrapPref, Math.floor(Date.now() / 1000))
-        }
-    }
-}
-bootstrapIfNeeded()
-

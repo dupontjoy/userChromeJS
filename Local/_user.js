@@ -1,4 +1,4 @@
-//2016.09.29
+//2016.10.02
 const EXPORTED_SYMBOLS = ['PREFS']
 
 var PREFS = {
@@ -17,6 +17,7 @@ var PREFS = {
 'browser.bookmarks.autoExportHTML': true,//關閉Firefox时自動生成HTML書籤備份
 'browser.bookmarks.max_backups': 0,//最大备份数目
 'browser.places.smartBookmarksVersion': -1,//禁用智能书签
+
 //*=網路相關=*//
 //HTTPS不允许混合内容，以下两条参数用以禁用此特性
 'security.mixed_content.block_active_content': false,
@@ -28,6 +29,7 @@ var PREFS = {
 //平滑滾動
 'general.smoothScroll.durationToIntervalRatio': 500,
 'mousewheel.min_line_scroll_amount': 35,
+
 //*=FX其它类=*/
 'view_source.editor.external': true,//页面源代码——使用外部編輯器查看
 'browser.backspace_action': 2,//禁止Backspace键返回上一页
@@ -101,7 +103,7 @@ var PREFS = {
 'grabScroll.button': 1,//使用GrabScroll抓取的键位：中键
 'grabScroll.clickable': false,//能够在链接上使用GrabScroll
 
-//newDownloadPlus
+//*=newDownloadPlus=*//
 //主界面
 'userChromeJS.downloadPlus.downloadSound_Play': true,//下載完成提示音
 'userChromeJS.downloadPlus.downloadFileSize': true,//精確顯示文件大小

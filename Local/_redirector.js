@@ -1,4 +1,4 @@
-//2016.09.05
+//2016.09.30
 
 //Redirector說明頁面: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份: https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -14,50 +14,6 @@ wildcard: false, // 可選，true 表示 from 是通配符
 regex: false, // 可選，true 表示 from 是正則表逹式
 resp: false, // 可選，true 表示替換 response body
 decode: false // 可選，true 表示尝試對 from 解碼
-},
-{
-name: "about:cing",
-from: "about:cing",
-to: "https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox",
-},
-{
-name: "about:sunbox",
-from: "about:sb",
-to: "http://sunbox.cc/",
-},
-{
-name: "about:runningcheese",
-from: "about:rc",
-to: "http://www.runningcheese.com/",
-},
-//TVC
-{
-//example: http://trunk.tvc-mall.com/c/hobbies-toys/
-name: "trunk.tvc|seculife",
-from: /^https?:\/\/trunk\.(tvc-mall|seculife)\.com\/(c\/|t\/|details\/|search|List)(.*)/i,
-to: "http://www.$1.com/$2$3",
-regex: true
-},
-{
-//example: http://ic.sjlpj.cn/#/ProductNewCategory/ProductNewCategoryManager
-name: "ProductNewCategory首页 每页100项",
-from: /^(https?:\/\/ic\.sjlpj\.cn\/.*ProductNewCategory\/ProductNewCategoryManager)$/,
-to: "$1?pageSize=100",
-regex: true
-},
-{
-//example: http://ic.sjlpj.cn/ProductNewCategory/ProductNewCategoryManager?quickParentId=97698
-name: "ProductNewCategory型号页 每页100项",
-from: /^(https?:\/\/ic\.sjlpj\.cn\/.*ProductNewCategory\/ProductNewCategoryManager\?quickParentId=[\d]+)$/,
-to: "$1&pageSize=100",
-regex: true
-},
-{
-//example: http://ic.sjlpj.cn/ProductScore/CategoryList
-name: "产品得分 默认全部",
-from: /^(https?:\/\/ic\.sjlpj\.cn\/.*ProductScore\/CategoryList)$/,
-to: "$1?CreateBeginDate=&CreateEndDate=&UpdateBeginDate=&UpdateEndDate=&IsFirstRequest=False",
-regex: true
 },
 
 //單獨網站
@@ -128,14 +84,13 @@ to: "http://book.bfnn.org/books$1",
 regex: true
 },
 {
-//example: http://ding.youku.com/a/id_XMTY2NDYw.html
-//方法來源: http://bbs.csdn.net/topics/391051571
-//Note: 需配置ReferChage使用,将qpic.cn和qlogo.cn设置为"@Block"
-name: "微信圖片 反盜鏈",
-from: /^https?:\/\/mmbiz\.(qpic|qlogo)\.cn\/mmbiz\/(.*)\/(.*)\?wx_fmt=(.*)/i,
-to: "http://mmbiz.qpic.cn/mmbiz/$2/640",
+//example: http://www.ftchinese.com/story/001069496
+name: "FT中文网全文",
+from: /^https?:\/\/www\.ftchinese\.com\/story\/([0-9]*)$/i,
+to: "http://www.ftchinese.com/story/$1?full=y",
 regex: true
 },
+
 
 
 //Google系
@@ -176,7 +131,7 @@ to: "https://fonts-gstatic.lug.ustc.edu.cn/$1",
 regex: true
 },
 
-//其它
+//通用网站
 {
 name: "bbs详细页面-1",
 from: /^https?:\/\/(.*)\/simple\/\?t(.*)\.html/i,
@@ -191,10 +146,60 @@ to: "$1/viewthread.php?tid=$2",
 regex: true
 },
 {
-//example: http://www.ftchinese.com/story/001069496
-name: "FT中文网全文",
-from: /^https?:\/\/www\.ftchinese\.com\/story\/([0-9]*)$/i,
-to: "http://www.ftchinese.com/story/$1?full=y",
+//example: http://ding.youku.com/a/id_XMTY2NDYw.html
+//方法來源: http://bbs.csdn.net/topics/391051571
+//Note: 需配置ReferChage使用,将qpic.cn和qlogo.cn设置为"@Block"
+name: "微信圖片 反盜鏈",
+from: /^https?:\/\/mmbiz\.(qpic|qlogo)\.cn\/mmbiz\/(.*)\/(.*)\?wx_fmt=(.*)/i,
+to: "http://mmbiz.qpic.cn/mmbiz/$2/640",
 regex: true
 },
+
+//TVC
+{
+//example: http://trunk.tvc-mall.com/c/hobbies-toys/
+name: "trunk.tvc|seculife",
+from: /^https?:\/\/trunk\.(tvc-mall|seculife)\.com\/(c\/|t\/|details\/|search|List)(.*)/i,
+to: "http://www.$1.com/$2$3",
+regex: true
+},
+{
+//example: http://ic.sjlpj.cn/#/ProductNewCategory/ProductNewCategoryManager
+name: "ProductNewCategory首页 每页100项",
+from: /^(https?:\/\/ic\.sjlpj\.cn\/.*ProductNewCategory\/ProductNewCategoryManager)$/,
+to: "$1?pageSize=100",
+regex: true
+},
+{
+//example: http://ic.sjlpj.cn/ProductNewCategory/ProductNewCategoryManager?quickParentId=97698
+name: "ProductNewCategory型号页 每页100项",
+from: /^(https?:\/\/ic\.sjlpj\.cn\/.*ProductNewCategory\/ProductNewCategoryManager\?quickParentId=[\d]+)$/,
+to: "$1&pageSize=100",
+regex: true
+},
+{
+//example: http://ic.sjlpj.cn/ProductScore/CategoryList
+name: "产品得分 默认全部",
+from: /^(https?:\/\/ic\.sjlpj\.cn\/.*ProductScore\/CategoryList)$/,
+to: "$1?CreateBeginDate=&CreateEndDate=&UpdateBeginDate=&UpdateEndDate=&IsFirstRequest=False",
+regex: true
+},
+
+//几个发行版快捷入口
+{
+name: "about:cing",
+from: "about:cing",
+to: "https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox",
+},
+{
+name: "about:sunbox",
+from: "about:sb",
+to: "http://sunbox.cc/",
+},
+{
+name: "about:runningcheese",
+from: "about:rc",
+to: "http://www.runningcheese.com/",
+},
+
 ];

@@ -1,4 +1,4 @@
-//2016.09.30
+//2016.10.02
 
 /**********************************************************************************
  *child:[  ]内爲當前菜單的下一級菜單配置,支持多級
@@ -44,7 +44,7 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaE
 {
 label: "編輯個人_user.js",
 tooltiptext: "左键: 编辑_user.js",
-text: "\\chrome\\Local\\VimFx\\_user.js",
+text: "\\chrome\\Local\\_user.js",
 exec: "\\..\\Software\\Notepad2\\Notepad2.exe",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaElEQVQ4jWNgoCL4TwA3EGMAPrnrhAwhZIA4IUMIGcBAyBBCBqBjkgwgSi264Ewo7YFk60wcavEacBRNTJlUA/KgckfxqMVrAAzADCLoAnSnIyvOY0CECV4DkAOM7EDEB3AaQAqmDgAAtlxHLWMw/vEAAAAASUVORK5CYII=",
 }, 
@@ -71,7 +71,7 @@ child: [
 {
 label: "UserCSSLoader",
 tooltiptext: "UserCSSLoader文件夾",
-exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\Local\\VimFx\\UserCSSLoader",
+exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\UserCSSLoader",
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVQ4jWNgoBLwZGBgeMbAwPAfCT+DihMFnjEwMFijiVlDxYk2QAOL+H8cGMN1uAzABTBcBzMVl43YXPAf3QD0MCDkAgwDSAWjBlDbgD8MDAzpJGhOh+qBgwaoALEJ6Q9UD+UAAEc9PeCabBc4AAAAAElFTkSuQmCC",
 },
 {

@@ -1,4 +1,4 @@
-/*+++ 2016.09.09 +++*/
+/*+++ 2016.09.30 +++*/
 
 /*---------------------------------
 指定域名时的几种方法:
@@ -81,4 +81,9 @@ left: -24px;
 /*360云盘Android UA显示完整标题*/
 @-moz-document regexp("https?:\/\/(.*)\.l(.*)\.yunpan\.cn\/.*") {
 #fileList .name{-moz-binding: url("data:application/xml,<?xml version='1.0' encoding='UTF-8'?><bindings xmlns='http://www.mozilla.org/xbl'><binding id='embed' bindToUntrustedContent='true'><implementation><constructor><![CDATA[this.textContent =this.parentNode.parentNode.parentNode.getAttribute('data-path')]]></constructor></implementation></binding></bindings>")}
+}
+
+/*天涯左侧Vip上座*/
+@-moz-document domain("tianya.cn") {
+[class="ds_vip_seats"]{display: none !important;}
 }

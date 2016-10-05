@@ -1,4 +1,4 @@
-//2016.10.02
+//2016.10.05
 
 /******************************************************************************************
 快捷键分类:
@@ -368,19 +368,19 @@ map('zu', 'umatrix_bootstrap', true)
  *其它加载(如CSS和部分User.js).
  *******************************************************************************************/
 //加载CSS
-loadCss(`${__dirname}/../../UserCSSLoader/userChrome.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/Theme-Yosetime.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/UI-New Tab-FX42.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/01-UI-01——UI调整.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/01-UI-02——附加組件.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/02-微調-01——頁面.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/02-微調-02——字體.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/02-微調-03-1——圖標替換.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/02-微調-03-2——圖標效果&排序.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/02-微調-04——隱藏項.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/03-其他-01——Cursors for hyperlinks.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/03-其他-02——GPU Mode.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/03-其他-99——網站修正.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/userChrome.css`)//用VimFx加载才能免重启生效
+loadCss(`${__dirname}/../../UserCSSLoader/01-UI——iOS7 Style NewTab.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/01-UI——Theme-Yosetime.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/01-UI——UI调整.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/01-UI——附加組件.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/02-微調——頁面.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/02-微調——字體.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/02-微調——圖標替換.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/02-微調——圖標效果&排序.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/02-微調——隱藏項.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/03-其他——Cursors for hyperlinks.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/03-其他——GPU Mode.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/03-其他——網站修正.css`)
 
 //设置参数
 Preferences.set({

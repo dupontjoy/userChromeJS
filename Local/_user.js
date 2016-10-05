@@ -1,4 +1,4 @@
-//2016.10.02
+//2016.10.04
 const EXPORTED_SYMBOLS = ['PREFS']
 
 var PREFS = {
@@ -19,6 +19,7 @@ var PREFS = {
 'browser.places.smartBookmarksVersion': -1,//禁用智能书签
 
 //*=網路相關=*//
+'network.proxy.socks_remote_dns': true,//设置远程DNS解析可以防止DNS劫持
 //HTTPS不允许混合内容，以下两条参数用以禁用此特性
 'security.mixed_content.block_active_content': false,
 'security.mixed_content.block_display_content': false,

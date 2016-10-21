@@ -1,4 +1,4 @@
-/*+++ 2016.09.18 +++*/
+/*+++ 2016.10.17 +++*/
 
 /*Firefox自带菜单加图标最后在ID后加上 > .menu-iconic-left > .menu-iconic-icon, 否则右边小三角可能消失*/
 
@@ -414,7 +414,9 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 }
 
 /*全選*/
+#menu_selectall,
 [cmd="cmd_selectAll"],
+[command="cmd_selectAll"],
 #urlbar menuitem[cmd="cmd_selectAll"],
 #searchbar menuitem[cmd="cmd_selectAll"],
 #searchFilter menuitem[cmd="cmd_selectAll"],

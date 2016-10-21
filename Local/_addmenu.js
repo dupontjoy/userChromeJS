@@ -1,4 +1,4 @@
-//2016.09.18
+//2016.10.17
 
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
@@ -321,43 +321,7 @@ if (urls.length === 0) return;
 addMenu.copy(urls.join('\n'));
 }
 },
-{
-label: "保存選中文本",
-accesskey: "S",
-condition: "select",
-image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeElEQVQ4jWNgoBJYz8DA8J8Afs7AwNDOwMDAgs2A/1B6O5IGZHCZgYFBgoGB4ToDA8NqbIbANMzHYcB+KI3TEGINQDaEJBfcxqEeQyACqvg+Gr5MrAHEgkFsgBgDA8N7BkioY8NEGbAfXRKL+CA04DQD4cyEjqkDAH5+TabhljjtAAAAAElFTkSuQmCC",
-oncommand: function() {
-if (!window.NetUtil) Cu.import("resource://gre/modules/NetUtil.jsm");
-if (!window.FileUtils) Cu.import("resource://gre/modules/FileUtils.jsm");
 
-goDoCommand('cmd_copy');
-var data = readFromClipboard();
-
-var fp = Cc["@mozilla.org/filepicker;1"].createInstance(Ci.nsIFilePicker);
-fp.init(window, "另存爲", Ci.nsIFilePicker.modeSave);
-fp.appendFilter("文本文件", "*.txt");
-fp.defaultString = content.document.title + '.txt';
-
-var res = fp.show();
-if (res != Ci.nsIFilePicker.returnCancel) {
-var aFile = fp.file;
-
-var ostream = FileUtils.openSafeFileOutputStream(aFile);
-
-var converter = Cc["@mozilla.org/intl/scriptableunicodeconverter"].createInstance(Ci.nsIScriptableUnicodeConverter);
-converter.charset = "gbk";
-var istream = converter.convertToInputStream(data);
-
-NetUtil.asyncCopy(istream, ostream, function(status) {
-if (!Components.isSuccessCode(status)) {
-// Handle error!
-return;
-}
-
-aFile.launch();
-});
-}
-}}
 ];
 
 var menu = PageMenu({ condition:'select', insertBefore:'context-paste', onpopupshowing: syncHidden,image:"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII="  });
@@ -390,7 +354,7 @@ e.checked = !e.checked;
 
 //快捷回复，打造多級菜單
 new function() {
-var  QuickReplySub = PageMenu({
+var QuickReplySub = PageMenu({
 label: "快速回覆",
 condition: "input noselect",
 accesskey: "W",
@@ -571,16 +535,11 @@ page(
 label: "用新分頁開啟鏈結",
 condition: "link",
 position: 1,
-tooltiptext: "左鍵: 用新分頁開啟鏈結\n中鍵: 迅雷雲播放\n右鍵: 複製鏈接網址",
+tooltiptext: "左鍵: 用新分頁開啟鏈結\n右鍵: 複製鏈接網址",
 onclick: function(e) {
 switch(e.button) {
 case 0:
 gBrowser.addTab(addMenu.convertText("%RLINK%"));
-closeMenus(this);
-break;
-case 1:
-gBrowser.selectedTab = gBrowser.addTab("http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=" + addMenu.convertText("%RLINK_OR_URL%"));/*前臺新標籤*/
-/*gBrowser.addTab("http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=" + addMenu.convertText("%RLINK_OR_URL%"));/*後臺新標籤*/
 closeMenus(this);
 break;
 case 2:
@@ -590,6 +549,25 @@ break;
 }
 },
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZ0lEQVQ4jWNgGCyAjYGBYRIDA8NrBgaG/0Tg11D1bDADJjEwMOxmYGAQJ9JCcaj6VpjAaxI0IxvyGsb5j0chXjkmEm3FABQbwIJDHN3ZyHxGYjQQLTfwYUCMAVj9TDUXwEzHF1C0BQCpARnHXF2p+wAAAABJRU5ErkJggg=="
+}
+)
+
+page(
+{
+label: "VIP視頻雲解析",
+condition: "link",
+position: 2,
+tooltiptext: "左鍵: 紫狐\n中鍵: 有範\n右鍵: 迅雷",
+onclick: function(event){
+var url = addMenu.convertText("%RLINK_OR_URL%");
+if (event.button === 0)
+gBrowser.selectedTab = gBrowser.addTab("http://yun.zihu.tv/play.html?url=" + url);
+if (event.button === 1)
+gBrowser.selectedTab = gBrowser.addTab("http://www.ufanw.com/play/play.html?url=" + url);
+if (event.button === 2)
+gBrowser.selectedTab = gBrowser.addTab("http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=" + url);
+},
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4je3RIUzDQBjF8V9CMotEoTCYufopBBqLx1ZOYiZn0JVIVC0WXTuJm6mqmpmY6Dt2CYIESXjJ9a7/vn7fvTv+hJ6wRocPTNhnfg+fcMCA1/gfsIIjtmgLiC5SfIPrsCZsiz6F58cvNcInbgJKhBHPlXEd3xgPLLGTnPeBh2T7qh7tMz/GI76+VH+p4JBd1NHK+1A16Mzn5iod7n4KXGmVfy4LaALawAVus7s260W+tYn3reHS+Wom8wF1Gbtkn/AW77+iE6SaONczlmqVAAAAAElFTkSuQmCC"
 }
 )
 
@@ -609,12 +587,6 @@ break;
 }
 },
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII="
-},
-{
-label: "海詞劃詞翻譯",
-accesskey: "D",
-url: "javascript:void((function()%20{var%20element=document.createElement('script');%20element.setAttribute('src',%20'http://dict.cn/hc/init.php');%20document.body.appendChild(element);})())",
-image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAtUlEQVQ4jZ2SsQ3DMAwEbwRt4MILZIH07lVnBY+RHdRlgzQZwI1aB0GSeZRCFGAolE37AQLCi0+RT8E/7sCo8GY44AUMVkEyRjjSjQc+1uQJ6CsuKlwTZxEUDMDNKl6KAnkLkWzoLjjgeUTcAW+y2wN57uJ+8aBwvhbXiTWi3E9ynre6SSt8j2EzWgEPfOU8Ao+9BSJwIRt7kpymyfUX1rgEXNe6WCJIdPKqI4/U8krtSMMM8AO1kDmDDy8CTAAAAABJRU5ErkJggg=="
 },
 {
 label: "Favicon|Base64",

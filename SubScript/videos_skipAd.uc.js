@@ -3,73 +3,59 @@
 // @description     视频站去广告
 // @include         main
 // @author          xinggsf
-// @version         2016.7.16
+// @version         2016.10.15
 // @homepage        http://bbs.kafan.cn/thread-2048252-1-1.html
 // @downloadUrl     https://raw.githubusercontent.com/xinggsf/uc/master/videos_skipAd.uc.js
 // @startup         videos_skipAd.startup();
 // @shutdown        videos_skipAd.shutdown();
 // ==/UserScript
 
-/*
-https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/nsIHttpChannel
-为去黑屏，请在ABP之类的过滤工具中添加免过滤规则：
-@@|http://hc.yinyuetai.com/partner/yyt/
+/* 为去黑屏，请在ABP之类的过滤工具中添加免过滤规则：
 @@|http://v.aty.sohu.com/v$object-subrequest
-@@||atm.youku.com/v$object-subrequest
-
 */
+if (!String.prototype.includes) {
+	String.prototype.includes = function(s) {
+		return -1 !== this.indexOf(s);
+	};
+}
+String.prototype.mixMatchUrl = function(ml) {//正则或ABP规则匹配网址
+	if (ml instanceof RegExp)
+		return ml.test(this);
+	if (ml.startsWith('||')) {//ml: '||.cn/xxxxx'
+		let i = this.indexOf('/', 11)-3, //4: g.cn; 11:7+4
+		j = this.indexOf(ml.slice(2), 7);
+		return -1 !== j && j < i;
+	}
+	if (ml[0] === '|')
+		return this.startsWith(ml.slice(1));
+	if (ml[ml.length-1] === '|')
+		return this.endsWith(ml.slice(0, ml.length-1));
+	return this.includes(ml);
+};
+
 (function() {
-	if (!String.prototype.includes) {
-		String.prototype.includes = function(s) {
-			return -1 !== this.indexOf(s);
-		}
-	}
-	String.prototype.mixMatchUrl = function(ml) {//正则或ABP规则匹配网址
-		if (ml instanceof RegExp)
-			return ml.test(this);
-		if (ml.startsWith('||')) {//ml: '||.cn/xxxxx'
-			let i = this.indexOf('/', 11) -3, //4: g.cn; 11:7+4
-			j = this.indexOf(ml.slice(2), 7);
-			return -1 !== j && j < i;
-		}
-		if (ml[0] === '|')
-			return this.startsWith(ml.slice(1));
-		if (ml[ml.length-1] === '|')
-			return this.endsWith(ml.slice(0, ml.length-1));
-		return this.includes(ml);
-	}
     Cu.import("resource://gre/modules/XPCOMUtils.jsm");
-	let {Services} = Cu.import("resource://gre/modules/Services.jsm", null);
+	Cu.import("resource://gre/modules/Services.jsm");
 
 	const DIRECT_FILTERS = [//flash请求广告地址
 		'|http://sax.sina.com.cn/',
 		'|http://de.as.pptv.com/',
 		'||.gtimg.com/qqlive/', //qq pause
-		//'/vmind.qqvideo.tc.qq.com/',
+		'/vmind.qqvideo.tc.qq.com/',
 		/^http:\/\/v\.163\.com\/special\/.+\.xml/,
-		/^http:\/\/www\.iqiyi\.com\/common\/flashplayer\/\d+\/(\w{32}|cornersign.+)\.swf/,//pause
 		'||.letvimg.com/',
-		/^http:\/\/(\d+\.){3}(\d{1,3}\/){4}letv-gug\/\d{1,3}\/ver.+\.mp4\?/,
+		//^http:\/\/(\d+\.){3}\d+\/(\d{1,3}\/){3}letv-gug\/\d{1,3}\/ver.+\.mp4\?/,
+		/^http:\/\/www\.iqiyi\.com\/common\/flashplayer\/201\d{5}\/\w{32}\.swf/,//pause
+		//^http:\/\/pic\d\.qiyipic\.com\/common\/201\d{5}\/\w{32}\.jpg$/,//pause ||qiyipic.com/common/201*.jpg|$object-subrequest
+		//http://59.63.201.15/videos/v0/20161010/63/38/2406cf2ed648e41eceb4954a604b3e79.f4v?
+		//^http:\/\/(\d+\.){3}\d+\/videos\/v\d\/201\d{5}\/.+\/\w{32}\.(f4v|hml)\?/
+		'|http://www.iqiyi.com/player/cupid/common/icon_exclusive.swf',
 	],
-	swfWhiteList = [//gpu加速白名单
-		'||.pdim.gs/static/',//熊猫直播
-		'|http://v.6.cn/apple/player/',
-		'||.plures.net/pts/swfbin/player/',//龙珠直播
-		'|http://www.gaoxiaovod.com/ck/player.swf',
-		'|http://assets.dwstatic.com/video/',
-	],
-	swfBlockList = [//免gpu加速名单
-		'upload.swf',
-		/clipboard\d*\.swf$/,
-		'|http://static92cc.db-cache.com/swf/',
-		'||.douyutv.com/',
-		'|http://www.kcis.cn/wp-content/themes/kcis/',
-	];
-	let FILTERS = [
+	FILTERS = [
 		{
 			'id': 'youku',
 			'player': [
-				/^http:\/\/static\.youku\.com\/v.+(?:play|load)er.*\.swf/,
+				//^http:\/\/static\.youku\.com\/v.+(?:play|load)er.*\.swf/,
 				'|http://player.youku.com/player.php/sid/',
 				'|http://cdn.aixifan.com/player/cooperation/acfunxyouku.swf',
 			],
@@ -81,94 +67,61 @@ https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/
 			'url': /^http:\/\/val[fcopb]\.atm\.youku\.com\/v[fcopb]/
 		},{
 			'id': 'iqiyi',
-			'player':[
-				/^http:\/\/www\.iqiyi\.com\/.+player.+\.swf/,
-				'|http://dispatcher.video.qiyi.com/disp/',
-			],
+			'player': /^http:\/\/www\.iqiyi\.com\/.+player.+\.swf/,
 			'cover': '|http://cache.video.qiyi.com/vms?',
 			'url': /^http:\/\/(\w+\.){3}\w+\/videos\/other\/\d+\/.+\.(f4v|hml)/
 		},{
 			'id': 'sohu',
-			'player': /^http:\/\/tv\.sohu\.com\/upload\/swf\/.+\/main\.swf/,
+			'player': [
+				/^http:\/\/tv\.sohu\.com\/upload\/swf\/.+\/main\.swf/,
+				/^http:\/\/(\d{1,3}\.){3}\d{1,3}\/wp8player\/main\.swf/,
+				'|http://static.hdslb.com/sohu.swf',
+			],
 			'url': '|http://v.aty.sohu.com/v',
 			'secured': true
 		},
-/* 		{
-			'id': 'qq',
-			'player': /^http:\/\/(cache\.tv|imgcache)\.qq\.com\/.+player.*\.swf/,
-			'url': '/vmind.qqvideo.tc.qq.com/',
-			'cover': '||.l.qq.com/livemsg?ty=web&ad_type='
-		}, */
 	],
 	HTML5_FILTERS = [
 		{//音悦台MV去黑屏
-			'id': 'yinyuetai',
-			'url': '|http://hc.yinyuetai.com/partner/yyt/'
+			// 'id': 'yinyuetai',
+			// 'url': '|http://hc.yinyuetai.com/partner/yyt/'
 		},
-	];
+	],
+	swfWhiteList = [//gpu加速白名单
+		'||.pdim.gs/static/',//熊猫直播
+		'|http://v.6.cn/apple/player/',
+		'||.plures.net/pts/swfbin/player/live.swf',//龙珠直播
+		'|http://www.gaoxiaovod.com/ck/player.swf',
+		'|http://assets.dwstatic.com/video/',
+	],
+	//注意：此处上下二个名单的地址必须是小写字母
+	swfBlockList = [//免gpu加速名单
+		'upload.swf',
+		/clipboard\d*\.swf$/,
+		//'|http://static92cc.db-cache.com/swf/',
+		'||staticlive.douyucdn.cn/',
+		'||static.hdslb.com/live-static/swf/liveplayer',
+	],
 
-	let Utils = {
+	Utils = {
 		getWindow: function(node) {
-			if (node.ownerDocument)
+			if ("ownerDocument" in node && node.ownerDocument)
 				node = node.ownerDocument;
 			if ("defaultView" in node)
 				return node.defaultView;
 			return null;
 		},
-		getDOMWindow: function(win) { //win是chrome窗口
-			try { //nsIInterfaceRequestor为聚合接口，即一个对象实现多个接口
-				return win.QueryInterface(Ci.nsIInterfaceRequestor)
-						.getInterface(Ci.nsIWebNavigation)
-						.QueryInterface(Ci.nsIDocShellTreeItem)
-						.rootTreeItem
-						.QueryInterface(Ci.nsIInterfaceRequestor)
-						.getInterface(Ci.nsIDOMWindow);
-			} catch(e) {}
-		},
-        getNodeForRequest: function(http) {
-            if (http instanceof Ci.nsIRequest){
-                try {
-                    let x = http.notificationCallbacks ||
-						http.loadGroup.notificationCallbacks;
-					if (x) return x.getInterface(Ci.nsILoadContext);
-						// x.getInterface(Ci.nsIDOMNode)//nsIDOMNode无定义
-                } catch(e) {}
-            }
-            return null;
-        },
-        getWindowForRequest: function(http){
-            if (http instanceof Ci.nsIRequest){
-                try {
-                    let x = http.notificationCallbacks ||
-						http.loadGroup.notificationCallbacks;
-					if (x) return x.getInterface(Ci.nsILoadContext)
-						.associatedWindow;
-                } catch(e) {}
-            }
-            return null;
-        },
 		block: function(http, secured) {
 			if (secured) http.suspend();
 			else http.cancel(Cr.NS_BINDING_ABORTED);
 		},
-		verifyHeader: function(http, field, partVal) {
-			try {
-				return http.getResponseHeader(field).includes(partVal);
-            } catch(e) {
-				Cu.reportError(e);
-				return !1;
-			}
-		},
-		/* 错！referrer是指页面地址，而requestHeader中的Referer才是指向node地址或页面地址
-		isFromFlash: function(http) {
-			return /\.swf(?:$|\?)/.test(http.referrer.spec);
-		}, */
 		openFlashGPU: function(p, data) {
-			if ('url' in data && !this.isPlayer(p, data.url))
+			if (!data.isPlayer && !this.isPlayer(p, data.url))
 				return;
 			(p instanceof Ci.nsIDOMHTMLEmbedElement) ? p.setAttribute('wmode', 'gpu')
 				: this.setFlashParam(p, 'wmode', 'gpu');
-			p.parentNode.replaceChild(p.cloneNode(true), p);
+			//this.refreshElem(p);
+			//p.parentNode.replaceChild(p.cloneNode(true), p);
 		},
 		isPlayer: function(p, url) {
 			if (swfWhiteList.some(x => url.mixMatchUrl(x))) return !0;
@@ -179,6 +132,15 @@ https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/
 			if (p instanceof Ci.nsIDOMHTMLEmbedElement)
 				return p.matches('[allowFullScreen]');
 			return /"allowfullscreen"/i.test(p.innerHTML);
+		},
+		refreshElem: function(o) {
+			let s = o.style.display;
+			o.style.display = 'none';
+			setTimeout(() => {
+				s ? o.style.display = s : o.style.removeProperty('display');
+				if ('' === o.getAttribute('style'))
+					o.removeAttribute('style');
+			}, 9);
 		},
 		setFlashParam: function(p, name, v) {
 			let e = p.querySelector('embed');
@@ -209,7 +171,7 @@ https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/
 			} catch (e) {
 				return null;
 			}
-		},
+		}
 	};
 
 	if (window.videos_skipAd) {
@@ -242,45 +204,39 @@ https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/
 		doPlayer: function(url, node) {
 			for (let i of FILTERS) {
 				if (this.matchPlayer(i, url)) {
-					i.swf = url;
-					i.count = 0;
-					Utils.openFlashGPU(node, {});
+					this.nodeMap.set(node, 0);
+					Utils.openFlashGPU(node, {'isPlayer': 1});
 					return;
 				}
 			}
-			Utils.openFlashGPU(node, {url});
+			Utils.openFlashGPU(node, {'url': url});
 		},
 		filter: function(http) {
+			//log(http.contentType);
 			let s = http.URI.spec.toLowerCase();
 			if (s in this.blockUrls) {
 				let i = this.blockUrls[s];
-				if (typeof i.filter === 'function') i.filter(http);
-				else Utils.block(http, i.secured);
+				Utils.block(http, i.secured);
+				log('已过滤： ' +s);
 				delete this.blockUrls[s];
 			}
 		},
 		preFilter: function(node, url) {
-			let playerUrl = (node instanceof Ci.nsIDOMHTMLEmbedElement) ?
-				node.src : node.data || node.children.movie.value;
-			playerUrl = playerUrl.toLowerCase();
-			//Cu.reportError(`${node}, ${url}`);
+			if (!this.nodeMap.has(node)) return;
+			//log(node, url);
 			for (let i of FILTERS) {
 				if (i.cover && url.mixMatchUrl(i.cover)) {
-					if (this.matchPlayer(i, playerUrl)) {
-						i.count = 0;
-						i.swf = playerUrl;
-					}
+					this.nodeMap.set(node, 0);
 					return;
 				}
-				if (i.swf === playerUrl && url.mixMatchUrl(i.url)) {
-					this.blockUrls[url] = i;
+				if (url.mixMatchUrl(i.url)) {
+					if (!i.filter || i.filter(node))
+						this.blockUrls[url] = i;
 					return;
 				}
 			}
 		},
 		html5Filter: function(http) {
-			// if (http.contentType !== 'video/mp4') return;
-			if (http.isNoCacheResponse()) return;
 			let s = http.URI.spec.toLowerCase();
 			for (let i of HTML5_FILTERS) {
 				if (s.mixMatchUrl(i.url)) {
@@ -292,10 +248,9 @@ https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/
 		setReferer: function(http) {
 			http.setRequestHeader('Referer', 'http://www.youku.com/', !1);
 		},
-        /** nsIContentPolicy interface implementation
-		@contentType: TYPE_IMAGE=3, TYPE_OBJECT=5, TYPE_DOCUMENT =6, TYPE_SUBDOCUMENT =7, TYPE_OBJECT_SUBREQUEST =12, TYPE_MEDIA =15, TYPE_OTHER =1
-		@contentLocation 请求地址URI
-		@requestOrigin 页面地址URI  */
+        // nsIContentPolicy interface implementation
+		// @contentType: TYPE_IMAGE=3, TYPE_OBJECT=5, TYPE_DOCUMENT =6, TYPE_SUBDOCUMENT =7, TYPE_OBJECT_SUBREQUEST =12, TYPE_MEDIA =15, TYPE_OTHER =1
+		//@contentLocation 请求地址URI, @requestOrigin 页面地址URI
         shouldLoad: function(contentType, contentLocation, requestOrigin, node, mimeTypeGuess, extra) {
 			// Ignore requests without context and top-level documents
 			if (!node || contentType == 6)
@@ -305,9 +260,12 @@ https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/
 			if (!wnd) return Ci.nsIContentPolicy.ACCEPT;
 
 			let url = Utils.unwrapURL(contentLocation).spec.toLowerCase();
+			/* if (node instanceof Ci.nsIDOMHTMLObjectElement) {
+				log(node, "contentType:", contentType, url);
+			} */
 			if (contentType !==5 && contentType !==12 && (node instanceof Ci.nsIDOMHTMLObjectElement || node instanceof Ci.nsIDOMHTMLEmbedElement))
 			{
-				//Fix type for object_subrequest misrepresented as media/images..etc
+				//Fix type for object_subrequest misrepresented as media/images/other ..etc
 				if (!/\.swf(?:$|\?)/.test(url))
 					contentType = 12;
 				//Fix type for objects misrepresented as frames or images
@@ -316,7 +274,7 @@ https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/
 			}
 
 			if (contentType === 5) {//objects
-				//Application.console.log(`${node}, ${url}`);
+				//log(contentType, url);
 				this.doPlayer(url, node);
 			}
 			else if (contentType === 12) {//object_subrequest
@@ -351,11 +309,12 @@ https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/
                 //Services.obs.addObserver(this, "http-on-modify-request", false);
                 Services.obs.addObserver(this, "http-on-examine-response", false);
             }
+			this.nodeMap = new WeakMap();
 			let item = FILTERS.find(k => k.id === 'iqiyi');
-			item.filter = function (http) {
-				this.count ++;
-				if (2 !== this.count)
-					Utils.block(http, this.secured);
+			item.filter = node => {
+				let i = this.nodeMap.get(node) +1;
+				this.nodeMap.set(node, i);
+				return 2 !== i;
 			};
 			this.blockUrls = {};
         },
@@ -367,11 +326,14 @@ https://developer.mozilla.org/en-US/docs/Mozilla/Tech/XPCOM/Reference/Interface/
                 for (let category of this.xpcom_categories)
                     catMan.deleteCategoryEntry(category, this.contractID, false);
                 //Services.obs.removeObserver(this, "http-on-modify-request");
-                Services.obs.removeObserver(this, "http-on-examine-response", false);
+                Services.obs.removeObserver(this, "http-on-examine-response");
             }
-			delete this.blockUrls;
+			this.blockUrls = null;
         }
     };
+	function log(...a) {
+		Cu.reportError(a.join(', '));
+	}
 
 	videos_skipAd.startup();
 })();

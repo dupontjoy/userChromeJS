@@ -27,4 +27,4 @@ rem 開始備份
 move %TargetFolder%\%Name% %TargetFolder1%
 
 @echo 備份完成！并刪除臨時文件夾！
-rd "%TempFolder%" "%TempFolder1%" "%TempFolder2%" "%TempFolder3%" /s/q
+rd "%TempFolder%" /s/q

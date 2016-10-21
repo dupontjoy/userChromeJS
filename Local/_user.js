@@ -1,4 +1,5 @@
-//2016.10.04
+//2016.10.14
+
 const EXPORTED_SYMBOLS = ['PREFS']
 
 var PREFS = {
@@ -6,6 +7,7 @@ var PREFS = {
  *这里是个人设置。
  *******************************************************************************************/
 //*==========Firefox设置==========*//
+'layers.acceleration.disabled': true,//禁用硬件加速MacType才生效
 'signon.rememberSignons': false,//不保存密码
 'accessibility.blockautorefresh': false,//当网站试图重定向或重新载入时警告(否)
 //字體語言編碼
@@ -19,10 +21,6 @@ var PREFS = {
 'browser.places.smartBookmarksVersion': -1,//禁用智能书签
 
 //*=網路相關=*//
-'network.proxy.socks_remote_dns': true,//设置远程DNS解析可以防止DNS劫持
-//HTTPS不允许混合内容，以下两条参数用以禁用此特性
-'security.mixed_content.block_active_content': false,
-'security.mixed_content.block_display_content': false,
 //网络设定
 'nglayout.initialpaint.delay': 0,
 'network.http.pipelining': true,
@@ -32,6 +30,7 @@ var PREFS = {
 'mousewheel.min_line_scroll_amount': 35,
 
 //*=FX其它类=*/
+'gfx.content.azure.backends': "direct2d1.1,cairo",//图形渲染;FX52默认的Skia不支持Mactype
 'view_source.editor.external': true,//页面源代码——使用外部編輯器查看
 'browser.backspace_action': 2,//禁止Backspace键返回上一页
 //会话相关
@@ -76,8 +75,8 @@ var PREFS = {
 'extensions.dta.alertbox': 0,//下載完成後對話視窗提示
 'extensions.dta.closedta': true,//辯識並列出Flash影片
 'extensions.dta.ctxmenu': "0,0,0",//不顯示右鍵菜單
-'extensions.dta.removecanceled': true,//從清單中移除中斷及錯誤的下載
 'extensions.dta.confirmremove': false,//移除下載前不提示
+'extensions.dta.loadendfirst': 4096,//先下载最后一段数据(KB)
 
 //Greasemonkey
 'extensions.greasemonkey.stats.prompted': true,//不弹改进建议提示

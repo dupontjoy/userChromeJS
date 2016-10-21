@@ -1,4 +1,4 @@
-/*+++ 2016.09.30 +++*/
+/*+++ 2016.10.18 +++*/
 
 /*---------------------------------
 指定域名时的几种方法:
@@ -72,18 +72,15 @@ left: -24px;
 }
 }
 
-/*屏蔽贴吧所有等级为1级和2级的用户*/
-@-moz-document domain("tieba.baidu.com") {
-.l_post[data-field*="\"level_id\":1,"]{display: none !important;}
-.l_post[data-field*="\"level_id\":2,"]{display: none !important;}
-}
-
 /*360云盘Android UA显示完整标题*/
 @-moz-document regexp("https?:\/\/(.*)\.l(.*)\.yunpan\.cn\/.*") {
 #fileList .name{-moz-binding: url("data:application/xml,<?xml version='1.0' encoding='UTF-8'?><bindings xmlns='http://www.mozilla.org/xbl'><binding id='embed' bindToUntrustedContent='true'><implementation><constructor><![CDATA[this.textContent =this.parentNode.parentNode.parentNode.getAttribute('data-path')]]></constructor></implementation></binding></bindings>")}
 }
 
-/*天涯左侧Vip上座*/
+/*天涯旁边广告*/
 @-moz-document domain("tianya.cn") {
-[class="ds_vip_seats"]{display: none !important;}
+[id="ty_msg_mod"],
+[class="btnOpen"],
+[class="ds_vip_seats"]
+{display: none !important;}
 }

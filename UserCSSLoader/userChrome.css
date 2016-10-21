@@ -1,4 +1,4 @@
-/*+++ 2016.09.20 +++*/
+/*+++ 2016.10.05 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 /*自动隐藏AidBar*/
@@ -43,6 +43,7 @@ padding: 0px !important;
 }
 
 /*隐藏图标*/
+#UIEnhancerToolbarButton,/*Location Bar Enhancer*/
 #VimFxButton,/*vimfx按钮,可输入"?"直接调用*/
 #imacros-toggle-button,/*iMacros扩展*/
 #nav-bar-overflow-button,/*工具栏-更多工具按钮*/

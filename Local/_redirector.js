@@ -1,4 +1,4 @@
-//2016.09.30
+//2016.10.14
 
 //Redirector說明頁面: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份: https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -16,7 +16,9 @@ resp: false, // 可選，true 表示替換 response body
 decode: false // 可選，true 表示尝試對 from 解碼
 },
 
-//單獨網站
+/******************************************************************************************
+ *指定網站
+ *******************************************************************************************/
 {
 //example: https://zh.wikipedia.org/wiki/%E7%99%BB%E7%9B%9B
 name: "Wiki中文 台湾正体",
@@ -39,16 +41,10 @@ to: "http://$1.ifeng.com/$2shtml$3",
 regex: true
 },
 {
-//example: http://www.jobui.com/tips/redirect.php?link=http%3A%2F%2Fjobs.51job.com%2Fshenzhen-nsq%2F58889341.html
-//example: https://link.zhihu.com/?target=https%3A//addons.mozilla.org/zh-cn/firefox/addon/linkchecker/%3Fsrc%3Dsearch
-//example: https://www.douban.com/link2/?url=https%3A%2F%2Fcode.google.com%2Fp%2Fchromium%2Fissues%2Fdetail%3Fid%3D51084
-//example: https://outgoing.mozilla.org/v1/5c2a5620285210f7267fdf87cfd39943f03f42538d2d98eec0b0cf5565dbca23/http%3A//vimium.github.io/
-//example: https://www.google.com/imgres?imgurl=https%3A%2F%2Flh4.ggpht.com%2FwKrDLLmmxjfRG2-E-k5L5BUuHWpCOe4lWRF7oVs1Gzdn5e5yvr8fj-ORTlBF43U47yI%3Dw300&imgrefurl=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dde.lotumapps.vibes&docid=Udigcj5zvVFziM&tbnid=D_y2y56rjrSoKM%3A&w=300&h=300&ved=0ahUKEwiywYaM0-rNAhWHfywKHdI0BSMQMwglKAAwAA&iact=mrc&uact=8&biw=1366&bih=659
-//example: http://www.so.com/link?url=http%3A%2F%2Fbaike.so.com%2Fdoc%2F4368934-4574777.html&q=Firefox&ts=1469089830&t=8d126c3df745e90727a2acb3821708d&src=haosou
+//https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector/link_direct
 name: "去跳轉",
 from:/^https?:\/\/.*\.(?:jobui|zhihu|douban|mozilla|google|so|)\.(?:com|org|)\/(.*(\?link|\?target|\?url|\?imgurl)=)?(http[^&]+).*/i,
 to: "$3",
-decode: true,
 regex: true
 },
 {
@@ -60,9 +56,9 @@ regex: true
 },
 {
 //example: http://userscripts.org/
-name: "userscripts >> webextender鏡像",
+name: "userscripts >> 鏡像",
 from: /^https?:\/\/userscripts\.org(?:\:8080|)\/(.*)/i,
-to: "http://webextender.net/$1",
+to: "http://userscripts-mirror.org/$1",
 regex: true
 },
 {
@@ -90,10 +86,18 @@ from: /^https?:\/\/www\.ftchinese\.com\/story\/([0-9]*)$/i,
 to: "http://www.ftchinese.com/story/$1?full=y",
 regex: true
 },
+{
+//example: http://tieba.baidu.com/mo/m?kw=%E4%BB%93%E9%A2%89
+name: "贴吧 手机版>>PC版",
+from: /^https?:\/\/tieba\.baidu\.com\/mo\/m\?kw\=(.*)$/i,
+to: "http://tieba.baidu.com/f?kw=$1",
+regex: true
+},
 
 
-
-//Google系
+/******************************************************************************************
+ *Google相关
+ *******************************************************************************************/
 {
 //example: https://www.google.com.hk/#newwindow=1&safe=strict&q=tvc
 name: "google国家域名 >> google.com",
@@ -110,28 +114,27 @@ regex: true
 },
 {
 //詳細說明: http://bbs.kafan.cn/thread-1769934-1-1.html
-//example: https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js
 name: "Google ajax >> 科大",
-//from: /^https?:\/\/(ajax|fonts)\.googleapis\.com\/(.*)$/,
-//to: "http://$1.useso.com/$2",
 from: /^https?:\/\/(ajax|)\.googleapis\.com\/(.*)$/,
-to: "https://$1.lug.ustc.edu.cn/$2",
+to: "https://$1.proxy.ustclug.org/$2",
 regex: true
 },
 {
 name: "Google themes >> 科大",
 from: /^https?:\/\/themes\.googleusercontent\.com\/(.*)$/,
-to: "https://google-themes.lug.ustc.edu.cn/$1",
+to: "https://google-themes.proxy.ustclug.org/$1",
 regex: true
 },
-{
-name: "Google fonts-gstatic >> 科大",
+/*{
+name: "Google fonts引用 >> 科大",
 from: /^https?:\/\/fonts\.gstatic\.com\/(.*)$/,
-to: "https://fonts-gstatic.lug.ustc.edu.cn/$1",
+to: "https://fonts-gstatic.proxy.ustclug.org/$1",
 regex: true
-},
+},*/
 
-//通用网站
+/******************************************************************************************
+ *通用网站
+ *******************************************************************************************/
 {
 name: "bbs详细页面-1",
 from: /^https?:\/\/(.*)\/simple\/\?t(.*)\.html/i,
@@ -155,7 +158,9 @@ to: "http://mmbiz.qpic.cn/mmbiz/$2/640",
 regex: true
 },
 
-//TVC
+/******************************************************************************************
+ *TVC(個人用)
+ *******************************************************************************************/
 {
 //example: http://trunk.tvc-mall.com/c/hobbies-toys/
 name: "trunk.tvc|seculife",
@@ -185,7 +190,9 @@ to: "$1?CreateBeginDate=&CreateEndDate=&UpdateBeginDate=&UpdateEndDate=&IsFirstR
 regex: true
 },
 
-//几个发行版快捷入口
+/******************************************************************************************
+ *几个发行版快捷入口
+ *******************************************************************************************/
 {
 name: "about:cing",
 from: "about:cing",

@@ -1,4 +1,4 @@
-//2016.10.14
+//2016.10.26
 
 const EXPORTED_SYMBOLS = ['PREFS']
 
@@ -11,7 +11,6 @@ var PREFS = {
 'signon.rememberSignons': false,//不保存密码
 'accessibility.blockautorefresh': false,//当网站试图重定向或重新载入时警告(否)
 //字體語言編碼
-'intl.charset.detector': "universal_charset_detector",//自動選擇
 'font.name.serif.zh-CN': "Arial",//衬線字體
 'font.name.sans-serif.zh-CN': "Arial",//無衬線字體
 'font.name.monospace.zh-CN': "Arial",//等寬字體

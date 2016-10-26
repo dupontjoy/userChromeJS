@@ -2,7 +2,7 @@
   @namespace   http://www.runningcheese.com/firefox-v6
   @description 更改浏览about:newtab时的样式
   @author      runningcheese
-  @version     1.00-2016.10.05
+  @version     1.00-2016.10.26
   @reference   http://www.runningcheese.com/newtabstylish-superstart by @ennea              
 */
 
@@ -110,8 +110,8 @@
 .newtab-site:hover{box-shadow:0 0 25px rgba(65,105,255,.55)!important;/*外发光自己改*/}
     
 /*缩略图*/      
-    [href*="woshipm.com"] .newtab-thumbnail {
-        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/woshipm.jpg") center center no-repeat !important;
+    [href*="hbr.org"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/hbr.jpg") center center no-repeat !important;
         background-size: 100% 100%!important;
     }
     [href*="douban.com"] .newtab-thumbnail {
@@ -166,8 +166,8 @@
         background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/cnn.png") center center no-repeat !important;
         background-size: 100% 100%!important;
     }
-    [href*="linkedin.com"] .newtab-thumbnail {
-        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/pulse.jpg") center center no-repeat !important;
+    [href*="nytimes.com"] .newtab-thumbnail {
+        background: rgba(0, 0, 0, .05) url("chrome://userchromejs/content/newtab-images/nytimes.jpg") center center no-repeat !important;
         background-size: 100% 100%!important;
     }
     [href*="kafan.cn"] .newtab-thumbnail {

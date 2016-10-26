@@ -3,7 +3,7 @@
 // @description     视频站去广告
 // @include         main
 // @author          xinggsf
-// @version         2016.10.15
+// @version         2016.10.20
 // @homepage        http://bbs.kafan.cn/thread-2048252-1-1.html
 // @downloadUrl     https://raw.githubusercontent.com/xinggsf/uc/master/videos_skipAd.uc.js
 // @startup         videos_skipAd.startup();
@@ -22,6 +22,7 @@ String.prototype.mixMatchUrl = function(ml) {//正则或ABP规则匹配网址
 	if (ml instanceof RegExp)
 		return ml.test(this);
 	if (ml.startsWith('||')) {//ml: '||.cn/xxxxx'
+		//console.log(this, ml, arguments.callee.caller.toString());
 		let i = this.indexOf('/', 11)-3, //4: g.cn; 11:7+4
 		j = this.indexOf(ml.slice(2), 7);
 		return -1 !== j && j < i;
@@ -46,9 +47,7 @@ String.prototype.mixMatchUrl = function(ml) {//正则或ABP规则匹配网址
 		'||.letvimg.com/',
 		//^http:\/\/(\d+\.){3}\d+\/(\d{1,3}\/){3}letv-gug\/\d{1,3}\/ver.+\.mp4\?/,
 		/^http:\/\/www\.iqiyi\.com\/common\/flashplayer\/201\d{5}\/\w{32}\.swf/,//pause
-		//^http:\/\/pic\d\.qiyipic\.com\/common\/201\d{5}\/\w{32}\.jpg$/,//pause ||qiyipic.com/common/201*.jpg|$object-subrequest
-		//http://59.63.201.15/videos/v0/20161010/63/38/2406cf2ed648e41eceb4954a604b3e79.f4v?
-		//^http:\/\/(\d+\.){3}\d+\/videos\/v\d\/201\d{5}\/.+\/\w{32}\.(f4v|hml)\?/
+		/^http:\/\/pic\d\.qiyipic\.com\/common\/201\d{5}\/\w{32}\.jpg$/,//pause ||qiyipic.com/common/201*.jpg|$object-subrequest
 		'|http://www.iqiyi.com/player/cupid/common/icon_exclusive.swf',
 	],
 	FILTERS = [
@@ -83,8 +82,8 @@ String.prototype.mixMatchUrl = function(ml) {//正则或ABP规则匹配网址
 	],
 	HTML5_FILTERS = [
 		{//音悦台MV去黑屏
-			// 'id': 'yinyuetai',
-			// 'url': '|http://hc.yinyuetai.com/partner/yyt/'
+			'id': 'yinyuetai',
+			'url': '|http://hc.yinyuetai.com/partner/yyt/'
 		},
 	],
 	swfWhiteList = [//gpu加速白名单

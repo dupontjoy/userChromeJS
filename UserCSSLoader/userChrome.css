@@ -27,7 +27,7 @@ margin-bottom: 0px !important;
 #urlbar-reload-button,
 #urlbar-go-button,
 #urlbar-stop-button {
-margin-left: -10px !important;/*Fx48需要设置-10px, Fx49不用了*/
+margin-left: 0px !important;/*Fx48需要设置-10px, Fx49不用了*/
 }
 
 /*调节标签的宽度*/

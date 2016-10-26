@@ -1,4 +1,4 @@
-//2016.10.14
+//2016.10.25
 
 //Redirector說明頁面: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份: https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -187,6 +187,13 @@ regex: true
 name: "产品得分 默认全部",
 from: /^(https?:\/\/ic\.sjlpj\.cn\/.*ProductScore\/CategoryList)$/,
 to: "$1?CreateBeginDate=&CreateEndDate=&UpdateBeginDate=&UpdateEndDate=&IsFirstRequest=False",
+regex: true
+},
+{
+//example: http://ic.sjlpj.cn/BrandCategory/BrandCategoryList?brandCategoryId=1885
+name: "品牌型号页 显示所有",
+from: /^(https?:\/\/ic\.sjlpj\.cn\/.*BrandCategory\/BrandCategoryList\?brandCategoryId=[\d]+)$/,
+to: "$1&seeAll=true",
 regex: true
 },
 

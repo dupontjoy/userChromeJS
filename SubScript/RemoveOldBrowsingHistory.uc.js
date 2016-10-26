@@ -12,7 +12,7 @@
 // Browsing History
 (function() {
   // Period leaving Browsing History
-  var dMax = 7; //days
+  var dMax = 30; //days
   //
   var JS_NOW = Date.now();
   if ("removeVisitsByTimeframe" in PlacesUtils.history) {

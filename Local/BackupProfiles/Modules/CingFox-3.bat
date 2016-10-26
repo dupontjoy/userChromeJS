@@ -1,4 +1,4 @@
-::2016.09.29
+::2016.10.25
 
 :pcxFirefox
 ::複製PcxFirefox主程序
@@ -25,6 +25,7 @@ del %TempFolder%\Software\Other\QT-Check\  /s /q
 del %TempFolder%\Software\GFW\psiphon\psiphon3.exe.orig  /s /q
 del %TempFolder%\Profiles\iMacros\  /s /q
 del %TempFolder%\Profiles\bookmarks.html  /s /q
+del %TempFolder%\Profiles\places.sqlite  /s /q
 del %TempFolder%\Profiles\chrome\Local\InformEnter.Ijson  /s /q
 
 ::一些脚本文件单独打包
@@ -32,9 +33,7 @@ xcopy "%TempFolder%\Profiles\chrome\xul\localMark_0.6.1.uc.xul" %TempFolder%\Opt
 xcopy "%TempFolder%\Profiles\chrome\SubScript\SougouDeskPic.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
 xcopy "%TempFolder%\Profiles\chrome\SubScript\QR.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
 xcopy "%TempFolder%\Profiles\chrome\SubScript\videos_skipAd.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
-xcopy "%TempFolder%\Profiles\chrome\Local\_redirector.js" %TempFolder%\Optional\Profiles\chrome\Local\  /s /y /i
 xcopy "%TempFolder%\Profiles\chrome\Local\_user.js" %TempFolder%\Optional\Profiles\chrome\Local\  /s /y /i
-xcopy "%TempFolder%\Profiles\extensions\policeman@futpib.addons.mozilla.org.xpi" %TempFolder%\Optional\Profiles\extensions\  /s /y /i
 xcopy "%TempFolder%\Profiles\extensions\uMatrix@raymondhill.net.xpi" %TempFolder%\Optional\Profiles\extensions\  /s /y /i
 xcopy "%TempFolder%\Software\GFW" %TempFolder%\Optional\Software\GFW\  /s /y /i
 xcopy "%TempFolder%\Software\Image" %TempFolder%\Optional\Software\Image\  /s /y /i
@@ -43,9 +42,7 @@ del %TempFolder%\Profiles\chrome\xul\localMark_0.6.1.uc.xul /s /q
 del %TempFolder%\Profiles\chrome\SubScript\SougouDeskPic.uc.js  /s /q
 del %TempFolder%\Profiles\chrome\SubScript\QR.uc.js  /s /q
 del %TempFolder%\Profiles\chrome\SubScript\videos_skipAd.uc.js  /s /q
-del %TempFolder%\Profiles\chrome\Local\_redirector.js  /s /q
 del %TempFolder%\Profiles\chrome\Local\_user.js  /s /q
-del %TempFolder%\Profiles\extensions\policeman@futpib.addons.mozilla.org.xpi  /s /q
 del %TempFolder%\Profiles\extensions\uMatrix@raymondhill.net.xpi  /s /q
 del %TempFolder%\Software\GFW\  /s /q
 del %TempFolder%\Software\Image\  /s /q

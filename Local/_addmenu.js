@@ -284,12 +284,12 @@ where: 'tab'
 label: "查詢價格變更記录-SKU",
 id: "TVC-Universal",
 accesskey: "4",
-url: "http://ic.sjlpj.cn/PriceChangeRequest/OperationAuditList?mode=processed&Sku=%s",
+url: "http://ic.sjlpj.cn/PriceChangeRequest/PriceChangeRequestList?Sku=%s&ProductName=",
 image: "http://ic.sjlpj.cn/favicon.ico",
 where: 'tab'
 },
 {
-label: "产品得分-SKU",
+label: "產品得分-SKU",
 id: "TVC-Universal",
 accesskey: "5",
 url: "http://ic.sjlpj.cn/ProductScore/CategoryList?type=1&SiteId=1&Sku=%s&CreateBeginDate=&CreateEndDate=&UpdateBeginDate=&UpdateEndDate=&IsFirstRequest=False",

@@ -1,4 +1,4 @@
-::2016.09.30
+::2016.10.24
 
 :Profiles-1
 cls
@@ -24,6 +24,11 @@ set TempFolder3="%TempFolder%\3"
 ::多運行一次防止第一次未能終止
 taskkill /im firefox.exe
 
+::運行speedyfox優化
+set speedyfox=..\..\..\..\..\Software\run\speedyfox.exe
+::Profiles路徑只能用絕對, 可惜
+%speedyfox% /Firefox:"D:\Program Files\CingFox\Profiles"
+
 rem 复制目标文件到臨時文件夾
 
 ::以下是文件夾
@@ -44,10 +49,10 @@ xcopy "%BackDir%\bookmarks.html" %TempFolder%\Profiles\  /s /y /i
 xcopy "%BackDir%\cert8.db" %TempFolder%\Profiles\  /s /y /i
 xcopy "%BackDir%\cert_override.txt" %TempFolder%\Profiles\  /s /y /i
 xcopy "%BackDir%\FlashGot.exe" %TempFolder%\Profiles\  /s /y /i
-::xcopy "%BackDir%\foxyproxy.xml" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\localstore.rdf" %TempFolder%\Profiles\  /s /y /i
 xcopy "%BackDir%\mimeTypes.rdf" %TempFolder%\Profiles\  /s /y /i
-::xcopy "%BackDir%\patternSubscriptions.json" %TempFolder%\Profiles\  /s /y /i
 xcopy "%BackDir%\persdict.dat" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\places.sqlite" %TempFolder%\Profiles\  /s /y /i
 xcopy "%BackDir%\pluginreg.dat" %TempFolder%\Profiles\  /s /y /i
 xcopy "%BackDir%\readme.js" %TempFolder%\Profiles\  /s /y /i
 xcopy "%BackDir%\search.json.mozlz4" %TempFolder%\Profiles\  /s /y /i

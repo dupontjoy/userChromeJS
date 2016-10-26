@@ -351,7 +351,7 @@ vimfx.addCommand({
     description: '打开Redirector扩展设置',
     category: 'misc',
 }, ({vim}) => {
-    vim.window.switchToTabHavingURI('moz-extension://b8ae88e1-0cd2-4e77-8851-f8f60336ef60/redirector.html', true)
+    vim.window.switchToTabHavingURI('moz-extension://bf1aa2af-906f-466b-b1d8-8cc42d6e4133/redirector.html', true)
 })
 map('zr', 'goto_redirector', true)
 

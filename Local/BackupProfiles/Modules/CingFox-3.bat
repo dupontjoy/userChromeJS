@@ -1,4 +1,4 @@
-::2016.10.25
+::2016.11.02
 
 :pcxFirefox
 ::複製PcxFirefox主程序
@@ -26,6 +26,9 @@ del %TempFolder%\Software\GFW\psiphon\psiphon3.exe.orig  /s /q
 del %TempFolder%\Profiles\iMacros\  /s /q
 del %TempFolder%\Profiles\bookmarks.html  /s /q
 del %TempFolder%\Profiles\places.sqlite  /s /q
+del %TempFolder%\Profiles\cookies.sqlite  /s /q
+del %TempFolder%\Profiles\permissions.sqlite  /s /q
+del %TempFolder%\Profiles\content-prefs.sqlite  /s /q
 del %TempFolder%\Profiles\chrome\Local\InformEnter.Ijson  /s /q
 
 ::一些脚本文件单独打包

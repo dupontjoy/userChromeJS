@@ -1,4 +1,4 @@
-::2016.10.24
+::2016.11.02
 
 :Profiles-1
 cls
@@ -44,22 +44,39 @@ xcopy "%BackDir%\iMacros" %TempFolder%\Profiles\iMacros\ /s /y /i
 xcopy "%BackDir%\policeman" %TempFolder%\Profiles\policeman\ /s /y /i
 xcopy "%BackDir%\searchplugins" %TempFolder%\Profiles\searchplugins\ /s /y /i
 
-::以下是文件
+::/**以下是文件**/
+::书签
 xcopy "%BackDir%\bookmarks.html" %TempFolder%\Profiles\  /s /y /i
+::安全证书设置
 xcopy "%BackDir%\cert8.db" %TempFolder%\Profiles\  /s /y /i
 xcopy "%BackDir%\cert_override.txt" %TempFolder%\Profiles\  /s /y /i
-xcopy "%BackDir%\FlashGot.exe" %TempFolder%\Profiles\  /s /y /i
+::Cookies: 保留着你曾访问过的网站信息，通常是你的网站首选项信息或登录状态
+xcopy "%BackDir%\cookies.sqlite" %TempFolder%\Profiles\  /s /y /i
+::自定义工具栏
 xcopy "%BackDir%\localstore.rdf" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\xulstore.json" %TempFolder%\Profiles\  /s /y /i
+::下载活动: 设定的当某个文件类型打开时Firefox应该做的动作
 xcopy "%BackDir%\mimeTypes.rdf" %TempFolder%\Profiles\  /s /y /i
+::站点自定的首选项: 保存了许多针对站点的权限设置（比如，它保存着哪些网站被允许显示弹出窗口），或者针对站点的页面缩放级别
+xcopy "%BackDir%\permissions.sqlite" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\content-prefs.sqlite" %TempFolder%\Profiles\  /s /y /i
+::用户字典
 xcopy "%BackDir%\persdict.dat" %TempFolder%\Profiles\  /s /y /i
+::书签和浏览历史
 xcopy "%BackDir%\places.sqlite" %TempFolder%\Profiles\  /s /y /i
+::插件 MIME 类型
 xcopy "%BackDir%\pluginreg.dat" %TempFolder%\Profiles\  /s /y /i
-xcopy "%BackDir%\readme.js" %TempFolder%\Profiles\  /s /y /i
+::搜索引擎
 xcopy "%BackDir%\search.json.mozlz4" %TempFolder%\Profiles\  /s /y /i
+::Stylish样式
 xcopy "%BackDir%\stylish.sqlite" %TempFolder%\Profiles\  /s /y /i
+::参数设置
 xcopy "%BackDir%\user.js" %TempFolder%\Profiles\  /s /y /i
 xcopy "%BackDir%\prefs.js" %TempFolder%\Profiles\  /s /y /i
-xcopy "%BackDir%\xulstore.json" %TempFolder%\Profiles\  /s /y /i
+::其它
+xcopy "%BackDir%\FlashGot.exe" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\readme.js" %TempFolder%\Profiles\  /s /y /i
+
 
 ::其它刪除项
 del %TempFolder%\Profiles\chrome\UserScriptLoader\require\  /s /q

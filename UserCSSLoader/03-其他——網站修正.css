@@ -1,4 +1,4 @@
-/*+++ 2016.10.18 +++*/
+/*+++ 2016.10.31 +++*/
 
 /*---------------------------------
 指定域名时的几种方法:
@@ -84,3 +84,9 @@ left: -24px;
 [class="ds_vip_seats"]
 {display: none !important;}
 }
+
+/*HBR去除打开文章时的黑屏跳转*/
+@-moz-document domain("hbr.org"){
+body{overflow: auto !important;}
+#intromercial-handle{display: none !important;}
+} 

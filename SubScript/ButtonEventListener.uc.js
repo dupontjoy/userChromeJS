@@ -3,7 +3,7 @@
 // @namespace      runningcheese@qq.com
 // @description    为工具栏图标增加点击功能
 // @author         runningcheese
-// @version        0.0.1-2016.10.19
+// @version        0.0.1-2016.11.01
 // @license        MIT License
 // @compatibility  Firefox 29+
 // @charset        UTF-8
@@ -65,12 +65,16 @@ BrowserReloadSkipCache();
 }, false);
 })();
 
-//右键 三道杠 打开 ProfD
+//三道杠 中键UChrm/右键ProfD
 (function (doc) {
         var UChrmlist = doc.getElementById('PanelUI-menu-button');
         if (!UChrmlist) return;
         var menupopup = UChrmlist.firstChild;
         UChrmlist.addEventListener("click", function (e) {
+            if (e.button == 1) {
+               e.preventDefault();
+               new Components.Constructor("@mozilla.org/file/local;1","nsILocalFile", "initWithPath")(Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("UChrm", Components.interfaces.nsIFile).path).reveal();
+            }
             if (e.button == 2) {
                e.preventDefault();
                new Components.Constructor("@mozilla.org/file/local;1","nsILocalFile", "initWithPath")(Components.classes["@mozilla.org/file/directory_service;1"].getService(Components.interfaces.nsIProperties).get("ProfD", Components.interfaces.nsIFile).path).reveal();

@@ -1,4 +1,4 @@
-::2016.11.02
+::2016.11.25
 
 :Profiles-1
 cls
@@ -29,6 +29,9 @@ set speedyfox=..\..\..\..\..\Software\run\speedyfox.exe
 ::Profiles路徑只能用絕對, 可惜
 %speedyfox% /Firefox:"D:\Program Files\CingFox\Profiles"
 
+::多運行一次防止第一次未能終止
+taskkill /im firefox.exe
+
 rem 复制目标文件到臨時文件夾
 
 ::以下是文件夾
@@ -41,7 +44,6 @@ xcopy "%BackDir%\extension-data" %TempFolder%\Profiles\extension-data\ /s /y /i
 xcopy "%BackDir%\gm_scripts" %TempFolder%\Profiles\gm_scripts\ /s /y /i
 xcopy "%BackDir%\browser-extension-data" %TempFolder%\Profiles\browser-extension-data\ /s /y /i
 xcopy "%BackDir%\iMacros" %TempFolder%\Profiles\iMacros\ /s /y /i
-xcopy "%BackDir%\policeman" %TempFolder%\Profiles\policeman\ /s /y /i
 xcopy "%BackDir%\searchplugins" %TempFolder%\Profiles\searchplugins\ /s /y /i
 
 ::/**以下是文件**/

@@ -1,4 +1,4 @@
-//2016.10.05
+//2016.11.28
 
 /******************************************************************************************
 快捷键分类:
@@ -137,11 +137,8 @@ set('next_patterns', v => `[下后]\\s*一?\\s*[页张个篇章頁] ${v}`)
 map('W', 'window_new')//新建窗口
 map('w', 'tab_select_previous')//上一个标签
 map('e', 'tab_select_next')//下一个标签
-map('M', 'mark_scroll_position')//标记滾动位置
-map('gt', 'follow_in_focused_tab')//新的前台标签打开此链接
-map('gW', 'follow_in_window')//新的窗口打开此链接
-map('gf', 'follow_focus')//聚焦/选中元素
-map('gb', 'click_browser_element')//点击浏览元素
+map('s', 'scroll_half_page_up')//向上滾动半页
+map('S', 'stop')//停止载入当前页面
 
 
 // commands命令
@@ -314,7 +311,7 @@ vimfx.addCommand({
 })
 map(',m', 'mpv_current_tab', true)*/
 
-vimfx.addCommand({
+/*vimfx.addCommand({
     name: 'toggle_https',
     description: 'HTTP/HTTPS切换',
     category: 'location',
@@ -327,7 +324,7 @@ vimfx.addCommand({
     }
     vim.window.gBrowser.loadURI(url)
 })
-map('gs', 'toggle_https', true)
+map('gs', 'toggle_https', true)*/
 
 
 vimfx.addCommand({

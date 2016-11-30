@@ -1,4 +1,4 @@
-//2016.10.02
+//2016.11.30
 
 /**********************************************************************************
  *child:[  ]内爲當前菜單的下一級菜單配置,支持多級
@@ -71,13 +71,21 @@ child: [
 {
 label: "UserCSSLoader",
 tooltiptext: "UserCSSLoader文件夾",
-exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\UserCSSLoader",
+oncommand: function(e) {
+var Path = "\\..\\Software\\totalcmd\\TOTALCMD.EXE";
+var Folder = Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\UserCSSLoader"; 
+addMenu.exec(Path, ['-search', Folder]);
+},
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVQ4jWNgoBLwZGBgeMbAwPAfCT+DihMFnjEwMFijiVlDxYk2QAOL+H8cGMN1uAzABTBcBzMVl43YXPAf3QD0MCDkAgwDSAWjBlDbgD8MDAzpJGhOh+qBgwaoALEJ6Q9UD+UAAEc9PeCabBc4AAAAAElFTkSuQmCC",
 },
 {
 label: "iMacros",
 tooltiptext: "iMacros文件夾",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\iMacros",
+oncommand: function(e) {
+var Path = "\\..\\Software\\totalcmd\\TOTALCMD.EXE";
+var Folder = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\iMacros\\Datasources"; 
+addMenu.exec(Path, ['-search', Folder]);
+},
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVQ4jWNgoBLwZGBgeMbAwPAfCT+DihMFnjEwMFijiVlDxYk2QAOL+H8cGMN1uAzABTBcBzMVl43YXPAf3QD0MCDkAgwDSAWjBlDbgD8MDAzpJGhOh+qBgwaoALEJ6Q9UD+UAAEc9PeCabBc4AAAAAElFTkSuQmCC",
 },
 ]
@@ -94,7 +102,7 @@ exec: Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\local\\BackupProfi
 {
 label: "重啟explorer.exe",
 tooltiptext: "重啟explorer.exe",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\QT-Check\\explorer.bat",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\run\\explorer.bat",
 },{},
 {
 label: "设置Notepad2为默认",
@@ -117,16 +125,16 @@ exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\
 },
 {},
 {
+label: "TotalCommander",
+exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\totalcmd\\TOTALCMD.EXE",
+},
+{
 label: "PicPick",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Image\\PicPick\\PicPick.exe",
 },
 {
 label: "ScreenToGif2",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Image\\ScreenToGif 2.exe",
-},{},
-{
-label: "Adbyby",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Other\\Adbyby\\Adbyby.exe",
 },
 ],
 }, 

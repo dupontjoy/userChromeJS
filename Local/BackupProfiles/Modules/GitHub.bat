@@ -1,4 +1,4 @@
-::2016.10.02
+::2016.11.30
 
 :GitHub
 cls
@@ -6,11 +6,11 @@ echo.
 echo  *** 備份一些文件到GitHub ***
 echo.
 echo  1. Firefox文件：user.js, persdict.dat, stylish.sqlite, _FeiRuoNetProxy.json
-echo  2. Foxmail過濾器：163.com, qq.com
+echo  2. Foxmail過濾器
 echo  3. ProcessLaso設置
 echo  4. PicPick設置
-echo  5. FastCopy-M設置
-echo  6. CCleaner設置
+echo  5. CCleaner設置
+echo  6. TC設置
 echo.
 echo  按任意键继续……
 pause>nul
@@ -41,7 +41,11 @@ xcopy "%dir1%\..\..\System Tools\ProcessLassoPortable\prolasso.ini" "%dir2%\Proc
 xcopy "%dir1%\..\Software\Image\PicPick\picpick.ini" "%dir2%\PicPick\picpick.ini"  /s /y /i
 
 ::備份FastCopy-M設置
-xcopy "%dir1%\..\..\FastCopy-M\FastCopy2.ini" "%dir2%\FastCopy-M\FastCopy2.ini"  /s /y /i
+::xcopy "%dir1%\..\..\FastCopy-M\FastCopy2.ini" "%dir2%\FastCopy-M\FastCopy2.ini"  /s /y /i
 
 ::備份CCleaner設置
 xcopy "%dir1%\..\..\System Tools\CCleaner\ccleaner.ini" "%dir2%\CCleaner\ccleaner.ini"  /s /y /i
+
+::備份Total Commander設置
+xcopy "%dir1%\..\Software\totalcmd\wincmd.ini" "%dir2%\TC\wincmd.ini"  /s /y /i
+xcopy "%dir1%\..\Software\totalcmd\user\user.ini" "%dir2%\TC\user.ini"  /s /y /i

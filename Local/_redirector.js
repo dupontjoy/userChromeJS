@@ -1,4 +1,4 @@
-//2016.10.25
+//2016.11.11
 
 //Redirector說明頁面: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份: https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -162,10 +162,10 @@ regex: true
  *TVC(個人用)
  *******************************************************************************************/
 {
-//example: http://trunk.tvc-mall.com/c/hobbies-toys/
-name: "trunk.tvc|seculife",
-from: /^https?:\/\/trunk\.(tvc-mall|seculife)\.com\/(c\/|t\/|details\/|search|List)(.*)/i,
-to: "http://www.$1.com/$2$3",
+//example: http://192.168.1.70:180/c/networking-c38845/
+name: "tvc測試",
+from: /^https?:\/\/192\.168\.1\.70\:180\/(c\/|t\/|details\/|search|List|ProductList)(.*)/i,
+to: "https://www.tvc-mall.com/$1$2",
 regex: true
 },
 {

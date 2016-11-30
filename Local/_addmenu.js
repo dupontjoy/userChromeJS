@@ -1,4 +1,4 @@
-//2016.10.31
+//2016.11.30
 
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
@@ -242,12 +242,30 @@ image: "https://www.bing.com/sa/simg/bing_p_rr_teal_min.ico",
 where: 'tab'
 },
 {
+label: "DuNiang",
+url: "https://www.baidu.com/baidu?wd=%s&ie=utf-8",
+image: "https://www.baidu.com/img/baidu.svg",
+where: 'tab'
+}, 
+{
 label: "Sou",
 url: "http://www.so.com/s?ie=utf-8&q=%s",
 image: "http://www.haosou.com/favicon.ico",
 where: 'tab'
 }, 
 {},
+{
+label: "TC搜索流水号",
+id: "TVC-Universal",
+oncommand: function(){
+var Path = "\\..\\Software\\totalcmd\\TOTALCMD.EXE";
+var Folder = "X:";
+var str = addMenu.convertText('%s');
+addMenu.copy(str);
+addMenu.exec(Path, ["-search", Folder]);
+},
+image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADIElEQVQ4jYXMW0xScQDH8f+q9RAVVnM4oTIrEcWmTVtrqMCRCmea1tRuyrpZGWe1cmbJRdQIK5V0heElL9hm4SRbpA92cq2yHswuonkr6X49tR5P/npoPfRAPXz2ffuSdLpRkaipb4tONBsU2+26qrobNXfu9LoYhnExDONydlx31dQ7XZ03uq41tHQ0rc2yG1XZdReikypyCSHTCZVZSUesL5sKVRb/jNxQjUJLG7q7bsLtdqO7uwu6UjvWpJWj6qIT1gttSMiqQ/xWO6TqipfCyEORRJZqocOVRZw4vghStRW6siu4zdxCT08PensZnCiug3RdBaprO1Ftb0eG1oHkPU2Qriv/FhilTSCyVAsdoSrjlskMCFOVw3imHQ/67uPe3bt4+KAPhpOXEEqdhu2SG/amTqxMsmKFuhISysIKV+RSZE2KhZYozVzw6kKIFWUoLu/A08ePMNDfj6dPBnDe3o6UnTVo62DQ4HBDqjoDCXUaIXIzKwjLocjqxBI6VG7mlseaIJGfQnL2eeSbHMgvcuCYqRVH9M3QFjQiz9iCLftsWB5nhjjejKWyElYQsosiMetNdEhsCRehPAX5JivkaVbEpVb+Jf5P0yoRm1KB0NhSLFllZBcE76JIlEJHL47Rc4dPtMLjGcPgoG8ezzju9z0BlXYWoqjjLH9RNkXCZAW0MPI4ZzA58GliBB/Gnvs2PoKxxwNQb7IgQJrP8oXbKCKOOUoHhOdxOkMTPo4O4f2Ix6cPI0MY7e/H2o0n4S8+wvKEmRQJitLS/iGHOb2xBV+9L/B5csKnL5MTePFsEKrkUswP1rI8QSZFROK99Lygg5ze2IJvb734+nrSJ/aNF96hYSQkFWNe0IHfA/+g3TR/4X5Ob2jGj3ev8P2N17e3r/B6eBhUYhHminK+8wSbKeIn2kHzAjRcnsaA8cs2jDp8G2u1YaC2CkrZAZYXkP2MH5ieQGYLMrRzAjU/NRLFVLt0Fnf1H5zSWdzlcL8pxRL1EH9hlpO/KJMiM/yUcXMEqc3RgdHnaMG0gtz/yBHMLBQvVtXPD063zRXJl/0CTUBhIrbYoBsAAAAASUVORK5CYII=",
+},
 {
 label: "外網批量管理-SKU",
 id: "TVC-Universal",
@@ -559,7 +577,7 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZ0
 }
 )
 
-page(
+/*page(
 {
 label: "VIP視頻雲解析",
 condition: "link",
@@ -576,7 +594,7 @@ gBrowser.selectedTab = gBrowser.addTab("http://vod.xunlei.com/iplay.html?uvs=lus
 },
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4je3RIUzDQBjF8V9CMotEoTCYufopBBqLx1ZOYiZn0JVIVC0WXTuJm6mqmpmY6Dt2CYIESXjJ9a7/vn7fvTv+hJ6wRocPTNhnfg+fcMCA1/gfsIIjtmgLiC5SfIPrsCZsiz6F58cvNcInbgJKhBHPlXEd3xgPLLGTnPeBh2T7qh7tMz/GI76+VH+p4JBd1NHK+1A16Mzn5iod7n4KXGmVfy4LaALawAVus7s260W+tYn3reHS+Wom8wF1Gbtkn/AW77+iE6SaONczlmqVAAAAAElFTkSuQmCC"
 }
-)
+)*/
 
 /*——————————頁面右鍵——————————*/
 //多功能菜單

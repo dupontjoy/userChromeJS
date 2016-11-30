@@ -1,4 +1,4 @@
-/*+++ 2016.10.31 +++*/
+/*+++ 2016.11.15 +++*/
 
 /*---------------------------------
 指定域名时的几种方法:
@@ -14,6 +14,14 @@
 .btn_blue/*型号分组管理，新建子组目录*/
 {padding: 0px !important;}
 
+/**
+*隐藏一些不常用的按钮及菜单
+*/
+#m_030119,/*新品质检审核*/
+#m_030202,/*常用分类分组*/
+#m_040109,/*外网产品运营查询*/
+#m_040111/*外网产品图片下载*/
+{display: none !important;}
 }
 
 @-moz-document regexp("https?:\/\/ic\.sjlpj\.cn\/.*ProductNewCategory\/.*") {
@@ -81,7 +89,9 @@ left: -24px;
 @-moz-document domain("tianya.cn") {
 [id="ty_msg_mod"],
 [class="btnOpen"],
-[class="ds_vip_seats"]
+[class="ds_vip_seats"],
+[class="TY_ui_window ui-draggable"],
+[class="modDiv"]
 {display: none !important;}
 }
 

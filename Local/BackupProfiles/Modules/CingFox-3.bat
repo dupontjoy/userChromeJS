@@ -1,4 +1,4 @@
-::2016.11.02
+::2016.11.23
 
 :pcxFirefox
 ::複製PcxFirefox主程序
@@ -13,8 +13,8 @@ del /s /q %BackDir3%\firefox\*.tmp
 ::複製firefox到臨時文件夾
 xcopy "%BackDir3%\firefox" %TempFolder%\firefox\  /s /y /i
 
-::解压便携模块tmemutil.ini到firefox主程序文件夹
-%zip% x %TempFolder%\Software\run\portable.7z -o%TempFolder%\firefox /s /y /i
+::複製便携模块tmemutil.ini到firefox主程序文件夹
+xcopy "%TempFolder%\Software\run\tmemutil.ini" %TempFolder%\firefox\  /s /y /i
 
 :CingFox-2
 ::需要刪除的项
@@ -29,6 +29,8 @@ del %TempFolder%\Profiles\places.sqlite  /s /q
 del %TempFolder%\Profiles\cookies.sqlite  /s /q
 del %TempFolder%\Profiles\permissions.sqlite  /s /q
 del %TempFolder%\Profiles\content-prefs.sqlite  /s /q
+del %TempFolder%\Profiles\logins.json  /s /q
+del %TempFolder%\Profiles\readItLater.sqlite  /s /q
 del %TempFolder%\Profiles\chrome\Local\InformEnter.Ijson  /s /q
 
 ::一些脚本文件单独打包

@@ -2,7 +2,7 @@
   @namespace   https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox
   @description 含:标签栏, 地址栏, 书签栏, 三道杠等界面上的调整
   @author      Cing
-  @version     1.00-2016.11.03
+  @version     1.00-2016.11.26
   @reference             
 */
 
@@ -230,63 +230,6 @@ border-radius: 0px !important;
 #PanelUI-contents > toolbaritem:not(:-moz-any(#zoom-controls,#edit-controls))> toolbarbutton{
     height:75px!important;
 	width: 62.9px!important;
-}
-
-/* ====== 5. FF悬浮侧栏样式，自动隐藏 updata by defpt 2013.08.06 ====== */
-@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
-@-moz-document url(chrome://browser/content/browser.xul) {
-#sidebar-box {
-	-moz-appearance: none !important;
-	position: fixed !important;
-	top: 13% !important;/*调节触发区高度*/
-	left: 0% !important;/*触发区域距离窗口左边框的距离*/
-	height: 10px !important;/*触发区去域高度*/
-	width: 0px !important;
-	margin: 0 !important;
-	padding: 0 !important;
-	overflow: hidden !important;
-	border: 10px solid grey !important;
-	border-radius: 10px !important;/*此处 8px 设置边框线宽度，选大点就是实心圆点，选小点可设空心圆圈*/
-	opacity: 0.5 !important;
-	transition: 0s linear !important;
-/*侧栏回缩动画时间*/
-}
-
-#sidebar-box:hover {
-	top: 95px !important;
-/*调节侧栏距离工具栏的距离*/
-	left: -1px !important;
-	width: 240px !important;
- /*调节侧栏宽度*/
-	border: 1px solid silver !important;
-	border-radius: 0 5px 5px 0 !important;
-	height: 100% !important;
-/*设置侧栏整体高度，请根据自己实际情况设置该值*/
-	opacity: 1 !important;
-	transition: 0s linear !important;
-/*侧栏展开动画时间*/
-}
-
-#sidebar {
-	height: 86% !important;
-/*设置侧栏高度，请根据自己实际情况设置该值*/
-	width: 100% !important;
-	border-bottom-right-radius: 5px !important;
-}
-
-#sidebar-box > #sidebar-header {
-	width: 100% !important;
-	font-weight: bold !important;
-	visibility: collapse !important;
-}
-
-#sidebar-box:hover > #sidebar-header {
-	visibility: visible !important;
-}
-
-#sidebar-splitter {
-	display: none !important;
-}
 }
 
 /* ====== 99. 弹出窗口 ====== */

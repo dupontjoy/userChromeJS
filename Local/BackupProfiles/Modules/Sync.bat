@@ -1,16 +1,15 @@
-::2016.08.31
+::2016.11.29
 
 :Sync
 cls
 echo.
 echo  *** 同步一些軟件的設置文件 ***
 echo.
-echo  1. Foxmail過濾器：163.com, qq.com
+echo  1. Foxmail過濾器：应用到所有邮箱
 echo  2. ProcessLaso設置
 echo  3. PicPick設置
-echo  4. 同步FastCopy-M設置
-echo  5. 同步xmp設置
-echo  6. 同步CCleaner設置
+echo  4. 同步xmp設置
+echo  5. 同步CCleaner設置
 echo.
 echo  按任意键继续……
 pause>nul
@@ -29,6 +28,7 @@ taskkill /f /t /im foxmail.exe
 xcopy "%dir2%\Foxmail-Filter\163.com\1.fter" "%dir1%\..\..\Tencent\Foxmail\Storage\dupontjoy@163.com\Filter\1.fter" /s /y /i
 xcopy "%dir2%\Foxmail-Filter\163.com\1.fter" "%dir1%\..\..\Tencent\Foxmail\Storage\dupontjoy@qq.com\Filter\1.fter"  /s /y /i
 xcopy "%dir2%\Foxmail-Filter\163.com\1.fter" "%dir1%\..\..\Tencent\Foxmail\Storage\dupont2305@gmail.com\Filter\1.fter"  /s /y /i
+xcopy "%dir2%\Foxmail-Filter\163.com\1.fter" "%dir1%\..\..\Tencent\Foxmail\Storage\dupont@inc.tvc-tech.com\Filter\1.fter"  /s /y /i
 start "" "%dir1%\..\..\Tencent\Foxmail\Storage\..\foxmail.exe" /min
 
 ::同步ProcessLaso設置
@@ -52,5 +52,3 @@ start "" "%dir1%\..\Software\Image\PicPick\picpick.exe"
 ::同步CCleaner設置
 xcopy "%dir2%\CCleaner\ccleaner.ini" "%dir1%\..\..\System Tools\CCleaner\ccleaner.ini" /s /y /i
 
-::同步FeiruoNet自定义代理规则
-::xcopy "%dir2%\Rules\Autoproxy\_FeiRuoNetProxy.json" "%dir1%\Chrome\lib\_FeiRuoNetProxy.json"  /s /y /i

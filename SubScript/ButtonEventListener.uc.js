@@ -65,7 +65,7 @@ BrowserReloadSkipCache();
 }, false);
 })();
 
-//三道杠 中键UChrm/右键ProfD
+//三道杠 中键UChrm/右键ProfD(用TC打开)
 (function (doc) {
         var UChrmlist = doc.getElementById('PanelUI-menu-button');
         if (!UChrmlist) return;

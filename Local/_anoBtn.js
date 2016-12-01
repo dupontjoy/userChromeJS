@@ -70,7 +70,7 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZk
 child: [
 {
 label: "UserCSSLoader",
-tooltiptext: "UserCSSLoader文件夾",
+tooltiptext: "用TC打开UserCSSLoader文件夾",
 oncommand: function(e) {
 var Path = "\\..\\Software\\totalcmd\\TOTALCMD.EXE";
 var Folder = Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\UserCSSLoader"; 
@@ -80,7 +80,7 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZk
 },
 {
 label: "iMacros",
-tooltiptext: "iMacros文件夾",
+tooltiptext: "用TC打开iMacros文件夾",
 oncommand: function(e) {
 var Path = "\\..\\Software\\totalcmd\\TOTALCMD.EXE";
 var Folder = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\iMacros\\Datasources"; 

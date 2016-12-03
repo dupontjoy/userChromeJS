@@ -3,7 +3,7 @@
 // @namespace      runningcheese@qq.com
 // @description    为工具栏图标增加点击功能
 // @author         runningcheese
-// @version        0.0.1-2016.11.29
+// @version        0.0.1-2016.12.02
 // @license        MIT License
 // @compatibility  Firefox 29+
 // @charset        UTF-8
@@ -73,13 +73,13 @@ BrowserReloadSkipCache();
         UChrmlist.addEventListener("click", function (e) {
             if (e.button == 1) {
                e.preventDefault();
-var Path = "\\..\\..\\totalcmd\\TOTALCMD.EXE";
+var Path = "\\..\\Software\\totalcmd\\TOTALCMD.EXE";
 var Folder = Services.dirsvc.get("UChrm", Ci.nsILocalFile).path; 
 addMenu.exec(Path, ['-search', Folder]);
             }
             if (e.button == 2) {
                e.preventDefault();
-var Path = "\\..\\..\\totalcmd\\TOTALCMD.EXE";
+var Path = "\\..\\Software\\totalcmd\\TOTALCMD.EXE";
 var Folder = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path; 
 addMenu.exec(Path, ['-search', Folder]);
             }

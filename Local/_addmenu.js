@@ -66,54 +66,9 @@ where: 'tab',
 new function() {
 var items = [
 {
-label:"复制GIF",
 command: 'context-copyimage-contents',
-tooltiptext: "左键: 复制静态&动态图\n右键: 复制动态图",
 condition: 'image',
 image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=',
-onclick: function (event) {
-if (event.button === 0) {
-  var copyimage = document.querySelector('#context-copyimage-contents');
-  copyimage.addEventListener('command', function () {
-var selection = content.getSelection();
-var ranges = [
-];
-for (var i = 0; i < selection.rangeCount; i++)
-ranges.push(selection.getRangeAt(i));
-var range = document.createRange();
-range.selectNode(document.popupNode);
-selection.removeAllRanges();
-selection.addRange(range);
-goDoCommand('cmd_copy');
-selection.removeAllRanges();
-for (i in ranges)
-selection.addRange(ranges[i]);
-  }, false);
-} 
-  if (e.button == 2) {
-			var Cc = Components.classes;
-			var Ci = Components.interfaces;
-			var trans = Cc["@mozilla.org/widget/transferable;1"].createInstance(Ci.nsITransferable);
-			var str = Cc["@mozilla.org/supports-string;1"].createInstance(Ci.nsISupportsString);
-			var file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
-			var partialPath = "\\" + (+new Date) + ".gif";
-			try {
-				var completePath = Cc["@mozilla.org/preferences-service;1"].getService(Ci.nsIPrefService).getCharPref("browser.cache.disk.parent_directory") + partialPath;
-			} catch (e) {
-				var completePath = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties).get("ProfLD", Ci.nsILocalFile).path + partialPath;
-			}
-			//alert(completePath);
-			var x = gContextMenu.mediaURL || gContextMenu.linkURL;
-//alert(x);
-			file.initWithPath(completePath);
-			Cc["@mozilla.org/embedding/browser/nsWebBrowserPersist;1"].createInstance(Ci.nsIWebBrowserPersist).saveURI(Cc["@mozilla.org/network/io-service;1"].getService(Ci.nsIIOService).newURI(x, null, null), null, null, null, null, null, file, null);
-			setTimeout(function () {
-				str.data = '<img src="file:///' + completePath + '">';
-trans.setTransferData("text/html", str, str.data.length * 2);
-Cc["@mozilla.org/widget/clipboard;1"].createInstance(Ci.nsIClipboard).setData(trans, null, 1);
-			}, 200);
-  }
-  }
 },
 {
 label: "圖片地址|Base64",

@@ -1,4 +1,4 @@
-/*+++ 2016.10.05 +++*/
+/*+++ 2016.12.01 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 /*自动隐藏AidBar*/
@@ -105,6 +105,11 @@ padding: 0px !important;
 #downloads-button .toolbarbutton-icon
 {
 margin-right:-1px !important;}
+
+/*自带Pocket*/
+#pocket-button .toolbarbutton-icon
+{
+margin-right:-4px !important;}
 
 /*AnoBtn圖標（两句要同時用）*/
 toolbarbutton#anobtn,toolbarbutton#anobtn>image

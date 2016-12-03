@@ -1,4 +1,4 @@
-//2016.11.11
+//2016.12.01
 
 //Redirector說明頁面: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份: https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
@@ -47,13 +47,13 @@ from:/^https?:\/\/.*\.(?:jobui|zhihu|douban|mozilla|google|so|)\.(?:com|org|)\/(
 to: "$3",
 regex: true
 },
-{
+/*{
 //example: http://jump.bdimg.com/safecheck/index?url=rN3wPs8te/r8jfr8YhogjfUWFoMgIRa8rnxRhNIP1MZkv85mrD3mrfBH9cklV0PSubgIOda11N9BTi8jFZ4zfOnTXMIUQocAy3ZfLjT7I7T8Z8hnpML7tfZ/FYbo73c9jcNsmBeL+X8//mWXn/4pWlPSyOAgib7OMDxm7iZ2BjQ=
 name: "贴吧链接去跳转",
 from: /^https?:\/\/jump\.bdimg\.com\/(.*)/i,
 to: "http://tieba.baidu.com/$1",
 regex: true
-},
+},*/
 {
 //example: http://userscripts.org/
 name: "userscripts >> 鏡像",

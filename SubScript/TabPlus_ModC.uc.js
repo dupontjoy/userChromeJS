@@ -6,6 +6,8 @@
 
 // ==/UserScript==
 
+/*=====原Mozest代码=====*/
+
 location == 'chrome://browser/content/browser.xul' && (function() {
     //地址栏新标签打开
     try {

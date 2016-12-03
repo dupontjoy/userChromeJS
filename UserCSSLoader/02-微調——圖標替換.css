@@ -1,4 +1,4 @@
-/*+++ 2016.10.17 +++*/
+/*+++ 2016.12.01 +++*/
 
 /*Firefox自带菜单加图标最后在ID后加上 > .menu-iconic-left > .menu-iconic-icon, 否则右边小三角可能消失*/
 
@@ -47,6 +47,12 @@ display: none !important;
 }
 
 /*==扩展/脚本图标补充==*/
+
+/*自带Pocket*/
+#pocket-button {
+list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAc0lEQVQ4je2SsQ2AMBADr0rBAhkgY2SCTMIKGYZx2IEN0jBEaB4JCf4JKHRYcmXr5MLQWQkoQFVcpKOqANHIo3RU1YaVZucHfAAYxK8AAVjE4SkgASswio8PvAVkzo/cH5hbADPgLzIvmQmYAGfkTjr9tAHhASvq4nOsZwAAAABJRU5ErkJggg==")!important;
+}
+
 
 /*UC管理器几个文件夹*/
 .anobtnuc.menu-iconic > .menu-iconic-left > .menu-iconic-icon {

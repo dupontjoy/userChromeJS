@@ -1,4 +1,4 @@
-//2016.11.28
+//2016.12.05
 
 /******************************************************************************************
 快捷键分类:
@@ -376,7 +376,6 @@ loadCss(`${__dirname}/../../UserCSSLoader/02-微調——圖標替換.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/02-微調——圖標效果&排序.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/02-微調——隱藏項.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/03-其他——Cursors for hyperlinks.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/03-其他——GPU Mode.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/03-其他——網站修正.css`)
 
 //设置参数

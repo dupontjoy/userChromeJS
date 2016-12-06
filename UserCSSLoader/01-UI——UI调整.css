@@ -2,7 +2,7 @@
   @namespace   https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox
   @description 含:标签栏, 地址栏, 书签栏, 三道杠等界面上的调整
   @author      Cing
-  @version     1.00-2016.11.26
+  @version     1.00-2016.12.03
   @reference             
 */
 
@@ -83,11 +83,6 @@ margin: 0 0 6px 0  !important;
 max-width: 210px !important;
 border: 1px solid ThreeDShadow !important;
 }
-
-/*Https协议地址栏变色
-#urlbar[level="low"] {background-color: #FFFFB7 !important;}
-#urlbar[level="high"] {background-color: #DDF9CC !important;}
-#urlbar[level="broken"] {background-color: #F7DFDF !important;}*/
 
 /*Https协议地址栏变色-新版完整 For FX43+*/
 #urlbar{
@@ -312,3 +307,6 @@ top: 260px !important;
 #FeiRuoNet_Settings {
 height: 530px !important;
 }*/
+
+/*Feiruonet图标模糊修正*/
+#FeiRuoNet_icon.Proxy {filter: grayscale(0%) blur(.1px)!important;}

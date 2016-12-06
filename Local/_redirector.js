@@ -102,7 +102,7 @@ regex: true
 //example: https://www.google.com.hk/#newwindow=1&safe=strict&q=tvc
 name: "google国家域名 >> google.com",
 from: /^https?:\/\/www\.google\.(?:co|com)\.(?:hk|jp|sg|kr)\/(?:s\?|search\?|webhp\?|.*\&safe=strict)(.*)/i,
-to: "https://www.google.com/search?$1&hl=en-US&safe=off",
+to: "https://www.google.com/search?$1",
 regex: true
 },
 {

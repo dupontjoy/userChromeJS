@@ -3,8 +3,8 @@
 @echo off
 
 ::自动以管理员身份运行bat文件
-cd /d %~dp0
-%1 start "" mshta vbscript:createobject("shell.application").shellexecute("""%~0""","::",,"runas",1)(window.close)&exit
+::cd /d %~dp0
+::%1 start "" mshta vbscript:createobject("shell.application").shellexecute("""%~0""","::",,"runas",1)(window.close)&exit
 
 ::备份部分开始
 Title 備份批處理整合版 by Cing

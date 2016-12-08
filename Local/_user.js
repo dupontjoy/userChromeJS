@@ -1,4 +1,4 @@
-//2016.11.29
+//2016.12.08
 
 const EXPORTED_SYMBOLS = ['PREFS']
 
@@ -140,6 +140,11 @@ var PREFS = {
 
 //Pocket(Readitlater)
 'extensions.isreaditlater.open': "tab",//新标签打开项目
+
+//Zotero
+'extensions.zotero.showIn': 2,//新标签打开
+'extensions.zotero.automaticSnapshots': false,//从Web页面创建条目时自动生成快照(否)
+'extensions.zotero.dataDir': "E:\\My Documents\\GitHub\\customization\\Firefox\\Zotero",//数据存储文件夹
 
 //*==========脚本设置==========*//
 //UC管理器取消延迟加载

@@ -227,6 +227,7 @@ border-radius: 0px !important;
 	width: 62.9px!important;
 }
 
+
 /* ====== 5. FF悬浮侧栏样式，自动隐藏 updata by defpt 2013.08.06 ====== */
 @namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 @-moz-document url(chrome://browser/content/browser.xul) {

@@ -9,7 +9,7 @@
 //==/UserScript==
 
 //可供修改点1：表示间隔【多少分钟】范围【0--60*24*10】-0到10天  
-var setTime = 60*12;//单位（分钟），默认为12小时   ->越界时间不准,就不好玩了 O_O
+var setTime = 60*4;//单位（分钟），60*4即4小时   ->越界时间不准,就不好玩了 O_O
 /**
 注意如果不能成功的话，自己手动去吧 userchromejs.data.MyRiGouTime 设置为0
 */
@@ -18,7 +18,9 @@ var userIndex = 1;
 var ALL = [
 ["http://www.netbian.com", 
 // 可供修改点3：壁纸来源
-"http://www.netbian.com/e/sch/index.php?keyboard=%C3%C0%C5%AE", 
+"http://www.netbian.com/weimei/",//唯美
+//"http://www.netbian.com/jianzhu//",//建筑
+//"http://www.netbian.com/e/sch/index.php?keyboard=%C3%C0%C5%AE",//美女
 "<a href=\"([^\"]{0,15})\" target=\"_blank\">", 
 "<img src=\"([^\"]+)\"", 
 "-1366x768.htm", 
@@ -26,7 +28,12 @@ var ALL = [
 
 ,["http://bizhi.sogou.com", 
 // 可供修改点3：壁纸来源
-"http://bizhi.sogou.com/label/search/?word=%B3%C7%CA%D0", 
+//"http://bizhi.sogou.com/cate/index/2",//风景
+//"http://bizhi.sogou.com/cate/index/3",//静物
+"http://bizhi.sogou.com/cate/index/9",//炫简
+//"http://bizhi.sogou.com/cate/index/18",//心情
+//"http://bizhi.sogou.com/cate/index/731",//环游世界
+//"http://bizhi.sogou.com/label/search/?word=%B3%C7%CA%D0",//城市
 "<a href=\"(/detail/info/[\\d]+)\" target=\"_blank\">", 
 "<img height=\"600\" width=\"950\" src=\"([^\"]+)\"", 
 null, 

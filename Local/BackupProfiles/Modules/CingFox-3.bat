@@ -1,4 +1,4 @@
-::2016.11.23
+::2016.12.09
 
 :pcxFirefox
 ::Ñ}ÑuPcxFirefoxÖ÷³ÌÐò
@@ -40,6 +40,7 @@ xcopy "%TempFolder%\Profiles\chrome\SubScript\QR.uc.js" %TempFolder%\Optional\Pr
 xcopy "%TempFolder%\Profiles\chrome\SubScript\videos_skipAd.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
 xcopy "%TempFolder%\Profiles\chrome\Local\_user.js" %TempFolder%\Optional\Profiles\chrome\Local\  /s /y /i
 xcopy "%TempFolder%\Profiles\extensions\uMatrix@raymondhill.net.xpi" %TempFolder%\Optional\Profiles\extensions\  /s /y /i
+xcopy "%TempFolder%\Profiles\extensions\zotero@chnm.gmu.edu.xpi" %TempFolder%\Optional\Profiles\extensions\  /s /y /i
 xcopy "%TempFolder%\Software\GFW" %TempFolder%\Optional\Software\GFW\  /s /y /i
 xcopy "%TempFolder%\Software\Image" %TempFolder%\Optional\Software\Image\  /s /y /i
 xcopy "%TempFolder%\Software\Other" %TempFolder%\Optional\Software\Other\  /s /y /i
@@ -49,6 +50,7 @@ del %TempFolder%\Profiles\chrome\SubScript\QR.uc.js  /s /q
 del %TempFolder%\Profiles\chrome\SubScript\videos_skipAd.uc.js  /s /q
 del %TempFolder%\Profiles\chrome\Local\_user.js  /s /q
 del %TempFolder%\Profiles\extensions\uMatrix@raymondhill.net.xpi  /s /q
+del %TempFolder%\Profiles\extensions\zotero@chnm.gmu.edu.xpi  /s /q
 del %TempFolder%\Software\GFW\  /s /q
 del %TempFolder%\Software\Image\  /s /q
 del %TempFolder%\Software\Other\  /s /q

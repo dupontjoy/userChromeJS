@@ -3,7 +3,7 @@
 // @namespace      runningcheese@qq.com
 // @description    为工具栏图标增加点击功能
 // @author         runningcheese
-// @version        0.0.1-2016.12.02
+// @version        0.0.1-2016.12.12
 // @license        MIT License
 // @compatibility  Firefox 29+
 // @charset        UTF-8

@@ -1,4 +1,4 @@
-//2016.12.05
+//2016.12.13
 
 /******************************************************************************************
 快捷键分类:
@@ -161,13 +161,30 @@ vimfx.addCommand({
 map(',c', 'goto_config', true)
 
 vimfx.addCommand({
-    name: 'goto_downloads',
-    description: '弹窗打开下载',
-}, ({vim}) => {
-    vim.window.DownloadsPanel.showDownloadsHistory()
-    //vim.window.switchToTabHavingURI('about:downloads', true)
-})
-map(',d', 'goto_downloads', true)
+  name: 'goto_increment',
+  description: 'URL最后一个数字递增',
+  category: 'location',
+}, ({vim, count}) => {
+  if (!count) count = 1;
+  let uri = vim.window.gBrowser.selectedBrowser.currentURI.spec;
+  vim.window.gBrowser.loadURI(uri.replace(/(\d+)(?=\D*$)/, function($0) {
+        return +$0 + count;
+      }));
+});
+map(',u', 'goto_increment', true)
+
+vimfx.addCommand({
+  name: 'goto_decrement',
+  description: 'URL最后一个数字递减',
+  category: 'location',
+}, ({vim, count}) => {
+  if (!count) count = -1;
+  let uri = vim.window.gBrowser.selectedBrowser.currentURI.spec;
+  vim.window.gBrowser.loadURI(uri.replace(/(\d+)(?=\D*$)/, function($0) {
+        return +$0 + count;
+      }));
+});
+map(',d', 'goto_decrement', true)
 
 /*vimfx.addCommand({
     name: 'goto_ehh',

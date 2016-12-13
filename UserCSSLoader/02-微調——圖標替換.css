@@ -48,6 +48,11 @@ display: none !important;
 
 /*==扩展/脚本图标补充==*/
 
+/*Zotero设置*/
+#zotero-tb-actions-prefs {
+list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAkElEQVQ4jbWTXQ2AMAyEvzc0TAIWEIIWTMwBBhCBNni5Cw2MwPhp0mT9u7a3DX6UAVikw92iHphCcSs1yKSc02InjkAXYp18Bi6CuPOVeJJiYNS5ATIbB1k+wiSH4iWMndUlSWf5vM6BWBMW7RTsJJ+l3dnvAUorzDUrGOQxifDBNb5+SAZ5/JRLo1Z/pmpZAR6aP0H2Y7uIAAAAAElFTkSuQmCC")!important;
+}
+
 /*自带Pocket*/
 #pocket-button {
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAc0lEQVQ4je2SsQ2AMBADr0rBAhkgY2SCTMIKGYZx2IEN0jBEaB4JCf4JKHRYcmXr5MLQWQkoQFVcpKOqANHIo3RU1YaVZucHfAAYxK8AAVjE4SkgASswio8PvAVkzo/cH5hbADPgLzIvmQmYAGfkTjr9tAHhASvq4nOsZwAAAABJRU5ErkJggg==")!important;

@@ -1,4 +1,4 @@
-//2016.12.08
+//2016.12.12
 
 const EXPORTED_SYMBOLS = ['PREFS']
 
@@ -144,7 +144,7 @@ var PREFS = {
 //Zotero
 'extensions.zotero.showIn': 2,//新标签打开
 'extensions.zotero.automaticSnapshots': false,//从Web页面创建条目时自动生成快照(否)
-'extensions.zotero.dataDir': "E:\\My Documents\\GitHub\\customization\\Firefox\\Zotero",//数据存储文件夹
+//'extensions.zotero.dataDir': "E:\\My Documents\\GitHub\\customization\\Firefox\\Zotero",//数据存储文件夹
 
 //*==========脚本设置==========*//
 //UC管理器取消延迟加载
@@ -188,5 +188,17 @@ var PREFS = {
 'userChromeJS.FeiRuoNet.UrlbarSafetyLevel': false,//HTTPS等級高亮
 'userChromeJS.FeiRuoNet.EnableProxyByError': false,//网络错误时代理
 'userChromeJS.FeiRuoNet.ProxyMode': 0,//代理模式: 禁用代理
+
+//FeiRuoTabplus
+'userChromeJS.FeiRuoTabplus.UndoBtn': false,//撤销关闭按钮(否)
+'userChromeJS.FeiRuoTabplus.TabFocus': false,//悬停自动聚焦(否)
+'userChromeJS.FeiRuoTabplus.NewTabUrlbar_SH': true,//域名相同在当前页打开
+'userChromeJS.FeiRuoTabplus.SideBarNewTab_SH': true,//域名相同在当前页打开
+'userChromeJS.FeiRuoTabplus.NewTabNear': 2,//新建标签在(当前右边)
+'userChromeJS.FeiRuoTabplus.ColseToNearTab': 1,//关闭标签转到(当前左边)
+'userChromeJS.FeiRuoTabplus.NewTabExcludeUrl': "^(javascript:)\n^(imacros:)",//URL在当前页打开
+
+//FeiRuoMouse
+'userChromeJS.FeiRuoMouse.GesCustom': "1|URL%u4E2D%u7684%u6570%u5B57%u9012%u589E|U|||;;1|URL%u4E2D%u7684%u6570%u5B57%u9012%u51CF|D|||",//自定义手势
 
 }

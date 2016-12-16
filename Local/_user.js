@@ -1,4 +1,4 @@
-//2016.12.12
+//2016.12.14
 
 const EXPORTED_SYMBOLS = ['PREFS']
 
@@ -6,6 +6,14 @@ var PREFS = {
 /******************************************************************************************
  *这里是个人设置。
  *******************************************************************************************/
+ //*==========主页==========*//
+'browser.startup.page': 1;//启动Firefox时显示主页
+'browser.startup.homepage': "about:newtab";//首頁
+'browser.newtabpage.columns': 6;//新标签页列数
+'browser.newtabpage.rows': 3;//新标签页行数
+//标签页固定的网站
+'browser.newtabpage.pinned", "[{\"url\":\"https://hbr.org/\",\"title\":\"HBR\"},{\"url\":\"http://www.economist.com/\",\"title\":\"Economist\"},{\"url\":\"http://www.cnn.com/\",\"title\":\"CNN\"},{\"url\":\"https://www.ft.com/\",\"title\":\"Financial Times\"},{\"url\":\"http://www.nytimes.com/\",\"title\":\"NYTimes\"},{\"url\":\"http://www.wsj.com/\",\"title\":\"WSJ\"},{\"url\":\"https://www.youtube.com/\",\"title\":\"Youtube\"},{\"url\":\"https://docs.google.com/spreadsheets/u/0/\",\"title\":\"Google Sheets\"},{\"url\":\"http://bbs.kafan.cn/forum-215-1.html\",\"title\":\"Kafan\"},{\"url\":\"http://www.cnbeta.com/\",\"title\":\"cnBeta\"},{\"url\":\"http://www.douban.com/\",\"title\":\"Douban\"},{\"url\":\"http://www.zhihu.com/explore\",\"title\":\" Zhihu\"},{\"url\":\"http://www.guokr.com/\",\"title\":\"Guokr\"},{\"url\":\"http://www.jianshu.com/\",\"title\":\"Jianshu\"},{\"url\":\"http://open.163.com/\",\"title\":\"网易公开课\"},{\"url\":\"http://music.163.com/\",\"title\":\"Music\"},{\"url\":\"http://email.163.com/\",\"title\":\"Mail\"},{\"url\":\"https://app.yinxiang.com/Home.action\",\"title\":\"Evernote\"}]";
+ 
 //*==========Firefox设置==========*//
 'layers.acceleration.disabled': true,//禁用硬件加速MacType才生效
 'signon.rememberSignons': false,//不保存密码
@@ -199,6 +207,6 @@ var PREFS = {
 'userChromeJS.FeiRuoTabplus.NewTabExcludeUrl': "^(javascript:)\n^(imacros:)",//URL在当前页打开
 
 //FeiRuoMouse
-'userChromeJS.FeiRuoMouse.GesCustom': "1|URL%u4E2D%u7684%u6570%u5B57%u9012%u589E|U|||;;1|URL%u4E2D%u7684%u6570%u5B57%u9012%u51CF|D|||",//自定义手势
+
 
 }

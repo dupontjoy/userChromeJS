@@ -195,14 +195,6 @@ map(',d', 'goto_decrement', true)
 map(',e', 'goto_ehh', true)*/
 
 vimfx.addCommand({
-    name: 'goto_history',
-    description: '弹窗打开历史',
-}, ({vim}) => {
-    vim.window.PlacesCommandHook.showPlacesOrganizer('History')
-})
-map(',h', 'goto_history', true)
-
-vimfx.addCommand({
     name: 'goto_sougoupic',
     description: '下一张壁纸',
     category: 'misc',

@@ -1,4 +1,4 @@
-/*+++ 2016.12.08 +++*/
+/*+++ 2016.12.13 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
@@ -99,6 +99,7 @@ display: none !important;
 }
 
 /*隐藏项 - 地址栏右键*/
+#PanelUI-popup,/*三道杠弹窗*/
 #urlbar menuitem[cmd="cmd_undo"],
 #urlbar menuitem[cmd="cmd_cut"],
 #urlbar menuitem[cmd="cmd_delete"] {

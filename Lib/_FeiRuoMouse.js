@@ -4,6 +4,13 @@
  *******************************************************************************************/
 var GesCustomCommand = [
 	//示例：
+		{
+		label: "Lastpass自动填写",
+		command: function(event) {
+				var popup = document.querySelector("#lpt_lpautofillpopup");
+				popup && popup.firstChild.doCommand();
+		}
+	},
 	{
 		label: "GrabScroll4", //命令的说明文字
 		command: function(event) { //自定义命令，event为回传事件

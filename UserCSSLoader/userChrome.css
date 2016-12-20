@@ -1,4 +1,4 @@
-/*+++ 2016.12.01 +++*/
+/*+++ 2016.12.19 +++*/
 
 /*++第1部分+++++++++++++++++++++++防启动后界面跳动+++++++++++++++++++++++++*/
 /*自动隐藏AidBar*/
@@ -90,6 +90,7 @@ padding: 0px !important;
 #ublock-button .toolbarbutton-badge-container {padding: 0px !important;}
 
 /*調整圖標邊框——方法3*/
+#SimpleMusicPlayer .toolbarbutton-icon,
 #RIL_toolbar_button .toolbarbutton-icon,
 #bookmarks-menu-button .toolbarbutton-icon,
 #pocket-button .toolbarbutton-icon,
@@ -101,15 +102,23 @@ padding: 0px !important;
 -moz-appearance: none !important;
 }
 
-/*Fx48修正*/
-#downloads-button .toolbarbutton-icon
-{
-margin-right:-1px !important;}
+/*SimpleMusicPlayer*/
+#SimpleMusicPlayer .toolbarbutton-icon
+{margin-right:-10px !important;}
 
-/*自带Pocket*/
-#pocket-button .toolbarbutton-icon
+/*侧栏脚本*/
+#Sidebar-button .toolbarbutton-icon
 {
-margin-right:-4px !important;}
+margin-left:-6px !important;
+margin-right:-2px !important;
+}
+
+/*下载按钮*/
+#downloads-button .toolbarbutton-badge-stack/*下载完成的状态*/
+{margin-left:3px !important;
+margin-right:-9px !important;}
+#downloads-button .toolbarbutton-icon/*普通状态*/
+{margin-right:0px !important;}
 
 /*AnoBtn圖標（两句要同時用）*/
 toolbarbutton#anobtn,toolbarbutton#anobtn>image
@@ -132,13 +141,6 @@ padding: 0px !important;
 -moz-appearance: none !important;
 margin-right: -4px !important;
 }
-
-/*UBO圖標（两句要同時用）
-toolbarbutton#ublock0-button,toolbarbutton#ublock0-button>image {
-padding: 0px !important;
-margin-left:0px !important;
-margin-right: -3px !important;
-}*/
 
 /*Lastpass圖標距離調整（两句要同時用）*/
 toolbarbutton#lpt_lastpass-compact-btn,toolbarbutton#lpt_lastpass-compact-btn>image {

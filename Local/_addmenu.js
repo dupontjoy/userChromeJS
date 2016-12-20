@@ -1,4 +1,4 @@
-//2016.11.30
+//2016.12.19
 
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
@@ -213,7 +213,7 @@ where: 'tab'
 label: "TC搜索流水号",
 id: "TVC-Universal",
 oncommand: function(){
-var Path = "\\..\\Software\\totalcmd\\TOTALCMD.EXE";
+var Path = "\\..\\Software\\totalcmd64\\TOTALCMD64.EXE";
 var Folder = "X:";
 var str = addMenu.convertText('%s');
 addMenu.copy(str);
@@ -532,24 +532,24 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZ0
 }
 )
 
-/*page(
+page(
 {
 label: "VIP視頻雲解析",
 condition: "link",
 position: 2,
-tooltiptext: "左鍵: 紫狐\n中鍵: 有範\n右鍵: 迅雷",
+tooltiptext: "左鍵: 紫狐\n中鍵: 无名小站\n右鍵: 迅雷",
 onclick: function(event){
 var url = addMenu.convertText("%RLINK_OR_URL%");
 if (event.button === 0)
 gBrowser.selectedTab = gBrowser.addTab("http://yun.zihu.tv/play.html?url=" + url);
 if (event.button === 1)
-gBrowser.selectedTab = gBrowser.addTab("http://www.ufanw.com/play/play.html?url=" + url);
+gBrowser.selectedTab = gBrowser.addTab("http://www.wmxz.wang/video.php?url=" + url);
 if (event.button === 2)
 gBrowser.selectedTab = gBrowser.addTab("http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=" + url);
 },
 image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4je3RIUzDQBjF8V9CMotEoTCYufopBBqLx1ZOYiZn0JVIVC0WXTuJm6mqmpmY6Dt2CYIESXjJ9a7/vn7fvTv+hJ6wRocPTNhnfg+fcMCA1/gfsIIjtmgLiC5SfIPrsCZsiz6F58cvNcInbgJKhBHPlXEd3xgPLLGTnPeBh2T7qh7tMz/GI76+VH+p4JBd1NHK+1A16Mzn5iod7n4KXGmVfy4LaALawAVus7s260W+tYn3reHS+Wom8wF1Gbtkn/AW77+iE6SaONczlmqVAAAAAElFTkSuQmCC"
 }
-)*/
+)
 
 /*——————————頁面右鍵——————————*/
 //多功能菜單

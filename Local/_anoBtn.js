@@ -1,4 +1,4 @@
-//2016.11.30
+//2016.12.19
 
 /**********************************************************************************
  *child:[  ]内爲當前菜單的下一級菜單配置,支持多級
@@ -72,7 +72,7 @@ child: [
 label: "UserCSSLoader",
 tooltiptext: "用TC打开UserCSSLoader文件夾",
 oncommand: function(e) {
-var Path = "\\..\\Software\\totalcmd\\TOTALCMD.EXE";
+var Path = "\\..\\Software\\totalcmd64\\TOTALCMD64.EXE";
 var Folder = Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\UserCSSLoader"; 
 addMenu.exec(Path, ['-search', Folder]);
 },
@@ -82,7 +82,7 @@ image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZk
 label: "iMacros",
 tooltiptext: "用TC打开iMacros文件夾",
 oncommand: function(e) {
-var Path = "\\..\\Software\\totalcmd\\TOTALCMD.EXE";
+var Path = "\\..\\Software\\totalcmd64\\TOTALCMD64.EXE";
 var Folder = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\iMacros\\Datasources"; 
 addMenu.exec(Path, ['-search', Folder]);
 },
@@ -124,10 +124,6 @@ label: "XX-Mini",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\GFW\\XX-Mini\\goagent.exe",
 },
 {},
-{
-label: "TotalCommander",
-exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\totalcmd\\TOTALCMD.EXE",
-},
 {
 label: "PicPick",
 exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Image\\PicPick\\PicPick.exe",

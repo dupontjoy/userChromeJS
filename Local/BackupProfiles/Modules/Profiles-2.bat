@@ -14,14 +14,14 @@ set ss=%time:~6,2%
 
 ::輸出文件名
 set Name=Profiles_%ver%_%YY%%MON%%DD%-%hh%%mm%%ss%.7z
-set Name_zotero=Zotero_%YY%%MON%%DD%-%hh%%mm%%ss%.7z
+set Name_zotero=Zotero.7z
 
 ::小時數小于10点時的修正
 set /a hh=%time:~0,2%*1
 if %hh% LSS 10 set hh=0%hh%
 ::輸出文件名
 set Name=Profiles_%ver%_%YY%%MON%%DD%-%hh%%mm%%ss%.7z
-set Name_zotero=Zotero_%YY%%MON%%DD%-%hh%%mm%%ss%.7z
+set Name_zotero=Zotero.7z
 
 rem 開始備份
 ::-mx9极限压缩 -mhc开启档案文件头压缩 -r递归到所有的子目录

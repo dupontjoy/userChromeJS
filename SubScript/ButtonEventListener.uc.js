@@ -3,7 +3,7 @@
 // @namespace      runningcheese@qq.com
 // @description    为工具栏图标增加点击功能
 // @author         runningcheese
-// @version        0.0.1-2016.12.13
+// @version        0.0.1-2016.12.19
 // @license        MIT License
 // @compatibility  Firefox 29+
 // @charset        UTF-8
@@ -74,14 +74,14 @@ BrowserReloadSkipCache();
             if (e.button == 0) {
                e.preventDefault();
                e.stopPropagation();
-var Path = "\\..\\Software\\totalcmd\\TOTALCMD.EXE";
+var Path = "\\..\\Software\\totalcmd64\\TOTALCMD64.EXE";
 var Folder = Services.dirsvc.get("UChrm", Ci.nsILocalFile).path; 
 addMenu.exec(Path, ['-search', Folder]);
             }
             if (e.button == 1) {
                e.preventDefault();
                e.stopPropagation();
-var Path = "\\..\\Software\\totalcmd\\TOTALCMD.EXE";
+var Path = "\\..\\Software\\totalcmd64\\TOTALCMD64.EXE";
 var Folder = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path; 
 addMenu.exec(Path, ['-search', Folder]);
             }
@@ -205,3 +205,11 @@ location == "chrome://browser/content/browser.xul" && addEventListener("keydown"
 		})(content)
 	}
 }, true)
+
+//移除按鈕收合的功能
+["overflowable", "overflowbutton", "overflowtarget", "overflowpanel"].forEach(function(n) {
+    $("nav-bar").removeAttribute(n);
+});
+function $(id) {
+    return document.getElementById(id);
+}

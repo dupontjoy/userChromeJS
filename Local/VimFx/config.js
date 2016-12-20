@@ -1,4 +1,4 @@
-//2016.12.13
+//2016.12.20
 
 /******************************************************************************************
 快捷键分类:
@@ -134,11 +134,12 @@ set('prev_patterns', v => `[上前]\\s*一?\\s*[页张个篇章頁] ${v}`)
 set('next_patterns', v => `[下后]\\s*一?\\s*[页张个篇章頁] ${v}`)
 
 // shortcuts快捷键
-map('W', 'window_new')//新建窗口
-map('w', 'tab_select_previous')//上一个标签
-map('e', 'tab_select_next')//下一个标签
-map('s', 'scroll_half_page_up')//向上滾动半页
-map('S', 'stop')//停止载入当前页面
+set('mode.normal.window_new', 'W')//新建窗口
+set('mode.normal.tab_select_previous', 'w')//上一个标签
+set('mode.normal.tab_select_next', 'e')//下一个标签
+set('mode.normal.scroll_half_page_up', 's')//向上滾动半页
+set('mode.normal.stop', 'S')//停止载入当前页面
+set('mode.ignore.exit', '<escape>')//忽略模式-->返回普通模式
 
 
 // commands命令
@@ -150,6 +151,18 @@ vimfx.addCommand({
     vim.window.BrowserOpenAddonsMgr()
 })
 map(',a', 'goto_addons', true)
+
+// Search bookmarks
+vimfx.addCommand({
+  name: 'search_bookmarks',
+  description: '搜索书签',
+  category: 'location',
+  order: commands.focus_location_bar.order + 1,
+}, (args) => {
+  commands.focus_location_bar.run(args)
+  args.vim.window.gURLBar.value = '* '
+})
+map(',b', 'search_bookmarks', true)
 
 vimfx.addCommand({
     name: 'goto_config',
@@ -252,11 +265,11 @@ map(',s', 'goto_preferences', true)
 vimfx.addCommand({
     name: 'search_tabs',
     description: '搜索标签',
-    category: 'location',
+    category: 'tabs',
     order: commands.focus_location_bar.order + 1,
 }, (args) => {
     commands.focus_location_bar.run(args)
-    args.vim.window.gURLBar.value = '%'
+    args.vim.window.gURLBar.value = '% '
 })
 map(',t', 'search_tabs', true)
 
@@ -370,6 +383,77 @@ vimfx.addCommand({
 })
 map('zu', 'umatrix_bootstrap', true)
 
+let bootstrap = () => {
+    // install addons
+    let addons = [
+
+        {id: '{e4a8a97b-f2ed-450b-b12d-ee082ba24781}', url: 'greasemonkey'},
+        {id: 'support@lastpass.com', url: 'lastpass-password-manager'},
+        {id: '{46551EC9-40F0-4e47-8E18-8E5CF550CFB8}', url: 'stylish'},
+        {id: 'uBlock0@raymondhill.net', url: 'ublock-origin'},
+        {id: 'VimFx@akhodakivskiy.github.com', url: 'vimfx'},
+
+    ]
+    addons.forEach((element) => {
+        AddonManager.getAddonByID(element.id, (addon) => {
+            if(!addon) {
+                let url = element.url
+                if(!url.startsWith('https://')) {
+                    url = 'https://addons.mozilla.org/firefox/downloads/latest/' + url
+                }
+                AddonManager.getInstallForURL(url, (aInstall) => {
+                    aInstall.install()
+                }, 'application/x-xpinstall')
+            }
+        })
+    })
+    // Open about:support to see list of addons
+    // disable addons
+    let disabled_addons = [
+        'firefox@getpocket.com',
+        'gmp-gmpopenh264',
+        'loop@mozilla.org',
+    ]
+    disabled_addons.forEach((element) => {
+        AddonManager.getAddonByID(element, (addon) => {
+            addon.userDisabled = true
+        })
+    })
+    let bookmarks = PlacesUtils.bookmarks
+    search_engines.forEach((element) => {
+        let uri = NetUtil.newURI(element.url, null, null)
+        if (!bookmarks.isBookmarked(uri)) {
+            bookmarks.insertBookmark(
+                bookmarks.unfiledBookmarksFolder,
+                uri,
+                bookmarks.DEFAULT_INDEX,
+                element.title)
+            PlacesUtils.keywords.insert(element)
+        }
+    })
+    popup('Bootstrap succeeded.', {
+        label: 'Open Addons',
+        accessKey: 'A',
+        callback: () => {
+            nsIWindowWatcher.activeWindow.BrowserOpenAddonsMgr()
+        }
+    })
+}
+vimfx.addCommand({
+    name: 'bootstrap',
+    description: 'Bootstrap',
+}, ({vim}) => {
+    try {
+        bootstrap()
+    } catch (error) {
+        vim.notify('Bootstrap failed')
+        console.error(error)
+        return
+    }
+    vim.notify('Bootstrap succeeded')
+})
+map(',B', 'bootstrap', true)
+
 /******************************************************************************************
  *其它加载(如CSS和部分User.js).
  *******************************************************************************************/
@@ -398,3 +482,22 @@ Preferences.set({
 //加载外置user.js文件
 let {PREFS} = Cu.import(`${__dirname}/../_user.js?${Math.random()}`, {})
 Preferences.set(PREFS)
+
+/******************************************************************************************
+ *other: 引导
+ *******************************************************************************************/
+let bootstrapIfNeeded = () => {
+    let bootstrapFile = OS.Path.fromFileURI(`${__dirname}/config.js`)
+    let bootstrapPref = "extensions.VimFx.bootstrapTime"
+    let file = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile)
+    file.initWithPath(bootstrapFile)
+    if (file.exists() && file.isFile() && file.isReadable()) {
+        let mtime = Math.floor(file.lastModifiedTime / 1000)
+        let btime = Preferences.get(bootstrapPref)
+        if (!btime || mtime > btime) {
+            bootstrap()
+            Preferences.set(bootstrapPref, Math.floor(Date.now() / 1000))
+        }
+    }
+}
+bootstrapIfNeeded()

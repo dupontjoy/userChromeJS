@@ -1,4 +1,4 @@
-//2016.12.14
+//2016.12.20
 
 const EXPORTED_SYMBOLS = ['PREFS']
 
@@ -7,12 +7,12 @@ var PREFS = {
  *这里是个人设置。
  *******************************************************************************************/
  //*==========主页==========*//
-'browser.startup.page': 1;//启动Firefox时显示主页
-'browser.startup.homepage': "about:newtab";//首頁
-'browser.newtabpage.columns': 6;//新标签页列数
-'browser.newtabpage.rows': 3;//新标签页行数
+'browser.startup.page': 1,//启动Firefox时显示主页
+'browser.startup.homepage': "about:newtab",//首頁
+'browser.newtabpage.columns': 6,//新标签页列数
+'browser.newtabpage.rows': 3,//新标签页行数
 //标签页固定的网站
-'browser.newtabpage.pinned", "[{\"url\":\"https://hbr.org/\",\"title\":\"HBR\"},{\"url\":\"http://www.economist.com/\",\"title\":\"Economist\"},{\"url\":\"http://www.cnn.com/\",\"title\":\"CNN\"},{\"url\":\"https://www.ft.com/\",\"title\":\"Financial Times\"},{\"url\":\"http://www.nytimes.com/\",\"title\":\"NYTimes\"},{\"url\":\"http://www.wsj.com/\",\"title\":\"WSJ\"},{\"url\":\"https://www.youtube.com/\",\"title\":\"Youtube\"},{\"url\":\"https://docs.google.com/spreadsheets/u/0/\",\"title\":\"Google Sheets\"},{\"url\":\"http://bbs.kafan.cn/forum-215-1.html\",\"title\":\"Kafan\"},{\"url\":\"http://www.cnbeta.com/\",\"title\":\"cnBeta\"},{\"url\":\"http://www.douban.com/\",\"title\":\"Douban\"},{\"url\":\"http://www.zhihu.com/explore\",\"title\":\" Zhihu\"},{\"url\":\"http://www.guokr.com/\",\"title\":\"Guokr\"},{\"url\":\"http://www.jianshu.com/\",\"title\":\"Jianshu\"},{\"url\":\"http://open.163.com/\",\"title\":\"网易公开课\"},{\"url\":\"http://music.163.com/\",\"title\":\"Music\"},{\"url\":\"http://email.163.com/\",\"title\":\"Mail\"},{\"url\":\"https://app.yinxiang.com/Home.action\",\"title\":\"Evernote\"}]";
+'browser.newtabpage.pinned': "[{\"url\":\"https://hbr.org/\",\"title\":\"HBR\"},{\"url\":\"http://www.economist.com/\",\"title\":\"Economist\"},{\"url\":\"http://www.cnn.com/\",\"title\":\"CNN\"},{\"url\":\"https://www.ft.com/\",\"title\":\"Financial Times\"},{\"url\":\"http://www.nytimes.com/\",\"title\":\"NYTimes\"},{\"url\":\"http://www.wsj.com/\",\"title\":\"WSJ\"},{\"url\":\"https://www.youtube.com/\",\"title\":\"Youtube\"},{\"url\":\"https://docs.google.com/spreadsheets/u/0/\",\"title\":\"Google Sheets\"},{\"url\":\"http://bbs.kafan.cn/forum-215-1.html\",\"title\":\"Kafan\"},{\"url\":\"http://www.cnbeta.com/\",\"title\":\"cnBeta\"},{\"url\":\"http://www.douban.com/\",\"title\":\"Douban\"},{\"url\":\"http://www.zhihu.com/explore\",\"title\":\" Zhihu\"},{\"url\":\"http://www.guokr.com/\",\"title\":\"Guokr\"},{\"url\":\"http://www.jianshu.com/\",\"title\":\"Jianshu\"},{\"url\":\"http://open.163.com/\",\"title\":\"Open.163\"},{\"url\":\"http://music.163.com/\",\"title\":\"Music\"},{\"url\":\"http://email.163.com/\",\"title\":\"Mail\"},{\"url\":\"https://app.yinxiang.com/Home.action\",\"title\":\"Evernote\"}]",
  
 //*==========Firefox设置==========*//
 'layers.acceleration.disabled': true,//禁用硬件加速MacType才生效
@@ -36,49 +36,12 @@ var PREFS = {
 'general.smoothScroll.durationToIntervalRatio': 500,
 'mousewheel.min_line_scroll_amount': 35,
 
-//*=隐私相关=*//https://www.firefox.net.cn/read-49369
-/**
-*禁用推送通知
-*/
-'dom.webnotifications.enabled': false,
-'dom.webnotifications.serviceworker.enabled': false,
-'dom.push.enabled': false,
-'dom.push.connection.enabled': false,
-'dom.push.serverURL': "",
-'dom.push.udp.wakeupEnabled': false,
-'dom.push.userAgentID': "",
-/**
-*ssl错误报告，隐私相关
-*/
-'security.ssl.errorReporting.automatic': false,
-'security.ssl.errorReporting.enabled': false,
-'security.ssl.errorReporting.url': "",
-/**
-*社交♂
-*/
-'social.whitelist': "",
-'social.toast-notifications.enabled': false,
-'social.shareDirectory': "",
-'social.remote-install.enabled': false,
-'social.directories': "",
-'social.share.activationPanelEnabled': false,
+//*=隐私相关=*//
 //其它隐私相关
-'app.update.enabled': false,//禁止后台更新Firefox的版本
-'browser.search.update': false,//禁止后台更新搜索引擎
-'extensions.getAddons.cache.enabled': false,//禁止附加组件管理器的AMO介绍信息（元数据）
-'network.predictor.enabled': false,//禁止预测服务，含推测性预连接
-'network.http.speculative-parallel-limit': 0,//禁止预测服务，含推测性预连接
-'extensions.webservice.discoverURL': "http://127.0.0.1",//禁止获取附加组件建议
-'lightweightThemes.update.enabled': false,//禁止后台定期自动更新轻量主题建议
 'browser.polaris.enabled': false,//彻底关闭Tracking protection 跟踪保护
 'privacy.trackingprotection.pbmode.enabled': false,//彻底关闭Tracking protection 跟踪保护
-'browser.selfsupport.url': "",//禁止心跳评价系统
-'browser.search.geoip.url': "",//禁止Firefox 地理位置服务
-'geo.wifi.uri': "",//禁止Firefox 地理位置服务
 'browser.send_pings': false,//禁止Hyperlink Auditing/Beacon: Hyperlink Auditing 就是 ping 服务，Firefox 会把你点击过的链接及其时间发回给服务器，Hyperlink Beacon 是使用 navigator.sendBeacon()在你离开一个页面时将一些数据回传给服务器
-'beacon.enabled': false,//禁止Hyperlink Auditing/Beacon
 'browser.newtabpage.directory.ping': "",//禁止新标签页面的建议磁贴和增强磁贴
-'media.peerconnection.enabled': false,//禁止WebRTC
 'browser.urlbar.suggest.searches': false,//禁止地址栏搜索提供搜索建议
 
 //*=FX其它类=*/
@@ -89,6 +52,7 @@ var PREFS = {
 'browser.sessionstore.max_tabs_undo': 10,//最近撤销标签历史最大数
 'browser.sessionstore.interval': 600000,//防止向SSD写入大量数量: 重写recovery.js文件的默认数值为“15000ms”(间隔时间15s), 改为10分钟
 //其它FX
+'general.skins.selectedSkin': "simplewhite",//使用SimpleWhite主題
 'gfx.content.azure.backends': "direct2d1.1,cairo",//图形渲染;FX52默认的Skia不支持Mactype
 'view_source.editor.external': true,//页面源代码——使用外部編輯器查看
 'browser.backspace_action': 2,//禁止Backspace键返回上一页
@@ -106,7 +70,7 @@ var PREFS = {
 'extensions.adblockplus.subscriptions_exceptionsurl': "https://github.com/dupontjoy/customization/raw/master/Rules/ABP/Floating-n-Porn-Ads-Filter.txt",//原非入侵式广告订阅网址
 
 //Autoproxy
-'extensions.autoproxy.customProxy': "Shadowsocks;;1080;socks$GoAgent;;8087;$Lantern;;8787;$Psiphon;;8080;$Free%20Gate;;8580;",
+'extensions.autoproxy.customProxy': "Shadowsocks;;1080;socks$XX-Mini;;8087;$Lantern;;8787;$Psiphon;;8080;$Free%20Gate;;8580;",
 'extensions.autoproxy.patternsbackups': 0,
 'extensions.autoproxy.defaultstatusbaraction': 0,//点击图标时-快捷菜单
 'extensions.autoproxy.defaulttoolbaraction': 0,//点击图标时-快捷菜单

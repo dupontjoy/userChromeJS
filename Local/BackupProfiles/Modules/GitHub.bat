@@ -1,4 +1,4 @@
-::2016.11.30
+::2016.12.20
 
 :GitHub
 cls
@@ -49,3 +49,4 @@ xcopy "%dir1%\..\..\System Tools\CCleaner\ccleaner.ini" "%dir2%\CCleaner\ccleane
 ::Ç‰∑›Total Commander‘O÷√
 xcopy "%dir1%\..\Software\totalcmd\wincmd.ini" "%dir2%\TC\wincmd.ini"  /s /y /i
 xcopy "%dir1%\..\Software\totalcmd\user\user.ini" "%dir2%\TC\user.ini"  /s /y /i
+xcopy "%dir1%\..\Software\Notepad2\Notepad2.ini" "%dir2%\TC\Notepad2.ini"  /s /y /i

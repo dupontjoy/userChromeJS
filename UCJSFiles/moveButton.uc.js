@@ -5,7 +5,7 @@
 // @namespace      ywzhaiqi@gmail.com
 // @include        main
 // @charset        UTF-8
-// @version        2016.12.13
+// @version        2016.12.19
 // version        2014.9.6
 // @homepageURL    https://github.com/ywzhaiqi/userChromeJS/tree/master/moveButton
 // @downloadURL    https://github.com/ywzhaiqi/userChromeJS/blob/master/moveButton/moveButton.uc.js
@@ -96,8 +96,11 @@ location == "chrome://browser/content/browser.xul" && (function(){
 { id: "userChromebtnMenu", bar: "TabsToolbar_aidBar", pos: 9 },//UC管理器
 { id: "userChromeJsManagerMenuBtn", bar: "TabsToolbar_aidBar", pos: 9 },//UC管理器
 
+/*sideBar*/
+{ id: "Sidebar-button", insertBefore: "urlbar" },//移动到地址栏前, 前进后退按钮后
+
 //保留在更多工具中
-{ id: "InspectElement-menuitem", insertAfter: "flashgot-menu" },//InspectElementModY默認不在MoreTools中，單獨移動
+{ id: "InspectElement-menuitem", insertAfter: "flashgot-menu" },//InspectElementModY 默認不在MoreTools中，單獨移動
 { id: "wordhighlight-toolbar-menuitem", insertAfter: "flashgot-menu" },
 { id: "noscript-context-menu", insertAfter: "flashgot-menu" },//Noscript右鍵菜單
 { id: "GrabScroll_optionsMenu", insertAfter: "flashgot-menu" },

@@ -61,7 +61,7 @@
 #context-openlinkintab,/*用新分頁開啟鏈結*/
 #context-copylink,/*複製鏈結網址*/
 #spell-add-dictionaries-main/*新增字典*/ {
-display: none !important;
+	display: none !important;
 }
 
 /*===标签栏右键菜单===*/
@@ -82,7 +82,7 @@ display: none !important;
 #context_openTabInWindow,/*移动到新窗口*/
 #context_bookmarkAllTabs,/*将全部标签页加为书签*/
 #menu_restoreAllTabs/*还原所有标签页*/ {
-display: none !important;
+	display: none !important;
 }
 
 /*隐藏项 - 书签右键*/
@@ -95,7 +95,7 @@ display: none !important;
 #placesContext_open,/*打开*/
 #placesContext_cut,/*剪切*/
 #placesContext_paste/*粘贴*/ {
-display: none !important;
+	display: none !important;
 }
 
 /*隐藏项 - 地址栏右键*/
@@ -103,15 +103,14 @@ display: none !important;
 #urlbar menuitem[cmd="cmd_undo"],
 #urlbar menuitem[cmd="cmd_cut"],
 #urlbar menuitem[cmd="cmd_delete"] {
-display: none !important;
+	display: none !important;
 }
 
 /*隐藏项 - 搜索栏右键*/
 #searchbar menuitem[anonid="toggle-suggest-item"],
 #searchbar menuitem[cmd="cmd_undo"],
-#searchbar menuitem[cmd="cmd_delete"]
-{
-display: none !important;
+#searchbar menuitem[cmd="cmd_delete"] {
+	display: none !important;
 }
 
 /*隐藏项 - 书签编辑右键*/
@@ -131,9 +130,8 @@ display: none !important;
 #editBookmarkPanelContent menuitem[label="Undo"],
 #editBookmarkPanelContent menuitem[label="Cut"],
 #editBookmarkPanelContent menuitem[label="Copy"],
-#editBookmarkPanelContent menuitem[label="Delete"]
-{
-display: none !important;
+#editBookmarkPanelContent menuitem[label="Delete"] {
+	display: none !important;
 }
 
 /*隐藏项 - 输入框右键*/
@@ -144,25 +142,24 @@ display: none !important;
 [label="復原"],
 [label="剪下"],
 [cmd="cmd_cut"],
-#context-keywordfield/*为此搜索添加关键字*/
-{
-display: none !important;
+#context-keywordfield/*为此搜索添加关键字*/ {
+	display: none !important;
 }
 
 /*Dom Inspector右键*/
 #mnEditCut/*剪下*/ {
-display: none !important;
+	display: none !important;
 }
 
 /*隐藏项 — 附加组件*/
 #category-discover,/*获取附加组件*/
 #category-service/*服务*/ {
-display: none !important;
+	display: none !important;
 }
 
 /*隐藏项 — 下载*/
 [class="downloadRemoveFromHistoryMenuItem"]/*从历史记录中移除*/ {
-display: none !important;
+	display: none !important;
 }
 
 /*===================扩展和脚本的图标======================*/
@@ -170,7 +167,7 @@ display: none !important;
 #foxyproxy-contextmenu-icon,
 #contentAreaContextMenu > .abp-contextmenuitem,/*屏蔽ABP右鍵菜單*/
 #wordhighlight-toolbar-highlight/*隐藏wordhighlight右鍵菜單*/ {
-display: none !important;
+	display: none !important;
 }
 
 /*LastPass菜单*/
@@ -197,9 +194,8 @@ display: none !important;
 [label="Copy Username"],[label="复制用户名"],[label="複製使用者名稱"],
 [label="Copy Password"],[label="复制密码"],[label="複製密碼"],
 [label="Copy URL"],[label="复制网址"],[label="複製網址"],
-[label="Go to URL"],[label="转到网址"],[label="轉到網址"]
-{
-display: none !important;
+[label="Go to URL"],[label="转到网址"],[label="轉到網址"] {
+	display: none !important;
 }
 
 /*UserCSSLoader*/
@@ -209,13 +205,13 @@ display: none !important;
 [label="新建瀏覽器樣式 (Chrome)"],
 [label="新建當前網頁樣式 (Web)"],
 [label="在userstyles.org檢索當前網頁樣式"] {
-display: none !important;
+	display: none !important;
 }
 
 /*ABP菜单项*/
 #abp-menuitem-sendReport,/*报告该页面上的问题*/
 #abp-menuitem-openbottombar/*打开可过滤项目*/ {
-display: none !important;
+	display: none !important;
 }
 
 /*FlashGot菜單項*/
@@ -226,9 +222,8 @@ display: none !important;
 #flashgot-main-menuitem-all,/*使用 FlashGot 下载全部链接*/
 #flashgot-main-menuitem-tabs,/*使用 FlashGot 下载标签页组*/
 #flashgot-main-menuitem-media,/*FlashGot 此媒体*/
-#flashgot-main-menuitem-buildGallery/*建立图库*/
-{
-display: none !important;
+#flashgot-main-menuitem-buildGallery/*建立图库*/ {
+	display: none !important;
 }
 
 /*其它擴展/腳本隱藏項*/
@@ -271,9 +266,8 @@ display: none !important;
 [label="生成二维码 : 图象地址"],
 [label="生成二维码 : 选区文本"],
 [label="生成QR码 : 链接地址"],
-[label="生成QR码 : 选区文本"]
-{
-display: none !important;
+[label="生成QR码 : 选区文本"] {
+	display: none !important;
 }
 
 /*隐藏定制面板里的非线性图标*/
@@ -302,6 +296,7 @@ display: none !important;
 #wrapper-firebug-inspectorButton,
 #wrapper-superstart-toolbar-icon,
 #wrapper-ctraddon_back-forward-dropmarker,
-#wrapper-ctraddon_bookmarks-menu-toolbar-button
-{display:none !important;}
+#wrapper-ctraddon_bookmarks-menu-toolbar-button {
+	display: none !important;
+}
 

@@ -2,66 +2,80 @@
 
 /* Textareas - Resize always */
 html textarea {
-resize: both !important;
+	resize: both !important;
 }
 
 /*清除网页干扰码*/
-body{-o-user-select:element !important;}
+body {
+	-o-user-select: element !important;
+}
+
 SPAN.fw,/*国学网*/
 font.jammer,
-font[style*="font-size: 0px;"]
-{display: none !important}
+font[style*="font-size: 0px;"] {
+	display: none !important
+}
 
 
 /* 阻止<blink>标签带来的闪烁 */
 blink, .blink, *[style*="blink"] {
-text-decoration: inherit !important;
+	text-decoration: inherit !important;
 }
 
 /*显示丢失图片*/
 @-moz-document url-prefix(http), url-prefix(https), url-prefix(file) {
-img{font: 12px Arial!important;}
-img:-moz-broken{-moz-force-broken-image-icon: 1 !important; width: 48px; height: 24px;}
+	img {
+		font: 12px Arial!important;
+	}
+
+	img:-moz-broken {
+		-moz-force-broken-image-icon: 1 !important;
+		width: 48px;
+		height: 24px;
+	}
 }
 
 /*图片经过外发光*/
 img:hover {
-box-shadow: 0px 0px 4px 4px rgba(130,190,10,0.6) !important;
--moz-transition-property: box-shadow;
--moz-transition-duration: .31s;
+	box-shadow: 0px 0px 4px 4px rgba(130,190,10,0.6) !important;
+	-moz-transition-property: box-shadow;
+	-moz-transition-duration: .31s;
 }
 
 img {
--moz-transition-property: box-shadow;
--moz-transition-duration: .31s;
+	-moz-transition-property: box-shadow;
+	-moz-transition-duration: .31s;
 }
 
 /*Bamboo Reader页面调整from Z流*/
 /*数字*/
 #bamboo-toolbar #bamboo-toolbar-button-feed[state="new"] .toolbarbutton-text,
-#bamboo-toolbar #bamboo-toolbar-button-feed[state="loading"] .toolbarbutton-text{
+#bamboo-toolbar #bamboo-toolbar-button-feed[state="loading"] .toolbarbutton-text {
 	padding: 0 4px !important;
 	height: 16px !important;
 	min-height: 16px !important;
-  background-image: none;
-  background-color: rgb(244, 96, 96) !important;
-  box-shadow: none !important;
+	background-image: none;
+	background-color: rgb(244, 96, 96) !important;
+	box-shadow: none !important;
 	border-radius: 8px !important;
-  font-size: 9px !important;
+	font-size: 9px !important;
 	font-weight: normal;
 	color: white !important;
 }
+
 #bamboo-toolbar #bamboo-toolbar-button-feed[state="new"] .toolbarbutton-text,
 #bamboo-toolbar #bamboo-toolbar-button-feed[state="loading"] .toolbarbutton-text {
 	position: absolute !important;
 	padding: 0 5px 0 2px !important;
 	z-index: 1 !important;
 }
+
 #bamboo-toolbar[cui-areatype="toolbar"] #bamboo-toolbar-button-feed[state="new"] .toolbarbutton-text,
 #bamboo-toolbar[cui-areatype="toolbar"] #bamboo-toolbar-button-feed[state="loading"] .toolbarbutton-text {
 	margin-left: -16px !important;
 	margin-bottom: 16px !important;
 }
+
 #bamboo-toolbar[cui-areatype="menu-panel"] #bamboo-toolbar-button-feed[state="new"] .toolbarbutton-text,
 #bamboo-toolbar[cui-areatype="menu-panel"] #bamboo-toolbar-button-feed[state="loading"] .toolbarbutton-text,
 toolbarpaletteitem[place="palette"] #bamboo-toolbar-button-feed[state="new"] .toolbarbutton-text,
@@ -70,15 +84,17 @@ toolbarpaletteitem[place="palette"] #bamboo-toolbar-button-feed[state="loading"]
 	margin-top: -40px !important;
 	margin-bottom: 54px !important;
 }
-#bamboo-toolbar-button-feed[state="normal"] .toolbarbutton-text{
+
+#bamboo-toolbar-button-feed[state="normal"] .toolbarbutton-text {
 	display: none !important;
 }
-#bamboo-toolbar[cui-areatype="toolbar"] #bamboo-toolbar-button-feed:not([state="loading"]){
+
+#bamboo-toolbar[cui-areatype="toolbar"] #bamboo-toolbar-button-feed:not([state="loading"]) {
 	list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsUlEQVQ4jd3SIQ7CQBSE4Q/SgEJVIGpQ4DgCnoQ71HEMwgngBngcDltbbG+B4Qgguk1K0yZQgWDkbt6/82aWv1OBYsgJ6YhlH0gcsQqQHEckfR1NAyiLWPWFwBb5J5AcF2wQNe7SAVfMOqcnY3OsAyRrhhjWOXxqO0XRgCS4fdNOikxtneBi2zWwwd57bVUmlKSq4lY98MSudlZlUilWfrhWnXGvvzgZWyjbqasT8Hu9AEocHi/MjhzVAAAAAElFTkSuQmCC") !important;
 }
 /*bamboo feed reader*/
-@-moz-document  url-prefix("about:bamboo"){
-#bamboo-area .bamboo-zone-view-data { 
-	max-width: 100% !important;
-}
+@-moz-document  url-prefix("about:bamboo") {
+	#bamboo-area .bamboo-zone-view-data {
+		max-width: 100% !important;
+	}
 }

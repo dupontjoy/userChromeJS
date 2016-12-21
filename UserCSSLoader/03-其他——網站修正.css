@@ -10,94 +10,129 @@
 
 @-moz-document domain("ic.sjlpj.cn") {
 /*=新建按钮框缩小=*/
-.mod_title_opt.btn_blue,/*新建一级分类，新建产品品牌*/
-.btn_blue/*型号分组管理，新建子组目录*/
-{padding: 0px !important;}
+	.mod_title_opt.btn_blue,/*新建一级分类，新建产品品牌*/
+.btn_blue/*型号分组管理，新建子组目录*/ {
+		padding: 0px !important;
+	}
 
 /**
 *隐藏一些不常用的按钮及菜单
 */
-#m_030119,/*新品质检审核*/
+	#m_030119,/*新品质检审核*/
 #m_030202,/*常用分类分组*/
 #m_040109,/*外网产品运营查询*/
-#m_040111/*外网产品图片下载*/
-{display: none !important;}
-
+#m_040111/*外网产品图片下载*/ {
+		display: none !important;
+	}
 }
 
 @-moz-document regexp("https?:\/\/ic\.sjlpj\.cn\/.*ProductNewCategory\/.*") {
 /*=TvcMall品类管理=*/
-#J_mainContent > DIV > TABLE > TBODY > TR:first-child > TH:nth-child(2)/*父级分类*/{width: 280px}
-#J_mainContent > DIV > TABLE > TBODY > TR:first-child > TH:nth-child(3)/*父级分类ID*/{width: 30px}
-#J_mainContent > DIV > TABLE > TBODY > TR:first-child > TH:nth-child(4)/*排序*/{width: 30px}
-#J_mainContent > DIV > TABLE > TBODY > TR:first-child > TH:nth-child(5)/*备注*/{width: 40px}
-A[title="子分类排序"] {display: none !important;}
-A[title="删除"] {color: red !important;}
-A[class="btn_add"]/*添加子分类*/ {color: green !important;}
-A[rel="link"]/*子分类排序导出*/ {color: black !important;}
-A[title="子分类排序导入"]/*子分类排序导入*/ {color: black !important;}
+	#J_mainContent > DIV > TABLE > TBODY > TR:first-child > TH:nth-child(2)/*父级分类*/ {
+		width: 280px
+	}
 
+	#J_mainContent > DIV > TABLE > TBODY > TR:first-child > TH:nth-child(3)/*父级分类ID*/ {
+		width: 30px
+	}
+
+	#J_mainContent > DIV > TABLE > TBODY > TR:first-child > TH:nth-child(4)/*排序*/ {
+		width: 30px
+	}
+
+	#J_mainContent > DIV > TABLE > TBODY > TR:first-child > TH:nth-child(5)/*备注*/ {
+		width: 40px
+	}
+
+	A[title="子分类排序"] {
+		display: none !important;
+	}
+
+	A[title="删除"] {
+		color: red !important;
+	}
+
+	A[class="btn_add"]/*添加子分类*/ {
+		color: green !important;
+	}
+
+	A[rel="link"]/*子分类排序导出*/ {
+		color: black !important;
+	}
+
+	A[title="子分类排序导入"]/*子分类排序导入*/ {
+		color: black !important;
+	}
 }
 
 @-moz-document domain("mercurymart.com") {
 /*Mercury居中显示*/
-#container .wrapInner {
-overflow: inherit !important;
-}
+	#container .wrapInner {
+		overflow: inherit !important;
+	}
 
-#featured {
-overflow: inherit !important;
-}
-
+	#featured {
+		overflow: inherit !important;
+	}
 }
 
 @-moz-document url("http://court.gov.cn/zgcpwsw/") {
-form#feedbacksmallform>table {
-position:absolute;top:2%;
-}
+	form#feedbacksmallform>table {
+		position: absolute;
+		top: 2%;
+	}
 }
 
 @-moz-document domain("bbs.10moons.com") {
-#threadlisttableid {
-table-layout: inherit !important;
-}
+	#threadlisttableid {
+		table-layout: inherit !important;
+	}
 }
 
 @-moz-document domain("520tieba.net") {
-.t_fsz {
-position:relative;left:-863.8px;
-}
+	.t_fsz {
+		position: relative;
+		left: -863.8px;
+	}
 }
 
 @-moz-document domain("sooopu.com") {
-.related{
-  clear: both;
-}
+	.related {
+		clear: both;
+	}
 }
 
 @-moz-document domain("amd.com") {
-.panel-wrapper{
-left: -24px;
-}
+	.panel-wrapper {
+		left: -24px;
+	}
 }
 
 /*360云盘Android UA显示完整标题*/
 @-moz-document regexp("https?:\/\/(.*)\.l(.*)\.yunpan\.cn\/.*") {
-#fileList .name{-moz-binding: url("data:application/xml,<?xml version='1.0' encoding='UTF-8'?><bindings xmlns='http://www.mozilla.org/xbl'><binding id='embed' bindToUntrustedContent='true'><implementation><constructor><![CDATA[this.textContent =this.parentNode.parentNode.parentNode.getAttribute('data-path')]]></constructor></implementation></binding></bindings>")}
+	#fileList .name {
+		-moz-binding: url("data:application/xml,<?xml version='1.0' encoding='UTF-8'?><bindings xmlns='http://www.mozilla.org/xbl'><binding id='embed' bindToUntrustedContent='true'><implementation><constructor><![CDATA[this.textContent =this.parentNode.parentNode.parentNode.getAttribute('data-path')]]></constructor></implementation></binding></bindings>")
+	}
 }
 
 /*天涯旁边广告*/
 @-moz-document domain("tianya.cn") {
-[id="ty_msg_mod"],
+[	id="ty_msg_mod"],
 [class="btnOpen"],
 [class="ds_vip_seats"],
 [class="TY_ui_window ui-draggable"],
-[class="modDiv"]
-{display: none !important;}
+[class="modDiv"] {
+		display: none !important;
+	}
 }
 
 /*HBR去除打开文章时的黑屏跳转*/
-@-moz-document domain("hbr.org"){
-body{overflow: auto !important;}
-#intromercial-handle{display: none !important;}
+@-moz-document domain("hbr.org") {
+	body {
+		overflow: auto !important;
+	}
+
+	#intromercial-handle {
+		display: none !important;
+	}
 } 

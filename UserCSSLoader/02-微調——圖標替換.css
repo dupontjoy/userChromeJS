@@ -5,21 +5,51 @@
 /*————————————————————弹出菜单(Cing精简) by 颜太吓————————————————————*/
 
 /*菜单添加图标*/
-menupopup menu {-moz-binding: url("chrome://global/content/bindings/menu.xml#menu-iconic")!important;}
-menupopup menuitem {-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;}
-menupopup :-moz-any(menuitem,menu){-moz-appearance: none !important;padding: 2px 0!important;}
-:-moz-any(menuitem[type="checkbox"],menuitem[checked="true"],menuitem[type="radio"]) > .menu-iconic-left > .menu-iconic-icon{display: inline!important;}
+menupopup menu {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menu-iconic")!important;
+}
+
+menupopup menuitem {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+}
+
+menupopup :-moz-any(menuitem,menu) {
+	-moz-appearance: none !important;
+	padding: 2px 0!important;
+}
+
+:-moz-any(menuitem[type="checkbox"],menuitem[checked="true"],menuitem[type="radio"]) > .menu-iconic-left > .menu-iconic-icon {
+	display: inline!important;
+}
 /*菜单图标区域*/
-menupopup :-moz-any(menuitem,menu)> .menu-iconic-left {-moz-appearance: none!important;margin: 0 4px!important;}
+menupopup :-moz-any(menuitem,menu)> .menu-iconic-left {
+	-moz-appearance: none!important;
+	margin: 0 4px!important;
+}
 /*菜单字体区域*/
-menupopup :-moz-any(menuitem,menu)>:-moz-any(.menu-text,.menu-iconic-text){font-size:12px!important;margin-right:10px!important;margin-left: 0px!important;padding: 0!important;}
+menupopup :-moz-any(menuitem,menu)>:-moz-any(.menu-text,.menu-iconic-text) {
+	font-size: 12px!important;
+	margin-right: 10px!important;
+	margin-left: 0px!important;
+	padding: 0!important;
+}
 /*菜单右侧区域*/
-menupopup :-moz-any(menuitem,menu)>.menu-accel-container{display: none!important;}
+menupopup :-moz-any(menuitem,menu)>.menu-accel-container {
+	display: none!important;
+}
 /*checkbox,radio*/
-menupopup menuitem[type="checkbox"][checked="true"]{list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAHlBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3KG9qAAAACnRSTlMAN/CwBKoGuVIOxzmjKgAAADJJREFUCNdjIATYJkAZyQVQASMBCMNZEUKzgAU4QqACjKouUBVCwVAVjEpQLQyChKwDAGWPBJKyI34rAAAAAElFTkSuQmCC")!important;}
-menupopup menuitem[type="radio"][checked="true"]{list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdElEQVR42mNgGIyAA4jzgPgKEP+H4itQMQ5CmqWB+DYQbwdiR6gGDih7O1ROGp/NIAXVeCyohqrBCvKgthACB6FqMcAVqFNhwBKIF0GxJZK4I1QtBviPFkiLkAJxEZpX/9PEAIq9QHEgUhyNFCckqiRl+gMACKotbf6gm/QAAAAASUVORK5CYII=") !important}
+menupopup menuitem[type="checkbox"][checked="true"] {
+	list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAHlBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3KG9qAAAACnRSTlMAN/CwBKoGuVIOxzmjKgAAADJJREFUCNdjIATYJkAZyQVQASMBCMNZEUKzgAU4QqACjKouUBVCwVAVjEpQLQyChKwDAGWPBJKyI34rAAAAAElFTkSuQmCC")!important;
+}
+
+menupopup menuitem[type="radio"][checked="true"] {
+	list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdElEQVR42mNgGIyAA4jzgPgKEP+H4itQMQ5CmqWB+DYQbwdiR6gGDih7O1ROGp/NIAXVeCyohqrBCvKgthACB6FqMcAVqFNhwBKIF0GxJZK4I1QtBviPFkiLkAJxEZpX/9PEAIq9QHEgUhyNFCckqiRl+gMACKotbf6gm/QAAAAASUVORK5CYII=") !important
+}
 /*修正书签文件夹间距过大*/
-.menu-right > image{height: 0!important;width: 0!important;}
+.menu-right > image {
+	height: 0!important;
+	width: 0!important;
+}
 
 /*==修正图標和文字擠一起問題==*/
 /* Adjust left-margin for menuitems and menus which aren't iconized */

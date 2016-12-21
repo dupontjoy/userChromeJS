@@ -68,10 +68,10 @@
         
     var Marker = {
         _marks: {},//structure used to store all marks
-        _deletedMark: null,//backup last deleted mark
-        _tree:null,//a reference to mark tree 
+        _deletedMark: {},//backup last deleted mark
+        _tree:{},//a reference to mark tree 
 
-	_isNewAdded: false,//whether new mark added
+	_isNewAdded: true,//whether new mark added
 
         _noMarkBlink: false,
         _tooltip:null,

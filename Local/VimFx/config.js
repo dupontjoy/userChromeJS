@@ -126,21 +126,28 @@ let loadCss = (uriString) => {
 /******************************************************************************************
  *这里是自定义设置, 你可以根据自己的需要来调整它们. 参照已有设置的格式, 动手将自己的想法变成现实吧.
  *******************************************************************************************/
-
 // options选项
 set('hints.chars', 'fdsagrueiwcvqtxzjklhonmypb')//Hint提示符(改了排序)
 set('hints.sleep', -1)
 set('prev_patterns', v => `[上前]\\s*一?\\s*[页张个篇章頁] ${v}`)
 set('next_patterns', v => `[下后]\\s*一?\\s*[页张个篇章頁] ${v}`)
 
-// shortcuts快捷键
+// shortcuts快捷键(一些键冲突, 重新布署)
 set('mode.normal.window_new', 'W')//新建窗口
 set('mode.normal.tab_select_previous', 'w')//上一个标签
 set('mode.normal.tab_select_next', 'e')//下一个标签
 set('mode.normal.scroll_half_page_up', 's')//向上滾动半页
 set('mode.normal.stop', 'S')//停止载入当前页面
+set('mode.normal.mark_scroll_position', 'M')//标记滚动位置
 set('mode.ignore.exit', '<escape>')//忽略模式-->返回普通模式
-
+set('mode.normal.tab_move_to_window', 'gW')//将标签页移动到新窗口中
+set('mode.normal.follow_in_focused_tab', 'gt')//在新的前台标签页打开此链接
+set('mode.normal.follow_in_window', 'gw')//在新的窗口打开此链接
+set('mode.normal.follow_focus', 'gf')//聚焦/选中元素
+set('mode.normal.open_context_menu', 'gc')//为元素打开上下文菜单
+set('mode.normal.click_browser_element', 'gb')//点击浏览器元素
+set('mode.normal.enter_mode_ignore', 'I')//进入忽略模式: 忽略所有命令
+set('mode.normal.quote', 'i')//把下一个按键直接发送给页面(不触发 VimFx 内设置的快捷键)
 
 // commands命令
 vimfx.addCommand({

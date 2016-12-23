@@ -5,13 +5,7 @@
 //防止因加载延迟而没有显示(_addMenu.js的)菜单
 //重复加载几次，防止第1次未加载成功
 (function () {
-  cars = [
-    '2',
-    '5',
-    '10',
-    '30',
-    '60'
-  ];
+  cars = ['2', '5', '10', '30', '60'];
   for (var i = 0; i < cars.length; i++)
   {
     //Addmenu 和 moveButton

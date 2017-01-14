@@ -447,6 +447,12 @@ loadCss(`${__dirname}/../../UserCSSLoader/02-微調——圖標效果&排序.css
 loadCss(`${__dirname}/../../UserCSSLoader/02-微調——隱藏項.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/03-其他——Cursors for hyperlinks.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/03-其他——網站修正.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/RC-界面——关于页面.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/RC-界面——搜索栏.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/RC-界面——新标签页.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/RC-界面——元素调整.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/RC-主题——Yosemite.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/RC-主题——主题补丁.css`)
 
 //设置参数
 Preferences.set({

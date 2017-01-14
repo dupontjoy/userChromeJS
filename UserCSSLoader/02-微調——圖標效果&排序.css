@@ -1,14 +1,19 @@
 /*+++ 2017.01.14 +++*/
 
 /*工具栏几个图标间距调整*/
+#back-button .toolbarbutton-icon {
+	margin-left: -4px !important;
+	margin-right: -4px !important;
+}
+
 #flashgot-media-tbb .toolbarbutton-icon {
 	margin-left: -3px !important;
 	margin-right: -3px !important;
 }
 
 #downloads-button .toolbarbutton-badge-stack/*下载完成的状态*/ {
-	margin-left: -5px !important;
-	margin-right: -5px !important;
+	margin-left: -4px !important;
+	margin-right: -4px !important;
 }
 
 #RIL_toolbar_button .toolbarbutton-icon {

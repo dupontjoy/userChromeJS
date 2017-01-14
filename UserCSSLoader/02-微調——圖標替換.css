@@ -78,6 +78,16 @@ display: none !important;
 
 /*==扩展/脚本图标补充==*/
 
+/*uMatrix*/
+#umatrix-button {
+list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA/0lEQVQ4jc3SsSuFURjH8c+fYHhLtne8f4LSJckoxUDK/4EFg9udWAxkUKi7WS2SDCLFRkko4mYUM4Pnrfce993vqVPnnN/zfX7Pc86hV0eOOSxgMdZ5aDX8VIEjOMUrWmjEbOEdFwHXusENPGOmInnh/IblVFzHGbLYZ2hGcBtbJecMV1gp4EnclWABH2EA9YD3S3qGJ4zCPcaSitoBF2XX8ZnETOESHjCciB8l5xr68Z3ETOAGpnGbtLAb8CD6cIidpIVHjBcHmzgOoSh7D1/hvK3zgs+xllRkw98zVr4zZiNmtZtYOF/jBQfhUv5IJxiqSN7hnGMeS/5/5R4bvyWLQUxfu94RAAAAAElFTkSuQmCC")!important;
+}
+
+/*Tab Groups标签右键-移动到分组*/
+#tabGroups-context_tabViewMenu {
+list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVQ4jWNgGCrAjoGB4ReUptgQf3yK/hOJyXIJUS4gpNmBHM1k20aWP/0p0WzHQHws0MYFMOBADUOGEAAAtLMgYRGzlKoAAAAASUVORK5CYII=")!important;
+}
+
 /*Zotero设置*/
 #zotero-tb-actions-prefs {
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAkElEQVQ4jbWTXQ2AMAyEvzc0TAIWEIIWTMwBBhCBNni5Cw2MwPhp0mT9u7a3DX6UAVikw92iHphCcSs1yKSc02InjkAXYp18Bi6CuPOVeJJiYNS5ATIbB1k+wiSH4iWMndUlSWf5vM6BWBMW7RTsJJ+l3dnvAUorzDUrGOQxifDBNb5+SAZ5/JRLo1Z/pmpZAR6aP0H2Y7uIAAAAAElFTkSuQmCC")!important;

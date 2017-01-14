@@ -64,7 +64,7 @@ break;
             if (e.button == 2) {
                e.preventDefault();
                 (function(){
-         var id = [92]
+         var id = [13]
         var service = Components.classes["@userstyles.org/style;1"].getService(Components.interfaces.stylishStyle)
         for (var i=0; i < id.length; i++){
             var style = service.find(id[i], service.REGISTER_STYLE_ON_CHANGE);
@@ -86,7 +86,7 @@ break;
         Sidebarfloatright.addEventListener("dblclick", function (e) {
             if (e.button == 0) {
                (function(){
-        var id = [92]
+        var id = [13]
         var service = Components.classes["@userstyles.org/style;1"].getService(Components.interfaces.stylishStyle)
         for (var i=0; i < id.length; i++){
             var style = service.find(id[i], service.REGISTER_STYLE_ON_CHANGE);
@@ -119,60 +119,15 @@ if (!window.SidebarMod) {
 				url: 'about:addons',
 				favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAOVBMVEUAAAAAAAAAAAAAAAAAAAAAAAAVDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADMzdu6AAAAEnRSTlMAfzpDTCEK38+9s6iFeGqNVjKYYQrKAAAAcElEQVQY02WOWw6FIAxEp7wRQe3+F3t7sUUTz8cknNBOMUmNS8SLURNtb7ETfLGH5z84JPwU7KA4vgUWKpiWKDXKx5iDii30rB1Gkqk++LKRozbJ5mGCRtLVbj+flnkcZVrCyfoTke2wwELHJSn1X34e5wRDvcBIqAAAAABJRU5ErkJggg=='
 			},
-{name: '工具',
-	favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAS0lEQVQ4jWNgoCL4TyQWwGcAIQtgNFZDiDUAhc1CQBNJlqBL4vQrIRcQ8gojMgebAYxYxHCCoeUCrAZT7AImUhTTxAB0LxCKAeoDAMA1F0TC/vMPAAAAAElFTkSuQmCC',
+
+{name: '常用网站',
+	favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdUlEQVQ4jeWSuxGAIBAFNyKwAQqgDCqgElugGMuxBzsgsQhNzhl/HMiQ+WZetG/2koPOCUACtkyTbLJJgFe4l80l9yulqPtaQRv8qWCQNgkcsEjdV0EAVmCUnj+wKIg8P/L4wFgjmAH7wqwwVTABRuFGNv2yA9EcMeSFWETqAAAAAElFTkSuQmCC',
 	childs: [
 {
 		 name: '稍后阅读',
 		 url: 'chrome://isreaditlater/content/list.xul',
 		 favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAUVBMVEUAAADuQlfwQlfhQFDvQVftQVbuQFbwQljvQljuQlfvQVjrQlbvQVfuQlbsQVXnQVTvQVfqQFTrQFTuQlbmQVPsQVboQFDxQljuQVbuQlfwQliievgtAAAAGXRSTlMA8uk79ycf8uHJopyQhntrUUtEODIWBeIWpoZvsgAAAHtJREFUGNNtjksShDAIRDsQ4/j/OwP3P+gEdKGlb5PmpasAD5oyXCgbqNxQhLsIr6IbyTKN3SkWFJ88F1hMRJEv40eUXEdrqDBSAke1RmW7lAFWzbHCoGZkmsTDgJ0Oo/7QDqx5MlyvyLB3/J/hbG3wI9sNOJn7uu5nj3++qw7oi6qhaQAAAABJRU5ErkJggg=='
 			},{
-		 name: '番茄土豆',
-		 url: 'https://pomotodo.com/app/',
-		 favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABO1BMVEUAAACtExC3GRi/GBitIiPkHQzTGRe0DQLNHBDAFw64EgXGGBXLKCeyBwWvGBWgCwvBOjfOUlLPFAvGHRHTHBfQIB/aJxXFCwTdHw/QHA/XBAC+AADbHgnPFxTQIBDGGgrGHxPFGgnBAADEIRjAFwPDEhG8FwPaHhXQGQvTPDjRQUGoHBmpAAC8EALFHBzGJx69IBq4AACtGhfQPDqsGBavEA69HyC2IiDePTzUb2/amJnbIx7oHQfdJB3gIhriIhfmIhbqIRHmHwreJCHdIhrfIRbHHRbiIBTkIRLjIA3sHwzuIAvpHwrrHwftHgTbJiTYJCHaIiDjJR3XHBXfGwj0IQbxHwXrGwTUGwPpHQLWGQDbHhjbIBTEGxHaFhHaHg7JFQnYEAnuHgbzHwTbHALwHgHjHQHHEQDjDgD+z7IJAAAAO3RSTlMAPiIbCPzutqKEgn1eVDcxJRD+/fv59PHw7eHh3tnU08vDvKmjoKCfmZGMhoB7emhmVkxEPTk4MCsZCPDNdC8AAADdSURBVBjTNc1FdgJBAEXR34JbiLu7u1W1pV1xjTv7XwEFHO7sjR6GuPT27kkeY/mNn06r89dOTIw61/1tRmH09R21L8HcdRshpQGlYWO5AGat6QVPjE/3gXPgxvVjMd91W70zYP2fR0qb5/lVz5vlgERQzyKpLfDA3iI7bNU1J42k6kxdAyJw/K7ZTgoZW1FfOQBXH6qpvFzgvmbKisVBnFNlw54sApumJFetwpEiG8bnAYCH6WciSVZNIqS69AjmNq5XiK6XyduKgCFhZ6ZSKpXjhyLGhGzmNFfEQB9gNScQ/pRj6QAAAABJRU5ErkJggg=='
-			},{
-		 name: '扇贝单词',
-		 url: 'http://www.shanbay.com/bdc/review/',
-		 favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAwFBMVEUgnoUjoIcWmoAgnoUenYQRl30zppALlXlDrZgloIgAj3IfnoUBkHQhn4YRl32w3dSj18xIsJsanIITmX4KlXlvwLAXmoFYtqQNlnsAhGTD5d6z3taEybt9x7hqv685qZMvpY0Afl3w+Pfe8O3T7Oe94tu44Nis2tGl2M6a08iW0cWS0MOMzcBguqhTtKFFrZg+rJYzp5ArpIwmoYkEknYAimvq9fPM6OOe1MqPzL+Hy714xLV3xLRywrNduaYGk3dggsZ3AAAAC3RSTlPy8vLm8vLy8vLy8t/oGk4AAADKSURBVBjTLcvVcgJBFEXR2yMhSbuOG+5OPPD/f8VQzX47q+pACI9QEKAoBugnxlQpqhOpWb13WkEvR+fOy9WlmRxJ+9IDS0RKKpGV8247fYBKP5fZlpOZ3I3kAJAxph3uHJfCjhuCIKhqkv2P2Opr/bsnFCBOxnnT8YUtT4ZRDABEL4bfjJcsxX0Ab5R0uCjWyY16eC34vG7/+ME8AWQl+ET8WI09RMxcMrXJP2zqAbCWYpoLe1AeMGab2fV0Jo76Twgofh8EEfjCO+PoE9YCHLonAAAAAElFTkSuQmCC'
-			},{
-			name: '谷歌翻译',
-			url: 'https://translate.google.com/m/translate',
-			favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABX1BMVEUAAABFifZRj/RUkPVHiPLh4eBLi/Td3d1Eh/Xi4uLY2Nje3t7h4eJJgPY4dfPk5ORMjPRNh/5KjPXk5OS5tdrk4tXU1NSnxNJFWaxGfevi4ub27NtXjOm/v8tBfOjl5eYrUX9UnMtYnspEQ+xKivVMjPZTkPZHiPbW4fBChvbv7exVkfc+hPc8gvZRj/VnnfRKifPo5+bk5OLg4eHa2ttDi/49hf5DiPlSlvdOjvdrn/VZlPUtdvWnw/LM2vHb5PDm5OPi29XN0dO9w9OerLJ3j5pxgYI3gfs1f/pIjPj89/RjmfRimfSCrvO/0fGyyfFEhvHi5/DS4PBJhO/y8O5Ag+zp6elwneigteFqluH37N3e3d3p49yWrtzl49vW19hZitjm4tbJz9PAxNO5uMh8msi3v8KmtLpEWLnCwLYuQbWToLRPX7Sss7M4RbKZpquOn6aIm6SaoaF+kZphfYkElHirAAAAJHRSTlMADfLz8vLy8/Ly8rKu/Pr29PLy8vLy8s/Isq+noaGdcGRWKgue+tkvAAAA40lEQVQY0z3I43LEYBQA0NukybK2dT/EXJu1bdt4/2mnM9nz88C4KIqC0DMDAapRSs30SCtESgkj6c65IARNIZbJ9KGx0Xg8FpsCQbF4ad2e36+oO46z54FMeCG3mkvZtRNXVdUuCGc389mtorlw+vhz5VUjICMvKGslJXnx9f7ZuJdA0Jc5L64YKe25Uq8v9YGcMZjFDIKJ2+aH40agmxCmM0RMHja/vXIIMogE0cbFxO71a8OXYLK3/U+4Y3sjf3B0V5UA2v7Nvjw91M7KxyEIDL/dXJ77vtuK6f6BwWhUmvgFK60oYxGIbi8AAAAASUVORK5CYII='
-						},{
-			name: '有道翻译',
-			url: 'http://m.youdao.com/',
-			favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyklEQVQ4jc1QsQ3CMBB0R5seJJ/F2wPQpUtHSwN1RoiYgA0YgVEYIQNQuEFCiS1lhNDg5IE4gQpO+ub0d39/QvwVaujcK9N6ZVoP3dwACCFErWjH+VGTblGZNhhYIOF8VHyd06K/ZOwU/wYnacWingJfSUoD76DPUYPnRSq6bhRte94c4gagNbtUOlBWSUqdpH2fbLn57IXIhGIHcRE043FDaTxVVDwECyTcoIbORwUO+uhA2WOKr6/H/nbQpQWSaQPo5lU4GfvnuAOO7rs1HAnRyQAAAABJRU5ErkJggg=='
-						},{
-			name: '百度百科',
-			url: 'http://wapbaike.baidu.com/',
-			favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAApVBMVEU0POI2PuNFTeU+RuQmL+BZYeg7Q+NTWudOVeZCSuUuNuItNuI6Q+P///8pMuH19f4sNeIjLeDy8/7b3fpqcOodJuAAANf8/P/6+v+anfEUHt8ACNvr6/yHi+4ZIt8QGt4AAdnt7v3f4fu7vvaprPOQlPCBhu5aYegEEN329/7j5fvLzfihpfKLj+6Eie5yeOthZ+k6Q+QmMOELFd3Y2PqvsvRIUOXXEJo6AAAADXRSTlPy8/LytPLy8vLy8vLyvxBRmQAAANNJREFUGNMlUFmWgkAMjIDo6KT3bpodBQT3bcb7H82g+UleUqmqBKIVAPzMQwiDGcAqArHlnOvzYa80cr4VMEMK40q8VkeqCKUoPfKhrZsBkdN+skkJ0R8b1yEqgN/EOEM9PPe6LBISKMRYI6YnxJcb9iHE3rgb3prmgmyUh4A4eIe7nMnnqcyNjz8q5SiZsFn654kDPM2lYExUdfuRxSKzbAqRWYXfRvWQ1kpmsw3CZH33rNj9Luv8OlkXmvsubbX+v/RqOi5aQ7xYLINgOacfrKM3gIgUBIOgbuAAAAAASUVORK5CYII='
-						},{
-			name: '维基百科',
-			url: 'https://zh.m.wikipedia.org/',
-			favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAolBMVEX////+/v7+/v7+/v4AAADx8fH+/v7w8PD////+/v7s7Ozp6en///8AAAD7+/vs7Ozf39/09PTk5OTh4eHV1dWvr6+fn590dHQtLS0XFxfJycm0tLSXl5eEhIRpaWlhYWFLS0tGRkZBQUENDQ0FBQX29vbZ2dnOzs7MzMzDw8O9vb2RkZGNjY2Li4uAgIB5eXlvb29tbW1aWlo4ODgnJychISFb+mmOAAAADHRSTlPw2IiBAP79/Orq8PAuQ7MhAAAAn0lEQVQY02XPVw7CQAwEUAOpMLvpvRd6b/e/GrsKIEUZybL1ZH+YlPmM/pnNFVpglAUZYzBI92G5tihL9TzV1ml1T5pdmFR+9D5sX48lEVgMdDEuN/DaIwEBc5GysODIz5CAvgZatgFKf4CCOWLNRhZhAM6uCPsW0f4LqLosSNnpiB9YLFkjFkcSNIg0JZA/5aSRKZvDAe7IyZw8N3n/A+plDpJN2v6MAAAAAElFTkSuQmCC'
-						},{
-			name: 'Wikipedia',
-			url: 'https://en.m.wikipedia.org/',
-			favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAolBMVEX////+/v7+/v7+/v4AAADx8fH+/v7w8PD////+/v7s7Ozp6en///8AAAD7+/vs7Ozf39/09PTk5OTh4eHV1dWvr6+fn590dHQtLS0XFxfJycm0tLSXl5eEhIRpaWlhYWFLS0tGRkZBQUENDQ0FBQX29vbZ2dnOzs7MzMzDw8O9vb2RkZGNjY2Li4uAgIB5eXlvb29tbW1aWlo4ODgnJychISFb+mmOAAAADHRSTlPw2IiBAP79/Orq8PAuQ7MhAAAAn0lEQVQY02XPVw7CQAwEUAOpMLvpvRd6b/e/GrsKIEUZybL1ZH+YlPmM/pnNFVpglAUZYzBI92G5tihL9TzV1ml1T5pdmFR+9D5sX48lEVgMdDEuN/DaIwEBc5GysODIz5CAvgZatgFKf4CCOWLNRhZhAM6uCPsW0f4LqLosSNnpiB9YLFkjFkcSNIg0JZA/5aSRKZvDAe7IyZw8N3n/A+plDpJN2v6MAAAAAElFTkSuQmCC'
-						},{
-			name: '内涵段子',
-			url: 'http://m.neihanshequ.com/?skip_guidence=1#',
-			favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABoVBMVEUAAADis34yCwMAAAAYCQKheVqikn9UIw6qe04oEAU8GA6Qa1h1NSFeKRSAa0yshmkfCQKTYDkVCAOETyRkTTxLQThFKxdxUzVuNCRAJhNJFxBhLRoYDQahSzg1IBAlGA1IFg0nEAUPBgEWDAZNOy1THBkDAwM5EAP9w4f+woADAAD/6ab/6KHmxaH/15n/5Zb/z5TlyZH/1o3/yIzUrYDmqm/BkmqgZzxXOiZZLhNAFQUZAAD//83/87b/yaX/taP/36L/v6D/w5//657/zpz1wZP/4JHQspG0pZHnvJD/047yw4750435zYz/zon/rIn2uYjpmYj8o4fzu4b/X4b1v4X/cIX3voTMqoTpxIDZq32dgXv1t3rxs3j/vnf/vHT8uXSxnXSfeW7QnGugemr/uWn8rWbYm2POmGO6kGLOo2GrlWHNjmD4pl/CkV+cfl7Yk1fAhlWqflPPX1O4fFDFhU+gd0zfdkyMYkiia0XeR0R0VUCXZD9nQD2pZjqSYTmwXDd2UTW0UjPQSS5oOx5qMh5RKBRbJhJPIA8tDAAlBQBxpIPKAAAAJ3RSTlMA/o5PMO7r6t3a1Mq+t7KtqqScl5CQiYV9d2ppaGNiWFdORjgwGg2YmS65AAAA0klEQVQY02MAA2keXnYmBgRgaW/tsOoUQAgwdVmrW7apWylC+RJmZjWh2pp16upKYL6Cu422Tl6Fp7O5NSdYgCvfwFjTpNpCz6hFiwUkwGaboBEQraupoW+uxQwS4E5ycQiuTXQzjq/XkgHyhStTdA18nML8DT0sG0vlGBgEXe2j0iPtQoIMI4pMTMWBSvgdM7NLTPV9w1MLWUXUgAIqOcWBVQ1e3hq5QlCH8ZU3N2Xo+aWJwVyuyphlpBNTIInwi6xFWXJsnDySd6WYRRk5lMFMAC2EKlCeRWrCAAAAAElFTkSuQmCC'
-						},{
-      name: '青年图摘',
-      url: 'http://www.qingniantuzhai.com/home',
-      favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAB3VBMVEX////9/f39///m6e3AwMb7//7//v/9/P///vn49vj39PPf3t/a19nOzdLLycz+/v72+Pzz9fbw9PX39fPy7vL89/Hr6enp5eba4OTo5uLX3d3FyM7DyMrAw8n+/f///vf////1///6///b8v202utfpNIacrj9///0/f/y/f/n9v/k+P3//vrz9fjE5/Ww3fTi7PKu0+ik0Ofk5OSYxOHh3+AdjNzX2dgji9cliNQWgtMjhs7Gx8tTmMcLeMa7wcMRdr46gbowgLkpernu///u/P/O8P7z+Pvg8Pn5+Pj49PjT8vju9vb59vXd7vX19PTs8vTt8fPM6vPX6fPe6PLz8vHn7PD68+/v7++k1+/F4uvi5efO2+S81eSOy+R9veOoyeKbxuFjuOHX3uCkyt+90968y96EvNubx9p9udlTn9jc29fP09eoytePvdeTvNaPu9WAttXHy9OEudMahdMmidEuitAsiNBWnc9MmM9+ss45kM4Wgc5opctnnstKkss7jctcnMoMeMnJyMdEjsclfsfBxMZansQifMQqg8MXe8PCxMIefsIIdMIogcBFir8xgb1Vkbwhe7sAaboAZ7cTbbM2fbEWcq8odK4AYakjcKgZaahUhacWZJ8RWooFPSyqAAAAIHRSTlPv/e/v7/vv7+/v7+/v7+/g7+/v7+/v7+/v7+/v7+/g4LIH5V0AAAEISURBVBjTHcjTdgMBEADQSbJJ49TGLGPbqm3btm3b/tae5j5eUIkgM08pEwiylfkCEBeBEN3hLkywh93IA5i6IpG2Djj6a7HidAgg9aiGGg7eHay/zqvRGEiBXDvORfesOrrHsdmJThnkIBPbtyFJ4eznQzkvCyTa3ZNJvaHMiOat+DimA5iiaxt6Q1sldqyeT5BJAOZHz8UCieqmoJdb+o/G2PLKLdvbd+z3fM1gMmQUs08u73Xk0u8KnZEtUpBWm96fQ9s+3+FNZLDUkgZ8Z33VTpx74e7Zt4/fERFA3bSFohkbQ1NjP98NfOBhe2CxVaMt0TV3j2pQCCoAiZwgFIoCQi4GfuEfTMs8p+k60I8AAAAASUVORK5CYII='
-       },{
-      name: '博海拾贝',
-      url: 'http://bohaishibei.com/post/category/main/',
-      favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYklEQVQ4jWNgz/n6lyPn639cmCf1Lk7MnXL3DwM+zYQM4Em9+582Bjx9/ggrptgAbIYQNIAn9S5lBiBj4cwhGwbI4UB/F5BlQOi0d3Ac1Hv7v3QevZMySQaw53z9RkF2/gcAyESn8EKXSckAAAAASUVORK5CYII='
-       },                             
-	]
-	},
-{name: '常用网站',
-	favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbUlEQVQ4jcVS0QrAIAi0sc8Q8v+/Ubi9iKtWzNagA8HMO+OMaDcSEWFVZEUAR1sREYjIlKg3MzPsDMtfuefskAKpe8nM0enO9eacs+eND+hELWDkihQw8/ZAVatnjWoFnh582cJIPQr88pX34gKhPjP/qWoyKgAAAABJRU5ErkJggg==',
-	childs: [
-{
       name: '新浪微博',
       url: 'http://m.weibo.cn/',
       favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABTVBMVEUAAAAAAADjHyW4uLhgYmLhExfvkADiJyjeGxzdGCbgKSTeGRvjUBffYBH6///t////9/j/8fLL4uH/2NnQ0NC+y8uLpqXyn6D9jI93i4t4ionsbG9XWVnnRklDQ0MkJCQUFxfiIyj9mADgFBj+ogDdAwfgEhbxlAD5mADxP0PlKSreESvwkwDiDRDxlADhGSfgIyb4mgDWgADiFy3EgQDxlwHfCg/ylAD9lQHzJirgGynfFiX6LTHjKSzliQDaHiHjDA/GAADkEhbxlADynQCQWADZnwDfISPclgDwkwC/fgDOEhLbHyPxlAD2mgDoDBDvAC7rjgDsjwDMdAD////lJCjgDBDgBgviHCDhFRn/kpTqVlnmOz/kKCzhEBXeAAT2mAD/3d6yxcX7nqD0nZ9/mpn0j5Lwi47miYv6f4I9Xl3oOT0bOzvkLzPiGCoKOc6VAAAAVHRSTlMA/tL+/qaMZ2JKNRkJBf7+/v7+/v7+/v7+/v7+/v7+/v78+/r49/Dq5OLi4ODU0crKyr63trSzsrGqqKWgnZeShYFya2FZWFVTUE5NREM7NzYxJhObZE0TAAAAxElEQVQY033Ixa4CQRRF0VON23N3d3fB3fVWC+4O/z8EEiYkhDXa2VjA8/Qdmxnah+tyaNp6hwGweNPacgpjUYHzO8D8eZN5ewWg41yWBf3/u/Hnw3cBBApKSZTPJXH4F/fbz2A6lQo76yuV+qH0DISDsEm51aWt3TWiffE+CeAqT8snjDEV0UARAJRapD5WHTE1Ub74AuArR3sHG4xt0rbIDQBMjx1q9LtVahYVHSYsrttsu5btXWqMmEq4rb8aZ8SMuUY5GiMfE/vy4wAAAABJRU5ErkJggg=='
@@ -184,14 +139,6 @@ if (!window.SidebarMod) {
 			name: 'Instagram',
 			url: 'https://www.instagram.com/',
 			favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAACQFBMVEUAAACAZ1R7YE5yW0qKb2CVb1x7ZViOZVdiP0I6JiGAZVVsVUgrARM3EQg4kcRpT0BkRD55XUtpU4OFaVx8U0lvVUQjEw8nBgunjX+PeXGPe22AdG2PdWWAamKIa150XlKEW06LUDFuUkVbRDg/FSRDHxNkSTldOzRTPjGVey2CWlSSRU41HBYnGhIAAAH////g0b/ayrbYxKzSwavOuqE3LCwCDxD58u//+Owqu+r07N3u5tfp3dHi1L/dzrvVx7PNv6nSvaTHs5iyno6nlIdoS3mQeG9kXVs8Qk6UYkhRPjgXKCZAKyRFKyNEIBgCDxgMFxD9+/IUsu37+Ovv6+j78eX28OLo4dz16Nji3tXs4s/n2svl2cnf1MnJycnq38jg1MLe1MHe073Xx7DNvbDQxK3Tw62wq6fVv6W9t6PSup/AsZ7Gtp3NtpzKr5Q6fJO4oZFBdJBmco7Bq42ckIyVjYpibIe5n4ItYIG3nIBrh35zd3mSf3ZUMHWFc2pJYmqKdWhMRmN2Z2GWa16PcFyxeVsrUVc0UFebc1SaZ1RLSVSrcFMiSFOYbVBwWVBHUFB9YU81Uk+paU2VakycXUpGKkpBJkoYOEiPYkeaYEU0LUSUYUNhSkPn5UKRXkEjQUEmKEGRi0CRVD9vTT3h1zs7PTglLzc5MTSbMDRBNDP3LjEbLS/RLCwQICuHPypJNCqgUSkiGCjn5SYyJib/IiZXLiUzJiQnDyOXSiINFiBLJx4lHx4dFRQLDAQOCASBJQBcifjvAAAALnRSTlMA7e3u7e3t7V5e9vb29vLy8vDu7u7u7u7t7e3t7e3t7e3t5OTk5NDQ0NBgYGBgmit8wwAAARtJREFUGNMFwQNiAwEQAMCNk9q2eRfbdlLbtm3btm27/VpnAGKjHVyCSQQCKcjNKTIGgHx9zFO9r8+ML218IuwvMoRd7vBU97rdLd2iEdk/DQe758fEnr/lkanDWzNy82QPnucHDSsT3a2N6qEXk8nsAT6dA0cVXZb2OraGk5yW4Qte1LLcFsSy0DeGNKMo1xvw6Sh6hlg3Vyf3TjgJWf7gJ0rlshDrw9v36JwwiUoEPFWQMoiwf34NBk0Ov4gIAWIhX8n6WJu+eu3NLGQEgistX1A8e6HVsvRVeSVMHNjQaQXZiu07o14pkkjlthBSU0oTS+rV/QoGQ1rdFgqU4drKcjqdyZTJ5E0d8xSAuAhnLBaDwWBx7o5R8fAPkv5TRaxPYM0AAAAASUVORK5CYII='
-						},{
-			name: 'Facebook',
-			url: 'https://iphone.facebook.com/',
-			favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABkklEQVRYhe3Vz0vCcBQAcP8lrzLF3L6j2cF0kOjY3DpFl/4Dj5ImqAebNqbDxGPUsQ5BJ2/RJTqEHSSmIUHgIcXD61Kj+RVHuK8R7cE7Db7v8/3x9nw+Lz7Dz2W5QCxnBvkCBPkjQlmAQCxn+rkshwGoRNGkBRUYUSOatKAClSiaGIAWVGBlAzZ3T4kmKxtACypgAEbUiBf/SkbU3Ads73WgfXEHffMNJtMZvE9mMByN4f7xBa67PWCVFjlAfL8Dvf4rLAuUaZIBsEoL2ue3S4sDAHxf31UAkpvw5LB7sgBJh8l0ZivWPusCEkpW/4eTZUCSTgbAiBq22y1ZBVqoWb2PJB1YxVgfgBZqtldPtA0XAZzWWgnAKobjg5uP4Wjs3hUgSf8x4PLmAVCm4Q5g0ZE7xeHx1e8C0gct26Bb+QrCybLV41Q8jxWk4nnre2inBIx44t4sYBUDkKRbPR5JVTFAJFW1/wPmxvzfbkMP4AE8ADHARrpurgsQEeoDDBDiK1FaagxIA2ip8RziK1EM8G/jA08K6KzUrHsTAAAAAElFTkSuQmCC'
-						},{
-			name: 'Google+',
-			url: 'https://plus.google.com/',
-			favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAB+ElEQVQ4jYWTv2tTURTH3yIY9H9phFZsnaxiKy6VgglYF4c6uPgDHZxEqA7qIqYxNdChFdoXENRKURTb0aG0kta0ixQfWJNouyTpezf3nI9Dk6fpS/TAd7mc7/ee7/fe4zj7yhhzRETSqrqhqkEDGyKSNsbE9/eHBcREZEJVlQ6lqioiGc/zYhGyqi4CaOBTdafZvjxCabCP0kAv26MXqM5OoYHfFFpoEbHWPgOwxS1+XUpQOtnTFju3roTTWGszoWdVVfX9P+Qzx6lkU5j8Mia/QiWb4ufIEPVvmy12jDFxB0gD1JefUB7qojTQi8mvRP1bGzkTkXFHVTcA6p96CF7GqLl3OmXYLtSCo6oBQP3DIervDyDlNy1N/WOVCG7P7jYF/DYCc/8VuDFdaxFoWDhK8d1hXn1+1HHkuy926R+r8GAufM6CIyJpgM2vEwy6ZznmnmeptBYhr3+3nL6/N8Fiod4MMeUYY+Kqqr4NSMxfpXtmmD43yeOVKZaKayyXvpBdzXFq8ikn7u0wmq1hRQHEGNPlOI7jiEgG4Ee1TGL+Gt0zw21xLveQrR1p3p4Of6LneTFVXQAIrOH5+msuvr1Jn5uk102QnL9OdjVH1YThfQQOtuyD53kxa23mX8u0d7GkI+R96xwXkXFVLaiq30BBRFKh57/qN5uR+1ZTBnmZAAAAAElFTkSuQmCC'
 						},{
 			name: 'Youtube',
 			url: 'https://www.youtube.com/',
@@ -205,6 +152,10 @@ if (!window.SidebarMod) {
       url: 'http://wufazhuce.com/',
       favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA9klEQVQ4je3RMUvDYBDG8TeCoIvWwQ5B3QSpo+DqqpPfQMHR7oJTQUFwKeL3aGo0DUYUBXGoUlQklLq7NfemaU0Qh79DhCLp5lLQ4eGe6Qd3p4yq8Juof+AnMGkH5J20T9j9OXUqmI4wWg1QlTaqEmSBlZuQ0kuX4mOPrYceztsHixchJT/mqJWweR8x52qWLjUFT2eBg2bMiJXKh82Yfb+f49eE3acus65m7VpT8MIssHobsfP8zkY9YrsRsefHmDVNvf1JuZWwftchdyYsX3UwBq1gWMKMq5k/T/v09y3yjmDWhAVPM2YL4yeCsgYBQ/HGPwp8AZZWrx7eI2yVAAAAAElFTkSuQmCC'
        },{
+		 name: '扇贝单词',
+		 url: 'http://www.shanbay.com/bdc/review/',
+		 favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAwFBMVEUgnoUjoIcWmoAgnoUenYQRl30zppALlXlDrZgloIgAj3IfnoUBkHQhn4YRl32w3dSj18xIsJsanIITmX4KlXlvwLAXmoFYtqQNlnsAhGTD5d6z3taEybt9x7hqv685qZMvpY0Afl3w+Pfe8O3T7Oe94tu44Nis2tGl2M6a08iW0cWS0MOMzcBguqhTtKFFrZg+rJYzp5ArpIwmoYkEknYAimvq9fPM6OOe1MqPzL+Hy714xLV3xLRywrNduaYGk3dggsZ3AAAAC3RSTlPy8vLm8vLy8vLy8t/oGk4AAADKSURBVBjTLcvVcgJBFEXR2yMhSbuOG+5OPPD/f8VQzX47q+pACI9QEKAoBugnxlQpqhOpWb13WkEvR+fOy9WlmRxJ+9IDS0RKKpGV8247fYBKP5fZlpOZ3I3kAJAxph3uHJfCjhuCIKhqkv2P2Opr/bsnFCBOxnnT8YUtT4ZRDABEL4bfjJcsxX0Ab5R0uCjWyY16eC34vG7/+ME8AWQl+ET8WI09RMxcMrXJP2zqAbCWYpoLe1AeMGab2fV0Jo76Twgofh8EEfjCO+PoE9YCHLonAAAAAElFTkSuQmCC'
+			},{
       name: '知乎网',
       url: 'http://m.zhihu.com/',
       favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACW0lEQVRYhc2XS2gTURSGhwpduRCkIIpbs3EhFPcKXVgoFFfiRtyIuLKb0gaNLaWIpYv6oi1UsNCKgihCBQUVW1AJdSNBaSdx0jwa0yZp0iQmTSYz+VwMGZLOtJ1AkvHAvzn3cb45d+499wpCn6db6F8NCwMiLVX/aljo83QLtgSvhrAteEX/NUDvVJCf6ztceRpuPcDJYR/pvEI8U+LQoA0ZuPNmA4Dn7pQ9S+CWchxkilqm62GAoy7vgX0rZgnAMSqhqmVLEzpfRxsPMP4+BsA7T4Z2p0i7UyQQLwLQMxnUfe1OrX81wPEhn0GOUck6QNugSHhLBuDq7LruDyc1X9eDgGGSagCzD9q3fbfj+nwERS3z6GOixr+xrQGcm1hrLsD5iTVOjUqGjolsCYCz4/7mAuyldF4BwGEC1xKAgqwC0OHyNRfg2JCPaEo230MmtriSbSzA4Kuo5eAAqZzS/CW48DgIwHpSrj9AIwBuvogA4P6dswdg/lsSgJmlreb/hGYKJWQ9A/FMic4xqXUAvVPa+hdklc8rWQD8sSInhn2tAfj0KwPA0mqWDpcPb7SgZ6NyUWkawMXpIOWyVpZvPIsgDIh0jkmkctqpeP9D3BAA4Mw9ictPQnpRqzbLAEdue5FiWgkOJoq0VV3LLs2EUNSyvit2A4h/dgyB6wZ4+yOtD7o2FzG0jyxs8kX8W+M7fMtLsaQd2dt5Rc/avjJzzn5N6sFfft/ec3DPZNDgW/bnWPbnOH3XWLQsAUwvJijIKt5ogZGFzZrUW5HZfaHuDLRU9gPY/ji1+Xn+DzW1nLHMXLKeAAAAAElFTkSuQmCC'
@@ -216,15 +167,23 @@ if (!window.SidebarMod) {
       name: '果壳网',
       url: 'http://m.guokr.com/',
       favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA4klEQVQ4jZXRoQ6DMBAGYB5iZpnBoCdHZjA8wOYa/BSCDINAkBBmcAjkknksdhq3JwCFm+INbuq6o/Q6dknlfX/b39rcDrDmBI8jlJ0HZefB+bKTx1oL4HLWunPAaYa/0rXAtgqNQNa6Erje90vAdAuaXnYeiNiWyyLxvwCHmIAiDeaA7il0WW2gzqM5oCJqOgVE4usB+hT6eWoDRRrwwLYKtem0gTqPeMBpBkifJxYQsf0b6KdxAWADeH0WyF5vAIAFggAus0A/jYCja8AIYDod2gDWxwI0HaefRgnQ99d5BB+ezV767XUN9QAAAABJRU5ErkJggg=='
+       },     
+{
+			name: '内涵段子',
+			url: 'http://m.neihanshequ.com/?skip_guidence=1#',
+			favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABoVBMVEUAAADis34yCwMAAAAYCQKheVqikn9UIw6qe04oEAU8GA6Qa1h1NSFeKRSAa0yshmkfCQKTYDkVCAOETyRkTTxLQThFKxdxUzVuNCRAJhNJFxBhLRoYDQahSzg1IBAlGA1IFg0nEAUPBgEWDAZNOy1THBkDAwM5EAP9w4f+woADAAD/6ab/6KHmxaH/15n/5Zb/z5TlyZH/1o3/yIzUrYDmqm/BkmqgZzxXOiZZLhNAFQUZAAD//83/87b/yaX/taP/36L/v6D/w5//657/zpz1wZP/4JHQspG0pZHnvJD/047yw4750435zYz/zon/rIn2uYjpmYj8o4fzu4b/X4b1v4X/cIX3voTMqoTpxIDZq32dgXv1t3rxs3j/vnf/vHT8uXSxnXSfeW7QnGugemr/uWn8rWbYm2POmGO6kGLOo2GrlWHNjmD4pl/CkV+cfl7Yk1fAhlWqflPPX1O4fFDFhU+gd0zfdkyMYkiia0XeR0R0VUCXZD9nQD2pZjqSYTmwXDd2UTW0UjPQSS5oOx5qMh5RKBRbJhJPIA8tDAAlBQBxpIPKAAAAJ3RSTlMA/o5PMO7r6t3a1Mq+t7KtqqScl5CQiYV9d2ppaGNiWFdORjgwGg2YmS65AAAA0klEQVQY02MAA2keXnYmBgRgaW/tsOoUQAgwdVmrW7apWylC+RJmZjWh2pp16upKYL6Cu422Tl6Fp7O5NSdYgCvfwFjTpNpCz6hFiwUkwGaboBEQraupoW+uxQwS4E5ycQiuTXQzjq/XkgHyhStTdA18nML8DT0sG0vlGBgEXe2j0iPtQoIMI4pMTMWBSvgdM7NLTPV9w1MLWUXUgAIqOcWBVQ1e3hq5QlCH8ZU3N2Xo+aWJwVyuyphlpBNTIInwi6xFWXJsnDySd6WYRRk5lMFMAC2EKlCeRWrCAAAAAElFTkSuQmCC'
+						},{
+      name: '青年图摘',
+      url: 'http://www.qingniantuzhai.com/home',
+      favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAB3VBMVEX////9/f39///m6e3AwMb7//7//v/9/P///vn49vj39PPf3t/a19nOzdLLycz+/v72+Pzz9fbw9PX39fPy7vL89/Hr6enp5eba4OTo5uLX3d3FyM7DyMrAw8n+/f///vf////1///6///b8v202utfpNIacrj9///0/f/y/f/n9v/k+P3//vrz9fjE5/Ww3fTi7PKu0+ik0Ofk5OSYxOHh3+AdjNzX2dgji9cliNQWgtMjhs7Gx8tTmMcLeMa7wcMRdr46gbowgLkpernu///u/P/O8P7z+Pvg8Pn5+Pj49PjT8vju9vb59vXd7vX19PTs8vTt8fPM6vPX6fPe6PLz8vHn7PD68+/v7++k1+/F4uvi5efO2+S81eSOy+R9veOoyeKbxuFjuOHX3uCkyt+90968y96EvNubx9p9udlTn9jc29fP09eoytePvdeTvNaPu9WAttXHy9OEudMahdMmidEuitAsiNBWnc9MmM9+ss45kM4Wgc5opctnnstKkss7jctcnMoMeMnJyMdEjsclfsfBxMZansQifMQqg8MXe8PCxMIefsIIdMIogcBFir8xgb1Vkbwhe7sAaboAZ7cTbbM2fbEWcq8odK4AYakjcKgZaahUhacWZJ8RWooFPSyqAAAAIHRSTlPv/e/v7/vv7+/v7+/v7+/g7+/v7+/v7+/v7+/v7+/g4LIH5V0AAAEISURBVBjTHcjTdgMBEADQSbJJ49TGLGPbqm3btm3b/tae5j5eUIkgM08pEwiylfkCEBeBEN3hLkywh93IA5i6IpG2Djj6a7HidAgg9aiGGg7eHay/zqvRGEiBXDvORfesOrrHsdmJThnkIBPbtyFJ4eznQzkvCyTa3ZNJvaHMiOat+DimA5iiaxt6Q1sldqyeT5BJAOZHz8UCieqmoJdb+o/G2PLKLdvbd+z3fM1gMmQUs08u73Xk0u8KnZEtUpBWm96fQ9s+3+FNZLDUkgZ8Z33VTpx74e7Zt4/fERFA3bSFohkbQ1NjP98NfOBhe2CxVaMt0TV3j2pQCCoAiZwgFIoCQi4GfuEfTMs8p+k60I8AAAAASUVORK5CYII='
        },{
-		 name: '句子迷',
-		 url: 'http://m.juzimi.com/',
-		 favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABgFBMVEUAAADhaQDyewbzfQfjbADfVwD1ggviagDgYwDhZQD1gQveaQH1gw31fwrjbADgXQDhYADfWABQ5kRO6EX1hA5R5kTsdAT3ggjjbQDgWgA3/FD0fQXhagDhaAD2bQDzfwniawDjZgDoUAA1+k1G6UDibADiagBF6kT0ggzxggv////4gwD/6s72fALjZgD81q37tWH3iBP3hRD4hgX3gAP1cQDiYwDhYADhWADfUQD//f354Mr41rn92rD90qD905z6ypr4sGr6sVrslkn+rz7ofyLneBT1dgD1bQDkawD1agDhXAD/+vT89vL78uv+9er87uH/7dL75dD84sf52b7827f3z6j91ab1zJ/1xZn8zJX8yZL7yZH5v4TxtYD5tXv3uHr9w3L5sWr7t2jup2ftpWX8uGH/jVn6q1I8+E/smU/+tUtM50JL50H3mjz5oDv4mTD3lCr2jSX7nSL/pCDxdB/6kxbvgBb9mhT6kAi6hgf/Xwa5ewDQaQD1YgDmXgAGZ/1OAAAAKnRSTlMADfLo6OiwsLBJRTj4+Pj48vLv7enn59fX18C1tbWrpKSkpKNCQkIyDgyvW7uYAAAA7klEQVQY0yXPxWKDABBF0Wm8Sd3d9RGgOMRd6+7u7i6/XghnN3c1jyzVg20Oh7PfT7YqX+6NlUVBED0TlbszO82X8owkMXL7pBl6jA3MJXg+Gl2L3XUTjRo5IATbEesnnxbGbUF6fcpkFjDFeMi9Duxsx+Lxq+egGVqo/iSyCMvBuxnkGqor68sQlE2cfgRxztaSSy2HIZa2kGKCuGed5OXUCCwpZQkPSh+Ncdo8VhP7h/nCLB5/A0S93PGu/pdM7q0AX5/j5usduqFxMwBCZz/Xw9YYb7GoZi/T6Zfvm4tWe/6Aq6HRPRQY6Wpq/geaODHRno1+SgAAAABJRU5ErkJggg=='
-			},         
+      name: '博海拾贝',
+      url: 'http://bohaishibei.com/post/category/main/',
+      favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYklEQVQ4jWNgz/n6lyPn639cmCf1Lk7MnXL3DwM+zYQM4Em9+582Bjx9/ggrptgAbIYQNIAn9S5lBiBj4cwhGwbI4UB/F5BlQOi0d3Ac1Hv7v3QevZMySQaw53z9RkF2/gcAyESn8EKXSckAAAAASUVORK5CYII='
+       },    
+
 	]
 	},
-
-
 ],
 
 		makeButton: function (sitelist, parent) {
@@ -345,7 +304,7 @@ if (!window.SidebarMod) {
 					_sidebarBtn.addEventListener("click",
 					function(event) {
 						var webPanel = document.getElementById('sidebar').contentDocument.getElementById("web-panels-browser");
-						var id = [92]
+						var id = [13]
         var service = Components.classes["@userstyles.org/style;1"].getService(Components.interfaces.stylishStyle)
         for (var i=0; i < id.length; i++){
             var style = service.find(id[i], service.REGISTER_STYLE_ON_CHANGE);

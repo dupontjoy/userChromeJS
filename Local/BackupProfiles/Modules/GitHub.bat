@@ -1,4 +1,4 @@
-::2016.12.20
+::2017.01.03
 
 :GitHub
 cls
@@ -47,6 +47,6 @@ xcopy "%dir1%\..\Software\Image\PicPick\picpick.ini" "%dir2%\PicPick\picpick.ini
 xcopy "%dir1%\..\..\System Tools\CCleaner\ccleaner.ini" "%dir2%\CCleaner\ccleaner.ini"  /s /y /i
 
 ::Ç‰∑›Total Commander‘O÷√
-xcopy "%dir1%\..\Software\totalcmd\wincmd.ini" "%dir2%\TC\wincmd.ini"  /s /y /i
-xcopy "%dir1%\..\Software\totalcmd\user\user.ini" "%dir2%\TC\user.ini"  /s /y /i
+xcopy "%dir1%\..\Software\totalcmd64\wincmd.ini" "%dir2%\TC\wincmd.ini"  /s /y /i
+xcopy "%dir1%\..\Software\totalcmd64\user\user.ini" "%dir2%\TC\user.ini"  /s /y /i
 xcopy "%dir1%\..\Software\Notepad2\Notepad2.ini" "%dir2%\TC\Notepad2.ini"  /s /y /i

@@ -200,23 +200,4 @@ regex: true
     regex: true
 },
 
-/******************************************************************************************
- *几个发行版快捷入口
- *******************************************************************************************/
-{
-    name: "about:cing",
-    from: "about:cing",
-    to: "https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox",
-},
-{
-    name: "about:sunbox",
-    from: "about:sb",
-    to: "http://sunbox.cc/",
-},
-{
-    name: "about:runningcheese",
-    from: "about:rc",
-    to: "http://www.runningcheese.com/",
-},
-
 ];

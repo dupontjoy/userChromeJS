@@ -273,7 +273,7 @@ function() {
         where: 'tab'
     },
     {
-        label: "產品得分-SKU",
+        label: "產品分類列表得分-SKU",
         id: "TVC-Universal",
         accesskey: "5",
         url: "http://ic.sjlpj.cn/ProductScore/CategoryList?type=1&SiteId=1&Sku=%s&CreateBeginDate=&CreateEndDate=&UpdateBeginDate=&UpdateEndDate=&IsFirstRequest=False",

@@ -1,4 +1,4 @@
-::2016.09.13
+::2017.01.04
 
 @echo off
 
@@ -26,13 +26,13 @@ set TempFolder="E:\Temp"
 set TargetFolder="E:"
 
 ::設置Profiles上傳地址
-set TargetFolder1="E:\My Documents\Baiduyun\Firefox\Profiles"
+set TargetFolder1="E:\My Documents\Baiduyun\Cing同步\Firefox\Profiles\"
 ::設置CingFox上傳地址
-set TargetFolder2="E:\My Documents\Baiduyun\Firefox\【FX共享】\CingFox-完整包"
+set TargetFolder2="E:\My Documents\Baiduyun\Cing同步\Firefox\FX共享\CingFox\"
 ::設置Plugins和Software上傳地址
-set TargetFolder3="E:\My Documents\Baiduyun\Firefox\Plugins&Software"
+set TargetFolder3="E:\My Documents\Baiduyun\Cing同步\Firefox\Plugins&Software\"
 ::設置Flash32上傳地址
-set TargetFolder4="E:\My Documents\Baiduyun\Firefox\【FX共享】\Flash32位原版提取帶vch和exe"
+set TargetFolder4="E:\My Documents\Baiduyun\Cing同步\Firefox\插件\Flash\"
 
 :menu
 cls

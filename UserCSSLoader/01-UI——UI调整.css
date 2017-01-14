@@ -2,12 +2,18 @@
   @namespace   https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox
   @description 含:标签栏, 地址栏, 书签栏, 三道杠等界面上的调整
   @author      Cing
-  @version     1.00-2016.12.03
+  @version     1.00-2017.01.11
   @reference             
 */
 
 
 /* ====== 1. 标签栏 ====== */
+
+/*调节标签的宽度*/
+.tabbrowser-tab[fadein]:not([pinned]) {
+	max-width: 110px !important;
+	min-width: 110px !important;
+}
 
 /*标签样式css*/
 .tabbrowser-tab[busy] {
@@ -56,7 +62,10 @@
 }
 
 #alltabs-button {
-	margin-right: -46px!important;
+	margin-right: -50px!important;
+}
+#tabGroups-tabview-button {
+	margin-right: -25px!important;
 }
 
 /*彈出菜單顯示標籤頁序號*/
@@ -109,6 +118,18 @@
 }
 
 /* ====== 2. 地址栏 ====== */
+
+/*自动隐藏AidBar*/
+#TabsToolbar_aidBar:not(:hover) {
+	opacity: 0.1 !important;
+	margin-bottom: 0px !important;
+}
+
+#navigator-toolbox ~ #TabsToolbar_aidBar {
+	opacity: 1 !important;
+	height: auto !important;
+	margin-bottom: 0px !important;
+}
 
 /*Firefox48地址栏下拉菜单网站图标修正*/
 .ac-site-icon {
@@ -185,11 +206,8 @@ box-shadow:0 1px 5px rgba(190,50,0,0.5);
 /*WordHighlightToolbar距離*/
 #wordhighlight-toolbar-box {
 	background: #FFFFFF;
-	right: 1px;
- /*距右邊*/
-/*top: 64px; /*Win8距上邊*/
-	top: 95px;
- /*Win10距上邊*/
+	right: 16px;/*距右邊*/
+	top: 65px;  /*距上邊*/
 	height: 24px;
 /*>>>自行修改数字*/
 	border: 1px solid #A6A6A6;

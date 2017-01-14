@@ -1,4 +1,4 @@
-//2016.12.19
+//2017.01.09
 /**********************************************************************************
  *child:[  ]内爲當前菜單的下一級菜單配置,支持多級
  *text 爲运行參数，如果无需參数，直接删除text属性
@@ -64,31 +64,6 @@ var anomenu = [{
         text: "\\readme.js",
         exec: "\\..\\Software\\Notepad2\\Notepad2.exe",
         image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaElEQVQ4jWNgoCL4TwA3EGMAPrnrhAwhZIA4IUMIGcBAyBBCBqBjkgwgSi264Ewo7YFk60wcavEacBRNTJlUA/KgckfxqMVrAAzADCLoAnSnIyvOY0CECV4DkAOM7EDEB3AaQAqmDgAAtlxHLWMw/vEAAAAASUVORK5CYII=",
-    },
-    ]
-},
-{
-    label: '打開文件夾',
-    image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVQ4jWNgoBLwZGBgeMbAwPAfCT+DihMFnjEwMFijiVlDxYk2QAOL+H8cGMN1uAzABTBcBzMVl43YXPAf3QD0MCDkAgwDSAWjBlDbgD8MDAzpJGhOh+qBgwaoALEJ6Q9UD+UAAEc9PeCabBc4AAAAAElFTkSuQmCC",
-    child: [{
-        label: "UserCSSLoader",
-        tooltiptext: "用TC打开UserCSSLoader文件夾",
-        oncommand: function(e) {
-            var Path = "\\..\\Software\\totalcmd64\\TOTALCMD64.EXE";
-            var Folder = Services.dirsvc.get("UChrm", Ci.nsILocalFile).path + "\\UserCSSLoader";
-            addMenu.exec(Path, ['-search', Folder]);
-        },
-        image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVQ4jWNgoBLwZGBgeMbAwPAfCT+DihMFnjEwMFijiVlDxYk2QAOL+H8cGMN1uAzABTBcBzMVl43YXPAf3QD0MCDkAgwDSAWjBlDbgD8MDAzpJGhOh+qBgwaoALEJ6Q9UD+UAAEc9PeCabBc4AAAAAElFTkSuQmCC",
-    },
-    {
-        label: "iMacros",
-        tooltiptext: "用TC打开iMacros文件夾",
-        oncommand: function(e) {
-            var Path = "\\..\\Software\\totalcmd64\\TOTALCMD64.EXE";
-            var Folder = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\iMacros\\Datasources";
-            addMenu.exec(Path, ['-search', Folder]);
-        },
-        image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVQ4jWNgoBLwZGBgeMbAwPAfCT+DihMFnjEwMFijiVlDxYk2QAOL+H8cGMN1uAzABTBcBzMVl43YXPAf3QD0MCDkAgwDSAWjBlDbgD8MDAzpJGhOh+qBgwaoALEJ6Q9UD+UAAEc9PeCabBc4AAAAAElFTkSuQmCC",
     },
     ]
 },

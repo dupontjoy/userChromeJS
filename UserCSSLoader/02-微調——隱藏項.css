@@ -1,9 +1,38 @@
-/*+++ 2016.12.13 +++*/
+/*+++ 2017.01.11 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
 /*menuseparator
 {display: none !important;}*/
+
+/*隐藏图标*/
+#UIEnhancerToolbarButton,/*Location Bar Enhancer*/
+#VimFxButton,/*vimfx按钮,可输入"?"直接调用*/
+#imacros-toggle-button,/*iMacros扩展*/
+#nav-bar-overflow-button,/*工具栏-更多工具按钮*/
+#PanelUI-fxa-avatar,/*FX41下SimpleWhite三道杠多出来的按钮*/
+#greasemonkey-tbb,/*Greasemonkey擴展圖標*/
+#abp-toolbarbutton,/*ABP擴展圖標*/
+#pan-toolbarbutton,/*Pan擴展*/
+#toggle-button--redirectoreinaregilssoncom-redirector,/*redirector擴展*/
+#home-button,
+#stylish-toolbar-button,/*Stylish導航欄圖標*/
+#ghostery-button-badge,/*Ghostery计数*/
+#social-share-button,/*分享此页面*/
+#loop-button-throttled,/*开始会话*/
+#loop-button,/*Loop通話*/
+#GrabScroll-image,
+#masonStatusbar,/*Mason*/
+#noscript-tbb,/*Noscript*/
+#ScrapBookStatusPanel,/*ScrapBook*/
+#scriptish-button,/*Scriptish*/
+#identity-icon-labels,
+#identity-popup,
+#reader-mode-button,/*閱讀模式按钮*/
+#panic-button,/*忘記某些歷史*/
+#PlacesChevron/*书签工具栏产生的箭头*/ {
+	display: none !important;
+}
 
 /*===隐藏页面右键菜单===*/
 #frame[label="此框架"],
@@ -60,6 +89,7 @@
 #context-copyimage,/*複製圖片地址*/
 #context-openlinkintab,/*用新分頁開啟鏈結*/
 #context-copylink,/*複製鏈結網址*/
+#context-viewpartialsource-selection,/*查看选中部分源代码*/
 #spell-add-dictionaries-main/*新增字典*/ {
 	display: none !important;
 }
@@ -72,6 +102,7 @@
 #alltabs_undoCloseTab,/*復原已關閉分頁*/
 #context_pinTab,/*锁定标签*/
 #context_unpinTab,/*取消锁定标签*/
+#context_reloadTab,/*重新載入分頁*/
 #toolbar-context-reloadAllTabs,/*重新載入所有分頁*/
 #toolbar-context-bookmarkAllTabs,/*將所有分頁加入書籤*/
 #toolbar-context-undoCloseTab,/*復原已關閉分頁*/
@@ -99,7 +130,8 @@
 }
 
 /*隐藏项 - 地址栏右键*/
-#PanelUI-popup,/*三道杠弹窗*/
+richlistitem[type="searchengine"],/*删除访问XXX/用XXX搜索*/
+/*#PanelUI-popup,三道杠弹窗*/
 #urlbar menuitem[cmd="cmd_undo"],
 #urlbar menuitem[cmd="cmd_cut"],
 #urlbar menuitem[cmd="cmd_delete"] {

@@ -43,7 +43,7 @@ xcopy "%TempFolder%\Profiles\extensions\uMatrix@raymondhill.net.xpi" %TempFolder
 xcopy "%TempFolder%\Profiles\extensions\zotero@chnm.gmu.edu.xpi" %TempFolder%\Optional\Profiles\extensions\  /s /y /i
 xcopy "%TempFolder%\Software\GFW" %TempFolder%\Optional\Software\GFW\  /s /y /i
 xcopy "%TempFolder%\Software\Image" %TempFolder%\Optional\Software\Image\  /s /y /i
-xcopy "%TempFolder%\Software\Other" %TempFolder%\Optional\Software\Other\  /s /y /i
+xcopy "%TempFolder%\Software\TotalCMD64" %TempFolder%\Optional\Software\TotalCMD64\  /s /y /i
 del %TempFolder%\Profiles\chrome\xul\localMark_0.6.1.uc.xul /s /q
 del %TempFolder%\Profiles\chrome\SubScript\SougouDeskPic.uc.js  /s /q
 del %TempFolder%\Profiles\chrome\SubScript\QR.uc.js  /s /q

@@ -5,7 +5,7 @@
 // @namespace      ywzhaiqi@gmail.com
 // @include        main
 // @charset        UTF-8
-// @version        2016.12.19
+// @version        2017.01.09
 // version        2014.9.6
 // @homepageURL    https://github.com/ywzhaiqi/userChromeJS/tree/master/moveButton
 // @downloadURL    https://github.com/ywzhaiqi/userChromeJS/blob/master/moveButton/moveButton.uc.js
@@ -85,16 +85,8 @@ location == "chrome://browser/content/browser.xul" && (function(){
         
 //不常用圖標移動到aidBar
 { id: "flashgot-media-tbb", bar: "TabsToolbar_aidBar", pos: 1 },//FlashGot扩展
-{ id: "action-button--loadfromcache-fcb", bar: "TabsToolbar_aidBar", pos: 2 },//loadfromcache扩展
-//{ id: "foxyproxy-toolbar-icon", bar: "TabsToolbar_aidBar", pos: 2 },//Foxyproxy擴展
-//{ id: "UserScriptLoader-icon", bar: "TabsToolbar_aidBar", pos: 4 },//GM脚本版
-{ id: "umatrix-button", bar: "TabsToolbar_aidBar", pos: 5 },//uMatrix扩展
-//{ id: "policeman-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 5 },//Policeman扩展
-{ id: "aup-toolbarbutton", bar: "TabsToolbar_aidBar", pos: 6 },//Autoproxy擴展
 { id: "lpt_lastpass-compact-btn", bar: "TabsToolbar_aidBar", pos: 7 },//Lastpass扩展
-{ id: "ublock0-button", bar: "TabsToolbar_aidBar", pos: 7 },//UBO扩展
-{ id: "userChromebtnMenu", bar: "TabsToolbar_aidBar", pos: 9 },//UC管理器
-{ id: "userChromeJsManagerMenuBtn", bar: "TabsToolbar_aidBar", pos: 9 },//UC管理器
+
 
 /*sideBar*/
 { id: "Sidebar-button", insertBefore: "urlbar" },//移动到地址栏前, 前进后退按钮后
@@ -127,7 +119,6 @@ context: "_child"
 {id: "RIL_urlbar_mark",attr: {tooltiptext:"已添加",}},
 {id: "bookmarks-menu-button",attr: {tooltiptext:"书签",}},
 {id: "downloads-button",attr: {tooltiptext:"左键: 显示下载列表\r\n右键: 新建下载任务",}},
-{id: "PanelUI-menu-button",attr: {tooltiptext:"左键: 用TC打开Chrome文件夹\r\n中键: 用TC打开Profiles文件夹\r\n右键: 重启(清除缓存)",}},
 {id: "urlbar-reload-button",attr: {tooltiptext:"左键: 刷新当前页面\r\n右键: 强制刷新当前页面",}},
 {id: "titlebar-min",attr: {tooltiptext:"最小化",}},
 {id: "titlebar-max",attr: {tooltiptext:"最大化/还原",}},

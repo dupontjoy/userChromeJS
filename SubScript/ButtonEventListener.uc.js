@@ -3,7 +3,7 @@
 // @namespace      runningcheese@qq.com
 // @description    为工具栏图标增加点击功能
 // @author         runningcheese
-// @version        0.0.1-2016.12.19
+// @version        0.0.1-2017.01.09
 // @license        MIT License
 // @compatibility  Firefox 29+
 // @charset        UTF-8
@@ -70,36 +70,6 @@ if (location == "chrome://browser/content/browser.xul") {
         },
         false);
     })();
-
-    //三道杠 左键UChrm/中键ProfD(用TC打开)/右键重启Firefox
-    (function(doc) {
-        var UChrmlist = doc.getElementById('PanelUI-menu-button');
-        if (!UChrmlist) return;
-        var menupopup = UChrmlist.firstChild;
-        UChrmlist.addEventListener("click",
-        function(e) {
-            if (e.button == 0) {
-                e.preventDefault();
-                e.stopPropagation();
-                var Path = "\\..\\Software\\totalcmd64\\TOTALCMD64.EXE";
-                var Folder = Services.dirsvc.get("UChrm", Ci.nsILocalFile).path;
-                addMenu.exec(Path, ['-search', Folder]);
-            }
-            if (e.button == 1) {
-                e.preventDefault();
-                e.stopPropagation();
-                var Path = "\\..\\Software\\totalcmd64\\TOTALCMD64.EXE";
-                var Folder = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path;
-                addMenu.exec(Path, ['-search', Folder]);
-            }
-            if (e.button == 2) {
-                e.preventDefault();
-                e.stopPropagation();
-                Services.appinfo.invalidateCachesOnRestart(); ('BrowserUtils' in window) ? BrowserUtils.restartApplication() : Application.restart();
-            }
-        },
-        false);
-    })(document);
 
 }
 

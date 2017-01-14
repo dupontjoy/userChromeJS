@@ -1,4 +1,4 @@
-//2016.12.20
+//2017.01.11
 
 const EXPORTED_SYMBOLS = ['PREFS']
 
@@ -9,10 +9,10 @@ var PREFS = {
  //*==========主页==========*//
 'browser.startup.page': 1,//启动Firefox时显示主页
 'browser.startup.homepage': "about:newtab",//首頁
-'browser.newtabpage.columns': 6,//新标签页列数
+'browser.newtabpage.columns': 5,//新标签页列数
 'browser.newtabpage.rows': 3,//新标签页行数
 //标签页固定的网站
-'browser.newtabpage.pinned': "[{\"url\":\"https://hbr.org/\",\"title\":\"HBR\"},{\"url\":\"http://www.economist.com/\",\"title\":\"Economist\"},{\"url\":\"http://www.cnn.com/\",\"title\":\"CNN\"},{\"url\":\"https://www.ft.com/\",\"title\":\"Financial Times\"},{\"url\":\"http://www.nytimes.com/\",\"title\":\"NYTimes\"},{\"url\":\"http://www.wsj.com/\",\"title\":\"WSJ\"},{\"url\":\"https://docs.google.com/spreadsheets/u/0/\",\"title\":\"Google Sheets\"},{\"url\":\"http://bbs.kafan.cn/forum-215-1.html\",\"title\":\"Kafan\"},{\"url\":\"http://www.cnbeta.com/\",\"title\":\"cnBeta\"},{\"url\":\"http://www.zhihu.com/explore\",\"title\":\" Zhihu\"},{\"url\":\"http://www.douban.com/\",\"title\":\"Douban\"},{\"url\":\"http://www.guokr.com/\",\"title\":\"Guokr\"},{\"url\":\"http://www.jianshu.com/\",\"title\":\"Jianshu\"},{\"url\":\"https://www.youtube.com/\",\"title\":\"Youtube\"},{\"url\":\"http://open.163.com/\",\"title\":\"Open.163\"},{\"url\":\"http://music.163.com/\",\"title\":\"Music\"},{\"url\":\"http://email.163.com/\",\"title\":\"Mail\"},{\"url\":\"https://app.yinxiang.com/Home.action\",\"title\":\"Evernote\"}]",
+'browser.newtabpage.pinned': "[{\"url\":\"https://hbr.org/\",\"title\":\"HBR\"},{\"url\":\"http://www.economist.com/\",\"title\":\"Economist\"},{\"url\":\"http://www.cnn.com/\",\"title\":\"CNN\"},{\"url\":\"https://www.ft.com/\",\"title\":\"Financial Times\"},{\"url\":\"http://www.nytimes.com/\",\"title\":\"NYTimes\"},{\"url\":\"http://www.wsj.com/\",\"title\":\"WSJ\"},{\"url\":\"https://docs.google.com/spreadsheets/u/0/\",\"title\":\"Google Sheets\"},{\"url\":\"http://bbs.kafan.cn/forum-215-1.html\",\"title\":\"Kafan\"},{\"url\":\"http://www.cnbeta.com/\",\"title\":\"cnBeta\"},{\"url\":\"http://www.zhihu.com/explore\",\"title\":\" Zhihu\"},{\"url\":\"http://www.douban.com/\",\"title\":\"Douban\"},{\"url\":\"https://www.youtube.com/\",\"title\":\"Youtube\"},{\"url\":\"http://open.163.com/\",\"title\":\"Open.163\"},{\"url\":\"http://music.163.com/\",\"title\":\"Music\"},{\"url\":\"http://email.163.com/\",\"title\":\"Mail\"}]",
  
 //*==========Firefox设置==========*//
 'layers.acceleration.disabled': true,//禁用硬件加速MacType才生效
@@ -52,12 +52,13 @@ var PREFS = {
 'browser.sessionstore.max_tabs_undo': 10,//最近撤销标签历史最大数
 'browser.sessionstore.interval': 600000,//防止向SSD写入大量数量: 重写recovery.js文件的默认数值为“15000ms”(间隔时间15s), 改为10分钟
 //其它FX
-'general.skins.selectedSkin': "simplewhite",//使用SimpleWhite主題
+'general.skins.selectedSkin': "simplewhitex",//使用SimpleWhite主題
 'gfx.content.azure.backends': "direct2d1.1,cairo",//图形渲染;FX52默认的Skia不支持Mactype
 'view_source.editor.external': true,//页面源代码——使用外部編輯器查看
 'browser.backspace_action': 2,//禁止Backspace键返回上一页
 'dom.battery.enabled': false,//禁止电池状态API, 防止信息泄露
 'reader.parse-on-load.enabled': false,//禁用阅读模式
+'browser.tabs.closeWindowWithLastTab': false,//关闭最后一个标签时不关闭Firefox
 
 
 //*==========扩展设置==========*//
@@ -117,6 +118,9 @@ var PREFS = {
 'extensions.zotero.showIn': 2,//新标签打开
 'extensions.zotero.automaticSnapshots': false,//从Web页面创建条目时自动生成快照(否)
 //'extensions.zotero.dataDir': "E:\\My Documents\\GitHub\\customization\\Firefox\\Zotero",//数据存储文件夹
+
+//Tab Groups
+'extensions.tabgroups.groupTitleInButton': false,//按钮-显示当前分组名称(否)
 
 //*==========脚本设置==========*//
 //UC管理器取消延迟加载

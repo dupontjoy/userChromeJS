@@ -20,7 +20,7 @@ if (location.href.indexOf('about:stylish-edit') == 0) {
     */
     var stylishCustom2 = {
 
-        _revertOldFindbar: false, //還原舊尋找列(預設關閉，若開啟請將 false , 改為 true);
+        _revertOldFindbar: true, //還原舊尋找列(預設關閉，若開啟請將 false , 改為 true);
         AutoExternalEditor: false, //自動使用外部編輯開啟(預設關閉，若開啟請將 false , 改為 true);
         
         insertRules: {
@@ -125,24 +125,24 @@ if (location.href.indexOf('about:stylish-edit') == 0) {
                 onclick: this.setComment
             }, editortools);
 
-            cE('spacer', {
-                flex: '1'
-            }, editortools);
+            //cE('spacer', {
+            //    flex: '1'
+            //}, editortools);
             cE('label', {
                 style: 'max-height: 20px; margin:7px 0 4px 0;',
                 value: this.localeText('lineNumber')
-            }, editortools);
+            }, _et);
             (this.lineNumber = cE('textbox', {
                 id: 'lineNumber',
                 class: 'devtools-textinput',
                 style: 'padding: 0; width:40px; max-height: 20px; margin:5px 0;',
                 onkeydown: this.goToLine.bind(this)
-            }, editortools)).value = 1;
+            }, _et)).value = 1;
             this.colNumber = cE('label', {
                 id: 'colNumber',
                 style: 'width:50px; max-height: 20px; margin:7px 0 4px 2px;',
                 value: this.localeText('colNumber') + '0'
-            }, editortools);
+            }, _et);
             //插入鏈結選單
             cE('menupopup', {
                     onpopupshowing: 'stylishCustom2.showDocumentList(event,false);'
@@ -528,7 +528,7 @@ if (location.href.indexOf('about:stylish-edit') == 0) {
 
         function editinit() {
             if (window.navigator.platform.toLowerCase().indexOf("win") != -1) {
-                _editor = "C:\\WINDOWS\\notepad.exe"; /* windows */
+                _editor = Services.prefs.getCharPref("view_source.editor.path");
                 //_editor = "C:\\progra~1\\hidemaru\\hidemaru.exe"; /* windows */
                 _dir_separator = '\\'; /* windows */
                 _os = 'win'; /* windows */

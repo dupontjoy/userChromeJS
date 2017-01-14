@@ -47,7 +47,7 @@ xcopy "%BackDir%\iMacros" %TempFolder%\Profiles\iMacros\ /s /y /i
 xcopy "%BackDir%\searchplugins" %TempFolder%\Profiles\searchplugins\ /s /y /i
 
 ::Zotero文件夹单独复制
-xcopy "%BackDir%\zotero" %TempFolder%\zotero\ /s /y /i
+::xcopy "%BackDir%\zotero" %TempFolder%\zotero\ /s /y /i
 
 ::/**以下是文件**/
 ::书签

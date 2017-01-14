@@ -1,4 +1,4 @@
-//2016.12.20
+//2017.01.09
 
 /******************************************************************************************
 快捷键分类:
@@ -140,9 +140,9 @@ set('mode.normal.scroll_half_page_up', 's')//向上滾动半页
 set('mode.normal.stop', 'S')//停止载入当前页面
 set('mode.normal.mark_scroll_position', 'M')//标记滚动位置
 set('mode.ignore.exit', '<escape>')//忽略模式-->返回普通模式
-set('mode.normal.tab_move_to_window', 'gW')//将标签页移动到新窗口中
 set('mode.normal.follow_in_focused_tab', 'gt')//在新的前台标签页打开此链接
-set('mode.normal.follow_in_window', 'gw')//在新的窗口打开此链接
+set('mode.normal.tab_move_to_window', 'gw')//将标签页移动到新窗口中
+set('mode.normal.follow_in_window', 'gW')//在新的窗口打开此链接
 set('mode.normal.follow_focus', 'gf')//聚焦/选中元素
 set('mode.normal.open_context_menu', 'gc')//为元素打开上下文菜单
 set('mode.normal.click_browser_element', 'gb')//点击浏览器元素
@@ -159,18 +159,6 @@ vimfx.addCommand({
 })
 map(',a', 'goto_addons', true)
 
-// Search bookmarks
-vimfx.addCommand({
-  name: 'search_bookmarks',
-  description: '搜索书签',
-  category: 'location',
-  order: commands.focus_location_bar.order + 1,
-}, (args) => {
-  commands.focus_location_bar.run(args)
-  args.vim.window.gURLBar.value = '* '
-})
-map(',b', 'search_bookmarks', true)
-
 vimfx.addCommand({
     name: 'goto_config',
     description: '新标签打开about:config',
@@ -181,7 +169,7 @@ vimfx.addCommand({
 map(',c', 'goto_config', true)
 
 vimfx.addCommand({
-  name: 'goto_increment',
+  name: 'go_increment',
   description: 'URL最后一个数字递增',
   category: 'location',
 }, ({vim, count}) => {
@@ -191,10 +179,10 @@ vimfx.addCommand({
         return +$0 + count;
       }));
 });
-map(',u', 'goto_increment', true)
+map(',u', 'go_increment', true)
 
 vimfx.addCommand({
-  name: 'goto_decrement',
+  name: 'go_decrement',
   description: 'URL最后一个数字递减',
   category: 'location',
 }, ({vim, count}) => {
@@ -204,7 +192,7 @@ vimfx.addCommand({
         return +$0 + count;
       }));
 });
-map(',d', 'goto_decrement', true)
+map(',d', 'go_decrement', true)
 
 /*vimfx.addCommand({
     name: 'goto_ehh',
@@ -215,29 +203,26 @@ map(',d', 'goto_decrement', true)
 map(',e', 'goto_ehh', true)*/
 
 vimfx.addCommand({
-    name: 'goto_sougoupic',
+    name: 'go_sougoupic',
     description: '下一张壁纸',
     category: 'misc',
 }, ({vim}) => {
     vim.window.sougouPIC.setRileGou()
 })
-map(',p', 'goto_sougoupic', true)
+map(',p', 'go_sougoupic', true)
 
-//配合gh-Kelo的QR.uc.js (https://github.com/ghKelo/userChromeJS/tree/master/QR)
-let qrcode = (text) => {
-    exec('sh', ['-c', `qrencode -o- '${text}' | pqiv -i -`])
-}
 vimfx.addCommand({
-    name: 'qrcode',
-    description: '生成二维码'
+    name: 'go_close_currentfirefox',
+    description: '关闭当前Firefox窗口',
+    category: 'misc',
 }, ({vim}) => {
-    vim.window.QRCreator.run()
+    vim.window.BrowserTryToCloseWindow()
 })
-map(',q', 'qrcode', true)
+map(',q', 'go_close_currentfirefox', true)
 
 //群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
 vimfx.addCommand({
-    name: 'goto_rebuild',
+    name: 'go_rebuild',
     description: '几个脚本设置重新载入',
 }, ({vim}) => {
     vim.window.addMenu.rebuild();//AddmenuPlus
@@ -250,7 +235,7 @@ vimfx.addCommand({
     //vim.window.UCL.rebuild();//UserCSSLoader
 
 })
-map(',r', 'goto_rebuild', true)
+map(',r', 'go_rebuild', true)
 
 vimfx.addCommand({
     name: 'restart',
@@ -270,33 +255,22 @@ vimfx.addCommand({
 map(',s', 'goto_preferences', true)
 
 vimfx.addCommand({
-    name: 'search_tabs',
-    description: '搜索标签',
-    category: 'tabs',
-    order: commands.focus_location_bar.order + 1,
-}, (args) => {
-    commands.focus_location_bar.run(args)
-    args.vim.window.gURLBar.value = '% '
-})
-map(',t', 'search_tabs', true)
-
-vimfx.addCommand({
-    name: 'goto_wordhilight',
+    name: 'go_wordhilight',
     description: 'WordHighlight添加詞',
     category: 'find',
 }, ({vim}) => {
     vim.window.gWHT.addWord()
 })
-map(',w', 'goto_wordhilight', true)
+map(',w', 'go_wordhilight', true)
 
 vimfx.addCommand({
-    name: 'goto_wordhilight_close',
+    name: 'go_wordhilight_close',
     description: '关闭WordHighlight查找栏',
     category: 'find',
 }, ({vim}) => {
     vim.window.gWHT.destroyToolbar()
 })
-map(',x', 'goto_wordhilight_close', true)
+map(',x', 'go_wordhilight_close', true)
 
 /*
 vimfx.addCommand({
@@ -465,11 +439,7 @@ map(',B', 'bootstrap', true)
  *其它加载(如CSS和部分User.js).
  *******************************************************************************************/
 //加载CSS
-loadCss(`${__dirname}/../../UserCSSLoader/userChrome.css`)//用VimFx加载才能免重启生效
-loadCss(`${__dirname}/../../UserCSSLoader/01-UI——iOS7 Style NewTab.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/01-UI——Theme-Yosetime.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/01-UI——UI调整.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/01-UI——附加組件.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/02-微調——頁面.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/02-微調——字體.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/02-微調——圖標替換.css`)

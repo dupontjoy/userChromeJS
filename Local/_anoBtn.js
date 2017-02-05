@@ -103,12 +103,8 @@ var anomenu = [{
     },
     {},
     {
-        label: "PicPick",
-        exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Image\\PicPick\\PicPick.exe",
-    },
-    {
-        label: "ScreenToGif2",
-        exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Image\\ScreenToGif 2.exe",
+        label: "ShareX",
+        exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\ShareX\\ShareX.exe",
     },
     ],
 },

@@ -572,9 +572,9 @@
 		opacity: 0 !important;
 	}
 	
-/*隐藏拓展版本信息*/
+/*拓展版本信息*/
 	.name-container .version {
-		display: none !important;
+		color: orange !important;
 	}
 	
 /*修复Firefox40出现的问题*/

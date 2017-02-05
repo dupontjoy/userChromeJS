@@ -74,10 +74,13 @@ xcopy "%BackDir%\pluginreg.dat" %TempFolder%\Profiles\  /s /y /i
 ::搜索引擎
 xcopy "%BackDir%\search.json.mozlz4" %TempFolder%\Profiles\  /s /y /i
 ::Stylish样式
-xcopy "%BackDir%\stylish.sqlite" %TempFolder%\Profiles\  /s /y /i
+::xcopy "%BackDir%\stylish.sqlite" %TempFolder%\Profiles\  /s /y /i
 ::参数设置
 xcopy "%BackDir%\user.js" %TempFolder%\Profiles\  /s /y /i
 xcopy "%BackDir%\prefs.js" %TempFolder%\Profiles\  /s /y /i
+::Read It Later
+xcopy "%BackDir%\logins.json" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\readItLater.sqlite" %TempFolder%\Profiles\  /s /y /i
 ::其它
 xcopy "%BackDir%\FlashGot.exe" %TempFolder%\Profiles\  /s /y /i
 xcopy "%BackDir%\readme.js" %TempFolder%\Profiles\  /s /y /i

@@ -82,14 +82,15 @@ location == "chrome://browser/content/browser.xul" && (function(){
         //         context: "stylish-popup"
         //     }
         // },
+
+/*工具栏*/
+{ id: "QuickOpen", insertAfter: "ublock0-button" },//启动时会消失, 只好特殊处理
+{ id: "RIL_toolbar_button", insertAfter: "downloads-button" },//启动时有个边框去不掉, 只好特殊处理
+{ id: "Sidebar-button", insertBefore: "urlbar" },//移动到地址栏前, 前进后退按钮后
         
 //不常用圖標移動到aidBar
 { id: "flashgot-media-tbb", bar: "TabsToolbar_aidBar", pos: 1 },//FlashGot扩展
 { id: "lpt_lastpass-compact-btn", bar: "TabsToolbar_aidBar", pos: 7 },//Lastpass扩展
-
-
-/*sideBar*/
-{ id: "Sidebar-button", insertBefore: "urlbar" },//移动到地址栏前, 前进后退按钮后
 
 //保留在更多工具中
 { id: "InspectElement-menuitem", insertAfter: "flashgot-menu" },//InspectElementModY 默認不在MoreTools中，單獨移動

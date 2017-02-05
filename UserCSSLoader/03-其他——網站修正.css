@@ -1,4 +1,4 @@
-/*+++ 2016.11.15 +++*/
+/*+++ 2017.02.04 +++*/
 
 /*---------------------------------
 指定域名时的几种方法:
@@ -117,7 +117,7 @@
 
 /*天涯旁边广告*/
 @-moz-document domain("tianya.cn") {
-[	id="ty_msg_mod"],
+[id="ty_msg_mod"],
 [class="btnOpen"],
 [class="ds_vip_seats"],
 [class="TY_ui_window ui-draggable"],
@@ -134,5 +134,12 @@
 
 	#intromercial-handle {
 		display: none !important;
+	}
+} 
+
+/*cnbeta去顶部红色广告条辅助*/
+@-moz-document domain("cnbeta.com") {
+	body {
+		padding-top: 0px !important;
 	}
 } 

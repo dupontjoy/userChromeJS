@@ -1,4 +1,4 @@
-//2017.01.11
+//2017.02.05
 
 const EXPORTED_SYMBOLS = ['PREFS']
 
@@ -26,6 +26,9 @@ var PREFS = {
 'browser.bookmarks.autoExportHTML': true,//關閉Firefox时自動生成HTML書籤備份
 'browser.bookmarks.max_backups': 0,//最大备份数目
 'browser.places.smartBookmarksVersion': -1,//禁用智能书签
+
+//*=插件=*//
+'plugins.navigator.hidden_ctp_plugin': "Shockwave Flash",//神奇参数，52以上有效，配合flash询问激活，一些澳门赌场上线啦的网站实现H5播放，类似navigator.plugins spoofing脚本，53、54乱弹flash提示
 
 //*=網路相關=*//
 //网络设定
@@ -110,9 +113,14 @@ var PREFS = {
 
 //iMacros
 'extensions.imacros.delay': 1000,//播放速度中等
+'extensions.imacros.noloopwarning': true,//运行的提示(否)
 
 //Pocket(Readitlater)
 'extensions.isreaditlater.open': "tab",//新标签打开项目
+'extensions.isreaditlater.show-count': true,//显示未读计数
+'extensions.isreaditlater.show-date': true,//显示日期
+'extensions.isreaditlater.list-place': "sidebar",//在(侧边栏)打开列表
+'extensions.isreaditlater.autoOffline': true,//自动离线列表
 
 //Zotero
 'extensions.zotero.showIn': 2,//新标签打开
@@ -121,6 +129,7 @@ var PREFS = {
 
 //Tab Groups
 'extensions.tabgroups.groupTitleInButton': false,//按钮-显示当前分组名称(否)
+'extensions.tabgroups.noWarningsAboutSession': true,//重启时保持标签页分组(否)
 
 //*==========脚本设置==========*//
 //UC管理器取消延迟加载

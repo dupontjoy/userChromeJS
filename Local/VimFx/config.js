@@ -1,4 +1,4 @@
-//2017.01.09
+//2017.02.05
 
 /******************************************************************************************
 快捷键分类:
@@ -368,10 +368,16 @@ let bootstrap = () => {
     // install addons
     let addons = [
 
+        {id: 'inspector@mozilla.org', url: 'dom-inspector-6622'},
+        {id: '{DDC359D1-844A-42a7-9AA1-88A850A938A8}', url: 'downthemall'},
+        {id: '{19503e42-ca3c-4c27-b1e2-9cdb2170ee34}', url: 'flashgot'},
         {id: '{e4a8a97b-f2ed-450b-b12d-ee082ba24781}', url: 'greasemonkey'},
+        {id: '{81BF1D23-5F17-408D-AC6B-BD6DF7CAF670}', url: 'imacros-for-firefox'},
         {id: 'support@lastpass.com', url: 'lastpass-password-manager'},
-        {id: '{46551EC9-40F0-4e47-8E18-8E5CF550CFB8}', url: 'stylish'},
+        {id: 'redirector@einaregilsson.com', url: 'redirector'},
+        {id: 'tabgroups@quicksaver', url: 'tab-groups-panorama'},
         {id: 'uBlock0@raymondhill.net', url: 'ublock-origin'},
+        {id: 'uMatrix@raymondhill.net', url: 'umatrix'},
         {id: 'VimFx@akhodakivskiy.github.com', url: 'vimfx'},
 
     ]
@@ -440,8 +446,10 @@ map(',B', 'bootstrap', true)
  *******************************************************************************************/
 //加载CSS
 loadCss(`${__dirname}/../../UserCSSLoader/01-UI——UI调整.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/01-UI——附加组件显示版本号.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/02-微調——頁面.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/02-微調——字體.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/02-微調——字體替換.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/02-微調——字體效果.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/02-微調——圖標替換.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/02-微調——圖標效果&排序.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/02-微調——隱藏項.css`)

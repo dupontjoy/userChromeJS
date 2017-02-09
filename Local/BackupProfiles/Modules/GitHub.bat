@@ -1,4 +1,4 @@
-::2017.01.03
+::2017.02.08
 
 :GitHub
 cls
@@ -8,9 +8,8 @@ echo.
 echo  1. Firefox文件：user.js, persdict.dat, stylish.sqlite, _FeiRuoNetProxy.json
 echo  2. Foxmail過濾器
 echo  3. ProcessLaso設置
-echo  4. PicPick設置
-echo  5. CCleaner設置
-echo  6. TC設置
+echo  4. TC設置
+echo  5. Listary設置
 echo.
 echo  按任意键继续……
 pause>nul
@@ -40,13 +39,10 @@ xcopy "%dir1%\..\..\System Tools\ProcessLassoPortable\prolasso.ini" "%dir2%\Proc
 ::備份PicPick設置
 xcopy "%dir1%\..\Software\Image\PicPick\picpick.ini" "%dir2%\PicPick\picpick.ini"  /s /y /i
 
-::備份FastCopy-M設置
-::xcopy "%dir1%\..\..\FastCopy-M\FastCopy2.ini" "%dir2%\FastCopy-M\FastCopy2.ini"  /s /y /i
-
-::備份CCleaner設置
-xcopy "%dir1%\..\..\System Tools\CCleaner\ccleaner.ini" "%dir2%\CCleaner\ccleaner.ini"  /s /y /i
-
 ::備份Total Commander設置
 xcopy "%dir1%\..\Software\totalcmd64\wincmd.ini" "%dir2%\TC\wincmd.ini"  /s /y /i
 xcopy "%dir1%\..\Software\totalcmd64\user\user.ini" "%dir2%\TC\user.ini"  /s /y /i
 xcopy "%dir1%\..\Software\Notepad2\Notepad2.ini" "%dir2%\TC\Notepad2.ini"  /s /y /i
+
+::備份Listary設置
+xcopy "%dir1%\..\Software\Listary Pro\UserData\Preferences.json" "%dir2%\Listary\Preferences.json"  /s /y /i

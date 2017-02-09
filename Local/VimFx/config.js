@@ -218,7 +218,7 @@ vimfx.addCommand({
 }, ({vim}) => {
     vim.window.BrowserTryToCloseWindow()
 })
-map(',q', 'go_close_currentfirefox', true)
+map('q', 'go_close_currentfirefox', true)
 
 //群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
 vimfx.addCommand({
@@ -375,7 +375,6 @@ let bootstrap = () => {
         {id: '{81BF1D23-5F17-408D-AC6B-BD6DF7CAF670}', url: 'imacros-for-firefox'},
         {id: 'support@lastpass.com', url: 'lastpass-password-manager'},
         {id: 'redirector@einaregilsson.com', url: 'redirector'},
-        {id: 'tabgroups@quicksaver', url: 'tab-groups-panorama'},
         {id: 'uBlock0@raymondhill.net', url: 'ublock-origin'},
         {id: 'uMatrix@raymondhill.net', url: 'umatrix'},
         {id: 'VimFx@akhodakivskiy.github.com', url: 'vimfx'},

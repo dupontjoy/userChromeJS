@@ -1,4 +1,5 @@
-//2016.12.19
+//2017.02.07
+
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
 /*var undoMenu = TabMenu({
@@ -220,18 +221,6 @@ function() {
         where: 'tab'
     },
     {},
-    {
-        label: "TC搜索流水号",
-        id: "TVC-Universal",
-        oncommand: function() {
-            var Path = "\\..\\Software\\totalcmd64\\TOTALCMD64.EXE";
-            var Folder = "X:";
-            var str = addMenu.convertText('%s');
-            addMenu.copy(str);
-            addMenu.exec(Path, ["-search", Folder]);
-        },
-        image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADIElEQVQ4jYXMW0xScQDH8f+q9RAVVnM4oTIrEcWmTVtrqMCRCmea1tRuyrpZGWe1cmbJRdQIK5V0heElL9hm4SRbpA92cq2yHswuonkr6X49tR5P/npoPfRAPXz2ffuSdLpRkaipb4tONBsU2+26qrobNXfu9LoYhnExDONydlx31dQ7XZ03uq41tHQ0rc2yG1XZdReikypyCSHTCZVZSUesL5sKVRb/jNxQjUJLG7q7bsLtdqO7uwu6UjvWpJWj6qIT1gttSMiqQ/xWO6TqipfCyEORRJZqocOVRZw4vghStRW6siu4zdxCT08PensZnCiug3RdBaprO1Ftb0eG1oHkPU2Qriv/FhilTSCyVAsdoSrjlskMCFOVw3imHQ/67uPe3bt4+KAPhpOXEEqdhu2SG/amTqxMsmKFuhISysIKV+RSZE2KhZYozVzw6kKIFWUoLu/A08ePMNDfj6dPBnDe3o6UnTVo62DQ4HBDqjoDCXUaIXIzKwjLocjqxBI6VG7mlseaIJGfQnL2eeSbHMgvcuCYqRVH9M3QFjQiz9iCLftsWB5nhjjejKWyElYQsosiMetNdEhsCRehPAX5JivkaVbEpVb+Jf5P0yoRm1KB0NhSLFllZBcE76JIlEJHL47Rc4dPtMLjGcPgoG8ezzju9z0BlXYWoqjjLH9RNkXCZAW0MPI4ZzA58GliBB/Gnvs2PoKxxwNQb7IgQJrP8oXbKCKOOUoHhOdxOkMTPo4O4f2Ix6cPI0MY7e/H2o0n4S8+wvKEmRQJitLS/iGHOb2xBV+9L/B5csKnL5MTePFsEKrkUswP1rI8QSZFROK99Lygg5ze2IJvb734+nrSJ/aNF96hYSQkFWNe0IHfA/+g3TR/4X5Ob2jGj3ev8P2N17e3r/B6eBhUYhHminK+8wSbKeIn2kHzAjRcnsaA8cs2jDp8G2u1YaC2CkrZAZYXkP2MH5ieQGYLMrRzAjU/NRLFVLt0Fnf1H5zSWdzlcL8pxRL1EH9hlpO/KJMiM/yUcXMEqc3RgdHnaMG0gtz/yBHMLBQvVtXPD063zRXJl/0CTUBhIrbYoBsAAAAASUVORK5CYII=",
-    },
     {
         label: "外網批量管理-SKU",
         id: "TVC-Universal",

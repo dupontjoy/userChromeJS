@@ -35,6 +35,7 @@
 }
 
 /*===隐藏页面右键菜单===*/
+#alltabs-popup-separator-2,/*Alltabs分隔符*/
 #frame[label="此框架"],
 #fireie-context-openlinkintabwithieengine,/*在新标签页中以 IE 引擎打开链接*/
 #fireie-context-openlinkiniebrowser,/*在 IE 浏览器中打开链接*/

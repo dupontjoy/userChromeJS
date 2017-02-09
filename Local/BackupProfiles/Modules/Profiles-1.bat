@@ -24,13 +24,13 @@ set TempFolder3="%TempFolder%\3"
 ::多運行一次防止第一次未能終止
 taskkill /im firefox.exe
 
+::等待3秒
+@ping 127.0.0.1 -n 3 -w 1000 > nul
+
 ::運行speedyfox優化
 set speedyfox=..\..\..\..\..\Software\run\speedyfox.exe
 ::Profiles路徑只能用絕對, 可惜
 %speedyfox% /Firefox:"D:\Program Files\CingFox\Profiles"
-
-::多運行一次防止第一次未能終止
-taskkill /im firefox.exe
 
 rem 复制目标文件到臨時文件夾
 
@@ -78,9 +78,6 @@ xcopy "%BackDir%\search.json.mozlz4" %TempFolder%\Profiles\  /s /y /i
 ::参数设置
 xcopy "%BackDir%\user.js" %TempFolder%\Profiles\  /s /y /i
 xcopy "%BackDir%\prefs.js" %TempFolder%\Profiles\  /s /y /i
-::Read It Later
-xcopy "%BackDir%\logins.json" %TempFolder%\Profiles\  /s /y /i
-xcopy "%BackDir%\readItLater.sqlite" %TempFolder%\Profiles\  /s /y /i
 ::其它
 xcopy "%BackDir%\FlashGot.exe" %TempFolder%\Profiles\  /s /y /i
 xcopy "%BackDir%\readme.js" %TempFolder%\Profiles\  /s /y /i

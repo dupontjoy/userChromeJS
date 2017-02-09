@@ -1,4 +1,4 @@
-::2016.11.29
+::2017.02.08
 
 :Sync
 cls
@@ -7,9 +7,7 @@ echo  *** 同步一些軟件的設置文件 ***
 echo.
 echo  1. Foxmail過濾器：应用到所有邮箱
 echo  2. ProcessLaso設置
-echo  3. PicPick設置
-echo  4. 同步xmp設置
-echo  5. 同步CCleaner設置
+echo  3. Listary設置
 echo.
 echo  按任意键继续……
 pause>nul
@@ -39,16 +37,11 @@ start "" "%dir1%\..\..\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/
 start "" "%dir1%\..\..\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/logfolder=%dir1%\..\..\System Tools\ProcessLassoPortable" "/configfolder=%dir1%\..\..\System Tools\ProcessLassoPortable"
 
 ::同步PicPick設置
-taskkill /f /t /im picpick.exe
-xcopy "%dir2%\PicPick\picpick.ini" "%dir1%\..\Software\Image\PicPick\picpick.ini"  /s /y /i
-start "" "%dir1%\..\Software\Image\PicPick\picpick.exe"
+::taskkill /f /t /im picpick.exe
+::xcopy "%dir2%\PicPick\picpick.ini" "%dir1%\..\Software\Image\PicPick\picpick.ini"  /s /y /i
+::start "" "%dir1%\..\Software\Image\PicPick\picpick.exe"
 
-::同步FastCopy-M設置
-::xcopy "%dir2%\FastCopy-M\FastCopy2.ini" "%dir1%\..\..\FastCopy-M\FastCopy2.ini"  /s /y /i
-
-::同步XMP設置
-::xcopy "%dir2%\Thunder\xmp.ini" "%dir1%\..\..\Thunder Network\Thunder\Program\xmp.ini"  /s /y /i
-
-::同步CCleaner設置
-xcopy "%dir2%\CCleaner\ccleaner.ini" "%dir1%\..\..\System Tools\CCleaner\ccleaner.ini" /s /y /i
-
+::同步Listary設置
+taskkill /f /t /im Listary.exe
+xcopy "%dir2%\Listary\Preferences.json" "%dir1%\..\Software\Listary Pro\UserData\Preferences.json"  /s /y /i
+start "" "%dir1%\..\Software\Listary Pro\Listary.exe"

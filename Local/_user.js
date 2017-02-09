@@ -120,7 +120,6 @@ var PREFS = {
 'extensions.isreaditlater.show-count': true,//显示未读计数
 'extensions.isreaditlater.show-date': true,//显示日期
 'extensions.isreaditlater.list-place': "sidebar",//在(侧边栏)打开列表
-'extensions.isreaditlater.autoOffline': true,//自动离线列表
 
 //Zotero
 'extensions.zotero.showIn': 2,//新标签打开

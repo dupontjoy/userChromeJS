@@ -497,59 +497,7 @@ textbox menupopup menuseparator,
 
 
 /*--------------隐藏右键菜单------------*/     
-/*标签页*/
-#context_undoCloseTab,
-#context_closeTab,
-.search-go-button,
-#context_reloadTab,
-#context_reloadAllTabs,
-#context_closeTabsToTheEnd,
-#context_closeOtherTabs,
-#context_openTabInWindow {
-		display: none !important;
-	}
-  
-/*页面*/
-#context-copylink,
-#context-superstart-add,
-#context-superstart-add-link,
-#spell-add-dictionaries-main,
-#context-viewbgimage,
-#context-selectall,
-#context-savepage,
-#context-page-translator,
-#context-openlink,
-#context-openlinkprivate,
-#context-openlinkincurrent,
-#context-sendimage,
-#context-setDesktopBackground,
-#context-copyimage,
-#RIL_context_saveLink,
-#context-bookmarklink,
-#lpt_lplogintolastpass,
-#lpt_lpfillformsmenu4,
-#lpt_lpcontentareacontextmenu,
-#RIL_context_clickMode,
-#RIL_context_savePage,
-#menu_firebug_firebugInspect,
-#context-keywordfield,
-#spell-check-enabled,
-#context-castvideo,
-#context-sendvideo,
-#spell-dictionaries,
-#uBlock0-blockElement,
-#context-sharelink,
-#context-sharelink,
-#context-sharepage,
-#context-shareimage,
-#context-sharevideo,
-#context-shareselect,
-#snaplinksMenuEntry,
-#fill-login{
-		display: none !important;
-	} 
-  
-  
+ 
 /*标签页右键菜单排序*/
 #context_CopyTab {-moz-box-ordinal-group: 1 !important;}
 #context_pinTab, #context_unpinTab {-moz-box-ordinal-group: 2 !important;}

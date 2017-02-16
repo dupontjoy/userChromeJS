@@ -1,4 +1,4 @@
-//2016.12.01
+//2017.02.13
 //Redirector說明頁面: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //規則Github備份: https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
 rules = [{
@@ -23,13 +23,6 @@ rules = [{
 /******************************************************************************************
  *指定網站
  *******************************************************************************************/
-{
-    //example: https://zh.wikipedia.org/wiki/%E7%99%BB%E7%9B%9B
-    name: "Wiki中文 台湾正体",
-    from: /^https?:\/\/zh\.wikipedia\.org\/(zh|zh-cn|zh-sg|wiki)\/(.*)/i,
-    to: "https://zh.wikipedia.org/zh-tw/$2",
-    regex: true
-},
 {
     //example: http://news.ifeng.com/a/ydzx/20150413/43541233_0.shtml
     name: "鳳凰網 只顯示首圖修正",
@@ -156,8 +149,8 @@ regex: true
     //方法來源: http://bbs.csdn.net/topics/391051571
     //Note: 需配置ReferChage使用,将qpic.cn和qlogo.cn设置为"@Block"
     name: "微信圖片 反盜鏈",
-    from: /^https?:\/\/mmbiz\.(qpic|qlogo)\.cn\/mmbiz\/(.*)\/(.*)\?wx_fmt=(.*)/i,
-    to: "http://mmbiz.qpic.cn/mmbiz/$2/640",
+    from: /^https?:\/\/mmbiz\.(qpic|qlogo)\.cn\/(mmbiz(_png|_jpg)?)\/(.*)\/(.*)\?(wx|tp)(.*)/i,
+    to: "http://mmbiz.qpic.cn/$2/$4/640",
     regex: true
 },
 

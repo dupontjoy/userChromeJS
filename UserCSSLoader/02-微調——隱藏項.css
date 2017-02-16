@@ -1,4 +1,4 @@
-/*+++ 2017.01.11 +++*/
+/*+++ 2017.02.09 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
@@ -6,6 +6,7 @@
 {display: none !important;}*/
 
 /*隐藏图标*/
+#open_dedao_page_button,/*得到扩展图标*/
 #UIEnhancerToolbarButton,/*Location Bar Enhancer*/
 #VimFxButton,/*vimfx按钮,可输入"?"直接调用*/
 #imacros-toggle-button,/*iMacros扩展*/

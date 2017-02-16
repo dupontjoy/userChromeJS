@@ -1,4 +1,4 @@
-//2017.02.05
+//2017.02.13
 
 const EXPORTED_SYMBOLS = ['PREFS']
 
@@ -121,10 +121,10 @@ var PREFS = {
 'extensions.isreaditlater.show-date': true,//显示日期
 'extensions.isreaditlater.list-place': "sidebar",//在(侧边栏)打开列表
 
-//Zotero
-'extensions.zotero.showIn': 2,//新标签打开
-'extensions.zotero.automaticSnapshots': false,//从Web页面创建条目时自动生成快照(否)
-//'extensions.zotero.dataDir': "E:\\My Documents\\GitHub\\customization\\Firefox\\Zotero",//数据存储文件夹
+//All Tabs Helper
+'extensions.alltabshelper@alltabshelper.org.showUndoInTabContextMenu': false,//在标签页键显示Unload菜单(否)
+'extensions.alltabshelper@alltabshelper.org.showDontAutoUnloadItem': false,//在标签页键显示Don't Auto Unload菜单(否)
+'extensions.alltabshelper@alltabshelper.org.tabUnloadTimerValue': 60,//60分钟后自动Unload标签
 
 //Tab Groups
 'extensions.tabgroups.groupTitleInButton': false,//按钮-显示当前分组名称(否)

@@ -112,7 +112,7 @@ function() {
         condition: 'image',
         insertBefore: 'context-viewimage',
         icon: 'image',
-        accesskey: 'C',
+        accesskey: 'Y',
         image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=",
         onpopupshowing: syncHidden
     });

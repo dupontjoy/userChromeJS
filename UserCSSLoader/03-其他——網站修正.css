@@ -1,4 +1,4 @@
-/*+++ 2017.02.04 +++*/
+/*+++ 2017.02.14 +++*/
 
 /*---------------------------------
 指定域名时的几种方法:
@@ -143,3 +143,21 @@
 		padding-top: 0px !important;
 	}
 } 
+
+/*得到网页版*/
+@-moz-document regexp("https?:\/\/(.*)\/dedao\/dedaoallre\.php(.*)") {
+article, #pinglunqu {
+     max-width: 960px;
+     margin: 0 auto;
+   }
+img {
+    max-width:750px;/*大图片: 限定最大宽度*/
+    width:auto;height:auto;/*小图片: 原始图片大小*/
+    display:block; margin:0 auto;/*图片居中*/
+   }
+.am-g,
+figure.am.am-figure.am-figure-default,
+div.am-u-lg-6.am-u-md-8.am-u-sm-centered  {/*隐藏顶部及底部一些无用文字*/
+    display:none;
+  }
+}

@@ -368,7 +368,7 @@ let bootstrap = () => {
     // install addons
     let addons = [
 
-        {id: 'inspector@mozilla.org', url: 'dom-inspector-6622'},
+        /*{id: 'inspector@mozilla.org', url: 'dom-inspector-6622'},
         {id: '{DDC359D1-844A-42a7-9AA1-88A850A938A8}', url: 'downthemall'},
         {id: '{19503e42-ca3c-4c27-b1e2-9cdb2170ee34}', url: 'flashgot'},
         {id: '{e4a8a97b-f2ed-450b-b12d-ee082ba24781}', url: 'greasemonkey'},
@@ -376,7 +376,7 @@ let bootstrap = () => {
         {id: 'support@lastpass.com', url: 'lastpass-password-manager'},
         {id: 'redirector@einaregilsson.com', url: 'redirector'},
         {id: 'uBlock0@raymondhill.net', url: 'ublock-origin'},
-        {id: 'uMatrix@raymondhill.net', url: 'umatrix'},
+        {id: 'uMatrix@raymondhill.net', url: 'umatrix'},*/
         {id: 'VimFx@akhodakivskiy.github.com', url: 'vimfx'},
 
     ]

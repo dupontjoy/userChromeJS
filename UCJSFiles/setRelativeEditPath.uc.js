@@ -1,7 +1,9 @@
-//2016.09.28
+//2017.02.14
+
 //ProfD：配置文件夹
 //UChrm：Chrome文件夹
 //TmpD：系统temp文件夹
+
 location == 'chrome://browser/content/browser.xul' && (function() {
 
     //設置程序路徑
@@ -10,7 +12,8 @@ location == 'chrome://browser/content/browser.xul' && (function() {
     var PATH_iMacros_datapath = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\iMacros\\Datasources";
     var PATH_iMacros_downpath = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\iMacros\\Downloads";
     var PATH_iMacros_savepath = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\iMacros\\Macros";
-
+    var PATH_cache_path = Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Cache";
+    
     //一些看不懂的設置
     var handleRelativePath = function(path) {
         if (path) {
@@ -52,5 +55,12 @@ location == 'chrome://browser/content/browser.xul' && (function() {
     file.initWithPath(handleRelativePath(PATH_iMacros_savepath));
     if (file.exists()) {
         gPrefService.setCharPref('extensions.imacros.defsavepath', file.path);
+    }
+    //设置Cache文件夹
+        var file = Cc["@mozilla.org/file/local;1"].createInstance(Ci.nsILocalFile);
+    file.initWithPath(handleRelativePath(PATH_cache_path));
+    if (file.exists()) {
+        gPrefService.setCharPref('browser.cache.disk.parent_directory', file.path);
+        gPrefService.setCharPref('browser.cache.offline.parent_directory', file.path);
     }
 })()

@@ -1,4 +1,4 @@
-::2017.02.08
+::2017.02.09
 
 :Sync
 cls
@@ -36,12 +36,11 @@ xcopy "%dir2%\ProcessLaso\prolasso.ini" "%dir1%\..\..\System Tools\ProcessLassoP
 start "" "%dir1%\..\..\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/logfolder=%dir1%\..\..\System Tools\ProcessLassoPortable" "/configfolder=%dir1%\..\..\System Tools\ProcessLassoPortable"
 start "" "%dir1%\..\..\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/logfolder=%dir1%\..\..\System Tools\ProcessLassoPortable" "/configfolder=%dir1%\..\..\System Tools\ProcessLassoPortable"
 
-::同步PicPick設置
-::taskkill /f /t /im picpick.exe
-::xcopy "%dir2%\PicPick\picpick.ini" "%dir1%\..\Software\Image\PicPick\picpick.ini"  /s /y /i
-::start "" "%dir1%\..\Software\Image\PicPick\picpick.exe"
-
 ::同步Listary設置
 taskkill /f /t /im Listary.exe
+taskkill /f /t /im ListaryHelper64.exe
+taskkill /f /t /im ListaryHookHelper32.exe
+taskkill /f /t /im ListaryHookHelper64.exe
+taskkill /f /t /im ListaryService.exe
 xcopy "%dir2%\Listary\Preferences.json" "%dir1%\..\Software\Listary Pro\UserData\Preferences.json"  /s /y /i
 start "" "%dir1%\..\Software\Listary Pro\Listary.exe"

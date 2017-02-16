@@ -32,6 +32,7 @@ del %TempFolder%\Profiles\content-prefs.sqlite  /s /q
 del %TempFolder%\Profiles\logins.json  /s /q
 del %TempFolder%\Profiles\readItLater.sqlite  /s /q
 del %TempFolder%\Profiles\chrome\Local\InformEnter.Ijson  /s /q
+del %TempFolder%\Profiles\extensions\mydedao-share@ywzhaiqi.com.xpi  /s /q
 
 ::一些脚本文件单独打包
 xcopy "%TempFolder%\Profiles\chrome\xul\localMark_0.6.1.uc.xul" %TempFolder%\Optional\Profiles\chrome\xul\  /s /y /i
@@ -40,10 +41,10 @@ xcopy "%TempFolder%\Profiles\chrome\SubScript\QR.uc.js" %TempFolder%\Optional\Pr
 xcopy "%TempFolder%\Profiles\chrome\SubScript\videos_skipAd.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
 xcopy "%TempFolder%\Profiles\chrome\Local\_user.js" %TempFolder%\Optional\Profiles\chrome\Local\  /s /y /i
 xcopy "%TempFolder%\Profiles\extensions\uMatrix@raymondhill.net.xpi" %TempFolder%\Optional\Profiles\extensions\  /s /y /i
-xcopy "%TempFolder%\Profiles\extensions\tabgroups@quicksaver.xpi" %TempFolder%\Optional\Profiles\extensions\  /s /y /i
-xcopy "%TempFolder%\Profiles\extensions\zotero@chnm.gmu.edu.xpi" %TempFolder%\Optional\Profiles\extensions\  /s /y /i
+xcopy "%TempFolder%\Profiles\extensions\mydedao-share@ywzhaiqi.com.xpi" %TempFolder%\Optional\Profiles\extensions\  /s /y /i
 xcopy "%TempFolder%\Software\Listary Pro" "%TempFolder%\Optional\Software\Listary Pro\"  /s /y /i
 xcopy "%TempFolder%\Software\ShareX" %TempFolder%\Optional\Software\ShareX\  /s /y /i
+xcopy "%TempFolder%\Software\PicPick" %TempFolder%\Optional\Software\PicPick\  /s /y /i
 xcopy "%TempFolder%\Software\TotalCMD64" %TempFolder%\Optional\Software\TotalCMD64\  /s /y /i
 del %TempFolder%\Profiles\chrome\xul\localMark_0.6.1.uc.xul /s /q
 del %TempFolder%\Profiles\chrome\SubScript\SougouDeskPic.uc.js  /s /q
@@ -51,10 +52,10 @@ del %TempFolder%\Profiles\chrome\SubScript\QR.uc.js  /s /q
 del %TempFolder%\Profiles\chrome\SubScript\videos_skipAd.uc.js  /s /q
 del %TempFolder%\Profiles\chrome\Local\_user.js  /s /q
 del %TempFolder%\Profiles\extensions\uMatrix@raymondhill.net.xpi  /s /q
-del %TempFolder%\Profiles\extensions\tabgroups@quicksaver.xpi  /s /q
-del %TempFolder%\Profiles\extensions\zotero@chnm.gmu.edu.xpi  /s /q
+del %TempFolder%\Profiles\extensions\mydedao-share@ywzhaiqi.com.xpi  /s /q
 del "%TempFolder%\Software\Listary Pro"  /s /q
 del "%TempFolder%\Software\ShareX"  /s /q
+del "%TempFolder%\Software\PicPick"  /s /q
 del "%TempFolder%\Software\TotalCMD64"  /s /q
 
 

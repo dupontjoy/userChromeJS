@@ -29,8 +29,8 @@ rem 開始備份
 
 ::清空TargetFolder2文件夹下的所有文件, 但保留TargetFolder2文件夹
 ::del /s /f /q %TargetFolder2%
-move %TargetFolder%\%Name% %TargetFolder2%
-move %TargetFolder%\%Name2% %TargetFolder2%
+::move %TargetFolder%\%Name% %TargetFolder2%
+::move %TargetFolder%\%Name2% %TargetFolder2%
 
 @echo 備份完成！并刪除臨時文件夾！
 rd "%TempFolder%" /s/q

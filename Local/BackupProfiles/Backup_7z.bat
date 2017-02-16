@@ -1,4 +1,4 @@
-::2017.02.04
+::2017.02.13
 
 @echo off
 
@@ -26,13 +26,11 @@ set TempFolder="E:\Temp"
 set TargetFolder="E:"
 
 ::設置Profiles上傳地址
-set TargetFolder1="E:\My Documents\Baiduyun\Cing同步\Firefox\Profiles\"
+set TargetFolder1="E:\My Documents\JianguoYun\Cing同步\Firefox\Profiles\"
 ::設置CingFox上傳地址
-set TargetFolder2="E:\My Documents\Baiduyun\Cing同步\Firefox\FX共享\CingFox\"
+::set TargetFolder2="E:\My Documents\Baiduyun\Cing同步\Firefox\FX共享\CingFox\"
 ::設置Plugins和Software上傳地址
-set TargetFolder3="E:\My Documents\Baiduyun\Cing同步\Firefox\Plugins&Software\"
-::設置Flash32上傳地址
-set TargetFolder4="E:\My Documents\Baiduyun\Cing同步\Firefox\插件\Flash\"
+::set TargetFolder3="E:\My Documents\Baiduyun\Cing同步\Firefox\Plugins&Software\"
 
 :menu
 cls
@@ -42,9 +40,8 @@ ECHO.
 ECHO  1、備份Firefox配置文件夾
 ECHO  2、CingFox完整包制作
 ECHO  3、備份Plugins和Software文件夾
-ECHO  4、提取Flash32位插件
-ECHO  5、備份一些文件到GitHub
-ECHO  6、同步GitHub設置文件到本地
+ECHO  4、備份一些文件到GitHub
+ECHO  5、同步GitHub設置文件到本地
 ECHO.
 set /p a=请输入操作序号并回车（1、2）：
 cls
@@ -52,9 +49,8 @@ cls
 if %a%==1 goto Profiles
 if %a%==2 goto CingFox
 if %a%==3 goto Plugins&Software
-if %a%==4 goto Flash32
-if %a%==5 goto GitHub
-if %a%==6 goto Sync
+if %a%==4 goto GitHub
+if %a%==5 goto Sync
 
 :Profiles
 cls
@@ -79,13 +75,6 @@ cls
 @echo off
 CALL "%b%\Modules\Plugins&Software-1.bat"
 CALL "%b%\Modules\Plugins&Software-2.bat"
-@echo.
-Goto end
-
-:Flash32
-cls
-@echo off
-CALL "%b%\Modules\Flash32.bat"
 @echo.
 Goto end
 

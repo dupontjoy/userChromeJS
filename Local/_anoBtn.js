@@ -78,19 +78,13 @@ var anomenu = [{
     },
     {},
     {
-        label: "重啟explorer.exe",
-        tooltiptext: "重啟explorer.exe",
-        exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\run\\explorer.bat",
-    },
-    {},
-    {
         label: "设置Notepad2为默认",
         tooltiptext: "通過映象劫持以Notepad2替換自帶记事本",
         exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\Notepad2\\Notepad2.bat",
     },
     ]
 },
-{
+/*{
     label: '軟件列表',
     image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAsklEQVQ4jb3RIQ7CQBCF4S/B1SBR3KIeheAOeCySC1TWoJE9Aba2mitwABQKCWKnoYLSFAjPzCaz/9uZt/xJOdZYIRsDzlDjHPWO7RiDBkUYneLcajoELwOCHapOr8BhyGCLsmOwl/YvcOmY92rTeWUj5XALcC2t16tJjFz19I/ehNnCdYycYSGFlkev0fOdr+Amxr9GLcbCg2l/DfNM9SOYlGiF+ScwKeFaCqocuPtbPQAHPSy26m8ewQAAAABJRU5ErkJggg==",
     child: [{
@@ -107,7 +101,7 @@ var anomenu = [{
         exec: Services.dirsvc.get("ProfD", Ci.nsILocalFile).path + "\\..\\Software\\ShareX\\ShareX.exe",
     },
     ],
-},
+},*/
 {
     label: "常用功能",
     image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAG0lEQVQ4jWNgGCzgP5l4EIFRLwwGMIScOvgAAMPmMc89jdNcAAAAAElFTkSuQmCC",

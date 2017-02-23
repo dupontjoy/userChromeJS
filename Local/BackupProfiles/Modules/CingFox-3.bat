@@ -1,4 +1,4 @@
-::2017.02.08
+::2017.02.19
 
 :pcxFirefox
 ::Ñ}ÑuPcxFirefoxÖ÷³ÌÐò
@@ -29,6 +29,7 @@ del %TempFolder%\Profiles\places.sqlite  /s /q
 del %TempFolder%\Profiles\cookies.sqlite  /s /q
 del %TempFolder%\Profiles\permissions.sqlite  /s /q
 del %TempFolder%\Profiles\content-prefs.sqlite  /s /q
+del %TempFolder%\Profiles\key3.db  /s /q
 del %TempFolder%\Profiles\logins.json  /s /q
 del %TempFolder%\Profiles\readItLater.sqlite  /s /q
 del %TempFolder%\Profiles\chrome\Local\InformEnter.Ijson  /s /q

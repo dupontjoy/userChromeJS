@@ -1,4 +1,4 @@
-//2017.02.05
+//2017.02.20
 
 /******************************************************************************************
 快捷键分类:
@@ -218,7 +218,7 @@ vimfx.addCommand({
 }, ({vim}) => {
     vim.window.BrowserTryToCloseWindow()
 })
-map('q', 'go_close_currentfirefox', true)
+map(',q', 'go_close_currentfirefox', true)
 
 //群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
 vimfx.addCommand({
@@ -367,8 +367,9 @@ map('zu', 'umatrix_bootstrap', true)
 let bootstrap = () => {
     // install addons
     let addons = [
-
-        /*{id: 'inspector@mozilla.org', url: 'dom-inspector-6622'},
+        {id: 'playflash@xpi', url: 'playflash/platform:5/addon-676750-latest.xpi'},
+        {id: 'VimFx@akhodakivskiy.github.com', url: 'vimfx'},
+        {id: 'inspector@mozilla.org', url: 'dom-inspector-6622'},
         {id: '{DDC359D1-844A-42a7-9AA1-88A850A938A8}', url: 'downthemall'},
         {id: '{19503e42-ca3c-4c27-b1e2-9cdb2170ee34}', url: 'flashgot'},
         {id: '{e4a8a97b-f2ed-450b-b12d-ee082ba24781}', url: 'greasemonkey'},
@@ -376,8 +377,8 @@ let bootstrap = () => {
         {id: 'support@lastpass.com', url: 'lastpass-password-manager'},
         {id: 'redirector@einaregilsson.com', url: 'redirector'},
         {id: 'uBlock0@raymondhill.net', url: 'ublock-origin'},
-        {id: 'uMatrix@raymondhill.net', url: 'umatrix'},*/
-        {id: 'VimFx@akhodakivskiy.github.com', url: 'vimfx'},
+        {id: 'uMatrix@raymondhill.net', url: 'umatrix'},
+        {id: 'SimpleX@White.Theme', url: 'simplewhitex'},
 
     ]
     addons.forEach((element) => {

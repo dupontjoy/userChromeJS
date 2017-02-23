@@ -1,11 +1,11 @@
-::2017.02.08
+::2017.02.17
 
 :GitHub
 cls
 echo.
 echo  *** 備份一些文件到GitHub ***
 echo.
-echo  1. Firefox文件：user.js, persdict.dat, stylish.sqlite, _FeiRuoNetProxy.json
+echo  1. Firefox文件：user.js, persdict.dat, stylish.sqlite
 echo  2. Foxmail過濾器
 echo  3. ProcessLaso設置
 echo  4. TC設置
@@ -48,3 +48,9 @@ xcopy "%dir1%\..\Software\Notepad2\Notepad2.ini" "%dir2%\TC\Notepad2.ini"  /s /y
 
 ::備份Listary設置
 xcopy "%dir1%\..\Software\Listary Pro\UserData\Preferences.json" "%dir2%\Listary\Preferences.json"  /s /y /i
+
+::備份ShareX設置
+xcopy "%dir1%\..\Software\ShareX\ShareX\ApplicationConfig.json" "%dir2%\ShareX\ApplicationConfig.json"  /s /y /i
+
+::備份CCleaner設置
+xcopy "%dir1%\..\..\System Tools\CCleaner\ccleaner.ini" "%dir2%\CCleaner\ccleaner.ini"  /s /y /i

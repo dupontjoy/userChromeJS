@@ -112,6 +112,10 @@ menuitem[label="添加站点"] {
 	-moz-box-ordinal-group: 1 !important;
 }
 
+[label="粘贴"] {
+	-moz-box-ordinal-group: 3 !important;
+}
+
 /*右键菜单子目录小三角距離
 .menu-accel-container{margin-right:-16px!important;}*/
 

@@ -1,4 +1,4 @@
-/*+++ 2017.02.09 +++*/
+/*+++ 2017.02.21 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
@@ -36,6 +36,7 @@
 }
 
 /*===隐藏页面右键菜单===*/
+#fxrContextMenuFoxReplace,/*foxreplace右键菜单*/
 #frame[label="此框架"],
 #fireie-context-openlinkintabwithieengine,/*在新标签页中以 IE 引擎打开链接*/
 #fireie-context-openlinkiniebrowser,/*在 IE 浏览器中打开链接*/
@@ -87,7 +88,6 @@
 #context-openlinkincurrent,/*打开链接*/
 #context-savelinktopocket,/*發送鏈接至Pocket*/
 #context-pocket,/*發送頁面到Pocket*/
-#context-copyimage,/*複製圖片地址*/
 #context-openlinkintab,/*用新分頁開啟鏈結*/
 #context-copylink,/*複製鏈結網址*/
 #context-viewpartialsource-selection,/*查看选中部分源代码*/

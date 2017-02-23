@@ -1,4 +1,4 @@
-::2016.11.25
+::2017.02.20
 
 :Profiles-1
 cls
@@ -42,12 +42,8 @@ xcopy "%BackDir%\extensions" %TempFolder%\Profiles\extensions\ /s /y /i
 xcopy "%BackDir%\extension-data" %TempFolder%\Profiles\extension-data\ /s /y /i
 ::xcopy "%BackDir%\fireie" %TempFolder%\Profiles\fireie\ /s /y /i
 xcopy "%BackDir%\gm_scripts" %TempFolder%\Profiles\gm_scripts\ /s /y /i
-xcopy "%BackDir%\browser-extension-data" %TempFolder%\Profiles\browser-extension-data\ /s /y /i
 xcopy "%BackDir%\iMacros" %TempFolder%\Profiles\iMacros\ /s /y /i
 xcopy "%BackDir%\searchplugins" %TempFolder%\Profiles\searchplugins\ /s /y /i
-
-::Zotero文件夹单独复制
-::xcopy "%BackDir%\zotero" %TempFolder%\zotero\ /s /y /i
 
 ::/**以下是文件**/
 ::书签
@@ -78,8 +74,11 @@ xcopy "%BackDir%\search.json.mozlz4" %TempFolder%\Profiles\  /s /y /i
 ::参数设置
 xcopy "%BackDir%\user.js" %TempFolder%\Profiles\  /s /y /i
 xcopy "%BackDir%\prefs.js" %TempFolder%\Profiles\  /s /y /i
+::Readitlater
+xcopy "%BackDir%\key3.db" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\logins.json" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\readItLater.sqlite" %TempFolder%\Profiles\  /s /y /i
 ::其它
-xcopy "%BackDir%\FlashGot.exe" %TempFolder%\Profiles\  /s /y /i
 xcopy "%BackDir%\readme.js" %TempFolder%\Profiles\  /s /y /i
 
 
@@ -90,6 +89,7 @@ del %TempFolder%\Profiles\autoproxy\patterns.ini-temp  /s /q
 del %TempFolder%\Profiles\autoproxy\patterns-backup*.ini  /s /q
 ::HostTools产生的备份文件
 del %SystemRoot%\system32\drivers\etc\hosts.*.bak  /s /q
+
 
 ::刪除Lastpass的一些项目
 ::精简Platform

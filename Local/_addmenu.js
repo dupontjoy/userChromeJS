@@ -1,4 +1,4 @@
-//2017.02.07
+//2017.02.18
 
 /*——————————標簽頁右鍵————————————*/
 //撤销關闭二级菜單 By feiruo
@@ -73,22 +73,16 @@ function() {
         image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=',
     },
     {
-        label: "圖片地址|Base64",
+        command: 'context-copyimage',
+        condition: 'image',
+        image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4jbWTLw6DMBjFfwaDmauq5QhY9C4wyQWQOA6whAtwBS6wO0xOzeKQO8REH6EUwsqWvaRpk37vT7+28AfYX8gZ8NIcIgf6GJESGAATpBqAc2ySFrgDCZACD6CKJU/oNW5Ad5SMnEdc9OQbgQp4SqA8QsyAWu6W+WZaoPhEblQ8sGxah+vFKKHdyFbFl0C4A064G6lDsmV+QIWc0o19G6xXDkbxffcJtdyNaht/0z/jKp6Hq2pWbyPDNSffIU8oJLT1X47jDR7gLDGf5CLwAAAAAElFTkSuQmCC',
+    },
+    {
+        label: "複製圖片Base64",
         tooltiptext: "左鍵: 複製圖片地址\n右鍵: 複製圖片Base64碼",
-        onclick: function(e) {
-            switch (e.button) {
-            case 0:
-                addMenu.copy(addMenu.convertText("%IMAGE_URL%"));
-                /*複製圖片地址*/
-                closeMenus(this);
-                break;
-            case 2:
-                addMenu.copy(addMenu.convertText("%IMAGE_BASE64%"));
-                closeMenus(this);
-                break;
-            }
-        },
-        image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4jbWTLw6DMBjFfwaDmauq5QhY9C4wyQWQOA6whAtwBS6wO0xOzeKQO8REH6EUwsqWvaRpk37vT7+28AfYX8gZ8NIcIgf6GJESGAATpBqAc2ySFrgDCZACD6CKJU/oNW5Ad5SMnEdc9OQbgQp4SqA8QsyAWu6W+WZaoPhEblQ8sGxah+vFKKHdyFbFl0C4A064G6lDsmV+QIWc0o19G6xXDkbxffcJtdyNaht/0z/jKp6Hq2pWbyPDNSffIU8oJLT1X47jDR7gLDGf5CLwAAAAAElFTkSuQmCC"
+        accesskey: "B",
+        text: "%IMAGE_BASE64%",
+        image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbElEQVQ4jWNgGAzgPwUYbgC5FmMYcBTJdA8smo4yMDAo4zIgD4oZoIrQXZYHFcNpALLp6EAZKo/XBf+RbEH3AkwjUQbg8xpBA5ABsq3o0aeMzYCZaM7GFr14XQBTgGwLyQaQAlAMoCgpDywAAF13Uxwj2+klAAAAAElFTkSuQmCC"
     },
     {
         label: "批量複製圖片URL",
@@ -112,7 +106,6 @@ function() {
         condition: 'image',
         insertBefore: 'context-viewimage',
         icon: 'image',
-        accesskey: 'Y',
         image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=",
         onpopupshowing: syncHidden
     });
@@ -132,7 +125,7 @@ function() {
     },
     {
         label: "重新載入圖片",
-        accesskey: "T",
+        accesskey: "R",
         oncommand: "gContextMenu.reloadImage();",
         image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgElEQVQ4jcWSyw2AIBAF5+rNDuyE2AG9WIK1UQpVeMHLEggKLCHRSQgH9u3vAR+wzYovwMwkMZLEjogs4IAgx8ut6uQUgQVWuQNwaCt7EULawa5t3fGcdciFkFWv0UzYS7BITJW3EXKiO82AfIk5K8mdJqWN0UovbyrKj9Qb7UdupJYfIj9YalkAAAAASUVORK5CYII="
     },
@@ -180,11 +173,16 @@ new
 function() {
     var menu = PageMenu({
         condition: "select",
-        label: "搜索選中文本",
+        label: "搜索: ...",
         accesskey: "S",
         insertBefore: "context-copy",
         image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdklEQVQ4jc2SsQ3AIAwEbwGK1NmFDdIwE3OxCCOkZYAU+RSRMEFyIuUkN7Z5vwH4IxtQgKYoyk2RgQokICiScnlmcgWWTm1RbeikaJpFUo9J47RsEdTznYB7BfclwvgZGxCfBC4nvY8UgX1WxOJVkdUj4jp84wDU6yD4kZGU+wAAAABJRU5ErkJggg==",
         onpopupshowing: function(event) {
+            var sel = getBrowserSelection(16);
+            if (sel && sel.length > 15)
+            sel = sel.substr(0,15) + "...";
+            this.label = '搜索: ' +  sel;
+            //以上4句动态显示搜索內容
             Array.slice(event.target.children).forEach(function(elem) {
                 if (elem.id == "TVC-Universal") {
                     elem.hidden = !/ic.sjlpj.cn|bi.sjlpj.cn|tvc-mall.com|seculife.com|phonepartstore.com|cellzmate.com/.test(content.location.host) //可排除多個網站
@@ -270,9 +268,15 @@ function() {
         where: 'tab'
     },
     {
+        label: "產品日志管理-SKU",
+        id: "TVC-Universal",
+        url: "http://ic.sjlpj.cn/UserOperationLog/UserOperationLogList?ObjectCode=%s",
+        image: "http://ic.sjlpj.cn/favicon.ico",
+        where: 'tab'
+    },
+    {
         label: "闗聯SKU",
         id: "TVC-Universal",
-        accesskey: "6",
         url: "http://ic.sjlpj.cn/Product/ProductAssociatedSpuList?SpuId=&Sku=%s&BeginDate=&EndDate=&IsFirstRequest=true",
         image: "http://ic.sjlpj.cn/favicon.ico",
         where: 'tab'
@@ -285,13 +289,13 @@ function() {
 new
 function() {
     var items = [{
-        command: 'context-copy',
+        command: "context-copy",
         image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII="
     },
     {
         label: "批量複製链接URL",
         //by skofkyo
-        accesskey: "H",
+        accesskey: "P",
         condition: "select noinput",
         image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAxklEQVQ4jbWTLw6DMBjFf2ZmZg5VyxGw6F0AyQWQOA6whAv0Clxgd5icmsUhd4iJPkLXEla27CVNm/R7f/q1hT/A/ELOgafmEAUwpIjUwAhkQaoROKcm6YEbcACOwB1oUskzBo0rYPeSkfOEi/4VGuAhgXoPMQdauRuWm+mB8hO5U/HIe9MsrheThDYjGxVXgbAFTrgbaUOyYXlApZzW9k2wjhwyxa+I0co9U23nb/pnjOJ5uKgmehs5rjnFBnlGKaG1/7IfLwdcLCL/I9hSAAAAAElFTkSuQmCC",
         oncommand: function(event) {
@@ -311,6 +315,12 @@ function() {
         condition: 'select',
         insertBefore: 'context-paste',
         onpopupshowing: syncHidden,
+        onshowing: function(menuitem) {
+        var sel = getBrowserSelection(16);
+        if (sel && sel.length > 15)
+            sel = sel.substr(0,15) + "...";
+        this.label = '复制: ' +  sel;
+    },
         image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII="
     });
     menu(items);
@@ -486,7 +496,7 @@ function() {
     ];
     var menu = PageMenu({
         condition: 'input',
-        insertBefore: 'context-copy',
+        insertAfter: 'context-copy',
         icon: 'input',
         image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbklEQVQ4jWNgoAFoZWBg+M7AwPAfir9DxUjSKIskLkusQX8YGBj48RjADzUEJ/gPpY8gOR+Gj6CpwWsAMh8bJskAdP51BgaGBkoMEMdnCDEG4PUKIQMIylFsACwdkG0AehIm2QBSFBFtAD5MHQAA8vtEFZXqsUkAAAAASUVORK5CYII=",
         onpopupshowing: function(event) {

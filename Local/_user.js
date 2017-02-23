@@ -120,11 +120,15 @@ var PREFS = {
 'extensions.isreaditlater.show-count': true,//显示未读计数
 'extensions.isreaditlater.show-date': true,//显示日期
 'extensions.isreaditlater.list-place': "sidebar",//在(侧边栏)打开列表
+'extensions.isreaditlater.showStatusIconClick': "hide",
+'extensions.isreaditlater.showStatusIconShare': "hide",
+'extensions.isreaditlater.showStatusIconText': "hide",
+'extensions.isreaditlater.autoOffline': false,//自动离线(否)
 
 //All Tabs Helper
 'extensions.alltabshelper@alltabshelper.org.showUndoInTabContextMenu': false,//在标签页键显示Unload菜单(否)
 'extensions.alltabshelper@alltabshelper.org.showDontAutoUnloadItem': false,//在标签页键显示Don't Auto Unload菜单(否)
-'extensions.alltabshelper@alltabshelper.org.tabUnloadTimerValue': 60,//60分钟后自动Unload标签
+'extensions.alltabshelper@alltabshelper.org.tabUnloadTimerValue': 0,//(分钟)0表示禁用
 
 //Tab Groups
 'extensions.tabgroups.groupTitleInButton': false,//按钮-显示当前分组名称(否)
@@ -176,8 +180,8 @@ var PREFS = {
 //FeiRuoTabplus
 'userChromeJS.FeiRuoTabplus.UndoBtn': false,//撤销关闭按钮(否)
 'userChromeJS.FeiRuoTabplus.TabFocus': false,//悬停自动聚焦(否)
-'userChromeJS.FeiRuoTabplus.NewTabUrlbar_SH': true,//域名相同在当前页打开
-'userChromeJS.FeiRuoTabplus.SideBarNewTab_SH': true,//域名相同在当前页打开
+'userChromeJS.FeiRuoTabplus.NewTabUrlbar_SH': false,//域名相同在当前页打开(否)
+'userChromeJS.FeiRuoTabplus.SideBarNewTab_SH': false,//域名相同在当前页打开(否)
 'userChromeJS.FeiRuoTabplus.NewTabNear': 2,//新建标签在(当前右边)
 'userChromeJS.FeiRuoTabplus.ColseToNearTab': 1,//关闭标签转到(当前左边)
 'userChromeJS.FeiRuoTabplus.NewTabExcludeUrl': "^(javascript:)\n^(imacros:)",//URL在当前页打开

@@ -125,7 +125,7 @@ if (!window.SidebarMod) {
 	childs: [
 {
 		 name: '稍后阅读',
-		 url: 'chrome://isreaditlater/content/list.xul',
+		 url: 'https://getpocket.com/a/queue/list/',
 		 favicon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAUVBMVEUAAADuQlfwQlfhQFDvQVftQVbuQFbwQljvQljuQlfvQVjrQlbvQVfuQlbsQVXnQVTvQVfqQFTrQFTuQlbmQVPsQVboQFDxQljuQVbuQlfwQliievgtAAAAGXRSTlMA8uk79ycf8uHJopyQhntrUUtEODIWBeIWpoZvsgAAAHtJREFUGNNtjksShDAIRDsQ4/j/OwP3P+gEdKGlb5PmpasAD5oyXCgbqNxQhLsIr6IbyTKN3SkWFJ88F1hMRJEv40eUXEdrqDBSAke1RmW7lAFWzbHCoGZkmsTDgJ0Oo/7QDqx5MlyvyLB3/J/hbG3wI9sNOJn7uu5nj3++qw7oi6qhaQAAAABJRU5ErkJggg=='
 			},{
       name: '新浪微博',

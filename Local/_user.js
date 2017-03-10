@@ -1,4 +1,4 @@
-//2017.02.13
+//2017.03.01
 
 const EXPORTED_SYMBOLS = ['PREFS']
 
@@ -6,7 +6,12 @@ var PREFS = {
 /******************************************************************************************
  *这里是个人设置。
  *******************************************************************************************/
- //*==========主页==========*//
+ 
+//*==========多进程==========*//
+/*'browser.tabs.remote.force-enable': true,
+'extensions.e10sBlockedByAddons': false,//扩展禁用列表*/
+
+//*==========主页==========*//
 'browser.startup.page': 1,//启动Firefox时显示主页
 'browser.startup.homepage': "about:newtab",//首頁
 'browser.newtabpage.columns': 5,//新标签页列数

@@ -18,12 +18,12 @@ var userIndex = 0;
 var ALL = [
 ["http://www.netbian.com", 
 // 可供修改点3：壁纸来源
-"http://www.netbian.com/weimei/",//唯美
+//"http://www.netbian.com/weimei/",//唯美
 //"http://www.netbian.com/jianzhu/",//建筑
 //"http://www.netbian.com/fengjing/",//风景
 //"http://www.netbian.com/dongwu/",//动物
 //"http://www.netbian.com/e/sch/index.php?keyboard=%C3%C0%C5%AE",//美女
-//"http://www.netbian.com/e/sch/index.php?keyboard=%B3%C7%CA%D0",//城市
+"http://www.netbian.com/e/sch/index.php?keyboard=%B3%C7%CA%D0",//城市
 "<a href=\"([^\"]{0,15})\" target=\"_blank\">", 
 "<img src=\"([^\"]+)\"", 
 "-1920x1080.htm", //-1366x768.htm
@@ -35,7 +35,7 @@ var ALL = [
 //"http://bizhi.sogou.com/label/index/221",//风景周最热
 //"http://bizhi.sogou.com/label/index/573",//心情周最热
 "http://bizhi.sogou.com/label/index/731",//环游世界
-//"http://bizhi.sogou.com/label/search/?word=%B3%C7%CA%D0",//城市
+//"http://bizhi.sogou.com/cate/index/4",//美女
 "<a href=\"(/detail/info/[\\d]+)\" target=\"_blank\">", 
 "<img height=\"600\" width=\"950\" src=\"([^\"]+)\"", 
 null, 

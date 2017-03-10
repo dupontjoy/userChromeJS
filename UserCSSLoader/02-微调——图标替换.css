@@ -1,4 +1,4 @@
-/*+++ 2017.02.13 +++*/
+/*+++ 2017.02.27 +++*/
 
 /*Firefox自带菜单加图标最后在ID后加上 > .menu-iconic-left > .menu-iconic-icon, 否则右边小三角可能消失*/
 
@@ -119,27 +119,27 @@ list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYA
 
 /*UC管理器几个文件夹*/
 .anobtnuc.menu-iconic > .menu-iconic-left > .menu-iconic-icon {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVQ4jWNgoBLwZGBgeMbAwPAfCT+DihMFnjEwMFijiVlDxYk2QAOL+H8cGMN1uAzABTBcBzMVl43YXPAf3QD0MCDkAgwDSAWjBlDbgD8MDAzpJGhOh+qBgwaoALEJ6Q9UD+UAAEc9PeCabBc4AAAAAElFTkSuQmCC")!important;
 }
 
 /*InformPlus*/
 #ife-context-menu > .menu-iconic-left > .menu-iconic-icon,
 #ife-context-set {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAHklEQVQ4jWNgGFbgPxQjs/FhvAYMUTAaBqNhQDYAAG8lJtrslB7sAAAAAElFTkSuQmCC")!important;
 }
 
 /*TMT切换*/
 [key="visibo-tmt-toggle-key"] {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVQ4jWNgGCrAjoGB4ReUptgQf3yK/hOJyXIJUS4gpNmBHM1k20aWP/0p0WzHQHws0MYFMOBADUOGEAAAtLMgYRGzlKoAAAAASUVORK5CYII=")!important;
 }
 
 /*TooManyTabs扩展*/
 #visibo-tmt-tabmenu-sendtabtoTMT > .menu-iconic-left > .menu-iconic-icon,
 #visibo-tmt-tabmenu-sendAlltabstoTMT > .menu-iconic-left > .menu-iconic-icon {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAUUlEQVQ4jWNgGHZAg0RxFCDOwMDwjIGBoYBIcaxAloGB4RwDA8MSBgYGLiLEsQIuqMJzUI2ExHGCAgaI08WJFKeeARR5gaJApEo0UpSQhigAABumGNEPn441AAAAAElFTkSuQmCC")!important;
 }
 
@@ -161,13 +161,13 @@ list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYA
 
 /*Addmenuplus菜單*/
 #addMenu-rebuild {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAHklEQVQ4jWNgGFbgPxQjs/FhvAYMUTAaBqNhQDYAAG8lJtrslB7sAAAAAElFTkSuQmCC")!important;
 }
 
 /*ImageSearch菜單*/
 #imageSearch > .menu-iconic-left > .menu-iconic-icon {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdklEQVQ4jc2SsQ3AIAwEbwGK1NmFDdIwE3OxCCOkZYAU+RSRMEFyIuUkN7Z5vwH4IxtQgKYoyk2RgQokICiScnlmcgWWTm1RbeikaJpFUo9J47RsEdTznYB7BfclwvgZGxCfBC4nvY8UgX1WxOJVkdUj4jp84wDU6yD4kZGU+wAAAABJRU5ErkJggg==")!important;
 }
 
@@ -178,33 +178,26 @@ filter:grayscale(1);/*黑白滤镜*/
 
 /*Anobtn圖標*/
 #anobtn_set {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAY0lEQVQ4jWNgGLbAn4GB4QgDA8N/KD4CFSMKNDEwMDyBahCAYn+oWBMxNj9hYGCQxyIngGQwTkDIqTCv4QT/cdgOA5xQNXgNEKDEAIq9AAtEbK4gKhAZGCiMRnSnkpWQhhgAANGPHQFykfMmAAAAAElFTkSuQmCC")!important;
 }
 
 /*KeyChanger腳本*/
 #toolsbar_KeyChanger_rebuild {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAc0lEQVQ4jWNgGNTA1ta21c7O7jYlBvy0srKSJ6TosJ2d3X9ysK2t7WEGcjXDMNwAUr2H1QCYd2xtbQ/D+MhsZDlcBhyBKjoC4yOzkeVo4wU7O7tDdnZ2h/DFDkEvoDsZiwE08gLZ6QCXU4lMiUdIdTkGAADTtdiFkMZlWgAAAABJRU5ErkJggg==")!important;
 }
 
 /*GrabScroll圖標*/
 #GrabScroll_optionsMenu {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA3klEQVQ4jcWT3WoCQQxG5y0238mb1PWHKvVJ6qUtBd+00lfYdRF61eLV9saROJVVodDAQJhJTpKZb1L6CwPeJU3uiH8AtqcNM5sBnZnN8p67v4WEdfBHQCNpeUaVNAF2VVU9HgF9gH0ek2ugAZ4utiZpDLTAogTkAu4+vzZfDTQF4FCOeKn6s7v3Ye0DtIlnkl4Gu/gfk7QqRvjKZ+7+XYzwOgQaA21xiT3QAYtrXZy0UALcfT4Iycn5qUpASimZ2RTY/RJSkPI0JEUpb4JfA+2ZlIHtnZ9pBHzcGj9oP3TiU7Bc9Gx1AAAAAElFTkSuQmCC")!important;
 }
 
 /*QRCode-下载图片*/
 [label="下载图片"] {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
-list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAm0lEQVQ4jWNgGCzAgYGBYToDA8N8IvFsBgYGH2QDnpNh6Wtkzn8oHQE1XYUIA+5jM+A3lL0aTTEPAwODCTEGHIeyc9A0H2ZgYPjMwMBgQ8gABgYGBhEsmv9DMbIhOA2wYYCEtACaZmRDRHAZYANV8J+BgeE9Fs3/kdRiNeAzHk1EGbCfSIxhwHsG0gFKQopgID4Zw3AGGZbSAAAAsq9QKRQOf9kAAAAASUVORK5CYII=")!important;
-}
 
-/*FlashGot, NetVideoHunter*/
-#flashgot-menu > .menu-iconic-left > .menu-iconic-icon,
-toolbar[mode="icons"] #netvideohunter-toolbarbutton > .toolbarbutton-icon {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
-list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeklEQVQ4jd2S0QmAMAxEH2QBl3AKxX/XcB83chMHyBjxwxZKadqCguBB21COl5Ie/EIroIA1lgZvlMRCgbmj0Ry8AANwBPC9dcqAETiBvQbwoAaoiGypzzJDPD3wkvs9QAmUQ99/gdcpva/OoKXiL/TmYMLJweMkfqsL+cxD8RVFQbUAAAAASUVORK5CYII=")!important;
+list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAm0lEQVQ4jWNgGCzAgYGBYToDA8N8IvFsBgYGH2QDnpNh6Wtkzn8oHQE1XYUIA+5jM+A3lL0aTTEPAwODCTEGHIeyc9A0H2ZgYPjMwMBgQ8gABgYGBhEsmv9DMbIhOA2wYYCEtACaZmRDRHAZYANV8J+BgeE9Fs3/kdRiNeAzHk1EGbCfSIxhwHsG0gFKQopgID4Zw3AGGZbSAAAAsq9QKRQOf9kAAAAASUVORK5CYII=")!important;
 }
 
 /*Greasemonkey擴展圖標*/
@@ -238,13 +231,13 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAQCAY
 
 /*標籤頁-此頁靜音*/
 #context_toggleMuteTab > .menu-iconic-left > .menu-iconic-icon {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAaklEQVQ4jc2Syw3AIAxDvUuW6TTsw7TpKZUxH1GqCiJxgMQvJgD8GAbAv4qXACFecsBiECADuKT2OXNZRkUMcIIU+5FNzqVeo1lAy0lVZCiDcyGuIG9mELm4jg52+ArqLrUACtnzExVyeNzlnjM6WgLDvwAAAABJRU5ErkJggg==")!important;
 }
 
 /*標籤頁-取消此頁靜音*/
 #context_toggleMuteTab[muted="true"] {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAWUlEQVQ4jWNgoCFQZmBg+E+pZlwG4DUcJolNEbLByoQ0MyAZgFfjfzSsjCbHgEUcwwBy5EgyAN2VKAGMbAC6M4l2AUVhgAzIigV8hpCcDrApxCdPlEsGOQAAKY8zgtP7s6EAAAAASUVORK5CYII=")!important;
 }
 
@@ -252,29 +245,29 @@ list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYA
 [command="cmd_userscript_show"],
 #AM-browse-dir/*擴展右键——查看所在目录*/,
 #downloadsContextMenu menuitem[command="downloadsCmd_show"]/*打開文件夾*/ {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZklEQVQ4jWNgoBLwZGBgeMbAwPAfCT+DihMFnjEwMFijiVlDxYk2QAOL+H8cGMN1uAzABTBcBzMVl43YXPAf3QD0MCDkAgwDSAWjBlDbgD8MDAzpJGhOh+qBgwaoALEJ6Q9UD+UAAEc9PeCabBc4AAAAAElFTkSuQmCC")!important;
 }
 
 #downloadsContextMenu menuitem[command="downloadsCmd_openReferrer"]/*下載窗口——轉至下載頁*/ {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAANElEQVQ4jWNgGOxAnlLNvxgYGOwoMcRu0Bnij0/RfyIxWS4hygWENDvQXTNV0gFFKXGIAABllRYLfseFRgAAAABJRU5ErkJggg==")!important;
 }
 
 #downloadsContextMenu menuitem[command="downloadsCmd_pauseResume"]/*下載窗口——暫停和繼續*/ {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA+0lEQVQ4jcWSMUoEURBES9EVDIZh8DP9XyUGIoKGXsBEMBQ9gCZGXsTEyCsogiYmHkEMTAb2AsImHsBYk1kYVt3Z3cSCTrqriu6mpH/AMnAfEWlhh5zzse0mIjYlSba/xgV8RsTuhGbJ9nOX13JffrgD58AQWO/0Lm2/SlqRpIg4Aoa2t39dEbgDbiSprus94COltNWZ36aU4s8bq6oqcs4nktZsN7bPZnrOJGxf235YSAwcAu9FUVSLiDdsjyLiQNJg7hOAJ+BKksqyLG2Pcs777Xh6kHLOF8CbpMG4FxGnthtJqy1nepCAnUlj248zBWkW9AapD71Bmgff1GdAhwyuwRgAAAAASUVORK5CYII=")!important;
 }
 
 /*下載窗口——Hash計算*/
 #checksumMenu {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyElEQVQ4ja2TMQrCQBBFB9JaCdOly2b+v4WVB7AVbIXcwFaw9QBWVp7BA3gJD+ABBNuF2CSwho0mGz9ssbDz/vwZVuQfIlmnnA9AimkSwDm3EJEsCWBmu/btaACAQ5h9FABA1R1eL8A5p0VRuPZeluUSgG+LAVy/Aki+ANxERPI8nwN4BO77aNcka1Wddfa8JXlqXD3JdRgr2oGZrQDcm6InAA/Am9mmO5feCKo6A3AJMlexwf7cAsmjmZ1jxYMAjbLBgEmfaYrepQOCPHCQ+FAAAAAASUVORK5CYII=")!important;
 }
 
 /*inspect*/
 #context-inspect{
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZUlEQVQ4jaVTUQpAIQxa7yidqvtfpPfTQKSWW0IUOLXYMosxL7x9AddplzFWMq+REXuqP6ErJixGA8mExTu4iU7cgtpB2KAYz6e6+g0kAhAGPXdhZ5KaAzYpTSLCU9N/AaF2po4fwVYqq5MUvBgAAAAASUVORK5CYII=")!important;
 }
 
@@ -282,7 +275,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 /*viewsource*/
 #context-viewsource,
 #context-viewpartialsource-selection{
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAS1BMVEUAAADBwcEFBQXV1dWrq6v9/f34+Pje3t6Li4tjY2MaGhoQEBAAAADMzMzAwMC6urqsrKyHh4eBgYF1dXVvb29VVVVJSUktLS0nJydF8apsAAAAAXRSTlMAQObYZgAAAFlJREFUGNOdjEcSwCAMA02v6fX/Lw0RJucMOni1gw39i3jHoQC4LMMlKwU7yhK4NFwT17m6igaPmrLH3bYDPpPGhokD1Q0+HG/+riGsn6PY5ArhiFAnQH15APjLAbhBikauAAAAAElFTkSuQmCC")!important;
 
 }
@@ -290,33 +283,33 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAM
 
 /*viewinfo*/
 #context-viewinfo{
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAlUlEQVQ4jcWSQQrDIBBFJ6EnKC7iokjdiTcOzAmCB8iiniL3+d2IMSagqQU/KA7634yjRL01EBFaIS0AjGnEzkNqC6kt2PlqcDwolEGIEdZF7+NukkTDaZOdh1AGQpnaKyBO7Dymt42mrA+4GEdAMIPXDbxuICJIbUtV7IDny5yyJI0sVzAvH+SvUNGHHfCj8Jev3FdfBE9YlSEhiGUAAAAASUVORK5CYII=")!important;
 }
 
 /*viewimage*/
 #context-viewimage{
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAgVBMVEUAAAD4+PgZGRlXV1f9/f3Z2dmfn5/09PTx8fHh4eHKysqzs7N0dHRgYGBHR0dDQ0MvLy8hISEeHh7Q0NC7u7uhoaGZmZmVlZWEhIRnZ2dTU1M/Pz8nJycSEhLp6eni4uLd3d3U1NTFxcWnp6eQkJCNjY2FhYWDg4NsbGxmZmY+Pj4UJ42CAAAAAXRSTlMAQObYZgAAAHxJREFUGNOdy8cNwzAUwFDqy3Kvcm/pff8Bo8BABjBv70D2Zp5ZNtR/RtqmrZ9Kcd7cyKAwJ9RtbX/25QJvkRHq6u5sDcSLUkvs5qonKwJIZpgTULnG03mAKqepVISF9sB7lYaw80PiKnV2devYHKNEyxW2Do+PlbwP2NcXHOgGBwDkvbYAAAAASUVORK5CYII=")!important;
 }
 
 
 /*context-searcher*/
 #context-searcher .menu-iconic-icon{
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdklEQVQ4jc2SsQ3AIAwEbwGK1NmFDdIwE3OxCCOkZYAU+RSRMEFyIuUkN7Z5vwH4IxtQgKYoyk2RgQokICiScnlmcgWWTm1RbeikaJpFUo9J47RsEdTznYB7BfclwvgZGxCfBC4nvY8UgX1WxOJVkdUj4jp84wDU6yD4kZGU+wAAAABJRU5ErkJggg==")!important;
 }
 
 /*頁面右鍵 添加到字典*/
 #spell-add-to-dictionary {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbklEQVQ4jZ1SwQ0AIQjrLizDNO7DQDeX9+GMR0CtTRqTBpoCAhw6ACV7BhSAOa/wABB/l+iJNjc2J2XQXP+4TBENJNHM9V9TxWxxmmhlAhqZgYVU9BLjzNtT7gzozxRHuDKII0hRe2xAJzi+AoUXqVMteWRFMNQAAAAASUVORK5CYII=")!important;
 }
 
 /*頁面右鍵 還原「新增到字典」*/
 [cmd="cmd_undo"],
 #spell-undo-add-to-dictionary {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeklEQVQ4jeWRwQ2AIAxF39WbG7AJcQN2cQRmYxSm4FIPfhKjJXLWnzQN/fzfFuDTSEABTFFUm0IGqgSrIqmWZzpXie5YL8ZDvI3aV3sgKJs6Be+SOPPEDYgik86eiWuAxI1zRwO2wQTDFTppwD7gpx4xOrVFeeob/4YD1pEcog/2J/oAAAAASUVORK5CYII=")!important;
 }
 
@@ -329,7 +322,7 @@ menuitem[label="添加站点"],/*Lastpass添加站点*/
 #node-menu-link-follow,
 #contextOpen,
 #SnapLinksOpenLinks {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZ0lEQVQ4jWNgGCyAjYGBYRIDA8NrBgaG/0Tg11D1bDADJjEwMOxmYGAQJ9JCcaj6VpjAaxI0IxvyGsb5j0chXjkmEm3FABQbwIJDHN3ZyHxGYjQQLTfwYUCMAVj9TDUXwEzHF1C0BQCpARnHXF2p+wAAAABJRU5ErkJggg==")!important;
 }
 
@@ -340,26 +333,26 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 #node-menu-link-copy,
 #SnapLinksCopyLinksAndTitles,
 #contextCopy {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4jbWTLw6DMBjFfwaDmauq5QhY9C4wyQWQOA6whAtwBS6wO0xOzeKQO8REH6EUwsqWvaRpk37vT7+28AfYX8gZ8NIcIgf6GJESGAATpBqAc2ySFrgDCZACD6CKJU/oNW5Ad5SMnEdc9OQbgQp4SqA8QsyAWu6W+WZaoPhEblQ8sGxah+vFKKHdyFbFl0C4A064G6lDsmV+QIWc0o19G6xXDkbxffcJtdyNaht/0z/jKp6Hq2pWbyPDNSffIU8oJLT1X47jDR7gLDGf5CLwAAAAAElFTkSuQmCC")!important;
 }
 
 /*清空列表*/
 #downloadsContextMenu menuitem[command="downloadsCmd_clearList"]/*下載窗口——複製下載鏈接*/ {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAVklEQVQ4jWNgGCzgPxQjs5HFSDKA+uA/A8PM/wwMHoTECBnwH6YBnU+sIXlQTTCsjCZPOBDx2UwwEJE0k+X8mcjORvIOSYGI7uc8klxBhCWDOSXSFAAA8PJMEmHkwZIAAAAASUVORK5CYII=")!important;
 }
 
 /*書簽右鍵 新建書籤*/
 [command="placesCmd_new:bookmark"],
 #placesContext_createBookmark {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAzklEQVQ4jZ2SMQ6CQBREX2LlYaChsbZRQy8VhYUmRis01hxEr2BotNLKcAljgQ2Fl8BmNm4UNuBLfvjMziw/u4CbSvUXO+AKXNR3pgKGqs5TrIHces+BVdtwqi+GlhZKS+sCGZ/DugEHIKnxJcBeHuPPULNoO57FXFl8NdMO4UgZ3wiehKhD2PteMJuMHeFJU9hwAmLHBjFwdo33BALHeiBPI/Yf1wc2wFZ9neeHh54zoACOqkKa7anlBZTAHRhY+kBaKU8jS9y3MJKnZ4Q3yE01m3i3zAUAAAAASUVORK5CYII=")!important;
 }
 
 /*書簽右鍵 菜單属性*/
 [command="placesCmd_show:info"] {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABA0lEQVQ4ja2TMW7CQBBFXSUFLlnW2tn3jxAoKHwPciIiUQeuFOoIyBHoDF1SOGlI4ySWsbFkZcrZ/W/2z84kyX9HCGEMrICDpFJSCeyAZQhhfFMcY1wAhaS1meXOudQ5l5pZLmkNnGKMi1vio5nNugqY2Qw4XkGyLHPAqSmWtAVeGpApUHjvJ79JYClp06woaStp25LfAKs6YGdmedfTW6zkwKFOLJMkuWupdJF0aWHcS/ocDHDOpcB7r4UuQGVhXwd0NbEVUM3EXxO99xOgMLNpHyDG+HD1jdXB8EGqXXgEzjHGZ2DuvR9570fAvMqdO8U/UVumN0lfwIekV+Cpd5mGxDdxo1Tjgl/dlwAAAABJRU5ErkJggg==")!important;
 }
 
@@ -367,7 +360,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 #addnewbookmarkMenuItem,
 #mnEditInsertMenu > .menu-iconic-left > .menu-iconic-icon,
 #mnEditInsert {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVQ4jWNgGJbgP5GY9sCOgYHhF5Sm2BB/YhQT8jNZLiHJBbg0O5CjmSIweNLBEAEAYrkiHx2ihxkAAAAASUVORK5CYII=")!important;
 }
 
@@ -375,13 +368,13 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 #updatebookmarkUpdateCurrentURLMenuItem,/*更新为当前地址*/
 #updatebookmarkUpdateCurrentTitleMenuItem,/*更新为当前标题*/
 #updatebookmarkMenuItem {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAt0lEQVQ4jc3SrQpCQRQE4A+LyWKxG3wBjWaDWI0+glmwWEw2qzbfw+hbGIUbfAVBwx5BuHfxD8SBZeEwO3OYHf4VbWxxwgVHrNF65fEABRYhVEMHq5j3YjaPu+RcoJ8RH8VWYxyqCLtQrsIM+zhHTHMOzYxA/cH54sU8csiZfIeGFOAG3U8EJiFwD2mZ4a2DW8JeSvYsfWOjgjOWvrGUQU1avY5hiCylAlUV6SnaUicKXL1Z5d/iBp0JJPp/6PADAAAAAElFTkSuQmCC")!important;
 }
 
 /*書簽右鍵 新增資料夾...*/
 [command="placesCmd_new:folder"] {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXUlEQVQ4jWNgGAzAk4GB4TkDA8N/EvFzqF6G5wwMDFZIBh5FU3gUh8VWUL0M/9EksNmGC/wfxgYcZYAE0lEs8gQNmIXGn0mqAaQA6hiAnpCIBfCERG5SfgLVO8AAAB6JToLY42+mAAAAAElFTkSuQmCC")!important;
 }
 
@@ -392,33 +385,33 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 #redirector-reload,
 [oncommand="UCL.rebuild();"],
 #uc-movebutton {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgElEQVQ4jcWSyw2AIBAF5+rNDuyE2AG9WIK1UQpVeMHLEggKLCHRSQgH9u3vAR+wzYovwMwkMZLEjogs4IAgx8ut6uQUgQVWuQNwaCt7EULawa5t3fGcdciFkFWv0UzYS7BITJW3EXKiO82AfIk5K8mdJqWN0UovbyrKj9Qb7UdupJYfIj9YalkAAAAASUVORK5CYII=")!important;
 }
 
 /*標簽右鍵 關閉分頁*/
 #context_closeTab,
 #downloadsContextMenu menuitem[command="downloadsCmd_cancel"]/*下載窗口——取消*/ {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAS0lEQVQ4jWNgGJZAnkw5uIJfDAwMdljk7KByBA2BKbTDIuZASDM2Q0jWjG4IWZrRDcAWJkRpdmDAHiZEacYWiAQNoUo0UpSQhiAAAHnZFnHHYzvpAAAAAElFTkSuQmCC")!important;
 }
 
 /*標簽右鍵 關閉右側分頁*/
 #context_closeTabsToTheEnd {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMUlEQVQ4jWNgGOzgPxQPIwPyGBgYPCh1wUwoJskAXJhsF+SR6gIYoEoYkAQG3oAhAABQ4R+KtPg9TgAAAABJRU5ErkJggg==") !important;
 }
 
 /*標簽右鍵 關閉其它分頁*/
 #context_closeOtherTabs {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAYklEQVQ4jdXSsQqDQBBF0TONGjRVvm1LQdIG/79cq4VEFhatshemG967DMNfE+QgdxKQGM7LlYAIcuJRbXvzbBmUoo0J7Ixl8ep8py5BXplbBh9ePwaFYrIz3rpBjc7+oF8OndYvV/JUhtQAAAAASUVORK5CYII=") !important;
 }
 
 /*粘貼並轉到*/
 #urlbar menuitem[anonid="paste-and-go"],
 #searchbar menuitem[anonid="paste-and-search"] {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAANElEQVQ4jWNgGOxAnlLNvxgYGOwoMcRu0Bnij0/RfyIxWS4hygWENDvQXTNV0gFFKXGIAABllRYLfseFRgAAAABJRU5ErkJggg==") !important;
 }
 
@@ -441,7 +434,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 #placesContext_copy,
 #contextCopyFilter,
 #showFlagS-copy  {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII=") !important;
 }
 
@@ -455,7 +448,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 #configDeck menuitem[cmd="cmd_paste"],
 #bxURLBarContainer menuitem[cmd="cmd_paste"],
 #mnEditPaste {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbklEQVQ4jWNgoAFoZWBg+M7AwPAfir9DxUjSKIskLkusQX8YGBj48RjADzUEJ/gPpY8gOR+Gj6CpwWsAMh8bJskAdP51BgaGBkoMEMdnCDEG4PUKIQMIylFsACwdkG0AehIm2QBSFBFtAD5MHQAA8vtEFZXqsUkAAAAASUVORK5CYII=") !important;
 }
 
@@ -469,7 +462,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 #configDeck menuitem[cmd="cmd_delete"],
 #bxURLBarContainer menuitem[cmd="cmd_delete"],
 #removeDownload {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAY0lEQVQ4jWNgGEzgP4kYqwGkWIZT8DMDA0MIFnkbqBxBA0IYGBi+oxkC01xAjAHohqBrJsoAZEPQNRNtAMxmdO8QZQCys7GFCV4DsPkZ3RCC0YjuZ2RDCBpADMBpAEVJeWAAAMJDQxk7lwhpAAAAAElFTkSuQmCC")!important;
 }
 
@@ -483,7 +476,7 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 #configDeck menuitem[cmd="cmd_selectAll"],
 #bxURLBarContainer menuitem[cmd="cmd_selectAll"],
 #contextSelectAll {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAXElEQVQ4jWNgGCzgPxZMSA2GJKkWEmXAfwYGBg9yDfBgYGCYCcXEWogCjjIwMChDaZIBssY8KCYJ5DGghjhJrlBmwPTjTKg4ToCsAVvAeaCJ0S8dkGQARUl54AAAWsMsNkwmkt8AAAAASUVORK5CYII=") !important;
 }
 
@@ -491,19 +484,19 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 #searchbar menuitem[cmd="cmd_clearhistory"],
 #placesContext_deleteHost,
 #downloadsContextMenu menuitem[command="downloadsCmd_clearDownloads"] {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABAElEQVQ4jaXTIVPDUBAE4E9ERiAQEYgKBCISgaioQFZGIhEIRAWiAoFD8hMqEUgEsgJREYFAIpAIBKICgQjiXWaYTjKTlp15k7wku2/37gJjTP0Dz/hBtavAfog0mO0qkuMpRK7j2RkWmAwVyXAfIo9SrAavGIXTQWhFGnzgGDXeDajTIdZBXgd5KdWmkCLVUrysS6AK8reU/QE3HYcs8IbLTYEibFe4i7WJqVSPEl9dLvYwj9O7UGAltf6i5xvzsPkXZVjOpOmt9dRBvFjhNPZ5XM+l7C846SO3OJJmIJdaW8b9oHa2mOEWB/gM21v9M1m4uArb423ILSbhonOUfwEJWTYy3tyqawAAAABJRU5ErkJggg==") !important;
 }
 
 /*書簽右鍵 导出到HTML*/
 #placesContext_ExportHTMLFolder {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAQUlEQVQ4jWNgoBL4TwATZQA5cvQ3QJ4SW+wYGBh+QWmyDEA2xJ+QAYRi5T+6S6juAnyaHbBJ0jQW6JeQKMoLAwcAMTkwT1+aiGsAAAAASUVORK5CYII=") !important;
 }
 
 /*自訂*/
 [oncommand="BrowserCustomizeToolbar()"] {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAeElEQVQ4je2RoQ0CURBEB3MCQ759rzIsHUEJ0AI0AJLQBp4KDoEiF467NRgmWbWbN5uZZETAemz/VWo/6RB4qP2UAW6ttVXN6WW2A87AsgRIslAP6jFJVwEkSafegU31g716Kn0AbIHLWwYzW7gOWvikQjZ/wE8AT/yzO6vDq58RAAAAAElFTkSuQmCC") !important;
 }
 
@@ -512,25 +505,25 @@ list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAY
 [oncommand="Redirector.edit();"],
 #mnEditEdit,
 #modifySelected {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA6klEQVQ4jc2SIW7DQBBFBwRUWu16vf9VCiwIKGykHKWgRygsyAHCCnuEwgLDHKDABygMCAgMDAgscIktuc7WNcxIQ1b73oy+xuxqStIrcASaYUs6AGszsxDCoiiK1S8YWEvamdnyn54Be0nfKaXH/vRDCGExtqH3/l5SZWa3wFnSqb9BMwH+BGqgbiXPkwQ9+KPLpCzLp2EGWUEOTim9XHzMCVp4B5xH4b8EwJdzbg68dXCM8cHMbqYKGknvkqpuMrCPMd7lBEfn3HzwtgE2vcBmkk7eey4E7RXWNnJEkipgm82gtU865eurH5ZsTgQIYhNoAAAAAElFTkSuQmCC") !important;
 }
 
 /*重設*/
 #resetSelected {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA+0lEQVQ4jcWSMUoEURBES9EVDIZh8DP9XyUGIoKGXsBEMBQ9gCZGXsTEyCsogiYmHkEMTAb2AsImHsBYk1kYVt3Z3cSCTrqriu6mpH/AMnAfEWlhh5zzse0mIjYlSba/xgV8RsTuhGbJ9nOX13JffrgD58AQWO/0Lm2/SlqRpIg4Aoa2t39dEbgDbiSprus94COltNWZ36aU4s8bq6oqcs4nktZsN7bPZnrOJGxf235YSAwcAu9FUVSLiDdsjyLiQNJg7hOAJ+BKksqyLG2Pcs777Xh6kHLOF8CbpMG4FxGnthtJqy1nepCAnUlj248zBWkW9AapD71Bmgff1GdAhwyuwRgAAAAASUVORK5CYII=") !important;
 }
 
 /*釘選分頁*/
 #context_pinTab {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABGUlEQVQ4jZ2QsUoDURBF8xfvzbm/IWhAFEEtFCwsBRE1nWUqySeIKAoiooWineA/pBEt0qUQP8BiXVAknbA2s/CUbDbmVvPum3vvzDQaYwDoSroep3coJOWSCuBsUoNnSU3gC7iaxKBIa+DyP+IPoAt8lhwwkHT0qxFoSToG7oBl594knXt9AbwAi2Y2J6mQdFOmNH20zMwOgb43PP4J6Tn/BGRAL/3ck5Qn720gk9Tx9wHwHkKYGbVvOz1YCGEa+AYegMFYRwM2fJ1ZN91KTWsRY5z3PQszm3KTV2CpVlym+eitMhk4AW5His1s00dfS7h9STnQB04rxeXeMcbVIVO13Xi3Srzj4pWqgBjjQmW6pHszW69sqMEPppVYpMrPTWIAAAAASUVORK5CYII=") !important;
 }
 
 /*還原成普通分頁*/
 #context_unpinTab {
--moz-binding:url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+
 list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAwElEQVQ4jb2RMWpCURBFX5kNPJBhzmkstDFbsLJMdmWyBTfxd2InbkOIpohpfpoUif7g04AXhoHLzJkLU0opRV0AG/Xjuy9Kq9QndZuZ81LKQ2bO1S3w3ApYZ+bjTy8zZ+q6FfB5jd8stb8/QO2vrX9dvQ8AWAIHYHkTQD2qPXBoAbzVWkcDCd5PE9RaR2cAoANeTi8NKTNfge6XGRFTdQesgPHQIjAGVuouIqZnAxExATp1/8fv90AXEZOWpBf1BfpqUlVokhDVAAAAAElFTkSuQmCC") !important;
 }
 

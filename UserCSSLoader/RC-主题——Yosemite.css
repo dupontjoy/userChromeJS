@@ -1,8 +1,9 @@
 /*@name        Yosemite Theme
-  @namespace   http://www.runningcheese.com/firefox-v7
+  @namespace   http://www.runningcheese.com/firefox-v8
   @description 更改Firefox浏览器的样式
   @author      runningcheese
-  @version     v2016-12-20
+  @version     v2017-02-19    
+  @version     v2016-12-20     
   @reference   OSX Yosemite and Firefox Theme "Simple White"             
 */
 
@@ -420,7 +421,7 @@ toolbar[iconsize="small"] #aup-toolbarbutton[proxyMode="global"],
 
 /*搜索栏高度*/
 #searchbar {
-	height: 26px!important;
+	height: 30px!important;
 } 
 
 .searchbar-search-button {padding:0px  !important;}
@@ -437,6 +438,9 @@ toolbar[iconsize="small"] #aup-toolbarbutton[proxyMode="global"],
 	padding-left: 3px;
 }
 
+#urlbar-wrapper {
+	height: 30px !important;
+}
 
 /*地址栏与搜索栏间距离调整*/
 #urlbar-container {padding:0px 0px 0px 2px;}

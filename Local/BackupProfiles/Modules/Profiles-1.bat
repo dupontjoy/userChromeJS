@@ -1,4 +1,4 @@
-::2017.02.20
+::2017.03.03
 
 :Profiles-1
 cls
@@ -87,6 +87,7 @@ del %TempFolder%\Profiles\chrome\UserScriptLoader\require\  /s /q
 del %TempFolder%\Profiles\extensions\userChromeJS@mozdev.org\content\myNewTab\bingImg\  /s /q
 del %TempFolder%\Profiles\autoproxy\patterns.ini-temp  /s /q
 del %TempFolder%\Profiles\autoproxy\patterns-backup*.ini  /s /q
+del %TempFolder%\Profiles\extension-data\dedao.sqlite  /s /q
 ::HostTools产生的备份文件
 del %SystemRoot%\system32\drivers\etc\hosts.*.bak  /s /q
 

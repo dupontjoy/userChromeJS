@@ -27,8 +27,6 @@
 #noscript-tbb,/*Noscript*/
 #ScrapBookStatusPanel,/*ScrapBook*/
 #scriptish-button,/*Scriptish*/
-#identity-icon-labels,
-#identity-popup,
 #reader-mode-button,/*閱讀模式按钮*/
 #panic-button,/*忘記某些歷史*/
 #PlacesChevron/*书签工具栏产生的箭头*/ {
@@ -273,7 +271,6 @@ richlistitem[type="searchengine"],/*删除访问XXX/用XXX搜索*/
 #visiboTmtContentAreaCM-sendLink,/*TMT页面右键菜单*/
 #FeiRuoNet_Sepalator2,/*FeiruoNet分隔线*/
 #aup-menuitem,/*AUP更多工具菜单*/
-#identity-icons,
 #abp-menuitem-contributebutton,/*ABP捐赠按钮*/
 #gm_general_menu > menupopup > menuseparator:nth-child(4),/*分割线*/
 #abp-notification,

@@ -1,4 +1,4 @@
-::2017.02.09
+::2017.03.09
 
 :Sync
 cls
@@ -42,5 +42,9 @@ taskkill /f /t /im ListaryHelper64.exe
 taskkill /f /t /im ListaryHookHelper32.exe
 taskkill /f /t /im ListaryHookHelper64.exe
 taskkill /f /t /im ListaryService.exe
+del "%dir1%\..\Software\Listary Pro\UserData\DiskSearch.db"  /s /q
+del "%dir1%\..\Software\Listary Pro\UserData\History_v2.sqlite"  /s /q
+del "%dir1%\..\Software\Listary Pro\UserData\History_v2.sqlite-journal"  /s /q
+del "%dir1%\..\Software\Listary Pro\UserData\listary_log.log"  /s /q
 xcopy "%dir2%\Listary\Preferences.json" "%dir1%\..\Software\Listary Pro\UserData\Preferences.json"  /s /y /i
 start "" "%dir1%\..\Software\Listary Pro\Listary.exe"

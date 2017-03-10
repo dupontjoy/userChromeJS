@@ -1,4 +1,4 @@
-::2017.02.17
+::2017.03.09
 
 :GitHub
 cls
@@ -47,7 +47,17 @@ xcopy "%dir1%\..\Software\totalcmd64\user\Default.br2" "%dir2%\TC\Default.br2"  
 xcopy "%dir1%\..\Software\Notepad2\Notepad2.ini" "%dir2%\TC\Notepad2.ini"  /s /y /i
 
 ::Ç‰∑›Listary‘O÷√
+taskkill /f /t /im Listary.exe
+taskkill /f /t /im ListaryHelper64.exe
+taskkill /f /t /im ListaryHookHelper32.exe
+taskkill /f /t /im ListaryHookHelper64.exe
+taskkill /f /t /im ListaryService.exe
+del "%dir1%\..\Software\Listary Pro\UserData\DiskSearch.db"  /s /q
+del "%dir1%\..\Software\Listary Pro\UserData\History_v2.sqlite"  /s /q
+del "%dir1%\..\Software\Listary Pro\UserData\History_v2.sqlite-journal"  /s /q
+del "%dir1%\..\Software\Listary Pro\UserData\listary_log.log"  /s /q
 xcopy "%dir1%\..\Software\Listary Pro\UserData\Preferences.json" "%dir2%\Listary\Preferences.json"  /s /y /i
+start "" "%dir1%\..\Software\Listary Pro\Listary.exe"
 
 ::Ç‰∑›ShareX‘O÷√
 xcopy "%dir1%\..\Software\ShareX\ShareX\ApplicationConfig.json" "%dir2%\ShareX\ApplicationConfig.json"  /s /y /i

@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Stylish Custom2
-// @description  在Stylish編輯視窗中增加一些小功能
+// @description  在Stylish编辑窗口中增加一些小功能
 // @namespace    stylishCustom2@uc.js
 // @author       Crab
 // @modified    skofkyo
@@ -9,41 +9,41 @@
 // ==/UserScript==
 if (location.href.indexOf('about:stylish-edit') == 0) {
     /* 
-    // 1.取消預覽:  恢復 預覽 至未儲存時的狀態(實質上是將儲存前的樣式再一次"預覽")
-    // 2.鍵盤輸入"!"時自動補全為"!important;"
-    // 3.註釋按鈕(ctrl+/)
-    // 4.插入鏈結:檢測當前打開的視窗和分頁列出其地址鏈結;
-    //		左鍵選單項直接插入對應的鏈結;
-    //		中鍵或右鍵則插入包含@-moz-document url("")的鏈結
-    // 5.插入文本:第一個子選單為文檔規則,其餘為一些常用的文本 ，第二個子選單為備用的插入文本2 可將一些不常用的文本整理至這裡
-    // 6.顯示行和列，在行輸入框內輸入正整數回車可跳轉之對應行
+    // 1.取消预览:  恢复 预览 至未储存时的状态(实质上是将储存前的样式再一次"预览")
+    // 2.键盘输入"!"时自动补全为"!important;"
+    // 3.注释按钮(ctrl+/)
+    // 4.插入链结:检测当前打开的视窗和分页列出其地址链结;
+    //		左键选单项直接插入对应的链结;
+    //		中键或右键则插入包含@-moz-document url("")的链结
+    // 5.插入文本:第一个子选单为文档规则,其馀为一些常用的文本 ，第二个子选单为备用的插入文本2 可将一些不常用的文本整理至这裡
+    // 6.显示行和列，在行输入框内输入正整数回车可跳转之对应行
     */
     var stylishCustom2 = {
 
-        _revertOldFindbar: true, //還原舊尋找列(預設關閉，若開啟請將 false , 改為 true);
-        AutoExternalEditor: false, //自動使用外部編輯開啟(預設關閉，若開啟請將 false , 改為 true);
+        _revertOldFindbar: true, //还原旧寻找列(预设关闭，若开启请将 false , 改为 true);
+        AutoExternalEditor: false, //自动使用外部编辑开启(预设关闭，若开启请将 false , 改为 true);
         
         insertRules: {
-            //可以在text中按格式加入一些常用的屬性或文本
+            //可以在text中按格式加入一些常用的属性或文本
             text: [
                 '/* AGENT_SHEET */',
                 '-moz-box-ordinal-group:',
                 '-moz-linear-gradient',
                 'vertical-align:middle',
-                'text-decoration:underline', ['::before 偽元素', '::before {\n\tcontent: ""\n}', 3], // 插入模板塊數組，
-                ['::after 偽元素', '::after {\n\tcontent: ""\n}', 3], // 參數 0：選單名，
-                // 參數 1：插入內容，其中\n代表換行符，\t為製表符（tab）。
-                // 參數 2：插入內容後光標所在對應內容倒數位置，可忽略預設為0，即最末
+                'text-decoration:underline', ['::before 伪元素', '::before {\n\tcontent: ""\n}', 3], // 插入模板块数组，
+                ['::after 伪元素', '::after {\n\tcontent: ""\n}', 3], // 参数 0：选单名，
+                // 参数 1：插入内容，其中\n代表换行符，\t为制表符（tab）。
+                // 参数 2：插入内容后光标所在对应内容倒数位置，可忽略预设为0，即最末
             ],
             text2: [
                 '/* AGENT_SHEET */',
                 '-moz-box-ordinal-group:',
                 '-moz-linear-gradient',
                 'vertical-align:middle',
-                'text-decoration:underline', ['::before 偽元素', '::before {\n\tcontent: ""\n}', 3], // 插入模板塊數組，
-                ['::after 偽元素', '::after {\n\tcontent: ""\n}', 3], // 參數 0：選單名，
-                // 參數 1：插入內容，其中\n代表換行符，\t為製表符（tab）。
-                // 參數 2：插入內容後光標所在對應內容倒數位置，可忽略預設為0，即最末
+                'text-decoration:underline', ['::before 伪元素', '::before {\n\tcontent: ""\n}', 3], // 插入模板块数组，
+                ['::after 伪元素', '::after {\n\tcontent: ""\n}', 3], // 参数 0：选单名，
+                // 参数 1：插入内容，其中\n代表换行符，\t为制表符（tab）。
+                // 参数 2：插入内容后光标所在对应内容倒数位置，可忽略预设为0，即最末
             ],
             domRules: {
                 'url("")': '@-moz-document url(""){\n\n}',
@@ -56,16 +56,16 @@ if (location.href.indexOf('about:stylish-edit') == 0) {
         locale: ['en-US', 'zh-CN', 'zh-TW'].indexOf(Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch).getCharPref('general.useragent.locale')),
 
         _localeText: {
-            unperview: ['UnPerview', '取消预览', '取消預覽'],
+            unperview: ['UnPerview', '取消预览', '取消预览'],
             lineNumber: ['Ln: ', '行: ', '行: '],
             colNumber: [',Col: ', ',列: ', ',列: '],
-            comment: ['Comment', '注释', '註釋'],
-            save: ['Save', '保存', '儲存'],
-            insertURL: ['Insert URL', '插入链接', '插入鏈結'],
+            comment: ['Comment', '注释', '注释'],
+            save: ['Save', '保存', '储存'],
+            insertURL: ['Insert URL', '插入链接', '插入链结'],
             insertText: ['Insert Text', '插入文本', '插入文本'],
-            saveAndClose: ['Save & Close', '保存并关闭', '儲存並關閉'],
-            documentRules: ['Document Rule', '文档规则', '文檔規則'],
-            chromeMenu: ['Chrome URL', 'Chrome 路径', 'Chrome 路徑'],
+            saveAndClose: ['Save & Close', '保存并关闭', '保存并关闭'],
+            documentRules: ['Document Rule', '文档规则', '文档规则'],
+            chromeMenu: ['Chrome URL', 'Chrome 路径', 'Chrome 路径'],
         },
 
         localeText: function(name) {
@@ -98,9 +98,9 @@ if (location.href.indexOf('about:stylish-edit') == 0) {
                     id: 'stylishCustomToolbar'
                 }, [_et.parentNode, _et.nextSibling]),
                 insertMenupopup = $('insert-data-uri').parentNode;
-            //工具列按鈕
+            //工具列按钮
 
-            //儲存並關閉按鈕
+            //保存并关闭按钮
             cE('button', {
                 id: 'saveAndClose',
                 class: 'devtools-toolbarbutton',
@@ -110,14 +110,14 @@ if (location.href.indexOf('about:stylish-edit') == 0) {
                     'save' in window && window.save() && codeElementWrapper.value && window.nameE.value && window.setTimeout(window.close, 200);
                 }
             }, editortools);
-            //預覽按鈕
+            //预览按钮
             this.unperview = cE('button', {
                 id: 'unperview',
                 class: 'devtools-toolbarbutton',
                 label: this.localeText('unperview'),
                 onclick: this.unperview.bind(this)
             }, editortools);
-            //註釋按鈕
+            //注释按钮
             cE('button', {
                 id: 'comment',
                 class: 'devtools-toolbarbutton',
@@ -143,7 +143,7 @@ if (location.href.indexOf('about:stylish-edit') == 0) {
                 style: 'width:50px; max-height: 20px; margin:7px 0 4px 2px;',
                 value: this.localeText('colNumber') + '0'
             }, _et);
-            //插入鏈結選單
+            //插入链接选项
             cE('menupopup', {
                     onpopupshowing: 'stylishCustom2.showDocumentList(event,false);'
                 },
@@ -151,18 +151,18 @@ if (location.href.indexOf('about:stylish-edit') == 0) {
                     id: 'insertURLMenu',
                     label: this.localeText('insertURL')
                 }, insertMenupopup));
-            //插入文本選單
+            //插入文本选项
             var insertTextMenupopup = cE('menupopup', {},
                 cE('menu', {
                     id: 'insertTextMenu',
                     label: this.localeText('insertText')
                 }, insertMenupopup));
-            //插入文檔規則
+            //插入文档规则
             var documentRules = cE('menupopup', {}, cE('menu', {
                 id: 'documentRules',
                 label: this.localeText('documentRules')
             }, insertTextMenupopup));
-            //插入文本選單2
+            //插入文本选项2
             var insertTextMenu2 = cE('menupopup', {}, cE('menu', {
                 id: 'insertTextMenu2',
                 label: this.localeText('insertText') + '2'

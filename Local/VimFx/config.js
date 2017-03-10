@@ -1,4 +1,4 @@
-//2017.02.20
+//2017.03.10
 
 /******************************************************************************************
 快捷键分类:
@@ -11,6 +11,14 @@
 光标模式: caret
 Hint模式: hints
 忽略模式: ignore
+
+
+几种搜索方式:
+#: 搜索标题
+%: 搜索标签
+^: 搜索历史
+*: 搜索书签
+
 
 参照配置:
 https://github.com/akhodakivskiy/VimFx/wiki/Share-your-config-file
@@ -37,7 +45,6 @@ XPCOMUtils.defineLazyModuleGetter(this, 'NetUtil', 'resource://gre/modules/NetUt
 XPCOMUtils.defineLazyModuleGetter(this, 'PlacesUtils', 'resource://gre/modules/PlacesUtils.jsm')
 XPCOMUtils.defineLazyModuleGetter(this, 'PopupNotifications', 'resource://gre/modules/PopupNotifications.jsm')
 XPCOMUtils.defineLazyModuleGetter(this, 'Preferences', 'resource://gre/modules/Preferences.jsm')
-//let {Preferences} = Cu.import('resource://gre/modules/Preferences.jsm', {})
 
 // helper functions
 let getWindowAttribute = (window, name) => {
@@ -47,6 +54,14 @@ let getWindowAttribute = (window, name) => {
 let setWindowAttribute = (window, name, value) => {
   window.document.documentElement.setAttribute(`vimfx-config-${name}`, value)
 }
+
+function listen(window, eventName, listener) {
+  window.addEventListener(eventName, listener, true)
+  vimfx.on('shutdown', () => {
+    window.removeEventListener(eventName, listener, true)
+  })
+}
+
 let {commands} = vimfx.modes.normal
 
 let popup = (message, options) => {
@@ -72,13 +87,16 @@ let set = (pref, valueOrFunction) => {
     vimfx.set(pref, value)
 }
 
-let toggleCss = (uriString) => {
+let toggleCss = (uriString, vim) => {
     let uri = Services.io.newURI(uriString, null, null)
     let method = nsIStyleSheetService.AUTHOR_SHEET
+    let basename = OS.Path.basename(uriString)
     if (nsIStyleSheetService.sheetRegistered(uri, method)) {
         nsIStyleSheetService.unregisterSheet(uri, method)
+        vim.notify(`Disable ${basename}`)
     } else {
         nsIStyleSheetService.loadAndRegisterSheet(uri, method)
+        vim.notify(`Enable ${basename}`)
     }
     // vimfx.on('shutdown', () => {
     //     nsIStyleSheetService.unregisterSheet(uri, method)
@@ -123,14 +141,15 @@ let loadCss = (uriString) => {
   })
 }
 
+
 /******************************************************************************************
  *这里是自定义设置, 你可以根据自己的需要来调整它们. 参照已有设置的格式, 动手将自己的想法变成现实吧.
  *******************************************************************************************/
 // options选项
 set('hints.chars', 'fdsagrueiwcvqtxzjklhonmypb')//Hint提示符(改了排序)
 set('hints.sleep', -1)
-set('prev_patterns', v => `[上前]\\s*一?\\s*[页张个篇章頁] ${v}`)
-set('next_patterns', v => `[下后]\\s*一?\\s*[页张个篇章頁] ${v}`)
+set('prev_patterns', v => `[上前]\\s*一?\\s*[页张个篇章页] ${v}`)
+set('next_patterns', v => `[下后]\\s*一?\\s*[页张个篇章页] ${v}`)
 
 // shortcuts快捷键(一些键冲突, 重新布署)
 set('mode.normal.window_new', 'W')//新建窗口
@@ -447,20 +466,24 @@ map(',B', 'bootstrap', true)
 //加载CSS
 loadCss(`${__dirname}/../../UserCSSLoader/01-UI——UI调整.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/01-UI——附加组件显示版本号.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/02-微調——頁面.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/02-微調——字體替換.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/02-微調——字體效果.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/02-微調——圖標替換.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/02-微調——圖標效果&排序.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/02-微調——隱藏項.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/02-微调——页面.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/02-微调——字体替换.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/02-微调——字体效果.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/02-微调——图标替换.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/02-微调——图标效果&排序.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/02-微调——隐藏项.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/03-其他——Cursors for hyperlinks.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/03-其他——網站修正.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/03-其他——网站修正.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/RC-界面——关于页面.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/RC-界面——搜索栏.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/RC-界面——新标签页.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/RC-界面——元素调整.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/RC-主题——Yosemite.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/RC-主题——主题补丁.css`)
+
+//加载CSS文件(未成功)
+/*let {css} = Cu.import(`${__dirname}/../../UserCSSLoader/.css?${Math.random()}`, {})
+loadCss(css)*/
 
 //设置参数
 Preferences.set({
@@ -473,6 +496,7 @@ Preferences.set({
 //加载外置user.js文件
 let {PREFS} = Cu.import(`${__dirname}/../_user.js?${Math.random()}`, {})
 Preferences.set(PREFS)
+
 
 /******************************************************************************************
  *other: 引导

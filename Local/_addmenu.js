@@ -1,12 +1,12 @@
 //2017.02.18
 
-/*——————————標簽頁右鍵————————————*/
-//撤销關闭二级菜單 By feiruo
+/*——————————标签页右键————————————*/
+//撤销关闭二级菜单 By feiruo
 /*var undoMenu = TabMenu({
-label: '撤銷關閉',
+label: '撤销关闭',
 accesskey: "F",
 insertBefore: "context_reloadTab",
-tooltiptext: "右鍵顯示所有歷史記錄",
+tooltiptext: "右键显示所有历史记录",
 onclick: "if (event.button == 2) {PlacesCommandHook.showPlacesOrganizer('History');}",
 image:
 "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA5ElEQVQ4jaXTr0oFQRTH8c8yIBgWBMFg2ifwBa5oEsRguWCxGQwGq+9hMvgItxgEww0Gg+m+w02bBYtJw8zCsO64q35hYObMnN+cPzN8Z2fANpljtNj6j/PsL87beMdnYbzhCecIJZF5imAvs52gThfM8YqlH1LsRLoDL9jP9gNuk0gxkiab3+Fq4MwSlyWBnOsk0ucoRTfKIVbY7NlrsbCj1FhgjbOe/WOKQMcMN9l6cgolnkMIF0MbDe7FEIcIYlGLbez6vBbb12ADu+IrXFVV9WjCXzkQi9eKT7nFA07HHH/NFwrNKkyQLvLzAAAAAElFTkSuQmCC",
@@ -35,10 +35,10 @@ popup.appendChild(m);
 },
 });*/
 
-/*——————————圖片右鍵————————*/
-//右鍵搜索圖片 以圖搜圖
+/*——————————图片右键————————*/
+//右键搜索图片 以图搜图
 var imagesub = PageMenu({
-    label: "以圖搜圖",
+    label: "以图搜图",
     accesskey: "S",
     condition: "image",
     where: "tab",
@@ -64,7 +64,7 @@ imagesub([{
 
 ]);
 
-//圖片右鍵 複製 二级菜單
+//图片右键 复制 二级菜单
 new
 function() {
     var items = [{
@@ -78,14 +78,14 @@ function() {
         image: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4jbWTLw6DMBjFfwaDmauq5QhY9C4wyQWQOA6whAtwBS6wO0xOzeKQO8REH6EUwsqWvaRpk37vT7+28AfYX8gZ8NIcIgf6GJESGAATpBqAc2ySFrgDCZACD6CKJU/oNW5Ad5SMnEdc9OQbgQp4SqA8QsyAWu6W+WZaoPhEblQ8sGxah+vFKKHdyFbFl0C4A064G6lDsmV+QIWc0o19G6xXDkbxffcJtdyNaht/0z/jKp6Hq2pWbyPDNSffIU8oJLT1X47jDR7gLDGf5CLwAAAAAElFTkSuQmCC',
     },
     {
-        label: "複製圖片Base64",
-        tooltiptext: "左鍵: 複製圖片地址\n右鍵: 複製圖片Base64碼",
+        label: "复制图片Base64",
+        tooltiptext: "左键: 复制图片地址\n右键: 复制图片Base64码",
         accesskey: "B",
         text: "%IMAGE_BASE64%",
         image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbElEQVQ4jWNgGAzgPwUYbgC5FmMYcBTJdA8smo4yMDAo4zIgD4oZoIrQXZYHFcNpALLp6EAZKo/XBf+RbEH3AkwjUQbg8xpBA5ABsq3o0aeMzYCZaM7GFr14XQBTgGwLyQaQAlAMoCgpDywAAF13Uxwj2+klAAAAAElFTkSuQmCC"
     },
     {
-        label: "批量複製圖片URL",
+        label: "批量复制图片URL",
         //by skofkyo
         accesskey: "P",
         condition: "select noinput",
@@ -115,16 +115,16 @@ function() {
     });
 };
 
-//圖片右鍵 保存等 二级菜單
+//图片右键 保存等 二级菜单
 new
 function() {
     var items = [{
-        label: '保存圖片',
+        label: '保存图片',
         command: 'context-saveimage',
         image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAv0lEQVR42mNkoBAwUssAByAOB2IOIvX9AeKNQLwFZsBzIJYk0fLXQCwKM+A/1DURQOwMxJ1AfIeAAfeBWBHdgN9AzALEa4A4FEkxDxBrAPEZQgYcB2ILIM4F4ilImrcDsQEQewLxEXwGgIAIEL9B02wD5X9BMgSnASDFyUBcCMSbkTQzIBmiCMSnsRlgA7URZPMHIBbAE/1YXfAZqpmY9IPVgP1EpgFHdAPeA7EgJQkJlIDcSTTgJBDPYBzw3AgApMktEXd8LEwAAAAASUVORK5CYII=",
     },
     {
-        label: "重新載入圖片",
+        label: "重载图片",
         accesskey: "R",
         oncommand: "gContextMenu.reloadImage();",
         image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAgElEQVQ4jcWSyw2AIBAF5+rNDuyE2AG9WIK1UQpVeMHLEggKLCHRSQgH9u3vAR+wzYovwMwkMZLEjogs4IAgx8ut6uQUgQVWuQNwaCt7EULawa5t3fGcdciFkFWv0UzYS7BITJW3EXKiO82AfIk5K8mdJqWN0UovbyrKj9Qb7UdupJYfIj9YalkAAAAASUVORK5CYII="
@@ -141,7 +141,7 @@ function() {
     },
     ];
     var menu = PageMenu({
-        label: "圖像另存爲",
+        label: "图像另存为",
         accesskey: "V",
         condition: 'image',
         insertBefore: 'context-viewimage',
@@ -154,14 +154,14 @@ function() {
     });
 };
 
-/*——————————选中文本右鍵——————————*/
-//鏈接和选中文字(同时选中)的分割线
+/*——————————选中文本右键——————————*/
+//链接和选中文字(同时选中)的分割线
 page({
     label: 'separator',
     insertAfter: "context-sep-copylink",
     condition: 'link&select noimage',
 })
-//圖片和选中文字(同时选中)的分割线
+//图片和选中文字(同时选中)的分割线
 page({
     label: 'separator',
     insertAfter: "context-viewimageinfo",
@@ -182,18 +182,18 @@ function() {
             if (sel && sel.length > 15)
             sel = sel.substr(0,15) + "...";
             this.label = '搜索: ' +  sel;
-            //以上4句动态显示搜索內容
+            //以上4句动态显示搜索内容
             Array.slice(event.target.children).forEach(function(elem) {
                 if (elem.id == "TVC-Universal") {
-                    elem.hidden = !/ic.sjlpj.cn|bi.sjlpj.cn|tvc-mall.com|seculife.com|phonepartstore.com|cellzmate.com/.test(content.location.host) //可排除多個網站
+                    elem.hidden = !/ic.sjlpj.cn|bi.sjlpj.cn|tvc-mall.com|seculife.com|phonepartstore.com|cellzmate.com/.test(content.location.host) //可排除多个网站
                 } else if (elem.id == "TVC-Back") {
-                    elem.hidden = !/ic.sjlpj.cn/.test(content.location.host) //可排除多個網站
+                    elem.hidden = !/ic.sjlpj.cn/.test(content.location.host) //可排除多个网站
                 }
             });
         }
     });
     var items = [
-    //打開方式(默认當前頁面)，通过where 更改，具體tab(前台)、tabshifted(后台)、window(窗口)
+    //打开方式(默认当前页面)，通过where 更改，具体tab(前台)、tabshifted(后台)、window(窗口)
     {
         label: "Google",
         url: "https://www.google.com/search?newwindow=1&safe=off&hl=en-US&q=%s",
@@ -220,7 +220,7 @@ function() {
     },
     {},
     {
-        label: "外網批量管理-SKU",
+        label: "外网批量管理-SKU",
         id: "TVC-Universal",
         accesskey: "1",
         url: "http://ic.sjlpj.cn/Product/BatchManagementProductList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
@@ -228,7 +228,7 @@ function() {
         where: 'tab'
     },
     {
-        label: "外網批量管理-品名",
+        label: "外网批量管理-品名",
         id: "TVC-Universal",
         url: "http://ic.sjlpj.cn/Product/BatchManagementProductList?Sku=&KeyWord=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
         image: "http://ic.sjlpj.cn/favicon.ico",
@@ -244,7 +244,7 @@ function() {
         where: 'tab'
     },
     {
-        label: "查詢/變更價格-SKU",
+        label: "查询/变更价格-SKU",
         id: "TVC-Universal",
         accesskey: "3",
         url: "http://ic.sjlpj.cn/PriceChangeRequest/UnChangedProductList?Sku=%s&IsFirstRequest=false",
@@ -252,7 +252,7 @@ function() {
         where: 'tab'
     },
     {
-        label: "查詢價格變更記录-SKU",
+        label: "查询价格变更记录-SKU",
         id: "TVC-Universal",
         accesskey: "4",
         url: "http://ic.sjlpj.cn/PriceChangeRequest/PriceChangeRequestList?Sku=%s&ProductName=",
@@ -260,7 +260,7 @@ function() {
         where: 'tab'
     },
     {
-        label: "產品分類列表得分-SKU",
+        label: "产品分类列表得分-SKU",
         id: "TVC-Universal",
         accesskey: "5",
         url: "http://ic.sjlpj.cn/ProductScore/CategoryList?type=1&SiteId=1&Sku=%s&CreateBeginDate=&CreateEndDate=&UpdateBeginDate=&UpdateEndDate=&IsFirstRequest=False",
@@ -268,14 +268,14 @@ function() {
         where: 'tab'
     },
     {
-        label: "產品日志管理-SKU",
+        label: "产品日志管理-SKU",
         id: "TVC-Universal",
         url: "http://ic.sjlpj.cn/UserOperationLog/UserOperationLogList?ObjectCode=%s",
         image: "http://ic.sjlpj.cn/favicon.ico",
         where: 'tab'
     },
     {
-        label: "闗聯SKU",
+        label: "闗联SKU",
         id: "TVC-Universal",
         url: "http://ic.sjlpj.cn/Product/ProductAssociatedSpuList?SpuId=&Sku=%s&BeginDate=&EndDate=&IsFirstRequest=true",
         image: "http://ic.sjlpj.cn/favicon.ico",
@@ -285,7 +285,7 @@ function() {
     menu(items);
 };
 
-//複製文本
+//复制文本
 new
 function() {
     var items = [{
@@ -293,7 +293,7 @@ function() {
         image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAR0lEQVQ4jWNgoAH4jwc3EGsALvHr+AxBtgmXvDg+Q/6j0fgswKqGkAHY1OI1AFsgkmTAMHPBQnIMoMgFxGDiTCVFDdk2UwQArSlPm8iO15EAAAAASUVORK5CYII="
     },
     {
-        label: "批量複製链接URL",
+        label: "批量复制链接URL",
         //by skofkyo
         accesskey: "P",
         condition: "select noinput",
@@ -330,9 +330,9 @@ function() {
     });
 };
 
-//选取范围內复选框的 ON/OFF
+//选取范围内复选框的 ON/OFF
 page({
-    label: "複選框的ON/OFF",
+    label: "复选框的ON/OFF",
     class: "checkbox",
     condition: "select noinput nomailto nocanvas nomedia",
     accesskey: "X",
@@ -346,13 +346,13 @@ page({
     }
 });
 
-/*——————————輸入框右鍵——————————*/
+/*——————————输入框右键——————————*/
 
-//快捷回复，打造多級菜單
+//快捷回复，打造多级菜单
 new
 function() {
     var QuickReplySub = PageMenu({
-        label: "快速回覆",
+        label: "快速回复",
         condition: "input noselect",
         accesskey: "W",
         insertBefore: "spell-undo-add-to-dictionary",
@@ -371,7 +371,7 @@ function() {
         onpopupshowing: function(event) {
             Array.slice(event.target.children).forEach(function(elem) {
                 if (elem.id == "Physics-Symbols" | elem.id == "Math-Symbols") {
-                    elem.hidden = !/ic.sjlpj.cn/.test(content.location.host) //可排除多個網站
+                    elem.hidden = !/ic.sjlpj.cn/.test(content.location.host) //可排除多个网站
                 }
             });
         },
@@ -383,7 +383,7 @@ function() {
     }]);
     page({
         label: "163|QQ|Gmail",
-        tooltiptext: "左鍵: 163郵箱\n中鍵: QQ郵箱\n右鍵: Gmail郵箱",
+        tooltiptext: "左键: 163邮箱\n中键: QQ邮箱\n右键: Gmail邮箱",
         insertBefore: "QuickReply-sep",
         onclick: function(e) {
             switch (e.button) {
@@ -408,7 +408,7 @@ function() {
     });
 
     page({
-        label: "用戶名",
+        label: "用户名",
         //input_text: "dupontjoy",
         onclick: function(e) {
             switch (e.button) {
@@ -424,17 +424,17 @@ function() {
     });
 
     page({
-        label: "常用回覆~~~",
-        tooltiptext: "左鍵: 感謝\n右鍵: 15字補丁",
+        label: "常用回复~~~",
+        tooltiptext: "左键: 感谢\n右键: 15字补丁",
         onclick: function(e) {
             switch (e.button) {
             case 0:
-                addMenu.copy(addMenu.convertText('感謝樓主分享!'));
+                addMenu.copy(addMenu.convertText('感谢楼主分享!'));
                 goDoCommand('cmd_paste');
                 closeMenus(this);
                 break;
             case 2:
-                addMenu.copy(addMenu.convertText('~~~爲神馬要15字，『漢賊不兩立，王業不偏安』~~~'));
+                addMenu.copy(addMenu.convertText('~~~为神马要15字，『汉贼不两立，王业不偏安』~~~'));
                 goDoCommand('cmd_paste');
                 closeMenus(this);
                 break;
@@ -446,7 +446,7 @@ function() {
 
 };
 
-//貼上 二級菜單
+//贴上 二级菜单
 new
 function() {
     var items = [{
@@ -454,7 +454,7 @@ function() {
         image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbklEQVQ4jWNgoAFoZWBg+M7AwPAfir9DxUjSKIskLkusQX8YGBj48RjADzUEJ/gPpY8gOR+Gj6CpwWsAMh8bJskAdP51BgaGBkoMEMdnCDEG4PUKIQMIylFsACwdkG0AehIm2QBSFBFtAD5MHQAA8vtEFZXqsUkAAAAASUVORK5CYII=",
     },
     {
-        label: "標點(中轉英)",
+        label: "标点(中转英)",
         condition: "input",
         accesskey: "E",
         image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAe0lEQVQ4ja2T0Q3AIAhE3y4u4zTu40DORT+ExFqtRXsJHxAPj0PhjggkDlGA4CHIIvKOiqDEz0qM0OZuLxLVxED1YQuZOrfLRJQgzc2zJkJV+SiOCEXr5kVUhcutzA5YfenPqoGZ/dqgHyfieFy5i1FT95qly48/3H+4AA6QJ51Bic5yAAAAAElFTkSuQmCC",
@@ -470,7 +470,7 @@ function() {
         label: "插入BBCode",
         id: "BBCode",
         accesskey: "B",
-        tooltiptext: "左鍵: 代碼[code]\n中鍵: 鏈接[url]\n右鍵: 圖片[img]",
+        tooltiptext: "左键: 代码[code]\n中键: 链接[url]\n右键: 图片[img]",
         onclick: function(e) {
             switch (e.button) {
             case 0:
@@ -502,7 +502,7 @@ function() {
         onpopupshowing: function(event) {
             Array.slice(event.target.children).forEach(function(elem) {
                 if (elem.id == "BBCode") {
-                    elem.hidden = !/bbs.kafan.cn|firefox.net.cn/.test(content.location.host) //可排除多個網站
+                    elem.hidden = !/bbs.kafan.cn|firefox.net.cn/.test(content.location.host) //可排除多个网站
                 }
             });
         },
@@ -513,12 +513,12 @@ function() {
     });
 };
 
-/*——————————鏈接右鍵——————————*/
+/*——————————链接右键——————————*/
 page({
-    label: "用新分頁開啟鏈結",
+    label: "用新分页开启链结",
     condition: "link",
     position: 1,
-    tooltiptext: "左鍵: 用新分頁開啟鏈結\n右鍵: 複製鏈接網址",
+    tooltiptext: "左键: 用新分页开启链结\n右键: 复制链接网址",
     onclick: function(e) {
         switch (e.button) {
         case 0:
@@ -535,10 +535,10 @@ page({
 })
 
 page({
-    label: "VIP視頻雲解析",
+    label: "VIP视频云解析",
     condition: "link",
     position: 2,
-    tooltiptext: "左鍵: 紫狐\n中鍵: 无名小站\n右鍵: 迅雷",
+    tooltiptext: "左键: 紫狐\n中键: 无名小站\n右键: 迅雷",
     onclick: function(event) {
         var url = addMenu.convertText("%RLINK_OR_URL%");
         if (event.button === 0) gBrowser.selectedTab = gBrowser.addTab("http://yun.zihu.tv/play.html?url=" + url);
@@ -548,12 +548,12 @@ page({
     image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4je3RIUzDQBjF8V9CMotEoTCYufopBBqLx1ZOYiZn0JVIVC0WXTuJm6mqmpmY6Dt2CYIESXjJ9a7/vn7fvTv+hJ6wRocPTNhnfg+fcMCA1/gfsIIjtmgLiC5SfIPrsCZsiz6F58cvNcInbgJKhBHPlXEd3xgPLLGTnPeBh2T7qh7tMz/GI76+VH+p4JBd1NHK+1A16Mzn5iod7n4KXGmVfy4LaALawAVus7s260W+tYn3reHS+Wom8wF1Gbtkn/AW77+iE6SaONczlmqVAAAAAElFTkSuQmCC"
 })
 
-/*——————————頁面右鍵——————————*/
-//多功能菜單
+/*——————————页面右键——————————*/
+//多功能菜单
 new
 function() {
     var items = [{
-        label: "複製標題&地址",
+        label: "复制标题&地址",
         accesskey: "C",
         onclick: function(e) {
             switch (e.button) {
@@ -567,7 +567,7 @@ function() {
     },
     {
         label: "Favicon|Base64",
-        tooltiptext: "左鍵: Favicon地址\n右鍵: Favicon的Base64碼",
+        tooltiptext: "左键: Favicon地址\n右键: Favicon的Base64码",
         onclick: function(e) {
             switch (e.button) {
             case 0:
@@ -584,14 +584,14 @@ function() {
     },
     {
         label: "UTF-8|Big5|GBK",
-        tooltiptext: "左鍵: UTF-8\n中鍵: Big5\n右鍵: GBK",
+        tooltiptext: "左键: UTF-8\n中键: Big5\n右键: GBK",
         image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAlUlEQVQ4ja2TwQ2AIAxF3wau4QCuwCxcPTKMI7iBO7iCA3BiArxUJaSCik2a0NL/+1MK/Gg9MAMBiDcepKbXwB4Yga7QpJMan5PMcvHUnGBOC5XOmpKQJuILsIpJg5VraA7Y5OwBWyMYBHScYxb7JwSpAs1NiWDimq6RvE3ipabAiMyoKCnOoPkZmxepeZUPks+f6bPtGg1LLkKBszsAAAAASUVORK5CYII=",
         onclick: "var code = ['UTF-8', 'Big5', 'GBK']; BrowserSetForcedCharacterSet(code[event.button]);closeMenus(this);"
     },
 
     ];
     var menu = PageMenu({
-        label: "多功能菜單",
+        label: "多功能菜单",
         accesskey: "M",
         condition: 'normal',
         insertBefore: 'context-openlinkincurrent',
@@ -600,36 +600,36 @@ function() {
     menu(items);
 };
 
-/*——————————書籤右鍵——————————*/
-/*爲書籤右鍵添加 移動 功能*/
+/*——————————书签右键——————————*/
+/*为书签右键添加 移动 功能*/
 page({
-    label: '移動...',
+    label: '移动...',
     accesskey: "M",
     insertAfter: "placesContext_newSeparator",
     command: "placesCmd_moveBookmarks",
     image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAPklEQVQ4jWNgGCrAjoGB4ReUptgQf3yK/hOJyXIJUS4gpNmBHM1k20aWP/0p0WzHQHws0MYFMOBADUOGEAAAtLMgYRGzlKoAAAAASUVORK5CYII=",
 })
 
-/*——————————移動圖標和菜單——————————*/
-//移動圖標，代替Movebutton.uc.js，需配合RebuildWhenStart.uc.js，可惜對有的圖標還是無力
+/*——————————移动图标和菜单——————————*/
+//移动图标，代替Movebutton.uc.js，需配合RebuildWhenStart.uc.js，可惜对有的图标还是无力
 new
 function() {
-    //幾個擴展圖標
+    //几个扩展图标
     tab({
         id: "imageSearch",
         //黑螃蟹的UC脚本, 右键可上传再搜索
-        label: "相似圖片",
+        label: "相似图片",
         condition: "image",
         accesskey: "Z",
         insertAfter: "context-sep-copylink",
         clone: false,
-        // 不克隆，直接改在原来的菜單上面
+        // 不克隆，直接改在原来的菜单上面
     });
 
 };
 
 /*————————————————————*/
-//隱藏相同項。必須，不能刪除
+//隐藏相同项。必须，不能删除
 function syncHidden(event) {
     Array.slice(event.target.children).forEach(function(elem) {
         var command = elem.getAttribute('command');

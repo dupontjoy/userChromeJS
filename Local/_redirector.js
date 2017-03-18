@@ -1,45 +1,45 @@
 //2017.02.13
-//Redirector說明頁面: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
-//規則Github備份: https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
+//Redirector说明页面: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
+//规则Github备份: https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
 rules = [{
-    //自帶示例
+    //自带示例
     name: "about:haoutil",
-    // 規則名称
+    // 规则名称
     from: "about:haoutil",
-    // 需要重定向的地址
+    // 需要复位向的地址
     to: "https://haoutil.googlecode.com",
     // 目标地址
     state: true,
-    //可選，true 表示啟用此規則
+    //可选，true 表示启用此规则
     wildcard: false,
-    // 可選，true 表示 from 是通配符
+    // 可选，true 表示 from 是通配符
     regex: false,
-    // 可選，true 表示 from 是正則表逹式
+    // 可选，true 表示 from 是正则表逹式
     resp: false,
-    // 可選，true 表示替換 response body
-    decode: false // 可選，true 表示尝試對 from 解碼
+    // 可选，true 表示替换 response body
+    decode: false // 可选，true 表示尝试对 from 译码
 },
 
 /******************************************************************************************
- *指定網站
+ *指定网站
  *******************************************************************************************/
 {
     //example: http://news.ifeng.com/a/ydzx/20150413/43541233_0.shtml
-    name: "鳳凰網 只顯示首圖修正",
+    name: "凤凰网 只显示首图修正",
     from: /^https?:\/\/(.*)\.ifeng\.com\/a\/(ydzx|)\/(.*)/i,
     to: "http://$1.ifeng.com/a/$3",
     regex: true
 },
 {
     //example: http://news.ifeng.com/coop/20150418/43579013_0.shtml?_zbs_baidu_pic&source=bdxsy#p=1
-    name: "鳳凰網 圖片修正",
+    name: "凤凰网 图片修正",
     from: /^https?:\/\/(.*)\.ifeng\.com\/(.+)?shtml.+?(#p=.)/,
     to: "http://$1.ifeng.com/$2shtml$3",
     regex: true
 },
 {
     //https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector/link_direct
-    name: "去跳轉",
+    name: "去跳转",
     from: /^https?:\/\/.*\.(?:jobui|zhihu|douban|mozilla|google|so|)\.(?:com|org|)\/(.*(\?link|\?target|\?url|\?imgurl)=)?(http[^&]+).*/i,
     to: "$3",
     regex: true
@@ -53,15 +53,15 @@ regex: true
 },*/
 {
     //example: http://userscripts.org/
-    name: "userscripts >> 鏡像",
+    name: "userscripts >> 镜像",
     from: /^https?:\/\/userscripts\.org(?:\:8080|)\/(.*)/i,
     to: "http://userscripts-mirror.org/$1",
     regex: true
 },
 {
-    //在這樣的頁面點擊，就直接弹下載窗口
+    //在这样的页面点击，就直接弹下载窗口
     //example: http://sourceforge.net/projects/pcxfirefox/files/Release/Firefox/36.x/36.0.1/x86/sse2/pcxFirefox-36.0.1-zhTW-vc2013-x86-sse2-betterpgo-150309.7z/download
-    name: "sourceforge下載 >> 鏡像站點",
+    name: "sourceforge下载 >> 镜像站点",
     from: /^https?:\/\/sourceforge\.net\/projects\/(((\w)\w).*)\/files\/(.*)\/download/i,
     //to: "http://jaist.dl.sourceforge.net/project/$1/$4",
     //to: "http://nchc.dl.sourceforge.net/project/$1/$4",
@@ -70,7 +70,7 @@ regex: true
     regex: true
 },
 {
-    //測試: http://book.bfnn.org/article2/1630.htm
+    //测试: http://book.bfnn.org/article2/1630.htm
     name: "般若文海article >> books",
     from: /^https?:\/\/book\.bfnn\.org\/article([\d]?\/.*)/i,
     to: "http://book.bfnn.org/books$1",
@@ -110,7 +110,7 @@ regex: true
     regex: true
 },
 {
-    //詳細說明: http://bbs.kafan.cn/thread-1769934-1-1.html
+    //详细说明: http://bbs.kafan.cn/thread-1769934-1-1.html
     name: "Google ajax >> 科大",
     from: /^https?:\/\/(ajax|)\.googleapis\.com\/(.*)$/,
     to: "https://$1.proxy.ustclug.org/$2",
@@ -147,20 +147,20 @@ regex: true
 },
 {
     //example: http://ding.youku.com/a/id_XMTY2NDYw.html
-    //方法來源: http://bbs.csdn.net/topics/391051571
+    //方法来源: http://bbs.csdn.net/topics/391051571
     //Note: 需配置ReferChage使用,将qpic.cn和qlogo.cn设置为"@Block"
-    name: "微信圖片 反盜鏈",
+    name: "微信图片 反盗链",
     from: /^https?:\/\/mmbiz\.(qpic|qlogo)\.cn\/(mmbiz(_png|_jpg)?)\/(.*)\/(.*)\?(wx|tp)(.*)/i,
     to: "http://mmbiz.qpic.cn/$2/$4/640",
     regex: true
 },
 
 /******************************************************************************************
- *TVC(個人用)
+ *TVC(个人用)
  *******************************************************************************************/
 {
     //example: http://192.168.1.70:180/c/networking-c38845/
-    name: "tvc測試",
+    name: "tvc测试",
     from: /^https?:\/\/192\.168\.1\.70\:180\/(c\/|t\/|details\/|search|List|ProductList)(.*)/i,
     to: "https://www.tvc-mall.com/$1$2",
     regex: true
@@ -195,3 +195,4 @@ regex: true
 },
 
 ];
+

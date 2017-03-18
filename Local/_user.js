@@ -13,7 +13,7 @@ var PREFS = {
 
 //*==========主页==========*//
 'browser.startup.page': 1,//启动Firefox时显示主页
-'browser.startup.homepage': "about:newtab",//首頁
+'browser.startup.homepage': "about:newtab",//首页
 'browser.newtabpage.columns': 5,//新标签页列数
 'browser.newtabpage.rows': 3,//新标签页行数
 //标签页固定的网站
@@ -22,25 +22,25 @@ var PREFS = {
 //*==========Firefox设置==========*//
 'layers.acceleration.disabled': true,//禁用硬件加速MacType才生效
 'signon.rememberSignons': false,//不保存密码
-'accessibility.blockautorefresh': false,//当网站试图重定向或重新载入时警告(否)
-//字體語言編碼
-'font.name.serif.zh-CN': "Arial",//衬線字體
-'font.name.sans-serif.zh-CN': "Arial",//無衬線字體
-'font.name.monospace.zh-CN': "Arial",//等寬字體
-//書籤相關
-'browser.bookmarks.autoExportHTML': true,//關閉Firefox时自動生成HTML書籤備份
+'accessibility.blockautorefresh': false,//当网站试图复位向或重新载入时警告(否)
+//字体语言编码
+'font.name.serif.zh-CN': "Arial",//衬线字体
+'font.name.sans-serif.zh-CN': "Arial",//无衬线字体
+'font.name.monospace.zh-CN': "Arial",//等宽字体
+//书签相关
+'browser.bookmarks.autoExportHTML': true,//关闭Firefox时自动生成HTML书签备份
 'browser.bookmarks.max_backups': 0,//最大备份数目
 'browser.places.smartBookmarksVersion': -1,//禁用智能书签
 
 //*=插件=*//
 'plugins.navigator.hidden_ctp_plugin': "Shockwave Flash",//神奇参数，52以上有效，配合flash询问激活，一些澳门赌场上线啦的网站实现H5播放，类似navigator.plugins spoofing脚本，53、54乱弹flash提示
 
-//*=網路相關=*//
+//*=网络相关=*//
 //网络设定
 'nglayout.initialpaint.delay': 0,
 'network.http.pipelining': true,
 'network.http.proxy.pipelining': true,
-//平滑滾動
+//平滑滚动
 'general.smoothScroll.durationToIntervalRatio': 500,
 'mousewheel.min_line_scroll_amount': 35,
 
@@ -60,9 +60,9 @@ var PREFS = {
 'browser.sessionstore.max_tabs_undo': 10,//最近撤销标签历史最大数
 'browser.sessionstore.interval': 600000,//防止向SSD写入大量数量: 重写recovery.js文件的默认数值为“15000ms”(间隔时间15s), 改为10分钟
 //其它FX
-'general.skins.selectedSkin': "simplewhitex",//使用SimpleWhite主題
+'general.skins.selectedSkin': "simplewhitex",//使用SimpleWhite主题
 'gfx.content.azure.backends': "direct2d1.1,cairo",//图形渲染;FX52默认的Skia不支持Mactype
-'view_source.editor.external': true,//页面源代码——使用外部編輯器查看
+'view_source.editor.external': true,//页面源代码——使用外部编辑器查看
 'browser.backspace_action': 2,//禁止Backspace键返回上一页
 'dom.battery.enabled': false,//禁止电池状态API, 防止信息泄露
 'reader.parse-on-load.enabled': false,//禁用阅读模式
@@ -74,7 +74,7 @@ var PREFS = {
 'extensions.adblockplus.patternsbackups': 0,
 'extensions.adblockplus.frameobjects': false,//在Java和Flash上显示标签 - 否
 'extensions.adblockplus.subscriptions_antiadblockurl': "https://github.com/reek/anti-adblock-killer/raw/master/anti-adblock-killer-filters.txt",//原反-反ADP列表
-//-非侵入式广告地址換成个人ABP规则
+//-非侵入式广告地址换成个人ABP规则
 'extensions.adblockplus.subscriptions_exceptionscheckbox': true,//非入侵式广告勾选框
 'extensions.adblockplus.subscriptions_exceptionsurl': "https://github.com/dupontjoy/customization/raw/master/Rules/ABP/Floating-n-Porn-Ads-Filter.txt",//原非入侵式广告订阅网址
 
@@ -86,7 +86,7 @@ var PREFS = {
 
 //LastPass
 'extensions.lastpass.hidecontextmenu': true,
-'extensions.lastpass.showHomepageAfterLogin': false,//登入後不轉到密码库
+'extensions.lastpass.showHomepageAfterLogin': false,//登入后不转到密码库
 'extensions.lastpass.0a148091163b8a7de3368af449db2947c700bea1552b01964d4ae55f930562e0.toplevelmatchingsites': true,//将匹配网站移动到顶部菜单
 'extensions.lastpass.loginpws': "",//不保存密码
 
@@ -102,19 +102,19 @@ var PREFS = {
 'flashgot.firstRunRedirection': false,//重建配置不弹FlashGot首页
 
 //DownThemAll！
-'extensions.dta.conflictresolution': 0,//文檔已存在時自動重命名
-'extensions.dta.alertbox': 0,//下載完成後對話視窗提示
-'extensions.dta.closedta': true,//辯識並列出Flash影片
-'extensions.dta.ctxmenu': "0,0,0",//不顯示右鍵菜單
-'extensions.dta.confirmremove': false,//移除下載前不提示
+'extensions.dta.conflictresolution': 0,//文档已存在时自动重命名
+'extensions.dta.alertbox': 0,//下载完成后对话窗口提示
+'extensions.dta.closedta': true,//辩识并列出Flash影片
+'extensions.dta.ctxmenu': "0,0,0",//不显示右键菜单
+'extensions.dta.confirmremove': false,//移除下载前不提示
 'extensions.dta.loadendfirst': 4096,//先下载最后一段数据(KB)
 
 //Greasemonkey
 'extensions.greasemonkey.stats.prompted': true,//不弹改进建议提示
-'extensions.greasemonkey.installDelay': 0,//安裝時的倒計時
+'extensions.greasemonkey.installDelay': 0,//安装时的倒计时
 
 //Stylish
-'extensions.stylish.firstRun': 3,//重建配置不弹歡迎頁
+'extensions.stylish.firstRun': 3,//重建配置不弹欢迎页
 
 //iMacros
 'extensions.imacros.delay': 1000,//播放速度中等
@@ -153,32 +153,32 @@ var PREFS = {
 
 //*=newDownloadPlus=*//
 //主界面
-'userChromeJS.downloadPlus.downloadSound_Play': true,//下載完成提示音
-'userChromeJS.downloadPlus.downloadFileSize': true,//精確顯示文件大小
-'userChromeJS.downloadPlus.autoClose_blankTab': true,//自動關閉空白標籤
-'userChromeJS.downloadPlus.download_speed': true,//下載面皮顯示下載速度
-//下載界面
-'userChromeJS.downloadPlus.download_dialog_saveas': true,//另存爲
+'userChromeJS.downloadPlus.downloadSound_Play': true,//下载完成提示音
+'userChromeJS.downloadPlus.downloadFileSize': true,//精确显示文件大小
+'userChromeJS.downloadPlus.autoClose_blankTab': true,//自动关闭空白标签
+'userChromeJS.downloadPlus.download_speed': true,//下载面皮显示下载速度
+//下载界面
+'userChromeJS.downloadPlus.download_dialog_saveas': true,//另存为
 'userChromeJS.downloadPlus.download_dialog_saveTo': true,//保存到
-'userChromeJS.downloadPlus.download_dialog_saveTo_suffix': 1,//保存到——後綴樣式
-'userChromeJS.downloadPlus.download_dialog_showCompleteURL': true,//双擊複製完整地址
-'userChromeJS.downloadPlus.download_dialog_doubleclicksaveL': false,//双击保存執行下載
-'userChromeJS.downloadPlus.download_dialog_doubleclickanyW': false,//双击任意地方執行下載
+'userChromeJS.downloadPlus.download_dialog_saveTo_suffix': 1,//保存到——后缀样式
+'userChromeJS.downloadPlus.download_dialog_showCompleteURL': true,//双击复制完整地址
+'userChromeJS.downloadPlus.download_dialog_doubleclicksaveL': false,//双击保存执行下载
+'userChromeJS.downloadPlus.download_dialog_doubleclickanyW': false,//双击任意地方执行下载
 //其他
-'userChromeJS.downloadPlus.new_Download': true,//新建下載
-'userChromeJS.downloadPlus.new_Download_popups': true,//新建下載——是否彈窗
-'userChromeJS.downloadPlus.downloadsPanel_removeFile': true,//從硬盤刪除
-'userChromeJS.downloadPlus.download_checksum': true,//Hash計算
-'userChromeJS.downloadPlus.save_And_Open': true,//保存并打開
-'userChromeJS.downloadPlus.save_And_Open_RorL': 1,//保存并打開——打開文件
-'userChromeJS.downloadPlus.download_dialog_changeName': true,//下載改名
-'userChromeJS.downloadPlus.download_dialog_changeName_encodingConvert': true,//下載改名——是否開啟下拉菜單
+'userChromeJS.downloadPlus.new_Download': true,//新建下载
+'userChromeJS.downloadPlus.new_Download_popups': true,//新建下载——是否弹窗
+'userChromeJS.downloadPlus.downloadsPanel_removeFile': true,//从硬盘删除
+'userChromeJS.downloadPlus.download_checksum': true,//Hash计算
+'userChromeJS.downloadPlus.save_And_Open': true,//保存并打开
+'userChromeJS.downloadPlus.save_And_Open_RorL': 1,//保存并打开——打开文件
+'userChromeJS.downloadPlus.download_dialog_changeName': true,//下载改名
+'userChromeJS.downloadPlus.download_dialog_changeName_encodingConvert': true,//下载改名——是否开启下拉菜单
 
 //FeiRuoNet
-'userChromeJS.FeiRuoNet.EnableRefChanger': true,//Refer切換,破解反盗链
-'userChromeJS.FeiRuoNet.EnableUAChanger': true,//UA切換
+'userChromeJS.FeiRuoNet.EnableRefChanger': true,//Refer切换,破解反盗链
+'userChromeJS.FeiRuoNet.EnableUAChanger': true,//UA切换
 'userChromeJS.FeiRuoNet.ModifyHeader': true,//HTTP头信息
-'userChromeJS.FeiRuoNet.UrlbarSafetyLevel': false,//HTTPS等級高亮
+'userChromeJS.FeiRuoNet.UrlbarSafetyLevel': false,//HTTPS等级高亮
 'userChromeJS.FeiRuoNet.EnableProxyByError': false,//网络错误时代理
 'userChromeJS.FeiRuoNet.ProxyMode': 0,//代理模式: 禁用代理
 

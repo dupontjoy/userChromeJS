@@ -394,7 +394,6 @@ let bootstrap = () => {
         {id: '{e4a8a97b-f2ed-450b-b12d-ee082ba24781}', url: 'greasemonkey'},
         {id: '{81BF1D23-5F17-408D-AC6B-BD6DF7CAF670}', url: 'imacros-for-firefox'},
         {id: 'support@lastpass.com', url: 'lastpass-password-manager'},
-        {id: 'redirector@einaregilsson.com', url: 'redirector'},
         {id: 'uBlock0@raymondhill.net', url: 'ublock-origin'},
         {id: 'uMatrix@raymondhill.net', url: 'umatrix'},
         {id: 'SimpleX@White.Theme', url: 'simplewhitex'},
@@ -467,8 +466,8 @@ map(',B', 'bootstrap', true)
 loadCss(`${__dirname}/../../UserCSSLoader/01-UI——UI调整.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/01-UI——附加组件显示版本号.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/02-微调——页面.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/02-微调——字体替换.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/02-微调——字体效果.css`)
+loadCss(`${__dirname}/../../UserCSSLoader/02-微调——图标菜单.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/02-微调——图标替换.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/02-微调——图标效果&排序.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/02-微调——隐藏项.css`)

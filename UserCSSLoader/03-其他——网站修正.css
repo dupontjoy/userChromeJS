@@ -1,4 +1,4 @@
-/*+++ 2017.03.07 +++*/
+/*+++ 2017.03.20 +++*/
 
 /*---------------------------------
 指定域名时的几种方法:
@@ -160,7 +160,7 @@ div.am-u-lg-6.am-u-md-8.am-u-sm-centered  {/*隐藏顶部及底部一些无用�
   }
 }
 
-@-moz-document regexp("chrome:\/\/dedao\/content\/index\.html(.*)") {
+@-moz-document regexp("(.*)\/dedao\/index.html(.*)|chrome:\/\/dedao\/content\/index\.html(.*)|") {
 img.cover {
     display: none;
    }

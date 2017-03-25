@@ -1,4 +1,4 @@
-//2017.02.18
+//2017.03.21
 
 /*——————————标签页右键————————————*/
 //撤销关闭二级菜单 By feiruo
@@ -84,6 +84,30 @@ function() {
         text: "%IMAGE_BASE64%",
         image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbElEQVQ4jWNgGAzgPwUYbgC5FmMYcBTJdA8smo4yMDAo4zIgD4oZoIrQXZYHFcNpALLp6EAZKo/XBf+RbEH3AkwjUQbg8xpBA5ABsq3o0aeMzYCZaM7GFr14XQBTgGwLyQaQAlAMoCgpDywAAF13Uxwj2+klAAAAAElFTkSuQmCC"
     },
+    {
+    label: "解析图片二维码",
+    accesskey: "Q",
+    condition: "image",
+    image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAlklEQVQ4ja3NQQrCQBBE0XeDLAMuvGvuI0ECEkEIuHDhxgvkAF7DTQxDM3YULPhUTU9ND39Sh0PAh/ymKxf0YWFfmX/qgGPi2d2qIWwfKjnrOFVQeNZJdV7Y1GWhzOU5czAVnuUp9Dd1Xaidy7lbhfIuc3APP9+/9FWPxEtqHTCHhXOSY9ceI54BweNsXN5q0GL3Iy2aF4bCT+aPt4fEAAAAAElFTkSuQmCC",
+    oncommand: function() {
+        var fileurl = encodeURIComponent(gContextMenu.mediaURL || gContextMenu.imageURL || gContextMenu.bgImageURL); //编码后的图片地址
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", "http://qring.org/decode?url="+fileurl, true);
+        xmlHttp.send();
+        xmlHttp.onload = function() {
+            if (xmlHttp.status == 200) {
+                var data = JSON.parse(xmlHttp.responseText);
+                if (data.msg != "SUCCESS")
+                    alert("错误：" + data.msg);
+                else {
+                    var text=data.data.text;
+                    addMenu.copy(text);
+                    alert("识别内容:[ "+text+" ]\n结果已经复制到剪切板了~");
+                }
+            }
+        };
+     }
+},
     {
         label: "批量复制图片URL",
         //by skofkyo

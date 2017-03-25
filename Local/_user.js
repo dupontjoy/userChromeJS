@@ -22,6 +22,7 @@ var PREFS = {
 //*==========Firefox设置==========*//
 'layers.acceleration.disabled': true,//禁用硬件加速MacType才生效
 'signon.rememberSignons': false,//不保存密码
+'signon.rememberSignons': false,//不保存密码
 'accessibility.blockautorefresh': false,//当网站试图复位向或重新载入时警告(否)
 //字体语言编码
 'font.name.serif.zh-CN': "Arial",//衬线字体
@@ -46,6 +47,8 @@ var PREFS = {
 
 //*=隐私相关=*//
 //其它隐私相关
+'dom.webnotifications.enabled': false,//请勿打忧
+'dom.webnotifications.serviceworker.enabled': false,//请勿打忧
 'browser.polaris.enabled': false,//彻底关闭Tracking protection 跟踪保护
 'privacy.trackingprotection.pbmode.enabled': false,//彻底关闭Tracking protection 跟踪保护
 'browser.send_pings': false,//禁止Hyperlink Auditing/Beacon: Hyperlink Auditing 就是 ping 服务，Firefox 会把你点击过的链接及其时间发回给服务器，Hyperlink Beacon 是使用 navigator.sendBeacon()在你离开一个页面时将一些数据回传给服务器

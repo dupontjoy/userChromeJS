@@ -1,4 +1,4 @@
-//2017.03.10
+//2017.04.09
 
 /******************************************************************************************
 快捷键分类:
@@ -14,10 +14,10 @@ Hint模式: hints
 
 
 几种搜索方式:
-#: 搜索标题
-%: 搜索标签
-^: 搜索历史
-*: 搜索书签
+(3)#: 搜索标题
+(5)%: 搜索标签
+(6)^: 搜索历史
+(8)*: 搜索书签
 
 
 参照配置:
@@ -222,13 +222,14 @@ map(',d', 'go_decrement', true)
 map(',e', 'goto_ehh', true)*/
 
 vimfx.addCommand({
-    name: 'go_sougoupic',
+    name: 'go_wallpaper',
     description: '下一张壁纸',
     category: 'misc',
 }, ({vim}) => {
-    vim.window.sougouPIC.setRileGou()
+    //vim.window.sougouPIC.setRileGou();
+    vim.window.wallpaperPIC.setRileGou();
 })
-map(',p', 'go_sougoupic', true)
+map(',p', 'go_wallpaper', true)
 
 vimfx.addCommand({
     name: 'go_close_currentfirefox',
@@ -245,7 +246,7 @@ vimfx.addCommand({
     description: '几个脚本设置重新载入',
 }, ({vim}) => {
     vim.window.addMenu.rebuild();//AddmenuPlus
-    vim.window.FeiRuoNet.Rebuild()//FeiRuoNet
+    vim.window.FeiRuoNet.Rebuild();//FeiRuoNet
     vim.window.MyMoveButton.delayRun();//Movebutton
     vim.window.Redirector.reload();//Redirector
     vim.window.anobtn.reload();//anobtn

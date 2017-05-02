@@ -1,4 +1,4 @@
-/* 2017.03.11 */
+/* 2017.04.20 */
 
 /*@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 @-moz-document url("chrome://browser/content/browser.xul"){
@@ -18,7 +18,7 @@ menupopup menuitem {
 }
 
 /*菜单图标区域*/
-menupopup :-moz-any(menuitem,menu):not(#context-viewsource):not(#context-viewinfo):not([label="多功能菜單"]) > .menu-iconic-left {
+menupopup :-moz-any(menuitem,menu):not(#context-viewsource):not(#context-viewinfo):not([label="多功能菜单"]) > .menu-iconic-left {
 	-moz-appearance: none!important;
 	margin: 0 6px!important;
 }

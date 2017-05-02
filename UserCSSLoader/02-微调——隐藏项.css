@@ -1,4 +1,4 @@
-/*+++ 2017.02.21 +++*/
+/*+++ 2017.04.09 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
@@ -34,6 +34,7 @@
 }
 
 /*===隐藏页面右键菜单===*/
+#ACRiLeBing,/*下一张壁纸*/
 #fxrContextMenuFoxReplace,/*foxreplace右键菜单*/
 #frame[label="此框架"],
 #fireie-context-openlinkintabwithieengine,/*在新标签页中以 IE 引擎打开链接*/

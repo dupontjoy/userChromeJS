@@ -1,4 +1,4 @@
-//2017.03.21
+//2017.03.28
 
 /*——————————标签页右键————————————*/
 //撤销关闭二级菜单 By feiruo
@@ -90,23 +90,76 @@ function() {
     condition: "image",
     image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAlklEQVQ4ja3NQQrCQBBE0XeDLAMuvGvuI0ECEkEIuHDhxgvkAF7DTQxDM3YULPhUTU9ND39Sh0PAh/ymKxf0YWFfmX/qgGPi2d2qIWwfKjnrOFVQeNZJdV7Y1GWhzOU5czAVnuUp9Dd1Xaidy7lbhfIuc3APP9+/9FWPxEtqHTCHhXOSY9ceI54BweNsXN5q0GL3Iy2aF4bCT+aPt4fEAAAAAElFTkSuQmCC",
     oncommand: function() {
-        var fileurl = encodeURIComponent(gContextMenu.mediaURL || gContextMenu.imageURL || gContextMenu.bgImageURL); //编码后的图片地址
-        var xmlHttp = new XMLHttpRequest();
-        xmlHttp.open("GET", "http://qring.org/decode?url="+fileurl, true);
-        xmlHttp.send();
-        xmlHttp.onload = function() {
-            if (xmlHttp.status == 200) {
-                var data = JSON.parse(xmlHttp.responseText);
-                if (data.msg != "SUCCESS")
-                    alert("错误：" + data.msg);
-                else {
-                    var text=data.data.text;
-                    addMenu.copy(text);
-                    alert("识别内容:[ "+text+" ]\n结果已经复制到剪切板了~");
-                }
+        function getDataURLFromIMG(imgsrc) {
+            if (typeof imgsrc == 'undefined') return "";
+            const NSURI = "http://www.w3.org/1999/xhtml";
+            var img = new Image();
+            var that = this;
+            var canvas,
+                isCompleted = false;
+            img.onload = function() {
+                var width = this.naturalWidth,
+                    height = this.naturalHeight;
+                canvas = document.createElementNS(NSURI, "canvas");
+                canvas.width = width;
+                canvas.height = height;
+                var ctx = canvas.getContext("2d");
+                ctx.drawImage(this, 0, 0);
+                isCompleted = true;
+            };
+            img.onerror = function() {
+                Components.utils.reportError("Count not load: " + imgsrc);
+                isCompleted = true;
+            };
+            img.src = imgsrc;
+ 
+            var thread = Cc['@mozilla.org/thread-manager;1'].getService().mainThread;
+            while (!isCompleted) {
+                thread.processNextEvent(true);
             }
+            var data = canvas ? canvas.toDataURL("image/gif", 1) : "";
+            canvas = null;
+            return data;
         };
-     }
+        function getBlobFromDataURL(dataurl) {
+            var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1], bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+            while(n--){
+                u8arr[n] = bstr.charCodeAt(n);
+            }
+            return new Blob([u8arr], {type:mime});
+        }
+        function Deal(ffile){
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("POST", "http://qring.org/decode", true);
+            var formdata = new FormData();
+            formdata.append("file", ffile);
+            xmlHttp.send(formdata);
+            xmlHttp.onload = function() {
+                if (xmlHttp.status == 200) {
+                    var data = JSON.parse(xmlHttp.responseText);
+                    if (data.msg != "SUCCESS")
+                        alert("错误：" + data.msg);
+                    else {
+                        var text=data.data.text;
+                        if(text.indexOf("http") == 0){
+                            addMenu.copy(text);
+                            var message = confirm("识别内容:[ "+text+" ]~\n检查到为【链接】是否打开？")
+                            if(message == true){
+                                gBrowser.addTab(text);
+                            }else{
+                            }
+                        }else{
+                            addMenu.copy(text);
+                            alert("识别内容:[ "+text+" ]\n结果已经复制到剪切板了~");
+                        }
+                    }
+                }else if(xmlHttp.status == 500){
+                    alert("错误：解析失败");
+                }
+            };
+        }
+        Deal(getBlobFromDataURL(getDataURLFromIMG(gContextMenu.mediaURL || gContextMenu.imageURL || gContextMenu.bgImageURL)));
+    }
 },
     {
         label: "批量复制图片URL",
@@ -299,7 +352,7 @@ function() {
         where: 'tab'
     },
     {
-        label: "闗联SKU",
+        label: "关联SKU",
         id: "TVC-Universal",
         url: "http://ic.sjlpj.cn/Product/ProductAssociatedSpuList?SpuId=&Sku=%s&BeginDate=&EndDate=&IsFirstRequest=true",
         image: "http://ic.sjlpj.cn/favicon.ico",
@@ -539,10 +592,10 @@ function() {
 
 /*——————————链接右键——————————*/
 page({
-    label: "用新分页开启链结",
+    label: "用新分页开启链接",
     condition: "link",
     position: 1,
-    tooltiptext: "左键: 用新分页开启链结\n右键: 复制链接网址",
+    tooltiptext: "左键: 用新分页开启链接\n右键: 复制链接网址",
     onclick: function(e) {
         switch (e.button) {
         case 0:
@@ -558,7 +611,7 @@ page({
     image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAZ0lEQVQ4jWNgGCyAjYGBYRIDA8NrBgaG/0Tg11D1bDADJjEwMOxmYGAQJ9JCcaj6VpjAaxI0IxvyGsb5j0chXjkmEm3FABQbwIJDHN3ZyHxGYjQQLTfwYUCMAVj9TDUXwEzHF1C0BQCpARnHXF2p+wAAAABJRU5ErkJggg=="
 })
 
-page({
+/*page({
     label: "VIP视频云解析",
     condition: "link",
     position: 2,
@@ -570,7 +623,7 @@ page({
         if (event.button === 2) gBrowser.selectedTab = gBrowser.addTab("http://vod.xunlei.com/iplay.html?uvs=luserid_5_lsessionid&from=vlist&url=" + url);
     },
     image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAyUlEQVQ4je3RIUzDQBjF8V9CMotEoTCYufopBBqLx1ZOYiZn0JVIVC0WXTuJm6mqmpmY6Dt2CYIESXjJ9a7/vn7fvTv+hJ6wRocPTNhnfg+fcMCA1/gfsIIjtmgLiC5SfIPrsCZsiz6F58cvNcInbgJKhBHPlXEd3xgPLLGTnPeBh2T7qh7tMz/GI76+VH+p4JBd1NHK+1A16Mzn5iod7n4KXGmVfy4LaALawAVus7s260W+tYn3reHS+Wom8wF1Gbtkn/AW77+iE6SaONczlmqVAAAAAElFTkSuQmCC"
-})
+})*/
 
 /*——————————页面右键——————————*/
 //多功能菜单

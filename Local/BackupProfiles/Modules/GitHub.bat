@@ -1,4 +1,4 @@
-::2017.03.09
+::2017.04.24
 
 :GitHub
 cls
@@ -7,9 +7,11 @@ echo  *** 備份一些文件到GitHub ***
 echo.
 echo  1. Firefox文件：user.js, persdict.dat, stylish.sqlite
 echo  2. Foxmail過濾器
-echo  3. ProcessLaso設置
+echo  3. ProcessLasso設置
 echo  4. TC設置
 echo  5. Listary設置
+echo  6. CCleaner設置
+echo  7. WindowTabs設置
 echo.
 echo  按任意键继续……
 pause>nul
@@ -33,8 +35,8 @@ xcopy "%dir1%\Chrome\Local\_user.js" "%dir2%\Firefox\_user.js"  /s /y /i
 ::備份Foxmail Filter
 xcopy "%dir1%\..\..\Tencent\Foxmail\Storage\dupontjoy@163.com\Filter\1.fter" "%dir2%\Foxmail-Filter\163.com\1.fter"  /s /y /i
 
-::備份ProcessLaso設置
-xcopy "%dir1%\..\..\System Tools\ProcessLassoPortable\prolasso.ini" "%dir2%\ProcessLaso\prolasso.ini"  /s /y /i
+::備份ProcessLasso設置
+xcopy "%dir1%\..\..\System Tools\ProcessLassoPortable\prolasso.ini" "%dir2%\ProcessLasso\prolasso.ini"  /s /y /i
 
 ::備份PicPick設置
 xcopy "%dir1%\..\Software\PicPick\picpick.ini" "%dir2%\PicPick\picpick.ini"  /s /y /i
@@ -49,7 +51,10 @@ xcopy "%dir1%\..\Software\totalcmd64\user\Default.br2" "%dir2%\TC\Default.br2"  
 xcopy "%dir1%\..\Software\Listary Pro\UserData\Preferences.json" "%dir2%\Listary\Preferences.json"  /s /y /i
 
 ::備份ShareX設置
-xcopy "%dir1%\..\Software\ShareX\ShareX\ApplicationConfig.json" "%dir2%\ShareX\ApplicationConfig.json"  /s /y /i
+::xcopy "%dir1%\..\Software\ShareX\ShareX\ApplicationConfig.json" "%dir2%\ShareX\ApplicationConfig.json"  /s /y /i
 
 ::備份CCleaner設置
 xcopy "%dir1%\..\..\System Tools\CCleaner\ccleaner.ini" "%dir2%\CCleaner\ccleaner.ini"  /s /y /i
+
+::備份WindowTabs設置
+xcopy "%dir1%\..\..\System Tools\WindowTabs\WindowTabsSettings.txt" "%dir2%\WindowTabs\WindowTabsSettings.txt"  /s /y /i

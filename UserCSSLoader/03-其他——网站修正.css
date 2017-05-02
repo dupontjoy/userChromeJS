@@ -1,4 +1,4 @@
-/*+++ 2017.03.20 +++*/
+/*+++ 2017.04.20 +++*/
 
 /*---------------------------------
 指定域名时的几种方法:
@@ -153,11 +153,13 @@ img {
     width:auto;height:auto;/*小图片: 原始图片大小*/
     display:block; margin:0 auto;/*图片居中*/
    }
-.am-g,
-figure.am.am-figure.am-figure-default,
-div.am-u-lg-6.am-u-md-8.am-u-sm-centered  {/*隐藏顶部及底部一些无用文字*/
-    display:none;
-  }
+
+/*隐藏项*/
+div.header,
+div.am-u-sm-centered {
+display: none;
+}
+
 }
 
 @-moz-document regexp("(.*)\/dedao\/index.html(.*)|chrome:\/\/dedao\/content\/index\.html(.*)|") {

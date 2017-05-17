@@ -5,7 +5,7 @@
 // @namespace      ywzhaiqi@gmail.com
 // @include        main
 // @charset        UTF-8
-// @version        2017.01.09
+// @version        2017.05.05
 // version        2014.9.6
 // @homepageURL    https://github.com/ywzhaiqi/userChromeJS/tree/master/moveButton
 // @downloadURL    https://github.com/ywzhaiqi/userChromeJS/blob/master/moveButton/moveButton.uc.js
@@ -90,7 +90,10 @@ location == "chrome://browser/content/browser.xul" && (function(){
         
 //不常用圖標移動到aidBar
 { id: "flashgot-media-tbb", bar: "TabsToolbar_aidBar", pos: 1 },//FlashGot扩展
-{ id: "lpt_lastpass-compact-btn", bar: "TabsToolbar_aidBar", pos: 7 },//Lastpass扩展
+{ id: "foxyproxy-toolbar-icon", bar: "TabsToolbar_aidBar", pos: 2 },//FoxyProxy扩展
+{ id: "lpt_lastpass-compact-btn", bar: "TabsToolbar_aidBar", pos: 3 },//Lastpass扩展(3.x)
+{ id: "toggle-button--supportlastpasscom-lastpass-button", bar: "TabsToolbar_aidBar", pos: 3 },//Lastpass扩展(4.x)
+
 
 //保留在更多工具中
 { id: "InspectElement-menuitem", insertAfter: "flashgot-menu" },//InspectElementModY 默認不在MoreTools中，單獨移動

@@ -1,4 +1,4 @@
-//2017.03.28
+//2017.05.16
 
 /*——————————标签页右键————————————*/
 //撤销关闭二级菜单 By feiruo
@@ -300,14 +300,14 @@ function() {
         label: "外网批量管理-SKU",
         id: "TVC-Universal",
         accesskey: "1",
-        url: "http://ic.sjlpj.cn/Product/BatchManagementProductList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
+        url: "http://ic.sjlpj.cn/Product/BatchManagementProductList?Sku=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true&IsFirstRequest=false",
         image: "http://ic.sjlpj.cn/favicon.ico",
         where: 'tab'
     },
     {
         label: "外网批量管理-品名",
         id: "TVC-Universal",
-        url: "http://ic.sjlpj.cn/Product/BatchManagementProductList?Sku=&KeyWord=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true",
+        url: "http://ic.sjlpj.cn/Product/BatchManagementProductList?Sku=&KeyWord=%s&IsNormal=true&IsDownShelf=true&IsLocked=true&IsForUpShelf=true&IsInPurchase=true&IsSupplyNormal=true&IsTemporaryOutStock=true&IsPermanentOutStock=true&IsFirstRequest=false",
         image: "http://ic.sjlpj.cn/favicon.ico",
         where: 'tab'
     },

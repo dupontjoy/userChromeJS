@@ -387,17 +387,17 @@ map('zu', 'umatrix_bootstrap', true)
 let bootstrap = () => {
     // install addons
     let addons = [
-        {id: 'playflash@xpi', url: 'playflash/platform:5/addon-676750-latest.xpi'},
-        {id: 'VimFx@akhodakivskiy.github.com', url: 'vimfx'},
-        {id: 'inspector@mozilla.org', url: 'dom-inspector-6622'},
-        {id: '{DDC359D1-844A-42a7-9AA1-88A850A938A8}', url: 'downthemall'},
-        {id: '{19503e42-ca3c-4c27-b1e2-9cdb2170ee34}', url: 'flashgot'},
-        {id: '{e4a8a97b-f2ed-450b-b12d-ee082ba24781}', url: 'greasemonkey'},
-        {id: '{81BF1D23-5F17-408D-AC6B-BD6DF7CAF670}', url: 'imacros-for-firefox'},
-        {id: 'support@lastpass.com', url: 'lastpass-password-manager'},
-        {id: 'uBlock0@raymondhill.net', url: 'ublock-origin'},
-        {id: 'uMatrix@raymondhill.net', url: 'umatrix'},
-        {id: 'SimpleX@White.Theme', url: 'simplewhitex'},
+        {id: 'playflash@xpi', url: 'latest/playflash/platform:5/addon-676750-latest.xpi'},
+        //{id: 'support@lastpass.com', url: 'file/611378/lastpass_password_manager-3.3.4-an+fn+fx+sm.xpi'},//3.3.4版Lastpass
+        {id: 'VimFx@akhodakivskiy.github.com', url: 'latest/vimfx'},
+        {id: 'inspector@mozilla.org', url: 'latest/dom-inspector-6622'},
+        {id: '{DDC359D1-844A-42a7-9AA1-88A850A938A8}', url: 'latest/downthemall'},
+        {id: '{19503e42-ca3c-4c27-b1e2-9cdb2170ee34}', url: 'latest/flashgot'},
+        {id: '{e4a8a97b-f2ed-450b-b12d-ee082ba24781}', url: 'latest/greasemonkey'},
+        {id: '{81BF1D23-5F17-408D-AC6B-BD6DF7CAF670}', url: 'latest/imacros-for-firefox'},
+        {id: 'uBlock0@raymondhill.net', url: 'latest/ublock-origin'},
+        {id: 'uMatrix@raymondhill.net', url: 'latest/umatrix'},
+        {id: 'SimpleX@White.Theme', url: 'latest/simplewhitex'},
 
     ]
     addons.forEach((element) => {
@@ -405,7 +405,7 @@ let bootstrap = () => {
             if(!addon) {
                 let url = element.url
                 if(!url.startsWith('https://')) {
-                    url = 'https://addons.mozilla.org/firefox/downloads/latest/' + url
+                    url = 'https://addons.mozilla.org/firefox/downloads/' + url
                 }
                 AddonManager.getInstallForURL(url, (aInstall) => {
                     aInstall.install()
@@ -416,9 +416,9 @@ let bootstrap = () => {
     // Open about:support to see list of addons
     // disable addons
     let disabled_addons = [
-        'firefox@getpocket.com',
-        'gmp-gmpopenh264',
-        'loop@mozilla.org',
+        //'firefox@getpocket.com',
+        //'gmp-gmpopenh264',
+        //'loop@mozilla.org',
     ]
     disabled_addons.forEach((element) => {
         AddonManager.getAddonByID(element, (addon) => {

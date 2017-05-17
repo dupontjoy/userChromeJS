@@ -1,13 +1,15 @@
 //==UserScript==
 // @name            DesktopWallpaper.uc.js
 // @description     每次启动自动随机获取一张 必应壁纸 或 360壁纸
-// @homepageURL     ？？？？？？？？？？
+// @homepageURL     http://bbs.kafan.cn/thread-2085274-1-1.html
+// @note 2017.05.08 第二个版本出来了，修改了下以前的壁纸获取方式，360壁纸偶尔还是有问题
 // @note 2017.04.08 第一个版本出来了，包含必应壁纸和360壁纸，如果有bug你来打我呀
 //==/UserScript==
 
+//壁纸位置在Profiles/AppData/Mozilla/Firefox/桌面背景.bmp，如果不在，请参照这个位置
 var setTime = 60*2;//单位(分钟)，默认为12小时，即超过12小时，自动换壁纸
 var useBing = false; //true -->使用必应壁纸; false --->使用360壁纸
-//var use360 = false;
+//var use360 = true;
 
 var getUrl;
 if(useBing){
@@ -88,7 +90,7 @@ function WallPaper_FindImage(url){
             }else{
                 resp = resp.data;
             }
-            var randomNum = Math.round(Math.seededRandom(0, resp.length));
+            var randomNum = parseInt(new Date().getTime()%100/100*resp.length);
             imgUrl += resp[randomNum].url;
             setImg(imgUrl);
         }

@@ -1,4 +1,4 @@
-/*+++ 2017.04.09 +++*/
+/*+++ 2017.05.14 +++*/
 
 /*==============以下为“页面”的隐藏==============*/
 /*全局去掉分隔线*/
@@ -203,7 +203,7 @@ richlistitem[type="searchengine"],/*删除访问XXX/用XXX搜索*/
 	display: none !important;
 }
 
-/*LastPass菜单*/
+/*LastPass 3.x菜单*/
 .z-ico-show-password,/*明文显示密码*/
 [id^="__lpform_"],
 #fill-login,/*填充登陆信息*/
@@ -228,6 +228,19 @@ richlistitem[type="searchengine"],/*删除访问XXX/用XXX搜索*/
 [label="Copy Password"],[label="复制密码"],[label="複製密碼"],
 [label="Copy URL"],[label="复制网址"],[label="複製網址"],
 [label="Go to URL"],[label="转到网址"],[label="轉到網址"] {
+	display: none !important;
+}
+
+/*LastPass 4.x菜单*/
+menu[label="LastPass"],/*页面右键菜单*/
+[class="addon-context-menu-separator"],/*页面右键菜单分割线*/
+#sitesMenuItem,/*站点*/
+#helpMenuItem,/*帮助*/
+#recentSitesMenuItem,/*最近使用*/
+#notesMenuItem,/*安全笔记*/
+#formFillsMenuItem,/*表单填写*/
+#generateMenuItem /*生成安全密码*/
+{
 	display: none !important;
 }
 

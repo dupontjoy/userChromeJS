@@ -32,9 +32,9 @@ start "" "%dir1%\..\..\Tencent\Foxmail\Storage\..\foxmail.exe" /min
 ::同步ProcessLasso設置
 taskkill /im ProcessGovernor.exe
 taskkill /im ProcessLasso.exe
-xcopy "%dir2%\ProcessLasso\prolasso.ini" "%dir1%\..\..\System Tools\ProcessLassoPortable\prolasso.ini"  /s /y /i
-start "" "%dir1%\..\..\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/logfolder=%dir1%\..\..\System Tools\ProcessLassoPortable" "/configfolder=%dir1%\..\..\System Tools\ProcessLassoPortable"
-start "" "%dir1%\..\..\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/logfolder=%dir1%\..\..\System Tools\ProcessLassoPortable" "/configfolder=%dir1%\..\..\System Tools\ProcessLassoPortable"
+xcopy "%dir2%\ProcessLasso\config\prolasso.ini" "%dir1%\..\..\System Tools\ProcessLassoPortable\config\prolasso.ini"  /s /y /i
+start "" "%dir1%\..\..\System Tools\ProcessLassoPortable\ProcessGovernor.exe" "/logfolder=%dir1%\..\..\System Tools\ProcessLassoPortable" "/configfolder=%dir1%\..\..\System Tools\ProcessLassoPortable\config"
+start "" "%dir1%\..\..\System Tools\ProcessLassoPortable\ProcessLasso.exe" "/logfolder=%dir1%\..\..\System Tools\ProcessLassoPortable" "/configfolder=%dir1%\..\..\System Tools\ProcessLassoPortable\config"
 
 ::同步Listary設置
 taskkill /im Listary.exe

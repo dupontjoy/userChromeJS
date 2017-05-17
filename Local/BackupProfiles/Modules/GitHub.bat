@@ -36,7 +36,7 @@ xcopy "%dir1%\Chrome\Local\_user.js" "%dir2%\Firefox\_user.js"  /s /y /i
 xcopy "%dir1%\..\..\Tencent\Foxmail\Storage\dupontjoy@163.com\Filter\1.fter" "%dir2%\Foxmail-Filter\163.com\1.fter"  /s /y /i
 
 ::Ç‰∑›ProcessLasso‘O÷√
-xcopy "%dir1%\..\..\System Tools\ProcessLassoPortable\prolasso.ini" "%dir2%\ProcessLasso\prolasso.ini"  /s /y /i
+xcopy "%dir1%\..\..\System Tools\ProcessLassoPortable\config\prolasso.ini" "%dir2%\ProcessLasso\config\prolasso.ini"  /s /y /i
 
 ::Ç‰∑›PicPick‘O÷√
 xcopy "%dir1%\..\Software\PicPick\picpick.ini" "%dir2%\PicPick\picpick.ini"  /s /y /i

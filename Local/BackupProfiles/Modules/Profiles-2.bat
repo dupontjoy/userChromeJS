@@ -14,23 +14,21 @@ move "%TempFolder%\Profiles\extensions\inspector@mozilla.org"  %TempFolder%
 ::Lastpass
 ::move "%TempFolder%\Profiles\extensions\support@lastpass.com"  %TempFolder%
 ::FoxyProxy
-move "%TempFolder%\Profiles\extensions\foxyproxy@eric.h.jung"  %TempFolder%
+::move "%TempFolder%\Profiles\extensions\foxyproxy@eric.h.jung"  %TempFolder%
 ::DTA
 del %TempFolder%\Profiles\extensions\{DDC359D1-844A-42a7-9AA1-88A850A938A8}.xpi  /s /q
 ::FlashGot
 del %TempFolder%\Profiles\extensions\{19503e42-ca3c-4c27-b1e2-9cdb2170ee34}.xpi  /s /q
 ::GreaseMonkey
-del %TempFolder%\Profiles\extensions\{e4a8a97b-f2ed-450b-b12d-ee082ba24781}.xpi  /s /q
+::del %TempFolder%\Profiles\extensions\{e4a8a97b-f2ed-450b-b12d-ee082ba24781}.xpi  /s /q
 ::iMacros
 del %TempFolder%\Profiles\extensions\{81BF1D23-5F17-408D-AC6B-BD6DF7CAF670}.xpi  /s /q
 ::Redirector
 del %TempFolder%\Profiles\extensions\redirector@einaregilsson.com.xpi  /s /q
 ::uBlock
-del %TempFolder%\Profiles\extensions\uBlock0@raymondhill.net.xpi  /s /q
+::del %TempFolder%\Profiles\extensions\uBlock0@raymondhill.net.xpi  /s /q
 ::uMatrix
-del %TempFolder%\Profiles\extensions\uMatrix@raymondhill.net.xpi  /s /q
-
-
+::del %TempFolder%\Profiles\extensions\uMatrix@raymondhill.net.xpi  /s /q
 
 ::完整日期和時間
 set YY=%date:~0,4%

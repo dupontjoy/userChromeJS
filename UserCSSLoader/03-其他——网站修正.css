@@ -1,4 +1,4 @@
-/*+++ 2017.04.20 +++*/
+/*+++ 2017.05.25 +++*/
 
 /*---------------------------------
 指定域名时的几种方法:
@@ -162,8 +162,8 @@ display: none;
 
 }
 
-@-moz-document regexp("(.*)\/dedao\/index.html(.*)|chrome:\/\/dedao\/content\/index\.html(.*)|") {
-img.cover {
+@-moz-document regexp("(.*)\/dedao\/index.html(.*)|chrome:\/\/dedao\/content\/index\.html(.*)|(.*)\/dedao#\/authors\/(.*)") {
+img {
     display: none;
    }
 }

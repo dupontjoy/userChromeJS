@@ -273,6 +273,7 @@ menu[label="LastPass"],/*页面右键菜单*/
 }
 
 /*其它擴展/腳本隱藏項*/
+#simpleproxy-button,/*Simpleproxy*/
 #zotero-toolbar-main-button,/*Zotero工具栏图标*/
 #zotero-toolbar-save-button,/*Zotero工具栏图标*/
 #tools-zotero,/*Zotero更多工具菜单*/

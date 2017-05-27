@@ -40,10 +40,10 @@ xcopy "%BackDir%\autoproxy" %TempFolder%\Profiles\autoproxy\  /s /y /i
 xcopy "%BackDir%\chrome" %TempFolder%\Profiles\chrome\  /s /y /i
 xcopy "%BackDir%\extensions" %TempFolder%\Profiles\extensions\ /s /y /i
 xcopy "%BackDir%\extension-data" %TempFolder%\Profiles\extension-data\ /s /y /i
-::xcopy "%BackDir%\fireie" %TempFolder%\Profiles\fireie\ /s /y /i
 xcopy "%BackDir%\gm_scripts" %TempFolder%\Profiles\gm_scripts\ /s /y /i
 xcopy "%BackDir%\iMacros" %TempFolder%\Profiles\iMacros\ /s /y /i
 xcopy "%BackDir%\searchplugins" %TempFolder%\Profiles\searchplugins\ /s /y /i
+xcopy "%BackDir%\SimpleProxy" %TempFolder%\Profiles\SimpleProxy\ /s /y /i
 
 ::/**以下是文件**/
 ::书签

@@ -1,4 +1,4 @@
-//2017.02.13
+//2017.05.26
 //Redirector说明页面: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //规则Github备份: https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
 rules = [{
@@ -40,8 +40,29 @@ rules = [{
 {
     //https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector/link_direct
     name: "去跳转",
-    from: /^https?:\/\/.*\.(?:jobui|zhihu|douban|mozilla|google|so|)\.(?:com|org|)\/(.*(\?link|\?target|\?url|\?imgurl)=)?(http[^&]+).*/i,
+    from: /^https?:\/\/.*\.(?:jobui|google|so|)\.(?:com|org|)\/(.*(\?link|\?target|\?url|\?imgurl)=)?(http[^&]+).*/i,
     to: "$3",
+    regex: true
+},
+{
+    name: "豆瓣链接去跳转",
+    from: /^https?:\/\/www\.douban\.com\/.*\?url=(http.*)/i,
+    to: "$1",
+    regex: true
+},{
+    name: "知乎链接去跳转",
+    from: /^https?:\/\/(link|www)\.zhihu\.com\/(\?target=|question\/.*)(http.*)/i,
+    to: "$3",
+    regex: true
+},{
+    name: "WordPress博客外链去跳转",
+    from: /^https?:\/\/.*\/go\.php\?url=(http.*)/i,
+    to: "$1", 
+    regex: true
+},{
+    name: "Pixiv外链去跳转",
+    from: /^https?:\/\/www\.pixiv\.net\/jump\.php\?(http.*)/i,
+    to: "$1", 
     regex: true
 },
 /*{
@@ -90,7 +111,44 @@ regex: true
     to: "http://tieba.baidu.com/f?kw=$1",
     regex: true
 },
-
+{
+    name: "网易云播放页重定向",
+    from: /^(http:\/\/music\.163\.com\/#\/song)(\/|\?id=)(\d*).*/,
+    exclude: /\?id=\d+$/i,
+    to: "$1?id=$3",
+    regex: true
+},
+{
+    name: "天涯论坛手机版跳转",
+    from: /^(http:\/\/bbs\.tianya\.cn\/)m\/(.*)/i,
+    to: "$1$2",
+    regex: true
+},{
+    name: "百度百科手机版跳转",
+    from: /^(http:\/\/)wap(baike\.baidu\.com\/.*)/i,
+    to: "$1$2",
+    regex: true
+},
+{
+    name: "百度手机版跳转",
+    from: /https?:\/\/m\.baidu\.com\/.*from=.*/i,
+    to: function(r) {
+          var pn = r[0].match(/pn=[^&]+/),word = r[0].match(/word=[^&]+/);
+          return "https://www.baidu.com/s?" + word + (pn ? "&" + pn : "");
+        },
+    state: false,
+    regex: true
+},{
+    name: "新浪微博手机版跳转",
+    from: /^(http:\/\/)(m\.*)?weibo\.cn(\/u\/.*)/i,
+    to: "$1weibo.com$3",
+    regex: true
+},{
+    name: "微博文章转电脑版",
+    from: /^https?:\/\/media\.weibo\.cn\/article(\?id=\d+).*/,
+    to: "https://weibo.com/ttarticle/p/show$1",
+    regex: true
+},
 
 /******************************************************************************************
  *Google相关
@@ -143,6 +201,17 @@ regex: true
     name: "bbs详细页面-2",
     from: /(.*)\/archiver\/\??tid\-(\d+)(\-page\-(\d+))?\.html$/,
     to: "$1/viewthread.php?tid=$2",
+    regex: true
+},
+{
+    name: "Discuz!X2转完整版",
+    from: /^(https?:\/\/.*\/)archiver\/\?tid-(.*)\.html.*/i,
+    to: "$1forum.php?mod=viewthread&tid=$2",
+    regex: true
+},{
+    name: "Discuz!X3转完整版",
+    from: /^(https?:\/\/.*\/)archiver\/tid-(.*)\.html.*/i,
+    to: "$1thread-$2-1-1.html",
     regex: true
 },
 {

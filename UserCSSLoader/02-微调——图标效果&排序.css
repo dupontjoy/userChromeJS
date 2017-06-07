@@ -1,4 +1,4 @@
-/*+++ 2017.03.02 +++*/
+/*+++ 2017.06.06 +++*/
 
 /*Aidbar排序*/
 #flashgot-media-tbb {
@@ -54,48 +54,4 @@ menuitem[label="添加站点"] {
 
 [label="粘贴"] {
 	-moz-box-ordinal-group: 3 !important;
-}
-
-
-/*----------------------菜单图标动画旋转--------------------*/
-:-moz-any(menuitem,menu):hover >.menu-iconic-left>.menu-iconic-icon {
-	animation: caidantubiao .5s!important;
-}
-
-@keyframes caidantubiao {
-	0% {
-		transform: rotate(0deg);
-	}
-
-	100% {
-		transform: rotate(360deg);
-	}
-}
-/*--------------------------标签关闭按钮动画-------------------------*/
-.tabbrowser-tab:hover .tab-close-button {
-	animation: close .6s!important;
-}
-
-@keyframes close {
-	0% {
-		transform: rotate(0deg);
-	}
-
-	100% {
-		transform: rotate(180deg);
-	}
-}
-/*------------------------新建标签按钮-------------------------*/
-#main-window .tabs-newtab-button:hover .toolbarbutton-icon {
-	animation: newtab .5s!important;
-}
-
-@keyframes newtab {
-	0% {
-		transform: rotate(0deg);
-	}
-
-	100% {
-		transform: rotate(180deg);
-	}
 }

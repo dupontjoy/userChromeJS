@@ -2,7 +2,7 @@
   @namespace   https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox
   @description 含:标签栏, 地址栏, 书签栏, 三道杠等界面上的调整
   @author      Cing
-  @version     1.00-2017.05.23
+  @version     1.00-2017.06.06
   @reference             
 */
 
@@ -105,15 +105,6 @@
 	position: absolute !important;
 }
 
-/*修复固定标签*/
-.tab-background-middle[pinned="true"] {
-	min-height: 26px!important;
-}
-/*隐藏锁定标签上的序号*/
-.tabbrowser-tab[pinned="true"]:before {
-	margin: -40px 0px 0px -3px !important;
-}
-
 /* ====== 2. 地址栏 ====== */
 
 /*自动隐藏AidBar*/
@@ -172,7 +163,7 @@ bottom: 0!important;
 
 /* ====== 3. 书签栏 ====== *
 
-/*样式伪进度条
+/*样式伪进度条*/
 @-moz-document url-prefix("http://"),url-prefix("https://"){
 html:before{
 content:"";
@@ -188,7 +179,7 @@ box-shadow:0 1px 5px rgba(190,50,0,0.5);
 100%{width:0;}
 }
 }
-*/
+
 
 /*Oos定制 —— WordHighlightToolbar & 查找栏样式*/
 /*WordHighlightToolbar & 查找栏置于顶部*/
@@ -314,11 +305,6 @@ findbar .findbar-closebutton {
 #edit-redirect-form {
 	top: 260px !important;
 }
-
-/*FeiruoNet窗口大小}
-#FeiRuoNet_Settings {
-height: 530px !important;
-}*/
 
 /*Feiruonet图标模糊修正*/
 #FeiRuoNet_icon {

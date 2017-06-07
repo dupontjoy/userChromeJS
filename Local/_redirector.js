@@ -248,20 +248,7 @@ regex: true
     to: "$1&pageSize=100",
     regex: true
 },
-{
-    //example: http://ic.sjlpj.cn/ProductScore/CategoryList
-    name: "产品得分 默认全部",
-    from: /^(https?:\/\/ic\.sjlpj\.cn\/.*ProductScore\/CategoryList)$/,
-    to: "$1?CreateBeginDate=&CreateEndDate=&UpdateBeginDate=&UpdateEndDate=&IsFirstRequest=False",
-    regex: true
-},
-{
-    //example: http://ic.sjlpj.cn/BrandCategory/BrandCategoryList?brandCategoryId=1885
-    name: "品牌型号页 显示所有",
-    from: /^(https?:\/\/ic\.sjlpj\.cn\/.*BrandCategory\/BrandCategoryList\?brandCategoryId=[\d]+)$/,
-    to: "$1&seeAll=true",
-    regex: true
-},
+
 
 ];
 

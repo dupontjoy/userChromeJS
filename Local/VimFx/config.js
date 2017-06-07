@@ -1,4 +1,4 @@
-//2017.04.09
+//2017.06.07
 
 /******************************************************************************************
 快捷键分类:
@@ -387,8 +387,10 @@ map('zu', 'umatrix_bootstrap', true)
 let bootstrap = () => {
     // install addons
     let addons = [
+        {id: '2.0@disconnect.me', url: 'latest/disconnect/platform:5/addon-464050-latest.xpi'},
         {id: 'playflash@xpi', url: 'latest/playflash/platform:5/addon-676750-latest.xpi'},
-        //{id: 'support@lastpass.com', url: 'file/611378/lastpass_password_manager-3.3.4-an+fn+fx+sm.xpi'},//3.3.4版Lastpass
+        //{id: 'foxyproxy@eric.h.jung', url: 'latest/foxyproxy-standard'},
+        //{id: 'walterclozet@gmail.com', url: 'latest/autoproxymod/platform:5/addon-666460-latest.xpi'},
         {id: 'VimFx@akhodakivskiy.github.com', url: 'latest/vimfx'},
         {id: 'inspector@mozilla.org', url: 'latest/dom-inspector-6622'},
         {id: '{DDC359D1-844A-42a7-9AA1-88A850A938A8}', url: 'latest/downthemall'},
@@ -397,7 +399,8 @@ let bootstrap = () => {
         {id: '{81BF1D23-5F17-408D-AC6B-BD6DF7CAF670}', url: 'latest/imacros-for-firefox'},
         {id: 'uBlock0@raymondhill.net', url: 'latest/ublock-origin'},
         {id: 'uMatrix@raymondhill.net', url: 'latest/umatrix'},
-        {id: 'SimpleX@White.Theme', url: 'latest/simplewhitex'},
+        {id: 'SimpleX@White.Theme', url: 'latest/simplex'},
+
 
     ]
     addons.forEach((element) => {

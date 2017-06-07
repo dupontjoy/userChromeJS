@@ -1,4 +1,4 @@
-//2017.05.13
+//2017.06.07
 
 const EXPORTED_SYMBOLS = ['PREFS']
 
@@ -22,28 +22,37 @@ var PREFS = {
 //*==========Firefox设置==========*//
 'layers.acceleration.disabled': true,//禁用硬件加速MacType才生效
 'signon.rememberSignons': false,//不保存密码
-'signon.rememberSignons': false,//不保存密码
-'accessibility.blockautorefresh': false,//当网站试图复位向或重新载入时警告(否)
+
 //字体语言编码
 'font.name.serif.zh-CN': "Arial",//衬线字体
 'font.name.sans-serif.zh-CN': "Arial",//无衬线字体
 'font.name.monospace.zh-CN': "Arial",//等宽字体
+
 //书签相关
 'browser.bookmarks.autoExportHTML': true,//关闭Firefox时自动生成HTML书签备份
 'browser.bookmarks.max_backups': 0,//最大备份数目
 'browser.places.smartBookmarksVersion': -1,//禁用智能书签
 
-//*=插件=*//
-'plugins.navigator.hidden_ctp_plugin': "Shockwave Flash",//神奇参数，52以上有效，配合flash询问激活，一些澳门赌场上线啦的网站实现H5播放，类似navigator.plugins spoofing脚本，53、54乱弹flash提示
+//平滑滚动参数
+'general.smoothScroll.mouseWheel.durationMaxMS': 150,
+'general.smoothScroll.mouseWheel.durationMinMS': 150,
+'mousewheel.acceleration.factor': 15,
+'mousewheel.acceleration.start': 3,
+'mousewheel.default.delta_multiplier_y': 160,
 
-//*=网络相关=*//
-//网络设定
-'nglayout.initialpaint.delay': 0,
-'network.http.pipelining': true,
-'network.http.proxy.pipelining': true,
-//平滑滚动
-'general.smoothScroll.durationToIntervalRatio': 500,
-'mousewheel.min_line_scroll_amount': 35,
+//插件
+'dom.ipc.plugins.unloadASAP': true, //网页不使用flash后自动关闭Plugin-container
+'dom.ipc.plugins.enabled': false, //关闭插件的防崩溃保护
+'dom.ipc.plugins.enabled.npctrl.dll': false,
+'dom.ipc.plugins.enabled.npqtplugin.dll': false,
+'dom.ipc.plugins.enabled.npswf32.dll': false,
+'dom.ipc.plugins.enabled.nptest.dll': false,
+'dom.ipc.plugins.flash.subprocess.crashreporter.enabled': false,//禁用火狐插件防崩溃功能
+'plugins.click_to_play': false,//关闭点击才运行插件
+'plugins.hide_infobar_for_missing_plugin': true,//隐藏信息栏缺失插件消息提醒
+'plugins.hide_infobar_for_outdated_plugin': true,//过期插件不提示
+'plugins.hide_infobar_for_blocked_plugin': true,//插件屏蔽选择不提示
+'extensions.blocklist.enabled': false,//关闭flash版本过旧被屏蔽的提示
 
 //*=隐私相关=*//
 //其它隐私相关
@@ -67,27 +76,17 @@ var PREFS = {
 'gfx.content.azure.backends': "direct2d1.1,cairo",//图形渲染;FX52默认的Skia不支持Mactype
 'view_source.editor.external': true,//页面源代码——使用外部编辑器查看
 'browser.backspace_action': 2,//禁止Backspace键返回上一页
-'dom.battery.enabled': false,//禁止电池状态API, 防止信息泄露
 'reader.parse-on-load.enabled': false,//禁用阅读模式
 'browser.tabs.closeWindowWithLastTab': false,//关闭最后一个标签时不关闭Firefox
-'media.gmp-gmpopenh264.enabled': true,//OpenH264视频解码器(开启)
-'media.gmp-eme-adobe.enabled': true,//Primetime内容加密模块(开启)
-
 
 //*==========扩展设置==========*//
-//adblockplus
-'extensions.adblockplus.patternsbackups': 0,
-'extensions.adblockplus.frameobjects': false,//在Java和Flash上显示标签 - 否
-'extensions.adblockplus.subscriptions_antiadblockurl': "https://github.com/reek/anti-adblock-killer/raw/master/anti-adblock-killer-filters.txt",//原反-反ADP列表
-//-非侵入式广告地址换成个人ABP规则
-'extensions.adblockplus.subscriptions_exceptionscheckbox': true,//非入侵式广告勾选框
-'extensions.adblockplus.subscriptions_exceptionsurl': "https://github.com/dupontjoy/customization/raw/master/Rules/ABP/Floating-n-Porn-Ads-Filter.txt",//原非入侵式广告订阅网址
 
 //Autoproxy
-'extensions.autoproxy.customProxy': "Shadowsocks;;1080;socks$XX-Mini;;8087;$Lantern;;8787;$Psiphon;;8080;$Free%20Gate;;8580;",
+/*'extensions.autoproxy.customProxy': "Shadowsocks;;1080;socks$XX-Mini;;8087;$Lantern;;8787;$Psiphon;;8080;$Free%20Gate;;8580;",
 'extensions.autoproxy.patternsbackups': 0,
 'extensions.autoproxy.defaultstatusbaraction': 0,//点击图标时-快捷菜单
 'extensions.autoproxy.defaulttoolbaraction': 0,//点击图标时-快捷菜单
+*/
 
 //LastPass
 'extensions.lastpass.hidecontextmenu': true,
@@ -100,10 +99,6 @@ var PREFS = {
 'extensions.lastpass.prevHkMods': "alt",//上一个密码(Alt)
 'extensions.lastpass.nextHkKeyCode': 40,//下一个密码(方向键:下)
 'extensions.lastpass.nextHkMods': "alt",//下一个密码(Alt)
-
-//FoxyProxy
-'extensions.foxyproxy.firstrun': false,//首次运行(否)
-'extensions.foxyproxy.firsttimeopeningoptionsdialog': false,//首次运行(否)
 
 //FlashGot
 'flashgot.hide-all': true,
@@ -128,9 +123,6 @@ var PREFS = {
 'extensions.greasemonkey.stats.prompted': true,//不弹改进建议提示
 'extensions.greasemonkey.installDelay': 0,//安装时的倒计时
 
-//Stylish
-'extensions.stylish.firstRun': 3,//重建配置不弹欢迎页
-
 //iMacros
 'extensions.imacros.delay': 1000,//播放速度中等
 'extensions.imacros.noloopwarning': true,//运行的提示(否)
@@ -145,19 +137,22 @@ var PREFS = {
 'extensions.isreaditlater.showStatusIconText': "hide",
 'extensions.isreaditlater.autoOffline': false,//自动离线(否)
 
-//All Tabs Helper
-'extensions.alltabshelper@alltabshelper.org.showUndoInTabContextMenu': false,//在标签页键显示Unload菜单(否)
-'extensions.alltabshelper@alltabshelper.org.showDontAutoUnloadItem': false,//在标签页键显示Don't Auto Unload菜单(否)
-'extensions.alltabshelper@alltabshelper.org.tabUnloadTimerValue': 0,//(分钟)0表示禁用
+//SimpleProxy
+'extensions.simpleproxy.address.0': "127.0.0.1",
+'extensions.simpleproxy.address.1': "127.0.0.1",
+'extensions.simpleproxy.list.0': "https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt",
+'extensions.simpleproxy.list.1': "https://github.com/dupontjoy/customization/raw/master/Rules/Autoproxy/Aup-Cing-List.txt",
+'extensions.simpleproxy.manage': 10,
+'extensions.simpleproxy.number': 2,
+'extensions.simpleproxy.port.0': 1080,
+'extensions.simpleproxy.port.1': 1080,
+'extensions.simpleproxy.protocol.0': "socks",
+'extensions.simpleproxy.protocol.1': "socks",
 
-//Tab Groups
-'extensions.tabgroups.groupTitleInButton': false,//按钮-显示当前分组名称(否)
-'extensions.tabgroups.noWarningsAboutSession': true,//重启时保持标签页分组(否)
+//FlashBlock
+'flashblock.silverlight.blocked': true,//同样阻止Silverlight
 
 //*==========脚本设置==========*//
-//UC管理器取消延迟加载
-'userChrome.EXPERIMENT': true,
-
 //InspectElementModY
 'userChromeJS.InspectElement.contentType': 2,//查看页面:Dom Inspector
 'userChromeJS.InspectElement.mainWinType': 2,//查看窗口:Dom Inspector

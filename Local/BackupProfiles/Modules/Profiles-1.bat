@@ -1,4 +1,4 @@
-::2017.03.03
+::2017.05.27
 
 :Profiles-1
 cls
@@ -53,8 +53,9 @@ xcopy "%BackDir%\cert8.db" %TempFolder%\Profiles\  /s /y /i
 xcopy "%BackDir%\cert_override.txt" %TempFolder%\Profiles\  /s /y /i
 ::Cookies: 保留着你曾访问过的网站信息，通常是你的网站首选项信息或登录状态
 xcopy "%BackDir%\cookies.sqlite" %TempFolder%\Profiles\  /s /y /i
-::foxyproxy.xml: FoxyProxy设置
+::foxyproxy.xml/patternSubscriptions.json: FoxyProxy设置
 xcopy "%BackDir%\foxyproxy.xml" %TempFolder%\Profiles\  /s /y /i
+xcopy "%BackDir%\patternSubscriptions.json" %TempFolder%\Profiles\  /s /y /i
 ::自定义工具栏
 xcopy "%BackDir%\localstore.rdf" %TempFolder%\Profiles\  /s /y /i
 xcopy "%BackDir%\xulstore.json" %TempFolder%\Profiles\  /s /y /i

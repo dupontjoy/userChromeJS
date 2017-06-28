@@ -1,4 +1,4 @@
-::2017.04.24
+::2017.06.12
 
 :GitHub
 cls
@@ -11,7 +11,6 @@ echo  3. ProcessLasso設置
 echo  4. TC設置
 echo  5. Listary設置
 echo  6. CCleaner設置
-echo  7. WindowTabs設置
 echo.
 echo  按任意键继续……
 pause>nul
@@ -50,11 +49,5 @@ xcopy "%dir1%\..\Software\totalcmd64\user\Default.br2" "%dir2%\TC\Default.br2"  
 ::備份Listary設置
 xcopy "%dir1%\..\Software\Listary Pro\UserData\Preferences.json" "%dir2%\Listary\Preferences.json"  /s /y /i
 
-::備份ShareX設置
-::xcopy "%dir1%\..\Software\ShareX\ShareX\ApplicationConfig.json" "%dir2%\ShareX\ApplicationConfig.json"  /s /y /i
-
 ::備份CCleaner設置
-xcopy "%dir1%\..\..\System Tools\CCleaner\ccleaner.ini" "%dir2%\CCleaner\ccleaner.ini"  /s /y /i
-
-::備份WindowTabs設置
-xcopy "%dir1%\..\..\System Tools\WindowTabs\WindowTabsSettings.txt" "%dir2%\WindowTabs\WindowTabsSettings.txt"  /s /y /i
+xcopy "%dir1%\..\..\System Tools\AcmeKit\ccleaner.ini" "%dir2%\CCleaner\ccleaner.ini"  /s /y /i

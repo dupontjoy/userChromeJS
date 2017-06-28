@@ -1,4 +1,4 @@
-//2017.06.07
+//2017.06.21
 
 /******************************************************************************************
 快捷键分类:
@@ -389,8 +389,6 @@ let bootstrap = () => {
     let addons = [
         {id: '2.0@disconnect.me', url: 'latest/disconnect/platform:5/addon-464050-latest.xpi'},
         {id: 'playflash@xpi', url: 'latest/playflash/platform:5/addon-676750-latest.xpi'},
-        //{id: 'foxyproxy@eric.h.jung', url: 'latest/foxyproxy-standard'},
-        //{id: 'walterclozet@gmail.com', url: 'latest/autoproxymod/platform:5/addon-666460-latest.xpi'},
         {id: 'VimFx@akhodakivskiy.github.com', url: 'latest/vimfx'},
         {id: 'inspector@mozilla.org', url: 'latest/dom-inspector-6622'},
         {id: '{DDC359D1-844A-42a7-9AA1-88A850A938A8}', url: 'latest/downthemall'},

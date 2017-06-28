@@ -1,4 +1,4 @@
-//2017.05.26
+//2017.06.19
 //Redirector说明页面: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //规则Github备份: https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
 rules = [{
@@ -232,20 +232,6 @@ regex: true
     name: "tvc测试",
     from: /^https?:\/\/192\.168\.1\.70\:180\/(c\/|t\/|details\/|search|List|ProductList)(.*)/i,
     to: "https://www.tvc-mall.com/$1$2",
-    regex: true
-},
-{
-    //example: http://ic.sjlpj.cn/#/ProductNewCategory/ProductNewCategoryManager
-    name: "ProductNewCategory首页 每页100项",
-    from: /^(https?:\/\/ic\.sjlpj\.cn\/.*ProductNewCategory\/ProductNewCategoryManager)$/,
-    to: "$1?pageSize=100",
-    regex: true
-},
-{
-    //example: http://ic.sjlpj.cn/ProductNewCategory/ProductNewCategoryManager?quickParentId=97698
-    name: "ProductNewCategory型号页 每页100项",
-    from: /^(https?:\/\/ic\.sjlpj\.cn\/.*ProductNewCategory\/ProductNewCategoryManager\?quickParentId=[\d]+)$/,
-    to: "$1&pageSize=100",
     regex: true
 },
 

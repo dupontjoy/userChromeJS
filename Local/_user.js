@@ -1,4 +1,4 @@
-//2017.06.07
+//2017.06.23
 
 const EXPORTED_SYMBOLS = ['PREFS']
 
@@ -9,7 +9,10 @@ var PREFS = {
  
 //*==========多进程==========*//
 /*'browser.tabs.remote.force-enable': true,
-'extensions.e10sBlockedByAddons': false,//扩展禁用列表*/
+'extensions.e10sBlocksEnabling': false,//扩展禁用列表
+'extensions.e10sBlockedByAddons': false,//扩展禁用列表
+'dom.ipc.processCount': 4,//进程数(最大支持8)*/
+'extensions.allow-non-mpc-extensions': true,//强制开启非多进程扩展
 
 //*==========主页==========*//
 'browser.startup.page': 1,//启动Firefox时显示主页
@@ -22,6 +25,10 @@ var PREFS = {
 //*==========Firefox设置==========*//
 'layers.acceleration.disabled': true,//禁用硬件加速MacType才生效
 'signon.rememberSignons': false,//不保存密码
+
+//证书
+'security.default_personal_cert': "Select Automatically",//自动选择一个个人证书
+'security.OCSP.enabled': 0,//禁用OCSP查询.导致页面加载慢,极端情况下延迟高达3秒
 
 //字体语言编码
 'font.name.serif.zh-CN': "Arial",//衬线字体

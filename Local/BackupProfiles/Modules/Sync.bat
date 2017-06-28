@@ -1,4 +1,4 @@
-::2017.04.14
+::2017.06.12
 
 :Sync
 cls
@@ -8,6 +8,7 @@ echo.
 echo  1. Foxmail過濾器：应用到所有邮箱
 echo  2. ProcessLasso設置
 echo  3. Listary設置
+echo  4. CCleaner設置
 echo.
 echo  按任意键继续……
 pause>nul
@@ -48,3 +49,6 @@ del "%dir1%\..\Software\Listary Pro\UserData\History_v2.sqlite-journal"  /s /q
 del "%dir1%\..\Software\Listary Pro\UserData\listary_log.log"  /s /q
 xcopy "%dir2%\Listary\Preferences.json" "%dir1%\..\Software\Listary Pro\UserData\Preferences.json"  /s /y /i
 start "" "%dir1%\..\Software\Listary Pro\Listary.exe"
+
+::同步CCleaner设置
+xcopy "%dir2%\CCleaner\ccleaner.ini" "%dir1%\..\..\System Tools\AcmeKit\ccleaner.ini"  /s /y /i

@@ -1,4 +1,4 @@
-::2017.04.09
+::2017.06.23
 
 :pcxFirefox
 ::複製PcxFirefox主程序
@@ -15,12 +15,16 @@ xcopy "%BackDir3%\firefox" %TempFolder%\firefox\  /s /y /i
 
 ::複製便携模块tmemutil.ini到firefox主程序文件夹
 xcopy "%TempFolder%\Software\run\tmemutil.ini" %TempFolder%\firefox\  /s /y /i
+::复制绕过firefox扩展的签名认证补丁firefoxpassign.cmd到firefox主程序文件夹
+xcopy "%TempFolder%\Software\run\firefoxpassign.cmd" %TempFolder%\firefox\  /s /y /i
 
 :CingFox-2
 ::需要刪除的项
 del %TempFolder%\Software\GFW\goagent\  /s /q
 del %TempFolder%\Software\GFW\IP-Update\  /s /q
 del %TempFolder%\Software\GFW\Shadowsocks\  /s /q
+del %TempFolder%\Software\GFW\SSR\  /s /q
+del %TempFolder%\Software\GFW\MEOW\  /s /q
 del %TempFolder%\Software\Other\QT-Check\  /s /q
 del %TempFolder%\Software\GFW\psiphon\psiphon3.exe.orig  /s /q
 del %TempFolder%\Profiles\iMacros\  /s /q
@@ -39,6 +43,7 @@ del %TempFolder%\Profiles\extensions\mydedao-share@ywzhaiqi.com.xpi  /s /q
 xcopy "%TempFolder%\Profiles\chrome\xul\localMark_0.6.1.uc.xul" %TempFolder%\Optional\Profiles\chrome\xul\  /s /y /i
 xcopy "%TempFolder%\Profiles\chrome\SubScript\SougouDeskPic.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
 xcopy "%TempFolder%\Profiles\chrome\SubScript\DesktopWallpaper.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
+xcopy "%TempFolder%\Profiles\chrome\SubScript\DesktopWallpaper-V2.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
 xcopy "%TempFolder%\Profiles\chrome\SubScript\QR.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
 xcopy "%TempFolder%\Profiles\chrome\SubScript\videos_skipAd.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
 xcopy "%TempFolder%\Profiles\chrome\Local\_user.js" %TempFolder%\Optional\Profiles\chrome\Local\  /s /y /i
@@ -50,6 +55,7 @@ xcopy "%TempFolder%\Software\TotalCMD64" %TempFolder%\Optional\Software\TotalCMD
 del %TempFolder%\Profiles\chrome\xul\localMark_0.6.1.uc.xul /s /q
 del %TempFolder%\Profiles\chrome\SubScript\SougouDeskPic.uc.js  /s /q
 del %TempFolder%\Profiles\chrome\SubScript\DesktopWallpaper.uc.js  /s /q
+del %TempFolder%\Profiles\chrome\SubScript\DesktopWallpaper-V2.uc.js  /s /q
 del %TempFolder%\Profiles\chrome\SubScript\QR.uc.js  /s /q
 del %TempFolder%\Profiles\chrome\SubScript\videos_skipAd.uc.js  /s /q
 del %TempFolder%\Profiles\chrome\Local\_user.js  /s /q

@@ -1,4 +1,4 @@
-::2017.06.23
+::2017.06.29
 
 :pcxFirefox
 ::複製PcxFirefox主程序
@@ -42,8 +42,7 @@ del %TempFolder%\Profiles\extensions\mydedao-share@ywzhaiqi.com.xpi  /s /q
 ::一些脚本文件单独打包
 xcopy "%TempFolder%\Profiles\chrome\xul\localMark_0.6.1.uc.xul" %TempFolder%\Optional\Profiles\chrome\xul\  /s /y /i
 xcopy "%TempFolder%\Profiles\chrome\SubScript\SougouDeskPic.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
-xcopy "%TempFolder%\Profiles\chrome\SubScript\DesktopWallpaper.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
-xcopy "%TempFolder%\Profiles\chrome\SubScript\DesktopWallpaper-V2.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
+xcopy "%TempFolder%\Profiles\chrome\SubScript\*Wallpaper*.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
 xcopy "%TempFolder%\Profiles\chrome\SubScript\QR.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
 xcopy "%TempFolder%\Profiles\chrome\SubScript\videos_skipAd.uc.js" %TempFolder%\Optional\Profiles\chrome\SubScript\  /s /y /i
 xcopy "%TempFolder%\Profiles\chrome\Local\_user.js" %TempFolder%\Optional\Profiles\chrome\Local\  /s /y /i
@@ -54,8 +53,7 @@ xcopy "%TempFolder%\Software\PicPick" %TempFolder%\Optional\Software\PicPick\  /
 xcopy "%TempFolder%\Software\TotalCMD64" %TempFolder%\Optional\Software\TotalCMD64\  /s /y /i
 del %TempFolder%\Profiles\chrome\xul\localMark_0.6.1.uc.xul /s /q
 del %TempFolder%\Profiles\chrome\SubScript\SougouDeskPic.uc.js  /s /q
-del %TempFolder%\Profiles\chrome\SubScript\DesktopWallpaper.uc.js  /s /q
-del %TempFolder%\Profiles\chrome\SubScript\DesktopWallpaper-V2.uc.js  /s /q
+del %TempFolder%\Profiles\chrome\SubScript\*Wallpaper*.uc.js  /s /q
 del %TempFolder%\Profiles\chrome\SubScript\QR.uc.js  /s /q
 del %TempFolder%\Profiles\chrome\SubScript\videos_skipAd.uc.js  /s /q
 del %TempFolder%\Profiles\chrome\Local\_user.js  /s /q

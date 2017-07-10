@@ -1,4 +1,4 @@
-//2017.06.21
+//2017.07.07
 
 /******************************************************************************************
 快捷键分类:
@@ -382,7 +382,7 @@ vimfx.addCommand({
 }, ({vim}) => {
     vim.window.switchToTabHavingURI('chrome://umatrix/content/dashboard.html#user-rules', true)
 })
-map('zu', 'umatrix_bootstrap', true)
+map('zm', 'umatrix_bootstrap', true)
 
 let bootstrap = () => {
     // install addons

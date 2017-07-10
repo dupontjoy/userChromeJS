@@ -892,11 +892,11 @@
             var style = document.createProcessingInstruction("xml-stylesheet", "type=\"text/css\"" + " href=\"data:text/css;base64," + btoa(cssStr) + "\"");
             document.insertBefore(style,document.firstChild);
 			var dir = [
-		["C:\\Users\\Cing\\Desktop", "Desktop(Cing)"],
-		["C:\\Users\\Administrator\\Desktop", "Desktop(Admin)"],
-		["E:\\Download", "Download"],
-		["E:\\Temp", "Temp"],
-		["E:\\Syuan's Soft", "Syuan's Soft"],
+		["C:\\Users\\Cing\\Desktop", "C:\\Desktop(Cing)"],
+		["C:\\Users\\Administrator\\Desktop", "C:\\Desktop(Admin)"],
+		//["X:\\Users\\Administrator\\Desktop", "X:\\Desktop(Admin)"],
+		["E:\\Download", "E:\\Download"],
+		["E:\\Syuan's Soft", "E:\\Syuan's Soft"],
 			];
 			var saveTo = document.documentElement._buttons.extra2.parentNode.insertBefore(document.createElement("button"), document.documentElement._buttons.extra2);
 			var saveToMenu = saveTo.appendChild(document.createElement("menupopup"));

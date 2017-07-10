@@ -1,4 +1,4 @@
-//2017.06.23
+//2017.07.06
 
 const EXPORTED_SYMBOLS = ['PREFS']
 
@@ -23,8 +23,11 @@ var PREFS = {
 'browser.newtabpage.pinned': "[{\"url\":\"https://hbr.org/\",\"title\":\"HBR\"},{\"url\":\"http://www.economist.com/\",\"title\":\"Economist\"},{\"url\":\"http://www.cnn.com/\",\"title\":\"CNN\"},{\"url\":\"https://www.ft.com/\",\"title\":\"Financial Times\"},{\"url\":\"http://www.nytimes.com/\",\"title\":\"NYTimes\"},{\"url\":\"http://www.wsj.com/\",\"title\":\"WSJ\"},{\"url\":\"https://docs.google.com/spreadsheets/u/0/\",\"title\":\"Google Sheets\"},{\"url\":\"http://bbs.kafan.cn/forum-215-1.html\",\"title\":\"Kafan\"},{\"url\":\"http://www.cnbeta.com/\",\"title\":\"cnBeta\"},{\"url\":\"http://www.zhihu.com/explore\",\"title\":\" Zhihu\"},{\"url\":\"http://www.douban.com/\",\"title\":\"Douban\"},{\"url\":\"https://www.youtube.com/\",\"title\":\"Youtube\"},{\"url\":\"http://open.163.com/\",\"title\":\"Open.163\"},{\"url\":\"http://music.163.com/\",\"title\":\"Music\"},{\"url\":\"http://email.163.com/\",\"title\":\"Mail\"}]",
  
 //*==========Firefox设置==========*//
+'browser.shell.checkDefaultBrowser': false,//不检查是否为默认浏览器
 'layers.acceleration.disabled': true,//禁用硬件加速MacType才生效
 'signon.rememberSignons': false,//不保存密码
+'network.proxy.type': 4,//自动检测网络的代理设置
+'dom.disable_open_during_load': false,//拦截弹出式窗口(否)
 
 //证书
 'security.default_personal_cert': "Select Automatically",//自动选择一个个人证书
@@ -85,6 +88,7 @@ var PREFS = {
 'browser.backspace_action': 2,//禁止Backspace键返回上一页
 'reader.parse-on-load.enabled': false,//禁用阅读模式
 'browser.tabs.closeWindowWithLastTab': false,//关闭最后一个标签时不关闭Firefox
+'browser.link.open_newwindow.restriction': 0,//单窗口模式(弹出窗口用标签打开)
 
 //*==========扩展设置==========*//
 
@@ -99,6 +103,7 @@ var PREFS = {
 'extensions.lastpass.hidecontextmenu': true,
 'extensions.lastpass.showHomepageAfterLogin': false,//登入后不转到密码库
 'extensions.lastpass.0a148091163b8a7de3368af449db2947c700bea1552b01964d4ae55f930562e0.toplevelmatchingsites': true,//将匹配网站移动到顶部菜单
+'extensions.lastpass.0a148091163b8a7de3368af449db2947c700bea1552b01964d4ae55f930562e0.RepromptTime': 86400,//免验证24小时
 'extensions.lastpass.loginpws': "",//不保存密码
 'extensions.lastpass.version': "1000.3.4",//调大版本号,不更新到4.x版
 'extensions.support@lastpass.com.sdk.version': "1000.3.4",//调大版本号,不更新到4.x版

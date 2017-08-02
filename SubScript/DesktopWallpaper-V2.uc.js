@@ -8,7 +8,7 @@
 
 //壁纸位置在Profiles/AppData/Mozilla/Firefox/桌面背景.bmp，如果不在，请参照这个位置
 var setTime = 60*2;//单位(分钟)，默认为12小时，即超过12小时，自动换壁纸
-var useBing = false; //true -->使用必应壁纸; false --->使用360壁纸
+var useBing = true; //true -->使用必应壁纸; false --->使用360壁纸
 //var use360 = true;
 
 var getUrl;

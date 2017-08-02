@@ -1,4 +1,4 @@
-//2017.07.06
+//2017.07.25
 
 const EXPORTED_SYMBOLS = ['PREFS']
 
@@ -26,12 +26,11 @@ var PREFS = {
 'browser.shell.checkDefaultBrowser': false,//不检查是否为默认浏览器
 'layers.acceleration.disabled': true,//禁用硬件加速MacType才生效
 'signon.rememberSignons': false,//不保存密码
-'network.proxy.type': 4,//自动检测网络的代理设置
 'dom.disable_open_during_load': false,//拦截弹出式窗口(否)
 
 //证书
 'security.default_personal_cert': "Select Automatically",//自动选择一个个人证书
-'security.OCSP.enabled': 0,//禁用OCSP查询.导致页面加载慢,极端情况下延迟高达3秒
+'security.OCSP.enabled': 0,//禁用OCSP查询
 
 //字体语言编码
 'font.name.serif.zh-CN': "Arial",//衬线字体
@@ -64,6 +63,10 @@ var PREFS = {
 'plugins.hide_infobar_for_blocked_plugin': true,//插件屏蔽选择不提示
 'extensions.blocklist.enabled': false,//关闭flash版本过旧被屏蔽的提示
 
+//Quantum Flow
+'layers.gpu-process.dev.enabled': true,//强制启用Quantum Compositor
+'layout.css.servo.enabled': true,//强制启用Stylo样式引擎
+
 //*=隐私相关=*//
 //其它隐私相关
 'dom.webnotifications.enabled': false,//关闭 WEB 推送通知
@@ -73,6 +76,7 @@ var PREFS = {
 'browser.send_pings': false,//禁止Hyperlink Auditing/Beacon: Hyperlink Auditing 就是 ping 服务，Firefox 会把你点击过的链接及其时间发回给服务器，Hyperlink Beacon 是使用 navigator.sendBeacon()在你离开一个页面时将一些数据回传给服务器
 'browser.newtabpage.directory.ping': "",//禁止新标签页面的建议磁贴和增强磁贴
 'browser.urlbar.suggest.searches': false,//禁止地址栏搜索提供搜索建议
+'media.mediasource.enabled': false,//关闭DASH,加载全部视频
 
 //*=FX其它类=*/
 /**
@@ -93,11 +97,11 @@ var PREFS = {
 //*==========扩展设置==========*//
 
 //Autoproxy
-/*'extensions.autoproxy.customProxy': "Shadowsocks;;1080;socks$XX-Mini;;8087;$Lantern;;8787;$Psiphon;;8080;$Free%20Gate;;8580;",
+'extensions.autoproxy.customProxy': "Shadowsocks;;1080;socks$XX-Mini;;8087;$Lantern;;8787;$Psiphon;;8080;$Free%20Gate;;8580;",
 'extensions.autoproxy.patternsbackups': 0,
 'extensions.autoproxy.defaultstatusbaraction': 0,//点击图标时-快捷菜单
 'extensions.autoproxy.defaulttoolbaraction': 0,//点击图标时-快捷菜单
-*/
+
 
 //LastPass
 'extensions.lastpass.hidecontextmenu': true,
@@ -105,8 +109,6 @@ var PREFS = {
 'extensions.lastpass.0a148091163b8a7de3368af449db2947c700bea1552b01964d4ae55f930562e0.toplevelmatchingsites': true,//将匹配网站移动到顶部菜单
 'extensions.lastpass.0a148091163b8a7de3368af449db2947c700bea1552b01964d4ae55f930562e0.RepromptTime': 86400,//免验证24小时
 'extensions.lastpass.loginpws': "",//不保存密码
-'extensions.lastpass.version': "1000.3.4",//调大版本号,不更新到4.x版
-'extensions.support@lastpass.com.sdk.version': "1000.3.4",//调大版本号,不更新到4.x版
 'extensions.lastpass.prevHkKeyCode': 38,//上一个密码(方向键:上)
 'extensions.lastpass.prevHkMods': "alt",//上一个密码(Alt)
 'extensions.lastpass.nextHkKeyCode': 40,//下一个密码(方向键:下)
@@ -138,6 +140,7 @@ var PREFS = {
 //iMacros
 'extensions.imacros.delay': 1000,//播放速度中等
 'extensions.imacros.noloopwarning': true,//运行的提示(否)
+'extensions.imacros.id-priority': false,//Favor element ids in selectors (否)
 
 //Pocket(Readitlater)
 'extensions.isreaditlater.open': "tab",//新标签打开项目
@@ -161,8 +164,6 @@ var PREFS = {
 'extensions.simpleproxy.protocol.0': "socks",
 'extensions.simpleproxy.protocol.1': "socks",
 
-//FlashBlock
-'flashblock.silverlight.blocked': true,//同样阻止Silverlight
 
 //*==========脚本设置==========*//
 //InspectElementModY

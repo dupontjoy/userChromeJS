@@ -1,4 +1,4 @@
-::2017.06.29
+::2017.07.28
 
 :pcxFirefox
 ::複製PcxFirefox主程序
@@ -14,9 +14,12 @@ del /s /q %BackDir3%\firefox\*.tmp
 xcopy "%BackDir3%\firefox" %TempFolder%\firefox\  /s /y /i
 
 ::複製便携模块tmemutil.ini到firefox主程序文件夹
-xcopy "%TempFolder%\Software\run\tmemutil.ini" %TempFolder%\firefox\  /s /y /i
+xcopy "%TempFolder%\Run\tmemutil.ini" %TempFolder%\firefox\  /s /y /i
 ::复制绕过firefox扩展的签名认证补丁firefoxpassign.cmd到firefox主程序文件夹
-xcopy "%TempFolder%\Software\run\firefoxpassign.cmd" %TempFolder%\firefox\  /s /y /i
+xcopy "%TempFolder%\Run\firefoxpassign.cmd" %TempFolder%\firefox\  /s /y /i
+
+::复制Run文件夹
+xcopy "%BackDir2%\Run" %TempFolder%\Run\  /s /y /i
 
 :CingFox-2
 ::需要刪除的项
@@ -28,6 +31,7 @@ del %TempFolder%\Software\GFW\MEOW\  /s /q
 del %TempFolder%\Software\Other\QT-Check\  /s /q
 del %TempFolder%\Software\GFW\psiphon\psiphon3.exe.orig  /s /q
 del %TempFolder%\Profiles\iMacros\  /s /q
+del %TempFolder%\Profiles\browser-extension-data\  /s /q
 del %TempFolder%\Profiles\bookmarks.html  /s /q
 del %TempFolder%\Profiles\places.sqlite  /s /q
 del %TempFolder%\Profiles\cookies.sqlite  /s /q
@@ -69,3 +73,4 @@ xcopy "%TempFolder%\firefox" %TempFolder%\CingFox\firefox\ /s /y /i
 xcopy "%TempFolder%\Profiles" %TempFolder%\CingFox\Profiles\ /s /y /i
 xcopy "%TempFolder%\Plugins" %TempFolder%\CingFox\Plugins\ /s /y /i
 xcopy "%TempFolder%\Software" %TempFolder%\CingFox\Software\ /s /y /i
+xcopy "%TempFolder%\Run" %TempFolder%\CingFox\Run\ /s /y /i

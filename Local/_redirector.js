@@ -1,6 +1,8 @@
-//2017.06.19
+//2017.07.21
+
 //Redirector说明页面: https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/Redirector
 //规则Github备份: https://github.com/dupontjoy/userChromeJS/blob/master/Local/_redirector.js
+
 rules = [{
     //自带示例
     name: "about:haoutil",
@@ -217,10 +219,11 @@ regex: true
 {
     //example: http://ding.youku.com/a/id_XMTY2NDYw.html
     //方法来源: http://bbs.csdn.net/topics/391051571
+    //规则改进: https://github.com/ivysrono/URLRedirectorRules/blob/master/Directly.json
     //Note: 需配置ReferChage使用,将qpic.cn和qlogo.cn设置为"@Block"
     name: "微信图片 反盗链",
-    from: /^https?:\/\/mmbiz\.(qpic|qlogo)\.cn\/(mmbiz(_png|_jpg)?)\/(.*)\/(.*)\?(wx|tp)(.*)/i,
-    to: "http://mmbiz.qpic.cn/$2/$4/640",
+    from: /^https?:\/\/(mmbiz\.(qpic|qlogo)\.cn\/[^?]+)\?.*/i,
+    to: "http://$1",
     regex: true
 },
 

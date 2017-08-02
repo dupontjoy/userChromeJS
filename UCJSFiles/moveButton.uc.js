@@ -5,7 +5,7 @@
 // @namespace      ywzhaiqi@gmail.com
 // @include        main
 // @charset        UTF-8
-// @version        2017.05.05
+// @version        2017.07.28
 // version        2014.9.6
 // @homepageURL    https://github.com/ywzhaiqi/userChromeJS/tree/master/moveButton
 // @downloadURL    https://github.com/ywzhaiqi/userChromeJS/blob/master/moveButton/moveButton.uc.js
@@ -84,15 +84,16 @@ location == "chrome://browser/content/browser.xul" && (function(){
         // },
 
 /*工具栏*/
-{ id: "QuickOpen", insertAfter: "ublock0-button" },//启动时会消失, 只好特殊处理
+//{ id: "QuickOpen", insertAfter: "ublock0-button" },//启动时会消失, 只好特殊处理
 { id: "RIL_toolbar_button", insertAfter: "downloads-button" },//启动时有个边框去不掉, 只好特殊处理
 { id: "Sidebar-button", insertBefore: "urlbar" },//移动到地址栏前, 前进后退按钮后
         
 //不常用圖標移動到aidBar
 { id: "flashgot-media-tbb", bar: "TabsToolbar_aidBar", pos: 1 },//FlashGot扩展
-{ id: "foxyproxy-toolbar-icon", bar: "TabsToolbar_aidBar", pos: 2 },//FoxyProxy扩展
+//{ id: "foxyproxy-toolbar-icon", bar: "TabsToolbar_aidBar", pos: 2 },//FoxyProxy扩展
 { id: "lpt_lastpass-compact-btn", bar: "TabsToolbar_aidBar", pos: 3 },//Lastpass扩展(3.x)
-{ id: "toggle-button--supportlastpasscom-lastpass-button", bar: "TabsToolbar_aidBar", pos: 3 },//Lastpass扩展(4.x)
+{ id: "_446900e4-71c2-419f-a6a7-df9c091e268b_-browser-action", bar: "TabsToolbar_aidBar", pos: 4 },//BitWarden
+//{ id: "toggle-button--supportlastpasscom-lastpass-button", bar: "TabsToolbar_aidBar", pos: 3 },//Lastpass扩展(4.x)
 
 
 //保留在更多工具中

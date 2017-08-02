@@ -1,4 +1,4 @@
-//2017.05.16
+//2017.07.12
 
 /*——————————标签页右键————————————*/
 //撤销关闭二级菜单 By feiruo
@@ -79,7 +79,6 @@ function() {
     },
     {
         label: "复制图片Base64",
-        tooltiptext: "左键: 复制图片地址\n右键: 复制图片Base64码",
         accesskey: "B",
         text: "%IMAGE_BASE64%",
         image: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAbElEQVQ4jWNgGAzgPwUYbgC5FmMYcBTJdA8smo4yMDAo4zIgD4oZoIrQXZYHFcNpALLp6EAZKo/XBf+RbEH3AkwjUQbg8xpBA5ABsq3o0aeMzYCZaM7GFr14XQBTgGwLyQaQAlAMoCgpDywAAF13Uxwj2+klAAAAAElFTkSuQmCC"

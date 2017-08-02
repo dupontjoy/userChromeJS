@@ -6,6 +6,7 @@
 {display: none !important;}*/
 
 /*隐藏图标*/
+#action-button--jid0-bba9vaawx3lmwdu668audrpqvxujetpack-flash-disable-button,/*Flashdisable*/
 #wordhighlight-toolbar-icon,/*WHT图标*/
 #open_dedao_page_button,/*得到扩展图标*/
 #UIEnhancerToolbarButton,/*Location Bar Enhancer*/
@@ -319,6 +320,8 @@ menu[label="LastPass"],/*页面右键菜单*/
 }
 
 /*隐藏定制面板里的非线性图标*/
+#PanelUI-fxa-label,
+#PanelUI-fxa-container,
 #wrapper-sync-button,
 #sync-button,
 #wrapper-home-button,/*定制-主页*/

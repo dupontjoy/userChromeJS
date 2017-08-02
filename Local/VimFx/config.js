@@ -1,4 +1,4 @@
-//2017.07.07
+//2017.07.20
 
 /******************************************************************************************
 快捷键分类:
@@ -238,7 +238,7 @@ vimfx.addCommand({
 }, ({vim}) => {
     vim.window.BrowserTryToCloseWindow()
 })
-map(',q', 'go_close_currentfirefox', true)
+map(',x', 'go_close_currentfirefox', true)
 
 //群体重新载入，按顺序进行，遇到失效的将终止，所以请保证所有重载都是有效的。
 vimfx.addCommand({
@@ -290,7 +290,7 @@ vimfx.addCommand({
 }, ({vim}) => {
     vim.window.gWHT.destroyToolbar()
 })
-map(',x', 'go_wordhilight_close', true)
+map(',W', 'go_wordhilight_close', true)
 
 /*
 vimfx.addCommand({

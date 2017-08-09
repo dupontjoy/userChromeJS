@@ -1,4 +1,4 @@
-//2017.07.20
+//2017.08.08
 
 /******************************************************************************************
 快捷键分类:
@@ -371,7 +371,7 @@ vimfx.addCommand({
     description: '打开Redirector扩展设置',
     category: 'misc',
 }, ({vim}) => {
-    vim.window.switchToTabHavingURI('moz-extension://bf1aa2af-906f-466b-b1d8-8cc42d6e4133/redirector.html', true)
+    vim.window.switchToTabHavingURI('moz-extension://509aea5e-77c6-4f78-9864-de279ca727a7/redirector.html', true)
 })
 map('zr', 'goto_redirector', true)
 
@@ -387,18 +387,7 @@ map('zm', 'umatrix_bootstrap', true)
 let bootstrap = () => {
     // install addons
     let addons = [
-        {id: '2.0@disconnect.me', url: 'latest/disconnect/platform:5/addon-464050-latest.xpi'},
-        {id: 'playflash@xpi', url: 'latest/playflash/platform:5/addon-676750-latest.xpi'},
-        {id: 'VimFx@akhodakivskiy.github.com', url: 'latest/vimfx'},
-        {id: 'inspector@mozilla.org', url: 'latest/dom-inspector-6622'},
-        {id: '{DDC359D1-844A-42a7-9AA1-88A850A938A8}', url: 'latest/downthemall'},
-        {id: '{19503e42-ca3c-4c27-b1e2-9cdb2170ee34}', url: 'latest/flashgot'},
-        {id: '{e4a8a97b-f2ed-450b-b12d-ee082ba24781}', url: 'latest/greasemonkey'},
-        {id: '{81BF1D23-5F17-408D-AC6B-BD6DF7CAF670}', url: 'latest/imacros-for-firefox'},
-        {id: 'uBlock0@raymondhill.net', url: 'latest/ublock-origin'},
-        {id: 'uMatrix@raymondhill.net', url: 'latest/umatrix'},
-        {id: 'SimpleX@White.Theme', url: 'latest/simplex'},
-
+  {id: 'playflash@xpi', url: 'latest/playflash/platform:5/addon-676750-latest.xpi'},
 
     ]
     addons.forEach((element) => {
@@ -469,18 +458,10 @@ loadCss(`${__dirname}/../../UserCSSLoader/01-UI——UI调整.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/01-UI——附加组件显示版本号.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/02-微调——页面.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/02-微调——字体效果.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/02-微调——图标菜单.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/02-微调——图标替换.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/02-微调——图标效果&排序.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/02-微调——隐藏项.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/03-其他——Cursors for hyperlinks.css`)
 loadCss(`${__dirname}/../../UserCSSLoader/03-其他——网站修正.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/RC-界面——关于页面.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/RC-界面——搜索栏.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/RC-界面——新标签页.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/RC-界面——元素调整.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/RC-主题——Yosemite.css`)
-loadCss(`${__dirname}/../../UserCSSLoader/RC-主题——主题补丁.css`)
 
 //加载CSS文件(未成功)
 /*let {css} = Cu.import(`${__dirname}/../../UserCSSLoader/.css?${Math.random()}`, {})

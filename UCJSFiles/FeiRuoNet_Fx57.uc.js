@@ -1191,8 +1191,8 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
                     if (!this.Prefs.prefHasUserValue(name) || this.Prefs.getPrefType(name) != Ci.nsIPrefBranch.PREF_STRING) this.Prefs.setCharPref(name, val ? val : "");
                     return this.Prefs.getCharPref(name);
                 case 3:
-                    if (!this.Prefs.prefHasUserValue(name) || this.Prefs.getPrefType(name) != Ci.nsIPrefBranch.PREF_STRING) this.Prefs.setComplexValue(name, Ci.nsILocalFile, makeURI(val).QueryInterface(Ci.nsIFileURL).file);
-                    return this.Prefs.getComplexValue(name, Ci.nsILocalFile);
+                    if (!this.Prefs.prefHasUserValue(name) || this.Prefs.getPrefType(name) != Ci.nsIPrefBranch.PREF_STRING) this.Prefs.setComplexValue(name, Ci.nsIFile, makeURI(val).QueryInterface(Ci.nsIFileURL).file);
+                    return this.Prefs.getComplexValue(name, Ci.nsIFile);
                 case 4:
                     if (!this.Prefs.prefHasUserValue(name) || this.Prefs.getPrefType(name) != Ci.nsIPrefBranch.PREF_STRING) {
                         var aFile = Cc["@mozilla.org/pref-relativefile;1"].createInstance(Ci.nsIRelativeFilePref);
@@ -1369,7 +1369,7 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
             else if (typeof(aFile) == "string") {
                 if (/^file:\/\//.test(aFile)) aFile = aFile.QueryInterface(Components.interfaces.nsIFileURL).file;
                 else {
-                    var File = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsILocalFile);
+                    var File = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile);
                     aFile = File.initWithPath(aFile);
                 }
             } else return;
@@ -1393,7 +1393,7 @@ location == "chrome://browser/content/browser.xul" && (function(CSS) {
                 var path = UI.ConvertFromUnicode(aFile.path);
                 // process.init(editor);
                 // process.run(false, [path], [path].length);
-                var appfile = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsILocalFile);
+                var appfile = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile);
                 appfile.initWithPath(editor);
                 process.init(appfile);
                 process.run(false, [path], 1, {});

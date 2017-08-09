@@ -106,4 +106,4 @@ xcopy "%BackDir%\extensions\support@lastpass.com\platform\WINNT_x86_64-msvc" %Te
 
 ::讀取版本號和日期及時間
 ::从批处理所在位置到Firefox程序文件夹（firefox），共跨了5层
-for /f "usebackq eol=; tokens=1,2 delims==" %%i in ("..\..\..\..\..\Firefox\application.ini")do (if %%i==Version set ver=%%j)
+for /f "usebackq eol=; tokens=1,2 delims==" %%i in ("..\..\..\..\..\Nightly\application.ini")do (if %%i==Version set ver=%%j)

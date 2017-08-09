@@ -1,4 +1,4 @@
-//2017.07.25
+//2017.08.08
 
 const EXPORTED_SYMBOLS = ['PREFS']
 
@@ -85,6 +85,7 @@ var PREFS = {
 'browser.sessionstore.resume_from_crash': false,//关闭Firefox会话恢复功能
 'browser.sessionstore.max_tabs_undo': 10,//最近撤销标签历史最大数
 'browser.sessionstore.interval': 600000,//防止向SSD写入大量数量: 重写recovery.js文件的默认数值为“15000ms”(间隔时间15s), 改为10分钟
+
 //其它FX
 'general.skins.selectedSkin': "simplewhitex",//使用SimpleWhite主题
 'gfx.content.azure.backends': "direct2d1.1,cairo",//图形渲染;FX52默认的Skia不支持Mactype
@@ -93,6 +94,9 @@ var PREFS = {
 'reader.parse-on-load.enabled': false,//禁用阅读模式
 'browser.tabs.closeWindowWithLastTab': false,//关闭最后一个标签时不关闭Firefox
 'browser.link.open_newwindow.restriction': 0,//单窗口模式(弹出窗口用标签打开)
+'security.sandbox.content.level': 3,//沙盒级別
+'extensions.pocket.enabled': false,//自带Pocket(禁用)
+'extensions.screenshots.disabled': true,//自带截图(禁用)
 
 //*==========扩展设置==========*//
 
@@ -140,7 +144,6 @@ var PREFS = {
 //iMacros
 'extensions.imacros.delay': 1000,//播放速度中等
 'extensions.imacros.noloopwarning': true,//运行的提示(否)
-'extensions.imacros.id-priority': false,//Favor element ids in selectors (否)
 
 //Pocket(Readitlater)
 'extensions.isreaditlater.open': "tab",//新标签打开项目

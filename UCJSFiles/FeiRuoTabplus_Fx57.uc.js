@@ -66,7 +66,7 @@
 		},
 		get file() {
 			var aFile;
-			aFile = Services.dirsvc.get("UChrm", Ci.nsILocalFile);
+			aFile = Services.dirsvc.get("UChrm", Ci.nsIFile);
 			aFile.appendRelativePath("lib");
 			aFile.appendRelativePath("_FeiRuoTabplus.js");
 			try {
@@ -449,12 +449,12 @@
 					break;
 				case "ColseToNearTab":
 					if (tab.linkedBrowser.contentDocument.URL == 'about:blank') return;
-					if (tab._tPos <= gBrowser.mTabContainer.selectedIndex) {
+					if (tab._tPos <= gBrowser.tabContainer.selectedIndex) {
 						if (tab.previousSibling) {
 							if (val === 1)
-								gBrowser.mTabContainer.selectedIndex--;
+								gBrowser.tabContainer.selectedIndex--;
 							if (val === 2)
-								gBrowser.mTabContainer.selectedIndex++;
+								gBrowser.tabContainer.selectedIndex++;
 						}
 					}
 					break;
@@ -734,7 +734,7 @@
 					break;
 				case 'LoadWithIE':
 					try {
-						var file = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties).get("ProgF", Ci.nsILocalFile);
+						var file = Cc["@mozilla.org/file/directory_service;1"].getService(Ci.nsIProperties).get("ProgF", Ci.nsIFile);
 						file.append("Internet Explorer");
 						file.append("iexplore.exe");
 						var process = Cc["@mozilla.org/process/util;1"].createInstance(Ci.nsIProcess);
@@ -746,10 +746,10 @@
 					}
 					break;
 				case 'MouseScrollTabL':
-					gBrowser.mTabContainer.advanceSelectedTab(-1, true);
+					gBrowser.tabContainer.advanceSelectedTab(-1, true);
 					break;
 				case 'MouseScrollTabR':
-					gBrowser.mTabContainer.advanceSelectedTab(+1, true);
+					gBrowser.tabContainer.advanceSelectedTab(+1, true);
 					break;
 				case 'UnloadedToReload':
 					if (e.target.hasAttribute("busy")) {
@@ -1061,7 +1061,7 @@
 				aFile = this.file;
 
 			if (typeof(aFile) == "string") {
-				var file = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsILocalFile);
+				var file = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile);
 				var process = Cc['@mozilla.org/process/util;1'].createInstance(Ci.nsIProcess);
 				aFile = file.initWithPath(aFile);
 			}
@@ -1097,7 +1097,7 @@
 				var path = UI.ConvertFromUnicode(aFile.path);
 				// process.init(editor);
 				// process.run(false, [path], [path].length);
-				var appfile = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsILocalFile);
+				var appfile = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile);
 				appfile.initWithPath(editor);
 				process.init(appfile);
 				process.run(false, [path], 1, {});
@@ -2161,29 +2161,29 @@
 			var TabEventMenu = _$D("TabEventCommand");
 			var TabBarEventMenu = _$D("TabBarEventCommand");
 			if (Mouse == "Scroll") {
-				TabEventMenu.appendItem("滚动切换标签(向左)", "MouseScrollTabL", "mTabContainer");
-				TabEventMenu.appendItem("滚动切换标签(向右)", "MouseScrollTabR", "mTabContainer");
-				TabBarEventMenu.appendItem("滚动切换标签(向左)", "MouseScrollTabL", "mTabContainer");
-				TabBarEventMenu.appendItem("滚动切换标签(向右)", "MouseScrollTabR", "mTabContainer");
+				TabEventMenu.appendItem("滚动切换标签(向左)", "MouseScrollTabL", "tabContainer");
+				TabEventMenu.appendItem("滚动切换标签(向右)", "MouseScrollTabR", "tabContainer");
+				TabBarEventMenu.appendItem("滚动切换标签(向左)", "MouseScrollTabL", "tabContainer");
+				TabBarEventMenu.appendItem("滚动切换标签(向右)", "MouseScrollTabR", "tabContainer");
 
 			}
 
-			TabEventMenu.appendItem("关闭当前标签", "CloseTargetTab", "mTabContainer");
-			TabEventMenu.appendItem("新建标签", "AddTab", "mTabContainer");
-			TabEventMenu.appendItem("撤销关闭", "UndoCloseTab", "mTabContainer");
-			TabEventMenu.appendItem("刷新标签", "ReloadTarget", "mTabContainer");
-			TabEventMenu.appendItem("强制刷新标签", "ReloadSkipCache", "mTabContainer");
-			TabEventMenu.appendItem("锁定标签", "PinTargetTab", "mTabContainer");
-			TabEventMenu.appendItem("刷新未载入的标签", "UnloadedToReload", "mTabContainer");
-			TabEventMenu.appendItem("用IE打开当前页", "LoadWithIE", "mTabContainer");
+			TabEventMenu.appendItem("关闭当前标签", "CloseTargetTab", "tabContainer");
+			TabEventMenu.appendItem("新建标签", "AddTab", "tabContainer");
+			TabEventMenu.appendItem("撤销关闭", "UndoCloseTab", "tabContainer");
+			TabEventMenu.appendItem("刷新标签", "ReloadTarget", "tabContainer");
+			TabEventMenu.appendItem("强制刷新标签", "ReloadSkipCache", "tabContainer");
+			TabEventMenu.appendItem("锁定标签", "PinTargetTab", "tabContainer");
+			TabEventMenu.appendItem("刷新未载入的标签", "UnloadedToReload", "tabContainer");
+			TabEventMenu.appendItem("用IE打开当前页", "LoadWithIE", "tabContainer");
 			/************************/
-			TabBarEventMenu.appendItem("关闭当前标签", "CloseTargetTab", "mTabContainer");
-			TabBarEventMenu.appendItem("新建标签", "AddTab", "mTabContainer");
-			TabBarEventMenu.appendItem("撤销关闭", "UndoCloseTab", "mTabContainer");
-			TabBarEventMenu.appendItem("刷新标签", "ReloadTarget", "mTabContainer");
-			TabBarEventMenu.appendItem("强制刷新标签", "ReloadSkipCache", "mTabContainer");
-			TabBarEventMenu.appendItem("刷新未载入的标签", "UnloadedToReload", "mTabContainer");
-			TabBarEventMenu.appendItem("用IE打开当前页", "LoadWithIE", "mTabContainer");
+			TabBarEventMenu.appendItem("关闭当前标签", "CloseTargetTab", "tabContainer");
+			TabBarEventMenu.appendItem("新建标签", "AddTab", "tabContainer");
+			TabBarEventMenu.appendItem("撤销关闭", "UndoCloseTab", "tabContainer");
+			TabBarEventMenu.appendItem("刷新标签", "ReloadTarget", "tabContainer");
+			TabBarEventMenu.appendItem("强制刷新标签", "ReloadSkipCache", "tabContainer");
+			TabBarEventMenu.appendItem("刷新未载入的标签", "UnloadedToReload", "tabContainer");
+			TabBarEventMenu.appendItem("用IE打开当前页", "LoadWithIE", "tabContainer");
 
 
 

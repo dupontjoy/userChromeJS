@@ -15,17 +15,6 @@
 	min-width: 110px !important;
 }
 
-/*标签样式css*/
-.tabbrowser-tab[busy] {
-	color: blue !important;
-}/* 正在加载标签 */
-.tabbrowser-tab[pending] {
-	color: gray !important;
-}/* 未加载标签 */
-.tabbrowser-tab[unread] {
-	color: red !important;
-}/* 未读标签 */
-
 /*当前标签显示关闭按钮*/
 .tabbrowser-tab:not([selected]) .tab-close-button {
 	display: none!important;
@@ -34,76 +23,6 @@
 	display: inherit!important;
 }/*鼠标移动上去显示*/
 
-/*顯示標籤頁總數*/
-#main-window {
-	counter-reset: tabs !important;
-}
-
-.tabbrowser-tab:not(:-moz-any([pinned],[concealed])) {
-	counter-increment: tabs !important;
-}
-
-#alltabs-button {
-	visibility: visible!important;
-}
-
-#alltabs-button:after {
-	content: counter(tabs) !important;
-	font-size: 13px !important;
-	display: -moz-box !important;
-}
-
-#alltabs-button > :-moz-any(label, image) {
-	display: none !important;
-}
-
-#alltabs-button menuitem {
-	max-width: 200px !important;
-}
-
-#alltabs-button {
-	margin-right: -65px!important;
-}
-
-/*彈出菜單顯示標籤頁序號*/
-#alltabs-popup {
-	counter-reset: latabs;
-}
-
-#alltabs-popup .menuitem-iconic.alltabs-item.menuitem-with-favicon {
-	counter-increment: latabs;
-}
-
-#alltabs-popup .menuitem-iconic.alltabs-item.menuitem-with-favicon:before {
-	content: counter(latabs);
-}
-/*彈出菜單顯示關閉標籤頁序號*/
-#undoCloseTabPopup .menuitem-iconic {
-	counter-increment: menuitem;
-}
-
-#undoCloseTabPopup menuitem:before {
-	content: counter(menuitem);
-}
-
-#alltabs-popup .menuitem-iconic.alltabs-item.menuitem-with-favicon:before,
-#undoCloseTabPopup menuitem:before {
-	display: -moz-box;
-	-moz-box-pack: center;
-	font-weight: bold;
-	min-width: 26px;
-}
-
-/*每個標籤頁 加上序號*/
-.tabbrowser-tab:before {
-	margin: -16px 0px 0px -3px !important;
-	padding: 0px 0px !important;
-	color: black !important;
-	font-size: 9px !important;
-	font-weight: bold !important;
-	content: counter(tabs) !important;
-	position: absolute !important;
-}
 
 /* ====== 2. 地址栏 ====== */
 

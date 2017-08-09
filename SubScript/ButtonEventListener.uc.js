@@ -3,7 +3,7 @@
 // @namespace      runningcheese@qq.com
 // @description    为工具栏图标增加点击功能
 // @author         runningcheese
-// @version        0.0.1-2017.01.09
+// @version        0.0.1-2017.08.09
 // @license        MIT License
 // @compatibility  Firefox 29+
 // @charset        UTF-8
@@ -111,26 +111,6 @@ function(e) {
 },
 false);
 
-//移动添加书签图标到地址栏
-location == 'chrome://browser/content/browser.xul' && (function() {
-    var uIcon = document.getElementById('urlbar-icons'),
-    bmbtn = document.getElementById('bookmarks-menu-button');
-    if (!bmbtn) return;
-    uIcon.appendChild(bmbtn);
-})();
-
-// 失出焦点自动关闭查找栏
-(function() {
-    function closeFindbar(e) {
-        if (!gFindBar.hidden) {
-            if (e.target.id != "FindToolbar") {
-                gFindBar.close();
-            }
-        }
-    }
-    addEventListener('blur', closeFindbar, false);
-})();
-
 /*书签下拉菜单中键不关闭*/
 eval('BookmarksEventHandler.onClick = ' + BookmarksEventHandler.onClick.toString().replace(/if \(node\.localName \=\= \"menupopup"\)\n\s+node\.hidePopup\(\)\;\n\s+else/, ''));
 eval('checkForMiddleClick = ' + checkForMiddleClick.toString().replace('closeMenus(event.target);', ''));
@@ -156,13 +136,6 @@ event.preventDefault();\
 (function() {
     eval("DownloadsViewItem.prototype._updateProgress = " + DownloadsViewItem.prototype._updateProgress.toString().replace('status.text', 'status.tip'));
 })()
-
-/*點擊右鍵複製選項後取消選取文字*/
-document.querySelector("#context-copy").addEventListener('click',
-function(event) {
-    setTimeout('content.document.getSelection().removeAllRanges();', 100);
-},
-false);
 
 /**
 *ReloadPassCache.uc.js

@@ -14,6 +14,7 @@
 // 4.Support window.userChrome_js.loadOverlay(overlay [,observer]) //
 // Modified by Alice0775
 //
+// Date 2017/08/09 10:00 FX57修复
 // Date 2015/06/28 13:00 about:preferences#privacy etc
 // Date 2014/12/28 19:00 workaround loading xul on second browser
 // Date 2014/12/13 21:00 remove a debug log
@@ -485,7 +486,7 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
         try{
           switch (aPrefType){
             case 'complex':
-              return xpPref.getComplexValue(aPrefString, Components.interfaces.nsILocalFile); break;
+              return xpPref.getComplexValue(aPrefString, Components.interfaces.nsIFile); break;
             case 'str':
               return unescape(xpPref.getCharPref(aPrefString).toString()); break;
             case 'int':
@@ -514,7 +515,7 @@ this.debug('Parsing getScripts: '+((new Date()).getTime()-Start) +'msec');
       try {
         if (this.REPLACECACHE) {
           var aLocalfile = Components.classes["@mozilla.org/file/local;1"]
-          .createInstance(Components.interfaces.nsILocalFile);
+          .createInstance(Components.interfaces.nsIFile);
           aLocalfile.initWithPath(aScriptFile.path);
           return aLocalfile.lastModifiedTime;
         }

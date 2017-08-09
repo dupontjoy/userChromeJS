@@ -574,7 +574,7 @@
 							}
 						}
 
-						var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+						var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsIFile);
 						try {
 							file.initWithPath(path);
 						} catch (e) {
@@ -911,7 +911,7 @@
 				item.setAttribute("class", "menuitem-iconic");
 				item.onclick = function() {
 					var filename = (document.querySelector("#locationtext") ? document.querySelector("#locationtext").value.trim() : document.querySelector("#location").value);
-					var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsILocalFile);
+					var file = Components.classes["@mozilla.org/file/local;1"].createInstance(Components.interfaces.nsIFile);
 					file.initWithPath(dir + "\\" + filename);
 					if (downloadPlus.download_dialog_saveTo_suffix == 0)
 						while (file.exists()) {
@@ -1109,7 +1109,7 @@
 							XULBrowserWindow.statusTextField.label = "Copy: " + str;
 						}
 
-						var file = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsILocalFile);
+						var file = Cc['@mozilla.org/file/local;1'].createInstance(Ci.nsIFile);
 						file.initWithPath(path);
 						if (!file.exists()) {
 							var str = 

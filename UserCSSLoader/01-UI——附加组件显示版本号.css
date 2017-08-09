@@ -68,10 +68,11 @@
 	#addon-list:after {
 		content: "[ "counter(addoncount)" 啟用 | "counter(disabled)" 禁用 ]" !important;
 		position: fixed !important;
-		top: 30px !important;
-		left: 80px !important;
+		top: 10px !important;
+		left: 10px !important;
 		cursor: default;
 		white-space: nowrap !important;
+		color: white !important;
 	}
 	
 /* 显示ID*/

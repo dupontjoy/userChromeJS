@@ -253,7 +253,7 @@
             if (!aFile || !aFile.exists() || !aFile.isFile()) return;
             var editor;
             try {
-                editor = Services.prefs.getComplexValue("view_source.editor.path", Ci.nsILocalFile);
+                editor = Services.prefs.getComplexValue("view_source.editor.path", Ci.nsIFile);
             } catch (e) {
                 alert("Please set editor path.\nview_source.editor.path");
                 toOpenWindowByType('pref:pref', 'about:config?filter=view_source.editor.path');

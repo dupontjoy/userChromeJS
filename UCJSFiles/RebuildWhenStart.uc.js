@@ -10,8 +10,8 @@
   {
     //Addmenu 和 moveButton
     setTimeout(function () {
-      addMenu.rebuild();
-      MyMoveButton.delayRun();
+      //addMenu.rebuild();
+      //MyMoveButton.delayRun();
       vimfx.addCommand(bootstrap());
     }, cars[i] * 1000); //单位: 1秒
   }

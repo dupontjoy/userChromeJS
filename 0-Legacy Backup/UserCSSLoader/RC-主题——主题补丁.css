@@ -1,0 +1,30 @@
+/* AGENT_SHEET */
+
+/*SimpleMusicPlayer*/
+#SimpleMusicPlayer:hover{background-color: #e5e5e5 !important; }
+#SimpleMusicPlayer-panel .panel-arrow{padding-right: 15px !important;}
+
+/*Feed Button*/
+#urlbar-container #urlbar #urlbar-icons #feed-button .toolbarbutton-icon{
+list-style-image: none  !important;
+background-image: url("chrome://userchromejs/content/images/icons/feed_button.png")!important;
+margin-bottom: -2px !important;
+margin-right: -2px !important;
+opacity: .4!important;
+}
+
+/*书签位置调整*/
+#nav-bar #bookmarks-menu-button>.toolbarbutton-menubutton-button{margin-left: -5px !important;margin-right: -5px !important;}
+
+
+/*context-navigation*/
+#context-navigation .menuitem-iconic {min-height:36px !important;}
+
+
+/*菜单栏调整 */
+#menubar-items,#main-menubar{
+  color: #000 !important;
+  text-shadow: none  !important;
+  background: none !important;
+}
+

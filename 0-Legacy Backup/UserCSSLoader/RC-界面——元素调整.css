@@ -1,0 +1,1183 @@
+/*@name        RunningCheese Firefox V88Elements Adjust
+  @namespace   http://www.runningcheese.com/firefox-v8
+  @description V8版本的一些元素调整
+  @author      runningcheese
+  @version     2016-12-30      
+*/
+
+
+/*START==================================================导航栏修改===============================================*/
+
+/*隐藏原生前进后退按钮
+#back-button,#forward-button {
+	display: none  !important;
+}*/
+
+/*隐藏阅读模式按钮*/
+#reader-mode-button {
+	display: none !important;
+}
+
+/*----------------------书签按钮放入地址栏-----------------*/
+#urlbar-icons #bookmarks-menu-button {
+	-moz-appearance: none !important;
+	background: none !important;
+	padding: 0 !important;
+	border: 0 !important;
+	border-image: none !important;
+	box-shadow: none !important;
+}
+
+#urlbar-icons #bookmarks-menu-button > .toolbarbutton-menubutton-button,
+	#urlbar-icons #bookmarks-menu-button > .toolbarbutton-menubutton-button > .toolbarbutton-icon {
+	-moz-appearance: none !important;
+	background: none !important;
+	background-image: none !important;
+	border-color: transparent !important;
+	border-image: none !important;
+	box-shadow: none !important;
+	transition-property: none !important;
+	transition-duration: 0ms !important;
+}
+
+#urlbar-icons #star-button,
+	#urlbar-icons #bookmarks-menu-button .toolbarbutton-menubutton-dropmarker {
+	visibility: collapse !important;
+}
+
+#main-window:not([defaultfxtheme="true"]) toolbar #urlbar-icons #bookmarks-menu-button .toolbarbutton-icon {
+	margin: -2px 0px !important;
+}
+
+#bookmarks-menu-button *,
+	#bookmarked-notification,
+	#bookmarked-notification-dropmarker-icon {
+	animation: none !important;
+}
+
+
+
+/*-------------------RSS按钮放入地址栏---------------*/
+toolbar #feed-button,
+	#urlbar[pageproxystate="invalid"] > #urlbar-icons #feed-button {
+	visibility: collapse !important;
+}
+
+#urlbar:not([pageproxystate="invalid"]) > #urlbar-icons #feed-button:not([disabled]) {
+	visibility: visible !important;
+}
+
+#main-window toolbar #urlbar-icons #feed-button .toolbarbutton-icon {
+	background: none !important;
+	padding: 0 !important;
+	border-image: none !important;
+	box-shadow: none !important;
+	margin: 0 !important;
+	border: 0 !important;
+}
+
+#main-window toolbar #urlbar-icons #feed-button {
+	-moz-appearance: none !important;
+	background: none !important;
+	margin: -8px 1px !important;
+	border-image: none !important;
+	box-shadow: none !important;
+	padding: 0 !important;
+	border: 0 !important;
+	min-width: unset !important;
+}
+
+#main-window toolbar #urlbar-icons #feed-button:hover {
+	filter: brightness(1.15) !important;
+}
+
+#urlbar-container #urlbar #urlbar-icons #feed-button .toolbarbutton-icon {
+	opacity: .4!important; /*调整透明度*/
+}
+
+
+/*地址栏图标排序*/
+#feed-button {-moz-box-ordinal-group: 2 !important;}
+#RIL_urlbar_add {-moz-box-ordinal-group: 3 !important;}
+#RIL_urlbar_mark {-moz-box-ordinal-group: 4 !important;}
+#bookmarks-menu-button {-moz-box-ordinal-group: 5 !important;}
+
+
+
+/*-----------------标签栏修改------------------*/
+
+/*在所有标签页上强制显示关闭按钮*/
+#TabsToolbar #tabbrowser-tabs .tabbrowser-tab:not([pinned]):not([protected]) .tab-close-button {
+	visibility: visible !important;
+	display: block !important;
+}
+	
+/*隐私模式隐私图标位置调整*/
+#titlebar-buttonbox-container {
+	padding-right: 120px !important;
+}
+
+
+
+
+/*START==========================================元素位置调整==========================================*/ 
+
+/*粘贴并转到置顶*/
+.urlbar-textbox-container menuitem[anonid="paste-and-go"]:not([disabled="true"]) {
+	-moz-box-ordinal-group: 0 !important;
+}
+
+.searchbar-textbox menuitem[anonid="paste-and-search"]:not([disabled="true"]) {
+	-moz-box-ordinal-group: 0 !important;
+}
+
+#context-pasteandgo-forms:not([disabled="true"]) {
+	-moz-box-ordinal-group: 0 !important;
+}
+
+
+/*HTML5视频最大化去边框*/
+#main-window[inFullscreen="true"] #browser-panel {
+	border: none !important;
+}
+  
+/*去除点击时边框*/
+:focus {
+	outline: none !important
+}
+
+
+/*优酷播放器底部问题可以临时用css修正下*/ 
+@-moz-document domain("v.youku.com") {
+	.danmuoff .vpactionv5_iframe_wrap {
+		top: auto !important;
+	}
+
+	.play_area {
+		margin-bottom: 70px !important;
+	}
+}
+
+
+
+/*-------------------文本替换修改------------------*/
+
+#RIL_context_saveTabs>.menu-iconic-text {
+	display: none;
+}
+
+#RIL_context_saveTabs:after {
+	content: "所有标签稍后阅读";
+	position: absolute !important;
+}
+
+#context_bookmarkAllTabs>.menu-iconic-text {
+	display: none;
+}
+
+#context_bookmarkAllTabs:after {
+	content: "所有标签存为书签";
+	position: absolute !important;
+}
+
+#context_toggleMuteTab>.menu-iconic-text {
+	display: none;
+}
+
+#context_toggleMuteTab:after {
+	content: "静音此标签页";
+	position: absolute !important;
+}
+
+#context_openTabInWindow>.menu-iconic-text {
+	display: none;
+}
+
+#context_openTabInWindow:after {
+	content: "移动到新窗口";
+	position: absolute !important;
+}
+
+#context-viewsource>.menu-iconic-text {
+	display: none;
+}
+
+#context-viewsource:after {
+	content: "查看页面代码";
+	position: absolute !important;
+}
+
+#context-viewinfo>.menu-iconic-text {
+	display: none;
+}
+
+#context-viewinfo:after {
+	content: "查看页面信息";
+	position: absolute !important;
+}
+
+#context-inspect>.menu-iconic-text {
+	display: none;
+}
+
+#context-inspect:after {
+	content: "查看页面元素";
+	position: absolute !important;
+}
+
+
+
+
+
+/*START==========================================元素隐藏==========================================*/ 
+/*去除下拉三角*/
+[cui-areatype="menu-panel"] {
+	background-image: none !important;
+}
+[cui-areatype="toolbar"]>dropmarker {
+	display: none !important;
+}
+[cui-areatype="toolbar"]:not(#tabGroups-tabview-button):not(#flashgot-media-tbb):not(#lpt_lastpass-compact-btn)>image {
+	padding-left: 5px !important;
+	padding-right: 5px !important;
+}
+
+
+
+/*工具栏图标倒三角下拉选项隐藏*/
+.toolbarbutton-menubutton-dropmarker, .toolbarbutton-menu-dropmarker {
+	display: none !important;
+}
+
+/*显示书签选项*/
+#bookmarks-menu-button .toolbarbutton-menubutton-dropmarker {
+	display: block !important;
+}
+
+/*隐藏打开书签组*/
+.bookmarks-actions-menuseparator,.openintabs-menuitem {
+	display: none !important;
+}
+
+/*地址栏下拉栏隐藏*/
+.urlbar-history-dropmarker {
+	display: none!important;
+}
+
+/*隐藏identity bar*/
+#identity-icon-labels, #identity-popup {
+	display: none!important;
+}
+
+/*隐藏定制面板里的非线性图标*/
+#wrapper-superstart-toolbar-icon,
+#wrapper-xThunderToolbarBtn,
+#wrapper-firebug-inspectorButton {
+	display: none !important;
+}
+
+/*隐藏地址栏flash提醒*/
+#notification-popup-box{display:none !important}
+
+
+/*=======================================SimpleMusicPlayer图标替换======================================*/ 
+/*SimpleMusicPlayer图标*/
+menuitem[type="radio"]:not([oncommand^="QLSOverlay."])>.menu-iconic-left>.menu-iconic-icon {
+	display: -moz-box!important
+}
+
+#Close_SimpleMusicPlayer .menu-iconic-text {
+	margin-left: 11px !important;
+}
+
+#Close_SimpleMusicPlayer {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/close_all.png")!important;
+	padding-left: 4px !important;
+}
+
+[label="百度随心听FM"],[label="百度随心听"] {
+	list-style-image: url("chrome://userchromejs/content/images/favicon/baidufm.png") !important;
+}
+[label="百度音乐盒 "] {
+	list-style-image: url("chrome://userchromejs/content/images/favicon/baidu.png") !important;
+}
+[label="豆瓣FM"] {
+	list-style-image: url("chrome://userchromejs/content/images/favicon/douban.png") !important;
+}
+[label="网易云音乐"],[label="网易云音乐FM"] {
+	list-style-image: url("chrome://userchromejs/content/images/favicon/163.png") !important;
+}
+[label="心理FM"] {
+	list-style-image: url("chrome://userchromejs/content/images/favicon/xinlifm.png") !important;
+}
+[label="落网电台"] {
+	list-style-image: url("chrome://userchromejs/content/images/favicon/luo.png") !important;
+}
+[label="倾听网络收音机"] {
+	list-style-image: url("chrome://userchromejs/content/images/favicon/radio.png") !important;
+}
+[label="酷狗音乐"] {
+	list-style-image: url("chrome://userchromejs/content/images/favicon/kugou.png") !important;
+}
+[label="音悦台"] {
+	list-style-image: url("chrome://userchromejs/content/images/favicon/yinyuetai.png") !important;
+}
+[label="喜玛拉雅"] {
+	list-style-image: url("chrome://userchromejs/content/images/favicon/ximalaya.png") !important;
+}
+[label="熔岩电台"] {
+	list-style-image: url("chrome://userchromejs/content/images/favicon/lava.png") !important;
+}
+[label="奶酪电台"] {
+	list-style-image: url("chrome://userchromejs/content/images/favicon/runningcheese.png") !important;
+}
+
+
+/*FaviconMenu图标*/
+[label="还原地址栏"] {
+	list-style-image: url("chrome://userchromejs/content/images/icons/newtabgo.png") !important;
+}
+[label="短网址生成"] {
+	list-style-image: url("chrome://userchromejs/content/images/icons/shorten.png") !important;
+}
+[label="http转https"] {
+	list-style-image: url("chrome://userchromejs/content/images/icons/lock.png") !important;
+}
+[label="生成二维码"] {
+	list-style-image: url("chrome://userchromejs/content/images/icons/qrcode.png") !important;
+}
+[label="IP地址查询"] {
+	list-style-image: url("chrome://userchromejs/content/images/icons/ip.png") !important;
+}
+[label="查看页面信息"] {
+	list-style-image: url("chrome://userchromejs/content/images/icons/viewinfo.png") !important;
+}
+[label="谷歌缓存查询"] {
+	list-style-image: url("chrome://userchromejs/content/images/icons/search_add.png") !important;
+}
+[label="共享帐号查询"] {
+	list-style-image: url("chrome://userchromejs/content/images/icons/character.png") !important;
+}
+[label="一键站长工具"] {
+	list-style-image: url("chrome://userchromejs/content/images/icons/info2.png") !important;
+}
+[label="复制图标地址"] {
+	list-style-image: url("chrome://userchromejs/content/images/icons/copy.png") !important;
+}
+[label="复制图标编码"] {
+	list-style-image: url("chrome://userchromejs/content/images/icons/base64.png") !important;
+}
+
+
+
+/*START==========================================右键菜单调整==========================================*/ 
+
+
+/*--------------扁平化菜单------------*/
+popupset menupopup,
+#PlacesToolbarItems menupopup,
+#toolbar-menubar menupopup,
+textbox menupopup,
+menupopup:not([placespopup="true"]) {
+	-moz-appearance: none !important;
+	background-color: #FFF !important;
+	padding-top: 2px !important;
+	padding-bottom: 2px !important;
+	background-clip: padding-box!important;
+	margin: -5px !important;
+	border: 5px solid transparent !important;
+	border-image: url("chrome://userchromejs/content/images/menushadow.png") 5 stretch !important;
+}
+
+popupset menupopup menu[_moz-menuactive="true"],
+popupset menupopup menuitem[_moz-menuactive="true"],
+#PlacesToolbarItems menupopup menu[_moz-menuactive="true"],
+#PlacesToolbarItems menupopup menuitem[_moz-menuactive="true"],
+#toolbar-menubar menupopup menu[_moz-menuactive="true"],
+#toolbar-menubar menupopup menuitem[_moz-menuactive="true"],
+textbox menupopup menu[_moz-menuactive="true"],
+textbox menupopup menuitem[_moz-menuactive="true"] {
+	border: 1px solid #ededed !important;
+	background-color: #ededed !important;
+	-moz-appearance: none !important;
+}
+
+/*下拉弹出菜单颜色*/
+menu[_moz-menuactive="true"]:not(.splitmenu-menu), 
+menuitem[_moz-menuactive="true"],splitmenu[active="true"],#dwhelper-button .menu-iconic menuitem:hover {
+	-moz-appearance: none!important;
+	background: #ededed!important;
+	color: #000000 !important;
+}
+
+/*下拉弹出菜单距离*/
+menu .menu-iconic-text,
+menuitem .menu-iconic-text,
+splitmenu .menu-iconic-text,
+#dwhelper-button .menu-iconic-text {
+	margin-right: -9px!important;
+}
+
+/*对话框菜单距离*/
+menulist .menu-iconic-text,
+dialog .menu-iconic-text {
+	margin-right: 0px!important;
+}
+
+
+/*弹出菜单箭头距离*/
+popupset menupopup .menu-accel-container,
+#PlacesToolbarItems  menupopup .menu-accel-container,
+#toolbar-menubar  menupopup .menu-accel-container {
+	margin-left: -14px !important;
+}
+
+textbox menupopup .menu-accel-container {
+	margin-left: -1px !important;
+}
+
+/*细节距离调整*/
+#context_TabInfoCopy .menu-accel-container {
+	margin-left: -27px !important;
+}
+
+popupset menupopup menu,
+popupset menupopup menuitem,
+textbox menupopup menu,
+textbox menupopup menuitem,
+#PlacesToolbarItems menupopup menu,
+#PlacesToolbarItems menupopup menuitem,
+#toolbar-menubar menupopup menu,
+#toolbar-menubar menupopup menuitem {
+	padding-top: 0px;
+	padding-bottom: 0px;
+	border: 1px solid #FFF !important;
+	background-color: #FFF !important;
+	-moz-appearance: none !important;
+}
+
+
+
+/*菜单高度*/
+menu, menuitem:not(#BMB_bookmarksShowAll):not(.subviewbutton), splitmenu, .splitmenu-menuitem {
+	-moz-appearance: none!important;
+	border: 1px solid transparent!important;
+	min-height: 24px!important;
+	max-height: 24px!important;
+    /*padding-right:0px !important;*/
+}
+
+menulist menupopup menuitem {
+	min-height: 24px!important;
+	max-height: 24px!important;
+}
+
+popupset menupopup .menu-iconic-text,
+textbox menupopup .menu-iconic-text,
+#PlacesToolbarItems  menupopup .menu-iconic-text,
+#toolbar-menubar  menupopup .menu-iconic-text {
+	margin-right: 7px!important;
+}
+
+popupset menupopup .menu-text {
+	margin-right: 17px!important;
+}
+
+popupset menupopup menuseparator,
+textbox menupopup menuseparator,
+#PlacesToolbarItems menupopup menuseparator,
+#toolbar-menubar menupopup menuseparator {
+	-moz-appearance: none !important;
+	border-top: 1px solid #e9e9e9 !important;
+	padding: 0px;
+	margin-top: 2px;
+	margin-bottom: 1px;
+}
+
+
+/*--------------隐藏右键菜单------------*/     
+ 
+/*标签页右键菜单排序*/
+#context_CopyTab {-moz-box-ordinal-group: 1 !important;}
+#context_pinTab, #context_unpinTab {-moz-box-ordinal-group: 2 !important;}
+#context_ReloadTabandAllTab {-moz-box-ordinal-group: 3 !important;}
+#context_CloseTab {-moz-box-ordinal-group: 4 !important;}
+#context_TabOpenMethod {-moz-box-ordinal-group: 5 !important;}
+#context_toggleMuteTab {-moz-box-ordinal-group: 6 !important;}
+#RIL_context_saveTabs,#context_bookmarkAllTabs {-moz-box-ordinal-group: 14 !important;}
+#context_TabInfoCopy {-moz-box-ordinal-group: 15 !important;}  	
+    
+    
+	
+/*---------------为没有图标的菜单增加图标--------------*/
+#context-openlinkintab .menu-iconic-text,
+#context-viewsource .menu-iconic-text,
+#context-viewinfo .menu-iconic-text,
+#context-inspect .menu-iconic-text,
+#context-viewimage .menu-iconic-text,
+#context-viewpartialsource-selection .menu-iconic-text,
+#RIL_context_saveTabs .menu-iconic-text,
+#context_bookmarkAllTabs .menu-iconic-text,
+#context_pinTab .menu-iconic-text,
+#context_unpinTab .menu-iconic-text,
+#context-media-play .menu-iconic-text,
+#context-media-pause .menu-iconic-text,
+#context-media-mute .menu-iconic-text,
+#context-media-unmute .menu-iconic-text,
+#context-media-hidecontrols .menu-iconic-text,
+#context-media-showcontrols .menu-iconic-text, 
+#context-video-fullscreen .menu-iconic-text,
+#context-video-showstats .menu-iconic-text, 
+#context-video-hidestats .menu-iconic-text, 
+#context-savevideo .menu-iconic-text,
+#context-video-saveimage .menu-iconic-text,
+#context-copyvideourl .menu-iconic-text,
+#context-viewvideo .menu-iconic-text,
+#context-leave-dom-fullscreen .menu-iconic-text,
+#context-reloadimage .menu-iconic-text,
+#context_toggleMuteTab .menu-iconic-text,
+#context-searchfield .menu-iconic-text {
+	margin-left: 11px !important;
+}
+
+
+/*openlinkintab*/
+#context-openlinkintab {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/newtab.png")!important;
+	padding-left: 4px !important;
+}
+
+
+/*addtosearchbar*/
+#context-searchfield {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/search_add.png")!important;
+	padding-left: 4px !important;
+}
+
+
+/*inspect*/
+#context-inspect {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/inspect.png")!important;
+	padding-left: 4px !important;
+}
+
+
+/*viewsource*/
+#context-viewsource,#context-viewpartialsource-selection {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/viewsource.png")!important;
+	padding-left: 4px !important;
+}
+
+
+/*viewinfo*/
+#context-viewinfo {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/viewinfo.png")!important;
+	padding-left: 4px !important;
+}
+
+/*viewimage*/
+#context-viewimage {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/viewimage.png")!important;
+	padding-left: 4px !important;
+}
+
+
+/*context-searcher*/
+#context-searcher .menu-iconic-icon {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/search.png")!important;
+}
+
+#context_openTabInWindow {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/newwindow.png");
+	padding-left: 4px !important;
+}
+
+#context_toggleMuteTab {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/mute.png");
+	padding-left: 4px !important;
+}
+
+#context_StickyTab {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/stick.png");
+	padding-left: 0px !important;
+}
+
+#RIL_context_saveTabs {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/pocket.png");
+	padding-left: 4px !important;
+}
+
+#context_bookmarkAllTabs {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/bookmark.png");
+	padding-left: 4px !important;
+}
+
+#context_pinTab,#context_unpinTab {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/pin.png")!important;
+	padding-left: 4px !important;
+}
+
+.abhere-menuitem {
+	list-style-image: url("chrome://userchromejs/content/images/icons/tab.png");
+}
+
+/*重新载入图像*/
+#context-reloadimage {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/refresh.png");
+	padding-left: 4px !important;
+} 
+
+
+/*--------音乐视频-------*/
+/*播放*/
+#context-media-play {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	padding-left: 4px !important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/play.png")!important;
+}
+/*暂停*/
+#context-media-pause {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	padding-left: 4px !important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/pause.png")!important;
+}
+/*静音*/
+#context-media-mute {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	padding-left: 4px !important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/mute.png")!important;
+}
+/*恢复声音*/
+#context-media-unmute {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	padding-left: 4px !important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/unmute.png")!important;
+}
+/*播放速度*/
+#context-media-playbackrat {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	padding-left: 4px !important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/speed.png")!important;
+}
+/*隐藏-显示控制界面*/
+#context-media-hidecontrols,#context-media-showcontrols {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	padding-left: 4px !important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/control.png")!important;
+}
+/*全屏*/
+#context-video-fullscreen {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	padding-left: 4px !important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/fullscreen.png")!important;
+}
+/*统计信息*/
+#context-video-showstats, #context-video-hidestats {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	padding-left: 4px !important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/info.png");
+}
+/*将音频-视频另存为*/
+#context-savevideo {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	padding-left: 4px !important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/save.png");
+}
+/*将快照另存为…*/
+#context-video-saveimage {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	padding-left: 4px !important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/imagesave.png")!important;
+}
+/*复制视频地址*/
+#context-copyvideourl {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	padding-left: 4px !important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/copy.png");
+} 
+
+/*查看视频*/
+#context-viewvideo {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/viewimage.png")!important;
+	padding-left: 4px !important;
+	padding-top: 1px !important;
+	padding-bottom: 1px !important;
+}
+
+/*退出全屏*/
+#context-leave-dom-fullscreen {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+	list-style-image: url("chrome://userchromejs/content/images/icons/restore.png")!important;
+	padding-left: 4px !important;
+	padding-top: 1px !important;
+	padding-bottom: 1px !important;
+}
+
+
+
+
+
+
+
+
+
+/*START==============================================PanelUI按钮调整===========================================*/
+#PanelUI-mainView .toolbarbutton-1 {
+	border: none !important;
+	border-radius: 0px !important;
+}
+
+#PanelUI-mainView #ucjs_UserAgentChanger.toolbarbutton-1 {
+	padding: 0 !important;
+	background: none !important;
+}
+
+#PanelUI-mainView #ucjs_UserAgentChanger.toolbarbutton-1:hover {
+	background-color: #e5e5e5 !important;
+}
+
+#PanelUI-mainView #userChromebtnMenu.toolbarbutton-1 {
+	padding: 0 !important;
+	background: none !important;
+}
+
+#PanelUI-mainView #userChromebtnMenu.toolbarbutton-1:hover {
+	background-color: #e5e5e5 !important;
+}
+
+
+/* Fixes the panel height */  
+#PanelUI-popup .panelUI-grid.customization-target {
+	max-height: 600px !important;
+}
+
+
+/* Shrinks the button box and font size */
+#customization-panel-container .panel-arrowcontent :-moz-any(.toolbarbutton-1.chromeclass-toolbar-additional,.toolbarbutton-1),
+#PanelUI-popup :-moz-any(.toolbarbutton-1.chromeclass-toolbar-additional,.toolbarbutton-1),
+#PanelUI-popup toolbaritem[cui-areatype="menu-panel"][sdkstylewidget="true"]:not(.panel-wide-item) {
+	font-size: 68% !important;
+	margin: 0.25em !important;
+	padding: 0em !important;
+}
+/* Corrects font size from previous setting */
+#customization-panel-container toolbarpaletteitem toolbarbutton:not(.panel-combined-button) :-moz-any(.toolbarbutton-text,.toolbarbutton-multiline-text),
+#PanelUI-contents toolbarbutton:not(.panel-combined-button) :-moz-any(.toolbarbutton-text,.toolbarbutton-multiline-text) {
+	margin: 0em -.2em -.5em -.2em !important;
+	font-size: 11px !important;
+}
+
+#PanelUI-contents > toolbarbutton,
+#PanelUI-contents > toolbaritem:not(:-moz-any(#zoom-controls,#edit-controls))> toolbarbutton {
+	height: 75px!important;
+	width: 62.9px!important;
+}
+
+/*PanelUI文字修改*/
+#PanelUI-contents #greasemonkey-tbb :-moz-any(.toolbarbutton-text,.toolbarbutton-multiline-text) {
+	visibility: hidden !important;
+}
+
+#PanelUI-contents #greasemonkey-tbb :-moz-any(.toolbarbutton-text,.toolbarbutton-multiline-text):before {
+	content: "用户脚本";position: inherit !important;visibility: visible !important;
+}
+
+#PanelUI-contents #stylish-toolbar-button :-moz-any(.toolbarbutton-text,.toolbarbutton-multiline-text) {
+	visibility: hidden !important;
+}
+
+#PanelUI-contents #stylish-toolbar-button :-moz-any(.toolbarbutton-text,.toolbarbutton-multiline-text):before {
+	content: "用户样式";position: inherit !important;visibility: visible !important;
+}
+
+#PanelUI-contents #abp-toolbarbutton :-moz-any(.toolbarbutton-text,.toolbarbutton-multiline-text) {
+	visibility: hidden !important;
+}
+
+#PanelUI-contents #abp-toolbarbutton :-moz-any(.toolbarbutton-text,.toolbarbutton-multiline-text):before {
+	content: "广告过滤";position: inherit !important;visibility: visible !important;
+}
+
+#PanelUI-contents #grabanddrag-button :-moz-any(.toolbarbutton-text,.toolbarbutton-multiline-text) {
+	visibility: hidden !important;
+}
+
+#PanelUI-contents #grabanddrag-button :-moz-any(.toolbarbutton-text,.toolbarbutton-multiline-text):before {
+	content: "手形工具";position: inherit !important;visibility: visible !important;
+}
+
+#PanelUI-contents #sowatchmk2-button :-moz-any(.toolbarbutton-text,.toolbarbutton-multiline-text) {
+	visibility: hidden !important;
+}
+
+
+#PanelUI-contents #RIL_toolbar_button :-moz-any(.toolbarbutton-text,.toolbarbutton-multiline-text) {
+	visibility: hidden !important;
+}
+
+#PanelUI-contents #RIL_toolbar_button :-moz-any(.toolbarbutton-text,.toolbarbutton-multiline-text):before {
+	content: "稍后阅读";position: inherit !important;visibility: visible !important;
+}
+
+#PanelUI-contents #ublock0-button :-moz-any(.toolbarbutton-text,.toolbarbutton-multiline-text) {
+	visibility: hidden !important;
+}
+
+#PanelUI-contents #ublock0-button :-moz-any(.toolbarbutton-text,.toolbarbutton-multiline-text):before {
+	content: "广告过滤";position: inherit !important;visibility: visible !important;
+}
+
+#PanelUI-contents #netvideohunter-toolbarbutton :-moz-any(.toolbarbutton-text,.toolbarbutton-multiline-text) {
+	visibility: hidden !important;
+}
+
+#PanelUI-contents #netvideohunter-toolbarbutton :-moz-any(.toolbarbutton-text,.toolbarbutton-multiline-text):before {
+	content: "视频下载";position: inherit !important;visibility: visible !important;
+}
+
+/*关闭面板动画*/
+panel[type="arrow"][animate],#BMB_bookmarksPopup {transition-duration: 0.01s !important;}
+#PanelUI-popup * {transition: none !important;}
+#main-window * #ctraddon_BMB_bookmarksPopup {transition-duration: 0.01s !important;}
+
+
+
+
+
+/*START==========================================下拉地址栏扁平化样式=====================================*/
+
+@-moz-document url-prefix('chrome://') {
+	/*[[COMP]]*/	#PopupAutoCompleteRichResult .autocomplete-richlistitem:not([current]) .ac-url-box {
+		visibility: collapse!important;
+		opacity: 0 !important;
+		-moz-transform: translateX(-.65em) !important
+	}
+
+	#PopupAutoCompleteRichResult .autocomplete-richlistbox > scrollbox {
+		overflow: visible !important;
+	}
+
+	#PopupAutoCompleteRichResult {
+		padding: 0 !important;
+		margin-top: -1px !Important;
+		border: 1px solid hsla(0,0%,50%,.2) !important;
+		background: white padding-box!important;
+		-moz-appearance: none!important;
+		border-radius: 2.15px;
+	}
+
+	#PopupAutoCompleteRichResult .autocomplete-richlistbox {
+		background: white -moz-linear-gradient(left,hsl(0,0%,97%) 27px,hsl(0,0%,90%) 28px,transparent 0) repeat-y !important;
+		background-size: 28px auto!important;
+		margin: 1px !important;
+	}
+
+	#PopupAutoCompleteRichResult * {
+		font: inherit !important;
+		font-family: "Segoe ui",sans-serif !important;
+		color: inherit !important;
+	}
+
+	#PopupAutoCompleteRichResult .ac-site-icon {
+		margin: 0 10px 0 1px !important;
+	}
+
+	#PopupAutoCompleteRichResult .ac-title-box {
+		margin: 0!important;
+		padding: 0 !important;
+		color: black !important;
+	}
+
+	#PopupAutoCompleteRichResult  .autocomplete-richlistbox .autocomplete-richlistitem .ac-url-box {
+		margin: 0 !important;
+		padding: 1px 0 !important;
+		-moz-transition: opacity .21s linear 0.02s,-moz-transform .21s ease-out 0.02s !important;
+		color: hsl(0,0%,44%)!important;
+		font-size: 95.5% !important;
+	}
+
+	#PopupAutoCompleteRichResult .ac-extra {
+		color: hsla(214,15%,44%,1) !important;
+	}
+
+	.autocomplete-richlistitem {
+		border: 1px solid transparent !important;
+		border-bottom-color: transparent !important;
+		border-top: 1px solid hsla(0,0%,97%,0) !important;
+		box-shadow: none !important;
+		padding: 2px 4px !important;
+	}
+
+	.autocomplete-richlistitem:first-child {
+		border-top-color: transparent !important;
+	}
+
+	#PopupAutoCompleteRichResult .autocomplete-richlistitem {
+		padding-left: 4px !important;
+	}
+
+	.autocomplete-richlistitem[type*="suggest"] {
+		background-color: rgba(0,0,0,.03) !important;
+	}
+
+	.autocomplete-richlistitem[actiontype="switchtab"] .ac-title .ac-normal-text.ac-comment:before {
+		content: "\a0Switch to tab:\a0";
+		color: hsla(0,0%,44%,1) !important;
+		background: hsla(214,35%,87%,.2) /*-moz-linear-gradient( hsla(214,55%,94%,.2) 0px,hsla(214,25%,80%,.2) 100%)*/ border-box !important;
+		box-shadow: inset hsla(214,50%,35%,.15) 0 0 0 1px,inset hsla(0,0%,100%,.2) 0 0 0 2px !important;
+		border-radius: 2.1px !important;
+		-moz-margin-end: .4ex!important;
+		pointer-events: none;
+	}
+
+	.autocomplete-richlistitem[actiontype="switchtab"] .ac-url .ac-normal-text.ac-action-text {
+		visibility: collapse!important;
+	}
+
+	.autocomplete-richlistitem[actiontype="switchtab"] .ac-normal-text.ac-url-text {
+		visibility: visible!important;
+	}
+
+	span.ac-emphasize-text {
+		font-weight: normal !important;
+		background: hsla(60,91%,75%,0.8) /*-moz-linear-gradient(bottom,hsla(37,100%,55%,.15) 4px,hsla(40,100%,60%,.2) 0px,hsla(60,100%,80%,.07) 100%)*/ border-box !important;
+		text-decoration: none!important;
+		box-shadow: inset hsla(60,100%,35%,.2) 0 0 0 1px,inset hsla(0,0%,100%,.15) 0 0 0 2px !important;
+		border-radius: 2.15px !important;
+	}
+}
+
+.autocomplete-richlistitem[current] {
+	border-color: hsla(210,/*[SAT]*/100%,43%,0) !important;
+	background: hsla(210,/*[SAT]*/100%,50%,.18 ) border-box !important;
+	box-shadow: inset hsla(210,/*[SAT]*/100%,91%,.5) 0 0 0 1px !important;
+}
+
+.autocomplete-richlistitem:active:hover {
+	background-color: hsla(210,/*[SAT]*/100%,42%,.27)!important;
+	box-shadow: inset hsla(210,/*[SAT]*/71%,84%,.5) 0 0 0 1px !important;
+}
+
+/*地址栏自动填补的高度*/
+/*#PopupAutoCompleteRichResult > .autocomplete-richlistbox > scrollbox {
+	display: block !important;
+}
+#PopupAutoCompleteRichResult > .autocomplete-richlistbox > scrollbox > box {
+	width:100% !Important;
+}*/
+
+/*隐藏地址栏中的“访问”选项条*/
+/*panel[type="autocomplete-richlistbox"]:not(#PopupAutoComplete) richlistitem[actiontype="visiturl"],
+#PopupAutoCompleteRichResult[autocompleteinput="urlbar"] richlistitem[actiontype="visiturl"] {
+display:none !important;
+}
+*/
+
+
+
+/*==============================================书签分栏调整=============================================*/
+
+/*书签工具栏居中
+#PersonalToolbar #PlacesToolbarItems {
+	-moz-box-pack: center !important;
+}*/
+
+/*书签文件夹下拉过长显示滚动条*/
+@-moz-document url(chrome://browser/content/browser.xul) {
+	.bookmark-item[container="true"]  scrollbox {
+		overflow-y: auto !important;
+	}
+}
+
+/*在添加到书签对话框中加入关键词选项*/
+#editBMPanel_locationRow,#editBMPanel_descriptionRow {
+	visibility: visible;
+}
+
+#editBMPanel_tagsSelector[collapsed="true"] {
+	display: none !important;
+}
+
+/*http://bbs.kafan.cn/thread-1785448-1-1.html column bookmarks by kapoli*/
+/*文件夹1,2,3依自己的文件夹名称手动添加*/
+/*定义收藏项宽度一致*/
+.bookmark-item[container="true"]:-moz-any([label="实用工具"],[label="图形工具"],[label="资源素材"],[label="热门日常"]) .menuitem-with-favicon {
+	max-width: 175px !important;
+	min-width: 175px !important;
+}
+/*在这里定义单列的宽度，手动添加文件夹名称，或删除:-moz-any([label="文件夹1"],[label="文件夹2"],[label="文件夹3"]) 全局统一宽度，下面的双列三列或更多的显示依此宽度，按相应倍数计算*/
+
+
+
+/*双列显示项，手动添加label*/
+.bookmark-item[container="true"]:-moz-any(/*需要多列显示的书签文件夹名，多个用(,)分割，
+格式如下所示。下面的如此类推。跟第一个相同。
+在userchorme.css中，中文注意编码，
+改为UTF8，stylish扩展可无视*/
+[label="图形工具"],
+[label="资源素材"],
+[label="热门日常"]
+) >menupopup>hbox .scrollbox-innerbox {
+	width: 350px !important;
+ /*双列显示350px ,>=175px*2 */
+	display: table !important;
+}
+
+/*三列显示项，手动添加label*/
+.bookmark-item[container="true"]:-moz-any(
+[label="实用工具"],
+[label="2"]
+) >menupopup>hbox .scrollbox-innerbox {
+	width: 525px !important;
+ /*三列显示525px，,>=175px*3 */
+	display: table !important;
+}
+
+/*addbookmarkhere调整*/
+.abhere-menuitem {
+	min-width: 175px !important;
+}
+
+
+
+
+
+/*START==============================================图标替换=============================================*/
+/*netvideohunter-toolbarbutton*/
+#netvideohunter-toolbarbutton[cui-areatype="toolbar"] .toolbarbutton-icon {
+	list-style-image: url("chrome://userchromejs/content/images/icons/netvideohunter.png");
+}
+
+#netvideohunter-toolbarbutton[cui-areatype="menu-panel"] .toolbarbutton-icon, toolbarpaletteitem[place="palette"]> #netvideohunter-toolbarbutton .toolbarbutton-icon {
+	list-style-image: url("chrome://userchromejs/content/images/icons/netvideohunter_32.png");
+}
+
+
+/*uBlock Origin*/
+toolbarbutton[cui-areatype="toolbar"]#ublock0-button {
+/*启用状态*/
+	list-style-image: url("chrome://userchromejs/content/images/icons/adblockplus.png");
+	-moz-image-region: rect(0px, 16px, 16px, 0px);
+}
+
+toolbarbutton[cui-areatype="toolbar"]#ublock0-button[badge=""] {
+/*禁用状态*/
+	list-style-image: url("chrome://userchromejs/content/images/icons/adblockplus.png");
+	-moz-image-region: rect(16px, 16px, 32px, 0px);
+}
+
+toolbarbutton[cui-areatype="menu-panel"]#ublock0-button {
+/*启用状态*/
+	list-style-image: url("chrome://userchromejs/content/images/icons/adblockplus_32.png");
+	-moz-image-region: rect(0px, 32px, 32px, 0px);
+}
+
+toolbarbutton[cui-areatype="menu-panel"]#ublock0-button[badge=""] {
+/*禁用状态*/
+	list-style-image: url("chrome://userchromejs/content/images/icons/adblockplus_32.png");
+	-moz-image-region: rect(32px, 32px, 64px, 0px);
+}
+
+
+/*Grab and Drag*/
+#gad-options image,
+#grabanddrag-button,
+#grabanddrag-button[gadOn="true"],
+#grabanddrag-button[gadOn="false"] {
+	list-style-image: url("chrome://userchromejs/content/images/icons/grabanddrag.png");
+}
+
+#gad-options image,
+#grabanddrag-button[gadOn="true"] {
+	-moz-image-region: rect(0px, 16px, 16px, 0px);
+}
+
+#grabanddrag-button,
+#grabanddrag-button[gadOn="false"] {
+	-moz-image-region: rect(16px, 16px, 32px, 0px);
+}
+
+#grabanddrag-button[cui-areatype="menu-panel"],
+toolbarpaletteitem[place="palette"] > #grabanddrag-button
+#grabanddrag-button[gadOn="true"][cui-areatype="menu-panel"],
+toolbarpaletteitem[place="palette"] > #grabanddrag-button[gadOn="true"],
+#grabanddrag-button[gadOn="false"][cui-areatype="menu-panel"],
+toolbarpaletteitem[place="palette"] > #grabanddrag-button[gadOn="false"] {
+	list-style-image: url("chrome://userchromejs/content/images/icons/grabanddrag_32.png");
+}
+
+#grabanddrag-button[gadOn="true"][cui-areatype="menu-panel"],
+toolbarpaletteitem[place="palette"] > #grabanddrag-button[gadOn="true"] {
+	-moz-image-region: rect(0px, 32px, 32px, 0px);
+}
+
+#grabanddrag-button[cui-areatype="menu-panel"],
+toolbarpaletteitem[place="palette"] > #grabanddrag-button,
+#grabanddrag-button[gadOn="false"][cui-areatype="menu-panel"],
+toolbarpaletteitem[place="palette"] > #grabanddrag-button[gadOn="false"] {
+	-moz-image-region: rect(32px, 32px, 64px, 0px);
+}
+
+
+/*userchromejs图标调整*/
+#userChromebtnMenu[cui-areatype="toolbar"] > image {
+	list-style-image: url("chrome://userchromejs/content/images/icons/userchromejs.png")!important;
+}
+
+#userChromebtnMenu[cui-areatype="menu-panel"] > image {
+	list-style-image: url("chrome://userchromejs/content/images/icons/userchromejs_32.png")!important;
+}
+
+
+/*stylish图标调整*/
+#stylish-toolbar-button[cui-areatype="toolbar"] .toolbarbutton-icon {
+	list-style-image: url("chrome://userchromejs/content/images/icons/stylish.png")!important;
+	padding: 3px 7px !important;
+}
+
+#stylish-toolbar-button[cui-areatype="menu-panel"] .toolbarbutton-icon {
+	list-style-image: url("chrome://userchromejs/content/images/icons/stylish_32.png")!important;
+}
+
+
+/*greasemonkey图标调整*/
+#greasemonkey-tbb .toolbarbutton-icon {
+	list-style-image: url("chrome://userchromejs/content/images/icons/userscripts.png")!important;
+}
+
+#greasemonkey-tbb[cui-areatype="menu-panel"] .toolbarbutton-icon {
+	list-style-image: url("chrome://userchromejs/content/images/icons/userscripts_32.png")!important;
+}
+
+#PanelUI-mainView #greasemonkey-tbb {
+	background-image: none !important;
+	padding-left: 7px!important;
+}
+
+#PanelUI-contents #greasemonkey-tbb dropmarker {
+	display: inline!important;
+	opacity: 0;
+	margin-left: -75px!important;
+	width: 62.9px!important;
+}
+
+/*urlbar-stop-button*/
+#urlbar-stop-button {
+  list-style-image: url("chrome://userchromejs/content/images/icons/urlbar-stop-button.png") !important;
+}

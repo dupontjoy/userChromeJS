@@ -1,0 +1,95 @@
+/*START===========================================搜索栏调整==========================================*/
+/*搜索栏双列搜索*/
+/* Make the one-off buttons span the full width */
+.searchbar-engine-one-off-item[tooltiptext] {
+	width: 100% !important;
+	height: 24px !important;
+	background-image: none !important;
+	padding-left: 6px !important;
+	box-sizing: content-box !important;
+	line-height: 1em !important;
+}
+
+/* Hide the empties */
+.searchbar-engine-one-off-item:not([tooltiptext]) {
+	display: none !important;
+}
+
+/* Fix up borders */
+.searchbar-engine-one-off-item[tooltiptext], .addengine-item {
+	border-bottom: 1px solid #ccc !important;
+}
+
+.search-setting-button.search-panel-header, .addengine-item,
+.search-panel-header.search-panel-current-input {
+	border-top: none !important;
+	max-height: 26px !important;
+	min-height: 16px !important;
+	padding-top: 1px !important;
+}
+
+/* Insert descriptive name for search engine plugin */
+.searchbar-engine-one-off-item[tooltiptext]::after {
+	content: attr(tooltiptext);
+	margin: 5px 6px 0px !important;
+	display: block !important;
+}
+
+/* Fix icon positioning */
+.searchbar-engine-one-off-item[tooltiptext] > .button-box {
+	display: inline-flex !important;
+	width: 16px !important;
+	max-width: 16px !important;
+	border: none !important;
+	padding: 0 0 !important;
+}
+
+.searchbar-engine-one-off-item[tooltiptext] > .button-box > .button-icon {
+	display: block !important;
+	margin-top: 4px !important;
+	margin-left: -1px !important;
+}
+
+/* Lock in space for 5 search suggestions with scroll bar */
+#PopupSearchAutoComplete .autocomplete-tree.plain.search-panel-tree .tree-bodybox,
+#PopupSearchAutoComplete .autocomplete-tree.plain.search-panel-tree .autocomplete-treebody {
+	display: flex !important;
+	flex: 1 1 auto !important;
+}
+
+#PopupSearchAutoComplete .autocomplete-tree.plain.search-panel-tree .autocomplete-treebody {
+	max-height: calc(5 * 1.5em) !important;
+	min-height: calc(5 * 1.5em) !important;
+}
+
+#PopupSearchAutoComplete .autocomplete-tree.plain.search-panel-tree .tree-scrollbar[collapsed="true"] {
+	visibility: visible !important;
+}
+
+/* User style options */
+/* Two columns - standard spacing */
+#PopupSearchAutoComplete {
+	width: calc(21em + 4px) !important;
+	min-width: calc(21em + 4px) !important;
+}
+
+.searchbar-engine-one-off-item[tooltiptext] {
+	width: 10em !important;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+/* Hiding "Search for ..." */
+.search-panel-header.search-panel-current-input {
+	display: none !important;
+}
+
+/* Not hiding "Add ..." engine */
+/* Not hiding "Change Search Settings" */
+/* Search bar tooltip text only visible on mouseover */
+/* Default hover/selection theming */
+.searchbar-engine-one-off-item[tooltiptext]:hover,
+.searchbar-engine-one-off-item[tooltiptext][selected] {
+	color: HighlightText !important;
+	background-color: Highlight;
+}

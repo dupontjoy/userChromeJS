@@ -1,0 +1,352 @@
+/*+++ 2017.06.22 +++*/
+
+/*==============以下为“页面”的隐藏==============*/
+/*全局去掉分隔线*/
+/*menuseparator
+{display: none !important;}*/
+
+/*隐藏图标*/
+#action-button--jid0-bba9vaawx3lmwdu668audrpqvxujetpack-flash-disable-button,/*Flashdisable*/
+#wordhighlight-toolbar-icon,/*WHT图标*/
+#open_dedao_page_button,/*得到扩展图标*/
+#UIEnhancerToolbarButton,/*Location Bar Enhancer*/
+#VimFxButton,/*vimfx按钮,可输入"?"直接调用*/
+#imacros-toggle-button,/*iMacros扩展*/
+#nav-bar-overflow-button,/*工具栏-更多工具按钮*/
+#PanelUI-fxa-avatar,/*FX41下SimpleWhite三道杠多出来的按钮*/
+#greasemonkey-tbb,/*Greasemonkey擴展圖標*/
+#abp-toolbarbutton,/*ABP擴展圖標*/
+#pan-toolbarbutton,/*Pan擴展*/
+#toggle-button--redirectoreinaregilssoncom-redirector,/*redirector擴展*/
+#home-button,
+#stylish-toolbar-button,/*Stylish導航欄圖標*/
+#ghostery-button-badge,/*Ghostery计数*/
+#social-share-button,/*分享此页面*/
+#loop-button-throttled,/*开始会话*/
+#loop-button,/*Loop通話*/
+#GrabScroll-image,
+#masonStatusbar,/*Mason*/
+#noscript-tbb,/*Noscript*/
+#ScrapBookStatusPanel,/*ScrapBook*/
+#scriptish-button,/*Scriptish*/
+#reader-mode-button,/*閱讀模式按钮*/
+#panic-button,/*忘記某些歷史*/
+#PlacesChevron/*书签工具栏产生的箭头*/ {
+	display: none !important;
+}
+
+/*===隐藏页面右键菜单===*/
+#ACRiLeBing,/*下一张壁纸*/
+#fxrContextMenuFoxReplace,/*foxreplace右键菜单*/
+#frame[label="此框架"],
+#fireie-context-openlinkintabwithieengine,/*在新标签页中以 IE 引擎打开链接*/
+#fireie-context-openlinkiniebrowser,/*在 IE 浏览器中打开链接*/
+#fireie-context-sep-open,/*FireIE分隔符*/
+#RIL_context_saveTabs,
+#RIL_context_clickMode,
+#RIL_context_savePage,
+#RIL_context_saveLink,
+#context-copyimage-contents,/*复制图像*/
+#fill-login-separator,/*输入框右键分割线*/
+#context-shareselect,/*分享选中项目*/
+#context-shareimage,/*分享此图片*/
+#context-sharelink,/*分享此鏈接*/
+#context-sharepage,#social-share-button,/*分享此頁面*/
+#context-navigation,
+#context-sep-navigation,
+#context-forward, /*前进*/
+#context-back, /*后退*/
+#context-reload, /*刷新*/
+#context-stop, /*停止*/
+#context-delete, /*停止*/
+#context-sep-stop, /*停止下面的分割线*/
+#context-savepage,/*网页另存为*/
+#context-bookmarkpage, /*此页面加入书签*/
+#context-sendlink, /*发送链接到*/
+#context-sendpage, /*发送页面链接到*/
+#context-sep-copyimage, /*复制图片下面的分割线*/
+#context-sendimage, /*发送图片到*/
+#context-setDesktopBackground, /*设置为桌面背景*/
+#context-reloadimage, /*重新载入图片*/
+#context-blockimage, /*阻止图片*/
+#context-viewbgimage, /*查看背景图片*/
+#context-savelink, /*链接另存为*/
+#context-openlink, /*在新窗口打开链接*/
+#context-openlinkprivate, /*在新的隐私浏览窗口打开链接*/
+#context-openselectedlinksintab,/*在新标签页中打开选中的链接*/
+#context-sep-open, /*打开新窗口下面的分割线*/
+#context-bookmarklink, /*此链接加入书签*/
+#context-selectall,/*全选*/
+#context-sep-selectall, /*全选下面的分割线*/
+#spell-check-enabled, /*拼写检查*/
+#spell-separator, /*拼写检查分割线*/
+#inspect-separator, /*Inspect Element分割线*/
+#greasemonkey-install-sep, /*Greasemonkey安装脚本分割线*/
+#context-sep-viewbgimage,/*分割線*/
+#context-sep-viewsource, /*分割線*/
+#context-inspect,/*Inspect Element*/
+#context-searchselect,/*Context Search*/
+#context-openlinkincurrent,/*打开链接*/
+#context-savelinktopocket,/*發送鏈接至Pocket*/
+#context-pocket,/*發送頁面到Pocket*/
+#context-openlinkintab,/*用新分頁開啟鏈結*/
+#context-copylink,/*複製鏈結網址*/
+#context-viewpartialsource-selection,/*查看选中部分源代码*/
+#spell-add-dictionaries-main/*新增字典*/ {
+	display: none !important;
+}
+
+/*===标签栏右键菜单===*/
+#alltabs-popup-separator-2,/*Alltabs分隔符*/
+#context_toggleMuteTab,/*标签页静音*/
+#alltabs-popup-separator,
+#context_tabViewMenu,/*移至组*/
+#context_closeTab,/*關閉標籤頁*/
+#alltabs_undoCloseTab,/*復原已關閉分頁*/
+#context_pinTab,/*锁定标签*/
+#context_unpinTab,/*取消锁定标签*/
+#context_reloadTab,/*重新載入分頁*/
+#toolbar-context-reloadAllTabs,/*重新載入所有分頁*/
+#toolbar-context-bookmarkAllTabs,/*將所有分頁加入書籤*/
+#toolbar-context-undoCloseTab,/*復原已關閉分頁*/
+#context_undoCloseTab,/*復原已關閉分頁*/
+#context_openNonRemoteWindow,
+#context_reloadAllTabs,/*重新載入所有分頁*/
+#tabContextMenu > menuseparator,/*全部分割线*/
+#context_openTabInWindow,/*移动到新窗口*/
+#context_bookmarkAllTabs,/*将全部标签页加为书签*/
+#menu_restoreAllTabs/*还原所有标签页*/ {
+	display: none !important;
+}
+
+/*隐藏项 - 书签右键*/
+#menu_unsortedBookmarks,#bookmarksMenuItemsSeparator,/*未分类书签*/
+#placesContext_editSeparator,.hide-if-empty-places-result,#placesContext_sortSeparator,[class="bookmarks-actions-menuseparator"],#placesContext_openSeparator,#placesContext_deleteSeparator,/*分隔符*/
+[id="placesContext_open:newtab"], /*在标签页中打开*/
+[id="placesContext_open:newwindow"], /*在窗口中打开*/
+[id="placesContext_new:separator"], /*新建分割条*/
+[id="placesContext_sortBy:name"], /*按名称排序*/
+#placesContext_open,/*打开*/
+#placesContext_cut,/*剪切*/
+#placesContext_paste/*粘贴*/ {
+	display: none !important;
+}
+
+/*隐藏项 - 地址栏右键*/
+richlistitem[type="searchengine"],/*删除访问XXX/用XXX搜索*/
+/*#PanelUI-popup,三道杠弹窗*/
+#urlbar menuitem[cmd="cmd_undo"],
+#urlbar menuitem[cmd="cmd_cut"],
+#urlbar menuitem[cmd="cmd_delete"] {
+	display: none !important;
+}
+
+/*隐藏项 - 搜索栏右键*/
+#searchbar menuitem[anonid="toggle-suggest-item"],
+#searchbar menuitem[cmd="cmd_undo"],
+#searchbar menuitem[cmd="cmd_delete"] {
+	display: none !important;
+}
+
+/*隐藏项 - 书签编辑右键*/
+[class="openintabs-menuitem"],/*在标签页中打开书签组*/
+[id="placesContext_open:newprivatewindow"],/*用新隱私視窗開啟*/
+[id="placesContext_openContainer:tabs"],/*在标签页中打开书签组*/
+#copyBookmark_copyTitle,/*複製標題*/
+#placesContext_ExportHTMLFolderSep,
+#editBookmarkPanelContent menuitem[label="復原"],
+#editBookmarkPanelContent menuitem[label="剪下"],
+#editBookmarkPanelContent menuitem[label="複製"],
+#editBookmarkPanelContent menuitem[label="刪除"],
+#editBookmarkPanelContent menuitem[label="撤销"],
+#editBookmarkPanelContent menuitem[label="剪切"],
+#editBookmarkPanelContent menuitem[label="复制"],
+#editBookmarkPanelContent menuitem[label="删除"],
+#editBookmarkPanelContent menuitem[label="Undo"],
+#editBookmarkPanelContent menuitem[label="Cut"],
+#editBookmarkPanelContent menuitem[label="Copy"],
+#editBookmarkPanelContent menuitem[label="Delete"] {
+	display: none !important;
+}
+
+/*隐藏项 - 输入框右键*/
+#context-sep-paste,#context-sep-undo,/*分隔条*/
+#spell-dictionaries,/*语言-添加字典*/
+#context-undo,/*撤销*/
+#context-cut,/*剪切*/
+[label="復原"],
+[label="剪下"],
+[cmd="cmd_cut"],
+#context-keywordfield/*为此搜索添加关键字*/ {
+	display: none !important;
+}
+
+/*Dom Inspector右键*/
+#mnEditCut/*剪下*/ {
+	display: none !important;
+}
+
+/*隐藏项 — 附加组件*/
+#category-discover,/*获取附加组件*/
+#category-service/*服务*/ {
+	display: none !important;
+}
+
+/*隐藏项 — 下载*/
+[class="downloadRemoveFromHistoryMenuItem"]/*从历史记录中移除*/ {
+	display: none !important;
+}
+
+/*===================扩展和脚本的图标======================*/
+/*隐藏页面右键菜单*/
+#foxyproxy-contextmenu-icon,
+#contentAreaContextMenu > .abp-contextmenuitem,/*屏蔽ABP右鍵菜單*/
+#wordhighlight-toolbar-highlight/*隐藏wordhighlight右鍵菜單*/ {
+	display: none !important;
+}
+
+/*LastPass 3.x菜单*/
+.z-ico-show-password,/*明文显示密码*/
+[id^="__lpform_"],
+#fill-login,/*填充登陆信息*/
+[label="分享"],/*Lastpass密碼庫分享*/
+#lpt_separator3000,#lpt_menudelim,#lpt_menudelim2,#menudelim2,#separator3000,/*分隔条*/
+#lpt_menu_search_box,/*搜索密码库*/
+#lpt_lpfillformsmenu1,/*表单填写*/
+#lpt_lpgenpw,/*生成安全密码*/
+#lpt_comp-bar-recentlyused,/*最近使用*/
+#lpt_lphelp,/*帮助*/
+#lpt_lppremium, /*升至高级版*/
+#lpt_comp-bar-securenotes,/*安全笔记*/
+#lpt_comp-bar-accts,/*站点*/
+/*#lpt_comp-bar-tools,工具*/
+#lpt_lpseccheck,/*工具-安全挑战*/
+#lpt_lpidentitiesmenu1,/*工具-身份*/
+#lpt_lpabout,/*工具-关于*/
+#lpt_lpprint,/*工具-打印*/
+#lpt_comp-bar-tools-menu > menuitem:nth-child(12),/*工具-保存所有已输入信息*/
+#lpt_comp-bar-tools-menu > menuitem:last-child,/*工具-添加安全笔记*/
+[label="Copy Username"],[label="复制用户名"],[label="複製使用者名稱"],
+[label="Copy Password"],[label="复制密码"],[label="複製密碼"],
+[label="Copy URL"],[label="复制网址"],[label="複製網址"],
+[label="Go to URL"],[label="转到网址"],[label="轉到網址"] {
+	display: none !important;
+}
+
+/*LastPass 4.x菜单*/
+menu[label="LastPass"],/*页面右键菜单*/
+[class="addon-context-menu-separator"],/*页面右键菜单分割线*/
+#sitesMenuItem,/*站点*/
+#helpMenuItem,/*帮助*/
+#recentSitesMenuItem,/*最近使用*/
+#notesMenuItem,/*安全笔记*/
+#formFillsMenuItem,/*表单填写*/
+#generateMenuItem /*生成安全密码*/
+{
+	display: none !important;
+}
+
+/*UserCSSLoader*/
+[label="userChrome.css"],
+[label="userContent.css"],
+[label="新建用戶 css 樣式 (外部編輯器)"],
+[label="新建瀏覽器樣式 (Chrome)"],
+[label="新建當前網頁樣式 (Web)"],
+[label="在userstyles.org檢索當前網頁樣式"] {
+	display: none !important;
+}
+
+/*ABP菜单项*/
+#abp-menuitem-sendReport,/*报告该页面上的问题*/
+#abp-menuitem-openbottombar/*打开可过滤项目*/ {
+	display: none !important;
+}
+
+/*FlashGot菜單項*/
+#__lpform_RequestId_icon,
+#flashgot-main-sep-buildGallery,/*分割线*/
+#flashgot-menuitem-media,/*Flashgot此Media*/
+#flashgot-main-menuitem-sel,/*使用 FlashGot 下载所选链接*/
+#flashgot-main-menuitem-all,/*使用 FlashGot 下载全部链接*/
+#flashgot-main-menuitem-tabs,/*使用 FlashGot 下载标签页组*/
+#flashgot-main-menuitem-media,/*FlashGot 此媒体*/
+#flashgot-main-menuitem-buildGallery/*建立图库*/ {
+	display: none !important;
+}
+
+/*其它擴展/腳本隱藏項*/
+[id="2_0_disconnect_me-browser-action"],/*Disconnect*/
+#simpleproxy-button,/*Simpleproxy*/
+#zotero-toolbar-main-button,/*Zotero工具栏图标*/
+#zotero-toolbar-save-button,/*Zotero工具栏图标*/
+#tools-zotero,/*Zotero更多工具菜单*/
+#zotero-content-area-context-menu,/*Zotero右键菜单*/
+#ACRiLeSouGou,/*sougoupic下一张壁纸右键菜单*/
+#redirector_einaregilsson_com-browser-action,/*Redirector_Fx48*/
+#visibo-tmt-tabmenu-sendtabtoTMT,/*TMT标签右键菜单*/
+#visibo-tmt-tabmenu-sendAlltabstoTMT,/*TMT标签右键菜单*/
+#visiboTmtContentAreaCM-sendTab,/*TMT页面右键菜单*/
+#visiboTmtContentAreaCM-sendLink,/*TMT页面右键菜单*/
+#FeiRuoNet_Sepalator2,/*FeiruoNet分隔线*/
+#aup-menuitem,/*AUP更多工具菜单*/
+#abp-menuitem-contributebutton,/*ABP捐赠按钮*/
+#gm_general_menu > menupopup > menuseparator:nth-child(4),/*分割线*/
+#abp-notification,
+[class="autorepeatbutton-up"],
+[class="autorepeatbutton-down"],
+#menu_openLoop,/*Loop发起聊天*/
+#exex-menu,/*EXExceptions右鍵菜單*/
+#tooldonate,/*DTA捐助*/
+#userChromejs_menuseparator,
+#showFlagS-sepalator2,/*ShowFlagS分割线*/
+#loop-button,/*Start Conversion*/
+#greasemonkey-view-userscript,/*GreaseMonkey检视腳本原始碼*/
+#loop-button-throttled,/*Loop通話*/
+#feed-button,/*分享此頁*/
+#blockElement,/*uBlock右鍵菜單*/
+#snaplinksMenuEntry,
+#SnapLinksCopyLinks,
+#SnapLinksCopyLinksReverse,
+#SnapLinksCopyLinksAndTitlesMD,
+#SnapLinksCopyLinksAndTitlesBBS,
+#SnapLinksCopyLinksRegExp,
+#SnapLinksCopyLinksSetFormat,
+[label="生成二维码 : 链接地址"],
+[label="生成二维码 : 图象地址"],
+[label="生成二维码 : 选区文本"],
+[label="生成QR码 : 链接地址"],
+[label="生成QR码 : 选区文本"] {
+	display: none !important;
+}
+
+/*隐藏定制面板里的非线性图标*/
+#PanelUI-fxa-label,
+#PanelUI-fxa-container,
+#wrapper-sync-button,
+#sync-button,
+#wrapper-home-button,/*定制-主页*/
+#wrapper-imacros-toggle-button,/*定制-iMacros*/
+#wrapper-stylish-toolbar-button,/*定制-Stylish*/
+#wrapper-panic-button,/*定制-忘记*/
+#wrapper-feed-button,/*定制-订阅*/
+#wrapper-social-share-button,/*定制-分享*/
+#wrapper-ctraddon_go-button,
+#wrapper-ctraddon_history-button,
+#wrapper-ctraddon_bookmarks-button,
+#wrapper-ctraddon_history-menu-toolbar-button,
+#wrapper-ctraddon_bookmarks-button,
+#wrapper-gTranslator,
+#wrapper-ctraddon_window-controls,
+#wrapper-ctraddon_ctr-button,
+#wrapper-lmnpop-toolbtn,
+#wrapper-readable_by_evernote__button,
+#wrapper-ctraddon_statusbar,
+#wrapper-instantFox-options,
+#wrapper-firebug-badged-button,
+#wrapper-firebug-inspectorButton,
+#wrapper-superstart-toolbar-icon,
+#wrapper-ctraddon_back-forward-dropmarker,
+#wrapper-ctraddon_bookmarks-menu-toolbar-button {
+	display: none !important;
+}
+

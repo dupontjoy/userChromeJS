@@ -1,0 +1,38 @@
+/* 2017.04.20 */
+
+/*@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+@-moz-document url("chrome://browser/content/browser.xul"){
+:-moz-any(menuitem,menu):not(.menu-iconicc):not(.menuitem-iconicc)
+{-moz-binding: url("data:application/xml,<?xml version='1.0' encoding='UTF-8'?><bindings xmlns='http://www.mozilla.org/xbl'><binding id='AddIMG' bindToUntrustedContent='true'><implementation><constructor><![CDATA[if (this.localName === 'menuitem') this.className += ' menuitem-iconicc';else this.className += ' menu-iconicc']]></constructor></implementation></binding></bindings>");}
+}*/
+
+/*————————————————————弹出菜单(Cing精简) by 颜太吓————————————————————*/
+
+/*菜单添加图标*/
+menupopup menu {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menu-iconic")!important;
+}
+
+menupopup menuitem {
+	-moz-binding: url("chrome://global/content/bindings/menu.xml#menuitem-iconic")!important;
+}
+
+/*菜单图标区域*/
+menupopup :-moz-any(menuitem,menu):not(#context-viewsource):not(#context-viewinfo):not([label="多功能菜单"]) > .menu-iconic-left {
+	-moz-appearance: none!important;
+	margin: 0 6px!important;
+}
+
+
+/*checkbox,radio*/
+:-moz-any(menuitem[type="checkbox"],menuitem[checked="true"],menuitem[type="radio"]) > .menu-iconic-left > .menu-iconic-icon {
+	display: inline!important;
+}
+
+menupopup menuitem[type="checkbox"][checked="true"] {
+	list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAHlBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC3KG9qAAAACnRSTlMAN/CwBKoGuVIOxzmjKgAAADJJREFUCNdjIATYJkAZyQVQASMBCMNZEUKzgAU4QqACjKouUBVCwVAVjEpQLQyChKwDAGWPBJKyI34rAAAAAElFTkSuQmCC")!important;
+}
+
+menupopup menuitem[type="radio"][checked="true"] {
+	list-style-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAdElEQVR42mNgGIyAA4jzgPgKEP+H4itQMQ5CmqWB+DYQbwdiR6gGDih7O1ROGp/NIAXVeCyohqrBCvKgthACB6FqMcAVqFNhwBKIF0GxJZK4I1QtBviPFkiLkAJxEZpX/9PEAIq9QHEgUhyNFCckqiRl+gMACKotbf6gm/QAAAAASUVORK5CYII=") !important
+}

@@ -1,0 +1,41 @@
+/*@name        标签栏调整
+  @namespace   https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox
+  @author      Cing
+  @version     2.00-2017.10.11
+  @reference             
+*/
+
+
+/*调节标签的宽度*/
+.tabbrowser-tab[fadein]:not([pinned]) {
+	max-width: 110px !important;
+	min-width: 110px !important;
+}
+
+/*当前标签显示关闭按钮*/
+.tabbrowser-tab:not([selected]) .tab-close-button {
+	display: none!important;
+}/*非当前页关闭按钮自动隐藏*/
+.tabbrowser-tab:not([pinned]):hover .tab-close-button {
+	display: inherit!important;
+}/*鼠标移动上去显示*/
+
+/*一直显示alltabs-button*/
+ #alltabs-button {
+        visibility: visible !important;
+        margin-right: -42px !important;
+}
+/*弹出菜单显示标签页序号*/
+ #main-window > #tab-view-deck > #browser-panel #alltabs-button > #alltabs-popup {
+        counter-reset: latabs !important;
+}
+#main-window > #tab-view-deck > #browser-panel #alltabs-button > #alltabs-popup .menuitem-iconic.alltabs-item.menuitem-with-favicon {
+        counter-increment: latabs !important;
+}
+#main-window > #tab-view-deck > #browser-panel #alltabs-button > #alltabs-popup .menuitem-iconic.alltabs-item.menuitem-with-favicon:before {
+        content: counter(latabs) !important;
+        min-width: 16px !important;
+        display: -moz-box !important;
+        font-weight:bold !important;
+        margin-left:10px !important;
+}

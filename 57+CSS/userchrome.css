@@ -1,0 +1,12 @@
+/*@name        Firefox 57+ 样式
+  @namespace   https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox
+  @author      Cing
+  @version     2.00-2017.11.29
+  @reference             
+*/
+
+/*加载CSS文件*/
+@import url(./CSS/标签栏.css);
+@import url(./CSS/查找栏.css);
+@import url(./CSS/地址栏.css);
+@import url(./CSS/隐藏项.css);

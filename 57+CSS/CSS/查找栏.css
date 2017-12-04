@@ -1,0 +1,55 @@
+/*@name        查找栏调整
+  @namespace   https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox
+  @author      Cing
+  @version     2.00-2017.10.11
+  @reference             
+*/
+
+
+/*Oos定制 —— WordHighlightToolbar & 查找栏样式*/
+/*WordHighlightToolbar & 查找栏置于顶部*/
+#wordhighlight-toolbar-box,
+.browserContainer findbar {
+	-moz-box-ordinal-group: 0!important;
+	position: fixed!important;
+	border: 1px solid #A6A6A6;
+	border-top: none;
+}
+
+/*WordHighlightToolbar距離*/
+#wordhighlight-toolbar-box {
+	background: #FFFFFF;
+	right: 16px;
+/*距右邊*/
+	top: 65px;
+  /*距上邊*/
+	height: 24px;
+/*>>>自行修改数字*/
+	border: 1px solid #A6A6A6;
+	border-radius: 0px 0px 0px 2.5px;
+	padding: 1px 1px 0px 0px;
+}
+
+/*WordHighlightToolbar & 查找栏按钮边框*/
+#wordhighlight-toolbar-box *,
+.browserContainer findbar * {
+	margin: 0px!important;
+	padding: 0px!important;
+}
+
+/*查找栏几个按钮排序*/
+.findbar-container .findbar-highlight {
+	-moz-box-ordinal-group: 2;
+}
+
+.findbar-container .findbar-case-sensitive {
+	-moz-box-ordinal-group: 3;
+}
+
+.findbar-container label[value="(区分大小写)"] {
+	-moz-box-ordinal-group: 4;
+}
+
+.findbar-container .findbar-find-status {
+	-moz-box-ordinal-group: 5;
+}

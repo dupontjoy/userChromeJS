@@ -1,7 +1,7 @@
 /*@name        新标签页图标定制
   @namespace   https://github.com/dupontjoy/userChrome.js-Collections-/tree/master/CingFox
   @author      Cing
-  @version     1.00-2017.12.04
+  @version     1.00-2017.12.06
   @reference   https://bbs.kafan.cn/forum.php?mod=redirect&goto=findpost&ptid=2109126&pid=41020158          
 */
 
@@ -11,7 +11,7 @@
     opacity: 0 !important;
 }
 
-/*常用网站换图标*/
+/*常用网站常规换图标*/
 .screenshot {
                 opacity: 1!important;
         }
@@ -25,23 +25,7 @@
         }
         [href*="cnn.com"] .screenshot {
                 background: rgba(255, 255, 255, 1) url("./Thumbnail/CNN.png") center center no-repeat !important;
-                background-size: 90% 90%!important;
-        }
-        [href*="www.nytimes.com"] .screenshot {
-                background: rgba(255, 255, 255, 1) url("./Thumbnail/NYT.jpg") center center no-repeat !important;
-                background-size: 70% 90%!important;
-        }
-        [href*="www.wsj.com"] .screenshot {
-                background: rgba(255, 255, 255, 1) url("./Thumbnail/WSJ.png") center center no-repeat !important;
                 background-size: 80% 80%!important;
-        }
-        [href*="www.ft.com"] .screenshot {
-                background: rgba(255, 255, 255, 1) url("./Thumbnail/FT.png") center center no-repeat !important;
-                background-size: 80% 80%!important;
-        }
-        [href*="www.youtube.com"] .screenshot {
-                background: rgba(255, 255, 255, 1) url("./Thumbnail/Youtube.jpg") center center no-repeat !important;
-                background-size: 80% 70%!important;
         }
         [href*="bbs.kafan.cn"] .screenshot {
                 background: rgba(255, 255, 255, 1) url("./Thumbnail/Kafan.png") center center no-repeat !important;
@@ -49,7 +33,7 @@
         }
         [href*="cnbeta.com"] .screenshot {
                 background: rgba(255, 255, 255, 1) url("./Thumbnail/Cnbeta.jpg") center center no-repeat !important;
-                background-size: 90% 70%!important;
+                background-size: 100% 100%!important;
         }
         [href*="chouti.com"] .screenshot {
                 background: rgba(255, 255, 255, 1) url("./Thumbnail/Chouti.jpg") center center no-repeat !important;
@@ -62,6 +46,24 @@
         [href*="qdaily.com"] .screenshot {
                 background: rgba(255, 255, 255, 1) url("./Thumbnail/Qdaily.png") center center no-repeat !important;
                 background-size: 90% 70%!important;
+        }
+ 
+ /*特殊换图标*/       
+        [href*="www.nytimes.com"] .rich-icon {
+                background: rgba(255, 255, 255, 1) url("./Thumbnail/NYT.jpg") center center no-repeat !important;
+                background-size: 70% 85%!important;
+        }
+        [href*="www.wsj.com"] .rich-icon {
+                background: rgba(255, 255, 255, 1) url("./Thumbnail/WSJ.jpg") center center no-repeat !important;
+                background-size: 100% 100%!important;
+        }
+        [href*="www.ft.com"] .rich-icon {
+                background: rgba(255, 255, 255, 1) url("./Thumbnail/FT.png") center center no-repeat !important;
+                background-size: 80% 80%!important;
+        }
+        [href*="www.youtube.com"] .rich-icon {
+                background: rgba(255, 255, 255, 1) url("./Thumbnail/Youtube.jpg") center center no-repeat !important;
+                background-size: 80% 70%!important;
         }
 
 /*自定义背景*/
